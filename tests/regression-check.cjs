@@ -18,10 +18,41 @@ for (const file of ['src/app.js', 'src/contributors.js']) {
 }
 assert.match(code('src/contributors.js'), /const handle = person\.profile \?/);
 
+const deadlockSandbox = {
+  Map,
+  Math,
+  Array,
+  SPRITE_COUNT: 36,
+  shuffle: (items) => items,
+  state: {
+    tiles: Array.from({ length: 4 }, (_, index) => ({ kind: index < 2 ? 7 : 8, removed: index === 1 || index === 2 })),
+    selected: null,
+  },
+  shuffleRemaining() {},
+  findAvailablePair: () => null,
+};
+const shuffleStart = code('games/pikachu/game.js').indexOf('function shuffleUntilPlayable');
+const shuffleEnd = code('games/pikachu/game.js').indexOf('\nfunction recoverDeadlock', shuffleStart);
+vm.runInNewContext(`${code('games/pikachu/game.js').slice(shuffleStart, shuffleEnd)}; this.run = shuffleUntilPlayable`, deadlockSandbox);
+assert.equal(deadlockSandbox.run(), true);
+assert.deepEqual(deadlockSandbox.state.tiles.map(({ kind, removed }) => [kind, removed]), [[7, false], [7, true], [8, true], [8, false]]);
+
 const pika = code('games/pikachu/game.js');
+const validatorStart = pika.indexOf('function isValidSavedState');
+const validatorEnd = pika.indexOf('\n}', validatorStart) + 2;
+const validatorSandbox = { SPRITE_COUNT: 36, Number, Array };
+vm.runInNewContext(`${pika.slice(validatorStart, validatorEnd)}; this.validate = isValidSavedState`, validatorSandbox);
+const freshSavedState = {
+  version: 2, cols: 6, rows: 8,
+  tiles: Array.from({ length: 48 }, (_, index) => ({ kind: Math.floor(index / 2), removed: false })),
+  selected: null, score: 0, level: 1, lives: 10, hintsLeft: 3, matched: 0, moves: 0, levelAwarded: 0,
+  timeLimit: 192, timeLeft: 192, clockStarted: false, phase: "playing", reason: "", previousLevel: 0, lastBonus: 0,
+};
+assert.equal(validatorSandbox.validate(freshSavedState), true);
+assert.equal(validatorSandbox.validate({ ...freshSavedState, phase: "over" }), false);
 assert.match(pika, /function finishPendingMatch\(\)/);
 assert.match(pika, /window\.addEventListener\("pagehide"[\s\S]*?if \(state\.timeLeft > 0\) finishPendingMatch\(\)/);
-assert.match(pika, /\["over", "won"\]\.includes\(state\.phase\) \|\| !runStarted \? null/);
+assert.match(pika, /\["over", "won"\]\.includes\(state\.phase\) \|\| !runStarted \|\| state\.phase === "playing" && state\.timeLeft <= 0 \? null/);
 assert.match(pika, /function shuffleUntilPlayable\(\)[\s\S]*?if \(findAvailablePair\(\)\) return false[\s\S]*?state\.tiles = state\.tiles\.map/);
 assert.match(pika, /if \(changed && pendingMatch\) finishPendingMatch\(\);[\s\S]*?if \(!changed \|\| state\.phase !== "playing"\) return;[\s\S]*?resizeSavedLevel\(\{ \.\.\.state, timeLeft \}, cols, rows, mode\)/);
 

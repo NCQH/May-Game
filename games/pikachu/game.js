@@ -160,7 +160,7 @@ function isValidSavedState(saved) {
     && saved.matched <= saved.cols * saved.rows / 2
     && (saved.phase !== "playing" || saved.matched < saved.cols * saved.rows / 2)
     && saved.tiles.every((tile) => tile && Number.isInteger(tile.kind) && tile.kind >= 0 && tile.kind < SPRITE_COUNT && typeof tile.removed === "boolean")
-    && saved.tiles.filter((tile) => !tile.removed).length === (saved.cols * saved.rows) / 2 - saved.matched
+    && saved.tiles.filter((tile) => !tile.removed).length === saved.cols * saved.rows - saved.matched * 2
     && (saved.phase === "between" || saved.phase === "playing" && Number.isFinite(saved.timeLeft) && saved.timeLeft > 0)
     && Number.isFinite(saved.score) && saved.score >= 0
     && Number.isFinite(saved.lives) && saved.lives > 0
@@ -208,7 +208,7 @@ function playSound(name) {
 
 function save() {
   record.bestScore = Math.max(Number(record.bestScore || 0), Number(state.score || 0));
-  const current = ["over", "won"].includes(state.phase) || !runStarted ? null : structuredClone(state);
+  const current = ["over", "won"].includes(state.phase) || !runStarted || state.phase === "playing" && state.timeLeft <= 0 ? null : structuredClone(state);
   record = { version: 2, bestScore: record.bestScore, current, updatedAt: Date.now() };
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(record)); } catch { /* Keep the game playable when storage is unavailable. */ }
 }
@@ -465,16 +465,18 @@ function shuffleUntilPlayable() {
     shuffleRemaining();
     if (findAvailablePair()) return false;
   }
+  const available = state.tiles.map((tile, index) => !tile.removed ? index : -1).filter((index) => index >= 0);
   const pairKinds = new Map();
   state.tiles.forEach((tile) => {
     if (tile.removed) return;
     pairKinds.set(tile.kind, (pairKinds.get(tile.kind) || 0) + 1);
   });
-  const activeCount = state.tiles.filter((tile) => !tile.removed).length;
   const kinds = shuffle([...pairKinds].flatMap(([kind, count]) => Array.from({ length: Math.floor(count / 2) }, () => kind)));
-  state.tiles = state.tiles.map((tile, index) => index < activeCount
-    ? { kind: kinds[Math.floor(index / 2)], removed: false }
-    : { ...tile, removed: true });
+  state.tiles = state.tiles.map((tile) => ({ ...tile }));
+  kinds.forEach((kind, pair) => {
+    state.tiles[available[pair * 2]] = { kind, removed: false };
+    state.tiles[available[pair * 2 + 1]] = { kind, removed: false };
+  });
   state.selected = null;
   return true;
 }
