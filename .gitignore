@@ -16,3 +16,16 @@ games/pvz-goty/vendor/
 main.pak
 **/main.pak
 **/userdata/
+
+# Local-only test downloads and original data bundles
+/local-resources.zip
+/baseline-engine.zip
+/baseline-engine/
+/.local-build/
+/may-game-pvz-goty-site.zip
+/START-LOCAL.cmd
+/.source-review/
+/games/pvz-goty/data/
+/games/pvz-goty/resources.json
+/tests/pvz-runtime-local.html
+/.local-artifacts/

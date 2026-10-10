@@ -7,8 +7,8 @@ Port toàn bộ GOTY. Giữ nguyên giao diện trong game, bố cục, artwork,
 ## Thực hiện
 
 1. Engine PvZ-Portable 0.2.5, commit `141c1476dd462ac3526f796e303177616f4de6bc`, build WebAssembly từ nguồn; `DO_FIX_BUGS=OFF`, `PVZ_DEBUG=OFF`.
-2. Trang `games/pvz-goty/index.html` dùng shell nhập dữ liệu upstream; catalog Máy Game dùng cách hiển thị sẵn có, không thêm ảnh minh họa mới.
-3. Nhập `main.pak`, `properties/` một lần. Nhớ tài nguyên bằng IndexedDB, tự khôi phục lần mở sau. Không gửi file lên mạng; không chạy EXE.
+2. Trang `games/pvz-goty/index.html` dùng shell runtime upstream, ẩn màn hình upload; catalog Máy Game dùng cách hiển thị sẵn có, không thêm ảnh minh họa mới.
+3. Tự nạp `main.pak`, `properties/` từ manifest local/host hoặc IndexedDB; tự khởi động, không có bước upload. Không gửi file lên mạng; không chạy EXE.
 4. Giữ save theo định dạng engine, đồng bộ IndexedDB; xuất/nhập ZIP. localStorage chỉ đánh dấu có save cho catalog.
 5. Framebuffer thực đến 2880×2160, tự chọn theo màn hình; giữ tọa độ logic 800×600 và tỷ lệ 4:3. Vùng bấm, vị trí UI và animation không thay đổi.
 6. Nhận texture PNG 2×/4× có cùng hình vẽ, tỷ lệ, frame/cel và alpha gốc. Chỉ texture GPU dùng pixel HD; dữ liệu logic, ảnh động tạo bằng phần mềm và âm thanh giữ gốc. Ảnh sai kích thước hoặc vượt giới hạn GPU dùng bản gốc.
@@ -28,3 +28,11 @@ Port toàn bộ GOTY. Giữ nguyên giao diện trong game, bố cục, artwork,
 Engine upstream mô tả gần 100% tương đương; cần nghiệm thu thực tế. Bản tích hợp mới bổ sung lưu tài nguyên, framebuffer và đường texture HD. Chưa có bộ texture HD mới được tạo/nhập, chưa xác nhận toàn bộ chế độ trên bản build Máy Game. GitHub Pages hiện xuất bản từ branch: cần phát hành artifact đầy đủ để có engine, không xuất bản riêng thư mục nguồn.
 
 Khi chưa nhập gói HD, renderer lấy chính pixel gốc để nội suy bicubic 2× cho texture tĩnh, xử lý alpha trước khi lấy mẫu và giữ ranh giới cel. Đây là nâng chất lượng lấy mẫu, không phải AI tạo chi tiết mới; ảnh tạo/sửa bằng phần mềm và ảnh vượt giới hạn GPU giữ đường gốc. Cần đối chiếu ảnh thực và hiệu năng trước khi phát hành.
+
+## Local trước PR — 10/10/2026
+
+Build nhánh thành công (run 38041971638). Đã chạy engine có bicubic 2× tại 1440×1080, xác nhận bố cục menu GOTY, nhập tên, trồng Peashooter trong Adventure 1-1, menu tạm dừng và xuất save ZIP. Đã xác nhận IndexedDB giữ byte tài nguyên sau reload, hồ sơ LocalTest được khôi phục. Ván Adventure 1-1 được tiếp tục sau reload với cùng Peashooter và 50 sun; save ZIP chứa user1.dat, users.dat, game1_0.v4. Luồng tự khởi động được kiểm tra cả địa chỉ chưa có dữ liệu nhớ (localhost) và địa chỉ đã có dữ liệu (127.0.0.1). Cú pháp toàn bộ JS và regression-check.cjs đều qua. Quan sát runtime xác nhận bridge resize được export, AudioContext chuyển running sau bấm game và PCM đầu ra khác 0 (peak 0.256). Đây là kiểm tra phát tín hiệu, chưa đối chiếu bằng tai toàn bộ nhạc/SFX hoặc hoàn thành toàn bộ các chế độ. Chưa có PR.
+
+## Mở rộng ngoài 4:3
+
+Nguồn video người dùng gửi: HenryJk/PvZWidescreen v1.1.2, GameBanana 425279, WineD3D. Mã HenryJk đặt PAD=133, rộng 800+2*PAD=1066 và vá từng màn hình, camera, hit-test. Cần chuyển các bố trí này sang C++ của engine GOTY, giữ số ô chơi và luật gốc, kiểm tra menu/Board/SeedChooser/CutScene/ZenGarden/Almanac/Shop/Achievements/Zombatar. Không phát hành chỉ bằng cách kéo giãn ảnh 4:3. Phần này chưa được triển khai.

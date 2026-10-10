@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>PvZ local storage checks</title>
+<h1>PvZ local storage checks</h1><pre id="result">Running…</pre>
+<script type="module">
+import { readBundle, writeBundle, validateSize } from '../games/pvz-goty/storage.js';
+const result = document.getElementById('result');
+const key = 'local-test-only';
+const checks = [];
+try {
+  const blob = new Blob(['original local resource bytes']);
+  await writeBundle(key, {version:1, files:[{name:'main.pak',blob}]});
+  const recovered = await readBundle(key);
+  if (await recovered.files[0].blob.text() !== await blob.text()) throw Error('Blob changed');
+  checks.push('PASS IndexedDB stores and restores original bytes');
+  validateSize(recovered.files, 1024);
+  let rejects = false;
+  try { validateSize(recovered.files, 1); } catch { rejects = true; }
+  if (!rejects) throw Error('Size limit did not reject');
+  checks.push('PASS resource size limit');
+  const staged = await readBundle('local-reload-only');
+  if (!staged) {
+    await writeBundle('local-reload-only', {version:1, files:[{name:'main.pak',blob}]});
+    checks.push('Reload this page to check persistence');
+  } else {
+    if (await staged.files[0].blob.text() !== await blob.text()) throw Error('Reload data mismatch');
+    checks.push('PASS original bytes persist after page reload');
+    await writeBundle('local-reload-only',null);
+  }
+  await writeBundle(key,null);
+  if (await readBundle(key) !== null) throw Error('Test cleanup failed');
+  checks.push('PASS test data cleanup');
+  result.textContent = checks.join('\n');
+} catch (error) { result.textContent = checks.join('\n')+'\nFAIL '+error.message; }
+</script></html>

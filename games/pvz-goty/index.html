@@ -159,7 +159,7 @@ canvas#canvas {
 </style>
 </head>
 <body class="upload-mode">
-<div id="upload-screen">
+<div id="upload-screen" hidden style="display:none">
     <h1><a href="https://github.com/wszqkzqk/PvZ-Portable" target="_blank" rel="noopener noreferrer">PvZ Portable | Play Anywhere</a></h1>
     <p id="project-links">
         <a href="https://github.com/wszqkzqk/PvZ-Portable" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -483,18 +483,20 @@ async function ensureSaveFsReady() {
     saveFsReadyPromise = (async () => {
         await window.moduleReadyPromise;
         try { Module.FS.mkdir('/may-game-pvz-goty-saves'); } catch (e) {}
-        try { Module.FS.mount(Module.FS.filesystems.IDBFS, {}, '/may-game-pvz-goty-saves'); } catch (e) {}
-        savesMounted = true;
-
-        await new Promise(r => Module.FS.syncfs(true, err => {
-            if (err) console.warn('IDBFS initial sync error:', err);
-            r();
+        if (!Module.FS.lookupPath('/may-game-pvz-goty-saves').node.mounted) {
+            Module.FS.mount(Module.FS.filesystems.IDBFS, {}, '/may-game-pvz-goty-saves');
+        }
+        await new Promise((resolve, reject) => Module.FS.syncfs(true, err => {
+            if (err) { reject(err); return; }
+            resolve();
         }));
+        savesMounted = true;
 
         lastSaveSyncAt = Date.now();
     })();
 
-    return saveFsReadyPromise;
+    try { return await saveFsReadyPromise; }
+    catch (error) { saveFsReadyPromise = null; throw error; }
 }
 
 async function syncSaves() {
@@ -580,6 +582,7 @@ async function startGame() {
         startSaveAutosync();
         Module.callMain(['-resdir', '/', '-savedir', '/may-game-pvz-goty-saves']);
     } catch (e) {
+        gameStarted = false;
         console.error('Failed to start game:', e);
         loadStatus.textContent = 'Error: ' + (e.message || e);
         loadStatus.classList.add('has-error');

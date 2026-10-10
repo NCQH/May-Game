@@ -9,7 +9,7 @@ Thư viện game cổ điển tiếng Việt, chơi trực tiếp trên trình d
 - **Tetris** — xếp khối và hoàn thành hàng.
 - **Pikachu** — nối các cặp hình giống nhau.
 - **Flappy Bird** — bay qua các cột và tránh va chạm.
-- **Plants vs. Zombies GOTY** — engine GOTY qua WebAssembly; nhập dữ liệu một lần, trình duyệt tự nhớ tài nguyên và save bằng IndexedDB.
+- **Plants vs. Zombies GOTY** — engine GOTY qua WebAssembly; tự nạp dữ liệu local/host, trình duyệt nhớ tài nguyên và save bằng IndexedDB.
 
 ## Đóng góp
 
