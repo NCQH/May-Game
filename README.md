@@ -1,27 +1,19 @@
 # Máy Game
 
-Một thư viện game cổ điển chạy trực tiếp trong trình duyệt. Tiến trình được lưu cục bộ trên thiết bị người chơi.
+Thư viện game cổ điển tiếng Việt, chơi trực tiếp trên trình duyệt.
 
-## Chạy cục bộ
+**[Chơi Máy Game](https://ncqh.github.io/May-Game/)**
 
-```sh
-python3 -m http.server 8000
-```
+## Game
 
-Mở `http://localhost:8000`. Trang không cần cài gói hay build.
+- **Tetris** — xếp khối và hoàn thành hàng.
+- **Pikachu** — nối các cặp hình giống nhau.
+- **Flappy Bird** — bay qua các cột và tránh va chạm.
 
-## Đưa lên GitHub Pages
+## Đóng góp
 
-GitHub Pages miễn phí với repository công khai trên GitHub Free; cả mã nguồn lẫn trang web đều sẽ công khai. Sau khi push nhánh `main`, vào **Settings → Pages** và chọn deploy từ branch `main`, thư mục `/ (root)`. Trang dùng đường dẫn tương đối, kể cả khi xuất bản ở dạng `username.github.io/repository/`.
+Xem [danh sách contributors](./contributors.html) hoặc đọc [hướng dẫn đóng góp game](./contribute.html). Mỗi game nằm trong `games/` và được đăng ký trong `games.json`.
 
-## Thêm game
+## Tiến trình và asset
 
-Xem [danh sách Contribute](./contributors.html) để biết ai đã góp game, hoặc mở [hướng dẫn Góp game](./contribute.html) để gửi pull request. Mỗi game mới là một thư mục trong `games/`, có một mục đăng ký trong `games.json`.
-
-## Lưu tiến trình
-
-Điểm cao và ván đang chơi được lưu trong `localStorage`. Dữ liệu không đồng bộ giữa thiết bị; xóa dữ liệu trang sẽ xóa tiến trình tương ứng.
-
-## Asset
-
-Các asset và nguồn cấp phép đang dùng được ghi trong [ASSETS.md](./ASSETS.md).
+Điểm cao và ván đang chơi được lưu trong `localStorage` trên thiết bị hiện tại, không đồng bộ giữa các thiết bị. Nguồn và giấy phép asset được ghi trong [ASSETS.md](./ASSETS.md).
