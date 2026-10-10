@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101814" />
+    <meta name="description" content="Danh sách người đã đóng góp game cho Máy Game." />
+    <title>Contribute — Máy Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./arcade.css?v=2" />
+    <script type="module" src="./src/contributors.js?v=2"></script>
+  </head>
+  <body class="arcade-home">
+    <a class="skip-link" href="#contributor-content">Bỏ qua phần đầu trang</a>
+    <main class="arcade-main" id="contributor-content">
+      <section class="arcade-cabinet" aria-label="Máy arcade contributors">
+        <div class="cabinet-topline">
+          <span class="cabinet-title"><span class="brand-pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></span> MÁY GAME</span>
+          <span class="cabinet-lights" aria-label="Máy đang bật"><i></i><i></i><i></i></span>
+        </div>
+        <div class="screen-bezel">
+          <div class="screen-meta">
+            <span><i aria-hidden="true"></i> Contribute</span>
+            <a class="screen-home-link" href="./index.html">← Sảnh arcade</a>
+          </div>
+          <div class="page-content">
+            <header class="page-heading">
+              <div class="page-heading-copy">
+                <p class="page-kicker">BẢNG GHI NHẬN · COMMUNITY</p>
+                <h1>Người góp game</h1>
+                <p>Tên người đóng góp và những trò chơi họ đã thêm vào thư viện.</p>
+              </div>
+              <p class="page-count" id="contributor-count" aria-live="polite">Đang tải…</p>
+            </header>
+
+            <section class="directory-empty" id="directory-empty" aria-live="polite" hidden>
+              <span class="directory-empty-mark" aria-hidden="true">00</span>
+              <div>
+                <h2 id="directory-empty-title">Chưa có contributor được ghi nhận</h2>
+                <p id="directory-empty-copy">Thêm tên người góp vào trường <code>contributors</code> trong <code>games.json</code> để hiện danh sách tại đây.</p>
+              </div>
+            </section>
+
+            <section class="contributor-grid" id="contributor-list" aria-label="Danh sách người góp game"></section>
+
+            <section class="uncredited-games" id="uncredited-games" aria-labelledby="uncredited-title" hidden>
+              <h2 id="uncredited-title">Game chưa ghi nhận người góp</h2>
+              <div class="uncredited-list" id="uncredited-list"></div>
+            </section>
+          </div>
+        </div>
+        <div class="cabinet-deck">
+          <nav class="deck-links" aria-label="Điều hướng đóng góp">
+            <a class="deck-link" href="./contributors.html" aria-current="page">Contribute</a>
+            <a class="deck-link deck-link-primary" href="./contribute.html"><span aria-hidden="true">+</span> Góp game</a>
+          </nav>
+          <span class="deck-speaker" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

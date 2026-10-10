@@ -1,0 +1,41 @@
+[
+  {
+    "id": "tetris",
+    "title": "Tetris",
+    "category": "Xếp khối",
+    "description": "Xếp những khối rơi thành hàng đầy. Càng dọn được nhiều, nhịp chơi càng nhanh.",
+    "players": "1 người",
+    "difficulty": "Vừa",
+    "controls": "← → di chuyển · ↑ xoay · C giữ · Space thả khối",
+    "path": "./games/tetris/index.html",
+    "art": "tetris",
+    "accent": "lime",
+    "contributors": [{ "name": "NCQH", "github": "NCQH" }]
+  },
+  {
+    "id": "pikachu",
+    "title": "Pikachu",
+    "category": "Ghép hình",
+    "description": "Tìm hai hình giống nhau và nối chúng bằng đường đi tối đa hai lần rẽ.",
+    "players": "1 người",
+    "difficulty": "Thư giãn",
+    "controls": "Chọn hai hình giống nhau để ghép",
+    "path": "./games/pikachu/index.html",
+    "art": "pikachu",
+    "accent": "coral",
+    "contributors": [{ "name": "NCQH", "github": "NCQH" }]
+  },
+  {
+    "id": "flappy-bird",
+    "title": "Flappy Bird",
+    "category": "Phản xạ",
+    "description": "Giữ chú chim bay qua những cột xanh. Chạm càng nhiều cổng, điểm càng cao.",
+    "players": "1 người",
+    "difficulty": "Khó",
+    "controls": "Space / ↑ / chạm màn hình để vỗ cánh",
+    "path": "./games/flappy-bird/index.html",
+    "art": "flappy",
+    "accent": "blue",
+    "contributors": [{ "name": "NCQH", "github": "NCQH" }]
+  }
+]

@@ -1,0 +1,195 @@
+:root {
+  color-scheme: dark;
+  --arcade-wall: #101814;
+  --arcade-case: #94a951;
+  --arcade-case-light: #d6e99a;
+  --arcade-case-dark: #596a38;
+  --arcade-bezel: #19251c;
+  --arcade-screen: #101b15;
+  --game-bg: #101814;
+  --game-panel: #1b2b23;
+  --game-line: #394a37;
+  --game-text: #eff2cd;
+  --game-muted: #abb99a;
+  --game-lime: #c7e875;
+  --game-coral: #ee886b;
+  --game-blue: #79c9c4;
+  --game-sand: #e0e8bd;
+  font-family: "Be Vietnam Pro", system-ui, sans-serif;
+  color: var(--game-text);
+  background: var(--arcade-wall);
+}
+* { box-sizing: border-box; }
+html, body { min-width: 280px; min-height: 100%; margin: 0; }
+body {
+  --page-inset: clamp(8px, 1.6vw, 20px);
+  min-height: 100svh;
+  padding: var(--page-inset);
+  background-color: var(--arcade-wall);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(0, 0, 0, .12) 3px 4px),
+    repeating-linear-gradient(90deg, transparent 0 3px, rgba(149, 174, 102, .035) 3px 4px);
+}
+button { color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--game-sand); outline-offset: 3px; }
+.game-page { width: min(100%, 470px); margin: 0 auto; }
+.arcade-game {
+  --cabinet-width: 760px;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, var(--cabinet-width));
+  min-height: calc(100svh - var(--page-inset) - var(--page-inset));
+  padding: 0 clamp(7px, 1.3vw, 14px) 9px;
+  border: 3px solid var(--arcade-case-light);
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 4px),
+    var(--arcade-case);
+  box-shadow: 0 4px 0 var(--arcade-case-dark), 0 8px 0 rgba(0, 0, 0, .24);
+}
+.arcade-case-header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  min-height: clamp(42px, 6.5vh, 60px);
+  padding: 0 clamp(4px, 1vw, 12px);
+  color: #344128;
+}
+.arcade-case-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 700 14px/1 "Chakra Petch", "Courier New", monospace;
+  letter-spacing: .12em;
+}
+.arcade-brand-mark { display: grid; grid-template-columns: repeat(2, 7px); grid-template-rows: repeat(2, 7px); gap: 2px; }
+.arcade-brand-mark i { background: var(--game-lime); }
+.arcade-brand-mark i:nth-child(2) { opacity: .75; }
+.arcade-brand-mark i:nth-child(3) { opacity: .65; }
+.arcade-case-lights { display: flex; gap: 5px; }
+.arcade-case-lights i { width: 6px; height: 6px; background: #ed8a67; }
+.arcade-case-lights i:nth-child(2) { background: #e7c655; }
+.arcade-case-lights i:nth-child(3) { background: #526839; }
+.arcade-screen {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: clamp(5px, 1vw, 10px);
+  border: 5px solid #364334;
+  background: var(--arcade-bezel);
+  box-shadow: inset 0 0 0 2px rgba(207, 228, 151, .12);
+}
+.arcade-screen-meta {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 36px;
+  padding: 0 4px;
+  color: #a7bd7a;
+  font: 700 8px/1 "Chakra Petch", "Courier New", monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.arcade-game-content {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 240px;
+  padding: clamp(12px, 2vw, 22px);
+  border: 1px solid rgba(207, 228, 151, .2);
+  background-color: var(--arcade-screen);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(0, 0, 0, .1) 3px 4px),
+    repeating-linear-gradient(90deg, transparent 0 3px, rgba(149, 174, 102, .025) 3px 4px);
+}
+.arcade-deck {
+  position: relative;
+  display: grid;
+  flex: none;
+  min-height: 37px;
+  place-items: center;
+  padding-top: 8px;
+}
+.arcade-speaker {
+  display: block;
+  width: 105px;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, #657941 0 21px, transparent 21px 25px);
+  opacity: .8;
+}
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-height: 0 !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.game-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 32px; margin-bottom: 11px; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--game-muted);
+  font: 600 10px/1.2 "Be Vietnam Pro", system-ui, sans-serif;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+  transition: color .12s ease;
+}
+.back-link:hover { border: 0; background: none; color: var(--game-lime); text-decoration: underline; text-underline-offset: 3px; }
+.game-label { color: #82928b; font: 600 9px/1.3 "Chakra Petch", "Trebuchet MS", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.game-title { margin: 0; font: 600 24px/1.08 "Chakra Petch", "Trebuchet MS", sans-serif; letter-spacing: -.03em; }
+.game-description { margin: 6px 0 14px; color: var(--game-muted); font-size: 10px; line-height: 1.6; }
+.game-panel { border: 1px solid var(--game-line); border-radius: 6px; background: var(--game-panel); }
+.game-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.game-button { min-height: 44px; padding: 0 13px; border: 1px solid #53655c; border-radius: 4px; background: #22343b; color: var(--game-text); font-size: 10px; font-weight: 600; cursor: pointer; }
+.game-button:hover { border-color: var(--game-lime); }
+.game-button-primary { border-color: var(--game-lime); background: var(--game-lime); color: #172125; }
+.game-button-primary:hover { background: #dbfa92; }
+.game-help { margin: 10px 0 0; color: var(--game-muted); text-align: center; font-size: 9px; line-height: 1.6; }
+.game-help kbd { display: inline-grid; min-width: 19px; height: 19px; place-items: center; margin-inline: 1px; padding: 0 4px; border: 1px solid #4a5c60; border-radius: 3px; background: #223238; color: #e1e8dd; font: 600 9px "Chakra Petch", monospace; }
+.game-message { min-height: 20px; margin: 7px 0 0; color: var(--game-lime); text-align: center; font-size: 10px; }
+.game-message:empty { display: none; }
+.game-message.is-error { color: var(--game-coral); }
+.game-score { color: var(--game-sand); font: 600 15px/1 "Chakra Petch", monospace; }
+.game-small { color: var(--game-muted); font-size: 9px; }
+canvas { display: block; image-rendering: pixelated; }
+.tetris-page { --cabinet-width: 540px; }
+.flappy-page { --cabinet-width: 520px; }
+.pikachu-page { --cabinet-width: 1120px; }
+.arcade-game.tetris-page, .arcade-game.flappy-page, .arcade-game.pikachu-page { width: min(100%, var(--cabinet-width)); }
+.tetris-page > :is(.game-title, .tetris-layout, .game-message, .tetris-touch) { width: min(100%, 460px); margin-inline: auto; }
+.flappy-page > :is(.flappy-title-row, .flappy-controls, .game-message) { width: min(100%, 390px); margin-inline: auto; }
+.flappy-page .flappy-controls { margin-top: 11px; }
+.flappy-page .game-message { margin-top: 7px; }
+.arcade-game.flappy-page #flappy-board { width: min(100%, 288px); }
+.game-panel, .game-button, .back-link { border-radius: 0; }
+.game-button:disabled { opacity: .45; cursor: not-allowed; }
+@media (max-width: 580px) {
+  .arcade-game { padding-inline: 5px; border-width: 2px; }
+  .arcade-case-header { min-height: 39px; }
+  .arcade-case-brand { gap: 7px; font-size: 12px; }
+  .arcade-brand-mark { grid-template-columns: repeat(2, 6px); grid-template-rows: repeat(2, 6px); }
+  .arcade-screen { padding: 5px; border-width: 3px; }
+  .arcade-screen-meta { min-height: 34px; }
+  .arcade-game-content { padding: 11px; }
+  .arcade-deck { min-height: 30px; }
+  .game-title { font-size: 21px; }
+}
+@media (max-width: 360px) { body { --page-inset: 7px; }.arcade-game-content { padding: 9px 7px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }

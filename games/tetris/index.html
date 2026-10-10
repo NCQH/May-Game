@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tetris — Máy Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="./game.css?v=4" />
+    <script type="module" src="./game.js?v=5"></script>
+  </head>
+  <body>
+    <main class="game-page tetris-page arcade-game">
+      <div class="arcade-case-header">
+        <span class="arcade-case-brand"><span class="arcade-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>MÁY GAME</span>
+        <span class="arcade-case-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+      <section class="arcade-screen" aria-label="Màn hình máy arcade">
+        <div class="arcade-screen-meta"><a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a></div>
+        <div class="arcade-game-content">
+          <h1 class="game-title">Tetris</h1>
+          <div class="tetris-metrics" aria-label="Thống kê ván chơi">
+            <div class="tetris-metric"><span class="game-small">Điểm</span><strong class="game-score" id="score">0</strong></div>
+            <div class="tetris-metric"><span class="game-small">Hàng</span><strong class="game-score" id="lines">0</strong></div>
+            <div class="tetris-metric"><span class="game-small">Cấp</span><strong class="game-score" id="level">1</strong></div>
+          </div>
+          <section class="tetris-layout" aria-label="Bảng trò chơi Tetris">
+            <aside class="tetris-hold" aria-label="Khối đang giữ">
+              <span class="game-small">Giữ</span>
+              <canvas id="tetris-hold" width="100" height="54" aria-label="Khối đang giữ: trống"></canvas>
+              <button class="game-button side-action" id="hold" type="button" aria-label="Giữ hoặc đổi khối bằng phím C">Giữ</button>
+            </aside>
+            <div class="tetris-board-wrap">
+              <canvas id="tetris-board" width="260" height="520" tabindex="0" aria-label="Bàn Tetris, rộng 10 ô và cao 20 ô. Dùng mũi tên để di chuyển và xoay, C để giữ khối, Space để thả."></canvas>
+            </div>
+            <aside class="tetris-tools" aria-label="Khối kế tiếp và điều khiển ván chơi">
+              <div class="next-panel">
+                <span class="game-small">Tiếp theo</span>
+                <div class="next-queue" aria-label="Ba khối kế tiếp">
+                  <canvas class="next-piece" width="100" height="42" aria-label="Khối tiếp theo thứ nhất"></canvas>
+                  <canvas class="next-piece" width="100" height="42" aria-label="Khối tiếp theo thứ hai"></canvas>
+                  <canvas class="next-piece" width="100" height="42" aria-label="Khối tiếp theo thứ ba"></canvas>
+                </div>
+              </div>
+              <div class="side-actions">
+                <button class="game-button side-action" id="pause" type="button">Tạm dừng</button>
+                <button class="game-button side-action" id="restart" type="button">Chơi lại</button>
+              </div>
+            </aside>
+          </section>
+          <div class="tetris-touch" aria-label="Nút điều khiển Tetris">
+            <button class="game-button" data-action="left" type="button" aria-label="Di chuyển sang trái">←</button>
+            <button class="game-button" data-action="rotate" type="button" aria-label="Xoay khối">Xoay</button>
+            <button class="game-button" data-action="right" type="button" aria-label="Di chuyển sang phải">→</button>
+            <button class="game-button" data-action="down" type="button" aria-label="Rơi nhanh">↓</button>
+            <button class="game-button game-button-primary" data-action="drop" type="button" aria-label="Thả khối xuống đáy">Thả</button>
+          </div>
+          <p class="game-message sr-only" id="status" aria-live="polite"></p>
+        </div>
+      </section>
+      <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,337 @@
+.tetris-page {
+  --cabinet-width: 820px;
+  --tetra-bg: #0d120f;
+  --tetra-line: #364237;
+  --tetra-text: #eff2cd;
+  --tetra-muted: #abb99a;
+  --tetra-accent: #c7e875;
+  --tetra-blue: #79c9c4;
+}
+
+.tetris-page .arcade-screen {
+  border-color: #364334;
+  background: #111812;
+  box-shadow: inset 0 0 0 2px rgba(207, 228, 151, .08);
+}
+
+.tetris-page .arcade-screen-meta {
+  min-height: 34px;
+}
+
+.tetris-page .back-link {
+  display: inline-flex;
+  min-height: 32px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--tetra-muted);
+  font: 600 10px/1.2 "Be Vietnam Pro", system-ui, sans-serif;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+  transition: color .12s ease;
+}
+
+.tetris-page .back-link:hover {
+  border: 0;
+  background: none;
+  color: var(--tetra-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tetris-page .back-link:focus-visible {
+  outline: 2px solid var(--tetra-accent);
+  outline-offset: 3px;
+}
+
+.tetris-page .arcade-game-content {
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: clamp(10px, 2vw, 20px);
+  border-color: #303d32;
+  color: var(--tetra-text);
+  background-color: var(--tetra-bg);
+  background-image:
+    linear-gradient(rgba(142, 168, 122, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(142, 168, 122, .025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.tetris-page .arcade-game-content > :is(.game-title, .tetris-metrics, .tetris-layout, .tetris-touch) {
+  width: min(100%, 460px);
+  margin-inline: auto;
+}
+
+.tetris-page .game-title {
+  color: var(--tetra-text);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: .015em;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: none;
+}
+
+.tetris-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  padding: 2px 0 9px;
+  border-bottom: 1px solid rgba(171, 185, 154, .24);
+}
+
+.tetris-metric {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.tetris-metric + .tetris-metric {
+  border-left: 1px solid rgba(171, 185, 154, .16);
+}
+
+.tetris-page .game-small {
+  color: var(--tetra-muted);
+  font: 500 9px/1.2 "Be Vietnam Pro", system-ui, sans-serif;
+}
+
+.tetris-page .game-score {
+  color: var(--tetra-text);
+  font: 600 16px/1 "Chakra Petch", monospace;
+}
+
+.tetris-metric:first-child .game-score {
+  color: var(--tetra-accent);
+}
+
+.tetris-layout {
+  display: grid;
+  grid-template-columns: minmax(54px, 1fr) minmax(0, 260px) minmax(68px, 1fr);
+  align-items: start;
+  justify-content: center;
+  gap: 9px;
+}
+
+.tetris-hold,
+.tetris-tools {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding-top: 4px;
+  text-align: center;
+}
+
+.tetris-hold > .game-small,
+.next-panel > .game-small {
+  color: var(--tetra-muted);
+  font: 600 9px/1.2 "Chakra Petch", monospace;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.tetris-board-wrap {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #53664b;
+  background: #080d0a;
+  box-shadow: 0 0 0 2px rgba(199, 232, 117, .07);
+}
+
+#tetris-board {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 2;
+}
+
+#tetris-board:focus-visible {
+  outline: 3px solid var(--tetra-accent);
+  outline-offset: 4px;
+}
+
+#tetris-hold,
+.next-piece {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.tetris-page .game-button {
+  min-height: 40px;
+  border-color: #435144;
+  border-radius: 0;
+  background: #172019;
+  color: var(--tetra-text);
+  font-size: 10px;
+  transition: border-color .12s ease, background-color .12s ease, color .12s ease;
+  touch-action: manipulation;
+}
+
+.tetris-page .game-button:hover {
+  border-color: var(--tetra-accent);
+  background: #202b20;
+  color: #f8ffdf;
+}
+
+.tetris-page .game-button-primary {
+  border-color: var(--tetra-accent);
+  background: var(--tetra-accent);
+  color: #172015;
+}
+
+.tetris-page .game-button-primary:hover {
+  border-color: #e3f5ac;
+  background: #d9ef9d;
+  color: #172015;
+}
+
+.tetris-hold .side-action,
+.side-actions .side-action {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding-inline: 3px;
+  white-space: nowrap;
+}
+
+.next-panel {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.next-queue {
+  display: grid;
+  width: 100%;
+  gap: 2px;
+}
+
+.side-actions {
+  display: grid;
+  width: 100%;
+  gap: 6px;
+}
+
+.tetris-touch {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.tetris-page .tetris-touch .game-button {
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 4px;
+  font-size: 10px;
+}
+
+.tetris-page .game-message {
+  min-height: 0;
+  margin: 0;
+  color: var(--tetra-blue);
+  font-size: 10px;
+}
+
+.tetris-page .game-message.is-error {
+  color: #ee886b;
+}
+
+@media (min-width: 700px) and (pointer: fine) {
+  .tetris-page .tetris-touch {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .tetris-page .arcade-screen-meta {
+    min-height: 32px;
+  }
+
+  .tetris-page .arcade-game-content {
+    gap: 9px;
+  }
+
+  .tetris-page .arcade-game-content > :is(.game-title, .tetris-metrics, .tetris-layout, .tetris-touch) {
+    width: 100%;
+  }
+
+  .tetris-page .game-title {
+    font-size: 19px;
+  }
+
+  .tetris-layout {
+    grid-template-columns: minmax(0, 1fr) 78px;
+    grid-template-rows: auto auto;
+    gap: 8px;
+    max-width: 360px;
+  }
+
+  .tetris-board-wrap {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .tetris-hold {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tetris-tools {
+    grid-column: 2;
+    grid-row: 2;
+    gap: 8px;
+  }
+
+  .tetris-hold,
+  .tetris-tools {
+    padding-top: 2px;
+  }
+
+  .tetris-page .game-score {
+    font-size: 15px;
+  }
+
+  .tetris-page .game-button {
+    min-height: 44px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 360px) {
+  .tetris-page .arcade-game-content {
+    padding: 9px 7px;
+  }
+
+  .tetris-layout {
+    grid-template-columns: minmax(0, 1fr) 70px;
+    gap: 6px;
+  }
+
+  .tetris-metrics {
+    padding-bottom: 7px;
+  }
+
+  .tetris-page .game-small {
+    font-size: 9px;
+  }
+
+  .tetris-page .game-score {
+    font-size: 14px;
+  }
+
+  .tetris-touch {
+    gap: 4px;
+  }
+
+  .tetris-page .tetris-touch .game-button {
+    min-height: 44px;
+    font-size: 9px;
+  }
+}

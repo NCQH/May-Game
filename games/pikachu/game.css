@@ -1,0 +1,483 @@
+.game-theme-pikachu {
+  color-scheme: dark;
+  --game-bg: #101814;
+  --game-panel: #1b2b23;
+  --game-line: #394a37;
+  --game-text: #eff2cd;
+  --game-muted: #abb99a;
+  --game-lime: #c7e875;
+  --game-coral: #ee886b;
+  --game-blue: #79c9c4;
+  --game-sand: #e0e8bd;
+  min-height: 100vh;
+}
+
+.pikachu-page {
+  width: min(100%, 1120px);
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+.arcade-game.pikachu-page {
+  padding-bottom: 9px;
+}
+
+.pikachu-page .arcade-screen {
+  border-color: #364334;
+  background: #111812;
+}
+
+.pikachu-page .arcade-screen-meta {
+  min-height: 34px;
+}
+
+.pikachu-page .arcade-game-content {
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 9px;
+  padding: clamp(10px, 2vw, 18px);
+  border-color: #303d32;
+  background-color: #0d120f;
+  background-image:
+    linear-gradient(rgba(142, 168, 122, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(142, 168, 122, .025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pika-heading {
+  width: min(100%, 760px);
+  margin: 0 auto 2px;
+  text-align: center;
+}
+
+.pikachu-page .game-title {
+  color: var(--game-text);
+  font-size: clamp(19px, 3vw, 24px);
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-shadow: none;
+  text-transform: none;
+}
+
+.pika-hud {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 3px 0 8px;
+  border-bottom: 1px solid rgba(171, 185, 154, .24);
+}
+
+.pika-stat {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 2px 5px;
+  text-align: center;
+}
+
+.pika-stat + .pika-stat {
+  border-left: 1px solid rgba(171, 185, 154, .16);
+}
+
+.pika-stat span {
+  color: var(--game-muted);
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+.pika-stat strong {
+  color: var(--game-text);
+  font: 600 16px/1 "Chakra Petch", "Be Vietnam Pro", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.pika-stat-level strong,
+.pika-stat-score strong {
+  color: var(--game-lime);
+}
+
+.pika-stat-lives strong {
+  color: var(--game-sand);
+}
+
+.pika-time-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 760px);
+  margin: 0 auto 2px;
+}
+
+.pika-timebar {
+  height: 7px;
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid #435144;
+  background: #172019;
+}
+
+.pika-timebar span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--game-lime);
+  transition: width .22s linear, background-color .2s ease;
+}
+
+.pika-timebar span.is-warning {
+  background: #e7c655;
+}
+
+.pika-timebar span.is-danger {
+  background: var(--game-coral);
+}
+
+.pika-time-text {
+  min-width: 38px;
+  color: var(--game-muted);
+  font: 600 12px/1 "Chakra Petch", monospace;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.pika-board-wrap {
+  position: relative;
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.pika-board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 6), minmax(0, 1fr));
+  gap: 2px;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #73563c;
+  background: #563b31;
+}
+
+.pika-tile {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  aspect-ratio: 42 / 52;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #96744f;
+  border-radius: 0;
+  background: #e9d1a6;
+  cursor: pointer;
+  transition: background-color .12s ease, border-color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.pika-tile:hover:not(:disabled) {
+  border-color: var(--game-lime);
+  background: #f1dfbd;
+}
+
+.pika-tile:active:not(:disabled) {
+  background: #dfc38f;
+}
+
+.pika-tile:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid var(--game-lime);
+  outline-offset: 1px;
+}
+
+.pika-tile.is-selected {
+  z-index: 1;
+  border-color: var(--game-lime);
+  background: #f1edbf;
+  box-shadow: inset 0 0 0 2px #92a94c;
+}
+
+.pika-tile.is-empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.pika-piece {
+  display: block;
+  width: 40px;
+  height: 50px;
+  flex: none;
+  background-image: url("../../assets/pikachu/pieces-sprite.png");
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.pika-tile.is-hint {
+  animation: pika-hint-pulse .42s ease-in-out 3 alternate;
+}
+
+@keyframes pika-hint-pulse {
+  from { background-color: #e9d1a6; border-color: #96744f; }
+  to { background-color: #f1edbf; border-color: var(--game-lime); }
+}
+
+.pika-path {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.pika-path.is-visible {
+  opacity: 1;
+}
+
+.pika-path polyline {
+  fill: none;
+  stroke: #e6f59a;
+  stroke-width: 3.5;
+  stroke-linecap: square;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.pikachu-page .pika-message {
+  width: min(100%, 760px);
+  min-height: 0;
+  margin: 0 auto;
+  color: var(--game-text);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.pikachu-page .pika-message.is-toast {
+  position: fixed !important;
+  z-index: 20;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  left: 12px;
+  width: fit-content !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  padding: 8px 12px !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  border: 1px solid #53664b !important;
+  background: #172019;
+  color: var(--game-text);
+  text-align: center;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.pika-controls {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.pika-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 7px 8px;
+  border: 1px solid #435144;
+  border-radius: 0;
+  background: #172019;
+  color: var(--game-text);
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .12s ease, border-color .12s ease, color .12s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.pika-control:hover:not(:disabled) {
+  border-color: var(--game-lime);
+  background: #202b20;
+}
+
+.pika-control:active:not(:disabled) {
+  background: #283426;
+}
+
+.pika-control:focus-visible {
+  outline-color: var(--game-sand);
+}
+
+.pika-control svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.pika-control b {
+  display: inline-grid;
+  min-width: 19px;
+  height: 19px;
+  place-items: center;
+  border: 1px solid rgba(199, 232, 117, .35);
+  color: var(--game-lime);
+  font: 600 10px/1 "Chakra Petch", sans-serif;
+}
+
+.pika-control:disabled {
+  color: #87937e;
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.pika-dialog {
+  width: min(calc(100% - 28px), 420px);
+  max-width: 420px;
+  padding: 0;
+  border: 1px solid #53664b;
+  border-radius: 0;
+  background: #172019;
+  color: var(--game-text);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .3);
+}
+
+.pika-dialog::backdrop {
+  background: rgba(9, 14, 10, .72);
+}
+
+.pika-dialog-card {
+  padding: 22px 20px 20px;
+  text-align: center;
+}
+
+.pika-dialog h2 {
+  margin: 0;
+  color: var(--game-text);
+  font: 600 23px/1.15 "Chakra Petch", "Be Vietnam Pro", sans-serif;
+}
+
+.pika-dialog-message {
+  margin: 10px auto 0;
+  color: var(--game-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.pika-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.pika-dialog .game-button {
+  min-height: 44px;
+  border-color: #435144;
+  border-radius: 0;
+  background: #202b20;
+  color: var(--game-text);
+}
+
+.pika-dialog .game-button:hover {
+  border-color: var(--game-lime);
+  background: #293626;
+}
+
+.pika-dialog .game-button-primary {
+  border-color: var(--game-lime);
+  background: var(--game-lime);
+  color: #172015;
+}
+
+.pika-dialog .game-button-primary:hover {
+  background: #d9ef9d;
+}
+
+@media (max-width: 580px) {
+  .pikachu-page .arcade-game-content {
+    gap: 8px;
+  }
+
+  .pika-hud {
+    padding-bottom: 7px;
+  }
+
+  .pika-time-row {
+    gap: 8px;
+  }
+
+  .pika-board {
+    gap: 2px;
+    padding: 5px;
+  }
+
+  .pika-controls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .pika-control {
+    min-height: 46px;
+    padding-inline: 6px;
+    font-size: 10px;
+  }
+
+  .pika-control-restart {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 350px) {
+  .pikachu-page .arcade-game-content {
+    padding: 9px 7px;
+  }
+
+  .pika-control {
+    gap: 5px;
+    font-size: 9px;
+  }
+
+  .pika-control svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (min-width: 900px) {
+  .pikachu-page {
+    padding-bottom: 0;
+  }
+
+  .pika-heading {
+    margin-bottom: 0;
+  }
+
+  .pika-time-row {
+    margin-top: -2px;
+    margin-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pika-tile.is-hint {
+    animation: none;
+    outline: 2px solid var(--game-lime);
+  }
+}

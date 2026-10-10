@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101814" />
+    <meta name="description" content="Chọn một game cổ điển rồi vào chơi ngay trên máy game arcade này." />
+    <title>Máy Game — Chọn game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./arcade.css?v=2" />
+    <script type="module" src="./src/app.js?v=2"></script>
+  </head>
+  <body class="arcade-home">
+    <a class="skip-link" href="#game-selection">Bỏ qua phần đầu trang</a>
+
+    <main class="arcade-main" id="game-selection">
+      <section class="arcade-cabinet" aria-label="Máy arcade chọn game">
+        <div class="cabinet-topline">
+          <span class="cabinet-title"><span class="brand-pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></span> MÁY GAME</span>
+          <span class="cabinet-lights" aria-label="Máy đang bật"><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="screen-bezel">
+          <div class="screen-meta">
+            <span><i aria-hidden="true"></i> Chọn game</span>
+            <div class="screen-tools">
+              <span id="game-position">00 / 00</span>
+              <form class="screen-search" id="search-form" role="search" aria-label="Tìm game">
+                <input id="game-search" type="search" aria-label="Tìm game" placeholder="Tên game..." autocomplete="off" tabindex="-1" />
+                <button class="screen-search-toggle" id="search-toggle" type="button" aria-label="Mở tìm game" aria-expanded="false" aria-controls="game-search">
+                  <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.7"/><path d="m13 13 4 4"/></svg>
+                  <svg class="close-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg>
+                  <span class="sr-only">Tìm game</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="selection-row">
+            <button class="select-arrow" id="previous-game" type="button" aria-label="Chọn game trước">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+            </button>
+            <div class="selected-game" id="selected-game" aria-live="polite" aria-atomic="true">
+              <div class="selection-loading"><span class="loader-pixel"></span> Đang bật máy...</div>
+            </div>
+            <button class="select-arrow" id="next-game" type="button" aria-label="Chọn game tiếp theo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+
+        </div>
+
+        <div class="cabinet-deck">
+          <nav class="deck-links deck-links-quiet" aria-label="Đóng góp game">
+            <a class="deck-link" href="./contributors.html">Contribute</a>
+            <a class="deck-link deck-link-primary" href="./contribute.html">Góp game</a>
+          </nav>
+          <span class="deck-speaker"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </section>
+
+      <p class="sr-only" id="selection-status" aria-live="polite">Tiến trình game được lưu trên thiết bị này.</p>
+    </main>
+  </body>
+</html>

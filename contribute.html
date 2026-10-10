@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101814" />
+    <meta name="description" content="Hướng dẫn góp một game mới vào Máy Game qua pull request." />
+    <title>Góp game — Máy Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./arcade.css?v=2" />
+  </head>
+  <body class="arcade-home">
+    <a class="skip-link" href="#guide-content">Bỏ qua phần đầu trang</a>
+    <main class="arcade-main" id="guide-content">
+      <section class="arcade-cabinet" aria-label="Máy arcade góp game">
+        <div class="cabinet-topline">
+          <span class="cabinet-title"><span class="brand-pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></span> MÁY GAME</span>
+          <span class="cabinet-lights" aria-label="Máy đang bật"><i></i><i></i><i></i></span>
+        </div>
+        <div class="screen-bezel">
+          <div class="screen-meta">
+            <span><i aria-hidden="true"></i> Hướng dẫn góp game</span>
+            <a class="screen-home-link" href="./index.html">← Sảnh arcade</a>
+          </div>
+          <div class="page-content">
+            <header class="page-heading">
+              <div class="page-heading-copy">
+                <p class="page-kicker">GÓP GAME · PULL REQUEST</p>
+                <h1>Thêm game vào máy</h1>
+                <p>Mỗi game là một thư mục riêng. Không cần backend hay bước build.</p>
+              </div>
+              <a class="guide-repo-cta" href="https://github.com/NCQH/GithubIOTraditionalGame/fork" target="_blank" rel="noreferrer">
+                <span>GITHUB REPOSITORY</span>
+                <strong>Fork repo <span aria-hidden="true">↗</span></strong>
+              </a>
+            </header>
+
+            <ol class="guide-steps-arcade" aria-label="Các bước góp game">
+              <li class="guide-step">
+                <span class="guide-step-number">01</span>
+                <h2>Fork repo</h2>
+                <p><a href="https://github.com/NCQH/GithubIOTraditionalGame/fork" target="_blank" rel="noreferrer">Fork trên GitHub</a>, rồi tạo nhánh riêng.</p>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-number">02</span>
+                <h2>Tạo game</h2>
+                <p>Sao chép <a href="./games/_template/index.html"><code>games/_template/</code></a> thành <code>games/ten-game/</code>.</p>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-number">03</span>
+                <h2>Đăng ký</h2>
+                <p>Thêm game và người đóng góp vào <code>games.json</code>.</p>
+              </li>
+              <li class="guide-step">
+                <span class="guide-step-number">04</span>
+                <h2>Gửi PR</h2>
+                <p>Chơi thử, ghi nguồn asset và mô tả thay đổi.</p>
+              </li>
+            </ol>
+
+            <div class="guide-note-grid">
+              <section class="guide-note">
+                <h2>Ghi nhận contributor</h2>
+                <p>Thêm tên và username GitHub trong mảng <code>contributors</code> của game để hiện ở trang Contribute.</p>
+              </section>
+              <section class="guide-note">
+                <h2>Asset và tiến trình</h2>
+                <p>Chỉ dùng asset có quyền phân phối; ghi nguồn trong <code>ASSETS.md</code>. Tiến trình lưu cục bộ bằng <code>localStorage</code>.</p>
+              </section>
+            </div>
+
+            <section class="guide-local-run" aria-labelledby="local-run-title">
+              <div>
+                <h2 id="local-run-title">Chạy thử tại máy</h2>
+                <p>Trong thư mục repo, chạy lệnh rồi mở <code>http://localhost:8000</code>.</p>
+              </div>
+              <pre><code>python3 -m http.server 8000</code></pre>
+            </section>
+
+          </div>
+        </div>
+        <div class="cabinet-deck">
+          <nav class="deck-links" aria-label="Điều hướng đóng góp">
+            <a class="deck-link" href="./contributors.html">Contribute</a>
+            <a class="deck-link deck-link-primary" href="./contribute.html" aria-current="page"><span aria-hidden="true">+</span> Góp game</a>
+          </nav>
+          <span class="deck-speaker" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
