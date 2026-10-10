@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "check": "node --check src/app.js && node --check src/contributors.js && node --check games/pikachu/game.js && node --check games/tetris/game.js && node --check games/flappy-bird/game.js && node --check games/_template/game.js",
+    "check": "node --check src/app.js && node --check src/contributors.js && node --check games/pikachu/game.js && node --check games/tetris/game.js && node --check games/flappy-bird/game.js && node --check games/_template/game.js && node --check games/pvz-goty/quality.js && node --check games/pvz-goty/storage.js && node --check scripts/patch-pvz.cjs",
     "test": "node tests/regression-check.cjs",
     "test:browser": "playwright test"
   },

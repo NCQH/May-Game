@@ -3,3 +3,16 @@ node_modules/
 test-results/
 playwright-report/
 playwright/.cache/
+
+# Generated engine and static site (built from pinned source in Actions)
+.pvz-source/
+.openmpt-source/
+.jszip-source/
+.pvz-build/
+.site/
+games/pvz-goty/engine/
+games/pvz-goty/vendor/
+# Never commit locally imported commercial resources
+main.pak
+**/main.pak
+**/userdata/

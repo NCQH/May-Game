@@ -28,3 +28,13 @@
 - Đang tải từ Google Fonts với font dự phòng hệ thống; game vẫn dùng được nếu font web không tải.
 
 Các hình minh họa khối trong catalog và máy arcade được vẽ bằng SVG/CSS trong repo.
+
+## Plants vs. Zombies GOTY
+
+- **Engine:** [wszqkzqk/PvZ-Portable](https://github.com/wszqkzqk/PvZ-Portable), 0.2.5, commit `141c1476dd462ac3526f796e303177616f4de6bc`; giữ tác giả và các contributor upstream trong nguồn. LGPL-3.0-or-later; phần Framework còn có LicenseRef-PopCap. Giữ LICENSE, COPYING và thông báo của dependency trong source.zip đi kèm engine.
+- **Thay đổi:** framebuffer độ phân giải cao và texture GPU 2×/4× tại `scripts/pvz/`, áp dụng bởi `scripts/patch-pvz.cjs`; phát hành LGPL-3.0-or-later.
+- **Âm thanh:** decoder libopenmpt `libopenmpt-0.8.4`, commit `327204eaa2c27bd1acbb571babe68f279c85238b`; license trong nguồn. SDL-Mixer-X và dependency có thông báo riêng trong nguồn upstream. Nhạc và hiệu ứng dùng file game gốc; không thêm hoặc thay âm thanh.
+- **ZIP:** [Stuk/jszip](https://github.com/Stuk/jszip), 3.10.1; phân phối theo MIT, giữ LICENSE.markdown trong vendor/JSZIP-LICENSE.md.
+- **Giao diện nhập:** dùng shell của engine upstream, thêm ghi nhớ dữ liệu, nhập PNG HD và giới hạn đường dẫn; giao diện bên trong GOTY do engine và dữ liệu gốc vẽ.
+- **Dữ liệu GOTY và texture HD:** không nằm trong repo hoặc artifact. Người chơi nhập dữ liệu bản họ sở hữu; lưu cục bộ bằng IndexedDB. Quyền engine không áp dụng cho tài nguyên thương mại hoặc gói mod HD.
+- Không thêm hình minh họa mới cho GOTY. Nâng asset phải giữ hình vẽ, bố cục, frame/cel, phông chữ và màu sắc gốc.

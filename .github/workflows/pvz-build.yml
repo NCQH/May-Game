@@ -1,0 +1,50 @@
+name: Build PvZ GOTY site
+
+on:
+  pull_request:
+    paths: ['games/pvz-goty/**', 'scripts/**', '.github/workflows/pvz-build.yml', 'games.json', 'src/app.js', 'arcade.css']
+  push:
+    branches: [main, codex/pvz-goty-port]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - uses: actions/checkout@v6
+        with:
+          repository: wszqkzqk/PvZ-Portable
+          ref: 141c1476dd462ac3526f796e303177616f4de6bc
+          path: .pvz-source
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: OpenMPT/openmpt
+          ref: 327204eaa2c27bd1acbb571babe68f279c85238b
+          path: .openmpt-source
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: Stuk/jszip
+          ref: 0f2f1e4d0509514417db83fe5b86bde90e0ffe8d
+          path: .jszip-source
+          persist-credentials: false
+      - uses: emscripten-core/setup-emsdk@v16
+        with:
+          version: 4.0.23
+      - run: sudo apt-get update && sudo apt-get install -y ninja-build zip
+      - run: bash scripts/build-pvz.sh
+      - uses: actions/upload-artifact@v7
+        with:
+          name: may-game-pvz-goty-site
+          path: .site
+          include-hidden-files: true
+          retention-days: 14

@@ -65,3 +65,7 @@ Dùng `localStorage` cùng khóa `may-game:v1:<id-game>`. Giá trị JSON nên c
 ## Chạy trang cục bộ
 
 Từ thư mục repo, chạy `python3 -m http.server 8000`, sau đó mở `http://localhost:8000`. Trang dùng `fetch()` để tải catalog nên cần được phục vụ qua HTTP.
+
+## Riêng engine GOTY
+
+GOTY dùng IndexedDB cho tài nguyên và save; localStorage chỉ ghi dấu hiệu có save cho catalog. Engine build bằng workflow riêng, xem games/pvz-goty/README.md. Không commit main.pak, ảnh hoặc âm thanh GOTY. Mục tiêu giữ nguyên giao diện, artwork, animation và âm thanh; chỉ tăng chất lượng hiển thị/texture.

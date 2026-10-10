@@ -10,7 +10,12 @@
     "path": "./games/tetris/index.html",
     "art": "tetris",
     "accent": "lime",
-    "contributors": [{ "name": "NCQH", "github": "NCQH" }]
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
   },
   {
     "id": "pikachu",
@@ -23,7 +28,12 @@
     "path": "./games/pikachu/index.html",
     "art": "pikachu",
     "accent": "coral",
-    "contributors": [{ "name": "NCQH", "github": "NCQH" }]
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
   },
   {
     "id": "flappy-bird",
@@ -36,6 +46,29 @@
     "path": "./games/flappy-bird/index.html",
     "art": "flappy",
     "accent": "blue",
-    "contributors": [{ "name": "NCQH", "github": "NCQH" }]
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
+  },
+  {
+    "id": "pvz-goty",
+    "title": "Plants vs. Zombies GOTY",
+    "category": "Chiến thuật",
+    "description": "Bảo vệ khu vườn với bản GOTY. Nhập dữ liệu game một lần để chơi và lưu tiến trình trên thiết bị.",
+    "players": "1 người",
+    "difficulty": "Vừa",
+    "controls": "Chuột / chạm để chơi · Esc mở menu",
+    "path": "./games/pvz-goty/index.html",
+    "art": "",
+    "accent": "lime",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
   }
 ]

@@ -153,7 +153,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 try {
-  const response = await fetch("./games.json?v=2");
+  const response = await fetch("./games.json?v=3");
   if (!response.ok) throw new Error("Catalog unavailable");
   games = await response.json();
   selectedGameId = games.some((game) => game.id === lastPlayedId)
