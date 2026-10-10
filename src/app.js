@@ -33,7 +33,11 @@ function readProgress(gameId) {
 }
 
 function safeGamePath(path) {
-  if (typeof path !== "string" || !path.startsWith("./games/") || path.split("/").includes("..")) return null;
+  if (typeof path !== "string" || !path.startsWith("./games/")) return null;
+  const segments = path.slice(8).split("/");
+  if (!segments.length || segments.some((segment) => !/^[A-Za-z0-9._-]+$/.test(segment) || segment === "." || segment === "..")) return null;
+  const resolved = new URL(path, document.baseURI);
+  if (resolved.origin !== location.origin || !resolved.pathname.startsWith(new URL("./games/", document.baseURI).pathname)) return null;
   return escapeHTML(path);
 }
 
@@ -72,7 +76,7 @@ function renderSelection() {
   const game = visibleGames[Math.max(0, index)];
   const progress = readProgress(game.id);
   const bestScore = Number(progress?.bestScore || 0);
-  const hasSavedGame = Boolean(progress?.current);
+  const hasSavedGame = Boolean(progress?.current && !["over", "won"].includes(progress.current.phase));
   const href = safeGamePath(game.path);
   positionLabel.textContent = `${String(index + 1).padStart(2, "0")} / ${String(visibleGames.length).padStart(2, "0")}`;
   statusLabel.textContent = hasSavedGame

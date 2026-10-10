@@ -11,9 +11,12 @@ function escapeHTML(value) {
 }
 
 function safeGamePath(path) {
-  return typeof path === "string" && path.startsWith("./games/") && !path.split("/").includes("..")
-    ? escapeHTML(path)
-    : null;
+  if (typeof path !== "string" || !path.startsWith("./games/")) return null;
+  const segments = path.slice(8).split("/");
+  if (!segments.length || segments.some((segment) => !/^[A-Za-z0-9._-]+$/.test(segment) || segment === "." || segment === "..")) return null;
+  const resolved = new URL(path, document.baseURI);
+  if (resolved.origin !== location.origin || !resolved.pathname.startsWith(new URL("./games/", document.baseURI).pathname)) return null;
+  return escapeHTML(path);
 }
 
 function githubProfile(username) {
@@ -38,7 +41,7 @@ function contributorKey(person) {
 
 function renderContributor(person, escape) {
   const title = escape(person.name);
-  const handle = person.username ? `<a class="contributor-profile" href="${person.profile}" target="_blank" rel="noreferrer">@${escape(person.username)}</a>` : "";
+  const handle = person.profile ? `<a class="contributor-profile" href="${person.profile}" target="_blank" rel="noreferrer">@${escape(person.username)}</a>` : "";
   const games = person.games.map((game) => {
     const href = safeGamePath(game.path);
     const name = escape(game.title || game.id || "Game");

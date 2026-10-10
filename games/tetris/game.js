@@ -178,10 +178,17 @@ function draw() {
 
 function lockPiece() {
   if (!state.active) return;
+  const aboveBoard = state.active.matrix.some((row, y) => row.some((bit) => bit && state.active.y + y < 0));
+  if (aboveBoard) {
+    state.over = true;
+    state.active = null;
+    persist();
+    return;
+  }
   state.active.matrix.forEach((row, y) => row.forEach((bit, x) => {
     if (!bit) return;
     const boardY = state.active.y + y;
-    if (boardY >= 0) state.board[boardY][state.active.x + x] = state.active.color;
+    state.board[boardY][state.active.x + x] = state.active.color;
   }));
   let cleared = 0;
   state.board = state.board.filter((row) => {

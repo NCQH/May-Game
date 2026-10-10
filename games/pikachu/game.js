@@ -73,8 +73,8 @@ function createTiles(cols, rows) {
   return shuffle(kinds).map((kind) => ({ kind, removed: false }));
 }
 
-function createLevel(level, options = {}) {
-  const [cols, rows] = chooseSize();
+function createLevel(level, options = {}, mode = sizeMode) {
+  const [cols, rows] = chooseSize(mode);
   return {
     version: 2,
     cols,
@@ -98,17 +98,21 @@ function createLevel(level, options = {}) {
   };
 }
 
-function resizeSavedLevel(saved, cols, rows) {
+function resizeSavedLevel(saved, cols, rows, mode = sizeMode) {
   const oldPairCount = saved.cols * saved.rows / 2;
   const newPairCount = cols * rows / 2;
-  const matched = Math.min(newPairCount, Math.round((Number(saved.matched) || 0) / oldPairCount * newPairCount));
+  const wasPlaying = saved.phase === "playing";
+  const maxMatched = wasPlaying ? newPairCount - 1 : newPairCount;
+  const matched = Math.min(maxMatched, Math.max(0, Math.round((Number(saved.matched) || 0) / oldPairCount * newPairCount)));
   const oldAward = Number(saved.levelAwarded ?? Math.round(POINTS_PER_LEVEL * (Number(saved.matched) || 0) / oldPairCount));
   const newAward = Math.round(POINTS_PER_LEVEL * matched / newPairCount);
   const resized = createLevel(saved.level, {
     score: Math.max(0, (Number(saved.score) || 0) - oldAward + newAward),
     lives: saved.lives,
     hintsLeft: saved.hintsLeft,
-  });
+  }, mode);
+  resized.tiles = createTiles(cols, rows);
+  resized.timeLimit = cols * rows * SECONDS_PER_TILE;
   resized.matched = matched;
   resized.levelAwarded = newAward;
   resized.moves = Number(saved.moves) || 0;
@@ -127,21 +131,48 @@ function resizeSavedLevel(saved, cols, rows) {
   }
   const timeRatio = Number(saved.timeLimit) > 0 ? Number(saved.timeLeft) / Number(saved.timeLimit) : 1;
   resized.timeLeft = Math.round(resized.timeLimit * Math.max(0, Math.min(1, timeRatio)));
+  if (wasPlaying && resized.tiles.every((tile) => tile.removed)) {
+    const pairKind = resized.tiles.at(-1).kind;
+    const pair = resized.tiles.findLastIndex((tile) => tile.removed && tile.kind === pairKind);
+    resized.tiles.at(-1).removed = false;
+    resized.tiles[pair].removed = false;
+    resized.matched--;
+    resized.levelAwarded = Math.round(POINTS_PER_LEVEL * resized.matched / newPairCount);
+    resized.score -= newAward - resized.levelAwarded;
+  }
+  resized.previousLevel = Number(saved.previousLevel) || 0;
+  resized.lastBonus = Number(saved.lastBonus) || 0;
+  resized.phase = saved.phase;
+  resized.reason = saved.reason || "";
   return resized;
 }
 
 function isValidSavedState(saved) {
   return saved?.version === 2
     && Number.isInteger(saved.cols)
+    && saved.cols % 2 === 0
     && Number.isInteger(saved.rows)
+    && saved.rows % 2 === 0
     && Array.isArray(saved.tiles)
     && saved.tiles.length === saved.cols * saved.rows
-    && ["playing", "between", "over", "won"].includes(saved.phase);
+    && Number.isInteger(saved.matched)
+    && saved.matched >= 0
+    && saved.matched <= saved.cols * saved.rows / 2
+    && (saved.phase !== "playing" || saved.matched < saved.cols * saved.rows / 2)
+    && saved.tiles.every((tile) => tile && Number.isInteger(tile.kind) && tile.kind >= 0 && tile.kind < SPRITE_COUNT && typeof tile.removed === "boolean")
+    && saved.tiles.filter((tile) => !tile.removed).length === (saved.cols * saved.rows) / 2 - saved.matched
+    && (saved.phase === "between" || saved.phase === "playing" && Number.isFinite(saved.timeLeft) && saved.timeLeft > 0)
+    && Number.isFinite(saved.score) && saved.score >= 0
+    && Number.isFinite(saved.lives) && saved.lives > 0
+    && Number.isFinite(saved.hintsLeft) && saved.hintsLeft >= 0
+    && Number.isFinite(saved.timeLimit) && saved.timeLimit > 0
+    && (saved.phase !== "between" || saved.matched === saved.cols * saved.rows / 2);
 }
 
 let record = readRecord();
 let sizeMode = getSizeMode();
-let state = isValidSavedState(record.current) ? record.current : createLevel(1);
+let runStarted = isValidSavedState(record.current);
+let state = runStarted ? record.current : createLevel(1);
 state.clockStarted = false;
 let restoredResponsiveState = false;
 if (sizeMode === "auto" && state.phase === "playing") {
@@ -155,6 +186,9 @@ let soundEnabled = true;
 try { soundEnabled = localStorage.getItem(SOUND_STORAGE_KEY) !== "off"; } catch { /* Sound remains enabled for this session. */ }
 let busy = false;
 let hintTimer = 0;
+let matchTimer = 0;
+let pendingMatch = null;
+let resumeClockOnShow = false;
 let lastFrame = performance.now();
 let saveElapsed = 0;
 let statusText = restoredResponsiveState
@@ -174,7 +208,8 @@ function playSound(name) {
 
 function save() {
   record.bestScore = Math.max(Number(record.bestScore || 0), Number(state.score || 0));
-  record = { version: 2, bestScore: record.bestScore, current: structuredClone(state), updatedAt: Date.now() };
+  const current = ["over", "won"].includes(state.phase) || !runStarted ? null : structuredClone(state);
+  record = { version: 2, bestScore: record.bestScore, current, updatedAt: Date.now() };
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(record)); } catch { /* Keep the game playable when storage is unavailable. */ }
 }
 
@@ -425,6 +460,25 @@ function shuffleRemaining() {
   state.selected = null;
 }
 
+function shuffleUntilPlayable() {
+  for (let attempt = 0; attempt < 12; attempt++) {
+    shuffleRemaining();
+    if (findAvailablePair()) return false;
+  }
+  const pairKinds = new Map();
+  state.tiles.forEach((tile) => {
+    if (tile.removed) return;
+    pairKinds.set(tile.kind, (pairKinds.get(tile.kind) || 0) + 1);
+  });
+  const activeCount = state.tiles.filter((tile) => !tile.removed).length;
+  const kinds = shuffle([...pairKinds].flatMap(([kind, count]) => Array.from({ length: Math.floor(count / 2) }, () => kind)));
+  state.tiles = state.tiles.map((tile, index) => index < activeCount
+    ? { kind: kinds[Math.floor(index / 2)], removed: false }
+    : { ...tile, removed: true });
+  state.selected = null;
+  return true;
+}
+
 function recoverDeadlock() {
   state.lives = Math.max(0, state.lives - 1);
   if (state.lives === 0) {
@@ -436,11 +490,8 @@ function recoverDeadlock() {
     return;
   }
   playSound("start");
-  for (let attempt = 0; attempt < 12; attempt++) {
-    shuffleRemaining();
-    if (findAvailablePair()) break;
-  }
-  statusText = `Không còn cặp nối được · đã đổi vị trí tự động · còn ${state.lives} lượt.`;
+  const usedFallback = shuffleUntilPlayable();
+  statusText = `Không còn cặp nối được · ${usedFallback ? "đã sắp xếp bàn mới" : "đã đổi vị trí tự động"} · còn ${state.lives} lượt.`;
   render();
   save();
 }
@@ -467,7 +518,35 @@ function completeLevel() {
   showLevelDialog();
 }
 
+function cancelPendingMatch() {
+  window.clearTimeout(matchTimer);
+  matchTimer = 0;
+  pendingMatch = null;
+  busy = false;
+  clearConnection();
+}
+
+function finishPendingMatch() {
+  if (!pendingMatch) return;
+  const { first, second } = pendingMatch;
+  window.clearTimeout(matchTimer);
+  matchTimer = 0;
+  pendingMatch = null;
+  if (state.phase === "playing" && state.timeLeft > 0) finishMatch(first, second);
+  else {
+    busy = false;
+    clearConnection();
+  }
+}
+
 function finishMatch(first, second) {
+  if (state.phase !== "playing" || !state.tiles[first] || !state.tiles[second]
+    || state.tiles[first].removed || state.tiles[second].removed
+    || state.tiles[first].kind !== state.tiles[second].kind) {
+    busy = false;
+    clearConnection();
+    return;
+  }
   state.tiles[first].removed = true;
   state.tiles[second].removed = true;
   state.matched++;
@@ -493,6 +572,7 @@ function choose(index) {
   if (busy || state.phase !== "playing") return;
   const tile = state.tiles[index];
   if (!tile || tile.removed) return;
+  runStarted = true;
   state.clockStarted = true;
   if (state.selected === null) {
     state.selected = index;
@@ -512,6 +592,7 @@ function choose(index) {
 
   const first = state.selected;
   const path = state.tiles[first].kind === tile.kind ? findPath(first, index) : null;
+  runStarted = true;
   state.moves++;
   if (!path) {
     playSound("wrong");
@@ -528,7 +609,8 @@ function choose(index) {
   statusText = "Nối được rồi!";
   render();
   drawConnection(path);
-  window.setTimeout(() => finishMatch(first, index), 210);
+  pendingMatch = { first, second: index };
+  matchTimer = window.setTimeout(() => finishPendingMatch(), 210);
   save();
 }
 
@@ -537,6 +619,7 @@ function doHint() {
   if (state.hintsLeft <= 0) { showToast("Bạn đã dùng hết 3 lượt gợi ý của ván này."); return; }
   const pair = findAvailablePair();
   if (!pair) { recoverDeadlock(); return; }
+  runStarted = true;
   state.clockStarted = true;
   state.hintsLeft--;
   render();
@@ -556,31 +639,34 @@ function doHint() {
 function doShuffle() {
   if (busy || state.phase !== "playing") return;
   if (state.lives <= 0) { showToast("Bạn đã hết lượt đổi vị trí."); return; }
+  runStarted = true;
   state.clockStarted = true;
   state.lives--;
   playSound("start");
-  for (let attempt = 0; attempt < 12; attempt++) {
-    shuffleRemaining();
-    if (findAvailablePair()) break;
-  }
-  statusText = `Đã đổi vị trí · còn ${state.lives} lượt.`;
+  const usedFallback = shuffleUntilPlayable();
+  statusText = `${usedFallback ? "Đã sắp xếp lại bàn" : "Đã đổi vị trí"} · còn ${state.lives} lượt.`;
   render();
   save();
 }
 
 function setSizeMode(mode) {
+  const [cols, rows] = mode === "full" ? [16, 9] : chooseSize("auto");
+  const changed = state.cols !== cols || state.rows !== rows;
+  const timeLeft = state.timeLeft;
   sizeMode = mode;
   try { localStorage.setItem(SIZE_STORAGE_KEY, mode); } catch { /* The selected size remains active for this session. */ }
-  const level = state.level;
-  const options = { score: state.score, lives: state.lives, hintsLeft: state.hintsLeft };
   closeDialog();
-  state = createLevel(level, options);
-  statusText = `Bàn ${state.level} đã được tạo lại với kích thước ${state.cols}×${state.rows}.`;
+  if (changed && pendingMatch) finishPendingMatch();
+  if (!changed || state.phase !== "playing") return;
+  state = resizeSavedLevel({ ...state, timeLeft }, cols, rows, mode);
+  runStarted = true;
+  statusText = `Đã đổi sang bàn ${state.cols}×${state.rows} · tiến độ, điểm và thời gian được giữ lại.`;
   render();
   save();
 }
 
 function startNextLevel() {
+  runStarted = true;
   state = createLevel(state.level, { score: state.score, lives: state.lives, hintsLeft: state.hintsLeft });
   statusText = `Bắt đầu bàn ${state.level}.`;
   render();
@@ -588,9 +674,10 @@ function startNextLevel() {
 }
 
 function newGame() {
-  busy = false;
-  clearConnection();
+  cancelPendingMatch();
+  runStarted = false;
   state = createLevel(1, { score: 0, lives: STARTING_LIVES, hintsLeft: HINTS_PER_RUN });
+  runStarted = true;
   statusText = "Bắt đầu bàn 1 · nối các cặp Pokémon trước khi hết giờ.";
   playSound("start");
   render();
@@ -599,6 +686,9 @@ function newGame() {
 
 function endByTime() {
   state.timeLeft = 0;
+  cancelPendingMatch();
+  busy = false;
+  clearConnection();
   state.phase = "over";
   state.reason = "time";
   save();
@@ -671,7 +761,22 @@ document.querySelector("#pika-dialog").addEventListener("cancel", (event) => {
   else closeDialog();
 });
 window.addEventListener("resize", resizeBoard);
-window.addEventListener("pagehide", () => { state.clockStarted = false; save(); });
+window.addEventListener("pagehide", () => {
+  resumeClockOnShow = state.clockStarted;
+  const wasPlaying = state.phase === "playing";
+  if (state.timeLeft > 0) finishPendingMatch();
+  else cancelPendingMatch();
+  if (wasPlaying && state.phase === "playing" && state.timeLeft <= 0) endByTime();
+  state.clockStarted = false;
+  save();
+});
+window.addEventListener("pageshow", (event) => {
+  if (!event.persisted) return;
+  lastFrame = performance.now();
+  if (resumeClockOnShow && state.phase === "playing") state.clockStarted = true;
+  resumeClockOnShow = false;
+  save();
+});
 document.addEventListener("visibilitychange", () => { lastFrame = performance.now(); if (document.hidden) save(); });
 
 function frame(timestamp) {
