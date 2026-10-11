@@ -50,18 +50,18 @@ window.startGame = async function () {
 
 function frameSize() {
   const container = document.getElementById('canvas-container');
-  const cssHeight = Math.max(1, Math.floor(Math.min(container.clientHeight || innerHeight, (container.clientWidth || innerWidth) * 3 / 4)));
+  const cssHeight = Math.max(1, Math.floor(Math.min(container.clientHeight || innerHeight, (container.clientWidth || innerWidth) * 9 / 16)));
   const height = renderHeight === 'auto'
     ? Math.min(2160, Math.max(600, Math.round(cssHeight * (devicePixelRatio || 1) / 3) * 3))
     : renderHeight;
-  return { width: height * 4 / 3, height, cssHeight };
+  return { width: Math.round(height * 16 / 9), height, cssHeight };
 }
 
 window.resizeCanvas = function () {
   const canvas = document.getElementById('canvas');
   const size = frameSize();
   if (gameStarted && typeof Module._may_resize === 'function') Module._may_resize(size.width, size.height);
-  canvas.style.width = Math.floor(size.cssHeight * 4 / 3) + 'px';
+  canvas.style.width = Math.floor(size.cssHeight * 16 / 9) + 'px';
   canvas.style.height = size.cssHeight + 'px';
 };
 window.mayOnWindow = window.resizeCanvas;

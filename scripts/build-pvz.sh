@@ -7,6 +7,7 @@ TASK_BUILD="${TASK_ROOT}/.pvz-build"
 TASK_PREFIX="${TASK_BUILD}/openmpt-prefix"
 mkdir -p "${TASK_BUILD}"
 node "${TASK_ROOT}/scripts/patch-pvz.cjs" "${TASK_ENGINE}"
+node "${TASK_ROOT}/scripts/patch-pvz-widescreen.cjs" "${TASK_ENGINE}"
 cd "${TASK_OPENMPT}"
 emmake make CONFIG=emscripten STATIC_LIB=1 SHARED_LIB=0 EXAMPLES=0 OPENMPT123=0 TEST=0 \
   NO_ZLIB=1 NO_MPG123=1 NO_OGG=1 NO_VORBIS=1 NO_VORBISFILE=1 \
@@ -24,6 +25,7 @@ cp "${TASK_ROOT}/.jszip-source/LICENSE.markdown" "${TASK_ROOT}/games/pvz-goty/ve
 TASK_SOURCE_EXPORT="${TASK_BUILD}/source-export"
 mkdir -p "${TASK_SOURCE_EXPORT}/PvZ-Portable" "${TASK_SOURCE_EXPORT}/OpenMPT" "${TASK_SOURCE_EXPORT}/MayGame/games"
 git -C "${TASK_ENGINE}" archive HEAD | tar -x -C "${TASK_SOURCE_EXPORT}/PvZ-Portable"
+cp -R "${TASK_ENGINE}/src/." "${TASK_SOURCE_EXPORT}/PvZ-Portable/src/"
 cp "${TASK_ENGINE}/src/MayGameBridge.cpp" "${TASK_SOURCE_EXPORT}/PvZ-Portable/src/"
 cp "${TASK_ENGINE}/src/SexyAppFramework/graphics/GLInterface.cpp" "${TASK_SOURCE_EXPORT}/PvZ-Portable/src/SexyAppFramework/graphics/"
 cp "${TASK_ENGINE}/src/SexyAppFramework/graphics/GLInterface.h" "${TASK_SOURCE_EXPORT}/PvZ-Portable/src/SexyAppFramework/graphics/"

@@ -12,7 +12,7 @@ EMSCRIPTEN_KEEPALIVE void may_resize(int width, int height)
 {
     auto* app = Sexy::gSexyAppBase;
     if (!app || !app->mWindow || !app->mGLInterface) return;
-    width = std::clamp(width, 800, 2880);
+    width = std::clamp(width, 800, 3840);
     height = std::clamp(height, 600, 2160);
     SDL_SetWindowSize(static_cast<SDL_Window*>(app->mWindow), width, height);
     app->mGLInterface->UpdateViewport();
