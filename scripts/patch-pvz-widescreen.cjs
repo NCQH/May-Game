@@ -24,8 +24,23 @@ edit(wc, 'g->ClipRect(0, 0, mWidth, mHeight);', '{\n\t\t// Full-screen scenes ma
 // Menu/loading artwork is only 800px wide. Reflect its edges into the extra
 // space; preserve the central original artwork, controls, text and animation.
 edit('Lawn/Widget/TitleScreen.cpp', 'g->DrawImage(IMAGE_TITLESCREEN, 0, 0);', 'g->DrawImageMirror(IMAGE_TITLESCREEN, -IMAGE_TITLESCREEN->GetWidth(), 0);\n\tg->DrawImageMirror(IMAGE_TITLESCREEN, IMAGE_TITLESCREEN->GetWidth(), 0);\n\tg->DrawImage(IMAGE_TITLESCREEN, 0, 0);');
-edit('Lawn/Widget/GameSelector.cpp', 'aSelectorReanim->DrawRenderGroup(g, 1);  // "SelectorScreen_BG"', 'g->DrawImageMirror(Sexy::IMAGE_REANIM_SELECTORSCREEN_BG, -Sexy::IMAGE_REANIM_SELECTORSCREEN_BG->GetWidth(), 0);\n\tg->DrawImageMirror(Sexy::IMAGE_REANIM_SELECTORSCREEN_BG, Sexy::IMAGE_REANIM_SELECTORSCREEN_BG->GetWidth(), 0);\n\taSelectorReanim->DrawRenderGroup(g, 1);  // "SelectorScreen_BG"');
+edit('Lawn/Widget/GameSelector.cpp', 'aSelectorReanim->DrawRenderGroup(g, 1);  // "SelectorScreen_BG"', 'g->DrawImage(Sexy::IMAGE_REANIM_SELECTORSCREEN_BG, -134, 0, 1068, 600);\n\taSelectorReanim->DrawRenderGroup(g, 1);  // "SelectorScreen_BG"');
 // Existing lawn backgrounds already contain the scenery outside the 4:3 crop.
 // Do not scale them or alter grid, plant, zombie, projectile or save coordinates.
 edit('Lawn/Board.cpp', 'g->FillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);', 'g->FillRect(-134, 0, 1068, BOARD_HEIGHT);');
+for (const file of ['Lawn/Board.cpp', 'Lawn/Widget/TitleScreen.cpp', 'Lawn/Widget/AwardScreen.cpp', 'Lawn/Widget/CreditScreen.cpp']) {
+  edit(file, 'g->FillRect(0, 0, mWidth, mHeight);', 'g->FillRect(-134, 0, 1068, mHeight);');
+}
+edit('PvzpLib/Reanimator.cpp', 'aClipRect = Rect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);', 'aClipRect = Rect(0, 0, 1067, BOARD_HEIGHT);');
+edit('PvzpLib/Reanimator.cpp', 'g->FillRect(-g->mTransX, -g->mTransY, BOARD_WIDTH, BOARD_HEIGHT);', 'g->FillRect(-g->mTransX, -g->mTransY, 1067, BOARD_HEIGHT);');
+edit('Lawn/Widget/AwardScreen.cpp', 'g->FillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);', 'g->FillRect(-134, 0, 1068, BOARD_HEIGHT);');
+function backdrop(file, image) {
+  const draw = `g->DrawImage(${image}, 0, 0);`;
+  edit(file, draw, `g->DrawImageMirror(${image}, -${image}->GetWidth(), 0);\n\tg->DrawImageMirror(${image}, ${image}->GetWidth(), 0);\n\t${draw}`);
+}
+backdrop('Lawn/Widget/ChallengeScreen.cpp', 'Sexy::IMAGE_CHALLENGE_BACKGROUND');
+backdrop('Lawn/Widget/AwardScreen.cpp', 'IMAGE_CHALLENGE_BACKGROUND');
+backdrop('Lawn/Widget/StoreScreen.cpp', 'Sexy::IMAGE_STORE_BACKGROUND');
+backdrop('Lawn/Widget/StoreScreen.cpp', 'Sexy::IMAGE_STORE_BACKGROUNDNIGHT');
+backdrop('Lawn/Board.cpp', 'aBgImage');
 console.log('Applied 16:9 camera, original coordinate input and expanded scene clips.');
