@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PvZ Portable — Web</title>
+<title>Plants vs. Zombies GOTY — Máy Game</title>
 <script src="./vendor/jszip.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -157,8 +157,21 @@ canvas#canvas {
     #resource-split-actions { grid-template-columns: 1fr; }
 }
 </style>
+<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="./cabinet.css">
 </head>
 <body class="upload-mode">
+<main id="pvz-cabinet" class="game-page arcade-game pvz-page">
+  <header class="arcade-case-header">
+    <span class="arcade-case-brand"><span class="arcade-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>MÁY GAME</span>
+    <span class="arcade-case-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+  </header>
+  <section class="arcade-screen" aria-label="Màn hình Plants vs. Zombies GOTY">
+    <div class="arcade-screen-meta">
+      <a class="back-link" href="../../index.html">← Màn hình chính</a>
+      <h1 class="pvz-title">Plants vs. Zombies <span>GOTY</span></h1>
+    </div>
+    <div class="pvz-display">
 <div id="upload-screen" hidden style="display:none">
     <h1><a href="https://github.com/wszqkzqk/PvZ-Portable" target="_blank" rel="noopener noreferrer">PvZ Portable | Play Anywhere</a></h1>
     <p id="project-links">
@@ -206,11 +219,21 @@ canvas#canvas {
 </div>
 
 <div id="canvas-container">
-    <div id="save-toolbar">
-        <button id="save-export-btn" title="Export saves as ZIP">💾 Export Saves</button>
-    </div>
-    <canvas id="canvas" width="800" height="600" tabindex="0"></canvas>
+    <canvas id="canvas" width="800" height="600" tabindex="0" aria-label="Màn chơi Plants vs. Zombies GOTY"></canvas>
 </div>
+    </div>
+  </section>
+  <footer class="pvz-deck">
+    <p class="pvz-hint">Chuột hoặc chạm để chơi <span>· Esc mở menu</span></p>
+    <div id="save-toolbar">
+      <label class="pvz-quality" for="pvz-resolution">Độ phân giải
+        <select id="pvz-resolution"><option value="auto">Tự động</option><option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">4K</option></select>
+      </label>
+      <button id="save-export-btn" type="button" title="Tải bản sao dữ liệu lưu">Tải bản lưu</button>
+      <button id="pvz-fullscreen" type="button">Toàn màn hình</button>
+    </div>
+  </footer>
+</main>
 <textarea id="pvz-soft-keyboard" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done"></textarea>
 
 <!-- Module must be defined BEFORE the Emscripten glue script -->
@@ -614,7 +637,7 @@ function collectSaveFiles(dir) {
 async function exportSaves() {
     const btn = document.getElementById('save-export-btn');
     btn.disabled = true;
-    btn.textContent = '⏳ Exporting…';
+    btn.textContent = 'Đang tải bản lưu…';
     try {
         await ensureSaveFsReady();
         await syncSaves();
@@ -638,7 +661,7 @@ async function exportSaves() {
         alert('Export failed: ' + e.message);
     } finally {
         btn.disabled = false;
-        btn.textContent = '💾 Export Saves';
+        btn.textContent = 'Tải bản lưu';
     }
 }
 
@@ -824,5 +847,6 @@ window.onGameExit = function() {
 };
 </script>
 <script type="module" src="./quality.js"></script>
+<script type="module" src="./cabinet.js"></script>
 </body>
 </html>

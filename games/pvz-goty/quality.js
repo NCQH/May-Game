@@ -92,7 +92,7 @@ window.syncSaves = async function () {
     } catch { /* Save files remain in IndexedDB even if catalog metadata is unavailable. */ }
   } catch (error) {
     const button = document.getElementById('save-export-btn');
-    if (button) button.textContent = 'Export Saves — auto-save failed';
+    if (button) button.textContent = 'Tải bản lưu — lỗi tự lưu';
     cacheMessage('Auto-save failed. Export your saves before leaving or clearing browser data.');
     throw error;
   }
@@ -120,9 +120,9 @@ try {
 // Bootstrap from local/deployment resources. No folder chooser or upload step.
 const bootStatus = document.createElement('div');
 bootStatus.setAttribute('role', 'status');
-bootStatus.style.cssText = 'position:fixed;inset:0;display:grid;place-items:center;padding:24px;background:#000;color:#ddd;font:16px Arial,sans-serif;text-align:center';
+bootStatus.className = 'pvz-boot-status';
 bootStatus.textContent = 'Đang khởi động Plants vs. Zombies GOTY…';
-document.body.append(bootStatus);
+document.querySelector('.pvz-display').append(bootStatus);
 
 async function loadHostedResources() {
   let response;
