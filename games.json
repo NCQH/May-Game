@@ -62,7 +62,7 @@
     "difficulty": "Vừa",
     "controls": "Chuột / chạm để chơi · Esc mở menu",
     "path": "./games/pvz-goty/index.html",
-    "art": "",
+    "art": "pvz-goty",
     "accent": "lime",
     "contributors": [
       {

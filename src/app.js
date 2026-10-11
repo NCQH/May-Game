@@ -42,6 +42,9 @@ function safeGamePath(path) {
 }
 
 function gameArt(game) {
+  if (game.art === "pvz-goty") {
+    return `<div class="pixel-art pixel-art-pvz" aria-hidden="true"><div class="pvz-art-title"><span>PLANTS <small>vs.</small> ZOMBIES</span><b>GAME OF THE YEAR</b></div></div>`;
+  }
   if (game.art === "pikachu") {
     return `<div class="pixel-art pixel-art-pikachu" aria-hidden="true"><span class="pixel-sprite-pikachu"></span><i class="art-ground"></i></div>`;
   }
