@@ -89,7 +89,7 @@
 
 .pika-stat strong {
   color: var(--game-text);
-  font: 600 16px/1 "Chakra Petch", "Be Vietnam Pro", sans-serif;
+  font: 600 16px/1 var(--font-display);
   font-variant-numeric: tabular-nums;
 }
 
@@ -137,7 +137,7 @@
 .pika-time-text {
   min-width: 38px;
   color: var(--game-muted);
-  font: 600 12px/1 "Chakra Petch", monospace;
+  font: 600 12px/1 var(--font-display);
   font-variant-numeric: tabular-nums;
   text-align: right;
 }
@@ -337,7 +337,7 @@
   place-items: center;
   border: 1px solid rgba(199, 232, 117, .35);
   color: var(--game-lime);
-  font: 600 10px/1 "Chakra Petch", sans-serif;
+  font: 600 10px/1 var(--font-display);
 }
 
 .pika-control:disabled {
@@ -369,7 +369,7 @@
 .pika-dialog h2 {
   margin: 0;
   color: var(--game-text);
-  font: 600 23px/1.15 "Chakra Petch", "Be Vietnam Pro", sans-serif;
+  font: 600 23px/1.15 var(--font-display);
 }
 
 .pika-dialog-message {

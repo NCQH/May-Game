@@ -1,0 +1,6 @@
+:root {
+  --font-body: "Be Vietnam Pro", system-ui, sans-serif;
+  --font-display: "Chakra Petch", "Be Vietnam Pro", system-ui, sans-serif;
+  font-synthesis: none;
+}
+body, button, input, select, textarea { font-family: var(--font-body); }

@@ -26,6 +26,13 @@
 - [Chakra Petch](https://github.com/google/fonts/tree/main/ofl/chakrapetch) — tiêu đề và nhãn giao diện; SIL Open Font License 1.1.
 - [Be Vietnam Pro](https://github.com/google/fonts/tree/main/ofl/bevietnampro) — nội dung tiếng Việt; SIL Open Font License 1.1.
 - Đang tải từ Google Fonts với font dự phòng hệ thống; game vẫn dùng được nếu font web không tải.
+- Các trang dùng chung `assets/typography.css`: `--font-display` cho tiêu đề/nhãn nổi bật và `--font-body` cho nội dung, nút và biểu mẫu. Chữ được vẽ trong game giữ theo thiết kế của từng game.
+
+## Biểu tượng Máy Game
+
+- `assets/favicon.svg` vẽ lại dấu bốn ô vuông đã có trong giao diện Máy Game, bằng SVG trong repo.
+- `assets/favicon.ico` chứa các kích thước 16, 32 và 48 px; `assets/apple-touch-icon.png` là bản 180 px của cùng biểu tượng.
+- Trang chính, trang hướng dẫn và các trang game dùng chung bộ biểu tượng này.
 
 Các hình minh họa khối trong catalog và máy arcade được vẽ bằng SVG/CSS trong repo.
 

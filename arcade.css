@@ -11,8 +11,8 @@
   --arcade-case-dark: #596a38;
   --arcade-blue: #79c9c4;
   --arcade-coral: #ee886b;
-  --arcade-display: "Chakra Petch", "Courier New", monospace;
-  --arcade-body: "Be Vietnam Pro", system-ui, sans-serif;
+  --arcade-display: var(--font-display);
+  --arcade-body: var(--font-body);
   font-family: var(--arcade-body);
   color: var(--arcade-text);
   background: var(--arcade-bg);
