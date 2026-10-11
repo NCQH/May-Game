@@ -12,6 +12,10 @@ function edit(file, before, after) {
 }
 const gl = 'src/SexyAppFramework/graphics/GLInterface.cpp';
 const windowFile = 'src/SexyAppFramework/platform/emscripten/Window.cpp';
+edit('src/SexyAppFramework/SexyAppBase.cpp', '\tstd::unique_ptr<ImageLib::Image> aLoadedImage(ImageLib::GetImage(theFileName, true));', '\tstd::unique_ptr<ImageLib::Image> aLoadedImage(ImageLib::GetImage(theFileName, true));\n' + fs.readFileSync(path.join(project, 'scripts/pvz/retouch-art.inc'), 'utf8'));
+// The animation atlas is generated once from immutable sprite resources. It
+// can use the same bicubic GPU sampling as static resource images.
+edit('src/PvzpLib/ReanimAtlas.cpp', 'FixPixelsOnAlphaEdgeForBlending(mMemoryImage.get());', 'FixPixelsOnAlphaEdgeForBlending(mMemoryImage.get());\n\tmMemoryImage->mFilePath = "__may_static_reanimation_atlas";');
 edit(gl, '#include <vector>', '#include <vector>\n#include <filesystem>\n#include <cctype>\n#include <cmath>\n#include <algorithm>\n#include "imagelib/ImageLib.h"');
 edit(gl, 'bool gDesktopGLFallback = false;', 'bool gDesktopGLFallback = false;\nbool gMaySmooth = false;');
 edit(gl, 'void TextureData::CreateTextures(MemoryImage *theImage)', fs.readFileSync(path.join(project, 'scripts/pvz/hd-textures.inc'), 'utf8') + '\nvoid TextureData::CreateTextures(MemoryImage *theImage)');

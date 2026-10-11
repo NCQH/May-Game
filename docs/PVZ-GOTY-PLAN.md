@@ -43,3 +43,5 @@ Nguồn video người dùng gửi: HenryJk/PvZWidescreen v1.1.2, GameBanana 425
 
 Lần sửa tiếp theo bỏ toàn bộ phần phản chiếu do port thêm, nhận 22 ảnh nền riêng từ PvZWidescreen 1.1.2. Không thay PAK, animation, âm thanh hoặc dữ liệu GOTY bằng gói mod Windows cũ. Menu mở rộng hai lớp nền với alpha gốc, giữ animation và hit box GOTY. Camera pan sử dụng biên ảnh 1666 px khi có bộ nền; khi thiếu vẫn dùng biên ảnh gốc. Zombatar chưa có ảnh nền widescreen trong gói tham chiếu, dùng nền gốc ở giữa. Chưa có bộ HD Mod trong dữ liệu local; bicubic chưa được coi là HD art. Bản sửa này đang chờ build và kiểm tra local; chưa có PR.
 
+Đã tải HD Mod v1.0, MD5 khớp `84661486415a9fdf8bcb784315821ed0`. Preview local đã chuẩn bị 416 ảnh cùng kích thước, alpha/sai khác màu trong ngưỡng bảo toàn hình gốc; 878 ảnh không khớp bị loại. 22 nền widescreen được lấy từ PAK HD. Engine nhận retouch cùng kích thước trước khi tạo atlas, đồng thời áp dụng bicubic cho atlas animation tĩnh. Đây là nghiệm thu sơ bộ bằng pixel, chưa chứng minh toàn bộ nội dung mod giống GOTY. Dữ liệu gốc, âm thanh và animation không bị thay; bản engine bổ sung đang chờ build và chạy local.
+
