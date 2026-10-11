@@ -230,7 +230,10 @@ function updateClock() {
 
 function resizeBoard() {
   const maxWidth = state.cols * 44 + (state.cols - 1) * 2 + 18;
-  boardWrap.style.width = `min(100%, ${maxWidth}px)`;
+  const compactLandscape = matchMedia('(max-height: 500px) and (min-width: 620px)').matches;
+  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 170 : 320));
+  const heightLimitedWidth = availableHeight * state.cols / state.rows * 42 / 52 + 18;
+  boardWrap.style.width = `min(100%, ${Math.min(maxWidth, heightLimitedWidth)}px)`;
   boardNode.style.setProperty("--cols", String(state.cols));
   const firstTile = boardNode.querySelector(".pika-tile");
   if (!firstTile) return;
@@ -402,7 +405,7 @@ function drawConnection(path) {
   const tile = boardNode.querySelector(".pika-tile");
   if (!tile) return;
   const style = getComputedStyle(boardNode);
-  const tileRect = tile.getBoundingClientRect();
+  const tileRect = { width: tile.offsetWidth, height: tile.offsetHeight };
   const borderLeft = parseFloat(style.borderLeftWidth) || 0;
   const borderTop = parseFloat(style.borderTopWidth) || 0;
   const padLeft = parseFloat(style.paddingLeft) || 0;
