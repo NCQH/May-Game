@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <cctype>
 #include <string_view>
+#include <vector>
 
 // Widescreen scenery is separate from HD sprite textures. Never change the
 // original resource dimensions: gameplay, animation attachments and hit boxes

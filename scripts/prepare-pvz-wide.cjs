@@ -30,6 +30,9 @@ const sizes = Object.fromEntries([
   ['reanim/selectorscreen_bg_left', [609, 680]],
   ['reanim/selectorscreen_bg_right', [863, 560]],
   ['reanim/tree_bg', [1066, 600]],
+  ...['bd','bn','bp','bf'].flatMap(prefix => Array.from({length: prefix === 'bd' || prefix === 'bn' ? 5 : 6}, (_, row) => ['images/' + prefix + row, [483, 600]])),
+  ['images/b_base', [483, 600]],
+  ['images/bn_base', [483, 600]],
 ]);
 async function main() {
   const staged = [];

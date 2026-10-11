@@ -38,6 +38,9 @@ assert.equal((zombatar.match(/DrawImageMirror/g) || []).length, 2);
 assert.equal((art.match(/DrawImageMirror/g) || []).length, 2, 'Only Zombatar reflects the background');
 assert.ok(patch.includes("'MayDrawZombatarBackdrop(g, mApp, IMAGE_ZOMBATAR_MAIN_BG);'"));
 assert.ok(patch.includes('MayDrawWideBackdrop'), 'Use authored widescreen scenery separately from original resources');
+assert.ok(patch.includes('310999 + row * 10000'), 'Bush canopies must follow the original mod row ordering');
+assert.ok(patch.includes('image, 642, 0)'), 'Use the mod bush placement without moving the board grid');
+assert.ok(patch.includes('mayBushes[mayBushIndex].order <= aRenderItem.mZPos'), 'Interleave scenery with actors and UI');
 for (const pan of [-379, 0, 219]) {
   assert.ok(-220 - 133 + pan <= -400 / 3);
   assert.ok(-220 - 133 + pan + 1666 >= 800 + 400 / 3);

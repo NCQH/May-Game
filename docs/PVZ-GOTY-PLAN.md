@@ -47,3 +47,5 @@ Lần sửa tiếp theo bỏ toàn bộ phần phản chiếu do port thêm, nh�
 
 
 Người dùng chấp thuận mirror riêng Zombatar ngày 11/10: chỉ phản chiếu hai dải mép nền, giữ nguyên nội dung 800×600 ở giữa và mọi nút/nhân vật. Các màn khác tiếp tục dùng ảnh widescreen đã có. Bản cập nhật đang chờ dựng và kiểm tra local, chưa PR.
+
+Bổ sung bụi cây mép phải theo patch_bush.rs của HenryJk v1.1.2: 24 lớp có alpha, x=642, lớp đáy 300001 và tán theo hàng 310999 + row*10000. Xen kẽ trong hàng đợi vẽ gốc; không đổi luật, tọa độ ô hay dữ liệu lưu. Đang chờ build và nghiệm thu local.

@@ -92,6 +92,34 @@ backdrop('Lawn/Widget/AwardScreen.cpp', 'Sexy::IMAGE_AWARDSCREEN_BACK');
 backdrop('Lawn/Widget/StoreScreen.cpp', 'Sexy::IMAGE_STORE_BACKGROUND');
 backdrop('Lawn/Widget/StoreScreen.cpp', 'Sexy::IMAGE_STORE_BACKGROUNDNIGHT');
 backdrop('Lawn/Board.cpp', 'aBgImage');
+// HenryJk v1.1.2 patch_bush.rs: separate base and row canopies are interleaved
+// with actors at 300001 / 310999 + row*10000, all at logical x=642.
+// These decorative layers have no collision, input or save-state changes.
+edit('Lawn/Board.cpp', '\tstd::sort(aRenderList, aRenderList + aRenderItemCount, RenderItemSortFunc);', `
+\tstruct MayBushLayer { int order; Image* image; };
+\tstd::vector<MayBushLayer> mayBushes;
+\tconst char* mayBushPrefix = nullptr;
+\tbool mayNightBush = false;
+\tint mayBushRows = 0;
+\tswitch (mBackground)
+\t{
+\tcase BackgroundType::BACKGROUND_1_DAY: mayBushPrefix = "bd"; mayBushRows = 5; break;
+\tcase BackgroundType::BACKGROUND_2_NIGHT: mayBushPrefix = "bn"; mayBushRows = 5; mayNightBush = true; break;
+\tcase BackgroundType::BACKGROUND_3_POOL: mayBushPrefix = "bp"; mayBushRows = 6; break;
+\tcase BackgroundType::BACKGROUND_4_FOG: mayBushPrefix = "bf"; mayBushRows = 6; mayNightBush = true; break;
+\tdefault: break;
+\t}
+\tif (mayBushPrefix)
+\t{
+\t\tif (auto image = MayWideArt(mApp, mayNightBush ? "images/bn_base" : "images/b_base"))
+\t\t\tmayBushes.push_back({300001, image});
+\t\tfor (int row = 0; row < mayBushRows; ++row)
+\t\t\tif (auto image = MayWideArt(mApp, std::string("images/") + mayBushPrefix + std::to_string(row)))
+\t\t\t\tmayBushes.push_back({310999 + row * 10000, image});
+\t}
+\tsize_t mayBushIndex = 0;
+\tstd::sort(aRenderList, aRenderList + aRenderItemCount, RenderItemSortFunc);`);
+edit('Lawn/Board.cpp', '\t\tRenderItem& aRenderItem = aRenderList[i];\n\t\tswitch (aRenderItem.mRenderObjectType)', '\t\tRenderItem& aRenderItem = aRenderList[i];\n\t\twhile (mayBushIndex < mayBushes.size() && mayBushes[mayBushIndex].order <= aRenderItem.mZPos)\n\t\t\tg->DrawImage(mayBushes[mayBushIndex++].image, 642, 0);\n\t\tswitch (aRenderItem.mRenderObjectType)');
 edit('Lawn/Board.cpp', 'g->DrawImage(aBgImage, -BOARD_OFFSET, 0);', 'MayDrawWideBackdrop(g, mApp, aBgImage, -BOARD_OFFSET);');
 edit('Lawn/Board.cpp', 'g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -BOARD_OFFSET, 0);', 'MayDrawWideBackdrop(g, mApp, Sexy::IMAGE_BACKGROUND1UNSODDED, -BOARD_OFFSET);');
 for (const image of ['Sexy::IMAGE_ALMANAC_INDEXBACK', 'Sexy::IMAGE_ALMANAC_PLANTBACK', 'Sexy::IMAGE_ALMANAC_ZOMBIEBACK']) backdrop('Lawn/Widget/AlmanacDialog.cpp', image);
