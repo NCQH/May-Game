@@ -82,7 +82,8 @@ edit('PvzpLib/Reanimator.cpp', 'g->FillRect(-g->mTransX, -g->mTransY, BOARD_WIDT
 edit('Lawn/Widget/AwardScreen.cpp', 'g->FillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);', 'g->FillRect(-134, 0, 1068, BOARD_HEIGHT);');
 function backdrop(file, image) {
   const draw = `g->DrawImage(${image}, 0, 0);`;
-  edit(file, draw, `MayDrawWideBackdrop(g, mApp, ${image});`);
+  const app = image === 'Sexy::IMAGE_AWARDSCREEN_BACK' ? 'gLawnApp' : 'mApp';
+  edit(file, draw, `MayDrawWideBackdrop(g, ${app}, ${image});`);
 }
 backdrop('Lawn/Widget/TitleScreen.cpp', 'IMAGE_TITLESCREEN');
 backdrop('Lawn/Widget/ChallengeScreen.cpp', 'Sexy::IMAGE_CHALLENGE_BACKGROUND');
