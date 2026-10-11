@@ -31,7 +31,12 @@ for (const pan of [-246, 0, 86]) {
   assert.ok(-220 + pan + 1400 >= 800 + 400 / 3, 'Panorama covers the right camera edge');
 }
 assert.ok(!patch.includes('mWidth = BOARD_WIDTH'), 'Do not change the original game rules or board grid');
-assert.ok(!patch.includes('DrawImageMirror'), 'No reflected scenery may be introduced by the widescreen port');
+assert.ok(!patch.includes('DrawImageMirror'), 'Reflection must stay in the isolated Zombatar helper');
+const art = fs.readFileSync(path.join(root, 'scripts/pvz/wide-art.h'), 'utf8');
+const zombatar = art.match(/inline void MayDrawZombatarBackdrop[\s\S]*?\n\}/)[0];
+assert.equal((zombatar.match(/DrawImageMirror/g) || []).length, 2);
+assert.equal((art.match(/DrawImageMirror/g) || []).length, 2, 'Only Zombatar reflects the background');
+assert.ok(patch.includes("'MayDrawZombatarBackdrop(g, mApp, IMAGE_ZOMBATAR_MAIN_BG);'"));
 assert.ok(patch.includes('MayDrawWideBackdrop'), 'Use authored widescreen scenery separately from original resources');
 for (const pan of [-379, 0, 219]) {
   assert.ok(-220 - 133 + pan <= -400 / 3);

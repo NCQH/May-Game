@@ -12,7 +12,7 @@ Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Sav
 
 ## Chất lượng hình ảnh
 
-Camera 16:9 rộng 1066⅔×600, đặt hệ tọa độ GOTY 800×600 ở giữa và quy đổi chuột theo đúng camera. Không kéo giãn cây, zombie hoặc thay đổi ô chơi. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 3840×2160; mức 1080p là 1920×1080. Nền widescreen được nạp riêng từ `wide/images/` và `wide/reanim/`, giữ nguyên kích thước resource logic của GOTY. Nền sân của mod rộng 1666 px, nền các màn 1066 px; không phản chiếu hai bên. Khi thiếu ảnh widescreen, giữ ảnh gốc và phần trống, không tạo cảnh giả. Chế độ lấy mẫu không tạo chi tiết AI.
+Camera 16:9 rộng 1066⅔×600, đặt hệ tọa độ GOTY 800×600 ở giữa và quy đổi chuột theo đúng camera. Không kéo giãn cây, zombie hoặc thay đổi ô chơi. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 3840×2160; mức 1080p là 1920×1080. Nền widescreen được nạp riêng từ `wide/images/` và `wide/reanim/`, giữ nguyên kích thước resource logic của GOTY. Nền sân của mod rộng 1666 px, nền các màn 1066 px. Riêng Zombatar, khi thiếu nền widescreen, phản chiếu hai dải mép nền ra hai bên theo yêu cầu người dùng; giữ nguyên ảnh trung tâm và UI. Các màn khác dùng ảnh widescreen hoặc giữ ảnh gốc khi thiếu. Chế độ lấy mẫu không tạo chi tiết AI.
 
 Để chuẩn bị bộ nền local từ release HenryJk/PvZWidescreen 1.1.2, sau bước chuẩn bị GOTY chạy `node scripts/prepare-pvz-wide.cjs "/path/to/PvZWidescreen_1.1.2/main.pak"` (cần thư viện `sharp`). Script chỉ lấy 22 ảnh nền, giữ alpha; không thay `main.pak`, animation, âm thanh, EXE hoặc DLL của GOTY. Dữ liệu thêm và manifest đều được Git bỏ qua. Menu vẫn dùng animation GOTY, chỉ mở rộng hai lớp cảnh nền; các nút và phần Achievements/Zombatar giữ bản GOTY.
 

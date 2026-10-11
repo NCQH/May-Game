@@ -95,7 +95,7 @@ backdrop('Lawn/Board.cpp', 'aBgImage');
 edit('Lawn/Board.cpp', 'g->DrawImage(aBgImage, -BOARD_OFFSET, 0);', 'MayDrawWideBackdrop(g, mApp, aBgImage, -BOARD_OFFSET);');
 edit('Lawn/Board.cpp', 'g->DrawImage(Sexy::IMAGE_BACKGROUND1UNSODDED, -BOARD_OFFSET, 0);', 'MayDrawWideBackdrop(g, mApp, Sexy::IMAGE_BACKGROUND1UNSODDED, -BOARD_OFFSET);');
 for (const image of ['Sexy::IMAGE_ALMANAC_INDEXBACK', 'Sexy::IMAGE_ALMANAC_PLANTBACK', 'Sexy::IMAGE_ALMANAC_ZOMBIEBACK']) backdrop('Lawn/Widget/AlmanacDialog.cpp', image);
-backdrop('Lawn/Widget/ZombatarWidget.cpp', 'IMAGE_ZOMBATAR_MAIN_BG');
+edit('Lawn/Widget/ZombatarWidget.cpp', 'g->DrawImage(IMAGE_ZOMBATAR_MAIN_BG, 0, 0);', 'MayDrawZombatarBackdrop(g, mApp, IMAGE_ZOMBATAR_MAIN_BG);');
 // The original panorama is 1400px. Keep the wider camera inside its edges
 // throughout intro/game-over pans, without changing world or actor positions.
 const cutscene = path.join(root, 'src/Lawn/CutScene.cpp');

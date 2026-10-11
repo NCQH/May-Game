@@ -40,6 +40,26 @@ inline void MayDrawWideBackdrop(Sexy::Graphics* g, Sexy::SexyAppBase* app, Sexy:
     else g->DrawImageF(original, x, 0);
 }
 
+// Zombatar has no authored wide scenery in the reference mod. Reflect only
+// its background edge strips; keep the original center and all UI untouched.
+inline void MayDrawZombatarBackdrop(Sexy::Graphics* g, Sexy::SexyAppBase* app, Sexy::Image* original)
+{
+    auto memory = dynamic_cast<Sexy::MemoryImage*>(original);
+    Sexy::Image* wide = memory ? MayWideArt(app, memory->mFilePath) : nullptr;
+    if (wide && wide->GetHeight() == original->GetHeight() && wide->GetWidth() == original->GetWidth() + 266)
+    {
+        g->DrawImageF(wide, -133.0f, 0);
+        return;
+    }
+    Sexy::Graphics left(*g);
+    left.ClipRect(-134, 0, 134, 600);
+    left.DrawImageMirror(original, -original->GetWidth(), 0);
+    Sexy::Graphics right(*g);
+    right.ClipRect(800, 0, 134, 600);
+    right.DrawImageMirror(original, 800, 0);
+    g->DrawImage(original, 0, 0);
+}
+
 inline int MayClampCameraX(Sexy::SexyAppBase* app, int x)
 {
     return MayWideArt(app, "images/background1") ? std::clamp(x, -379, 219) : std::clamp(x, -246, 86);
