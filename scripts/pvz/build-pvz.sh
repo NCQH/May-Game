@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
-TASK_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+TASK_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 TASK_ENGINE="${TASK_ROOT}/.pvz-source"
 TASK_OPENMPT="${TASK_ROOT}/.openmpt-source"
 TASK_BUILD="${TASK_ROOT}/.pvz-build"
 TASK_PREFIX="${TASK_BUILD}/openmpt-prefix"
 mkdir -p "${TASK_BUILD}"
-node "${TASK_ROOT}/scripts/patch-pvz.cjs" "${TASK_ENGINE}"
-node "${TASK_ROOT}/scripts/patch-pvz-widescreen.cjs" "${TASK_ENGINE}"
+node "${TASK_ROOT}/scripts/pvz/patch-pvz.cjs" "${TASK_ENGINE}"
+node "${TASK_ROOT}/scripts/pvz/patch-pvz-widescreen.cjs" "${TASK_ENGINE}"
 cd "${TASK_OPENMPT}"
 emmake make CONFIG=emscripten STATIC_LIB=1 SHARED_LIB=0 EXAMPLES=0 OPENMPT123=0 TEST=0 \
   NO_ZLIB=1 NO_MPG123=1 NO_OGG=1 NO_VORBIS=1 NO_VORBISFILE=1 \

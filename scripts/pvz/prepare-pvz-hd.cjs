@@ -4,9 +4,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const sharp = require('sharp');
-const readPak = require('./pvz/read-pak.cjs');
-const root = path.resolve(__dirname, '..');
-if (!process.argv[2]) throw Error('Usage: node scripts/prepare-pvz-hd.cjs /path/to/HD-Mod/main.pak');
+const readPak = require('./read-pak.cjs');
+const root = path.resolve(__dirname, '../..');
+if (!process.argv[2]) throw Error('Usage: node scripts/pvz/prepare-pvz-hd.cjs /path/to/HD-Mod/main.pak');
 const original = readPak(path.join(root, 'games/pvz-goty/data/main.pak'));
 const hd = readPak(process.argv[2]);
 function imageFile(pak, name) { return pak.get(name + '.png') || pak.get(name + '.jpg'); }

@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(__dirname, '../..');
 const input = path.resolve(process.argv[2] || path.join(root, '..'));
 const output = path.join(root, 'games/pvz-goty/data');
 if (!fs.statSync(path.join(input, 'main.pak')).isFile()) throw Error('main.pak was not found');

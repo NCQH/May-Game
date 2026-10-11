@@ -41,7 +41,7 @@ jobs:
       - name: Require identical engine inputs
         env:
           ENGINE_SHA: ${{ steps.engine.outputs.sha }}
-        run: git diff --exit-code "$ENGINE_SHA" HEAD -- scripts/pvz scripts/patch-pvz.cjs scripts/patch-pvz-widescreen.cjs scripts/build-pvz.sh .github/workflows/pvz-build.yml
+        run: git diff --exit-code "$ENGINE_SHA" HEAD -- scripts/pvz .github/workflows/pvz-build.yml
       - uses: actions/download-artifact@v4
         with:
           name: may-game-pvz-goty-site

@@ -190,6 +190,18 @@ test("every catalog start link remains visible and tappable on small screens", a
   }
 });
 
+test("shared styles and relocated Flappy assets load without missing requests", async ({ page }) => {
+  const missing = [];
+  page.on("response", (response) => {
+    if (response.status() >= 400 && response.url().startsWith("http://127.0.0.1:4173/")) missing.push(response.url());
+  });
+  for (const route of ["/", "/contribute.html", "/contributors.html", "/games/_template/", "/games/flappy-bird/", "/games/pikachu/", "/games/tetris/"]) {
+    await page.goto(route);
+    await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).getPropertyValue("--font-body").trim())).not.toBe("");
+  }
+  expect(missing).toEqual([]);
+});
+
 test("game pages fit phone and desktop viewports without horizontal overflow", async ({ page }) => {
   for (const viewport of [{ width: 390, height: 844 }, { width: 1280, height: 800 }]) {
     await page.setViewportSize(viewport);

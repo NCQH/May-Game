@@ -27,7 +27,7 @@ const wc = 'SexyAppFramework/widget/WidgetContainer.cpp';
 edit(wc, 'g->ClipRect(0, 0, mWidth, mHeight);', '{\n\t\t// Full-screen scenes may draw the existing scenery outside the old camera.\n\t\tif (mWidth == 800 && mHeight == 600) g->ClipRect(-134, 0, 1068, 600);\n\t\telse g->ClipRect(0, 0, mWidth, mHeight);\n\t}');
 // Use the mod's authored scenery. Keep GOTY animations and controls rather
 // than replacing its selector animation with the older Windows mod's file.
-fs.copyFileSync(path.join(__dirname, 'pvz/wide-art.h'), path.join(root, 'src/MayGameWideArt.h'));
+fs.copyFileSync(path.join(__dirname, 'wide-art.h'), path.join(root, 'src/MayGameWideArt.h'));
 const wideFiles = ['Lawn/Widget/TitleScreen.cpp', 'Lawn/Widget/GameSelector.cpp', 'Lawn/Widget/ChallengeScreen.cpp', 'Lawn/Widget/AwardScreen.cpp', 'Lawn/Widget/StoreScreen.cpp', 'Lawn/Widget/AlmanacDialog.cpp', 'Lawn/Widget/ZombatarWidget.cpp', 'Lawn/Board.cpp', 'Lawn/CutScene.cpp', 'PvzpLib/Reanimator.cpp'];
 for (const file of wideFiles) {
   const target = path.join(root, 'src', file);
