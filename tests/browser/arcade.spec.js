@@ -137,6 +137,11 @@ test("Pikachu size changes retain progress and selecting the current mode is a n
   expect(resized.score).toBe(before.score);
   expect(resized.lives).toBe(before.lives);
   expect(resized.moves).toBe(before.moves);
+  await page.reload();
+  const restored = await page.evaluate(() => JSON.parse(localStorage.getItem("may-game:v1:pikachu")).current);
+  expect(restored.tiles).toEqual(resized.tiles);
+  expect(restored.matched).toBe(resized.matched);
+  expect(restored.score).toBe(resized.score);
 });
 
 test("Pikachu terminal state is not treated as resumable progress", async ({ page }) => {
@@ -167,6 +172,22 @@ test("Tetris top-outs when a blocked piece still reaches above the board", async
   await page.keyboard.press("ArrowDown");
   await expect(page.locator("#status")).toContainText("Ván kết thúc");
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("may-game:v1:tetris")).current)).toBeNull();
+});
+
+test("every catalog start link remains visible and tappable on small screens", async ({ page }) => {
+  for (const viewport of [{ width: 568, height: 320 }, { width: 320, height: 568 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
+    await expect(page.locator("#start-game")).toBeVisible();
+    for (let game = 0; game < 4; game++) {
+      await expect.poll(() => page.locator("#start-game").evaluate((link) => {
+        const rect = link.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= innerHeight
+          && document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2)?.closest("a") === link;
+      })).toBe(true);
+      await page.keyboard.press("ArrowRight");
+    }
+  }
 });
 
 test("game pages fit phone and desktop viewports without horizontal overflow", async ({ page }) => {

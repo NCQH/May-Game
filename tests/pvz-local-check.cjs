@@ -33,4 +33,90 @@ assert.equal(context.normalizeSaveImportPath('userdata/../../x.dat'), '');
 assert.equal(context.normalizeSaveImportPath('userdata/test.exe'), '');
 assert.ok(!html.includes("console.warn('IDBFS initial sync error:'"), 'Restore errors must stop startup');
 assert.ok(html.includes("Module.callMain(['-resdir', '/', '-savedir', '/may-game-pvz-goty-saves'])"));
-console.log(`PASS: inline syntax, ${resourceCases.length} resource paths, save paths and restore guard.`);
+async function checkPersistence() {
+  const callbacks = [];
+  const saves = vm.createContext({
+    canSyncSaves: () => true, saveSyncInFlight: null, saveSyncQueued: false, lastSaveSyncAt: 0,
+    Module: { FS: { syncfs: (_, callback) => callbacks.push(callback) } },
+  });
+  vm.runInContext('async ' + extract('syncSaves'), saves);
+  const first = saves.syncSaves();
+  let exitFinished = false;
+  const exit = saves.syncSaves().then(() => { exitFinished = true; });
+  callbacks.shift()();
+  await new Promise(setImmediate);
+  assert.equal(exitFinished, false, 'Exit must wait for the queued final flush');
+  assert.equal(callbacks.length, 1);
+  callbacks.shift()();
+  await Promise.all([first, exit]);
+  assert.equal(saves.saveSyncInFlight, null);
+  const failed = saves.syncSaves();
+  callbacks.shift()(new Error('Quota exceeded'));
+  await assert.rejects(failed, /Quota exceeded/);
+  const retry = saves.syncSaves();
+  callbacks.shift()();
+  await retry;
+
+  let downloaded = false;
+  const exported = [];
+  const button = {};
+  const backup = vm.createContext({
+    document: { getElementById: () => button, createElement: () => ({ click: () => { downloaded = true; } }) },
+    ensureSaveFsReady: async () => {}, syncSaves: async () => { throw new Error('Quota exceeded'); },
+    collectSaveFiles: () => ['/may-game-pvz-goty-saves/userdata/user1.dat'],
+    Module: { FS: { readFile: () => Buffer.from('latest progress') } },
+    JSZip: class { file(name, bytes) { exported.push([name, bytes.toString()]); } async generateAsync() { return {}; } },
+    URL: { createObjectURL: () => 'blob:backup', revokeObjectURL() {} },
+    console: { warn() {}, error() {} }, alert: (message) => assert.fail(message),
+  });
+  vm.runInContext('async ' + extract('exportSaves'), backup);
+  await backup.exportSaves();
+  assert.equal(downloaded, true, 'Export must work when persistence fails');
+  assert.deepEqual(exported, [['userdata/user1.dat', 'latest progress']]);
+  assert.equal(button.disabled, false);
+
+  const quality = fs.readFileSync(path.join(root, 'games/pvz-goty/quality.js'), 'utf8');
+  const loader = quality.slice(quality.indexOf('async function loadHostedResources()'), quality.indexOf('\n\ntry {', quality.indexOf('async function loadHostedResources()'))).replaceAll('import.meta.url', '"https://example.test/games/pvz-goty/quality.js"');
+  const requests = [];
+  const resources = vm.createContext({
+    URL, AbortController, Map, Set, Blob, hasPak: true, hasProperties: true,
+    resourceRevision: 'old', collectedFiles: new Map(), bootStatus: {}, normalizeResourcePath: (name) => name,
+    window: { refreshUI() {} },
+    fetch: async (url, options) => {
+      requests.push([url.pathname, options.cache]);
+      return url.pathname.endsWith('resources.json')
+        ? { ok: true, json: async () => ({ version: 1, revision: 'new', files: [{ name: 'main.pak' }, { name: 'properties/partner.xml' }] }) }
+        : { ok: true, headers: { get: () => null }, blob: async () => new Blob(['new bytes']) };
+    },
+  });
+  vm.runInContext(loader, resources);
+  await resources.loadHostedResources();
+  assert.equal(resources.resourceRevision, 'new');
+  assert.equal(requests.length, 3);
+  assert.ok(requests.every(([, cache]) => cache === 'no-cache'), 'Manifest and assets must be revalidated');
+  const { execFileSync } = require('node:child_process');
+  const fixture = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'may-game-pages-'));
+  try {
+    const run = (command, args) => execFileSync(command, args, { cwd: fixture });
+    run('git', ['init', '-q']);
+    fs.mkdirSync(path.join(fixture, 'games/pvz-goty'), { recursive: true });
+    fs.writeFileSync(path.join(fixture, 'games/pvz-goty/index.html'), 'current page');
+    run('git', ['add', '.']);
+    run('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.test', '-c', 'commit.gpgsign=false', 'commit', '-qm', 'fixture']);
+    for (const name of ['engine', 'vendor']) {
+      fs.mkdirSync(path.join(fixture, '.engine-artifact/games/pvz-goty', name), { recursive: true });
+      fs.writeFileSync(path.join(fixture, '.engine-artifact/games/pvz-goty', name, 'retained.txt'), name);
+    }
+    fs.writeFileSync(path.join(fixture, '.engine-artifact/obsolete.html'), 'deleted page');
+    const workflow = fs.readFileSync(path.join(root, '.github/workflows/pages-web-update.yml'), 'utf8');
+    const commands = workflow.match(/- name: Assemble current web files with the built engine\n\s+run: \|\n([\s\S]*?)\s+touch \.site\/\.nojekyll/)[1];
+    run('bash', ['-e', '-c', commands]);
+    assert.equal(fs.existsSync(path.join(fixture, '.site/obsolete.html')), false);
+    assert.equal(fs.readFileSync(path.join(fixture, '.site/games/pvz-goty/index.html'), 'utf8'), 'current page');
+    for (const name of ['engine', 'vendor']) assert.ok(fs.existsSync(path.join(fixture, '.site/games/pvz-goty', name, 'retained.txt')));
+  } finally {
+    fs.rmSync(fixture, { recursive: true, force: true });
+  }
+  console.log(`PASS: inline syntax, ${resourceCases.length} resource paths, save paths, queued flush, recovery export, resource revalidation and clean Pages assembly.`);
+}
+checkPersistence().catch((error) => { console.error(error); process.exitCode = 1; });

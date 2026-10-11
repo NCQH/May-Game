@@ -4,6 +4,9 @@ body, body.upload-mode, body.game-mode { display: block; height: 100dvh; min-hei
 .arcade-cabinet:has(.page-content) { height: auto; }
 .arcade-cabinet:has(.page-content) .page-content { flex: none; overflow: visible; }
 .arcade-cabinet:has(.page-content) .screen-bezel { flex: 1; }
+.arcade-home .arcade-cabinet:has(.selected-game) { height: auto; }
+.selection-row { flex: none; }
+.selected-game, .game-feature { height: auto; }
 .arcade-game-content { min-height: 0; }
 .feature-stats { grid-template-columns: 1fr; }
 .game-page:fullscreen { transform: none; }

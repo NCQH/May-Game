@@ -539,20 +539,21 @@ async function syncSaves() {
         return saveSyncInFlight;
     }
 
-    saveSyncInFlight = new Promise((resolve, reject) => Module.FS.syncfs(false, err => {
-        if (err) { reject(err); return; }
-        lastSaveSyncAt = Date.now();
-        resolve();
-    }));
+    saveSyncInFlight = (async () => {
+        do {
+            saveSyncQueued = false;
+            await new Promise((resolve, reject) => Module.FS.syncfs(false, err => {
+                if (err) { reject(err); return; }
+                lastSaveSyncAt = Date.now();
+                resolve();
+            }));
+        } while (saveSyncQueued);
+    })();
 
     try {
         await saveSyncInFlight;
     } finally {
         saveSyncInFlight = null;
-        if (saveSyncQueued) {
-            saveSyncQueued = false;
-            void syncSaves().catch(() => {});
-        }
     }
 }
 
@@ -648,7 +649,9 @@ async function exportSaves() {
     btn.textContent = 'Đang tải bản lưu…';
     try {
         await ensureSaveFsReady();
-        await syncSaves();
+        // Back up the in-memory saves even if IndexedDB is full or unavailable.
+        try { await syncSaves(); }
+        catch (error) { console.warn('Save sync failed; exporting in-memory saves:', error); }
 
         const files = collectSaveFiles('/may-game-pvz-goty-saves/userdata');
         if (files.length === 0) { alert('No save data found.'); return; }

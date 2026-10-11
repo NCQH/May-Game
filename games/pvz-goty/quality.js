@@ -150,7 +150,7 @@ async function loadHostedResources() {
   const worker = async () => {
     while (next < queue.length && !abort.signal.aborted) {
       const name = queue[next++];
-      const file = await fetch(new URL('./data/' + name, import.meta.url), { signal: abort.signal });
+      const file = await fetch(new URL('./data/' + name, import.meta.url), { signal: abort.signal, cache: 'no-cache' });
       if (!file.ok) throw new Error('Không tải được dữ liệu GOTY: ' + name);
       if (Number(file.headers.get('content-length')) > 128 * 1048576) throw new Error('Tệp GOTY quá lớn.');
       const blob = await file.blob();
