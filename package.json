@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "check": "node --check src/app.js && node --check src/contributors.js && node --check games/pikachu/game.js && node --check games/tetris/game.js && node --check games/flappy-bird/game.js && node --check games/_template/game.js && node --check games/pvz-goty/quality.js && node --check games/pvz-goty/storage.js && node --check scripts/patch-pvz.cjs && node --check scripts/prepare-pvz-local.cjs",
-    "test": "node tests/regression-check.cjs && node tests/pvz-local-check.cjs",
+    "check": "node --check src/app.js && node --check src/contributors.js && node --check games/pikachu/game.js && node --check games/tetris/game.js && node --check games/flappy-bird/game.js && node --check games/_template/game.js && node --check games/pvz-goty/quality.js && node --check games/pvz-goty/storage.js && node --check scripts/patch-pvz.cjs && node --check scripts/prepare-pvz-local.cjs && node --check scripts/patch-pvz-widescreen.cjs",
+    "test": "node tests/regression-check.cjs && node tests/pvz-local-check.cjs && node tests/pvz-widescreen-check.cjs",
     "test:browser": "playwright test",
-    "test:pvz": "node tests/pvz-local-check.cjs"
+    "test:pvz": "node tests/pvz-local-check.cjs && node tests/pvz-widescreen-check.cjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.0"

@@ -43,4 +43,21 @@ backdrop('Lawn/Widget/AwardScreen.cpp', 'IMAGE_CHALLENGE_BACKGROUND');
 backdrop('Lawn/Widget/StoreScreen.cpp', 'Sexy::IMAGE_STORE_BACKGROUND');
 backdrop('Lawn/Widget/StoreScreen.cpp', 'Sexy::IMAGE_STORE_BACKGROUNDNIGHT');
 backdrop('Lawn/Board.cpp', 'aBgImage');
+for (const image of ['Sexy::IMAGE_ALMANAC_INDEXBACK', 'Sexy::IMAGE_ALMANAC_PLANTBACK', 'Sexy::IMAGE_ALMANAC_ZOMBIEBACK']) backdrop('Lawn/Widget/AlmanacDialog.cpp', image);
+backdrop('Lawn/Widget/ZombatarWidget.cpp', 'IMAGE_ZOMBATAR_MAIN_BG');
+// The original panorama is 1400px. Keep the wider camera inside its edges
+// throughout intro/game-over pans, without changing world or actor positions.
+const cutscene = path.join(root, 'src/Lawn/Cutscene.cpp');
+let scene = fs.readFileSync(cutscene, 'utf8');
+let pans = 0;
+scene = scene.replace(/mBoard->Move\(([^\n]+), 0\);/g, (_, x) => {
+  pans++;
+  return `mBoard->Move(std::clamp(${x}, -246, 86), 0);`;
+});
+if (pans !== 7) throw new Error(`Unexpected camera pan count: ${pans}`);
+fs.writeFileSync(cutscene, scene);
+edit('Lawn/Cutscene.cpp', 'g->FillRect(-mBoard->mX, -mBoard->mY, BOARD_WIDTH, BOARD_HEIGHT);', 'g->FillRect(-134 - mBoard->mX, -mBoard->mY, 1068, BOARD_HEIGHT);');
+// Keep the mobile text keyboard anchored to the same centered UI as clicks.
+edit('SexyAppFramework/platform/default/Input.cpp', 'aRect.x = (theRect.mX - aLogical.mX) * aPresent.mWidth / aLogical.mWidth + aPresent.mX;', 'aRect.x = static_cast<int>((theRect.mX + 400.0f / 3.0f) * aPresent.mWidth / (600.0f * 16.0f / 9.0f)) + aPresent.mX;');
+edit('SexyAppFramework/platform/default/Input.cpp', 'aRect.w = theRect.mWidth * aPresent.mWidth / aLogical.mWidth;', 'aRect.w = static_cast<int>(theRect.mWidth * aPresent.mWidth / (600.0f * 16.0f / 9.0f));');
 console.log('Applied 16:9 camera, original coordinate input and expanded scene clips.');

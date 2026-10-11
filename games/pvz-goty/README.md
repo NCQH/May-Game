@@ -12,11 +12,11 @@ Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Sav
 
 ## Chất lượng hình ảnh
 
-Tọa độ/vùng bấm vẫn 800×600, tỷ lệ 4:3. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 2880×2160. Màn hình 1920×1080 hiển thị game 1440×1080 với khoảng trống hai bên. Chế độ lọc mượt dùng tuyến tính, không tạo chi tiết AI.
+Camera 16:9 rộng 1066⅔×600, đặt hệ tọa độ GOTY 800×600 ở giữa và quy đổi chuột theo đúng camera. Các nền sân chơi gốc rộng 1400 px được hiện thêm ở hai bên; không kéo giãn cây, zombie hoặc thay đổi ô chơi. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 3840×2160. Màn hình 1920×1080 hiển thị framebuffer 1920×1080. Màn tải và một số nền menu rộng 800 px dùng phản chiếu mép nền ở vùng thêm; nội dung gốc ở giữa giữ nguyên. Chế độ lấy mẫu không tạo chi tiết AI.
 
 Manifest tự nạp cũng có thể chứa `hd/images/`, `hd/reanim/`, `hd/fonts/`. Shell upstream còn giữ công cụ nhập ẩn để tương thích nhưng không hiển thị trong luồng chơi. Texture HD dùng thư mục `images/`, `reanim/`, `fonts/`, hoặc `hd/` chứa các thư mục đó. Ví dụ gốc `images/background1.jpg` 800×600 có HD `images/background1.png` 1600×1200 hoặc 3200×2400. PNG/alpha mask giữ đúng bố cục và hình vẽ gốc. Texture sai kích thước, vượt giới hạn GPU hoặc ảnh đã bị sửa bằng phần mềm dùng đường gốc. Bộ HD không kèm theo.
 
-URL `?renderHeight=1080` chọn framebuffer 1440×1080. Host cũng có thể chọn độ cao render bằng `MayGamePvzQuality.setRenderHeight(1080)` (600, 1080, 1440, 2160, auto), không thay menu GOTY.
+URL `?renderHeight=1080` chọn framebuffer 1920×1080. Host cũng có thể chọn độ cao render bằng `MayGamePvzQuality.setRenderHeight(1080)` (600, 1080, 1440, 2160, auto), không thay menu GOTY.
 
 ## Build từ nguồn
 

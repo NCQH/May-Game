@@ -35,4 +35,9 @@ Build nhánh thành công (run 38041971638). Đã chạy engine có bicubic 2× 
 
 ## Mở rộng ngoài 4:3
 
-Nguồn video người dùng gửi: HenryJk/PvZWidescreen v1.1.2, GameBanana 425279, WineD3D. Mã HenryJk đặt PAD=133, rộng 800+2*PAD=1066 và vá từng màn hình, camera, hit-test. Cần chuyển các bố trí này sang C++ của engine GOTY, giữ số ô chơi và luật gốc, kiểm tra menu/Board/SeedChooser/CutScene/ZenGarden/Almanac/Shop/Achievements/Zombatar. Không phát hành chỉ bằng cách kéo giãn ảnh 4:3. Phần này chưa được triển khai.
+Nguồn video người dùng gửi: HenryJk/PvZWidescreen v1.1.2, GameBanana 425279, WineD3D. Mã HenryJk đặt PAD=133, rộng 800+2*PAD=1066 và vá từng màn hình, camera, hit-test. Cần chuyển các bố trí này sang C++ của engine GOTY, giữ số ô chơi và luật gốc, kiểm tra menu/Board/SeedChooser/CutScene/ZenGarden/Almanac/Shop/Achievements/Zombatar. Không phát hành chỉ bằng cách kéo giãn ảnh 4:3. Đã triển khai camera mở rộng trong bản sửa 11/10 bên dưới; chưa nghiệm thu toàn bộ màn/chế độ.
+
+## Sửa widescreen — 11/10/2026
+
+Đã thêm patch camera 16:9 độc lập với hệ tọa độ/rules 800×600 gốc: projection 1066⅔×600, dịch nội dung 133⅓ px, mở clip toàn màn và chuyển chuột về tọa độ gốc. Các nền sân 1400×600 có sẵn trong main.pak được hiện thêm, giữ toàn bộ grid và save. Framebuffer 1080p là 1920×1080, giới hạn 4K là 3840×2160. Nền màn tải/menu không đủ rộng dùng ảnh gốc để phủ vùng mở rộng, chưa có asset widescreen vẽ lại. Kiểm tra tự động qua năm mức render và ánh xạ chuột đã qua; bản native đang chờ kiểm tra hình ảnh/input local trước PR.
+
