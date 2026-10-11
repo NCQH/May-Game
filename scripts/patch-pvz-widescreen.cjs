@@ -16,6 +16,10 @@ edit(gl, 'height * 4 / 3', 'height * 16 / 9');
 edit(gl, 'width * 3 < height * 4', 'width * 9 < height * 16');
 edit(gl, 'width * 3 / 4', 'width * 9 / 16');
 edit(gl, 'MakeOrthoMatrix(0, (float)mWidth, (float)mHeight, 0, -10, 10, ortho);', 'MakeOrthoMatrix(0, 600.0f * 16.0f / 9.0f, (float)mHeight, 0, -10, 10, ortho);');
+// Base initialization normally centers the logical bounds inside GL bounds.
+// Keep them at the original origin; WidgetManager applies the camera offset.
+edit('SexyAppFramework/SexyAppBase.cpp', 'mScreenBounds.mX = ( mWidth - mGLInterface->mWidth ) / 2;', 'mScreenBounds.mX = 0;');
+edit('SexyAppFramework/SexyAppBase.cpp', 'mScreenBounds.mWidth = mGLInterface->mWidth;', 'mScreenBounds.mWidth = mWidth;');
 const wm = 'SexyAppFramework/widget/WidgetManager.cpp';
 edit(wm, 'g.Translate(-mMouseDestRect.mX, -mMouseDestRect.mY);', 'g.Translate(-mMouseDestRect.mX, -mMouseDestRect.mY);\n\t\t\tg.mTransX += 400.0f / 3.0f;');
 edit(wm, 'theX = ( theX - mMouseSourceRect.mX ) * mMouseDestRect.mWidth / mMouseSourceRect.mWidth + mMouseDestRect.mX;', 'theX = static_cast<int>((theX - mMouseSourceRect.mX) * (600.0f * 16.0f / 9.0f) / mMouseSourceRect.mWidth - 400.0f / 3.0f);');
