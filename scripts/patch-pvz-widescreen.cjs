@@ -44,7 +44,7 @@ edit('PvzpLib/Reanimator.cpp', '\tSexyMatrix3 aMatrix;\n\tbool aFullScreen = fal
 \t\tconst bool left = track == "SelectorScreen_BG_Left";
 \t\tif (left || track == "SelectorScreen_BG_Right")
 \t\t{
-\t\t\tauto wide = MayWideArt(mApp, left ? "reanim/selectorscreen_bg_left" : "reanim/selectorscreen_bg_right");
+\t\t\tauto wide = MayWideArt(gLawnApp, left ? "reanim/selectorscreen_bg_left" : "reanim/selectorscreen_bg_right");
 \t\t\tconst int oldWidth = aPivotAtlasImage ? aPivotAtlasImage->mWidth : (aPivotImage ? aPivotImage->GetWidth() : 0);
 \t\t\tif (wide && wide->GetWidth() == oldWidth + 133)
 \t\t\t{
@@ -56,7 +56,7 @@ edit('PvzpLib/Reanimator.cpp', '\tSexyMatrix3 aMatrix;\n\tbool aFullScreen = fal
 \t}
 \tif (mReanimationType == ReanimationType::REANIM_TREEOFWISDOM && std::string_view(mDefinition->mTracks.tracks[theTrackIndex].mName) == "bg")
 \t{
-\t\tauto wide = MayWideArt(mApp, "reanim/tree_bg");
+\t\tauto wide = MayWideArt(gLawnApp, "reanim/tree_bg");
 \t\tif (wide && wide->GetWidth() == 1066 && wide->GetHeight() == 600)
 \t\t{
 \t\t\taImage = aPivotImage = wide;
