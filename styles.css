@@ -11,8 +11,8 @@
   --coral: #ff8b6e;
   --blue: #70ced0;
   --sand: #f1dfad;
-  --display: "Chakra Petch", "Trebuchet MS", sans-serif;
-  --body: "Be Vietnam Pro", system-ui, sans-serif;
+  --display: var(--font-display);
+  --body: var(--font-body);
   font-family: var(--body);
   color: var(--text);
   background: var(--ink);

@@ -27,7 +27,7 @@ test("home loads the game catalog and supports search and keyboard selection", a
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await expect(page.locator(".game-feature h1")).toHaveText("Tetris");
-  await expect(page.locator("#game-position")).toHaveText("01 / 03");
+  await expect(page.locator("#game-position")).toHaveText("01 / 04");
   await page.keyboard.press("ArrowRight");
   await expect(page.locator(".game-feature h1")).toHaveText("Pikachu");
   await page.keyboard.press("/");

@@ -1,0 +1,2 @@
+# Preserve imported game resources byte for byte, including XML and signature files.
+games/pvz-goty/data/** -text

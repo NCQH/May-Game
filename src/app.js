@@ -42,6 +42,9 @@ function safeGamePath(path) {
 }
 
 function gameArt(game) {
+  if (game.art === "pvz-goty") {
+    return `<div class="pixel-art pixel-art-pvz" aria-hidden="true"></div>`;
+  }
   if (game.art === "pikachu") {
     return `<div class="pixel-art pixel-art-pikachu" aria-hidden="true"><span class="pixel-sprite-pikachu"></span><i class="art-ground"></i></div>`;
   }
@@ -90,7 +93,6 @@ function renderSelection() {
       <h1>${escapeHTML(game.title)}</h1>
       <p class="feature-description">${escapeHTML(game.description)}</p>
       <div class="feature-stats">
-        <span><small>Độ khó</small><b>${escapeHTML(game.difficulty)}</b></span>
         <span><small>Kỷ lục</small><b>${bestScore ? bestScore.toLocaleString("vi-VN") : "—"}</b></span>
       </div>
       <p class="feature-controls">${escapeHTML(game.controls)}</p>
@@ -153,7 +155,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 try {
-  const response = await fetch("./games.json?v=2");
+  const response = await fetch("./games.json?v=3");
   if (!response.ok) throw new Error("Catalog unavailable");
   games = await response.json();
   selectedGameId = games.some((game) => game.id === lastPlayedId)

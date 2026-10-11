@@ -23,7 +23,6 @@ Thêm một mục vào `games.json` theo cấu trúc sau:
   "category": "Thể loại",
   "description": "Mô tả ngắn về cách chơi.",
   "players": "1 người",
-  "difficulty": "Vừa",
   "controls": "← → di chuyển · Space xác nhận",
   "path": "./games/ten-game/index.html",
   "art": "tetris",
@@ -34,7 +33,13 @@ Thêm một mục vào `games.json` theo cấu trúc sau:
 }
 ```
 
-`id` chỉ dùng chữ thường, số và dấu gạch ngang. `art` hiện hỗ trợ `tetris`, `pikachu`, `flappy`; `accent` hiện hỗ trợ `lime`, `coral`, `blue`.
+`id` chỉ dùng chữ thường, số và dấu gạch ngang. `art` hiện hỗ trợ `tetris`, `pikachu`, `flappy`, `pvz-goty`; `accent` hiện hỗ trợ `lime`, `coral`, `blue`.
+
+## Giao diện một màn hình
+
+Giữ các liên kết `assets/typography.css`, `assets/viewport.css` và script `assets/viewport.js` từ template. Tải `viewport.css` sau CSS của game. Khung arcade, vùng chơi và nút điều khiển phải vừa màn hình, không tạo vùng cuộn bên trong. Chỉnh kích thước bàn chơi theo chiều cao trước; script chung thu khung lại khi vẫn thiếu chỗ. Khi vẽ đường nối trong tọa độ local, dùng kích thước layout (`offsetWidth`/`offsetHeight`) để không bị lệch khi khung thu nhỏ.
+
+Rà cả máy tính, điện thoại dọc và ngang; kiểm tra các nút vẫn hiện đầy đủ, không chỉ ẩn thanh cuộn.
 
 Ghi tên từng người thực hiện game trong `contributors`; `github` là username, không kèm `@`. Trang [Contribute](./contributors.html) tự nhóm các game theo username. Chỉ ghi những người thực sự tham gia đóng góp.
 
@@ -65,3 +70,7 @@ Dùng `localStorage` cùng khóa `may-game:v1:<id-game>`. Giá trị JSON nên c
 ## Chạy trang cục bộ
 
 Từ thư mục repo, chạy `python3 -m http.server 8000`, sau đó mở `http://localhost:8000`. Trang dùng `fetch()` để tải catalog nên cần được phục vụ qua HTTP.
+
+## Riêng engine GOTY
+
+GOTY dùng IndexedDB cho tài nguyên và save; localStorage chỉ ghi dấu hiệu có save cho catalog. Engine build bằng workflow riêng, xem games/pvz-goty/README.md. Không commit main.pak, ảnh hoặc âm thanh GOTY. Mục tiêu giữ nguyên giao diện, artwork, animation và âm thanh; chỉ tăng chất lượng hiển thị/texture.

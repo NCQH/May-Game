@@ -26,7 +26,7 @@
   background: none;
   box-shadow: none;
   color: var(--tetra-muted);
-  font: 600 10px/1.2 "Be Vietnam Pro", system-ui, sans-serif;
+  font: 600 10px/1.2 var(--font-body);
   letter-spacing: 0;
   text-decoration: none;
   text-transform: none;
@@ -96,12 +96,12 @@
 
 .tetris-page .game-small {
   color: var(--tetra-muted);
-  font: 500 9px/1.2 "Be Vietnam Pro", system-ui, sans-serif;
+  font: 500 9px/1.2 var(--font-body);
 }
 
 .tetris-page .game-score {
   color: var(--tetra-text);
-  font: 600 16px/1 "Chakra Petch", monospace;
+  font: 600 16px/1 var(--font-display);
 }
 
 .tetris-metric:first-child .game-score {
@@ -130,7 +130,7 @@
 .tetris-hold > .game-small,
 .next-panel > .game-small {
   color: var(--tetra-muted);
-  font: 600 9px/1.2 "Chakra Petch", monospace;
+  font: 600 9px/1.2 var(--font-display);
   letter-spacing: .07em;
   text-transform: uppercase;
 }

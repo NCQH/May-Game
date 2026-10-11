@@ -14,6 +14,7 @@ const mimeTypes = {
   ".ogg": "audio/ogg",
   ".png": "image/png",
   ".wav": "audio/wav",
+  ".wasm": "application/wasm",
 };
 
 const server = http.createServer(async (request, response) => {

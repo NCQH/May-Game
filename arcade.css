@@ -11,8 +11,8 @@
   --arcade-case-dark: #596a38;
   --arcade-blue: #79c9c4;
   --arcade-coral: #ee886b;
-  --arcade-display: "Chakra Petch", "Courier New", monospace;
-  --arcade-body: "Be Vietnam Pro", system-ui, sans-serif;
+  --arcade-display: var(--font-display);
+  --arcade-body: var(--font-body);
   font-family: var(--arcade-body);
   color: var(--arcade-text);
   background: var(--arcade-bg);
@@ -92,6 +92,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .pipe-top { top: 0; right: 23%; height: 94px; border-bottom-width: 6px; }
 .pipe-bottom { right: 23%; bottom: 40px; height: 97px; border-top-width: 6px; }
 .pixel-art-generic { background-color: #263e2d; }
+.pixel-art-pvz { background: #263e2d url("./games/pvz-goty/data/wide/images/titlescreen.png") 32% center / cover no-repeat; }
 .pixel-art-generic > span { display: grid; width: 92px; height: 92px; place-items: center; border: 3px solid #233626; background: var(--arcade-case); box-shadow: 16px 16px 0 #667c42, -16px -16px 0 #455d3d; color: #19261c; font: 700 26px/1 var(--arcade-display); image-rendering: pixelated; }
 .feature-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 0; padding: 22px clamp(16px, 3vw, 34px); background-image: linear-gradient(rgba(201, 229, 149, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 229, 149, .025) 1px, transparent 1px); background-size: 16px 16px; }
 .feature-overline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #c6db8f; font: 700 8px/1.3 var(--arcade-display); letter-spacing: .11em; text-transform: uppercase; }

@@ -3,3 +3,25 @@ node_modules/
 test-results/
 playwright-report/
 playwright/.cache/
+
+# Generated engine and static site (built from pinned source in Actions)
+.pvz-source/
+.openmpt-source/
+.jszip-source/
+.pvz-build/
+.site/
+games/pvz-goty/engine/
+games/pvz-goty/vendor/
+# Keep private player saves local; game resources are included in the site.
+**/userdata/
+
+# Local-only test downloads and original data bundles
+/local-resources.zip
+/baseline-engine.zip
+/baseline-engine/
+/.local-build/
+/may-game-pvz-goty-site.zip
+/START-LOCAL.cmd
+/.source-review/
+/tests/pvz-runtime-local.html
+/.local-artifacts/
