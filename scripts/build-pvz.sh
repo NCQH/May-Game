@@ -33,7 +33,8 @@ cp "${TASK_ENGINE}/src/SexyAppFramework/platform/emscripten/Window.cpp" "${TASK_
 cp "${TASK_ENGINE}/wasm/shell.html" "${TASK_SOURCE_EXPORT}/PvZ-Portable/wasm/"
 git -C "${TASK_OPENMPT}" archive HEAD | tar -x -C "${TASK_SOURCE_EXPORT}/OpenMPT"
 cp -R "${TASK_ROOT}/scripts" "${TASK_ROOT}/docs" "${TASK_SOURCE_EXPORT}/MayGame/"
-cp -R "${TASK_ROOT}/games/pvz-goty" "${TASK_SOURCE_EXPORT}/MayGame/games/"
+mkdir -p "${TASK_SOURCE_EXPORT}/MayGame/games/pvz-goty"
+tar --exclude='./data' --exclude='./resources.json' -C "${TASK_ROOT}/games/pvz-goty" -cf - . | tar -xf - -C "${TASK_SOURCE_EXPORT}/MayGame/games/pvz-goty"
 rm -f "${TASK_SOURCE_EXPORT}/MayGame/games/pvz-goty/engine/"*.wasm "${TASK_SOURCE_EXPORT}/MayGame/games/pvz-goty/engine/"*.js "${TASK_SOURCE_EXPORT}/MayGame/games/pvz-goty/engine/source.zip"
 cd "${TASK_SOURCE_EXPORT}"
 zip -qr "${TASK_ROOT}/games/pvz-goty/engine/source.zip" .
@@ -41,4 +42,6 @@ cd "${TASK_ROOT}"
 mkdir -p .site
 git archive HEAD | tar -x -C .site
 cp -R games/pvz-goty/engine games/pvz-goty/vendor .site/games/pvz-goty/
-echo 'Built static site in .site. No proprietary game data is included.'
+node -e 'const fs=require("fs"); const root=".site/games/pvz-goty/"; const manifest=JSON.parse(fs.readFileSync(root+"resources.json","utf8")); for(const file of manifest.files) if(!fs.statSync(root+"data/"+file.name).isFile()) throw Error("Missing resource: "+file.name); console.log("Packaged "+manifest.files.length+" PvZ resource files.");'
+touch .site/.nojekyll
+echo 'Built complete static site in .site, including the bundled PvZ resources.'

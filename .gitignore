@@ -12,9 +12,7 @@ playwright/.cache/
 .site/
 games/pvz-goty/engine/
 games/pvz-goty/vendor/
-# Never commit locally imported commercial resources
-main.pak
-**/main.pak
+# Keep private player saves local; game resources are included in the site.
 **/userdata/
 
 # Local-only test downloads and original data bundles
@@ -25,7 +23,5 @@ main.pak
 /may-game-pvz-goty-site.zip
 /START-LOCAL.cmd
 /.source-review/
-/games/pvz-goty/data/
-/games/pvz-goty/resources.json
 /tests/pvz-runtime-local.html
 /.local-artifacts/

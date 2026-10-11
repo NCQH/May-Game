@@ -21,6 +21,6 @@ Xem [danh sách contributors](./contributors.html) hoặc đọc [hướng dẫn
 
 ## Build GOTY
 
-Workflow **Build PvZ GOTY site** tạo artifact `may-game-pvz-goty-site` có site, engine, JSZip và mã nguồn tương ứng. Giải nén artifact và phục vụ qua HTTP. Thư mục nguồn chưa build không có engine `.wasm`.
+Workflow **Build PvZ GOTY site** tạo artifact `may-game-pvz-goty-site` có site, engine, JSZip và mã nguồn tương ứng. Artifact kèm bộ dữ liệu PvZ và ảnh HD/widescreen. Nhánh làm việc xuất artifact để thử; khi thay đổi vào `main`, workflow triển khai lên GitHub Pages (Source: GitHub Actions). Có thể giải nén artifact và phục vụ qua HTTP. Thư mục nguồn chưa build không có engine `.wasm`.
 
-Xem [kế hoạch](./docs/PVZ-GOTY-PLAN.md) và [hướng dẫn build](./games/pvz-goty/README.md). Giao diện, hình ảnh, animation và âm thanh GOTY được giữ nguyên. Texture HD phải giữ đúng hình vẽ gốc; chưa có gói HD kèm theo. Cần đối chiếu đủ chế độ GOTY trước khi đánh dấu port hoàn tất.
+Xem [kế hoạch](./docs/PVZ-GOTY-PLAN.md) và [hướng dẫn build](./games/pvz-goty/README.md). Giao diện, hình ảnh, animation và âm thanh GOTY được giữ nguyên. Texture HD phải giữ đúng hình vẽ gốc; bản này kèm bộ HD/widescreen đã chuẩn bị. Cần đối chiếu đủ chế độ GOTY trước khi đánh dấu port hoàn tất.

@@ -1,4 +1,4 @@
-// Prepare a local data directory. Commercial resources are excluded from Git.
+// Prepare the hosted game data directory and its resource manifest.
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -25,4 +25,4 @@ for (const name of files) {
 const revisionHash = crypto.createHash('sha256');
 for (const name of files) revisionHash.update(name).update(fs.readFileSync(path.join(output,name)));
 fs.writeFileSync(path.join(root,'games/pvz-goty/resources.json'),JSON.stringify({version:1,revision:revisionHash.digest('hex'),files:files.map(name=>({name}))},null,2)+'\n');
-console.log('Local GOTY data prepared. Game starts automatically; nothing is uploaded.');
+console.log('GOTY data prepared for automatic startup. This script does not upload files.');
