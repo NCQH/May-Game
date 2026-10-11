@@ -15,7 +15,7 @@ const PIPE_H = 320;
 const PIPE_GAP = 118;
 const FLOOR = 400;
 const PIPE_SPEED = 118;
-const assetRoot = new URL("../../flappy-bird-assets-master/sprites/", import.meta.url);
+const assetRoot = new URL("./assets/sprites/", import.meta.url);
 
 function loadSprite(name) {
   const sprite = new Image();

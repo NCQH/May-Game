@@ -150,9 +150,8 @@ function resizeSavedLevel(saved, cols, rows, mode = sizeMode) {
 function isValidSavedState(saved) {
   return saved?.version === 2
     && Number.isInteger(saved.cols)
-    && saved.cols % 2 === 0
-    && Number.isInteger(saved.rows)
-    && saved.rows % 2 === 0
+    && saved.cols > 0 && saved.cols % 2 === 0
+    && Number.isInteger(saved.rows) && saved.rows > 0
     && Array.isArray(saved.tiles)
     && saved.tiles.length === saved.cols * saved.rows
     && Number.isInteger(saved.matched)

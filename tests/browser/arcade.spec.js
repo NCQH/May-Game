@@ -137,6 +137,11 @@ test("Pikachu size changes retain progress and selecting the current mode is a n
   expect(resized.score).toBe(before.score);
   expect(resized.lives).toBe(before.lives);
   expect(resized.moves).toBe(before.moves);
+  await page.reload();
+  const restored = await page.evaluate(() => JSON.parse(localStorage.getItem("may-game:v1:pikachu")).current);
+  expect(restored.tiles).toEqual(resized.tiles);
+  expect(restored.matched).toBe(resized.matched);
+  expect(restored.score).toBe(resized.score);
 });
 
 test("Pikachu terminal state is not treated as resumable progress", async ({ page }) => {
@@ -167,6 +172,46 @@ test("Tetris top-outs when a blocked piece still reaches above the board", async
   await page.keyboard.press("ArrowDown");
   await expect(page.locator("#status")).toContainText("Ván kết thúc");
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("may-game:v1:tetris")).current)).toBeNull();
+});
+
+test("every catalog start link remains visible and tappable on small screens", async ({ page }) => {
+  for (const viewport of [{ width: 568, height: 320 }, { width: 320, height: 568 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/");
+    await expect(page.locator("#start-game")).toBeVisible();
+    for (let game = 0; game < 4; game++) {
+      await expect.poll(() => page.locator("#start-game").evaluate((link) => {
+        const rect = link.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= innerHeight
+          && document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2)?.closest("a") === link;
+      })).toBe(true);
+      await page.keyboard.press("ArrowRight");
+    }
+  }
+});
+
+test("shared styles and relocated Flappy assets load without missing requests", async ({ page }) => {
+  const missing = [];
+  page.on("response", (response) => {
+    if (response.status() >= 400 && response.url().startsWith("http://127.0.0.1:4173/")) missing.push(response.url());
+  });
+  await page.goto("/");
+  await expect(page.locator("#start-game")).toBeVisible();
+  for (let game = 0; game < 4; game++) {
+    const art = page.locator(".game-feature");
+    const backgrounds = await art.evaluate((node) => [...node.querySelectorAll("*")].flatMap((element) => {
+      const match = getComputedStyle(element).backgroundImage.match(/url\("?([^"\)]+)"?\)/);
+      return match ? [match[1]] : [];
+    }));
+    for (const url of backgrounds) expect((await page.request.get(url)).ok(), url).toBe(true);
+    await expect.poll(() => art.locator("img").evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0))).toBe(true);
+    await page.keyboard.press("ArrowRight");
+  }
+  for (const route of ["/contribute.html", "/contributors.html", "/games/_template/", "/games/flappy-bird/", "/games/pikachu/", "/games/tetris/"]) {
+    await page.goto(route);
+    await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).getPropertyValue("--font-body").trim())).not.toBe("");
+  }
+  expect(missing).toEqual([]);
 });
 
 test("game pages fit phone and desktop viewports without horizontal overflow", async ({ page }) => {

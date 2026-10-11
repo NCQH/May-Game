@@ -83,7 +83,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .tetris-grid { display: grid; grid-template-columns: repeat(9, 22px); grid-template-rows: repeat(8, 22px); gap: 2px; transform: translateY(-8px); }
 .tetris-pixel { grid-column: var(--column); grid-row: var(--row); border: 2px solid rgba(21, 37, 28, .82); background: var(--pixel-color); box-shadow: inset 0 3px rgba(255, 255, 255, .19); }
 .pixel-art-pikachu { background-color: #35422b; }
-.pixel-sprite-pikachu { width: 40px; height: 50px; background: url("./assets/pikachu/pieces-sprite.png") -40px 0 / 1440px 50px no-repeat; image-rendering: pixelated; transform: scale(3.5); }
+.pixel-sprite-pikachu { width: 40px; height: 50px; background: url("../pikachu/pieces-sprite.png") -40px 0 / 1440px 50px no-repeat; image-rendering: pixelated; transform: scale(3.5); }
 .pixel-art-flappy { background-color: #6b9b84; background-image: linear-gradient(rgba(231, 251, 213, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(231, 251, 213, .12) 1px, transparent 1px); }
 .pixel-art-flappy img { position: relative; z-index: 1; width: 58px; height: auto; image-rendering: pixelated; transform: translateY(-3px); }
 .pixel-cloud { position: absolute; width: 36px; height: 11px; background: #b7dbb7; box-shadow: 11px -9px 0 -1px #b7dbb7, 24px 0 0 #b7dbb7; }
@@ -92,7 +92,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .pipe-top { top: 0; right: 23%; height: 94px; border-bottom-width: 6px; }
 .pipe-bottom { right: 23%; bottom: 40px; height: 97px; border-top-width: 6px; }
 .pixel-art-generic { background-color: #263e2d; }
-.pixel-art-pvz { background: #263e2d url("./games/pvz-goty/data/wide/images/titlescreen.png") 32% center / cover no-repeat; }
+.pixel-art-pvz { background: #263e2d url("../../games/pvz-goty/data/wide/images/titlescreen.png") 32% center / cover no-repeat; }
 .pixel-art-generic > span { display: grid; width: 92px; height: 92px; place-items: center; border: 3px solid #233626; background: var(--arcade-case); box-shadow: 16px 16px 0 #667c42, -16px -16px 0 #455d3d; color: #19261c; font: 700 26px/1 var(--arcade-display); image-rendering: pixelated; }
 .feature-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 0; padding: 22px clamp(16px, 3vw, 34px); background-image: linear-gradient(rgba(201, 229, 149, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 229, 149, .025) 1px, transparent 1px); background-size: 16px 16px; }
 .feature-overline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #c6db8f; font: 700 8px/1.3 var(--arcade-display); letter-spacing: .11em; text-transform: uppercase; }

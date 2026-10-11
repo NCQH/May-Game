@@ -10,8 +10,8 @@
 ## Flappy Bird sprites
 
 - **Nguồn tham chiếu:** [samuelcust/flappy-bird-assets](https://github.com/samuelcust/flappy-bird-assets). Tên và cấu trúc thư mục local khớp với asset pack này.
-- **Dùng tại:** `flappy-bird-assets-master/sprites/` — nền, chim vàng, ống và mặt đất trong game.
-- **Giấy phép:** Repo nguồn công bố MIT; giữ thông báo tại [`flappy-bird-assets-master/LICENSE`](./flappy-bird-assets-master/LICENSE). Game tải asset từ repo local, không gọi CDN cho sprite.
+- **Dùng tại:** `games/flappy-bird/assets/sprites/` — nền, chim vàng, ống và mặt đất trong game.
+- **Giấy phép:** Repo nguồn công bố MIT; giữ thông báo tại [`games/flappy-bird/assets/LICENSE`](./games/flappy-bird/assets/LICENSE). Game tải asset từ repo local, không gọi CDN cho sprite.
 
 ## Pikachu
 
@@ -26,7 +26,7 @@
 - [Chakra Petch](https://github.com/google/fonts/tree/main/ofl/chakrapetch) — tiêu đề và nhãn giao diện; SIL Open Font License 1.1.
 - [Be Vietnam Pro](https://github.com/google/fonts/tree/main/ofl/bevietnampro) — nội dung tiếng Việt; SIL Open Font License 1.1.
 - Đang tải từ Google Fonts với font dự phòng hệ thống; game vẫn dùng được nếu font web không tải.
-- Các trang dùng chung `assets/typography.css`: `--font-display` cho tiêu đề/nhãn nổi bật và `--font-body` cho nội dung, nút và biểu mẫu. Chữ được vẽ trong game giữ theo thiết kế của từng game.
+- Các trang dùng chung `assets/css/typography.css`: `--font-display` cho tiêu đề/nhãn nổi bật và `--font-body` cho nội dung, nút và biểu mẫu. Chữ được vẽ trong game giữ theo thiết kế của từng game.
 
 ## Biểu tượng Máy Game
 
@@ -39,7 +39,7 @@ Các hình minh họa khối trong catalog và máy arcade được vẽ bằng 
 ## Plants vs. Zombies GOTY
 
 - **Engine:** [wszqkzqk/PvZ-Portable](https://github.com/wszqkzqk/PvZ-Portable), 0.2.5, commit `141c1476dd462ac3526f796e303177616f4de6bc`; giữ tác giả và các contributor upstream trong nguồn. LGPL-3.0-or-later; phần Framework còn có LicenseRef-PopCap. Giữ LICENSE, COPYING và thông báo của dependency trong source.zip đi kèm engine.
-- **Thay đổi:** framebuffer độ phân giải cao và texture GPU 2×/4× tại `scripts/pvz/`, áp dụng bởi `scripts/patch-pvz.cjs`; phát hành LGPL-3.0-or-later.
+- **Thay đổi:** framebuffer độ phân giải cao và texture GPU 2×/4× tại `scripts/pvz/`, áp dụng bởi `scripts/pvz/patch-pvz.cjs`; phát hành LGPL-3.0-or-later.
 - **Âm thanh:** decoder libopenmpt `libopenmpt-0.8.4`, commit `327204eaa2c27bd1acbb571babe68f279c85238b`; license trong nguồn. SDL-Mixer-X và dependency có thông báo riêng trong nguồn upstream. Nhạc và hiệu ứng dùng file game gốc; không thêm hoặc thay âm thanh.
 - **ZIP:** [Stuk/jszip](https://github.com/Stuk/jszip), 3.10.1; phân phối theo MIT, giữ LICENSE.markdown trong vendor/JSZIP-LICENSE.md.
 - **Runtime web:** dùng shell của engine upstream, ẩn màn hình upload, thêm ghi nhớ/tự nạp dữ liệu, PNG HD và giới hạn đường dẫn; giao diện bên trong GOTY do engine và dữ liệu gốc vẽ.

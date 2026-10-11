@@ -20,7 +20,7 @@ for (const renderHeight of [600, 1080, 1440, 2160, 'auto']) {
     assert.ok(Math.abs(mapped - x) <= 1);
   }
 }
-const patch = fs.readFileSync(path.join(root, 'scripts/patch-pvz-widescreen.cjs'), 'utf8');
+const patch = fs.readFileSync(path.join(root, 'scripts/pvz/patch-pvz-widescreen.cjs'), 'utf8');
 assert.ok(patch.includes('width * 9 > height * 16'));
 assert.ok(patch.includes('g->ClipRect(-134, 0, 1068, 600)'));
 assert.ok(patch.includes('400.0f / 3.0f'));

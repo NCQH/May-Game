@@ -9,7 +9,7 @@
 <link rel="icon" href="../../assets/favicon.ico?v=1" sizes="16x16 32x32 48x48">
 <link rel="icon" href="../../assets/favicon.svg?v=1" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=1">
-<link rel="stylesheet" href="../../assets/typography.css">
+<link rel="stylesheet" href="../../assets/css/typography.css">
 <script src="./vendor/jszip.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -163,10 +163,10 @@ canvas#canvas {
     #resource-split-actions { grid-template-columns: 1fr; }
 }
 </style>
-<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="../../assets/css/shared.css">
 <link rel="stylesheet" href="./cabinet.css">
-<link rel="stylesheet" href="../../assets/viewport.css">
-<script type="module" src="../../assets/viewport.js"></script>
+<link rel="stylesheet" href="../../assets/css/viewport.css">
+<script type="module" src="../../assets/js/viewport.js"></script>
 </head>
 <body class="upload-mode">
 <main id="pvz-cabinet" class="game-page arcade-game pvz-page">
@@ -539,20 +539,21 @@ async function syncSaves() {
         return saveSyncInFlight;
     }
 
-    saveSyncInFlight = new Promise((resolve, reject) => Module.FS.syncfs(false, err => {
-        if (err) { reject(err); return; }
-        lastSaveSyncAt = Date.now();
-        resolve();
-    }));
+    saveSyncInFlight = (async () => {
+        do {
+            saveSyncQueued = false;
+            await new Promise((resolve, reject) => Module.FS.syncfs(false, err => {
+                if (err) { reject(err); return; }
+                lastSaveSyncAt = Date.now();
+                resolve();
+            }));
+        } while (saveSyncQueued);
+    })();
 
     try {
         await saveSyncInFlight;
     } finally {
         saveSyncInFlight = null;
-        if (saveSyncQueued) {
-            saveSyncQueued = false;
-            void syncSaves().catch(() => {});
-        }
     }
 }
 
@@ -648,7 +649,9 @@ async function exportSaves() {
     btn.textContent = 'Đang tải bản lưu…';
     try {
         await ensureSaveFsReady();
-        await syncSaves();
+        // Back up the in-memory saves even if IndexedDB is full or unavailable.
+        try { await syncSaves(); }
+        catch (error) { console.warn('Save sync failed; exporting in-memory saves:', error); }
 
         const files = collectSaveFiles('/may-game-pvz-goty-saves/userdata');
         if (files.length === 0) { alert('No save data found.'); return; }

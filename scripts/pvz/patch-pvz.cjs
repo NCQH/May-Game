@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const source = path.resolve(process.argv[2] || '.pvz-source');
-const project = path.resolve(__dirname, '..');
+const project = path.resolve(__dirname, '../..');
 function edit(file, before, after) {
   const target = path.join(source, file);
   const text = fs.readFileSync(target, 'utf8');

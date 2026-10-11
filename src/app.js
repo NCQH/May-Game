@@ -49,7 +49,7 @@ function gameArt(game) {
     return `<div class="pixel-art pixel-art-pikachu" aria-hidden="true"><span class="pixel-sprite-pikachu"></span><i class="art-ground"></i></div>`;
   }
   if (game.art === "flappy") {
-    return `<div class="pixel-art pixel-art-flappy" aria-hidden="true"><span class="pixel-cloud cloud-a"></span><span class="pixel-cloud cloud-b"></span><i class="pixel-pipe pipe-top"></i><i class="pixel-pipe pipe-bottom"></i><img src="./flappy-bird-assets-master/sprites/yellowbird-midflap.png" alt="" /><i class="art-ground"></i></div>`;
+    return `<div class="pixel-art pixel-art-flappy" aria-hidden="true"><span class="pixel-cloud cloud-a"></span><span class="pixel-cloud cloud-b"></span><i class="pixel-pipe pipe-top"></i><i class="pixel-pipe pipe-bottom"></i><img src="./games/flappy-bird/assets/sprites/yellowbird-midflap.png" alt="" /><i class="art-ground"></i></div>`;
   }
   if (game.art === "tetris") {
     const blocks = TETRIS_PIXELS.map(([column, row, color]) => `<i class="tetris-pixel" style="--column:${column};--row:${row};--pixel-color:${color}"></i>`).join("");

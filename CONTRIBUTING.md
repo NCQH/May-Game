@@ -37,7 +37,7 @@ Thêm một mục vào `games.json` theo cấu trúc sau:
 
 ## Giao diện một màn hình
 
-Giữ các liên kết `assets/typography.css`, `assets/viewport.css` và script `assets/viewport.js` từ template. Tải `viewport.css` sau CSS của game. Khung arcade, vùng chơi và nút điều khiển phải vừa màn hình, không tạo vùng cuộn bên trong. Chỉnh kích thước bàn chơi theo chiều cao trước; script chung thu khung lại khi vẫn thiếu chỗ. Khi vẽ đường nối trong tọa độ local, dùng kích thước layout (`offsetWidth`/`offsetHeight`) để không bị lệch khi khung thu nhỏ.
+Giữ các liên kết `assets/css/typography.css`, `assets/css/viewport.css` và script `assets/js/viewport.js` từ template. Tải `viewport.css` sau CSS của game. Khung arcade, vùng chơi và nút điều khiển phải vừa màn hình, không tạo vùng cuộn bên trong. Chỉnh kích thước bàn chơi theo chiều cao trước; script chung thu khung lại khi vẫn thiếu chỗ. Khi vẽ đường nối trong tọa độ local, dùng kích thước layout (`offsetWidth`/`offsetHeight`) để không bị lệch khi khung thu nhỏ.
 
 Rà cả máy tính, điện thoại dọc và ngang; kiểm tra các nút vẫn hiện đầy đủ, không chỉ ẩn thanh cuộn.
 

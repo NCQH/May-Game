@@ -6,7 +6,7 @@ Giao diện bên trong game, bố cục, hình vẽ, animation, chữ, màu sắ
 
 ## Dữ liệu và save
 
-Qua HTTP, game tự dùng tài nguyên đã nhớ trong IndexedDB hoặc tải danh sách `resources.json` và file trong `data/` cùng thư mục. Không yêu cầu chọn file. Để chuẩn bị local, chạy `node scripts/prepare-pvz-local.cjs "/path/to/GOTY"`; dữ liệu và manifest được đưa vào repo và bản build. EXE không được nhập/chạy. Nên dùng bản GOTY 1.2.0.1073 EN; xem upstream về các bản ngôn ngữ/Steam khác.
+Qua HTTP, game tự dùng tài nguyên đã nhớ trong IndexedDB hoặc tải danh sách `resources.json` và file trong `data/` cùng thư mục. Không yêu cầu chọn file. Để chuẩn bị local, chạy `node scripts/pvz/prepare-pvz-local.cjs "/path/to/GOTY"`; dữ liệu và manifest được đưa vào repo và bản build. EXE không được nhập/chạy. Nên dùng bản GOTY 1.2.0.1073 EN; xem upstream về các bản ngôn ngữ/Steam khác.
 
 Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Save and Exit để lưu màn đang chơi. Export Saves tải ZIP để sao lưu/chuyển thiết bị. Nhập save trước khi chơi. Xóa dữ liệu trình duyệt xóa cả tài nguyên và save.
 
@@ -14,9 +14,9 @@ Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Sav
 
 Camera 16:9 rộng 1066⅔×600, đặt hệ tọa độ GOTY 800×600 ở giữa và quy đổi chuột theo đúng camera. Không kéo giãn cây, zombie hoặc thay đổi ô chơi. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 3840×2160; mức 1080p là 1920×1080. Nền widescreen được nạp riêng từ `wide/images/` và `wide/reanim/`, giữ nguyên kích thước resource logic của GOTY. Nền sân của mod rộng 1666 px, nền các màn 1066 px. Riêng Zombatar, khi thiếu nền widescreen, phản chiếu hai dải mép nền ra hai bên theo yêu cầu người dùng; giữ nguyên ảnh trung tâm và UI. Các màn khác dùng ảnh widescreen hoặc giữ ảnh gốc khi thiếu. Chế độ lấy mẫu không tạo chi tiết AI.
 
-Để chuẩn bị bộ nền local từ release HenryJk/PvZWidescreen 1.1.2, sau bước chuẩn bị GOTY chạy `node scripts/prepare-pvz-wide.cjs "/path/to/PvZWidescreen_1.1.2/main.pak"` (cần thư viện `sharp`). Script lấy 46 ảnh cảnh: 22 nền và 24 lớp bụi cây ngày/đêm/hồ/sương, giữ alpha; không thay `main.pak`, animation, âm thanh, EXE hoặc DLL của GOTY. Dữ liệu thêm và manifest đều được Git bỏ qua. Menu vẫn dùng animation GOTY, chỉ mở rộng hai lớp cảnh nền; các nút và phần Achievements/Zombatar giữ bản GOTY.
+Để chuẩn bị bộ nền local từ release HenryJk/PvZWidescreen 1.1.2, sau bước chuẩn bị GOTY chạy `node scripts/pvz/prepare-pvz-wide.cjs "/path/to/PvZWidescreen_1.1.2/main.pak"` (cần thư viện `sharp`). Script lấy 46 ảnh cảnh: 22 nền và 24 lớp bụi cây ngày/đêm/hồ/sương, giữ alpha; không thay `main.pak`, animation, âm thanh, EXE hoặc DLL của GOTY. Dữ liệu thêm và manifest đều được Git bỏ qua. Menu vẫn dùng animation GOTY, chỉ mở rộng hai lớp cảnh nền; các nút và phần Achievements/Zombatar giữ bản GOTY.
 
-HD Mod v1.0 trong video có ảnh đã được làm nét ở kích thước gốc. Có thể chuẩn bị preview cá nhân bằng `node scripts/prepare-pvz-hd.cjs "/path/to/HD-Mod/main.pak"` (cần `sharp`), rồi dùng `prepare-pvz-wide.cjs` với cùng PAK để lấy 22 nền HD widescreen. Bộ nhập so sánh kích thước, alpha và sai khác màu với GOTY, bỏ ảnh sai khác lớn; báo cáo trong `.local-artifacts/hd-import-report.json`. Ảnh cùng kích thước được nạp trước khi tạo atlas animation; 2×/4× tiếp tục là texture GPU riêng. Atlas tĩnh được lấy mẫu bicubic 2× khi GPU đủ lớn. Cần kiểm tra trực quan thêm; phép so sánh pixel không thay thế nghiệm thu toàn bộ hình ảnh. Repo và artifact kèm bộ ảnh HD/widescreen đã chọn cho bản này.
+HD Mod v1.0 trong video có ảnh đã được làm nét ở kích thước gốc. Có thể chuẩn bị preview cá nhân bằng `node scripts/pvz/prepare-pvz-hd.cjs "/path/to/HD-Mod/main.pak"` (cần `sharp`), rồi dùng `prepare-pvz-wide.cjs` với cùng PAK để lấy 22 nền HD widescreen. Bộ nhập so sánh kích thước, alpha và sai khác màu với GOTY, bỏ ảnh sai khác lớn; báo cáo trong `.local-artifacts/hd-import-report.json`. Ảnh cùng kích thước được nạp trước khi tạo atlas animation; 2×/4× tiếp tục là texture GPU riêng. Atlas tĩnh được lấy mẫu bicubic 2× khi GPU đủ lớn. Cần kiểm tra trực quan thêm; phép so sánh pixel không thay thế nghiệm thu toàn bộ hình ảnh. Repo và artifact kèm bộ ảnh HD/widescreen đã chọn cho bản này.
 
 Manifest tự nạp cũng có thể chứa `hd/images/`, `hd/reanim/`, `hd/fonts/`. Shell upstream còn giữ công cụ nhập ẩn để tương thích nhưng không hiển thị trong luồng chơi. Texture HD dùng thư mục `images/`, `reanim/`, `fonts/`, hoặc `hd/` chứa các thư mục đó. Ví dụ gốc `images/background1.jpg` 800×600 có HD `images/background1.png` 1600×1200 hoặc 3200×2400. PNG/alpha mask giữ đúng bố cục và hình vẽ gốc. Texture sai kích thước, vượt giới hạn GPU hoặc ảnh đã bị sửa bằng phần mềm dùng đường gốc. Bộ HD không kèm theo.
 
@@ -33,8 +33,8 @@ git clone https://github.com/OpenMPT/openmpt.git .openmpt-source
 git -C .openmpt-source checkout 327204eaa2c27bd1acbb571babe68f279c85238b
 git clone https://github.com/Stuk/jszip.git .jszip-source
 git -C .jszip-source checkout 0f2f1e4d0509514417db83fe5b86bde90e0ffe8d
-bash scripts/build-pvz.sh
-node scripts/prepare-pvz-local.cjs "/path/to/GOTY"
+bash scripts/pvz/build-pvz.sh
+node scripts/pvz/prepare-pvz-local.cjs "/path/to/GOTY"
 # Serve this checkout with bundled resources.json and data/.
 python3 -m http.server 8000
 ```

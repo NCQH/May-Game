@@ -41,16 +41,18 @@ jobs:
       - name: Require identical engine inputs
         env:
           ENGINE_SHA: ${{ steps.engine.outputs.sha }}
-        run: git diff --exit-code "$ENGINE_SHA" HEAD -- scripts/pvz scripts/patch-pvz.cjs scripts/patch-pvz-widescreen.cjs scripts/build-pvz.sh .github/workflows/pvz-build.yml
+        run: git diff --exit-code "$ENGINE_SHA" HEAD -- scripts/pvz .github/workflows/pvz-build.yml
       - uses: actions/download-artifact@v4
         with:
           name: may-game-pvz-goty-site
           run-id: ${{ inputs.engine_run_id }}
           github-token: ${{ github.token }}
-          path: .site
-      - name: Overlay current web files
+          path: .engine-artifact
+      - name: Assemble current web files with the built engine
         run: |
+          mkdir -p .site
           git archive HEAD | tar -x -C .site
+          cp -R .engine-artifact/games/pvz-goty/engine .engine-artifact/games/pvz-goty/vendor .site/games/pvz-goty/
           touch .site/.nojekyll
           mkdir -p .source-overlay/MayGame/games/pvz-goty
           cp games/pvz-goty/quality.js games/pvz-goty/index.html .source-overlay/MayGame/games/pvz-goty/
