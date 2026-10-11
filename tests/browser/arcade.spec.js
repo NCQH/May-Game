@@ -195,7 +195,19 @@ test("shared styles and relocated Flappy assets load without missing requests", 
   page.on("response", (response) => {
     if (response.status() >= 400 && response.url().startsWith("http://127.0.0.1:4173/")) missing.push(response.url());
   });
-  for (const route of ["/", "/contribute.html", "/contributors.html", "/games/_template/", "/games/flappy-bird/", "/games/pikachu/", "/games/tetris/"]) {
+  await page.goto("/");
+  await expect(page.locator("#start-game")).toBeVisible();
+  for (let game = 0; game < 4; game++) {
+    const art = page.locator(".game-feature");
+    const backgrounds = await art.evaluate((node) => [...node.querySelectorAll("*")].flatMap((element) => {
+      const match = getComputedStyle(element).backgroundImage.match(/url\("?([^"\)]+)"?\)/);
+      return match ? [match[1]] : [];
+    }));
+    for (const url of backgrounds) expect((await page.request.get(url)).ok(), url).toBe(true);
+    await expect.poll(() => art.locator("img").evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0))).toBe(true);
+    await page.keyboard.press("ArrowRight");
+  }
+  for (const route of ["/contribute.html", "/contributors.html", "/games/_template/", "/games/flappy-bird/", "/games/pikachu/", "/games/tetris/"]) {
     await page.goto(route);
     await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).getPropertyValue("--font-body").trim())).not.toBe("");
   }
