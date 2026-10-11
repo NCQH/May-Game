@@ -10,7 +10,7 @@ Port toàn bộ GOTY. Giữ nguyên giao diện trong game, bố cục, artwork,
 2. Trang `games/pvz-goty/index.html` dùng shell runtime upstream, ẩn màn hình upload; catalog Máy Game dùng cách hiển thị sẵn có, không thêm ảnh minh họa mới.
 3. Tự nạp `main.pak`, `properties/` từ manifest local/host hoặc IndexedDB; tự khởi động, không có bước upload. Không gửi file lên mạng; không chạy EXE.
 4. Giữ save theo định dạng engine, đồng bộ IndexedDB; xuất/nhập ZIP. localStorage chỉ đánh dấu có save cho catalog.
-5. Framebuffer thực đến 2880×2160, tự chọn theo màn hình; giữ tọa độ logic 800×600 và tỷ lệ 4:3. Vùng bấm, vị trí UI và animation không thay đổi.
+5. Framebuffer thực đến 3840×2160, tự chọn theo màn hình; giữ tọa độ trò chơi 800×600 ở giữa camera 16:9. Vùng bấm, vị trí UI và animation không thay đổi.
 6. Nhận texture PNG 2×/4× có cùng hình vẽ, tỷ lệ, frame/cel và alpha gốc. Chỉ texture GPU dùng pixel HD; dữ liệu logic, ảnh động tạo bằng phần mềm và âm thanh giữ gốc. Ảnh sai kích thước hoặc vượt giới hạn GPU dùng bản gốc.
 7. GitHub Actions tạo artifact site, binary và mã nguồn/giấy phép tương ứng. Chưa phát hành site khi PR chưa được duyệt.
 
@@ -39,5 +39,7 @@ Nguồn video người dùng gửi: HenryJk/PvZWidescreen v1.1.2, GameBanana 425
 
 ## Sửa widescreen — 11/10/2026
 
-Đã thêm patch camera 16:9 độc lập với hệ tọa độ/rules 800×600 gốc: projection 1066⅔×600, dịch nội dung 133⅓ px, mở clip toàn màn và chuyển chuột về tọa độ gốc. Các nền sân 1400×600 có sẵn trong main.pak được hiện thêm, giữ toàn bộ grid và save. Framebuffer 1080p là 1920×1080, giới hạn 4K là 3840×2160. Nền màn tải/menu không đủ rộng dùng ảnh gốc để phủ vùng mở rộng, chưa có asset widescreen vẽ lại. Kiểm tra tự động qua năm mức render và ánh xạ chuột đã qua; bản native đang chờ kiểm tra hình ảnh/input local trước PR.
+Đã thêm patch camera 16:9 độc lập với hệ tọa độ/rules 800×600 gốc: projection 1066⅔×600, dịch nội dung 133⅓ px, mở clip toàn màn và chuyển chuột về tọa độ gốc. Framebuffer 1080p là 1920×1080, giới hạn 4K là 3840×2160. Bản build 99cba3c đã kiểm tra menu, tiếp tục Adventure 1-1, thu sun ở 1080p và 4K, nút tạm dừng, save và PCM khác 0. Cách phản chiếu nền trong bản đó bị người dùng từ chối.
+
+Lần sửa tiếp theo bỏ toàn bộ phần phản chiếu do port thêm, nhận 22 ảnh nền riêng từ PvZWidescreen 1.1.2. Không thay PAK, animation, âm thanh hoặc dữ liệu GOTY bằng gói mod Windows cũ. Menu mở rộng hai lớp nền với alpha gốc, giữ animation và hit box GOTY. Camera pan sử dụng biên ảnh 1666 px khi có bộ nền; khi thiếu vẫn dùng biên ảnh gốc. Zombatar chưa có ảnh nền widescreen trong gói tham chiếu, dùng nền gốc ở giữa. Chưa có bộ HD Mod trong dữ liệu local; bicubic chưa được coi là HD art. Bản sửa này đang chờ build và kiểm tra local; chưa có PR.
 

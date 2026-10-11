@@ -24,5 +24,17 @@ const patch = fs.readFileSync(path.join(root, 'scripts/patch-pvz-widescreen.cjs'
 assert.ok(patch.includes('width * 9 > height * 16'));
 assert.ok(patch.includes('g->ClipRect(-134, 0, 1068, 600)'));
 assert.ok(patch.includes('400.0f / 3.0f'));
+assert.ok(patch.includes('mScreenBounds.mX = 0;'), 'Native initialization must not add a second camera offset');
+assert.ok(patch.includes('mScreenBounds.mWidth = mWidth;'), 'Keep original widget bounds separate from the wider rendering surface');
+for (const pan of [-246, 0, 86]) {
+  assert.ok(-220 + pan <= -400 / 3, 'Panorama covers the left camera edge');
+  assert.ok(-220 + pan + 1400 >= 800 + 400 / 3, 'Panorama covers the right camera edge');
+}
 assert.ok(!patch.includes('mWidth = BOARD_WIDTH'), 'Do not change the original game rules or board grid');
+assert.ok(!patch.includes('DrawImageMirror'), 'No reflected scenery may be introduced by the widescreen port');
+assert.ok(patch.includes('MayDrawWideBackdrop'), 'Use authored widescreen scenery separately from original resources');
+for (const pan of [-379, 0, 219]) {
+  assert.ok(-220 - 133 + pan <= -400 / 3);
+  assert.ok(-220 - 133 + pan + 1666 >= 800 + 400 / 3);
+}
 console.log('PASS: 16:9 framebuffer at five settings, centered pointer mapping and expanded native clips.');

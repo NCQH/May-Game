@@ -325,7 +325,7 @@ function normalizeResourcePath(path) {
     const parts = safeImportParts(path);
     if (!parts.length) return '';
     let relative = parts;
-    if (!['main.pak', 'properties', 'hd', 'images', 'reanim', 'fonts'].includes(parts[0].toLowerCase())) relative = parts.slice(1);
+    if (!['main.pak', 'properties', 'hd', 'wide', 'images', 'reanim', 'fonts'].includes(parts[0].toLowerCase())) relative = parts.slice(1);
     if (!relative.length) return '';
     const root = relative[0].toLowerCase();
     relative[0] = root;
@@ -333,6 +333,7 @@ function normalizeResourcePath(path) {
     if (root === 'properties' && relative.length > 1 && /\.(xml|sig|sig2|txt|png|jpg|jpeg|gif)$/i.test(relative.at(-1))) return relative.join('/');
     if (['images', 'reanim', 'fonts'].includes(root)) relative.unshift('hd');
     if (relative[0] === 'hd' && relative.length > 2 && ['images', 'reanim', 'fonts'].includes(relative[1].toLowerCase()) && /\.png$/i.test(relative.at(-1))) return relative.join('/').toLowerCase();
+    if (root === 'wide' && relative.length === 3 && ['images', 'reanim'].includes(relative[1].toLowerCase()) && /^[a-z0-9_]+\.png$/i.test(relative[2])) return relative.join('/').toLowerCase();
     return '';
 }
 

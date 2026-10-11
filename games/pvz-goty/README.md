@@ -12,7 +12,9 @@ Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Sav
 
 ## Chất lượng hình ảnh
 
-Camera 16:9 rộng 1066⅔×600, đặt hệ tọa độ GOTY 800×600 ở giữa và quy đổi chuột theo đúng camera. Các nền sân chơi gốc rộng 1400 px được hiện thêm ở hai bên; không kéo giãn cây, zombie hoặc thay đổi ô chơi. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 3840×2160. Màn hình 1920×1080 hiển thị framebuffer 1920×1080. Màn tải và một số nền menu rộng 800 px dùng phản chiếu mép nền ở vùng thêm; nội dung gốc ở giữa giữ nguyên. Chế độ lấy mẫu không tạo chi tiết AI.
+Camera 16:9 rộng 1066⅔×600, đặt hệ tọa độ GOTY 800×600 ở giữa và quy đổi chuột theo đúng camera. Không kéo giãn cây, zombie hoặc thay đổi ô chơi. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 3840×2160; mức 1080p là 1920×1080. Nền widescreen được nạp riêng từ `wide/images/` và `wide/reanim/`, giữ nguyên kích thước resource logic của GOTY. Nền sân của mod rộng 1666 px, nền các màn 1066 px; không phản chiếu hai bên. Khi thiếu ảnh widescreen, giữ ảnh gốc và phần trống, không tạo cảnh giả. Chế độ lấy mẫu không tạo chi tiết AI.
+
+Để chuẩn bị bộ nền local từ release HenryJk/PvZWidescreen 1.1.2, sau bước chuẩn bị GOTY chạy `node scripts/prepare-pvz-wide.cjs "/path/to/PvZWidescreen_1.1.2/main.pak"` (cần thư viện `sharp`). Script chỉ lấy 22 ảnh nền, giữ alpha; không thay `main.pak`, animation, âm thanh, EXE hoặc DLL của GOTY. Dữ liệu thêm và manifest đều được Git bỏ qua. Menu vẫn dùng animation GOTY, chỉ mở rộng hai lớp cảnh nền; các nút và phần Achievements/Zombatar giữ bản GOTY.
 
 Manifest tự nạp cũng có thể chứa `hd/images/`, `hd/reanim/`, `hd/fonts/`. Shell upstream còn giữ công cụ nhập ẩn để tương thích nhưng không hiển thị trong luồng chơi. Texture HD dùng thư mục `images/`, `reanim/`, `fonts/`, hoặc `hd/` chứa các thư mục đó. Ví dụ gốc `images/background1.jpg` 800×600 có HD `images/background1.png` 1600×1200 hoặc 3200×2400. PNG/alpha mask giữ đúng bố cục và hình vẽ gốc. Texture sai kích thước, vượt giới hạn GPU hoặc ảnh đã bị sửa bằng phần mềm dùng đường gốc. Bộ HD không kèm theo.
 
@@ -47,7 +49,7 @@ Khi chưa nhập gói HD, renderer lấy chính pixel gốc để nội suy bicu
 
 ## Widescreen tham chiếu
 
-[HenryJk/PvZWidescreen v1.1.2](https://github.com/HenryJk/PvZWidescreen/tree/v1.1.2) mở chiều ngang logic từ 800 lên 1066 (PAD=133 mỗi bên), chỉnh Board, CutScene, menu, hội thoại và hit-test. Bản này vá tiến trình EXE Windows; cần chuyển ý tưởng sang nguồn engine web, không thể chạy bản vá Windows trong WebAssembly. Bản local hiện đã kiểm tra 4:3; widescreen chưa được triển khai hoặc nghiệm thu. WineD3D là wrapper DirectX cho Windows, engine web hiện dùng WebGL.
+[HenryJk/PvZWidescreen v1.1.2](https://github.com/HenryJk/PvZWidescreen/tree/v1.1.2) mở chiều ngang logic từ 800 lên 1066 (PAD=133 mỗi bên), chỉnh Board, CutScene, menu, hội thoại và hit-test. Bản này vá tiến trình EXE Windows; bản web chuyển bố trí và việc nạp ảnh nền sang C++. Video cài HD Mod, PvZWidescreen rồi dùng `ddraw.dll`/`wined3d.dll` hỗ trợ fullscreen trên Windows. Engine web dùng WebGL; không chạy DLL Windows trong WebAssembly. Widescreen cần nghiệm thu đủ chế độ trước khi phát hành. Gói mod này chưa cung cấp nền mở rộng cho Zombatar của GOTY.
 
 Artifact không có tài nguyên GOTY. Để chạy lần đầu không có bước import, nơi triển khai phải cung cấp resources.json/data hợp lệ với quyền phân phối phù hợp; sở hữu một license chơi game không tự cung cấp các file cho trình duyệt.
 
