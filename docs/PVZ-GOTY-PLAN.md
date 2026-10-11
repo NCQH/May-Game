@@ -25,7 +25,7 @@ Port toàn bộ GOTY. Giữ nguyên giao diện trong game, bố cục, artwork,
 
 ## Trạng thái và giới hạn
 
-Engine upstream mô tả gần 100% tương đương; cần nghiệm thu thực tế. Bản tích hợp mới bổ sung lưu tài nguyên, framebuffer và đường texture HD. Chưa có bộ texture HD mới được tạo/nhập, chưa xác nhận toàn bộ chế độ trên bản build Máy Game. GitHub Pages hiện xuất bản từ branch: cần phát hành artifact đầy đủ để có engine, không xuất bản riêng thư mục nguồn.
+Engine upstream mô tả gần 100% tương đương; cần nghiệm thu thực tế. Bản tích hợp mới bổ sung lưu tài nguyên, framebuffer và đường texture HD. Đã nhập 416 ảnh retouch HD tương thích cho preview local, chưa xác nhận toàn bộ chế độ trên bản build Máy Game. GitHub Pages hiện xuất bản từ branch: cần phát hành artifact đầy đủ để có engine, không xuất bản riêng thư mục nguồn.
 
 Khi chưa nhập gói HD, renderer lấy chính pixel gốc để nội suy bicubic 2× cho texture tĩnh, xử lý alpha trước khi lấy mẫu và giữ ranh giới cel. Đây là nâng chất lượng lấy mẫu, không phải AI tạo chi tiết mới; ảnh tạo/sửa bằng phần mềm và ảnh vượt giới hạn GPU giữ đường gốc. Cần đối chiếu ảnh thực và hiệu năng trước khi phát hành.
 
@@ -46,6 +46,6 @@ Lần sửa tiếp theo bỏ toàn bộ phần phản chiếu do port thêm, nh�
 Đã tải HD Mod v1.0, MD5 khớp `84661486415a9fdf8bcb784315821ed0`. Preview local đã chuẩn bị 416 ảnh cùng kích thước, alpha/sai khác màu trong ngưỡng bảo toàn hình gốc; 878 ảnh không khớp bị loại. 22 nền widescreen được lấy từ PAK HD. Engine nhận retouch cùng kích thước trước khi tạo atlas, đồng thời áp dụng bicubic cho atlas animation tĩnh. Đây là nghiệm thu sơ bộ bằng pixel, chưa chứng minh toàn bộ nội dung mod giống GOTY. Dữ liệu gốc, âm thanh và animation không bị thay; bản engine bổ sung đã dựng thành công ở run 38104886643 và đang chạy local. Menu đã hiển thị lớp cây bên trái và tường/cỏ bên phải, âm thanh có PCM khác 0 và hồ sơ LocalTest vẫn còn. Chưa nghiệm thu toàn bộ màn/chế độ.
 
 
-Người dùng chấp thuận mirror riêng Zombatar ngày 11/10: chỉ phản chiếu hai dải mép nền, giữ nguyên nội dung 800×600 ở giữa và mọi nút/nhân vật. Các màn khác tiếp tục dùng ảnh widescreen đã có. Bản cập nhật đang chờ dựng và kiểm tra local, chưa PR.
+Người dùng chấp thuận mirror riêng Zombatar ngày 11/10: chỉ phản chiếu hai dải mép nền, giữ nguyên nội dung 800×600 ở giữa và mọi nút/nhân vật. Các màn khác tiếp tục dùng ảnh widescreen đã có. Bản cập nhật đã dựng thành công và kiểm tra local, chưa PR.
 
-Bổ sung bụi cây mép phải theo patch_bush.rs của HenryJk v1.1.2: 24 lớp có alpha, x=642, lớp đáy 300001 và tán theo hàng 310999 + row*10000. Xen kẽ trong hàng đợi vẽ gốc; không đổi luật, tọa độ ô hay dữ liệu lưu. Đang chờ build và nghiệm thu local.
+Bổ sung bụi cây mép phải theo patch_bush.rs của HenryJk v1.1.2: 24 lớp có alpha, x=642, lớp đáy 300001 và tán theo hàng 310999 + row*10000. Xen kẽ trong hàng đợi vẽ gốc; không đổi luật, tọa độ ô hay dữ liệu lưu. Đã dựng thành công ở commit 4fcd4f0, run 38106517623. Đã kiểm tra Zombatar phủ hai mép bằng mirror, sân ngày 1-1 hiển thị bụi cây và che zombie theo lớp, tiếp tục save, nút tạm dừng, âm thanh PCM khác 0, framebuffer 1080p/4K. Chưa kiểm tra trực tiếp sân đêm/hồ/sương và toàn bộ cutscene.
