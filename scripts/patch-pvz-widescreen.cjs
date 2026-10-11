@@ -29,6 +29,11 @@ edit(wc, 'g->ClipRect(0, 0, mWidth, mHeight);', '{\n\t\t// Full-screen scenes ma
 // space; preserve the central original artwork, controls, text and animation.
 edit('Lawn/Widget/TitleScreen.cpp', 'g->DrawImage(IMAGE_TITLESCREEN, 0, 0);', 'g->DrawImageMirror(IMAGE_TITLESCREEN, -IMAGE_TITLESCREEN->GetWidth(), 0);\n\tg->DrawImageMirror(IMAGE_TITLESCREEN, IMAGE_TITLESCREEN->GetWidth(), 0);\n\tg->DrawImage(IMAGE_TITLESCREEN, 0, 0);');
 edit('Lawn/Widget/GameSelector.cpp', 'aSelectorReanim->DrawRenderGroup(g, 1);  // "SelectorScreen_BG"', 'g->DrawImage(Sexy::IMAGE_REANIM_SELECTORSCREEN_BG, -134, 0, 1068, 600);\n\taSelectorReanim->DrawRenderGroup(g, 1);  // "SelectorScreen_BG"');
+// These matrix text paths use absolute screen coordinates, unlike normal text.
+edit('Lawn/Widget/GameSelector.cpp', '170.5f - static_cast<int>(aStringWidth * 0.5f) + mX', '170.5f + 400.0f / 3.0f - static_cast<int>(aStringWidth * 0.5f) + mX');
+edit('Lawn/MessageWidget.cpp', 'Reanimation::MatrixFromTransform(aTransform, aMatrix);', 'Reanimation::MatrixFromTransform(aTransform, aMatrix);\n\t\taMatrix.m02 += 400.0f / 3.0f;');
+edit('Lawn/Challenge.cpp', 'PvzpScaleTransformMatrix(aMatrix, 400.0f - aStrWidth * 0.5f,', 'PvzpScaleTransformMatrix(aMatrix, 400.0f + 400.0f / 3.0f - aStrWidth * 0.5f,');
+edit('Lawn/SeedPacket.cpp', 'PvzpScaleTransformMatrix(aMatrix, aTextOffsetX * g->mScaleX + x, aTextOffsetY * g->mScaleY + y,', 'PvzpScaleTransformMatrix(aMatrix, aTextOffsetX * g->mScaleX + x + g->mTransX, aTextOffsetY * g->mScaleY + y + g->mTransY,');
 // Existing lawn backgrounds already contain the scenery outside the 4:3 crop.
 // Do not scale them or alter grid, plant, zombie, projectile or save coordinates.
 edit('Lawn/Board.cpp', 'g->FillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);', 'g->FillRect(-134, 0, 1068, BOARD_HEIGHT);');
