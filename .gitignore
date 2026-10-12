@@ -1,4 +1,10 @@
 .claude/settings.local.json
+/.claude/worktrees/
+
+# Local review notes and standalone report
+/chatgpt.md
+/gemini.md
+/ux-ui-review.html
 node_modules/
 test-results/
 playwright-report/

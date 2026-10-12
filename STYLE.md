@@ -1,0 +1,129 @@
+# Quy chuẩn giao diện Máy Game
+
+Dành cho người phát triển game hiện tại và game mới. Giữ cùng một **máy arcade**, nhưng không ép mọi game có cùng artwork, bố cục bàn chơi hay điều khiển.
+
+Tài liệu mô tả CSS hiện tại và quy tắc dùng lại. Những mục ghi **định hướng** chưa đồng nghĩa đã được triển khai. Khi thay đổi style chung, cập nhật tài liệu này và kiểm tra các game đang có.
+
+## 1. Nguồn style và phạm vi
+
+| Nguồn | Trách nhiệm |
+| --- | --- |
+| [typography.css](assets/css/typography.css) | Font body/display và fallback |
+| [shared.css](assets/css/shared.css) | Token, cabinet và component chung cho game |
+| [arcade.css](assets/css/arcade.css) | Trang chủ, catalog, contributors và hướng dẫn |
+| [viewport.css](assets/css/viewport.css) | Các override responsive dùng chung và theo game |
+| `games/<id>/game.css` | Bàn chơi, HUD, trạng thái và artwork riêng |
+| [cabinet.css của PvZ](games/pvz-goty/cabinet.css) | Vỏ arcade, toolbar và canvas engine PvZ |
+
+Không nạp cả `arcade.css` và `shared.css` chỉ để lấy một component: hai file có token và selector toàn cục riêng. Game dùng `shared.css`; trang thư viện/tài liệu dùng `arcade.css`.
+
+Thứ tự hiện tại **không giống nhau**: Tetris/Flappy nạp `viewport.css` trước `game.css`; Pikachu/template nạp `game.css` trước `viewport.css`. Kiểm tra cascade khi sửa, không giả định rule đọc đầu tiên là rule cuối cùng có hiệu lực. Game mới bắt đầu từ [template](games/_template/index.html); scope override bằng class trang của game, tránh đổi `button`, `canvas` hoặc `.game-button` toàn site trong CSS riêng.
+
+## 2. Màu sắc
+
+Dùng biến CSS cho giao diện ngoài game; không sao chép mã màu sang mỗi game.
+
+| Vai trò | Token game / token trang chủ | Giá trị |
+| --- | --- | --- |
+| Tường/nền trang | `--arcade-wall`, `--game-bg` / `--arcade-bg` | `#101814` |
+| Vỏ máy olive | `--arcade-case` | `#94a951` |
+| Viền vỏ sáng | `--arcade-case-light` | `#d6e99a` |
+| Chân/độ sâu vỏ | `--arcade-case-dark` | `#596a38` |
+| Bezel game | `--arcade-bezel` | `#19251c` |
+| Màn hình | `--arcade-screen` | Game `#101b15`; trang chủ `#14221c` |
+| Panel | `--game-panel` / `--arcade-panel` | `#1b2b23` |
+| Đường phân cách game | `--game-line` | `#394a37` |
+| Chữ chính | `--game-text` / `--arcade-text` | `#eff2cd` |
+| Chữ phụ | `--game-muted` / `--arcade-muted` | `#abb99a` |
+| CTA/nhấn mạnh | `--game-lime` / `--arcade-lime` | `#c7e875` |
+| Lỗi/cảnh báo | `--game-coral` / `--arcade-coral` | `#ee886b` |
+| Accent phụ | `--game-blue` / `--arcade-blue` | `#79c9c4` |
+| Điểm/focus game | `--game-sand` | `#e0e8bd` |
+
+Giao diện hiện tại dark-only (`color-scheme: dark`). Màu board/tetromino/Pokémon/engine là màu riêng của game, không phải token của cabinet. Tetris dùng palette riêng trong `game.css`; PvZ giữ UI engine gốc. Không dùng màu làm dấu hiệu duy nhất cho lỗi, lựa chọn hoặc trạng thái âm thanh.
+
+## 3. Typography
+
+- Body, button, input, select, textarea: `--font-body` = **Be Vietnam Pro**, `system-ui`, `sans-serif`.
+- Logo, heading, score: `--font-display` = **Chakra Petch**, Be Vietnam Pro, `system-ui`, `sans-serif`.
+- Luôn có fallback, không chặn chơi khi Google Fonts chưa tải. Không dùng font pixel khó đọc cho đoạn hướng dẫn dài.
+- Heading game chung hiện tại 24px, xuống 21px ở ≤580px; một số tiêu đề trong meta xuống 16px ở ≤620px. Heading catalog 28–40px; heading tài liệu 28–48px.
+- CSS cũ có nhiều label/helper 7–12px. Đây là **hiện trạng, không phải chuẩn bắt buộc cho game mới**. Định hướng: body/hướng dẫn 14–16px, label phụ khoảng 12px; kiểm tra khả năng đọc và bố cục trước khi áp dụng.
+- Dùng `font-variant-numeric: tabular-nums` cho điểm, thời gian, tiến độ cần ổn định chiều rộng. Tiêu đề/đường dẫn dài phải wrap, không đẩy trang tràn ngang.
+
+## 4. Khung máy và điều hướng
+
+| Phần | Class game / trang thư viện | Style và cách dùng |
+| --- | --- | --- |
+| Khung ngoài | `.game-page.arcade-game` / `.arcade-cabinet` | Vỏ olive, viền sáng 3px, shadow bậc 4px/8px; góc vuông |
+| Header | `.arcade-case-header` / `.cabinet-topline` | Logo trái, đèn trang trí phải; flex, không co mất tên |
+| Logo/đèn | `.arcade-case-brand`, `.arcade-brand-mark`, `.arcade-case-lights` | Dấu pixel 2×2, ba đèn; phần trang trí `aria-hidden="true"` |
+| Bezel | `.arcade-screen` / `.screen-bezel` | Viền tối 5px, inset highlight; `min-height: 0` cho vùng co giãn |
+| Meta | `.arcade-screen-meta` / `.screen-meta` | Điều hướng/tên game; game hiện tại đặt back trái, title phải |
+| Về thư viện | `.back-link` / `.screen-home-link` | Nhãn “← Màn hình chính”, link HTML thật; vùng chạm ≥44px |
+| Nội dung | `.arcade-game-content` / `.page-content` | Nền màn hình; không thêm một cabinet lồng bên trong |
+| Deck/loa | `.arcade-deck`, `.arcade-speaker` / `.cabinet-deck`, `.deck-speaker` | Trang trí đáy khung; không được chiếm chỗ khiến điều khiển mất khỏi viewport |
+
+Khung game mặc định rộng tối đa 760px; các game override theo nội dung: Tetris 540px, Flappy 520px, Pikachu 1120px; Tetris/Flappy có override desktop 1100px. Trang chủ tối đa 1200px. Đây là giới hạn theo game, không yêu cầu game mới dùng chung một độ rộng.
+
+Ưu tiên bàn chơi và điều khiển trước header/deck khi màn hình thấp. Không coi các lỗi responsive đã biết là bố cục cần sao chép. Trang tài liệu có nội dung dài nên cuộn đọc được đầy đủ, không ép hành vi một màn hình của game.
+
+## 5. Component trong game
+
+| Component | Quy tắc |
+| --- | --- |
+| Board/canvas | Giữ tỷ lệ gốc, không kéo méo. `canvas` chung có `image-rendering: pixelated`; chỉ dùng `touch-action: none` trên vùng thật sự xử lý gesture, không khóa cuộn toàn trang. Có tên truy cập/hướng dẫn đúng game. |
+| Panel/HUD | Dùng `.game-panel`, viền `--game-line`, nền `--game-panel`, góc vuông (rule cuối của shared). Nhãn và giá trị rõ; không đóng khung mỗi con số nếu không cần. |
+| Điểm/phụ chú | `.game-score`: display 15px, sand; `.game-small`: muted. HUD riêng phải đọc được trên màn hình nhỏ. |
+| Action group | `.game-actions`: flex wrap, gap 8px. Gom thao tác chính cạnh bàn/kết quả, không lẫn với navigation. |
+| Button phụ | `.game-button`: min-height 44px, padding ngang 13px, viền 1px, góc vuông; nền hiện tại `#22343b`, text chính. |
+| Button chính | `.game-button-primary`: lime, chữ tối; hover sáng hơn. Một CTA chính cho mỗi trạng thái. |
+| Disabled | `.game-button:disabled`: opacity .45, cursor not-allowed; dùng thuộc tính `disabled`, không chỉ đổi màu. |
+| Hướng dẫn/phím | `.game-help`, `kbd`: đúng phím/gesture của game. Mobile phải có chỉ dẫn chạm, không chỉ có P/C/M. |
+| Thông báo | `.game-message`: lime, ẩn khi rỗng; `.is-error`: coral. Thông báo lỗi nói cách phục hồi, không chỉ “thất bại”. |
+| Dialog/overlay | Pikachu có native `<dialog>` với title/message/actions, backdrop và góc vuông. Tetris có overlay trong board. Dialog cần focus/đóng/phục hồi focus; kết quả có CTA chơi lại gần nội dung. |
+| Pause/mute/restart | Nhãn tiếng Việt, trạng thái rõ. Không dùng cùng một bộ D-pad cho mọi game; chọn controls theo gameplay. Pause/resume không được làm mất tiến trình. |
+
+Các biến thể `.pika-control`, `.tetris-*`, `.flappy-*` có thể giữ hình dáng riêng, nhưng phải thống nhất focus, vùng chạm, màu semantic và ngôn ngữ action với khung chung.
+
+### Ngoại lệ PvZ
+
+Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated lên art HD. `.pvz-display` có nền đen; toolbar gồm chất lượng, save và fullscreen, control cao ≥44px. UI nằm bên trong canvas không tự hưởng CSS ngoài game: phải kiểm tra riêng độ dễ đọc/chạm. Fullscreen là tùy chọn, không thay thế bố cục mặc định. Không chỉnh art/âm thanh engine chỉ để giống palette cabinet.
+
+## 6. Trang thư viện và tài liệu
+
+- **Catalog:** `.selection-row` và `.game-feature` chia artwork/copy; heading, mô tả, kỷ lục rồi CTA `.start-game`. Card giữ artwork riêng, không thay bằng icon generic nếu đã có asset. Previous/next có tên truy cập và disabled thật.
+- **Search:** `.screen-search`/`.screen-search-toggle`, input và nút cao 44px; trạng thái mở dùng `aria-expanded`. Giữ focus hiển thị, có empty state khi không tìm thấy.
+- **Loading/empty/error:** `.selection-loading`, `.loader-pixel`, `.empty-selection`. Luôn có chữ giải thích; loading kéo dài có tiến độ/ngữ cảnh, lỗi có retry phù hợp. Tránh thông báo chạy local trên site live.
+- **Contributors:** `.contributor-grid` tự fit cột tối thiểu 280px hoặc toàn chiều rộng; `.contributor-card` có avatar, tên, profile và danh sách game. Row link hiện tại nhỏ hơn 44px: game/trang mới nên đạt vùng chạm 44px, không sao chép hạn chế này.
+- **Hướng dẫn:** `.page-heading`, `.guide-step`, `.guide-note`, `.guide-local-run`; chia bước rõ, code/path wrap hoặc cuộn trong block riêng. Không để nội dung cuối bị mất do chiều cao cố định.
+- **Footer/link:** `.deck-link`, `.deck-link-primary`, `aria-current="page"` khi phù hợp. Link dẫn đi dùng `<a>`; thao tác tại chỗ dùng `<button>`.
+
+## 7. Responsive và accessibility
+
+Các breakpoint hiện có nằm trong CSS chung và riêng: 360, 580, 620, 760, 900px; màn hình thấp ≤500px có bố cục riêng. Không thêm breakpoint tùy tiện trước khi thử flex/grid và wrap. `viewport.css` dùng `100dvh` để theo chiều cao browser; shared có `100svh` làm nền tảng.
+
+Yêu cầu khi sửa/thêm game:
+
+1. Kiểm tra 320×568, 390×844, 844×390 và 1440×900; xoay trong lúc chơi. Không tràn ngang trang, không kéo méo canvas; action thiết yếu phải dễ tiếp cận.
+2. Vùng chạm thao tác ≥44×44px. Focus chung game là outline 3px sand; trang thư viện dùng vàng `#fff2a8`, offset 3px. Không xóa outline.
+3. Dùng HTML semantic, label/ARIA cho icon/canvas, `hidden` cho trạng thái không hiển thị; không để phần tử ẩn còn nhận tương tác. Có luồng keyboard và touch tương ứng.
+4. Giữ `prefers-reduced-motion`: shared giảm animation/transition về .01ms. Hiệu ứng mới phải có phương án tắt/giảm, không nhấp nháy mạnh.
+5. Texture/scanline chỉ trang trí, `pointer-events: none`; không làm chữ dài khó đọc. Kiểm tra contrast sau khi đổi màu; có CSS/ARIA không đồng nghĩa đã đạt WCAG.
+6. Test trang thực và xem screenshot, không chỉ lint/CSS. Kiểm tra font fallback, loading/error, pause, game-over và dữ liệu lưu qua reload.
+
+## 8. Âm thanh và hiệu ứng — định hướng P3
+
+Âm thanh boot và hiệu ứng arcade nhẹ là mục cần triển khai **ưu tiên thấp**, sau các sửa khả năng chơi/đọc; tài liệu này không thêm chúng vào code.
+
+- Boot sound ngắn, chỉ phát sau tương tác đầu tiên (tuân thủ autoplay), không chặn vào game; có tùy chọn tắt tiếng và tôn trọng lựa chọn đó.
+- Hiệu ứng chuyển card/nhấn nút nhẹ, không làm layout nhảy hay che HUD; ưu tiên CSS, tôn trọng reduced-motion.
+- Không tự thêm backend, leaderboard online hoặc bộ điều khiển ảo chung như một phần của style.
+
+## 9. Checklist game mới
+
+- Sao chép [template](games/_template/index.html), dùng font/token/component chung và một class trang riêng.
+- Giữ cabinet, back link, title, vùng board, action và thông báo theo các mục trên; chỉ override phần gameplay cần khác.
+- Đăng ký `games.json`, mô tả controls đúng và ghi nguồn/giấy phép asset theo [CONTRIBUTING.md](CONTRIBUTING.md) và [ASSETS.md](ASSETS.md).
+- Kiểm tra đủ viewport/trạng thái; không thêm dependency cho style mà CSS/native HTML đã giải quyết được.
+- Nếu thay đổi quy chuẩn dùng chung, cập nhật STYLE.md cùng commit thay vì để từng game tự tạo một phiên bản khác.
