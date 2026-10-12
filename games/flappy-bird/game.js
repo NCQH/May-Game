@@ -277,7 +277,8 @@ muteButton.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
   if (event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;
   const target = event.target instanceof Element ? event.target : null;
-  if (target?.closest("button, a, input, textarea, select, [contenteditable]")) return;
+  if (target?.closest("a, input, textarea, select, [contenteditable]")) return;
+  if (target?.closest("button") && (event.key === " " || event.key === "Enter")) return;
   if (event.key === " " || event.key === "ArrowUp") { event.preventDefault(); flap(); }
   if (event.key.toLowerCase() === "p") { event.preventDefault(); togglePause(); }
 });

@@ -78,6 +78,25 @@ check('mode timers freeze during pause; Sprint and Blitz finish correctly', () =
   for(let y=16;y<20;y++) sprint.board[y]=Array.from({length:10},(_,x)=>x===4?null:'J');
   t.lockPiece(sprint); assert.equal(sprint.lines,40); assert(sprint.won); assert.equal(sprint.active,null);
 });
+check('final Blitz frame simulates locks before the deadline', () => {
+  const s=piece('O',0,4,18); s.mode='blitz'; s.elapsed=119950; s.lock=490;
+  for (let y=18;y<20;y++) s.board[y]=Array.from({length:10},(_,x)=>x===4||x===5?null:'J');
+  assert.equal(t.advance(s,100).event,'over'); assert.equal(s.lines,2); assert.equal(s.score,300); assert.equal(s.elapsed,120000);
+});
+check('locking preserves frame remainder and records exact Sprint completion time', () => {
+  const s=piece('O',0,4,18); s.lock=490;
+  assert.equal(t.advance(s,1000).event,'lock'); assert.equal(s.elapsed,1000);
+  assert.equal(s.active.y,0); assert.equal(s.gravity,230);
+  const sprint=piece('I',1,2,16); sprint.mode='sprint'; sprint.lines=36; sprint.level=4; sprint.elapsed=1000; sprint.lock=495;
+  for(let y=16;y<20;y++) sprint.board[y]=Array.from({length:10},(_,x)=>x===4?null:'J');
+  assert.equal(t.advance(sprint,1000).event,'over'); assert.equal(sprint.elapsed,1005);
+  const r=t.blankRecord(); t.updateRecord(r,sprint); assert.equal(r.records.sprint,1005);
+});
+check('impossible full-row saves are discarded without losing mode records', () => {
+  const r=t.blankRecord(); r.records={marathon:123,sprint:45678,blitz:789}; r.current=piece('O',0,4,0);
+  for(let y=15;y<20;y++) r.current.board[y].fill('I');
+  const restored=t.readRecord(JSON.stringify(r)); assert.equal(restored.current,null); assert.deepEqual(restored.records,r.records);
+});
 check('mode records remain separate and Sprint records only completed times', () => {
   const r=t.blankRecord(), s=t.freshState(); s.score=123; t.updateRecord(r,s); assert.equal(r.records.marathon,123);
   s.mode='blitz'; s.score=400; t.updateRecord(r,s); assert.equal(r.records.blitz,400);

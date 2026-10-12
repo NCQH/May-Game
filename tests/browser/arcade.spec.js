@@ -161,6 +161,7 @@ test("Tetris top-outs when a blocked piece still reaches above the board", async
   const current = freshState();
   current.active = { type: 'T', rotation: 0, x: 3, y: -1 };
   current.board[1].fill('I');
+  current.board[1][0] = null;
   current.paused = true;
   await page.addInitScript((saved) => {
     localStorage.setItem('may-game:v1:tetris', JSON.stringify(saved));
@@ -299,6 +300,32 @@ test("Flappy UI supports pause, muted reload, death and retry", async ({ page })
   await expect(page.locator("#flap")).toHaveText("Chơi lại", { timeout: 6000 });
   await page.locator("#flap").click();
   await expect(page.locator("#flap")).toHaveText("Vỗ cánh");
+});
+
+test("Flappy shortcuts work after button clicks without overriding native activation", async ({ page }) => {
+  await page.addInitScript(() => { window.requestAnimationFrame = () => 0; });
+  await page.goto("/games/flappy-bird/");
+  await page.locator("#flap").click();
+  for (const button of ["#flap", "#mute", "#pause"]) {
+    if (button !== "#flap") await page.locator(button).click();
+    await expect(page.locator(button)).toBeFocused();
+    await page.keyboard.press("p");
+    await expect(page.locator("#pause")).toHaveText("Tiếp tục");
+    await page.keyboard.press("ArrowUp");
+    await expect(page.locator("#pause")).toHaveText("Tạm dừng");
+    if (button === "#mute") await page.keyboard.press("p");
+  }
+  await page.locator("#pause").click();
+  await page.locator("#mute").focus();
+  for (const [key, muted] of [["Space", "false"], ["Enter", "true"]]) {
+    await page.keyboard.press(key);
+    await expect(page.locator("#mute")).toHaveAttribute("aria-pressed", muted);
+    await expect(page.locator("#pause")).toHaveText("Tiếp tục");
+  }
+  await page.locator(".back-link").focus();
+  await page.keyboard.press("p");
+  await page.keyboard.press("ArrowUp");
+  await expect(page.locator("#pause")).toHaveText("Tiếp tục");
 });
 
 test("Tetris emits audible effects after unlock and stays silent when muted", async ({ page }) => {

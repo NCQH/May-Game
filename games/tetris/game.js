@@ -125,26 +125,28 @@ function holdPiece(s) {
 function advance(s, delta) {
   if (s.paused || s.over) return false;
   if (s.mode === "blitz") delta = Math.min(delta, 120000 - s.elapsed);
-  s.elapsed += delta;
-  if (s.mode === "blitz" && s.elapsed >= 120000) { finish(s, true); return { event: "over", rows: [] }; }
+  let result = false;
   // Small simulation steps prevent gravity or long frames from bypassing lock delay.
   while (delta > 0 && !s.over) {
-    const step = Math.min(delta, 10); delta -= step;
-    if (!valid(s, s.active, 0, 1)) {
+    const grounded = !valid(s, s.active, 0, 1);
+    const step = Math.min(delta, 10, grounded ? LOCK_DELAY - s.lock : Infinity);
+    delta -= step; s.elapsed += step;
+    if (grounded) {
       s.lock += step;
-      if (s.lock >= LOCK_DELAY) return lockPiece(s);
+      if (s.lock >= LOCK_DELAY) result = lockPiece(s);
     } else {
       s.gravity += step;
       const interval = Math.max(60, 760 * Math.pow(.82, s.level - 1));
       if (s.gravity >= interval) { s.gravity -= interval; move(s, 0, 1); }
     }
   }
-  return false;
+  if (!s.over && s.mode === "blitz" && s.elapsed >= 120000) { finish(s, true); return { event: "over", rows: result.rows || [] }; }
+  return result;
 }
 function blankRecord() { return { version: VERSION, records: { marathon: 0, sprint: null, blitz: 0 }, muted: false, current: null }; }
 function validState(s) {
   if (!s || typeof s.mode !== "string" || !Object.hasOwn(MODES, s.mode) || !Array.isArray(s.board) || s.board.length !== ROWS ||
-    !s.board.every(row => Array.isArray(row) && row.length === COLS && row.every(cell => cell === null || isType(cell)))) return false;
+    !s.board.every(row => Array.isArray(row) && row.length === COLS && row.includes(null) && row.every(cell => cell === null || isType(cell)))) return false;
   const types = list => Array.isArray(list) && list.every(isType);
   if (!types(s.queue) || s.queue.length !== 3 || !types(s.bag) || s.bag.length > 7 || new Set(s.bag).size !== s.bag.length ||
     !(s.hold === null || isType(s.hold))) return false;
