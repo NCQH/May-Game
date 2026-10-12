@@ -5,9 +5,9 @@ const vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../games/flappy-bird/game.js'), 'utf8');
 const core = vm.createContext({});
 vm.runInContext(source.split('// Browser wiring')[0] + `
-  globalThis.game = { newState, update, collide, readRecord, STEP, GRAVITY, FLAP_SPEED };
+  globalThis.game = { newState, update, collide, readRecord, revive, STEP, GRAVITY, FLAP_SPEED };
 `, core);
-const { newState, update, collide, readRecord, STEP, GRAVITY, FLAP_SPEED } = core.game;
+const { newState, update, collide, readRecord, revive, STEP, GRAVITY, FLAP_SPEED } = core.game;
 const clone = (value) => JSON.parse(JSON.stringify(value));
 const flying = () => ({ ...newState(), phase: 'playing', birdV: FLAP_SPEED });
 
@@ -75,4 +75,23 @@ for (let i = 0; i < 2400; i++) {
 }
 assert.equal(live.score, points);
 assert.ok(points > 5);
-console.log('PASS: fixed-step physics, pause, scoring, collisions, death transitions and bounded save validation.');
+const comeback = { ...clone(wall), score: 7 };
+comeback.pipes.unshift({ x: -30, gapY: 100, scored: true });
+assert.equal(revive(comeback), true);
+assert.equal(comeback.score, 7);
+assert.equal(comeback.paused, true);
+assert.equal(comeback.revived, true);
+assert.equal(collide(comeback), false);
+assert.equal(comeback.pipes[0].x, 238);
+assert.ok(comeback.pipes.every(p => !p.scored));
+assert.equal(load({ ...saved, current: comeback }).current.revived, true);
+comeback.phase = 'results';
+const used = clone(comeback);
+assert.equal(revive(comeback), false);
+assert.deepEqual(clone(comeback), used);
+for (const phase of ['ready', 'playing', 'dying']) assert.equal(revive({ ...newState(), phase }), false);
+assert.equal(newState().revived, false);
+for (const revived of [1, 'false', null]) assert.equal(load({ ...saved, current: { ...saved.current, revived } }).current, null);
+const legacy = clone(saved); delete legacy.current.revived;
+assert.equal(load(legacy).current.revived, false);
+console.log('PASS: physics, scoring, death, one revival per run and bounded save validation.');

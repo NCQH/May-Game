@@ -230,7 +230,8 @@ function updateClock() {
 function resizeBoard() {
   const maxWidth = state.cols * 44 + (state.cols - 1) * 2 + 18;
   const compactLandscape = matchMedia('(max-height: 500px) and (min-width: 620px)').matches;
-  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 170 : 320));
+  const compactPhone = matchMedia('(max-width: 580px) and (max-height: 700px)').matches;
+  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 170 : compactPhone ? 360 : 320));
   const heightLimitedWidth = availableHeight * state.cols / state.rows * 42 / 52 + 18;
   boardWrap.style.width = `min(100%, ${Math.min(maxWidth, heightLimitedWidth)}px)`;
   boardNode.style.setProperty("--cols", String(state.cols));
@@ -666,6 +667,7 @@ function setSizeMode(mode) {
   runStarted = true;
   statusText = `Đã đổi sang bàn ${state.cols}×${state.rows} · tiến độ, điểm và thời gian được giữ lại.`;
   render();
+  showToast(statusText);
   save();
 }
 

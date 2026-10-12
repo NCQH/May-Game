@@ -17,7 +17,7 @@ canvas#canvas { max-width: 100%; max-height: 100%; image-rendering: auto; }
 .pvz-hint { font-size: 11px; line-height: 1.6; }
 #save-toolbar { position: static; max-width: none; display: flex; align-items: center; justify-content: flex-end; gap: 7px; }
 #save-toolbar button, .pvz-quality select {
-  min-height: 34px; border: 1px solid #485c34; border-radius: 0; padding: 6px 10px;
+  min-height: 44px; border: 1px solid #485c34; border-radius: 0; padding: 6px 10px;
   color: #edf3ce; background: #293b29; font: 600 11px/1.4 var(--font-body); cursor: pointer;
   backdrop-filter: none;
 }
@@ -27,6 +27,7 @@ canvas#canvas { max-width: 100%; max-height: 100%; image-rendering: auto; }
 #pvz-cabinet:fullscreen .arcade-screen { flex: 1; }
 #pvz-cabinet:fullscreen .pvz-display { flex: 1; min-height: 0; aspect-ratio: auto; }
 .pvz-boot-status { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; color: #eff2cd; background: #101b15; text-align: center; font-size: 14px; }
+#save-warning { flex-basis: 100%; margin: 0; padding: 10px; border: 2px solid #8b351e; background: #ffe3ad; color: #572411; font-size: 12px; }
 @media (max-width: 700px) {
   .pvz-page { --cabinet-width: 100%; }
   .pvz-deck { justify-content: center; }
