@@ -194,7 +194,24 @@ if (typeof document !== "undefined") {
   const record = readRecord(raw);
   let state = record.current || freshState(), previous = null, audio, feedbackUntil = 0, feedbackRows = [];
   const held = new Map(), reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-  $("#mode").value = state.mode;
+  let choosing = true;
+  state.paused = true;
+  $("#continue-game").hidden = !record.current;
+  function showGame() {
+    choosing = false; $(".tetris-menu").hidden = true; $(".arcade-game-content").hidden = false;
+    state.paused = false; previous = null; persist(); draw(); canvas.focus();
+  }
+  function showMenu() {
+    pause(true); choosing = true; $(".arcade-game-content").hidden = true; $(".tetris-menu").hidden = false;
+    $("#continue-game").hidden = state.over;
+    $(".tetris-menu button").focus();
+  }
+  document.querySelectorAll("[data-mode]").forEach(button => button.addEventListener("click", () => {
+    if (record.current && !state.over && (state.score || state.board.some(row => row.some(Boolean))) && !confirm("Bắt đầu ván mới và bỏ tiến trình hiện tại?")) return;
+    unlockAudio(); restart(button.dataset.mode); showGame();
+  }));
+  $("#continue-game").addEventListener("click", () => { unlockAudio(); showGame(); });
+  $("#choose-mode").addEventListener("click", showMenu);
   function persist() {
     updateRecord(record, state);
     record.current = state.over ? null : state;
@@ -231,7 +248,8 @@ if (typeof document !== "undefined") {
     else if (action === "drop") { const result = hardDrop(state); resultEffect(result); success = !!result; }
     if (success) { if (action !== "drop") sound(action === "hold" ? "hold" : action === "rotate" || action === "ccw" ? "rotate" : "move"); persist(); draw(); }
   }
-  function clearInputs() { held.clear(); document.querySelectorAll(".is-held").forEach(button => button.classList.remove("is-held")); }
+  let gesture = null;
+  function clearInputs() { gesture = null; held.clear(); document.querySelectorAll(".is-held").forEach(button => button.classList.remove("is-held")); }
   function pause(force = false) {
     clearInputs(); if (state.over) return;
     state.paused = force || !state.paused; previous = null; persist(); draw();
@@ -264,22 +282,24 @@ if (typeof document !== "undefined") {
     const feedback = performance.now() < feedbackUntil;
     canvas.parentElement.classList.toggle("is-locking", feedback && !feedbackRows.length && !reducedMotion.matches);
     if (feedback && !reducedMotion.matches) { ctx.fillStyle = "rgba(235,245,255,.32)"; feedbackRows.forEach(y => ctx.fillRect(0,y*cell,canvas.width,cell)); }
-    if (state.over || state.paused) {
-      ctx.fillStyle = "rgba(9,15,27,.92)"; ctx.fillRect(0,canvas.height/2-44,canvas.width,88);
-      ctx.textAlign = "center"; ctx.fillStyle = "#e5edf9"; ctx.font = "600 20px 'Chakra Petch', sans-serif";
-      ctx.fillText(state.paused ? "Tạm dừng" : state.won ? "Hoàn thành!" : "Hết ván",canvas.width/2,canvas.height/2);
-      ctx.font = "12px sans-serif"; ctx.fillText(state.paused ? "P hoặc Tiếp tục" : `${state.score} điểm · ${time(state.elapsed)}`,canvas.width/2,canvas.height/2+23);
-    }
+    const overlay = $(".tetris-overlay");
+    overlay.hidden = !state.over && !state.paused;
+    overlay.querySelector("strong").textContent = state.over ? state.won ? "Hoàn thành!" : "Hết ván" : "Tạm dừng";
+    overlay.querySelector("span").textContent = state.over ? `${state.score} điểm · ${time(state.elapsed)}` : "P hoặc chạm để tiếp tục";
     ["score","lines","level"].forEach(key => $("#"+key).textContent = state[key]);
+    $(".tetris-page").dataset.mode = state.mode;
+    $("#mode-name").textContent = { marathon: "Marathon", sprint: "Sprint", blitz: "Blitz" }[state.mode];
+    $("#lines").textContent = state.mode === "sprint" ? `${state.lines} / 40` : String(state.lines);
+    $("#timer").previousElementSibling.textContent = state.mode === "blitz" ? "Còn lại" : "Thời gian";
     $("#timer").textContent = time(state.mode === "blitz" ? Math.max(0,120000-state.elapsed) : state.elapsed);
     const best = record.records[state.mode];
     $("#record").textContent = state.mode === "sprint" ? best === null ? "—" : time(best) : String(best);
-    $("#pause").textContent = state.paused ? "Tiếp tục" : "Tạm dừng"; $("#pause").disabled = state.over;
+    $("#pause").textContent = state.paused ? "P · Tiếp tục" : "P · Tạm dừng"; $("#pause").disabled = state.over;
     $("#hold").disabled = state.over || state.paused || state.holdUsed;
-    $("#mute").textContent = record.muted ? "Âm thanh: Tắt" : "Âm thanh: Bật";
+    $("#mute").textContent = record.muted ? "M · Âm thanh: Tắt" : "M · Âm thanh: Bật";
     $("#mute").setAttribute("aria-pressed", String(record.muted));
-    const message = state.over ? `${state.won ? "Hoàn thành" : "Ván kết thúc"}. ${state.score} điểm.` : state.paused ? "Tạm dừng." : state.message;
-    if ($("#status").textContent !== message) $("#status").textContent = message;
+    const message = state.over ? `${state.won ? "Hoàn thành" : "Ván kết thúc"}. ${state.mode === "sprint" ? `${state.lines} / 40 hàng · ${time(state.elapsed)}` : `${state.score} điểm`}. Nhấn Chơi lại để bắt đầu ván mới.` : state.paused ? "Tạm dừng." : state.message;
+    canvas.setAttribute("aria-label", `Bàn Tetris. ${message || "Đang chơi."} Mũi tên di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng.`);
     previews.forEach((preview,index) => {
       const type = index === 0 ? state.hold : state.queue[index-1];
       if (preview.dataset.type === (type || "")) return;
@@ -296,11 +316,14 @@ if (typeof document !== "undefined") {
   }
   const keys = { ArrowLeft: "left", ArrowRight: "right", ArrowDown: "down", ArrowUp: "rotate", x: "rotate", z: "ccw", c: "hold", " ": "drop" };
   document.addEventListener("keydown", event => {
-    if (event.altKey || event.ctrlKey || event.metaKey || event.target.closest("input,textarea,select,[contenteditable],a") || (event.target.closest("button") && [" ","Enter"].includes(event.key))) return;
+    if (choosing || event.altKey || event.ctrlKey || event.metaKey || event.target.closest("input,textarea,select,[contenteditable],a") || (event.target.closest("button") && [" ","Enter"].includes(event.key))) return;
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-    if (!keys[key] && key !== "p") return;
+    if (!keys[key] && !["p","r","m"].includes(key)) return;
     event.preventDefault(); unlockAudio(); if (event.repeat) return;
-    if (key === "p") pause(); else begin(`key:${key}`,keys[key]);
+    if (key === "p") pause();
+    else if (key === "r") requestRestart();
+    else if (key === "m") toggleMute();
+    else begin(`key:${key}`,keys[key]);
   });
   document.addEventListener("keyup", event => { const key = event.key.length === 1 ? event.key.toLowerCase() : event.key; held.delete(`key:${key}`); });
   document.querySelectorAll("[data-action]").forEach(button => {
@@ -313,10 +336,54 @@ if (typeof document !== "undefined") {
     button.addEventListener("click", event => { if (event.detail === 0) { unlockAudio(); act(button.dataset.action); } });
   });
   $("#pause").addEventListener("click", () => { unlockAudio(); pause(); });
-  function restart() { clearInputs(); state = freshState($("#mode").value); previous = null; feedbackUntil = 0; persist(); draw(); }
-  $("#restart").addEventListener("click", () => { unlockAudio(); restart(); });
-  $("#mode").addEventListener("change", restart);
-  $("#mute").addEventListener("click", () => { record.muted = !record.muted; if (record.muted) audio?.suspend().catch(() => {}); else { unlockAudio(); void sound("rotate"); } persist(); draw(); });
+  function restart(mode = state.mode) { clearInputs(); state = freshState(mode); previous = null; feedbackUntil = 0; persist(); draw(); }
+  function requestRestart() {
+    if (state.over || !(state.score || state.board.some(row => row.some(Boolean))) || confirm("Bắt đầu ván mới và bỏ tiến trình hiện tại?")) restart();
+  }
+  $("#restart").addEventListener("click", () => { unlockAudio(); requestRestart(); });
+  function toggleMute() { record.muted = !record.muted; if (record.muted) audio?.suspend().catch(() => {}); else { unlockAudio(); void sound("rotate"); } persist(); draw(); }
+  $("#mute").addEventListener("click", toggleMute);
+  canvas.addEventListener("pointerdown", event => {
+    if (!event.isPrimary || event.button !== 0 || gesture || state.over) return;
+    event.preventDefault(); unlockAudio(); if (event.isTrusted) canvas.setPointerCapture(event.pointerId);
+    gesture = { id: event.pointerId, x: event.clientX, y: event.clientY, startX: event.clientX, startY: event.clientY,
+      time: event.timeStamp, piece: state.active, moved: false, soft: false, resume: state.paused };
+  });
+  canvas.addEventListener("pointermove", event => {
+    const g = gesture;
+    if (!g || g.id !== event.pointerId || g.resume || g.piece !== state.active) return;
+    const step = canvas.getBoundingClientRect().width / COLS;
+    const dx = event.clientX - g.x, dy = event.clientY - g.y;
+    if (Math.hypot(event.clientX - g.startX, event.clientY - g.startY) > 10) g.moved = true;
+    if (Math.abs(dx) >= step && Math.abs(dx) > Math.abs(dy)) {
+      const count = Math.min(COLS, Math.floor(Math.abs(dx) / step));
+      for (let i = 0; i < count; i++) act(dx > 0 ? "right" : "left");
+      g.x += Math.sign(dx) * count * step;
+    }
+    if (dy >= step && event.timeStamp - g.time >= 220) {
+      g.soft = true;
+      const count = Math.min(ROWS, Math.floor(dy / step));
+      for (let i = 0; i < count; i++) act("down");
+      g.y += count * step;
+    }
+  });
+  canvas.addEventListener("pointerup", event => {
+    const g = gesture;
+    if (!g || g.id !== event.pointerId) return;
+    gesture = null;
+    if (g.piece !== state.active || state.over) return;
+    if (g.resume) { if (state.paused) pause(); return; }
+    const dx = event.clientX - g.startX, dy = event.clientY - g.startY;
+    if (Math.abs(dy) > 24 && Math.abs(dy) > Math.abs(dx)) {
+      if (dy < 0) act("hold");
+      else if (!g.soft && event.timeStamp - g.time < 220) act("drop");
+      else if (!g.soft) act("down");
+    } else if (!g.moved && Math.hypot(dx,dy) <= 10) {
+      const rect = canvas.getBoundingClientRect();
+      act(event.clientX < rect.left + rect.width / 2 ? "ccw" : "rotate");
+    }
+  });
+  for (const name of ["pointercancel","lostpointercapture"]) canvas.addEventListener(name, () => { gesture = null; });
   window.addEventListener("blur", () => pause(true));
   document.addEventListener("visibilitychange", () => { if (document.hidden) pause(true); });
   window.addEventListener("pagehide", () => { pause(true); persist(); });

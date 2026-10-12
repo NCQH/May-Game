@@ -17,7 +17,16 @@ const STORAGE_KEY = "may-game:v1:flappy-bird";
 function makePipe(x) { return { x, gapY: 70 + Math.random() * 180, scored: false }; }
 function newState() {
   return { phase: "ready", paused: false, birdY: HEIGHT * .45, birdV: 0,
-    pipes: [makePipe(238), makePipe(428)], baseOffset: 0, score: 0 };
+    pipes: [makePipe(238), makePipe(428)], baseOffset: 0, score: 0, revived: false };
+}
+function revive(s) {
+  if (s.phase !== "results" || s.revived) return false;
+  s.revived = true;
+  s.phase = "playing"; s.paused = true;
+  s.birdY = HEIGHT * .45; s.birdV = 0;
+  s.pipes = s.pipes.filter(p => !p.scored).map((p, i) => ({ ...p, x: 238 + i * 190 }));
+  while (s.pipes.length < 2) s.pipes.push(makePipe(238 + s.pipes.length * 190));
+  return true;
 }
 function validScore(value) { return Number.isInteger(value) && value >= 0 && value <= MAX_SCORE; }
 function bounded(value, low, high) { return Number.isFinite(value) && value >= low && value <= high; }
@@ -30,6 +39,7 @@ function readRecord(raw) {
     empty.muted = saved.muted === true;
     const s = saved.current;
     if (saved.version !== 3 || !s || s.phase !== "playing" || typeof s.paused !== "boolean" ||
+        (s.revived !== undefined && typeof s.revived !== "boolean") ||
         !validScore(s.score) || !bounded(s.birdY, -3, FLOOR - BIRD_H + 3) ||
         !bounded(s.birdV, FLAP_SPEED, 600) || !bounded(s.baseOffset, -336, 0) ||
         !Array.isArray(s.pipes) || s.pipes.length < 2 || s.pipes.length > 4 ||
@@ -38,7 +48,7 @@ function readRecord(raw) {
           (p.scored ? p.x + PIPE_W < BIRD_X : p.x + PIPE_W >= BIRD_X) &&
           (!i || Math.abs(p.x - s.pipes[i - 1].x - 190) < .01))) return empty;
     const current = { phase: "playing", paused: true, birdY: s.birdY, birdV: s.birdV,
-      baseOffset: s.baseOffset, score: s.score,
+      baseOffset: s.baseOffset, score: s.score, revived: s.revived === true,
       pipes: s.pipes.map(({ x, gapY, scored }) => ({ x, gapY, scored })) };
     if (collide(current)) return empty;
     empty.current = current;
@@ -92,11 +102,8 @@ function update(s) {
 const canvas = document.querySelector("#flappy-board");
 const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
-const scoreNode = document.querySelector("#score");
-const statusNode = document.querySelector("#status");
-const flapButton = document.querySelector("#flap");
-const pauseButton = document.querySelector("#pause");
-const muteButton = document.querySelector("#mute");
+const results = document.querySelector(".flappy-results");
+const reviveButton = document.querySelector("#revive");
 const assetRoot = new URL("./assets/sprites/", import.meta.url);
 function loadSprite(name) {
   const image = new Image();
@@ -203,12 +210,8 @@ function draw() {
   }
   ctx.restore();
   if (state.phase === "ready") {
-    if (!sprite(sprites.message, 52, 90, 184, 267)) text("Sẵn sàng", 150);
-  } else if (state.phase === "results") {
-    if (!sprite(sprites.gameover, 48, 135, 192, 42)) text("Hết ván", 165);
-    drawDigits(state.score, 200);
-    text(`Kỷ lục ${record.bestScore}`, 268, 16);
-  } else drawDigits(state.score, 28);
+    if (sprites.message.complete && sprites.message.naturalWidth) ctx.drawImage(sprites.message, 0, 0, 184, 48, 52, 90, 184, 48);
+  } else if (state.phase !== "results") drawDigits(state.score, 28);
   if (state.paused) {
     ctx.fillStyle = "rgba(13, 18, 15, .72)";
     ctx.fillRect(24, 190, WIDTH - 48, 80);
@@ -216,23 +219,18 @@ function draw() {
   }
 }
 function syncControls() {
-  scoreNode.textContent = String(state.score);
-  flapButton.textContent = state.phase === "results" ? "Chơi lại" : state.paused ? "Tiếp tục" : state.phase === "ready" ? "Bắt đầu" : "Vỗ cánh";
-  flapButton.disabled = state.phase === "dying";
-  pauseButton.hidden = !["playing", "dying"].includes(state.phase);
-  pauseButton.textContent = state.paused ? "Tiếp tục" : "Tạm dừng";
-  muteButton.textContent = record.muted ? "Bật âm" : "Tắt âm";
-  muteButton.setAttribute("aria-pressed", String(record.muted));
-  statusNode.textContent = state.paused ? "Tạm dừng. Nhấn Tiếp tục để chơi." :
-    state.phase === "ready" ? "Sẵn sàng. Nhấn Space hoặc mũi tên lên để vỗ cánh; P để tạm dừng." :
-    state.phase === "dying" ? "Va chạm." : state.phase === "results" ?
-    `Ván kết thúc. Điểm ${state.score}. Kỷ lục ${record.bestScore}.` : "Đang chơi.";
-  statusNode.classList.toggle("is-error", state.phase === "results");
+  const ended = state.phase === "results";
+  const justEnded = ended && results.hidden;
+  results.hidden = !ended;
+  if (justEnded) document.querySelector("#play").focus({ preventScroll: true });
+  document.querySelector("#score").textContent = String(state.score);
+  document.querySelector("#record").textContent = String(record.bestScore);
+  reviveButton.hidden = state.revived;
+  canvas.setAttribute("aria-label", `Flappy Bird. ${state.paused ? "Tạm dừng" : ended ? "Ván kết thúc" : state.phase === "ready" ? "Sẵn sàng" : "Đang chơi"}. Điểm ${state.score}. ${record.muted ? "Âm thanh tắt" : "Âm thanh bật"}. Space hoặc mũi tên lên để vỗ cánh; P tạm dừng; M bật/tắt âm.`);
 }
 function flap() {
   unlockAudio();
-  if (document.hidden || state.phase === "dying") return;
-  if (state.phase === "results") state = newState();
+  if (document.hidden || ["dying", "results"].includes(state.phase)) return;
   if (state.paused || state.phase === "ready") resetClock();
   if (state.paused) state.paused = false;
   else { state.phase = "playing"; state.birdV = FLAP_SPEED; sound("wing"); }
@@ -269,10 +267,12 @@ function frame(timestamp) {
   requestAnimationFrame(frame);
 }
 canvas.addEventListener("pointerdown", (event) => { if (event.button !== 0) return; event.preventDefault(); flap(); });
-flapButton.addEventListener("click", flap);
-pauseButton.addEventListener("click", togglePause);
-muteButton.addEventListener("click", () => {
-  unlockAudio(); record.muted = !record.muted; persist(); syncControls();
+document.querySelector("#play").addEventListener("click", () => {
+  state = newState(); resetClock(); flap(); canvas.focus();
+});
+reviveButton.addEventListener("click", () => {
+  if (!revive(state)) return;
+  unlockAudio(); resetClock(); persist(); syncControls(); draw(); canvas.focus();
 });
 document.addEventListener("keydown", (event) => {
   if (event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;
@@ -281,6 +281,7 @@ document.addEventListener("keydown", (event) => {
   if (target?.closest("button") && (event.key === " " || event.key === "Enter")) return;
   if (event.key === " " || event.key === "ArrowUp") { event.preventDefault(); flap(); }
   if (event.key.toLowerCase() === "p") { event.preventDefault(); togglePause(); }
+  if (event.key.toLowerCase() === "m") { unlockAudio(); record.muted = !record.muted; persist(); syncControls(); }
 });
 document.addEventListener("visibilitychange", () => { if (document.hidden) pauseForExit(); else resetClock(); });
 window.addEventListener("pagehide", pauseForExit);

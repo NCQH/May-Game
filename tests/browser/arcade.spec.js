@@ -157,6 +157,7 @@ test("Pikachu terminal state is not treated as resumable progress", async ({ pag
 });
 
 test("Tetris top-outs when a blocked piece still reaches above the board", async ({ page }) => {
+  await page.setViewportSize({ width: 900, height: 600 });
   const { freshState, blankRecord } = require('../../games/tetris/game.js');
   const current = freshState();
   current.active = { type: 'T', rotation: 0, x: 3, y: -1 };
@@ -167,11 +168,12 @@ test("Tetris top-outs when a blocked piece still reaches above the board", async
     localStorage.setItem('may-game:v1:tetris', JSON.stringify(saved));
   }, { ...blankRecord(), current });
   await page.goto("/games/tetris/");
-  await expect(page.locator("#pause")).toHaveText("Tiếp tục");
-  await page.locator("#pause").click();
+  await page.locator("#continue-game").click();
   await page.locator("#tetris-board").focus();
   await page.keyboard.press("Space");
-  await expect(page.locator("#status")).toContainText("Ván kết thúc");
+  await expect(page.locator("#tetris-board")).toHaveAttribute("aria-label", /Ván kết thúc/);
+  await expect(page.locator('.tetris-overlay strong')).toHaveText('Hết ván');
+  await expect(page.locator('.tetris-overlay')).toBeVisible();
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem("may-game:v1:tetris")).current)).toBeNull();
 });
 
@@ -201,6 +203,10 @@ test("PvZ engine download failure reports an error instead of hanging", async ({
   await page.route("**/pvz-goty/data/**", (route) => route.fulfill({ body: "fixture" }));
   await page.goto("/games/pvz-goty/");
   await expect(page.locator(".pvz-boot-status")).toContainText("Không tải được engine GOTY");
+  const retry = page.getByRole('button', { name: 'Thử lại', exact: true });
+  await expect(retry).toBeVisible();
+  await retry.click();
+  await expect(page.locator('.pvz-boot-status')).toContainText('Không tải được engine GOTY');
 });
 
 test("PvZ keeps a complete cached bundle after a failed asset update", async ({ page }) => {
@@ -242,6 +248,19 @@ test("PvZ keeps a complete cached bundle after a failed asset update", async ({ 
     const { readBundle } = await import('/games/pvz-goty/storage.js');
     return (await readBundle('resources')).revision;
   })).toBe("old");
+  await page.evaluate(async () => {
+    Module.FS.syncfs = (populate, callback) => callback(new Error('fixture storage failure'));
+    try { await window.syncSaves(); } catch {}
+  });
+  await expect(page.locator('#save-warning')).toBeVisible();
+  await expect(page.locator('#save-warning')).toHaveAttribute('role', 'alert');
+  await expect(page.locator('#save-export-btn')).toContainText('lỗi tự lưu');
+  await page.evaluate(async () => {
+    Module.FS.syncfs = (populate, callback) => callback();
+    Module.FS.readdir = () => [];
+    await window.syncSaves();
+  });
+  await expect(page.locator('#save-warning')).toHaveCount(0);
 });
 
 test("every catalog start link remains visible and tappable on small screens", async ({ page }) => {
@@ -284,48 +303,49 @@ test("shared styles and relocated Flappy assets load without missing requests", 
   expect(missing).toEqual([]);
 });
 
-test("Flappy UI supports pause, muted reload, death and retry", async ({ page }) => {
+test("Flappy supports pause, muted reload, one revival and a fresh retry", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/games/flappy-bird/");
-  await expect(page.locator("#flap")).toHaveText("Bắt đầu");
-  await page.locator("#mute").click();
-  await expect(page.locator("#mute")).toHaveText("Bật âm");
-  await page.locator("#flap").click();
-  await page.locator("#pause").click();
-  await expect(page.locator("#status")).toContainText("Tạm dừng");
+  await page.goto('/games/flappy-bird/');
+  const board = page.locator('#flappy-board');
+  await expect(page.locator('.flappy-info, .flappy-controls, .flappy-help, #status')).toHaveCount(0);
+  await page.keyboard.press('m');
+  await board.click();
+  await page.keyboard.press('p');
+  await expect(board).toHaveAttribute('aria-label', /Tạm dừng/);
   await page.reload();
-  await expect(page.locator("#flap")).toHaveText("Tiếp tục");
-  await expect(page.locator("#mute")).toHaveText("Bật âm");
-  await page.locator("#flap").click();
-  await expect(page.locator("#flap")).toHaveText("Chơi lại", { timeout: 6000 });
-  await page.locator("#flap").click();
-  await expect(page.locator("#flap")).toHaveText("Vỗ cánh");
+  await expect(board).toHaveAttribute('aria-label', /Tạm dừng.*Âm thanh tắt/);
+  await board.click();
+  await expect(page.locator('.flappy-results')).toBeVisible({ timeout: 6000 });
+  await page.locator('#revive').click();
+  await expect(page.locator('.flappy-results')).not.toBeVisible();
+  await expect(board).toHaveAttribute('aria-label', /Tạm dừng/);
+  await page.reload();
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('may-game:v1:flappy-bird')).current.revived)).toBe(true);
+  await board.click();
+  await expect(page.locator('.flappy-results')).toBeVisible({ timeout: 6000 });
+  await expect(page.locator('#revive')).not.toBeVisible();
+  await page.locator('#play').click();
+  await expect(page.locator('.flappy-results')).not.toBeVisible();
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('may-game:v1:flappy-bird')).current.revived)).toBe(false);
 });
 
-test("Flappy shortcuts work after button clicks without overriding native activation", async ({ page }) => {
-  await page.addInitScript(() => { window.requestAnimationFrame = () => 0; });
-  await page.goto("/games/flappy-bird/");
-  await page.locator("#flap").click();
-  for (const button of ["#flap", "#mute", "#pause"]) {
-    if (button !== "#flap") await page.locator(button).click();
-    await expect(page.locator(button)).toBeFocused();
-    await page.keyboard.press("p");
-    await expect(page.locator("#pause")).toHaveText("Tiếp tục");
-    await page.keyboard.press("ArrowUp");
-    await expect(page.locator("#pause")).toHaveText("Tạm dừng");
-    if (button === "#mute") await page.keyboard.press("p");
-  }
-  await page.locator("#pause").click();
-  await page.locator("#mute").focus();
-  for (const [key, muted] of [["Space", "false"], ["Enter", "true"]]) {
-    await page.keyboard.press(key);
-    await expect(page.locator("#mute")).toHaveAttribute("aria-pressed", muted);
-    await expect(page.locator("#pause")).toHaveText("Tiếp tục");
-  }
-  await page.locator(".back-link").focus();
-  await page.keyboard.press("p");
-  await page.keyboard.press("ArrowUp");
-  await expect(page.locator("#pause")).toHaveText("Tiếp tục");
+test("Flappy shortcuts preserve native result-button activation", async ({ page }) => {
+  await page.goto('/games/flappy-bird/');
+  await page.locator('#flappy-board').click();
+  await expect(page.locator('.flappy-results')).toBeVisible({ timeout: 6000 });
+  await page.locator('#revive').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#flappy-board')).toHaveAttribute('aria-label', /Tạm dừng/);
+  await page.locator('.back-link').focus();
+  await page.keyboard.press('p');
+  await page.keyboard.press('ArrowUp');
+  await expect(page.locator('#flappy-board')).toHaveAttribute('aria-label', /Tạm dừng/);
+  await page.locator('#flappy-board').focus();
+  await page.keyboard.press('ArrowUp');
+  await expect(page.locator('.flappy-results')).toBeVisible({ timeout: 6000 });
+  await page.locator('#play').focus();
+  await page.keyboard.press('Space');
+  await expect(page.locator('.flappy-results')).not.toBeVisible();
 });
 
 test("Tetris emits audible effects after unlock and stays silent when muted", async ({ page }) => {
@@ -341,6 +361,7 @@ test("Tetris emits audible effects after unlock and stays silent when muted", as
     };
   });
   await page.goto('/games/tetris/');
+  await page.locator('button[data-mode=marathon]').click();
   await page.locator('#tetris-board').focus();
   await page.keyboard.press('ArrowLeft');
   await expect.poll(() => page.evaluate(() => audioEvents.includes('start'))).toBe(true);
@@ -357,7 +378,8 @@ test("Tetris emits audible effects after unlock and stays silent when muted", as
 test("Tetris UI switches modes, holds once, pauses time and restores mute", async ({ page }) => {
   await page.setViewportSize({ width: 412, height: 924 });
   await page.goto('/games/tetris/');
-  await page.locator('#mode').selectOption('blitz');
+  await expect(page.locator('.arcade-game-content')).toBeHidden();
+  await page.locator('button[data-mode=blitz]').click();
   await expect(page.locator('#timer')).toContainText('1:');
   await page.locator('#mute').click();
   await expect(page.locator('#mute')).toHaveAttribute('aria-pressed', 'true');
@@ -372,11 +394,151 @@ test("Tetris UI switches modes, holds once, pauses time and restores mute", asyn
   await page.waitForTimeout(250);
   await expect(page.locator('#timer')).toHaveText(clock);
   await page.reload();
-  await expect(page.locator('#mode')).toHaveValue('blitz');
-  await expect(page.locator('#pause')).toHaveText('Tiếp tục');
+  await expect(page.locator('#continue-game')).toBeVisible();
+  await page.locator('#continue-game').click();
+  await expect(page.locator('#mode-name')).toHaveText('Blitz');
   await expect(page.locator('#mute')).toHaveAttribute('aria-pressed', 'true');
-  await page.locator('#mode').selectOption('sprint');
+  await page.locator('#choose-mode').click();
+  page.once('dialog', dialog => dialog.dismiss());
+  await page.locator('button[data-mode=sprint]').click();
+  await expect(page.locator('.tetris-menu')).toBeVisible();
   await expect(page.locator('#lines')).toHaveText('0');
+  page.once('dialog', dialog => dialog.accept());
+  await page.locator('button[data-mode=sprint]').click();
+  await expect(page.locator('#lines')).toHaveText('0 / 40');
+  await expect(page.locator('#level')).toBeHidden();
+  await expect(page.locator('#timer').locator('..')).toContainText('Thời gian');
+});
+
+test("small-phone game boards and touch controls stay visible together", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  for (const [route, board, controls] of [['tetris', '#tetris-board', '.side-actions'], ['flappy-bird', '#flappy-board', '#flappy-board'], ['pikachu', '#pika-board', '.pika-controls']]) {
+    await page.goto(`/games/${route}/`);
+    if (route === 'tetris') await page.locator('button[data-mode=marathon]').click();
+    const field = await page.locator(board).boundingBox(), buttons = await page.locator(controls).boundingBox();
+    expect(field.y).toBeGreaterThanOrEqual(0);
+    if (route === 'tetris') {
+      expect(field.height).toBeGreaterThan(200);
+      expect(field.y + field.height).toBeLessThanOrEqual(568);
+      await expect(page.locator('.tetris-touch')).toHaveCount(0);
+      await expect(page.locator('.tetris-key-guide')).toBeHidden();
+      await expect(page.locator('.tetris-help, .tetris-gesture-help')).toHaveCount(0);
+    } else expect(buttons.y + buttons.height).toBeLessThanOrEqual(568);
+    if (route === 'flappy-bird') await expect(page.locator('.flappy-controls, .flappy-help')).toHaveCount(0);
+  }
+});
+
+test("desktop Tetris and Flappy use side panels without page scrolling", async ({ page }) => {
+  for (const viewport of [{ width: 900, height: 600 }, { width: 1280, height: 800 }, { width: 1874, height: 924 }]) {
+    await page.setViewportSize(viewport);
+    for (const game of ['tetris', 'flappy-bird']) {
+      await page.goto(`/games/${game}/`);
+      if (game === 'tetris') await page.locator('button[data-mode=marathon]').click();
+      await page.evaluate(() => document.fonts.ready);
+      expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
+      const title = await page.locator('h1').boundingBox(), back = await page.locator('.back-link').boundingBox();
+      expect(Math.abs(title.y + title.height / 2 - back.y - back.height / 2)).toBeLessThan(2);
+      const board = await page.locator(`#${game === 'tetris' ? 'tetris' : 'flappy'}-board`).boundingBox();
+      expect(board.height).toBeGreaterThanOrEqual(viewport.height - 285);
+      if (game === 'tetris') {
+        const controls = await page.locator('.side-actions').boundingBox();
+        expect(controls.x).toBeGreaterThan(board.x + board.width);
+        expect(controls.y + controls.height).toBeLessThanOrEqual(viewport.height);
+        const next = await page.locator('.tetris-tools').boundingBox();
+        expect(next.y + next.height + 6).toBeLessThanOrEqual(controls.y);
+        const help = await page.locator('.tetris-key-guide').boundingBox();
+        await page.locator('#pause').click();
+        await expect(page.locator('.tetris-overlay strong')).toHaveText('Tạm dừng');
+        await page.locator('#pause').click();
+        await expect(page.locator('.tetris-overlay')).not.toBeVisible();
+        await expect(page.locator('.tetris-help, .tetris-gesture-help, #status')).toHaveCount(0);
+        const panel = await page.locator('.arcade-game-content').boundingBox();
+        expect(help.y + help.height).toBeLessThanOrEqual(panel.y + panel.height);
+        await page.locator('#choose-mode').click();
+        await page.locator('button[data-mode=sprint]').click();
+        await expect(page.locator('#level')).not.toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
+      } else {
+        expect(Math.abs(board.x + board.width / 2 - viewport.width / 2)).toBeLessThan(2);
+        await page.locator('#flappy-board').click();
+        await page.keyboard.press('p');
+        await expect(page.locator('#flappy-board')).toHaveAttribute('aria-label', /Tạm dừng/);
+        expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
+      }
+    }
+  }
+});
+
+test("Tetris gestures rotate, drag, drop, hold and cancel without double actions", async ({ page }) => {
+  const { freshState, blankRecord } = require('../../games/tetris/game.js');
+  const current = freshState();
+  current.active = { type: 'T', rotation: 0, x: 3, y: 2 };
+  await page.addInitScript(saved => localStorage.setItem('may-game:v1:tetris', JSON.stringify(saved)), { ...blankRecord(), current });
+  await page.setViewportSize({ width: 412, height: 924 });
+  await page.goto('/games/tetris/');
+  await page.locator('#continue-game').click();
+  await page.locator('#pause').click();
+  const board = page.locator('#tetris-board');
+  const saved = () => page.evaluate(() => JSON.parse(localStorage.getItem('may-game:v1:tetris')).current);
+  const pointer = (type, x, y, id = 1, primary = true) => board.dispatchEvent(type, { pointerId: id, isPrimary: primary, pointerType: 'touch', button: 0, clientX: x, clientY: y });
+  const rect = await board.boundingBox(), x = rect.x + rect.width * .75, y = rect.y + 100, cell = rect.width / 10;
+  await pointer('pointerdown', x, y); await pointer('pointerup', x, y);
+  expect((await saved()).paused).toBe(false);
+  expect((await saved()).active.rotation).toBe(0);
+  await pointer('pointerdown', x, y); await pointer('pointerup', x, y);
+  expect((await saved()).active.rotation).toBe(1);
+  await pointer('pointerdown', rect.x + 10, y); await pointer('pointerup', rect.x + 10, y);
+  expect((await saved()).active.rotation).toBe(0);
+  const start = (await saved()).active.x;
+  await pointer('pointerdown', x, y);
+  await pointer('pointermove', x - cell * 2.2, y);
+  expect((await saved()).active.x).toBe(start - 2);
+  await pointer('pointermove', x, y);
+  await pointer('pointerup', x, y);
+  expect((await saved()).active.x).toBe(start);
+  expect((await saved()).active.rotation).toBe(0);
+  await pointer('pointerdown', x, y);
+  await pointer('pointerdown', x, y, 2, false);
+  await pointer('pointerup', x, y, 2, false);
+  await pointer('pointercancel', x, y);
+  await pointer('pointerup', x, y);
+  expect((await saved()).active.rotation).toBe(0);
+  await pointer('pointerdown', x, y);
+  await page.waitForTimeout(240);
+  await pointer('pointermove', x, y + cell * 2.2);
+  await pointer('pointerup', x, y + cell * 2.2);
+  expect((await saved()).board.flat().filter(Boolean)).toHaveLength(0);
+  await pointer('pointerdown', x, y); await pointer('pointerup', x, y - 60);
+  expect((await saved()).hold).toBe('T');
+  const held = (await saved()).active.type;
+  await pointer('pointerdown', x, y); await pointer('pointerup', x, y - 60);
+  expect((await saved()).active.type).toBe(held);
+  await pointer('pointerdown', x, y); await pointer('pointerup', x, y + 60);
+  expect((await saved()).board.flat().filter(Boolean)).toHaveLength(4);
+  await board.focus(); await page.keyboard.press('m');
+  await expect(page.locator('#mute')).toHaveAttribute('aria-pressed', 'true');
+  await page.keyboard.press('p');
+  const clock = await page.locator('#timer').textContent();
+  await page.waitForTimeout(100);
+  await expect(page.locator('#timer')).toHaveText(clock);
+  page.once('dialog', dialog => dialog.dismiss()); await page.keyboard.press('r');
+  expect((await saved()).board.flat().filter(Boolean)).toHaveLength(4);
+  page.once('dialog', dialog => dialog.accept()); await page.keyboard.press('r');
+  expect((await saved()).board.flat().filter(Boolean)).toHaveLength(0);
+});
+
+test("contribution pages scroll natively without shrinking controls", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  for (const route of ['/contribute.html', '/contributors.html']) {
+    await page.goto(route);
+    expect(await page.locator('main').evaluate(node => getComputedStyle(node).transform)).toBe('none');
+    const content = page.locator('.page-content');
+    expect(await content.evaluate(node => getComputedStyle(node).overflowY)).toBe('auto');
+    await content.evaluate(node => { node.scrollTop = node.scrollHeight; });
+    const link = page.locator('.cabinet-deck a').first();
+    await expect(link).toBeVisible();
+    expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(44);
+  }
 });
 
 test("game pages fit phone and desktop viewports without horizontal overflow", async ({ page }) => {
@@ -384,14 +546,19 @@ test("game pages fit phone and desktop viewports without horizontal overflow", a
     await page.setViewportSize(viewport);
     for (const route of ["/", "/games/pikachu/", "/games/tetris/", "/games/flappy-bird/"]) {
       await page.goto(route);
+      if (route.includes('tetris')) await page.locator('button[data-mode=marathon]').click();
       const dimensions = await page.evaluate(() => ({
         clientWidth: document.documentElement.clientWidth,
         scrollWidth: document.documentElement.scrollWidth,
       }));
       expect(dimensions.scrollWidth, `${route} at ${viewport.width}px`).toBeLessThanOrEqual(dimensions.clientWidth);
-      for (const selector of route.includes('tetris') ? ['#mode', '#pause', '#restart', '#mute'] : route.includes('flappy') ? ['#flap', '#mute'] : []) {
+      expect(await page.locator('main').evaluate(node => getComputedStyle(node).transform)).toBe('none');
+      for (const selector of route.includes('tetris') ? ['#pause', '#restart', '#mute'] : []) {
+        await page.locator(selector).scrollIntoViewIfNeeded();
         const rect = await page.locator(selector).boundingBox();
-        expect(rect.y, selector).toBeGreaterThanOrEqual(0);
+        expect(rect.height, selector).toBeGreaterThanOrEqual(44);
+        expect(rect.width, selector).toBeGreaterThanOrEqual(44);
+        expect(rect.y, selector).toBeGreaterThanOrEqual(-1);
         expect(rect.y + rect.height, selector).toBeLessThanOrEqual(viewport.height + 1);
       }
     }

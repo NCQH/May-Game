@@ -84,6 +84,9 @@ window.MayGamePvzQuality = Object.freeze({
 window.syncSaves = async function () {
   try {
     await originalSync();
+    document.getElementById('save-warning')?.remove();
+    const exportButton = document.getElementById('save-export-btn');
+    if (exportButton) exportButton.textContent = 'Tải bản lưu';
     if (!savesMounted || !Module.FS) return;
     const files = collectSaveFiles('/may-game-pvz-goty-saves/userdata');
     if (!files.length) return;
@@ -93,7 +96,15 @@ window.syncSaves = async function () {
   } catch (error) {
     const button = document.getElementById('save-export-btn');
     if (button) button.textContent = 'Tải bản lưu — lỗi tự lưu';
-    cacheMessage('Auto-save failed. Export your saves before leaving or clearing browser data.');
+    cacheMessage('Tự lưu thất bại. Hãy tải bản lưu trước khi rời trang hoặc xóa dữ liệu trình duyệt.');
+    let warning = document.getElementById('save-warning');
+    if (!warning) {
+      warning = document.createElement('p');
+      warning.id = 'save-warning';
+      warning.setAttribute('role', 'alert');
+      document.querySelector('.pvz-deck').append(warning);
+    }
+    warning.textContent = 'Tự lưu thất bại — nhấn “Tải bản lưu” để giữ tiến trình trên máy.';
     throw error;
   }
 };
@@ -162,7 +173,8 @@ async function loadHostedResources() {
       bytes += blob.size;
       if (blob.size > 128 * 1048576 || bytes > 384 * 1048576) throw new Error('Dữ liệu vượt giới hạn bộ nhớ trình duyệt.');
       staged.set(name, blob);
-      bootStatus.textContent = `Đang tải dữ liệu: ${++completed}/${queue.length} tệp…`;
+      completed++;
+      bootStatus.textContent = `Đang tải dữ liệu: ${completed}/${queue.length} tệp · ${Math.round(completed / queue.length * 100)}% · ${(bytes / 1048576).toFixed(1)} MB…`;
     }
   };
   try { await Promise.all(Array.from({ length: Math.min(8, queue.length) }, worker)); }
@@ -188,4 +200,11 @@ try {
   bootStatus.remove();
 } catch (error) {
   bootStatus.textContent = error.message;
+  const retry = document.createElement('button');
+  retry.type = 'button';
+  retry.className = 'game-button';
+  retry.textContent = 'Thử lại';
+  retry.style.cssText = 'display:block;margin:12px auto 0;min-height:44px';
+  retry.addEventListener('click', () => location.reload());
+  bootStatus.append(retry);
 }

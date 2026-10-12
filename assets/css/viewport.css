@@ -1,28 +1,58 @@
-html, body { width: 100%; min-width: 0; height: 100dvh; min-height: 0; overflow: clip; }
-body, body.upload-mode, body.game-mode { display: block; height: 100dvh; min-height: 0; overflow: clip; }
-.arcade-main, .game-page { transform: scale(var(--viewport-scale, 1)); transform-origin: top center; }
-.arcade-cabinet:has(.page-content) { height: auto; }
-.arcade-cabinet:has(.page-content) .page-content { flex: none; overflow: visible; }
-.arcade-cabinet:has(.page-content) .screen-bezel { flex: 1; }
+html, body { width: 100%; min-width: 0; min-height: 100dvh; }
+body.upload-mode { display: block; height: auto; overflow: auto; }
 .arcade-home .arcade-main { min-height: calc(100dvh - 8px); align-items: stretch; }
-.arcade-home .arcade-cabinet:has(.selected-game) { height: auto; min-height: 0; }
-.arcade-home .screen-bezel:has(.selected-game) { flex: 1; }
-.selection-row { flex: 1; }
-.selected-game { display: flex; height: auto; }
+.arcade-home .arcade-cabinet { max-width: 1200px; height: calc(100dvh - var(--page-inset) * 2 - 8px); min-height: 280px; }
+.selected-game { display: flex; height: auto; overflow: auto; }
 .game-feature { flex: 1; height: auto; }
+.arcade-home .deck-links-quiet .deck-link, .back-link, .screen-home-link { min-height: 44px; min-width: 44px; }
+.screen-home-link { display: inline-flex; align-items: center; }
+.start-game { min-height: 44px; min-width: 44px; }
+.arcade-game-content { background-image: none; }
 @media (max-width: 760px) and (min-height: 501px) {
-  .game-feature { grid-template-rows: minmax(190px, .8fr) minmax(min-content, 1fr); }
+  .game-feature { grid-template-rows: minmax(100px, .8fr) minmax(min-content, 1fr); }
+}
+@media (max-width: 760px) and (max-height: 700px) {
+  .game-feature { grid-template-rows: 100px auto; }
+  .feature-copy { padding: 10px; }
+  .feature-stats { margin-top: 8px; }
 }
 .arcade-game-content { min-height: 0; }
+@media (max-width: 580px) {
+  .pikachu-page .pika-heading { margin: 0; }
+  .pikachu-page .pika-control { flex-direction: column; gap: 3px; }
+  .pikachu-page .pika-control-restart { grid-column: auto; }
+  .pikachu-page .pika-control { min-height: 44px; padding-block: 4px; }
+}
+@media (max-width: 580px) and (max-height: 700px) {
+  .pikachu-page .pika-heading { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .pikachu-page .arcade-game-content { gap: 6px; }
+  .pikachu-page .pika-hud { padding-bottom: 4px; }
+}
 .feature-stats { grid-template-columns: 1fr; }
 .game-page:fullscreen { transform: none; }
+.arcade-game:is(.tetris-page, .flappy-page, .pikachu-page) .arcade-screen-meta { justify-content: space-between; gap: 4px 12px; letter-spacing: 0; }
+.arcade-game .arcade-screen-meta .game-title { margin-left: auto; text-align: right; text-transform: none; }
+.tetris-page .tetris-settings { grid-column: 1 / -1; width: 100%; text-transform: none; }
+@media (max-width: 620px) { .pikachu-page .arcade-screen-meta .game-title { font-size: 16px; } }
+@media (max-width: 620px) {
+  .tetris-page .tetris-settings { flex-basis: 100%; max-width: none; }
+  .tetris-page .arcade-screen-meta .game-title, .flappy-page .arcade-screen-meta .game-title { font-size: 16px; }
+}
 /* Reserve space for headings and controls before sizing the play field. */
-.arcade-game.flappy-page #flappy-board { width: auto; max-width: 100%; height: min(512px, max(120px, calc(100dvh - 280px))); }
 .tetris-layout { grid-template-columns: minmax(54px, 1fr) minmax(0, min(260px, max(90px, calc((100dvh - 300px) / 2)))) minmax(68px, 1fr); }
 .tetris-hold, .tetris-tools { width: min(100%, 80px); justify-self: center; }
 .next-panel { width: 100%; }
+@media (max-width: 400px) {
+  .tetris-page .tetris-touch { grid-template-columns: repeat(3, minmax(44px, 1fr)); }
+}
 @media (max-width: 620px) {
-  .tetris-layout { grid-template-columns: minmax(0, min(260px, max(90px, calc((100dvh - 350px) / 2)))) 78px; }
+  .tetris-layout { grid-template-columns: minmax(0, min(260px, max(90px, calc((100dvh - 390px) / 2)))) 64px; justify-content: center; }
+  .tetris-page .arcade-game-content { gap: 6px; justify-content: flex-start; }
+  .tetris-page .tetris-help { display: none; }
+  .tetris-page .tetris-metrics { padding-bottom: 5px; }
+  .tetris-page .tetris-tools { width: 48px; }
+  .tetris-page .tetris-hold { gap: 4px; }
+  .tetris-page #tetris-hold { width: 48px; }
 }
 @media (max-width: 760px) {
   .page-content { padding: 12px; }
@@ -52,23 +82,47 @@ body, body.upload-mode, body.game-mode { display: block; height: 100dvh; min-hei
   .feature-copy { padding: 8px 12px; }
   .feature-copy h1 { margin-top: 6px; font-size: 22px; }
   .feature-description { margin-block: 6px; font-size: 10px; line-height: 1.4; }
-  .feature-stats { margin-top: 5px; }
-  .feature-stats span { padding-block: 5px; }
-  .feature-controls { margin-block: 5px; }
-  .start-game { margin-top: 5px; min-height: 36px; }
+  .feature-overline, .feature-stats, .feature-controls, .feature-description { display: none; }
+  .feature-copy { justify-content: flex-start; }
+  .start-game { margin-top: 5px; min-height: 44px; }
   .arcade-game-content { padding: 8px; gap: 6px; }
-  .arcade-game.flappy-page #flappy-board { height: max(100px, calc(100dvh - 200px)); }
 }
-@media (max-height: 500px) {
+@media (max-height: 500px) and (min-width: 540px) {
   .tetris-page .arcade-game-content { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(0, 1.2fr); align-content: center; gap: 6px 12px; }
-  .tetris-page .arcade-game-content > :is(.game-title, .tetris-settings, .tetris-metrics, .tetris-touch, .tetris-help, .game-message) { grid-column: 1; }
+  .tetris-page .arcade-game-content > :is(.game-title, .tetris-settings, .tetris-metrics, .side-actions, .tetris-touch, .tetris-help, .game-message) { grid-column: 1; }
   .tetris-page .tetris-layout { grid-column: 2; grid-row: 1 / span 6; grid-template-columns: 52px minmax(90px, 120px) 58px; grid-template-rows: auto; gap: 6px; }
   .tetris-page .tetris-board-wrap { grid-column: 2; grid-row: 1; }
   .tetris-page .tetris-hold { grid-column: 1; grid-row: 1; }
   .tetris-page .tetris-tools { grid-column: 3; grid-row: 1; }
   .tetris-page .tetris-metrics { grid-template-columns: repeat(3, 1fr); gap: 6px; }
   .tetris-page .tetris-settings { flex-wrap: wrap; }
-  .tetris-page .tetris-settings > label { display: none; }
+  .tetris-page .tetris-settings > label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .tetris-page .tetris-touch { grid-template-columns: repeat(3, minmax(44px, 1fr)); }
+  .tetris-page .tetris-help { display: none; }
+}
+@media (min-width: 900px) and (min-height: 600px) {
+  .arcade-game:is(.tetris-page, .flappy-page) { --cabinet-width: 1100px; height: calc(100dvh - var(--page-inset) * 2 - 8px); min-height: 560px; }
+  .tetris-page .arcade-game-content {
+    display: grid; grid-template-columns: minmax(160px, 220px) auto minmax(160px, 220px); justify-content: center;
+    grid-template-rows: auto auto 1fr; align-items: start; gap: 8px 24px; padding: 12px;
+  }
+  .tetris-page .arcade-game-content > * { width: 100%; }
+  .tetris-page .tetris-layout { display: contents; }
+  .tetris-page .tetris-board-wrap { grid-column: 2; grid-row: 1 / span 3; width: calc((100dvh - 280px) / 2); }
+  .tetris-page .tetris-metrics { grid-column: 1; grid-row: 1; grid-template-columns: 1fr; gap: 8px; padding: 0; border: 0; }
+  .tetris-page[data-mode="sprint"] .tetris-metrics { grid-template-columns: 1fr; }
+  .tetris-page .tetris-metric { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .tetris-page .tetris-metrics { padding: 12px; border: 1px solid var(--game-line); }
+  .tetris-page .tetris-settings { display: grid; grid-template-columns: auto 1fr; gap: 6px; }
+  .tetris-page .tetris-settings #mute { grid-column: 1 / -1; }
+  .tetris-page .tetris-metric + .tetris-metric { border: 0; }
+  .tetris-page .tetris-hold { grid-column: 1; grid-row: 2; width: 100px; justify-self: start; }
+  .tetris-page .tetris-tools { grid-column: 3; grid-row: 1; width: 80px; }
+  .tetris-page .side-actions { grid-column: 3; grid-row: 2; grid-template-columns: 1fr; }
+  .tetris-page .tetris-help { grid-column: 3; grid-row: 3; text-align: left; }
+  .tetris-page .game-message { grid-column: 1; grid-row: 3; text-align: left; }
+  .tetris-page .tetris-touch { grid-column: 3; grid-row: 3; }
+  .tetris-page .tetris-touch:not([hidden]) ~ .game-message { align-self: end; }
 }
 @media (max-height: 500px) and (min-width: 620px) {
   .arcade-game.pikachu-page .arcade-game-content { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto; align-content: center; gap: 8px 16px; }

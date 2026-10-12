@@ -99,7 +99,8 @@ async function checkPersistence() {
     let started = false;
     const boot = vm.createContext({
       hasPak: cached, hasProperties: cached, gameStarted: false,
-      bootStatus: { remove() {} }, loadStatus: { textContent: 'Engine failed' },
+      bootStatus: { remove() {}, append(button) { this.retry = button; } }, loadStatus: { textContent: 'Engine failed' },
+      document: { createElement: () => ({ style: {}, addEventListener() {} }) },
       cacheMessage() {}, console: { warn() {} },
       loadHostedResources: async () => { throw new Error('Download failed'); },
       window: { startGame: async () => { started = true; boot.gameStarted = true; } },
