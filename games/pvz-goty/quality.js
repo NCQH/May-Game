@@ -101,16 +101,21 @@ window.syncSaves = async function () {
 try {
   const cached = await readBundle(RESOURCE_KEY);
   if (cached?.version === 1 && Array.isArray(cached.files)) {
-    resourceRevision = typeof cached.revision === 'string' ? cached.revision : null;
     validateSize(cached.files, 384 * 1048576);
+    const restored = new Map();
     for (const entry of cached.files) {
       const safe = normalizeResourcePath(entry.name);
-      if (safe && entry.blob instanceof Blob) collectedFiles.set(safe, entry.blob);
+      if (!safe || safe !== entry.name || !(entry.blob instanceof Blob) || restored.has(safe)) throw new Error('Invalid remembered resource.');
+      restored.set(safe, entry.blob);
     }
+    if (!restored.has('main.pak') || ![...restored.keys()].some(name => name.startsWith('properties/'))) throw new Error('Incomplete remembered resources.');
+    resourceRevision = typeof cached.revision === 'string' ? cached.revision : null;
+    for (const [name, blob] of restored) collectedFiles.set(name, blob);
     originalRefresh();
     if (hasPak && hasProperties) cacheMessage('Resources restored from this device. Click Start Game. Your imported artwork, animations and audio are used unchanged.');
   }
-} catch {
+} catch (error) {
+  console.warn('Could not restore GOTY resources:', error);
   cacheMessage('This browser could not read remembered resources. Import your game files to play.');
 } finally {
   restoring = false;
@@ -170,10 +175,16 @@ async function loadHostedResources() {
 }
 
 try {
-  await loadHostedResources();
+  try { await loadHostedResources(); }
+  catch (error) {
+    // A failed update must not replace the last complete local bundle.
+    if (!hasPak || !hasProperties) throw error;
+    cacheMessage('Không cập nhật được dữ liệu. Đang dùng bộ dữ liệu đã lưu trên thiết bị.');
+    console.warn('Using remembered GOTY resources:', error);
+  }
   bootStatus.textContent = 'Đang khởi động Plants vs. Zombies GOTY…';
   await window.startGame();
-  if (!gameStarted) throw new Error(document.getElementById('load-status').textContent || 'Không khởi động được GOTY.');
+  if (!gameStarted) throw new Error(loadStatus.textContent || 'Không khởi động được GOTY.');
   bootStatus.remove();
 } catch (error) {
   bootStatus.textContent = error.message;

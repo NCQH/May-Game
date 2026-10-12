@@ -13,9 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/shared.css" />
-    <link rel="stylesheet" href="./game.css?v=3" />
-    <script type="module" src="./game.js?v=5"></script>
-  <link rel="stylesheet" href="../../assets/css/viewport.css">
+    <link rel="stylesheet" href="./game.css?v=4" />
+    <script type="module" src="./game.js?v=6"></script>
+  <link rel="stylesheet" href="../../assets/css/viewport.css?v=2">
 <script type="module" src="../../assets/js/viewport.js"></script>
 </head>
   <body>
@@ -33,7 +33,8 @@
           </div>
           <div class="flappy-controls">
             <button class="game-button game-button-primary" id="flap" type="button">Bắt đầu</button>
-            <button class="game-button" id="pause" type="button">Tạm dừng</button>
+            <button class="game-button" id="pause" type="button" hidden>Tạm dừng</button>
+            <button class="game-button" id="mute" type="button" aria-label="Tắt âm thanh" aria-pressed="false">Tắt âm</button>
           </div>
           <canvas id="flappy-board" width="288" height="512" tabindex="0" aria-label="Bảng chơi Flappy Bird. Nhấn Space hoặc mũi tên lên để vỗ cánh."></canvas>
           <p class="game-message sr-only" id="status" aria-live="polite"></p>

@@ -75,6 +75,11 @@ assert.equal(resized.tiles.filter((tile) => tile.removed).length, 24);
 assert.equal(resized.timeLeft / resized.timeLimit, 0.5);
 assert.equal(resized.score, 120);
 
-const tetris = code('games/tetris/game.js');
-assert.match(tetris, /const aboveBoard = state\.active\.matrix\.some[\s\S]*?if \(aboveBoard\) \{\s*state\.over = true;\s*state\.active = null;\s*persist\(\);/);
+const tetris = require('../games/tetris/game.js');
+const blocked = tetris.freshState();
+blocked.active = { type: 'T', rotation: 0, x: 3, y: -1 };
+blocked.board[1].fill('I');
+tetris.hardDrop(blocked);
+assert.equal(blocked.over, true);
+assert.equal(blocked.active, null);
 console.log('Regression checks passed: URL allowlist, invalid contributor handles, Pikachu state/lifecycle/shuffle/resize, Tetris top-out.');

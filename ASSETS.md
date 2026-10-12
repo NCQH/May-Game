@@ -10,8 +10,13 @@
 ## Flappy Bird sprites
 
 - **Nguồn tham chiếu:** [samuelcust/flappy-bird-assets](https://github.com/samuelcust/flappy-bird-assets). Tên và cấu trúc thư mục local khớp với asset pack này.
-- **Dùng tại:** `games/flappy-bird/assets/sprites/` — nền, chim vàng, ống và mặt đất trong game.
+- **Dùng tại:** `games/flappy-bird/assets/sprites/` — nền, chim vàng, ống, mặt đất, hướng dẫn, game-over và chữ số; `games/flappy-bird/assets/audio/` — wing, point, hit, die và swoosh đồng bộ sự kiện game.
 - **Giấy phép:** Repo nguồn công bố MIT; giữ thông báo tại [`games/flappy-bird/assets/LICENSE`](./games/flappy-bird/assets/LICENSE). Game tải asset từ repo local, không gọi CDN cho sprite.
+
+## Tetris
+
+- Khối, ghost và preview được vẽ bằng Canvas trong repo; hiệu ứng âm thanh tạo bằng Web Audio, không tải nhạc/skin từ TETR.IO.
+- TETR.IO là tham chiếu trải nghiệm solo, không phải nguồn asset hoặc engine của bản này.
 
 ## Pikachu
 

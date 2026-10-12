@@ -94,6 +94,33 @@ async function checkPersistence() {
   assert.equal(resources.resourceRevision, 'new');
   assert.equal(requests.length, 3);
   assert.ok(requests.every(([, cache]) => cache === 'no-cache'), 'Manifest and assets must be revalidated');
+  const bootstrap = quality.slice(quality.lastIndexOf('\ntry {'));
+  for (const cached of [false, true]) {
+    let started = false;
+    const boot = vm.createContext({
+      hasPak: cached, hasProperties: cached, gameStarted: false,
+      bootStatus: { remove() {} }, loadStatus: { textContent: 'Engine failed' },
+      cacheMessage() {}, console: { warn() {} },
+      loadHostedResources: async () => { throw new Error('Download failed'); },
+      window: { startGame: async () => { started = true; boot.gameStarted = true; } },
+    });
+    await vm.runInContext('(async () => {' + bootstrap + '})()', boot);
+    assert.equal(started, cached, 'Only a complete remembered bundle can survive a failed update');
+    if (!cached) assert.equal(boot.bootStatus.textContent, 'Download failed');
+  }
+  const oldFiles = new Map([['main.pak', new Blob(['old'])], ['properties/partner.xml', new Blob(['old'])]]);
+  resources.collectedFiles = oldFiles;
+  resources.resourceRevision = 'old';
+  resources.fetch = async (url) => url.pathname.endsWith('resources.json')
+    ? { ok: true, json: async () => ({ version: 1, revision: 'new', files: [{ name: 'main.pak' }, { name: 'properties/partner.xml' }] }) }
+    : { ok: false };
+  await assert.rejects(resources.loadHostedResources(), /Không tải được/);
+  assert.equal(resources.collectedFiles, oldFiles);
+  assert.equal(resources.resourceRevision, 'old');
+  let rejected;
+  const engine = vm.createContext({ window: { _rejectModuleReady: (error) => { rejected = error; } } });
+  vm.runInContext(html.match(/src="\.\/engine\/pvz-portable.js" onerror="([^"]+)"/)[1], engine);
+  assert.match(rejected.message, /Không tải được engine/);
   const { execFileSync } = require('node:child_process');
   const fixture = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'may-game-pages-'));
   try {

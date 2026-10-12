@@ -5,7 +5,7 @@
     "category": "Xếp khối",
     "description": "Xếp những khối rơi thành hàng đầy. Càng dọn được nhiều, nhịp chơi càng nhanh.",
     "players": "1 người",
-    "controls": "← → di chuyển · ↑ xoay · C giữ · Space thả khối",
+    "controls": "← → di chuyển · Z / X xoay · C giữ · Space thả · P tạm dừng",
     "path": "./games/tetris/index.html",
     "art": "tetris",
     "accent": "lime",

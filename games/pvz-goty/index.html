@@ -165,7 +165,7 @@ canvas#canvas {
 </style>
 <link rel="stylesheet" href="../../assets/css/shared.css">
 <link rel="stylesheet" href="./cabinet.css">
-<link rel="stylesheet" href="../../assets/css/viewport.css">
+<link rel="stylesheet" href="../../assets/css/viewport.css?v=2">
 <script type="module" src="../../assets/js/viewport.js"></script>
 </head>
 <body class="upload-mode">
@@ -250,6 +250,8 @@ window.moduleReadyPromise = new Promise(function(resolve, reject) {
     window._resolveModuleReady = resolve;
     window._rejectModuleReady = reject;
 });
+// Startup consumes the rejection after resources have loaded.
+window.moduleReadyPromise.catch(() => {});
 
 var Module = {
     canvas: document.getElementById('canvas'),
@@ -268,7 +270,7 @@ Module.canvas.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
 </script>
-<script src="./engine/pvz-portable.js"></script>
+<script src="./engine/pvz-portable.js" onerror="window._rejectModuleReady(new Error('Không tải được engine GOTY. Kiểm tra kết nối rồi tải lại trang.'))"></script>
 <script>
 'use strict';
 
@@ -857,7 +859,7 @@ window.onGameExit = function() {
     });
 };
 </script>
-<script type="module" src="./quality.js?v=2"></script>
+<script type="module" src="./quality.js?v=3"></script>
 <script type="module" src="./cabinet.js"></script>
 </body>
 </html>
