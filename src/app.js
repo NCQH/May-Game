@@ -9,10 +9,10 @@ const previousButton = document.querySelector("#previous-game");
 const nextButton = document.querySelector("#next-game");
 const STORAGE_PREFIX = "may-game:v1:";
 const TETRIS_PIXELS = [
-  [3, 2, "#e8c85e"], [4, 2, "#e8c85e"], [3, 3, "#e8c85e"], [4, 3, "#e8c85e"],
-  [1, 5, "#68c9ca"], [2, 5, "#68c9ca"], [3, 5, "#68c9ca"], [3, 4, "#68c9ca"],
-  [5, 5, "#e97f64"], [6, 5, "#e97f64"], [7, 5, "#e97f64"], [6, 4, "#e97f64"],
-  [2, 7, "#9cb76a"], [3, 7, "#9cb76a"], [4, 7, "#9cb76a"], [4, 6, "#9cb76a"],
+  [3, 2, "#f5d563"], [4, 2, "#f5d563"], [3, 3, "#f5d563"], [4, 3, "#f5d563"],
+  [1, 5, "#52d7ed"], [2, 5, "#52d7ed"], [3, 5, "#52d7ed"], [3, 4, "#52d7ed"],
+  [5, 5, "#bc91f2"], [6, 5, "#bc91f2"], [7, 5, "#bc91f2"], [6, 4, "#bc91f2"],
+  [2, 7, "#f5b16e"], [3, 7, "#f5b16e"], [4, 7, "#f5b16e"], [4, 6, "#f5b16e"],
 ];
 
 let games = [];
@@ -46,16 +46,16 @@ function gameArt(game) {
     return `<div class="pixel-art pixel-art-pvz" aria-hidden="true"></div>`;
   }
   if (game.art === "pikachu") {
-    return `<div class="pixel-art pixel-art-pikachu" aria-hidden="true"><span class="pixel-sprite-pikachu"></span><i class="art-ground"></i></div>`;
+    return `<div class="pixel-art pixel-art-pikachu" aria-hidden="true"><span class="pixel-sprite-pikachu"></span></div>`;
   }
   if (game.art === "flappy") {
-    return `<div class="pixel-art pixel-art-flappy" aria-hidden="true"><span class="pixel-cloud cloud-a"></span><span class="pixel-cloud cloud-b"></span><i class="pixel-pipe pipe-top"></i><i class="pixel-pipe pipe-bottom"></i><img src="./games/flappy-bird/assets/sprites/yellowbird-midflap.png" alt="" /><i class="art-ground"></i></div>`;
+    return `<div class="pixel-art pixel-art-flappy" aria-hidden="true"><span class="pixel-cloud cloud-a"></span><span class="pixel-cloud cloud-b"></span><i class="pixel-pipe pipe-top"></i><i class="pixel-pipe pipe-bottom"></i><img src="./games/flappy-bird/assets/sprites/yellowbird-midflap.png" alt="" /></div>`;
   }
   if (game.art === "tetris") {
     const blocks = TETRIS_PIXELS.map(([column, row, color]) => `<i class="tetris-pixel" style="--column:${column};--row:${row};--pixel-color:${color}"></i>`).join("");
-    return `<div class="pixel-art pixel-art-tetris" aria-hidden="true"><div class="tetris-grid">${blocks}</div><i class="art-ground"></i></div>`;
+    return `<div class="pixel-art pixel-art-tetris" aria-hidden="true"><div class="tetris-grid">${blocks}</div></div>`;
   }
-  return `<div class="pixel-art pixel-art-generic" aria-hidden="true"><span>${escapeHTML(String(game.title || "?").slice(0, 2).toUpperCase())}</span><i class="art-ground"></i></div>`;
+  return `<div class="pixel-art pixel-art-generic" aria-hidden="true"><span>${escapeHTML(String(game.title || "?").slice(0, 2).toUpperCase())}</span></div>`;
 }
 
 function updateVisibleGames() {
@@ -155,7 +155,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 try {
-  const response = await fetch("./games.json?v=3");
+  const response = await fetch("./games.json?v=4");
   if (!response.ok) throw new Error("Catalog unavailable");
   games = await response.json();
   selectedGameId = games.some((game) => game.id === lastPlayedId)
