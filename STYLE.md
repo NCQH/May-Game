@@ -94,11 +94,11 @@ Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated 
 
 ## 6. Trang thư viện và tài liệu
 
-- **Catalog:** `.selection-row` và `.game-feature` chia artwork/copy; heading, mô tả, kỷ lục rồi CTA `.start-game`. Card giữ artwork riêng, không thay bằng icon generic nếu đã có asset. Previous/next có tên truy cập và disabled thật.
+- **Catalog:** `.selection-row` và `.game-feature` chia artwork/copy; mô tả/controls 14px, overline/nhãn kỷ lục 12px, điểm 14px. Portrait ≤760px và cao >500px đặt previous/next trong hàng 44px dưới card, không dùng hai rail lấy chiều ngang; desktop/landscape thấp giữ rail. Phone cao ≤700px ẩn stats phụ, artwork 76px để CTA vẫn hiện. Card giữ artwork riêng, previous/next có tên truy cập và disabled thật. Nội dung dài/zoom vẫn được cuộn; card thông thường không tràn khi đổi game.
 - **Search:** `.screen-search`/`.screen-search-toggle`, input và nút cao 44px; trạng thái mở dùng `aria-expanded`. Giữ focus hiển thị, có empty state khi không tìm thấy.
 - **Loading/empty/error:** `.selection-loading`, `.loader-pixel`, `.empty-selection`. Luôn có chữ giải thích; loading kéo dài có tiến độ/ngữ cảnh, lỗi có retry phù hợp. Tránh thông báo chạy local trên site live.
 - **Contributors:** `.contributor-grid` tự fit cột tối thiểu 280px hoặc toàn chiều rộng; `.contributor-card` có avatar, tên, profile và danh sách game. Link profile/game/chưa ghi nhận có vùng chạm ≥44×44px, nhãn chính 14px; tên/handle dài wrap, không tràn ngang. Giữ link semantic và focus outline chung.
-- **Hướng dẫn:** `.page-heading`, `.guide-step`, `.guide-note`, `.guide-local-run`; chia bước rõ, code/path wrap hoặc cuộn trong block riêng. Không để nội dung cuối bị mất do chiều cao cố định.
+- **Hướng dẫn:** `.page-heading`, `.guide-step`, `.guide-note`, `.guide-local-run`; đoạn đọc 14px cả mobile/landscape, chia bước rõ, code/path wrap hoặc cuộn trong block riêng. Không để nội dung cuối bị mất do chiều cao cố định.
 - **Footer/link:** `.deck-link`, `.deck-link-primary`, `aria-current="page"` khi phù hợp. Link dẫn đi dùng `<a>`; thao tác tại chỗ dùng `<button>`.
 
 ## 7. Responsive và accessibility
@@ -110,7 +110,7 @@ Yêu cầu khi sửa/thêm game:
 1. Kiểm tra 320×568, 390×844, 844×390 và desktop thông thường 1366×768, 1440×900, 1920×1080; xoay trong lúc chơi. Không tràn ngang trang, không kéo méo canvas; action thiết yếu phải dễ tiếp cận.
 2. Vùng chạm thao tác ≥44×44px. Focus chung game là outline 3px sand; trang thư viện dùng vàng `#fff2a8`, offset 3px. Không xóa outline.
 3. Dùng HTML semantic, label/ARIA cho icon/canvas, `hidden` cho trạng thái không hiển thị; không để phần tử ẩn còn nhận tương tác. Có luồng keyboard và touch tương ứng.
-4. Giữ `prefers-reduced-motion`: shared giảm animation/transition về .01ms. Hiệu ứng mới phải có phương án tắt/giảm, không nhấp nháy mạnh.
+4. Giữ `prefers-reduced-motion`: shared giảm animation/transition về .01ms; loader catalog tắt animation hoàn toàn, không lặp vô hạn với duration cực ngắn. Hiệu ứng mới phải có phương án tắt/giảm, không nhấp nháy mạnh.
 5. Texture/scanline chỉ trang trí, `pointer-events: none`; không làm chữ dài khó đọc. Kiểm tra contrast sau khi đổi màu; có CSS/ARIA không đồng nghĩa đã đạt WCAG.
 6. Test trang thực và xem screenshot, không chỉ lint/CSS. Kiểm tra font fallback, loading/error, pause, game-over và dữ liệu lưu qua reload.
 
@@ -120,7 +120,7 @@ Trang chủ có âm boot tổng hợp bằng Web Audio, không cần file âm th
 
 - Boot 300ms, âm lượng nhẹ, tối đa một lần mỗi lần mở trang, chỉ sau click/phím thật (không Tab/phím modifier). Không autoplay, không đợi âm thanh trước khi vào game; API lỗi hoặc storage bị chặn không ảnh hưởng catalog.
 - Nút loa `.home-sound` 44×44px ở deck dùng SVG và tên truy cập/title, `aria-pressed="true"` nghĩa là tắt tiếng. Lưu `may-game:v1:home-muted`; mặc định bật, mute ngắt âm đã lên lịch và chặn resume đang chờ. Bấm mute trước không phát boot; bật lại phát nếu chưa yêu cầu boot trong lần mở trang này.
-- Card trang chủ reveal 160ms (opacity .85→1, dịch 3px→0), chỉ khi `prefers-reduced-motion: no-preference`; không đổi geometry/layout hay nhấp nháy. Nút giữ hover/active raised arcade có sẵn.
+- Card trang chủ fade 160ms (opacity .85→1), chỉ khi `prefers-reduced-motion: no-preference`; không translate cả card vì sẽ làm vùng `overflow: auto` xuất hiện scrollbar thoáng qua. Nút giữ hover/active raised arcade có sẵn.
 - Không tự thêm backend, leaderboard online hoặc bộ điều khiển ảo chung như một phần của style.
 
 ## 9. Component UX đã cập nhật

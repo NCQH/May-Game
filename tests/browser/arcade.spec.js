@@ -111,6 +111,26 @@ test("home sound fits phone and desktop, keyboard toggles, and reduced motion di
   expect(await page.locator('.game-feature').evaluate(node => getComputedStyle(node).animationName)).toBe('card-reveal');
 });
 
+test("reduced motion keeps slow catalog loading static and respects preference changes", async ({ page }) => {
+  let release;
+  await page.route('**/games.json*', async route => {
+    await new Promise(resolve => { release = resolve; });
+    await route.continue();
+  });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  const loader = page.locator('.loader-pixel');
+  await expect(loader).toBeVisible();
+  expect(await loader.evaluate(node => getComputedStyle(node).animationName)).toBe('none');
+  expect(await loader.evaluate(node => node.getAnimations().length)).toBe(0);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  expect(await loader.evaluate(node => getComputedStyle(node).animationName)).toBe('pixel-blink');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  expect(await loader.evaluate(node => node.getAnimations().length)).toBe(0);
+  release();
+  await expect(page.locator('#start-game')).toBeVisible();
+});
+
 test("arcade actions retain shared readable fonts, touch targets and keyboard focus", async ({ page }) => {
   const screens = [
     ["/", "#start-game"],
@@ -467,11 +487,30 @@ test("PvZ keeps a complete cached bundle after a failed asset update", async ({ 
 });
 
 test("every catalog start link remains visible and tappable on small screens", async ({ page }) => {
-  for (const viewport of [{ width: 568, height: 320 }, { width: 320, height: 568 }, { width: 390, height: 844 }]) {
+  for (const viewport of [{ width: 568, height: 320 }, { width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 900, height: 600 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);
     await page.goto("/");
     await expect(page.locator("#start-game")).toBeVisible();
     for (let game = 0; game < 4; game++) {
+      const card = page.locator('.selected-game');
+      for (const time of [0, 80, 160]) {
+        const overflow = await card.evaluate((node, currentTime) => {
+          node.querySelector('.game-feature').getAnimations().forEach(animation => { animation.pause(); animation.currentTime = currentTime; });
+          return [node.scrollWidth - node.clientWidth, node.scrollHeight - node.clientHeight];
+        }, time);
+        expect(overflow).toEqual([0, 0]);
+      }
+      for (const arrow of await page.locator('.select-arrow').all()) {
+        const box = await arrow.boundingBox();
+        expect(box.width).toBeGreaterThanOrEqual(44);
+        expect(box.height).toBeGreaterThanOrEqual(44);
+        if (viewport.width <= 760 && viewport.height > 500) expect(box.y).toBeGreaterThanOrEqual((await card.boundingBox()).y + (await card.boundingBox()).height);
+      }
+      if (viewport.height > 500) {
+        expect(await page.locator('.feature-description').evaluate(node => getComputedStyle(node).fontSize)).toBe('14px');
+        expect(await page.locator('.feature-controls').evaluate(node => getComputedStyle(node).fontSize)).toBe('14px');
+        expect(await page.locator('.feature-overline').evaluate(node => getComputedStyle(node).fontSize)).toBe('12px');
+      }
       await expect.poll(() => page.locator("#start-game").evaluate((link) => {
         const rect = link.getBoundingClientRect();
         return rect.top >= 0 && rect.bottom <= innerHeight
@@ -752,7 +791,12 @@ test("contribution pages scroll natively without shrinking controls", async ({ p
     expect(await page.locator('main').evaluate(node => getComputedStyle(node).transform)).toBe('none');
     const content = page.locator('.page-content');
     expect(await content.evaluate(node => getComputedStyle(node).overflowY)).toBe('auto');
+    expect(await page.locator('.page-heading-copy p:not(.page-kicker)').evaluate(node => getComputedStyle(node).fontSize)).toBe('14px');
+    for (const paragraph of await page.locator('.guide-step p, .guide-note p, .guide-local-run p').all()) {
+      expect(await paragraph.evaluate(node => getComputedStyle(node).fontSize)).toBe('14px');
+    }
     await content.evaluate(node => { node.scrollTop = node.scrollHeight; });
+    expect(await content.evaluate(node => Math.abs(node.scrollHeight - node.clientHeight - node.scrollTop) <= 1)).toBe(true);
     const link = page.locator('.cabinet-deck a').first();
     await expect(link).toBeVisible();
     expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(44);
