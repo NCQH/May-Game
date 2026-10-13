@@ -129,6 +129,16 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .deck-link-primary { border-color: #e0efa2; background: var(--arcade-lime); color: #1e2a1b; }
 .deck-link-primary:hover { background: #e0efa2; color: #1e2a1b; }
 .deck-link-primary > span { font-size: 14px; }
+.home-sound { display: grid; flex: none; place-items: center; width: 44px; height: 44px; padding: 8px; border: 2px solid var(--control-border); background: var(--control-bg); box-shadow: 0 4px 0 var(--control-shadow); color: var(--control-text); cursor: pointer; }
+.home-sound:hover { border-color: var(--arcade-lime); transform: translateY(-1px); }
+.home-sound:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--control-shadow); }
+.home-sound svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
+.home-sound .sound-off, .home-sound[aria-pressed="true"] .sound-waves { display: none; }
+.home-sound[aria-pressed="true"] .sound-off { display: block; }
+@media (prefers-reduced-motion: no-preference) {
+  .arcade-home .game-feature { animation: card-reveal .16s ease-out; }
+  @keyframes card-reveal { from { opacity: .85; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+}
 .deck-speaker { display: flex; gap: 4px; }
 .cabinet-deck > .deck-speaker { position: absolute; left: 50%; transform: translateX(-50%); }
 .deck-speaker i { width: 22px; height: 3px; background: #6c7d43; }

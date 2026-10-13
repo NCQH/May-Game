@@ -1,5 +1,116 @@
 const { test, expect } = require("@playwright/test");
 
+function spyHomeAudio() {
+  window.audioEvents = [];
+  window.AudioContext = class {
+    state = 'suspended'; currentTime = 0; destination = {};
+    constructor() { window.audioEvents.push('context'); }
+    async resume() {
+      if (window.deferHomeAudio) await new Promise(resolve => { window.finishHomeAudio = resolve; });
+      this.state = 'running';
+    }
+    async close() { this.state = 'closed'; }
+    createOscillator() { return { frequency: { setValueAtTime() {} }, connect() {}, disconnect() {},
+      start() { window.audioEvents.push('start'); }, stop(time) { window.audioEvents.push(time === undefined ? 'stop-now' : 'stop-scheduled'); } }; }
+    createGain() { return { gain: { cancelScheduledValues() {}, setValueAtTime(value) { window.audioEvents.push(value); }, exponentialRampToValueAtTime() {} }, connect() {}, disconnect() {} }; }
+  };
+}
+
+test.beforeEach(async ({ page }) => {
+  await page.route('https://fonts.googleapis.com/**', route => route.abort());
+});
+
+test("home boots only after a trusted gesture, once, and mute stops and persists", async ({ page }) => {
+  await page.addInitScript(spyHomeAudio);
+  await page.goto('/');
+  await expect(page.locator('#start-game')).toBeVisible();
+  await page.locator('#next-game').dispatchEvent('click');
+  await page.keyboard.press('Tab');
+  expect(await page.evaluate(() => audioEvents)).toEqual([]);
+  await page.locator('#next-game').click();
+  await expect.poll(() => page.evaluate(() => audioEvents.filter(event => event === 'start').length)).toBe(1);
+  expect(await page.evaluate(() => audioEvents.includes(.045))).toBe(true);
+  await page.locator('#previous-game').click();
+  expect(await page.evaluate(() => audioEvents.filter(event => event === 'start').length)).toBe(1);
+  await page.locator('#home-sound').click();
+  expect(await page.evaluate(() => audioEvents.slice(-2))).toEqual([0, 'stop-now']);
+  await page.reload();
+  await expect(page.locator('#home-sound')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('#next-game').click();
+  expect(await page.evaluate(() => audioEvents)).toEqual([]);
+  await page.locator('#home-sound').click();
+  await expect.poll(() => page.evaluate(() => audioEvents.includes('start'))).toBe(true);
+});
+
+test("home mute-first and mute during pending resume never schedule a boot tone", async ({ page }) => {
+  await page.addInitScript(spyHomeAudio);
+  await page.addInitScript(() => { window.deferHomeAudio = true; });
+  await page.goto('/');
+  await page.locator('#home-sound').click();
+  await page.locator('#next-game').click();
+  expect(await page.evaluate(() => audioEvents)).toEqual([]);
+  await page.locator('#home-sound').click();
+  await expect.poll(() => page.evaluate(() => typeof finishHomeAudio)).toBe('function');
+  await page.locator('#home-sound').click();
+  await page.evaluate(() => finishHomeAudio());
+  expect(await page.evaluate(() => audioEvents)).toEqual(['context']);
+});
+
+test("home catalog and navigation survive unavailable audio and blocked storage", async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.addInitScript(() => {
+    const mode = new URLSearchParams(location.search).get('audio-failure');
+    localStorage.removeItem('may-game:v1:home-muted');
+    window.failedAudioAttempt = false;
+    window.AudioContext = window.webkitAudioContext = undefined;
+    if (mode === 'constructor') window.AudioContext = class { constructor() { window.failedAudioAttempt = true; throw new Error('Unavailable'); } };
+    if (mode === 'resume') window.AudioContext = class { async resume() { window.failedAudioAttempt = true; throw new Error('Blocked'); } async close() {} };
+    if (mode === 'storage') Object.defineProperty(window, 'localStorage', { get() { throw new Error('Blocked'); } });
+  });
+  for (const failure of ['missing', 'constructor', 'resume', 'storage']) {
+    await page.goto(`/?audio-failure=${failure}`);
+    await page.locator('#next-game').click();
+    if (['constructor', 'resume'].includes(failure)) expect(await page.evaluate(() => failedAudioAttempt)).toBe(true);
+    await page.locator('#home-sound').click();
+    await page.locator('#search-toggle').click();
+    await page.locator('#game-search').fill('Tetris');
+    await expect(page.locator('.feature-copy h1')).toHaveText('Tetris');
+    await page.locator('#start-game').click();
+    await expect(page).toHaveURL(/games\/tetris\//);
+  }
+  expect(errors).toEqual([]);
+});
+
+test("home sound fits phone and desktop, keyboard toggles, and reduced motion disables reveal", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 900, height: 600 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto('/');
+    const sound = page.locator('#home-sound');
+    await expect(sound).toBeVisible();
+    const box = await sound.boundingBox();
+    expect(box.width).toBeGreaterThanOrEqual(44);
+    expect(box.height).toBeGreaterThanOrEqual(44);
+    expect(box.x + box.width).toBeLessThanOrEqual(viewport.width);
+    expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
+    await sound.focus();
+    expect(await sound.evaluate(node => getComputedStyle(node).outlineWidth)).toBe('3px');
+    const muted = await sound.getAttribute('aria-pressed');
+    await page.keyboard.press('Space');
+    await expect(sound).toHaveAttribute('aria-pressed', muted === 'true' ? 'false' : 'true');
+    await expect(sound).toHaveAttribute('aria-label', /âm thanh trang chủ/);
+    await expect(page.locator('.game-feature')).toBeVisible();
+    expect(await page.locator('.game-feature').evaluate(node => getComputedStyle(node).animationName)).toBe('none');
+    await page.locator('#search-toggle').click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.locator('.cabinet-deck').evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true);
+  }
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.locator('#next-game').click();
+  expect(await page.locator('.game-feature').evaluate(node => getComputedStyle(node).animationName)).toBe('card-reveal');
+});
+
 test("arcade actions retain shared readable fonts, touch targets and keyboard focus", async ({ page }) => {
   const screens = [
     ["/", "#start-game"],

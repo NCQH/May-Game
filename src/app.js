@@ -8,6 +8,84 @@ const statusLabel = document.querySelector("#selection-status");
 const previousButton = document.querySelector("#previous-game");
 const nextButton = document.querySelector("#next-game");
 const STORAGE_PREFIX = "may-game:v1:";
+const soundToggle = document.querySelector("#home-sound");
+let homeMuted = false;
+let bootRequested = false;
+let soundVersion = 0;
+let audio = null;
+let bootOscillator = null;
+let bootGain = null;
+try { homeMuted = localStorage.getItem(`${STORAGE_PREFIX}home-muted`) === "true"; } catch { /* Sound is optional. */ }
+
+function syncHomeSound() {
+  const label = homeMuted ? "Bật âm thanh trang chủ" : "Tắt âm thanh trang chủ";
+  soundToggle.setAttribute("aria-pressed", String(homeMuted));
+  soundToggle.setAttribute("aria-label", label);
+  soundToggle.title = label;
+}
+
+function stopBootSound() {
+  soundVersion++;
+  if (!bootOscillator) return;
+  try {
+    bootGain.gain.cancelScheduledValues(audio.currentTime);
+    bootGain.gain.setValueAtTime(0, audio.currentTime);
+    bootOscillator.stop();
+  } catch { /* An ended tone needs no cleanup here. */ }
+}
+
+async function playBootSound() {
+  if (homeMuted || bootRequested) return;
+  bootRequested = true;
+  const version = soundVersion;
+  try {
+    const Audio = window.AudioContext || window.webkitAudioContext;
+    if (!Audio) return;
+    audio = new Audio();
+    await audio.resume();
+    if (homeMuted || version !== soundVersion || audio.state !== "running") return;
+    const oscillator = audio.createOscillator();
+    const gain = audio.createGain();
+    const now = audio.currentTime;
+    oscillator.type = "triangle";
+    oscillator.frequency.setValueAtTime(440, now);
+    oscillator.frequency.setValueAtTime(660, now + .1);
+    oscillator.frequency.setValueAtTime(880, now + .2);
+    gain.gain.setValueAtTime(.045, now);
+    gain.gain.exponentialRampToValueAtTime(.001, now + .3);
+    oscillator.connect(gain);
+    gain.connect(audio.destination);
+    bootOscillator = oscillator;
+    bootGain = gain;
+    oscillator.onended = () => {
+      oscillator.disconnect();
+      gain.disconnect();
+      bootOscillator = bootGain = null;
+    };
+    oscillator.start(now);
+    oscillator.stop(now + .3);
+  } catch { /* Catalog and navigation do not depend on audio. */ }
+}
+
+syncHomeSound();
+soundToggle.addEventListener("click", (event) => {
+  homeMuted = !homeMuted;
+  try { localStorage.setItem(`${STORAGE_PREFIX}home-muted`, String(homeMuted)); } catch { /* Keep the choice for this page when storage is unavailable. */ }
+  syncHomeSound();
+  if (homeMuted) stopBootSound();
+  else if (event.isTrusted) playBootSound();
+});
+for (const type of ["click", "keydown"]) {
+  document.addEventListener(type, (event) => {
+    if (!event.isTrusted || event.target.closest("#home-sound") || event.altKey || event.ctrlKey || event.metaKey ||
+      (type === "keydown" && ["Tab", "Shift", "Control", "Alt", "Meta", "Escape"].includes(event.key))) return;
+    playBootSound();
+  });
+}
+window.addEventListener("pagehide", () => {
+  stopBootSound();
+  audio?.close().catch(() => {});
+});
 const TETRIS_PIXELS = [
   [3, 2, "#f5d563"], [4, 2, "#f5d563"], [3, 3, "#f5d563"], [4, 3, "#f5d563"],
   [1, 5, "#52d7ed"], [2, 5, "#52d7ed"], [3, 5, "#52d7ed"], [3, 4, "#52d7ed"],

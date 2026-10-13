@@ -114,12 +114,13 @@ Yêu cầu khi sửa/thêm game:
 5. Texture/scanline chỉ trang trí, `pointer-events: none`; không làm chữ dài khó đọc. Kiểm tra contrast sau khi đổi màu; có CSS/ARIA không đồng nghĩa đã đạt WCAG.
 6. Test trang thực và xem screenshot, không chỉ lint/CSS. Kiểm tra font fallback, loading/error, pause, game-over và dữ liệu lưu qua reload.
 
-## 8. Âm thanh và hiệu ứng — định hướng P3
+## 8. Âm thanh và hiệu ứng
 
-Âm thanh boot và hiệu ứng arcade nhẹ là mục cần triển khai **ưu tiên thấp**, sau các sửa khả năng chơi/đọc; tài liệu này không thêm chúng vào code.
+Trang chủ có âm boot tổng hợp bằng Web Audio, không cần file âm thanh hoặc dependency. Âm thanh trong từng game giữ cài đặt riêng.
 
-- Boot sound ngắn, chỉ phát sau tương tác đầu tiên (tuân thủ autoplay), không chặn vào game; có tùy chọn tắt tiếng và tôn trọng lựa chọn đó.
-- Hiệu ứng chuyển card/nhấn nút nhẹ, không làm layout nhảy hay che HUD; ưu tiên CSS, tôn trọng reduced-motion.
+- Boot 300ms, âm lượng nhẹ, tối đa một lần mỗi lần mở trang, chỉ sau click/phím thật (không Tab/phím modifier). Không autoplay, không đợi âm thanh trước khi vào game; API lỗi hoặc storage bị chặn không ảnh hưởng catalog.
+- Nút loa `.home-sound` 44×44px ở deck dùng SVG và tên truy cập/title, `aria-pressed="true"` nghĩa là tắt tiếng. Lưu `may-game:v1:home-muted`; mặc định bật, mute ngắt âm đã lên lịch và chặn resume đang chờ. Bấm mute trước không phát boot; bật lại phát nếu chưa yêu cầu boot trong lần mở trang này.
+- Card trang chủ reveal 160ms (opacity .85→1, dịch 3px→0), chỉ khi `prefers-reduced-motion: no-preference`; không đổi geometry/layout hay nhấp nháy. Nút giữ hover/active raised arcade có sẵn.
 - Không tự thêm backend, leaderboard online hoặc bộ điều khiển ảo chung như một phần của style.
 
 ## 9. Component UX đã cập nhật
