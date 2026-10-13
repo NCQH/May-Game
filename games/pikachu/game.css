@@ -279,7 +279,8 @@
 
 .pika-controls {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 64px);
+  justify-content: center;
   gap: 7px;
   width: min(100%, 760px);
   margin: 0 auto;
@@ -392,17 +393,13 @@
   }
 
   .pika-controls {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 64px);
     gap: 6px;
   }
 
   .pika-control {
     min-height: 46px;
     padding-inline: 6px;
-  }
-
-  .pika-control-restart {
-    grid-column: 2;
   }
 }
 

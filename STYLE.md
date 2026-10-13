@@ -83,7 +83,8 @@ Khung game mặc định rộng tối đa 760px; các game override theo nội d
 | Hướng dẫn/phím | `.game-help`, `kbd`: đúng phím/gesture của game. Mobile phải có chỉ dẫn chạm, không chỉ có P/C/M. |
 | Thông báo | `.game-message`: lime, ẩn khi rỗng; `.is-error`: coral. Thông báo lỗi nói cách phục hồi, không chỉ “thất bại”. |
 | Dialog/overlay | Pikachu có native `<dialog>` với title/message/actions, backdrop và góc vuông. Tetris có overlay trong board. Dialog cần focus/đóng/phục hồi focus; kết quả có CTA chơi lại gần nội dung. |
-| Pause/mute/restart | Nhãn tiếng Việt, trạng thái rõ. Không dùng cùng một bộ D-pad cho mọi game; chọn controls theo gameplay. Pause/resume không được làm mất tiến trình. |
+| Icon/menu | `.game-icon-button`: 44×44px, symbol có `aria-label`/`title`; SVG trang trí `aria-hidden`. Chỉ giữ pause/hold/hint/shuffle thiết yếu ngoài board. Nút ☰ mở native `#game-menu` qua `assets/js/game-menu.js`; hướng dẫn và cài đặt sound/restart/mode/size nằm trong menu, có chữ rõ. CTA kết quả/chọn chế độ giữ chữ. |
+| Pause/mute/restart | Symbol phản ánh trạng thái thật; toggle dùng `aria-pressed`. Mở menu pause và chặn input game; Escape đóng/trả focus, không tự tiếp tục Tetris/Flappy. Pikachu dừng timer trong menu. Không mở chồng dialog; pause/resume không làm mất tiến trình. PvZ menu ngoài không đảm bảo pause engine: dùng Esc của engine trước. |
 
 Các biến thể `.pika-control`, `.tetris-*`, `.flappy-*` có thể giữ hình dáng riêng, nhưng phải thống nhất focus, vùng chạm, màu semantic và ngôn ngữ action với khung chung.
 
@@ -124,8 +125,8 @@ Yêu cầu khi sửa/thêm game:
 ## 9. Component UX đã cập nhật
 
 - Tetris: “Cách chơi” trong menu giải thích gesture/phím; kết quả có CTA chơi lại/đổi chế độ ngay trên board. Pause overlay vẫn cho phép chạm canvas để tiếp tục. Layout ngang thấp đặt board giữa, HUD/hold trái và next/actions phải.
-- Flappy: nút pause/resume và mute ngoài canvas, hướng dẫn bắt đầu/tiếp tục; hồi sinh ghi rõ một lần/ván. Layout ngang thấp đặt hướng dẫn/actions cạnh board.
-- PvZ: gợi ý xoay ngang ở portrait; compact landscape giảm chrome để toolbar tiếp cận được. Điều khiển Menu touch và UI engine cần kiểm tra với build WASM, chưa được thêm trong đợt này.
+- Flappy: pause/resume bằng symbol ngoài canvas; mute và hướng dẫn đầy đủ trong menu chung. Hồi sinh ghi rõ một lần/ván; CTA kết quả giữ chữ. Layout ngang thấp đặt hướng dẫn ngắn/actions cạnh board.
+- PvZ: gợi ý xoay ngang ở portrait; toolbar ngoài nằm trong menu chung. Loading phân biệt kiểm tra dữ liệu, tải tệp và khởi động engine; native progress chỉ đo số tệp hoàn tất, không phải phần trăm dung lượng/ETA. Lỗi có “Thử lại”, cập nhật lỗi giữ bộ dữ liệu cache đầy đủ. Menu touch bên trong engine và gameplay cần kiểm tra với build WASM.
 
 ## 10. Checklist game mới
 

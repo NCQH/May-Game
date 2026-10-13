@@ -202,7 +202,7 @@ if (typeof document !== "undefined") {
     state.paused = false; previous = null; persist(); draw(); canvas.focus();
   }
   function showMenu() {
-    pause(true); choosing = true; $(".arcade-game-content").hidden = true; $(".tetris-menu").hidden = false;
+    $("#game-menu").close(); pause(true); choosing = true; $(".arcade-game-content").hidden = true; $(".tetris-menu").hidden = false;
     $("#continue-game").hidden = state.over;
     $(".tetris-menu button").focus();
   }
@@ -297,9 +297,11 @@ if (typeof document !== "undefined") {
     $("#timer").textContent = time(state.mode === "blitz" ? Math.max(0,120000-state.elapsed) : state.elapsed);
     const best = record.records[state.mode];
     $("#record").textContent = state.mode === "sprint" ? best === null ? "—" : time(best) : String(best);
-    $("#pause").textContent = state.paused ? "Tiếp tục" : "Tạm dừng"; $("#pause").disabled = state.over;
+    $("#pause").textContent = state.paused ? "▶" : "Ⅱ";
+    $("#pause").setAttribute("aria-label", state.paused ? "Tiếp tục" : "Tạm dừng");
+    $("#pause").title = state.paused ? "Tiếp tục" : "Tạm dừng"; $("#pause").disabled = state.over;
     $("#hold").disabled = state.over || state.paused || state.holdUsed;
-    $("#mute").textContent = record.muted ? "Âm thanh: Tắt" : "Âm thanh: Bật";
+    $("#mute").textContent = record.muted ? "🔇 Âm thanh: Tắt" : "🔊 Âm thanh: Bật";
     $("#mute").setAttribute("aria-pressed", String(record.muted));
     const message = state.over ? `${state.won ? "Hoàn thành" : "Ván kết thúc"}. ${state.mode === "sprint" ? `${state.lines} / 40 hàng · ${time(state.elapsed)}` : `${state.score} điểm`}. Nhấn Chơi lại để bắt đầu ván mới.` : state.paused ? "Tạm dừng." : state.message;
     canvas.setAttribute("aria-label", `Bàn Tetris. ${message || "Đang chơi."} Mũi tên di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng.`);
@@ -319,7 +321,7 @@ if (typeof document !== "undefined") {
   }
   const keys = { ArrowLeft: "left", ArrowRight: "right", ArrowDown: "down", ArrowUp: "rotate", x: "rotate", z: "ccw", c: "hold", " ": "drop" };
   document.addEventListener("keydown", event => {
-    if (choosing || event.altKey || event.ctrlKey || event.metaKey || event.target.closest("input,textarea,select,[contenteditable],a") || (event.target.closest("button") && [" ","Enter"].includes(event.key))) return;
+    if ($("#game-menu").open || choosing || event.altKey || event.ctrlKey || event.metaKey || event.target.closest("input,textarea,select,[contenteditable],a") || (event.target.closest("button") && [" ","Enter"].includes(event.key))) return;
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     if (!keys[key] && !["p","r","m"].includes(key)) return;
     event.preventDefault(); unlockAudio(); if (event.repeat) return;
@@ -338,12 +340,13 @@ if (typeof document !== "undefined") {
     ["pointerup","pointercancel","lostpointercapture"].forEach(name => button.addEventListener(name,release));
     button.addEventListener("click", event => { if (event.detail === 0) { unlockAudio(); act(button.dataset.action); } });
   });
+  document.addEventListener("game-menu-open", () => pause(true));
   $("#pause").addEventListener("click", () => { unlockAudio(); pause(); });
   function restart(mode = state.mode) { clearInputs(); state = freshState(mode); previous = null; feedbackUntil = 0; persist(); draw(); }
   function requestRestart() {
     if (state.over || !(state.score || state.board.some(row => row.some(Boolean))) || confirm("Bắt đầu ván mới và bỏ tiến trình hiện tại?")) restart();
   }
-  $("#restart").addEventListener("click", () => { unlockAudio(); requestRestart(); });
+  $("#restart").addEventListener("click", () => { unlockAudio(); requestRestart(); if ($("#game-menu").open) pause(true); });
   $("#result-restart").addEventListener("click", () => { unlockAudio(); restart(); canvas.focus(); });
   $("#result-mode").addEventListener("click", showMenu);
   function toggleMute() { record.muted = !record.muted; if (record.muted) audio?.suspend().catch(() => {}); else { unlockAudio(); void sound("rotate"); } persist(); draw(); }

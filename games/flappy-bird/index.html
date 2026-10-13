@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/shared.css" />
     <script type="module" src="./game.js?v=9"></script>
+    <script type="module" src="../../assets/js/game-menu.js"></script>
     <link rel="stylesheet" href="../../assets/css/viewport.css?v=3">
     <link rel="stylesheet" href="./game.css?v=6" />
 </head>
@@ -27,6 +28,7 @@
         <div class="arcade-screen-meta">
           <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
           <h1 class="game-title">Flappy Bird</h1>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Menu trò chơi" title="Menu trò chơi" aria-controls="game-menu" aria-expanded="false">☰</button>
         </div>
         <div class="arcade-game-content">
           <div class="flappy-board-wrap">
@@ -41,14 +43,24 @@
                 <button class="game-button game-button-primary" id="play" type="button">Chơi lại</button>
                 <button class="game-button" id="revive" type="button">Hồi sinh 1 lần</button>
               </div>
-            </section>
+
+      </section>
           </div>
           <p class="game-help" id="flappy-hint" aria-live="polite">Chạm để bay · Space hoặc ↑ trên máy tính</p>
           <div class="game-actions">
-            <button class="game-button" id="pause" type="button" disabled>Tạm dừng</button>
-            <button class="game-button" id="mute" type="button" aria-pressed="false">Tắt âm thanh</button>
+            <button class="game-button game-icon-button" id="pause" type="button" aria-label="Tạm dừng" title="Tạm dừng" disabled>Ⅱ</button>
           </div>
         </div>
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title">
+          <div class="game-menu-card">
+            <h2 id="game-menu-title">Menu Flappy Bird</h2>
+            <p>Chạm bàn chơi, Space hoặc ↑ để bay qua ống. P tạm dừng; M bật/tắt âm thanh. Hồi sinh chỉ dùng một lần mỗi ván. Đóng menu rồi chạm bàn chơi để tiếp tục.</p>
+            <div class="game-menu-actions">
+              <button class="game-button" id="mute" type="button" aria-pressed="false">🔊 Tắt âm thanh</button>
+              <button class="game-button game-button-primary" type="button" data-menu-close>Đóng menu</button>
+            </div>
+          </div>
+        </dialog>
       </section>
       <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
     </main>

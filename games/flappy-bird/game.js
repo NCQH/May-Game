@@ -228,9 +228,11 @@ function syncControls() {
   reviveButton.hidden = state.revived;
   const pauseButton = document.querySelector("#pause");
   pauseButton.disabled = state.phase !== "playing";
-  pauseButton.textContent = state.paused ? "Tiếp tục" : "Tạm dừng";
+  pauseButton.textContent = state.paused ? "▶" : "Ⅱ";
+  pauseButton.setAttribute("aria-label", state.paused ? "Tiếp tục" : "Tạm dừng");
+  pauseButton.title = state.paused ? "Tiếp tục" : "Tạm dừng";
   const muteButton = document.querySelector("#mute");
-  muteButton.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
+  muteButton.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
   muteButton.setAttribute("aria-pressed", String(record.muted));
   document.querySelector("#flappy-hint").textContent = state.paused
     ? "Chạm để tiếp tục · P trên máy tính"
@@ -240,7 +242,7 @@ function syncControls() {
 }
 function flap() {
   unlockAudio();
-  if (document.hidden || ["dying", "results"].includes(state.phase)) return;
+  if (document.hidden || document.querySelector("#game-menu").open || ["dying", "results"].includes(state.phase)) return;
   if (state.paused || state.phase === "ready") resetClock();
   if (state.paused) state.paused = false;
   else { state.phase = "playing"; state.birdV = FLAP_SPEED; sound("wing"); }
@@ -290,7 +292,7 @@ reviveButton.addEventListener("click", () => {
 document.querySelector("#pause").addEventListener("click", togglePause);
 document.querySelector("#mute").addEventListener("click", toggleMute);
 document.addEventListener("keydown", (event) => {
-  if (event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;
+  if (document.querySelector("#game-menu").open || event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;
   const target = event.target instanceof Element ? event.target : null;
   if (target?.closest("a, input, textarea, select, [contenteditable]")) return;
   if (target?.closest("button") && (event.key === " " || event.key === "Enter")) return;
@@ -298,6 +300,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key.toLowerCase() === "p") { event.preventDefault(); togglePause(); }
   if (event.key.toLowerCase() === "m") { event.preventDefault(); toggleMute(); }
 });
+document.addEventListener("game-menu-open", pauseForExit);
 document.addEventListener("visibilitychange", () => { if (document.hidden) pauseForExit(); else resetClock(); });
 window.addEventListener("pagehide", pauseForExit);
 persist(); syncControls(); draw();

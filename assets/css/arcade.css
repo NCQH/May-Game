@@ -109,7 +109,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .start-game:active:not(.is-unavailable) { transform: translateY(3px); box-shadow: 0 1px 0 var(--control-shadow); }
 .start-mark { font-size: 11px; }
 .start-game.is-unavailable { background: #82915c; box-shadow: none; color: #25311f; cursor: default; }
-.empty-selection, .selection-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; padding: 22px; text-align: center; }
+.empty-selection, .selection-loading { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; padding: 22px; text-align: center; }
 .empty-pixel { display: grid; width: 40px; height: 40px; place-items: center; border: 2px solid #c7e875; color: #c7e875; font: 700 22px/1 var(--arcade-display); }
 .empty-selection h1 { margin: 14px 0 0; color: #eef4ce; font: 700 20px/1.2 var(--arcade-display); }
 .empty-selection p { max-width: 340px; margin: 9px 0 0; color: #abb99a; font-size: 11px; line-height: 1.5; }

@@ -177,6 +177,7 @@ canvas#canvas {
     <div class="arcade-screen-meta">
       <a class="back-link" href="../../index.html">← Màn hình chính</a>
       <h1 class="pvz-title">Plants vs. Zombies <span>GOTY</span></h1>
+      <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Menu trò chơi" title="Menu trò chơi" aria-controls="game-menu" aria-expanded="false">☰</button>
     </div>
     <div class="pvz-display">
 <div id="upload-screen" hidden style="display:none">
@@ -232,6 +233,11 @@ canvas#canvas {
   </section>
   <footer class="pvz-deck">
     <p class="pvz-hint">Chuột hoặc chạm để chơi <span>· Esc mở menu</span><span class="pvz-rotate-hint"> · Xoay ngang để đọc và chạm dễ hơn</span></p>
+
+  </footer>
+<dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title"><div class="game-menu-card">
+<h2 id="game-menu-title">Menu Plants vs. Zombies</h2>
+<p>Chuột hoặc chạm để chơi. Esc mở menu trong game. Menu này chỉ quản lý giao diện ngoài game, không tạm dừng engine; hãy dùng Esc trước khi đổi cài đặt.</p>
     <div id="save-toolbar">
       <label class="pvz-quality" for="pvz-resolution">Độ phân giải
         <select id="pvz-resolution"><option value="auto">Tự động</option><option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">4K</option></select>
@@ -239,7 +245,8 @@ canvas#canvas {
       <button id="save-export-btn" type="button" title="Tải bản sao dữ liệu lưu">Tải bản lưu</button>
       <button id="pvz-fullscreen" type="button">Toàn màn hình</button>
     </div>
-  </footer>
+<button class="game-button game-button-primary" type="button" data-menu-close>Đóng menu</button>
+</div></dialog>
 </main>
 <textarea id="pvz-soft-keyboard" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="done"></textarea>
 
@@ -860,5 +867,6 @@ window.onGameExit = function() {
 </script>
 <script type="module" src="./quality.js?v=4"></script>
 <script type="module" src="./cabinet.js"></script>
+<script type="module" src="../../assets/js/game-menu.js"></script>
 </body>
 </html>

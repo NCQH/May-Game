@@ -15,6 +15,8 @@ const TETRIS_PIXELS = [
   [2, 7, "#f5b16e"], [3, 7, "#f5b16e"], [4, 7, "#f5b16e"], [4, 6, "#f5b16e"],
 ];
 
+let catalogReady = false;
+let catalogLoading = false;
 let games = [];
 let visibleGames = [];
 let selectedGameId = null;
@@ -59,6 +61,7 @@ function gameArt(game) {
 }
 
 function updateVisibleGames() {
+  if (!catalogReady) return;
   const query = searchInput.value.trim().toLocaleLowerCase("vi");
   visibleGames = games.filter((game) => `${game.title} ${game.category} ${game.description}`.toLocaleLowerCase("vi").includes(query));
   if (!visibleGames.some((game) => game.id === selectedGameId)) selectedGameId = visibleGames[0]?.id || null;
@@ -69,9 +72,11 @@ function renderSelection() {
   previousButton.disabled = visibleGames.length < 2;
   nextButton.disabled = visibleGames.length < 2;
   if (!visibleGames.length) {
-    selection.innerHTML = `<div class="empty-selection"><span class="empty-pixel" aria-hidden="true">?</span><h1>Không tìm thấy game</h1><p>Thử một từ khóa khác hoặc xóa nội dung tìm kiếm.</p></div>`;
+    selection.innerHTML = games.length
+      ? `<div class="empty-selection"><span class="empty-pixel" aria-hidden="true">?</span><h1 tabindex="-1">Không tìm thấy game</h1><p>Thử một từ khóa khác hoặc xóa nội dung tìm kiếm.</p></div>`
+      : `<div class="empty-selection"><span class="empty-pixel" aria-hidden="true">?</span><h1 tabindex="-1">Chưa có game</h1><p>Thư viện hiện chưa có game. Bạn có thể quay lại sau hoặc góp game mới.</p></div>`;
     positionLabel.textContent = `00 / ${String(games.length).padStart(2, "0")}`;
-    statusLabel.textContent = "Không có game phù hợp với từ khóa này.";
+    statusLabel.textContent = games.length ? "Không có game phù hợp với từ khóa này." : "Thư viện hiện chưa có game.";
     return;
   }
 
@@ -112,6 +117,7 @@ function moveSelection(direction) {
 }
 
 function setSearchOpen(open) {
+  if (!catalogReady) return;
   searchOpen = open;
   searchForm.classList.toggle("is-open", open);
   screenTools.classList.toggle("is-search-open", open);
@@ -154,17 +160,43 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-try {
-  const response = await fetch("./games.json?v=4");
-  if (!response.ok) throw new Error("Catalog unavailable");
-  games = await response.json();
-  selectedGameId = games.some((game) => game.id === lastPlayedId)
-    ? lastPlayedId
-    : games.find((game) => game.id === "tetris")?.id || games[0]?.id || null;
-  updateVisibleGames();
-} catch {
-  selection.innerHTML = `<div class="empty-selection"><span class="empty-pixel" aria-hidden="true">!</span><h1>Chưa bật được thư viện</h1><p>Mở trang qua GitHub Pages hoặc máy chủ web để tải danh sách game.</p></div>`;
+async function loadCatalog(retry = false) {
+  if (catalogLoading) return;
+  catalogLoading = true;
+  catalogReady = false;
+  searchToggle.disabled = searchInput.disabled = previousButton.disabled = nextButton.disabled = true;
+  selection.setAttribute("aria-busy", "true");
+  selection.innerHTML = `<div class="selection-loading"><span class="loader-pixel" aria-hidden="true"></span>Đang tải thư viện...</div>`;
+  statusLabel.textContent = "Đang tải thư viện...";
   positionLabel.textContent = "00 / 00";
-  previousButton.disabled = true;
-  nextButton.disabled = true;
+  try {
+    const response = await fetch("./games.json?v=4", { signal: AbortSignal.timeout(15000) });
+    if (!response.ok) throw new Error("Catalog unavailable");
+    const catalog = await response.json();
+    if (!Array.isArray(catalog) || catalog.some((game) => !game || typeof game !== "object" ||
+      typeof game.id !== "string" || !game.id || typeof game.title !== "string" || !game.title ||
+      ["category", "description", "controls", "path"].some((key) => game[key] != null && typeof game[key] !== "string"))) {
+      throw new Error("Invalid catalog");
+    }
+    games = catalog;
+    selectedGameId = games.some((game) => game.id === lastPlayedId)
+      ? lastPlayedId
+      : games.find((game) => game.id === "tetris")?.id || games[0]?.id || null;
+    catalogReady = true;
+    searchToggle.disabled = searchInput.disabled = !games.length;
+    updateVisibleGames();
+    if (retry) (selection.querySelector("#start-game") || selection.querySelector("h1"))?.focus();
+  } catch {
+    selection.innerHTML = `<div class="empty-selection"><span class="empty-pixel" aria-hidden="true">!</span><h1>Không tải được thư viện</h1><p>Kiểm tra kết nối mạng rồi thử lại.</p><button class="start-game" id="retry-catalog" type="button">Thử lại</button></div>`;
+    statusLabel.textContent = "Không tải được thư viện. Kiểm tra kết nối mạng rồi thử lại.";
+    if (retry) selection.querySelector("#retry-catalog").focus();
+  } finally {
+    catalogLoading = false;
+    selection.setAttribute("aria-busy", "false");
+  }
 }
+
+selection.addEventListener("click", (event) => {
+  if (event.target.closest("#retry-catalog")) loadCatalog(true);
+});
+await loadCatalog();

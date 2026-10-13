@@ -137,7 +137,11 @@ try {
 const bootStatus = document.createElement('div');
 bootStatus.setAttribute('role', 'status');
 bootStatus.className = 'pvz-boot-status';
-bootStatus.textContent = 'Đang khởi động Plants vs. Zombies GOTY…';
+const bootMessage = document.createElement('span');
+bootMessage.textContent = 'Đang kiểm tra dữ liệu GOTY…';
+const bootProgress = document.createElement('progress');
+bootProgress.setAttribute('aria-label', 'Tiến độ tải dữ liệu theo tệp');
+bootStatus.append(bootMessage, bootProgress);
 document.querySelector('.pvz-display').append(bootStatus);
 
 async function loadHostedResources() {
@@ -163,6 +167,9 @@ async function loadHostedResources() {
   const abort = new AbortController();
   let next = 0;
   let completed = 0;
+  bootProgress.max = Math.max(1, queue.length);
+  bootProgress.value = 0;
+  bootMessage.textContent = `Đang tải dữ liệu: 0/${queue.length} tệp hoàn tất. Lần đầu có thể mất vài phút…`;
   const worker = async () => {
     while (next < queue.length && !abort.signal.aborted) {
       const name = queue[next++];
@@ -174,7 +181,8 @@ async function loadHostedResources() {
       if (blob.size > 128 * 1048576 || bytes > 384 * 1048576) throw new Error('Dữ liệu vượt giới hạn bộ nhớ trình duyệt.');
       staged.set(name, blob);
       completed++;
-      bootStatus.textContent = `Đang tải dữ liệu: ${completed}/${queue.length} tệp · ${Math.round(completed / queue.length * 100)}% · ${(bytes / 1048576).toFixed(1)} MB…`;
+      bootProgress.value = completed;
+      bootMessage.textContent = `Đang tải dữ liệu: ${completed}/${queue.length} tệp hoàn tất · ${(bytes / 1048576).toFixed(1)} MB đã tải…`;
     }
   };
   try { await Promise.all(Array.from({ length: Math.min(8, queue.length) }, worker)); }
@@ -194,7 +202,9 @@ try {
     cacheMessage('Không cập nhật được dữ liệu. Đang dùng bộ dữ liệu đã lưu trên thiết bị.');
     console.warn('Using remembered GOTY resources:', error);
   }
-  bootStatus.textContent = 'Đang khởi động Plants vs. Zombies GOTY…';
+  bootMessage.textContent = 'Dữ liệu đã sẵn sàng. Đang khởi động engine GOTY…';
+  bootProgress.removeAttribute('value');
+  bootProgress.setAttribute('aria-label', 'Đang khởi động engine');
   await window.startGame();
   if (!gameStarted) throw new Error(loadStatus.textContent || 'Không khởi động được GOTY.');
   bootStatus.remove();

@@ -128,5 +128,5 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .arcade-game.pikachu-page .arcade-game-content { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto; align-content: center; gap: 8px 16px; }
   .pikachu-page :is(.pika-heading, .pika-hud, .pika-time-row, .pika-controls) { grid-column: 1; }
   .pikachu-page .pika-board-wrap { grid-column: 2; grid-row: 1 / span 4; }
-  .pikachu-page .pika-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pikachu-page .pika-controls { grid-template-columns: repeat(2, 64px); }
 }

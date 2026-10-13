@@ -80,7 +80,7 @@ async function checkPersistence() {
   const requests = [];
   const resources = vm.createContext({
     URL, AbortController, Map, Set, Blob, hasPak: true, hasProperties: true,
-    resourceRevision: 'old', collectedFiles: new Map(), bootStatus: {}, normalizeResourcePath: (name) => name,
+    resourceRevision: 'old', collectedFiles: new Map(), bootMessage: {}, bootProgress: {}, normalizeResourcePath: (name) => name,
     window: { refreshUI() {} },
     fetch: async (url, options) => {
       requests.push([url.pathname, options.cache]);
@@ -92,6 +92,9 @@ async function checkPersistence() {
   vm.runInContext(loader, resources);
   await resources.loadHostedResources();
   assert.equal(resources.resourceRevision, 'new');
+  assert.equal(resources.bootProgress.max, 2);
+  assert.equal(resources.bootProgress.value, 2);
+  assert.match(resources.bootMessage.textContent, /2\/2 tệp hoàn tất/);
   assert.equal(requests.length, 3);
   assert.ok(requests.every(([, cache]) => cache === 'no-cache'), 'Manifest and assets must be revalidated');
   const bootstrap = quality.slice(quality.lastIndexOf('\ntry {'));
@@ -99,6 +102,7 @@ async function checkPersistence() {
     let started = false;
     const boot = vm.createContext({
       hasPak: cached, hasProperties: cached, gameStarted: false,
+      bootMessage: {}, bootProgress: { removeAttribute() {}, setAttribute() {} },
       bootStatus: { remove() {}, append(button) { this.retry = button; } }, loadStatus: { textContent: 'Engine failed' },
       document: { createElement: () => ({ style: {}, addEventListener() {} }) },
       cacheMessage() {}, console: { warn() {} },
