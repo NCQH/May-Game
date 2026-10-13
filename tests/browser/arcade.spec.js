@@ -486,6 +486,116 @@ test("PvZ keeps a complete cached bundle after a failed asset update", async ({ 
   await expect(page.locator('#save-warning')).toHaveCount(0);
 });
 
+test("PvZ ZIP import confirms, stages across reload and applies before engine startup", async ({ page }) => {
+  await page.route('**/engine/pvz-portable.js', route => route.fulfill({ contentType: 'application/javascript', body: `
+    const root = '/may-game-pvz-goty-saves/userdata';
+    const dirs = new Set(['/may-game-pvz-goty-saves', root]);
+    const files = new Map([[root + '/user1.dat', new TextEncoder().encode('original')]]);
+    Module.FS = {
+      mkdir(name) { dirs.add(name); }, lookupPath() { return {node: {mounted: true}}; },
+      analyzePath(name) { return {exists: files.has(name) || dirs.has(name)}; },
+      stat(name) { return {mode: dirs.has(name) ? 'dir' : 'file'}; }, isDir(mode) { return mode === 'dir'; },
+      readFile(name) { return files.get(name); }, writeFile(name, bytes) { files.set(name, bytes); }, unlink(name) { files.delete(name); },
+      readdir(name) { return [...files.keys()].filter(path => path.startsWith(name + '/')).map(path => path.slice(name.length + 1)); },
+      syncfs(populate, callback) { callback(window.failSaveSync ? new Error('fixture quota failure') : null); }
+    };
+    Module.callMain = () => { window.fixtureSaveAtStart = new TextDecoder().decode(files.get(root + '/user1.dat')); };
+    Module.onRuntimeInitialized();
+  ` }));
+  // Wrapper fixture, not a real ZIP decoder or WASM engine.
+  await page.route('**/vendor/jszip.min.js', route => route.fulfill({ contentType: 'application/javascript', body: `
+    window.JSZip = class {
+      static async loadAsync(file) {
+        const input = JSON.parse(await file.text());
+        if (input.error) throw new Error(input.error);
+        return {files: Object.fromEntries(input.map(entry => [entry.path, {
+          name: entry.path, unsafeOriginalName: entry.path, _data: {uncompressedSize: entry.size || 0},
+          async: async () => { if (entry.error) throw new Error(entry.error); return new TextEncoder().encode(entry.text); }
+        }]))};
+      }
+      constructor() { this.files = []; }
+      file(name, bytes) { this.files.push({path: name, text: new TextDecoder().decode(bytes)}); }
+      async generateAsync() { return new Blob([JSON.stringify(this.files)]); }
+    };
+  ` }));
+  await page.route('**/resources.json', route => route.fulfill({ json: { version: 1, revision: 'save-test', files: [{name:'main.pak'}, {name:'properties/partner.xml'}] } }));
+  await page.route('**/pvz-goty/data/**', route => route.fulfill({ body: 'fixture' }));
+  await page.goto('/games/pvz-goty/');
+  await expect.poll(() => page.evaluate(() => window.fixtureSaveAtStart)).toBe('original');
+  const getPending = () => page.evaluate(async () => (await import('/games/pvz-goty/storage.js')).readBundle('pending-save-import'));
+  const choose = entries => page.locator('#save-import-input').setInputFiles({name:'save.zip', mimeType:'application/zip', buffer:Buffer.from(JSON.stringify(entries))});
+  await page.locator('#game-menu-toggle').click();
+  expect(await page.locator('#upload-save-actions, #upload-save-clear-btn').count()).toBe(0);
+  const valid = [{path:'userdata/user1.dat', text:'imported'}];
+  for (const entries of [[], [{path:'userdata/../bad.dat',text:'x'}], [{path:'userdata/user1.dat',size:64*1048576+1}], [{path:'userdata/a.dat',text:'a'},{path:'a.dat',text:'b'}], [{path:'userdata/a.dat',error:'decode failure'}], {error:'bad ZIP'}]) {
+    const dialog = page.waitForEvent('dialog');
+    await choose(entries);
+    const alert = await dialog;
+    expect(alert.message()).toContain('Không nạp được save');
+    await alert.dismiss();
+    await expect(page.locator('#save-import-btn')).toBeEnabled();
+    expect(await getPending()).toBeNull();
+    expect(await page.evaluate(() => new TextDecoder().decode(Module.FS.readFile('/may-game-pvz-goty-saves/userdata/user1.dat')))).toBe('original');
+  }
+  page.once('dialog', dialog => dialog.dismiss());
+  await choose(valid);
+  await expect(page.locator('#save-import-btn')).toBeEnabled();
+  expect(await getPending()).toBeNull();
+  await page.evaluate(() => { window.failSaveSync = true; });
+  const saveError = page.waitForEvent('dialog', {predicate: dialog => dialog.type() === 'alert'});
+  page.once('dialog', dialog => dialog.accept());
+  await choose(valid);
+  const alert = await saveError;
+  expect(alert.message()).toContain('Không nạp được save');
+  await alert.dismiss();
+  expect(await getPending()).toBeNull();
+  await page.evaluate(async () => { window.failSaveSync = false; await window.syncSaves(); });
+  await page.evaluate(() => {
+    window.originalBundlePut = IDBObjectStore.prototype.put;
+    IDBObjectStore.prototype.put = function (value, key) {
+      if (key === 'pending-save-import') throw new Error('fixture pending write failure');
+      return window.originalBundlePut.call(this, value, key);
+    };
+  });
+  const pendingError = page.waitForEvent('dialog', {predicate: dialog => dialog.type() === 'alert'});
+  page.once('dialog', dialog => dialog.accept());
+  await choose(valid);
+  const failedWrite = await pendingError;
+  expect(failedWrite.message()).toContain('pending write failure');
+  await failedWrite.dismiss();
+  expect(await getPending()).toBeNull();
+  await page.evaluate(() => { IDBObjectStore.prototype.put = window.originalBundlePut; });
+  const downloadPromise = page.waitForEvent('download');
+  await page.locator('#save-export-btn').click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe('pvz-portable-savedata.zip');
+  const exportBytes = await require('node:fs/promises').readFile(await download.path());
+  const exported = JSON.parse(exportBytes.toString());
+  expect(exported).toEqual([{path:'userdata/user1.dat',text:'original'}]);
+  page.once('dialog', dialog => dialog.accept());
+  await Promise.all([page.waitForEvent('load'), page.locator('#save-import-input').setInputFiles({name:'roundtrip.zip', mimeType:'application/zip', buffer:exportBytes})]);
+  await expect.poll(() => page.evaluate(() => window.fixtureSaveAtStart)).toBe('original');
+  await page.locator('#game-menu-toggle').click();
+  page.once('dialog', dialog => dialog.accept());
+  await Promise.all([page.waitForEvent('load'), choose(valid)]);
+  await expect.poll(() => page.evaluate(() => window.fixtureSaveAtStart)).toBe('imported');
+  expect(await getPending()).toBeNull();
+  for (const viewport of [{width:320,height:568},{width:390,height:844},{width:844,height:390},{width:1366,height:768},{width:1440,height:900},{width:1920,height:1080}]) {
+    await page.setViewportSize(viewport);
+    if (!await page.locator('#game-menu').evaluate(node => node.open)) await page.locator('#game-menu-toggle').click();
+    for (const id of ['#save-export-btn','#save-import-btn']) {
+      const box = await page.locator(id).boundingBox();
+      expect(box.height).toBeGreaterThanOrEqual(44);
+      expect(box.width).toBeGreaterThanOrEqual(44);
+      expect(box.x).toBeGreaterThanOrEqual(0);
+      expect(box.x+box.width).toBeLessThanOrEqual(viewport.width);
+    }
+    await page.screenshot({path:`/tmp/pvz-save-menu-${viewport.width}.png`});
+  }
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#game-menu-toggle')).toBeFocused();
+});
+
 test("every catalog start link remains visible and tappable on small screens", async ({ page }) => {
   for (const viewport of [{ width: 568, height: 320 }, { width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 900, height: 600 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);

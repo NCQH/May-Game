@@ -90,7 +90,7 @@ Các biến thể `.pika-control`, `.tetris-*`, `.flappy-*` có thể giữ hìn
 
 ### Ngoại lệ PvZ
 
-Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated lên art HD. `.pvz-display` có nền đen; toolbar gồm chất lượng, save và fullscreen, control cao ≥44px. UI nằm bên trong canvas không tự hưởng CSS ngoài game: phải kiểm tra riêng độ dễ đọc/chạm. Fullscreen là tùy chọn, không thay thế bố cục mặc định. Không chỉnh art/âm thanh engine chỉ để giống palette cabinet.
+Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated lên art HD. `.pvz-display` có nền đen; toolbar trong menu gồm chất lượng, “Tải bản lưu”, “Nạp save” cạnh nhau và fullscreen, control cao ≥44px, wrap khi thiếu chỗ. Không có khu quản lý/xóa save riêng. Nạp ZIP kiểm tra đường dẫn/dung lượng, xác nhận ghi đè và tải lại để áp dụng trước khi engine chạy; giữ tự lưu và xuất dự phòng khi tự lưu lỗi. UI nằm bên trong canvas không tự hưởng CSS ngoài game: phải kiểm tra riêng độ dễ đọc/chạm. Fullscreen là tùy chọn, không thay thế bố cục mặc định. Không chỉnh art/âm thanh engine chỉ để giống palette cabinet.
 
 ## 6. Trang thư viện và tài liệu
 

@@ -76,6 +76,50 @@ async function checkPersistence() {
   assert.equal(button.disabled, false);
 
   const quality = fs.readFileSync(path.join(root, 'games/pvz-goty/quality.js'), 'utf8');
+  const storage = await import('data:text/javascript;base64,' + Buffer.from(fs.readFileSync(path.join(root, 'games/pvz-goty/storage.js'))).toString('base64'));
+  const bundle = files => ({ version: 1, files: files.map(([name, text]) => ({ name, blob: new Blob([text]) })) });
+  for (const files of [[], [['../bad.dat', 'x']], [['bad.exe', 'x']], [['user.dat', 'x'], ['USER.dat', 'y']], [['user.dat', 'x'], ['user.dat/sub.dat', 'y']]]) {
+    assert.throws(() => storage.validateSaveImport(bundle(files)));
+  }
+  assert.throws(() => storage.validateSaveImport({ version: 1, files: Array.from({ length: 1001 }, (_, i) => ({ name: `${i}.dat`, blob: new Blob() })) }));
+  assert.throws(() => storage.validateSaveImport(bundle([['big.dat', Buffer.alloc(64 * 1048576 + 1)]])), /64 MiB/);
+  const saveRoot = '/may-game-pvz-goty-saves/userdata/';
+  const pending = bundle([['user1.dat', 'imported'], ['nested/new.dat', 'new']]);
+  storage.validateSaveImport(pending);
+  const apply = quality.slice(quality.indexOf('window.applyPendingSaveImport ='), quality.indexOf('\n\ntry {\n  const cached'));
+  for (const failure of ['none', 'write', 'sync', 'delete', 'conflict']) {
+    const files = new Map([[saveRoot + 'user1.dat', Buffer.from('original')], [saveRoot + 'other.dat', Buffer.from('untouched')]]);
+    const directories = new Set(['/may-game-pvz-goty-saves', saveRoot.slice(0, -1)]);
+    if (failure === 'conflict') files.set(saveRoot + 'nested', Buffer.from('not a directory'));
+    let syncs = 0, removed = false;
+    const context = vm.createContext({
+      window: { syncSaves: async () => { if (++syncs === 1 && failure === 'sync') throw new Error('quota'); } },
+      readBundle: async () => pending, validateSaveImport: storage.validateSaveImport,
+      writeBundle: async () => { if (failure === 'delete') throw new Error('delete failed'); removed = true; },
+      Uint8Array,
+      Module: { FS: {
+        analyzePath: name => ({ exists: files.has(name) || directories.has(name) }),
+        stat: name => ({ mode: directories.has(name) ? 'dir' : 'file' }), isDir: mode => mode === 'dir',
+        mkdir: name => directories.add(name), readFile: name => files.get(name), unlink: name => files.delete(name),
+        writeFile: (name, data) => { if (failure === 'write' && name.endsWith('/new.dat')) throw new Error('write failed'); files.set(name, Buffer.from(data)); },
+      } },
+    });
+    vm.runInContext(apply, context);
+    if (failure === 'none') {
+      await context.window.applyPendingSaveImport();
+      assert.equal(files.get(saveRoot + 'user1.dat').toString(), 'imported');
+      assert.equal(files.get(saveRoot + 'nested/new.dat').toString(), 'new');
+      assert.equal(removed, true);
+    } else {
+      await assert.rejects(context.window.applyPendingSaveImport());
+      assert.equal(removed, false);
+      assert.equal(files.get(saveRoot + 'user1.dat').toString(), failure === 'delete' ? 'imported' : 'original');
+      if (failure !== 'delete') assert.equal(files.has(saveRoot + 'nested/new.dat'), false);
+    }
+    assert.equal(files.get(saveRoot + 'other.dat').toString(), 'untouched');
+  }
+  assert.ok(!html.includes('upload-save-actions') && !html.includes('function clearSaves('));
+  assert.ok(html.indexOf('await window.applyPendingSaveImport?.()') < html.indexOf("Module.callMain(['-resdir'"));
   const loader = quality.slice(quality.indexOf('async function loadHostedResources()'), quality.indexOf('\n\ntry {', quality.indexOf('async function loadHostedResources()'))).replaceAll('import.meta.url', '"https://example.test/games/pvz-goty/quality.js"');
   const requests = [];
   const resources = vm.createContext({
