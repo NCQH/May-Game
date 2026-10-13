@@ -31,6 +31,7 @@
         <div class="tetris-menu" aria-labelledby="mode-heading">
           <h2 id="mode-heading">Chọn chế độ</h2>
           <p>Chọn thử thách để bắt đầu ván mới.</p>
+          <details class="tetris-howto"><summary>Cách chơi bằng chạm hoặc bàn phím</summary><p>Kéo ngang để di chuyển; chạm nửa trái/phải để xoay; vuốt lên để giữ; vuốt nhanh xuống để thả khối.</p><p>Bàn phím: ← ↓ → di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng.</p></details>
           <button type="button" data-mode="marathon">Marathon <span>Chơi bền · tốc độ tăng theo cấp</span></button>
           <button type="button" data-mode="sprint">Sprint <span>Hoàn thành 40 hàng nhanh nhất</span></button>
           <button type="button" data-mode="blitz">Blitz <span>Ghi điểm trong 120 giây</span></button>
@@ -49,11 +50,11 @@
             <aside class="tetris-hold" aria-label="Khối đang giữ">
               <span class="game-small">Giữ</span>
               <canvas id="tetris-hold" width="100" height="54" aria-label="Khối đang giữ: trống"></canvas>
-              <button id="hold" data-action="hold" type="button" aria-label="Giữ hoặc đổi khối bằng phím C">C · Giữ</button>
+              <button id="hold" data-action="hold" type="button" aria-label="Giữ hoặc đổi khối bằng phím C">Giữ</button>
             </aside>
             <div class="tetris-board-wrap">
               <canvas id="tetris-board" width="260" height="520" tabindex="0" aria-label="Bàn Tetris, rộng 10 ô và cao 20 ô. Mũi tên di chuyển. Z xoay trái, X hoặc mũi tên lên xoay phải, C giữ, Space thả, P tạm dừng."></canvas>
-              <div class="tetris-overlay" hidden><strong></strong><span></span></div>
+              <div class="tetris-overlay" hidden><strong></strong><span></span><div class="tetris-result-actions" hidden><button id="result-restart" type="button">Chơi lại</button><button id="result-mode" type="button">Đổi chế độ</button></div></div>
             </div>
             <aside class="tetris-tools" aria-label="Khối kế tiếp và điều khiển ván chơi">
               <div class="next-panel">
@@ -72,10 +73,10 @@
           </div>
           <div class="side-actions">
             <span class="panel-title">Cài đặt · <span id="mode-name">Marathon</span></span>
-            <button id="choose-mode" type="button">Chọn chế độ khác</button>
+            <button id="choose-mode" type="button">Chế độ · Cách chơi</button>
             <button id="mute" type="button" aria-pressed="false">M · Âm thanh: Bật</button>
             <button id="pause" type="button">P · Tạm dừng</button>
-            <button id="restart" type="button">R · Chơi lại</button>
+            <button id="restart" type="button">Chơi lại</button>
           </div>
         </div>
       </section>

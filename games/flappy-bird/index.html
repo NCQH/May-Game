@@ -38,10 +38,15 @@
                 <div><span>Kỷ lục</span><strong id="record">0</strong></div>
               </div>
               <div class="flappy-result-actions">
-                <button id="play" type="button">Chơi</button>
-                <button id="revive" type="button">Hồi sinh</button>
+                <button class="game-button game-button-primary" id="play" type="button">Chơi lại</button>
+                <button class="game-button" id="revive" type="button">Hồi sinh 1 lần</button>
               </div>
             </section>
+          </div>
+          <p class="game-help" id="flappy-hint" aria-live="polite">Chạm để bay · Space hoặc ↑ trên máy tính</p>
+          <div class="game-actions">
+            <button class="game-button" id="pause" type="button" disabled>Tạm dừng</button>
+            <button class="game-button" id="mute" type="button" aria-pressed="false">Tắt âm thanh</button>
           </div>
         </div>
       </section>

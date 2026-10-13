@@ -283,7 +283,10 @@ if (typeof document !== "undefined") {
     canvas.parentElement.classList.toggle("is-locking", feedback && !feedbackRows.length && !reducedMotion.matches);
     if (feedback && !reducedMotion.matches) { ctx.fillStyle = "rgba(235,245,255,.32)"; feedbackRows.forEach(y => ctx.fillRect(0,y*cell,canvas.width,cell)); }
     const overlay = $(".tetris-overlay");
+    const justEnded = state.over && overlay.querySelector(".tetris-result-actions").hidden;
     overlay.hidden = !state.over && !state.paused;
+    overlay.querySelector(".tetris-result-actions").hidden = !state.over;
+    if (justEnded) $("#result-restart").focus({ preventScroll: true });
     overlay.querySelector("strong").textContent = state.over ? state.won ? "Hoàn thành!" : "Hết ván" : "Tạm dừng";
     overlay.querySelector("span").textContent = state.over ? `${state.score} điểm · ${time(state.elapsed)}` : "P hoặc chạm để tiếp tục";
     ["score","lines","level"].forEach(key => $("#"+key).textContent = state[key]);
@@ -294,9 +297,9 @@ if (typeof document !== "undefined") {
     $("#timer").textContent = time(state.mode === "blitz" ? Math.max(0,120000-state.elapsed) : state.elapsed);
     const best = record.records[state.mode];
     $("#record").textContent = state.mode === "sprint" ? best === null ? "—" : time(best) : String(best);
-    $("#pause").textContent = state.paused ? "P · Tiếp tục" : "P · Tạm dừng"; $("#pause").disabled = state.over;
+    $("#pause").textContent = state.paused ? "Tiếp tục" : "Tạm dừng"; $("#pause").disabled = state.over;
     $("#hold").disabled = state.over || state.paused || state.holdUsed;
-    $("#mute").textContent = record.muted ? "M · Âm thanh: Tắt" : "M · Âm thanh: Bật";
+    $("#mute").textContent = record.muted ? "Âm thanh: Tắt" : "Âm thanh: Bật";
     $("#mute").setAttribute("aria-pressed", String(record.muted));
     const message = state.over ? `${state.won ? "Hoàn thành" : "Ván kết thúc"}. ${state.mode === "sprint" ? `${state.lines} / 40 hàng · ${time(state.elapsed)}` : `${state.score} điểm`}. Nhấn Chơi lại để bắt đầu ván mới.` : state.paused ? "Tạm dừng." : state.message;
     canvas.setAttribute("aria-label", `Bàn Tetris. ${message || "Đang chơi."} Mũi tên di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng.`);
@@ -341,6 +344,8 @@ if (typeof document !== "undefined") {
     if (state.over || !(state.score || state.board.some(row => row.some(Boolean))) || confirm("Bắt đầu ván mới và bỏ tiến trình hiện tại?")) restart();
   }
   $("#restart").addEventListener("click", () => { unlockAudio(); requestRestart(); });
+  $("#result-restart").addEventListener("click", () => { unlockAudio(); restart(); canvas.focus(); });
+  $("#result-mode").addEventListener("click", showMenu);
   function toggleMute() { record.muted = !record.muted; if (record.muted) audio?.suspend().catch(() => {}); else { unlockAudio(); void sound("rotate"); } persist(); draw(); }
   $("#mute").addEventListener("click", toggleMute);
   canvas.addEventListener("pointerdown", event => {

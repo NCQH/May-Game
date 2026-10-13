@@ -226,6 +226,16 @@ function syncControls() {
   document.querySelector("#score").textContent = String(state.score);
   document.querySelector("#record").textContent = String(record.bestScore);
   reviveButton.hidden = state.revived;
+  const pauseButton = document.querySelector("#pause");
+  pauseButton.disabled = state.phase !== "playing";
+  pauseButton.textContent = state.paused ? "Tiếp tục" : "Tạm dừng";
+  const muteButton = document.querySelector("#mute");
+  muteButton.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
+  muteButton.setAttribute("aria-pressed", String(record.muted));
+  document.querySelector("#flappy-hint").textContent = state.paused
+    ? "Chạm để tiếp tục · P trên máy tính"
+    : ended ? "Chơi lại hoặc hồi sinh một lần trong ván"
+    : "Chạm để bay · Space hoặc ↑ trên máy tính";
   canvas.setAttribute("aria-label", `Flappy Bird. ${state.paused ? "Tạm dừng" : ended ? "Ván kết thúc" : state.phase === "ready" ? "Sẵn sàng" : "Đang chơi"}. Điểm ${state.score}. ${record.muted ? "Âm thanh tắt" : "Âm thanh bật"}. Space hoặc mũi tên lên để vỗ cánh; P tạm dừng; M bật/tắt âm.`);
 }
 function flap() {
@@ -241,6 +251,9 @@ function togglePause() {
   if (document.hidden || !["playing", "dying"].includes(state.phase)) return;
   state.paused = !state.paused;
   resetClock(); persist(); syncControls(); draw();
+}
+function toggleMute() {
+  unlockAudio(); record.muted = !record.muted; persist(); syncControls();
 }
 function pauseForExit() {
   if (["playing", "dying"].includes(state.phase)) state.paused = true;
@@ -274,6 +287,8 @@ reviveButton.addEventListener("click", () => {
   if (!revive(state)) return;
   unlockAudio(); resetClock(); persist(); syncControls(); draw(); canvas.focus();
 });
+document.querySelector("#pause").addEventListener("click", togglePause);
+document.querySelector("#mute").addEventListener("click", toggleMute);
 document.addEventListener("keydown", (event) => {
   if (event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;
   const target = event.target instanceof Element ? event.target : null;
@@ -281,7 +296,7 @@ document.addEventListener("keydown", (event) => {
   if (target?.closest("button") && (event.key === " " || event.key === "Enter")) return;
   if (event.key === " " || event.key === "ArrowUp") { event.preventDefault(); flap(); }
   if (event.key.toLowerCase() === "p") { event.preventDefault(); togglePause(); }
-  if (event.key.toLowerCase() === "m") { unlockAudio(); record.muted = !record.muted; persist(); syncControls(); }
+  if (event.key.toLowerCase() === "m") { event.preventDefault(); toggleMute(); }
 });
 document.addEventListener("visibilitychange", () => { if (document.hidden) pauseForExit(); else resetClock(); });
 window.addEventListener("pagehide", pauseForExit);

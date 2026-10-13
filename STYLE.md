@@ -46,6 +46,7 @@ Giao diện hiện tại dark-only (`color-scheme: dark`). Màu board/tetromino/
 
 - Body, button, input, select, textarea: `--font-body` = **Be Vietnam Pro**, `system-ui`, `sans-serif`.
 - Logo, heading, score: `--font-display` = **Chakra Petch**, Be Vietnam Pro, `system-ui`, `sans-serif`.
+- Nút hành động: `--font-control` = Be Vietnam Pro 600, 14px, line-height 1.4. Token nền/viền/chữ/accent (`--control-bg`, `--control-border`, `--control-text`, `--control-accent`) nằm trong `typography.css`; dùng lại CSS hiện có, không thêm `controls.css` hoặc hệ class mới. Giữ artwork, tile và chữ vẽ trong canvas riêng.
 - Luôn có fallback, không chặn chơi khi Google Fonts chưa tải. Không dùng font pixel khó đọc cho đoạn hướng dẫn dài.
 - Heading game chung hiện tại 24px, xuống 21px ở ≤580px; một số tiêu đề trong meta xuống 16px ở ≤620px. Heading catalog 28–40px; heading tài liệu 28–48px.
 - CSS cũ có nhiều label/helper 7–12px. Đây là **hiện trạng, không phải chuẩn bắt buộc cho game mới**. Định hướng: body/hướng dẫn 14–16px, label phụ khoảng 12px; kiểm tra khả năng đọc và bố cục trước khi áp dụng.
@@ -76,7 +77,7 @@ Khung game mặc định rộng tối đa 760px; các game override theo nội d
 | Panel/HUD | Dùng `.game-panel`, viền `--game-line`, nền `--game-panel`, góc vuông (rule cuối của shared). Nhãn và giá trị rõ; không đóng khung mỗi con số nếu không cần. |
 | Điểm/phụ chú | `.game-score`: display 15px, sand; `.game-small`: muted. HUD riêng phải đọc được trên màn hình nhỏ. |
 | Action group | `.game-actions`: flex wrap, gap 8px. Gom thao tác chính cạnh bàn/kết quả, không lẫn với navigation. |
-| Button phụ | `.game-button`: min-height 44px, padding ngang 13px, viền 1px, góc vuông; nền hiện tại `#22343b`, text chính. |
+| Button phụ | `.game-button`: min-height 44px, padding ngang 13px, viền sáng 2px, góc vuông, shadow đáy 4px như nút “Vào chơi” home; hover nâng 1px, active hạ 3px/giảm shadow, disabled không nổi/chuyển động; nền `--control-bg` (`#203023`), chữ `--control-text`, font `--font-control`. |
 | Button chính | `.game-button-primary`: lime, chữ tối; hover sáng hơn. Một CTA chính cho mỗi trạng thái. |
 | Disabled | `.game-button:disabled`: opacity .45, cursor not-allowed; dùng thuộc tính `disabled`, không chỉ đổi màu. |
 | Hướng dẫn/phím | `.game-help`, `kbd`: đúng phím/gesture của game. Mobile phải có chỉ dẫn chạm, không chỉ có P/C/M. |
@@ -105,7 +106,7 @@ Các breakpoint hiện có nằm trong CSS chung và riêng: 360, 580, 620, 760,
 
 Yêu cầu khi sửa/thêm game:
 
-1. Kiểm tra 320×568, 390×844, 844×390 và 1440×900; xoay trong lúc chơi. Không tràn ngang trang, không kéo méo canvas; action thiết yếu phải dễ tiếp cận.
+1. Kiểm tra 320×568, 390×844, 844×390 và desktop thông thường 1366×768, 1440×900, 1920×1080; xoay trong lúc chơi. Không tràn ngang trang, không kéo méo canvas; action thiết yếu phải dễ tiếp cận.
 2. Vùng chạm thao tác ≥44×44px. Focus chung game là outline 3px sand; trang thư viện dùng vàng `#fff2a8`, offset 3px. Không xóa outline.
 3. Dùng HTML semantic, label/ARIA cho icon/canvas, `hidden` cho trạng thái không hiển thị; không để phần tử ẩn còn nhận tương tác. Có luồng keyboard và touch tương ứng.
 4. Giữ `prefers-reduced-motion`: shared giảm animation/transition về .01ms. Hiệu ứng mới phải có phương án tắt/giảm, không nhấp nháy mạnh.
@@ -120,7 +121,13 @@ Yêu cầu khi sửa/thêm game:
 - Hiệu ứng chuyển card/nhấn nút nhẹ, không làm layout nhảy hay che HUD; ưu tiên CSS, tôn trọng reduced-motion.
 - Không tự thêm backend, leaderboard online hoặc bộ điều khiển ảo chung như một phần của style.
 
-## 9. Checklist game mới
+## 9. Component UX đã cập nhật
+
+- Tetris: “Cách chơi” trong menu giải thích gesture/phím; kết quả có CTA chơi lại/đổi chế độ ngay trên board. Pause overlay vẫn cho phép chạm canvas để tiếp tục. Layout ngang thấp đặt board giữa, HUD/hold trái và next/actions phải.
+- Flappy: nút pause/resume và mute ngoài canvas, hướng dẫn bắt đầu/tiếp tục; hồi sinh ghi rõ một lần/ván. Layout ngang thấp đặt hướng dẫn/actions cạnh board.
+- PvZ: gợi ý xoay ngang ở portrait; compact landscape giảm chrome để toolbar tiếp cận được. Điều khiển Menu touch và UI engine cần kiểm tra với build WASM, chưa được thêm trong đợt này.
+
+## 10. Checklist game mới
 
 - Sao chép [template](games/_template/index.html), dùng font/token/component chung và một class trang riêng.
 - Giữ cabinet, back link, title, vùng board, action và thông báo theo các mục trên; chỉ override phần gameplay cần khác.

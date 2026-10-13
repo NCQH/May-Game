@@ -293,26 +293,12 @@
   min-width: 0;
   min-height: 44px;
   padding: 7px 8px;
-  border: 1px solid #435144;
-  border-radius: 0;
-  background: #172019;
-  color: var(--game-text);
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
+  font: var(--font-control);
+  white-space: normal;
   cursor: pointer;
   transition: background-color .12s ease, border-color .12s ease, color .12s ease;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-}
-
-.pika-control:hover:not(:disabled) {
-  border-color: var(--game-lime);
-  background: #202b20;
-}
-
-.pika-control:active:not(:disabled) {
-  background: #283426;
 }
 
 .pika-control:focus-visible {
@@ -387,29 +373,6 @@
   margin-top: 17px;
 }
 
-.pika-dialog .game-button {
-  min-height: 44px;
-  border-color: #435144;
-  border-radius: 0;
-  background: #202b20;
-  color: var(--game-text);
-}
-
-.pika-dialog .game-button:hover {
-  border-color: var(--game-lime);
-  background: #293626;
-}
-
-.pika-dialog .game-button-primary {
-  border-color: var(--game-lime);
-  background: var(--game-lime);
-  color: #172015;
-}
-
-.pika-dialog .game-button-primary:hover {
-  background: #d9ef9d;
-}
-
 @media (max-width: 580px) {
   .pikachu-page .arcade-game-content {
     gap: 8px;
@@ -436,7 +399,6 @@
   .pika-control {
     min-height: 46px;
     padding-inline: 6px;
-    font-size: 10px;
   }
 
   .pika-control-restart {
@@ -451,7 +413,6 @@
 
   .pika-control {
     gap: 5px;
-    font-size: 9px;
   }
 
   .pika-control svg {

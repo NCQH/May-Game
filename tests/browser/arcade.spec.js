@@ -1,5 +1,53 @@
 const { test, expect } = require("@playwright/test");
 
+test("arcade actions retain shared readable fonts, touch targets and keyboard focus", async ({ page }) => {
+  const screens = [
+    ["/", "#start-game"],
+    ["/games/tetris/", "button[data-mode='marathon']"],
+    ["/games/pikachu/", ".pika-control"],
+    ["/games/flappy-bird/", "#mute"],
+    ["/games/pvz-goty/", "#pvz-fullscreen"],
+  ];
+  for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
+    await page.setViewportSize(viewport);
+    for (const [path, selector] of screens) {
+      await page.goto(path);
+      const actions = page.locator(selector);
+      await expect(actions.first()).toBeVisible();
+      for (const action of await actions.all()) {
+        const style = await action.evaluate((el) => {
+          const css = getComputedStyle(el);
+          const box = el.getBoundingClientRect();
+          return { font: css.fontSize, weight: css.fontWeight, family: css.fontFamily, border: css.borderTopWidth, shadow: css.boxShadow, width: box.width, height: box.height, overflow: el.scrollWidth > el.clientWidth };
+        });
+        expect(style.font).toBe("14px");
+        expect(style.weight).toBe("600");
+        expect(style.border).toBe("2px");
+        expect(style.shadow).toBe("rgb(104, 124, 67) 0px 4px 0px 0px");
+        expect(style.family).toContain("Be Vietnam Pro");
+        expect(style.width).toBeGreaterThanOrEqual(44);
+        expect(style.height).toBeGreaterThanOrEqual(44);
+        expect(style.overflow).toBe(false);
+      }
+      await actions.first().hover();
+      expect(await actions.first().evaluate((el) => getComputedStyle(el).transform)).toBe("matrix(1, 0, 0, 1, 0, -1)");
+      await page.mouse.down();
+      expect(await actions.first().evaluate((el) => getComputedStyle(el).boxShadow)).toBe("rgb(104, 124, 67) 0px 1px 0px 0px");
+      await page.mouse.move(0, 0);
+      await page.mouse.up();
+      if (path !== "/") {
+        await actions.first().evaluate((el) => { el.disabled = true; });
+        expect(await actions.first().evaluate((el) => getComputedStyle(el).boxShadow)).toBe("none");
+        await actions.first().evaluate((el) => { el.disabled = false; });
+      }
+      await page.keyboard.press("Tab");
+      await actions.first().focus();
+      expect(await actions.first().evaluate((el) => getComputedStyle(el).outlineWidth)).toBe("3px");
+      expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+    }
+  }
+});
+
 function pikaState({ matched = 0, phase = "playing", timeLeft = 192 } = {}) {
   const pairCount = 24;
   return {
@@ -429,7 +477,7 @@ test("small-phone game boards and touch controls stay visible together", async (
 });
 
 test("desktop Tetris and Flappy use side panels without page scrolling", async ({ page }) => {
-  for (const viewport of [{ width: 900, height: 600 }, { width: 1280, height: 800 }, { width: 1874, height: 924 }]) {
+  for (const viewport of [{ width: 900, height: 600 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);
     for (const game of ['tetris', 'flappy-bird']) {
       await page.goto(`/games/${game}/`);
@@ -459,7 +507,12 @@ test("desktop Tetris and Flappy use side panels without page scrolling", async (
         await expect(page.locator('#level')).not.toBeVisible();
         expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
       } else {
-        expect(Math.abs(board.x + board.width / 2 - viewport.width / 2)).toBeLessThan(2);
+        const controls = await page.locator('.game-actions').boundingBox();
+        const panel = await page.locator('.arcade-game-content').boundingBox();
+        expect(controls.x).toBeGreaterThan(board.x + board.width);
+        expect(board.y).toBeGreaterThanOrEqual(panel.y);
+        expect(board.y + board.height).toBeLessThanOrEqual(panel.y + panel.height);
+        expect(controls.y + controls.height + 4).toBeLessThanOrEqual(panel.y + panel.height);
         await page.locator('#flappy-board').click();
         await page.keyboard.press('p');
         await expect(page.locator('#flappy-board')).toHaveAttribute('aria-label', /Tạm dừng/);
@@ -539,6 +592,30 @@ test("contribution pages scroll natively without shrinking controls", async ({ p
     await expect(link).toBeVisible();
     expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(44);
   }
+});
+
+test("review controls fit without scrolling and touch pause/mute work", async ({ page }) => {
+  for (const viewport of [{ width: 320, height: 568 }, { width: 844, height: 390 }]) {
+    await page.setViewportSize(viewport);
+    for (const game of ["tetris", "flappy-bird"]) {
+      await page.goto(`/games/${game}/`);
+      if (game === "tetris") await page.locator('button[data-mode="marathon"]').click();
+      for (const selector of ["#pause", "#mute"]) {
+        const rect = await page.locator(selector).boundingBox();
+        expect(rect.y).toBeGreaterThanOrEqual(0);
+        expect(rect.y + rect.height).toBeLessThanOrEqual(viewport.height);
+      }
+    }
+  }
+  await page.locator("#flappy-board").click();
+  await page.locator("#pause").click();
+  await expect(page.locator("#pause")).toHaveText("Tiếp tục");
+  await expect(page.locator("#flappy-hint")).toContainText("Chạm để tiếp tục");
+  await page.locator("#mute").click();
+  await expect(page.locator("#mute")).toHaveAttribute("aria-pressed", "true");
+  await page.goto("/contribute.html");
+  await expect(page.locator('a[href="https://github.com/NCQH/May-Game/fork"]')).toHaveCount(2);
+  await expect(page.locator('a[href="https://github.com/NCQH/May-Game/tree/main/games/_template"]')).toHaveCount(1);
 });
 
 test("game pages fit phone and desktop viewports without horizontal overflow", async ({ page }) => {
