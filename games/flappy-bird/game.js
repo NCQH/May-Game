@@ -227,7 +227,7 @@ function syncControls() {
   document.querySelector("#record").textContent = String(record.bestScore);
   reviveButton.hidden = state.revived;
   const pauseButton = document.querySelector("#pause");
-  pauseButton.disabled = state.phase !== "playing";
+  pauseButton.disabled = !["playing", "dying"].includes(state.phase);
   pauseButton.textContent = state.paused ? "▶" : "Ⅱ";
   pauseButton.setAttribute("aria-label", state.paused ? "Tiếp tục" : "Tạm dừng");
   pauseButton.title = state.paused ? "Tiếp tục" : "Tạm dừng";

@@ -631,6 +631,18 @@ test("every catalog start link remains visible and tappable on small screens", a
   }
 });
 
+test("small-phone catalog fits wider Linux fallback fonts without scrolling", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto('/');
+  await expect(page.locator('#start-game')).toBeVisible();
+  await page.addStyleTag({ content: ':root { --font-body: "DejaVu Sans", sans-serif; --font-display: "DejaVu Sans", sans-serif; }' });
+  for (let game = 0; game < 4; game++) {
+    expect(await page.locator('.selected-game').evaluate(node => [node.scrollWidth - node.clientWidth, node.scrollHeight - node.clientHeight])).toEqual([0, 0]);
+    await expect(page.locator('#start-game')).toBeInViewport();
+    await page.keyboard.press('ArrowRight');
+  }
+});
+
 test("shared styles and relocated Flappy assets load without missing requests", async ({ page }) => {
   const missing = [];
   page.on("response", (response) => {
@@ -679,6 +691,32 @@ test("Flappy supports pause, muted reload, one revival and a fresh retry", async
   await page.locator('#play').click();
   await expect(page.locator('.flappy-results')).not.toBeVisible();
   expect(await page.evaluate(() => JSON.parse(localStorage.getItem('may-game:v1:flappy-bird')).current.revived)).toBe(false);
+});
+
+test("Flappy can resume its death animation after closing the menu", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.addInitScript(() => localStorage.setItem('may-game:v1:flappy-bird', JSON.stringify({
+    version: 3, bestScore: 0, muted: true,
+    current: { phase: 'playing', paused: true, birdY: 200, birdV: 0, baseOffset: 0, score: 0, revived: false,
+      pipes: [{ x: 90, gapY: 250, scored: false }, { x: 280, gapY: 250, scored: false }] }
+  })));
+  await page.route('**/games/flappy-bird/game.js*', async route => {
+    const response = await route.fetch();
+    await route.fulfill({ response, body: await response.text() +
+      '\nwindow.flappySnapshot = () => ({ phase: state.phase, paused: state.paused });' });
+  });
+  await page.goto('/games/flappy-bird/');
+  await page.locator('#flappy-board').click();
+  await page.waitForFunction(() => window.flappySnapshot().phase === 'dying');
+  await page.locator('#game-menu-toggle').click();
+  expect(await page.evaluate(() => window.flappySnapshot())).toEqual({ phase: 'dying', paused: true });
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#pause')).toBeEnabled();
+  await page.locator('#pause').click();
+  await expect(page.locator('.flappy-results')).toBeVisible({ timeout: 6000 });
+  await expect(page.locator('#revive')).toBeVisible();
+  await page.locator('#play').click();
+  await expect(page.locator('.flappy-results')).not.toBeVisible();
 });
 
 test("Flappy shortcuts preserve native result-button activation", async ({ page }) => {

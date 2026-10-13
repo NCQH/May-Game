@@ -18,7 +18,7 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .feature-copy { justify-content: flex-start; }
 }
 @media (max-width: 760px) and (max-height: 700px) {
-  .game-feature { grid-template-rows: 76px auto; }
+  .game-feature { grid-template-rows: minmax(50px, 76px) auto; }
   .feature-copy { padding: 10px; }
   .feature-stats { display: none; }
   .pixel-art { grid-template-rows: minmax(0, 1fr); }
