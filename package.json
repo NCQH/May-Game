@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "check": "node --check src/app.js && node --check src/contributors.js && node --check games/pikachu/game.js && node --check games/tetris/game.js && node --check games/flappy-bird/game.js && node --check games/_template/game.js && node --check games/pvz-goty/quality.js && node --check games/pvz-goty/storage.js && node --check scripts/pvz/patch-pvz.cjs && node --check scripts/pvz/prepare-pvz-local.cjs && node --check scripts/pvz/patch-pvz-widescreen.cjs",
+    "check": "node --check assets/js/game-menu.js && node --check src/app.js && node --check src/contributors.js && node --check games/pikachu/game.js && node --check games/tetris/game.js && node --check games/flappy-bird/game.js && node --check games/_template/game.js && node --check games/pvz-goty/quality.js && node --check games/pvz-goty/storage.js && node --check scripts/pvz/patch-pvz.cjs && node --check scripts/pvz/prepare-pvz-local.cjs && node --check scripts/pvz/patch-pvz-widescreen.cjs",
     "test": "node tests/regression-check.cjs && node tests/pvz-local-check.cjs && node tests/pvz-widescreen-check.cjs && node tests/flappy-check.cjs && node tests/tetris-check.cjs",
     "test:browser": "playwright test",
     "test:pvz": "node tests/pvz-local-check.cjs && node tests/pvz-widescreen-check.cjs"

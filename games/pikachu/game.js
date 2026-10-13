@@ -263,7 +263,8 @@ function render() {
   hintCount.textContent = String(state.hintsLeft);
   hintButton.disabled = state.hintsLeft <= 0;
   soundButton.setAttribute("aria-pressed", String(soundEnabled));
-  soundButton.lastElementChild.textContent = soundEnabled ? "Âm thanh" : "Đã tắt";
+  soundButton.lastElementChild.textContent = soundEnabled ? "Âm thanh: Bật" : "Âm thanh: Tắt";
+  soundButton.querySelector("svg path:last-child").setAttribute("d", soundEnabled ? "M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11" : "M17 9l5 6M22 9l-5 6");
   boardNode.setAttribute("aria-label", `Bàn ghép hình ${state.cols} cột, ${state.rows} hàng. Dùng phím mũi tên để di chuyển giữa các ô.`);
   boardNode.innerHTML = state.tiles.map((tile, index) => {
     const spriteName = tile.kind === 1 ? "Pikachu" : `Pokémon ${tile.kind + 1}`;
@@ -294,6 +295,7 @@ function showToast(message) {
 }
 
 function showDialog(title, message, actions, kind) {
+  document.querySelector("#game-menu").close();
   const dialog = document.querySelector("#pika-dialog");
   const titleNode = document.querySelector("#dialog-title");
   const messageNode = document.querySelector("#dialog-message");
@@ -574,7 +576,7 @@ function finishMatch(first, second) {
 }
 
 function choose(index) {
-  if (busy || state.phase !== "playing") return;
+  if (busy || document.querySelector("#game-menu").open || document.querySelector("#pika-dialog").open || state.phase !== "playing") return;
   const tile = state.tiles[index];
   if (!tile || tile.removed) return;
   runStarted = true;
@@ -620,7 +622,7 @@ function choose(index) {
 }
 
 function doHint() {
-  if (busy || state.phase !== "playing") return;
+  if (busy || document.querySelector("#game-menu").open || document.querySelector("#pika-dialog").open || state.phase !== "playing") return;
   if (state.hintsLeft <= 0) { showToast("Bạn đã dùng hết 3 lượt gợi ý của ván này."); return; }
   const pair = findAvailablePair();
   if (!pair) { recoverDeadlock(); return; }
@@ -642,7 +644,7 @@ function doHint() {
 }
 
 function doShuffle() {
-  if (busy || state.phase !== "playing") return;
+  if (busy || document.querySelector("#game-menu").open || document.querySelector("#pika-dialog").open || state.phase !== "playing") return;
   if (state.lives <= 0) { showToast("Bạn đã hết lượt đổi vị trí."); return; }
   runStarted = true;
   state.clockStarted = true;
@@ -711,7 +713,7 @@ function doRestart() {
 
 function doSize() {
   const current = `${state.cols}×${state.rows}`;
-  showDialog("Cỡ bàn", `Bàn hiện tại ${current}. Tự động sẽ chọn bàn vừa màn hình; 16×9 giống bàn máy tính và có thể nhỏ trên điện thoại.`, [
+  showDialog("Cỡ bàn", `Bàn hiện tại ${current}. Tiến độ, điểm và thời gian được giữ lại. Tự động chọn bàn vừa màn hình; 16×9 giống bàn máy tính và có thể nhỏ trên điện thoại.`, [
     { label: "Tự động", primary: sizeMode === "auto", run: () => setSizeMode("auto") },
     { label: "Đầy đủ 16×9", primary: sizeMode === "full", run: () => setSizeMode("full") },
     { label: "Đóng", run: closeDialog },
@@ -720,7 +722,8 @@ function doSize() {
 
 function updateSoundButton() {
   soundButton.setAttribute("aria-pressed", String(soundEnabled));
-  soundButton.lastElementChild.textContent = soundEnabled ? "Âm thanh" : "Đã tắt";
+  soundButton.lastElementChild.textContent = soundEnabled ? "Âm thanh: Bật" : "Âm thanh: Tắt";
+  soundButton.querySelector("svg path:last-child").setAttribute("d", soundEnabled ? "M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11" : "M17 9l5 6M22 9l-5 6");
 }
 
 boardNode.addEventListener("click", (event) => {
@@ -758,6 +761,12 @@ soundButton.addEventListener("click", () => {
   updateSoundButton();
   if (soundEnabled) playSound("select");
 });
+document.addEventListener("game-menu-open", (event) => {
+  if (pendingMatch) finishPendingMatch();
+  if (document.querySelector("#pika-dialog").open) event.preventDefault();
+  lastFrame = performance.now();
+});
+document.querySelector("#game-menu").addEventListener("close", () => { lastFrame = performance.now(); });
 document.querySelector("#shuffle").addEventListener("click", doShuffle);
 hintButton.addEventListener("click", doHint);
 document.querySelector("#size").addEventListener("click", doSize);
@@ -788,7 +797,7 @@ document.addEventListener("visibilitychange", () => { lastFrame = performance.no
 function frame(timestamp) {
   const delta = Math.min(1, Math.max(0, (timestamp - lastFrame) / 1000));
   lastFrame = timestamp;
-  if (!document.hidden && !document.querySelector("#pika-dialog").open && state.phase === "playing" && state.clockStarted) {
+  if (!document.hidden && !document.querySelector("#pika-dialog").open && !document.querySelector("#game-menu").open && state.phase === "playing" && state.clockStarted) {
     state.timeLeft = Math.max(0, state.timeLeft - delta);
     updateClock();
     saveElapsed += delta;

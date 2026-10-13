@@ -90,6 +90,29 @@ export function hdFiles(files) {
   return result;
 }
 
+export function validateSaveImport(bundle) {
+  if (bundle?.version !== 1 || !Array.isArray(bundle.files) || !bundle.files.length) throw new Error("ZIP không có dữ liệu save hợp lệ.");
+  if (bundle.files.length > 1000) throw new Error("Save có quá nhiều tệp (tối đa 1000).");
+  const names = new Set();
+  let bytes = 0;
+  for (const entry of bundle.files) {
+    const parts = safeParts(entry.name);
+    if (parts.join("/") !== entry.name || !/\.(dat|v4|png)$/i.test(parts.at(-1)) || !(entry.blob instanceof Blob)) throw new Error("Tệp save không hợp lệ.");
+    const name = entry.name.toLowerCase();
+    if (names.has(name)) throw new Error("Save có tệp trùng tên.");
+    names.add(name);
+    bytes += entry.blob.size;
+    if (bytes > 64 * 1048576) throw new Error("Save vượt giới hạn 64 MiB.");
+  }
+  for (const name of names) {
+    const parts = name.split("/");
+    for (let i = 1; i < parts.length; i++) {
+      if (names.has(parts.slice(0, i).join("/"))) throw new Error("Đường dẫn save bị xung đột giữa tệp và thư mục.");
+    }
+  }
+  return bundle;
+}
+
 export function validateSize(entries, maximum) {
   if (entries.length > 10000 || entries.reduce((sum, entry) => sum + entry.blob.size, 0) > maximum) throw new Error("Bộ dữ liệu quá lớn cho bộ nhớ trình duyệt.");
 }

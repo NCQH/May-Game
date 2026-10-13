@@ -157,10 +157,13 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--game-sand); out
 .game-description { margin: 6px 0 14px; color: var(--game-muted); font-size: 10px; line-height: 1.6; }
 .game-panel { border: 1px solid var(--game-line); border-radius: 6px; background: var(--game-panel); }
 .game-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
-.game-button { min-height: 44px; padding: 0 13px; border: 1px solid #53655c; border-radius: 4px; background: #22343b; color: var(--game-text); font-size: 10px; font-weight: 600; cursor: pointer; }
-.game-button:hover { border-color: var(--game-lime); }
-.game-button-primary { border-color: var(--game-lime); background: var(--game-lime); color: #172125; }
-.game-button-primary:hover { background: #dbfa92; }
+.game-button { min-height: 44px; min-width: 44px; padding: 0 13px; font: var(--font-control); }
+:is(.game-button, .tetris-page button, .pika-control, #save-toolbar button, .pvz-quality select) { border: 2px solid var(--control-border); border-radius: 0; background: var(--control-bg); color: var(--control-text); box-shadow: 0 4px 0 var(--control-shadow); cursor: pointer; }
+:is(.game-button, .tetris-page button, .pika-control, #save-toolbar button, .pvz-quality select):hover:not(:disabled) { border-color: var(--control-edge); transform: translateY(-1px); }
+:is(.game-button, .tetris-page button, .pika-control, #save-toolbar button, .pvz-quality select):active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 var(--control-shadow); }
+:is(.game-button, .tetris-page button, .pika-control, #save-toolbar button, .pvz-quality select):disabled { transform: none; box-shadow: none; cursor: not-allowed; }
+:is(.game-button-primary, .tetris-page #result-restart) { border-color: var(--control-edge); background: var(--control-accent); color: var(--control-primary-text); }
+:is(.game-button-primary, .tetris-page #result-restart):hover:not(:disabled) { background: var(--control-primary-hover); }
 .game-help { margin: 10px 0 0; color: var(--game-muted); text-align: center; font-size: 9px; line-height: 1.6; }
 .game-help kbd { display: inline-grid; min-width: 19px; height: 19px; place-items: center; margin-inline: 1px; padding: 0 4px; border: 1px solid #4a5c60; border-radius: 3px; background: #223238; color: #e1e8dd; font: 600 9px var(--font-display); }
 .game-message { min-height: 20px; margin: 7px 0 0; color: var(--game-lime); text-align: center; font-size: 10px; }
@@ -192,4 +195,14 @@ canvas { display: block; image-rendering: pixelated; }
   .game-title { font-size: 21px; }
 }
 @media (max-width: 360px) { body { --page-inset: 7px; }.arcade-game-content { padding: 9px 7px; } }
+.arcade-screen-meta .game-title { margin-left: auto; }
+.game-icon-button { width: 44px; height: 44px; padding: 8px; flex: none; font-size: 22px; }
+.game-icon-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
+.game-menu { width: min(calc(100% - 28px), 460px); max-height: calc(100dvh - 28px); margin: auto; overflow-y: auto; padding: 0; border: 2px solid var(--control-border); background: var(--game-panel); color: var(--game-text); }
+.game-menu::backdrop { background: rgba(9,14,10,.8); }
+.game-menu-card { display: grid; gap: 16px; padding: 20px; }
+.game-menu h2, .game-menu p { margin: 0; }
+.game-menu p { font-size: 14px; line-height: 1.6; }
+.game-menu-actions { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 4px; }
+.game-menu .game-button { padding: 8px 12px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }

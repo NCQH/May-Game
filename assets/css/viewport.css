@@ -9,12 +9,21 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
 .start-game { min-height: 44px; min-width: 44px; }
 .arcade-game-content { background-image: none; }
 @media (max-width: 760px) and (min-height: 501px) {
+  .arcade-home .selection-row { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr) 44px; }
+  .arcade-home .selected-game { grid-column: 1 / -1; grid-row: 1; }
+  .arcade-home .select-arrow { grid-row: 2; min-height: 44px; }
+  .arcade-home #previous-game { grid-column: 1; }
+  .arcade-home #next-game { grid-column: 2; }
   .game-feature { grid-template-rows: minmax(100px, .8fr) minmax(min-content, 1fr); }
+  .feature-copy { justify-content: flex-start; }
 }
 @media (max-width: 760px) and (max-height: 700px) {
-  .game-feature { grid-template-rows: 100px auto; }
+  .game-feature { grid-template-rows: minmax(50px, 76px) auto; }
   .feature-copy { padding: 10px; }
-  .feature-stats { margin-top: 8px; }
+  .feature-stats { display: none; }
+  .pixel-art { grid-template-rows: minmax(0, 1fr); }
+  .tetris-grid { transform: scale(.35); }
+  .pixel-sprite-pikachu { transform: scale(1); }
 }
 .arcade-game-content { min-height: 0; }
 @media (max-width: 580px) {
@@ -58,7 +67,7 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .page-content { padding: 12px; }
   .page-heading { gap: 10px; margin-bottom: 12px; }
   .page-heading h1 { font-size: 25px; }
-  .page-heading p:not(.page-kicker) { margin-top: 6px; font-size: 11px; }
+  .page-heading p:not(.page-kicker) { margin-top: 6px; }
   .guide-steps-arcade { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .guide-step, .guide-note { padding: 10px; }
   .guide-local-run { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px; }
@@ -71,17 +80,16 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .page-content { padding: 8px; }
   .page-heading { margin-bottom: 8px; gap: 8px; }
   .page-heading h1 { font-size: 23px; }
-  .page-heading p:not(.page-kicker) { margin-top: 5px; font-size: 10px; }
+  .page-heading p:not(.page-kicker) { margin-top: 5px; }
   .page-kicker { margin-bottom: 4px; }
   .guide-steps-arcade { margin-block: 8px; gap: 6px; }
   .guide-step, .guide-note, .guide-local-run { padding: 8px; }
   .guide-note-grid { gap: 6px; }
   .guide-local-run { margin-top: 6px; }
-  .game-feature { grid-template-columns: minmax(120px, .8fr) minmax(0, 1.2fr); grid-template-rows: 1fr; }
+  .game-feature { grid-template-columns: minmax(120px, .8fr) minmax(0, 1.2fr); grid-template-rows: minmax(0, 1fr); }
   .feature-art-wrap { border-right: 2px solid #3a4a38; border-bottom: 0; }
   .feature-copy { padding: 8px 12px; }
   .feature-copy h1 { margin-top: 6px; font-size: 22px; }
-  .feature-description { margin-block: 6px; font-size: 10px; line-height: 1.4; }
   .feature-overline, .feature-stats, .feature-controls, .feature-description { display: none; }
   .feature-copy { justify-content: flex-start; }
   .start-game { margin-top: 5px; min-height: 44px; }
@@ -128,5 +136,5 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .arcade-game.pikachu-page .arcade-game-content { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto; align-content: center; gap: 8px 16px; }
   .pikachu-page :is(.pika-heading, .pika-hud, .pika-time-row, .pika-controls) { grid-column: 1; }
   .pikachu-page .pika-board-wrap { grid-column: 2; grid-row: 1 / span 4; }
-  .pikachu-page .pika-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pikachu-page .pika-controls { grid-template-columns: repeat(2, 64px); }
 }
