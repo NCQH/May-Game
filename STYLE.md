@@ -97,7 +97,7 @@ Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated 
 - **Catalog:** `.selection-row` và `.game-feature` chia artwork/copy; heading, mô tả, kỷ lục rồi CTA `.start-game`. Card giữ artwork riêng, không thay bằng icon generic nếu đã có asset. Previous/next có tên truy cập và disabled thật.
 - **Search:** `.screen-search`/`.screen-search-toggle`, input và nút cao 44px; trạng thái mở dùng `aria-expanded`. Giữ focus hiển thị, có empty state khi không tìm thấy.
 - **Loading/empty/error:** `.selection-loading`, `.loader-pixel`, `.empty-selection`. Luôn có chữ giải thích; loading kéo dài có tiến độ/ngữ cảnh, lỗi có retry phù hợp. Tránh thông báo chạy local trên site live.
-- **Contributors:** `.contributor-grid` tự fit cột tối thiểu 280px hoặc toàn chiều rộng; `.contributor-card` có avatar, tên, profile và danh sách game. Row link hiện tại nhỏ hơn 44px: game/trang mới nên đạt vùng chạm 44px, không sao chép hạn chế này.
+- **Contributors:** `.contributor-grid` tự fit cột tối thiểu 280px hoặc toàn chiều rộng; `.contributor-card` có avatar, tên, profile và danh sách game. Link profile/game/chưa ghi nhận có vùng chạm ≥44×44px, nhãn chính 14px; tên/handle dài wrap, không tràn ngang. Giữ link semantic và focus outline chung.
 - **Hướng dẫn:** `.page-heading`, `.guide-step`, `.guide-note`, `.guide-local-run`; chia bước rõ, code/path wrap hoặc cuộn trong block riêng. Không để nội dung cuối bị mất do chiều cao cố định.
 - **Footer/link:** `.deck-link`, `.deck-link-primary`, `aria-current="page"` khi phù hợp. Link dẫn đi dùng `<a>`; thao tác tại chỗ dùng `<button>`.
 

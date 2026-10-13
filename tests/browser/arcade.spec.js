@@ -752,3 +752,26 @@ test("PvZ loading distinguishes first-file download from engine startup", async 
   await expect(status.locator("progress")).toHaveCount(0);
   await expect(status.getByRole("button", { name: "Thử lại" })).toBeVisible();
 });
+
+
+test("contributor links keep touch targets and wrap long names on phone and desktop", async ({ page }) => {
+  await page.route("**/games.json*", route => route.fulfill({ json: [
+    { id: "one", title: "Tên trò chơi rất dài để kiểm tra xuống dòng", category: "Arcade", path: "./games/tetris/index.html", contributors: [{ name: "Tên người đóng góp rất dài cần xuống dòng", github: "abcdefghijklmnopqrstuvwxyz0123456789" }] },
+    { id: "two", title: "GameChuaGhiNhanVoiTenLienTucRatDaiKhongCoKhoangTrang", path: "./games/pikachu/index.html" },
+  ] }));
+  for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/contributors.html");
+    await expect(page.locator(".contributor-profile")).toBeVisible();
+    for (const link of await page.locator(".contributor-profile, a.contributor-game, a.uncredited-game").all()) {
+      await link.scrollIntoViewIfNeeded();
+      const box = await link.boundingBox();
+      expect(box.width).toBeGreaterThanOrEqual(44);
+      expect(box.height).toBeGreaterThanOrEqual(44);
+      expect(await link.evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true);
+      await link.focus();
+      expect(await link.evaluate(node => getComputedStyle(node).outlineWidth)).toBe("3px");
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
+});
