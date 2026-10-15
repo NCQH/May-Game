@@ -89,7 +89,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--game-sand); out
   min-height: 36px;
   padding: 0 4px;
   color: #a7bd7a;
-  font: 700 8px/1 var(--font-display);
+  font: 700 12px/1 var(--font-display);
   letter-spacing: .12em;
   text-transform: uppercase;
 }
@@ -145,16 +145,16 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--game-sand); out
   background: none;
   box-shadow: none;
   color: var(--game-muted);
-  font: 600 10px/1.2 var(--font-body);
+  font: 600 14px/1.2 var(--font-body);
   letter-spacing: 0;
   text-decoration: none;
   text-transform: none;
   transition: color .12s ease;
 }
 .back-link:hover { border: 0; background: none; color: var(--game-lime); text-decoration: underline; text-underline-offset: 3px; }
-.game-label { color: #82928b; font: 600 9px/1.3 var(--font-display); letter-spacing: .1em; text-transform: uppercase; }
+.game-label { color: #82928b; font: 600 12px/1.3 var(--font-display); letter-spacing: .1em; text-transform: uppercase; }
 .game-title { margin: 0; font: 600 24px/1.08 var(--font-display); letter-spacing: -.03em; }
-.game-description { margin: 6px 0 14px; color: var(--game-muted); font-size: 10px; line-height: 1.6; }
+.game-description { margin: 6px 0 14px; color: var(--game-muted); font-size: 14px; line-height: 1.6; }
 .game-panel { border: 1px solid var(--game-line); border-radius: 6px; background: var(--game-panel); }
 .game-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
 .game-button { min-height: 44px; min-width: 44px; padding: 0 13px; font: var(--font-control); }
@@ -164,13 +164,13 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--game-sand); out
 :is(.game-button, .tetris-page button, .pika-control, #save-toolbar button, .pvz-quality select):disabled { transform: none; box-shadow: none; cursor: not-allowed; }
 :is(.game-button-primary, .tetris-page #result-restart) { border-color: var(--control-edge); background: var(--control-accent); color: var(--control-primary-text); }
 :is(.game-button-primary, .tetris-page #result-restart):hover:not(:disabled) { background: var(--control-primary-hover); }
-.game-help { margin: 10px 0 0; color: var(--game-muted); text-align: center; font-size: 9px; line-height: 1.6; }
-.game-help kbd { display: inline-grid; min-width: 19px; height: 19px; place-items: center; margin-inline: 1px; padding: 0 4px; border: 1px solid #4a5c60; border-radius: 3px; background: #223238; color: #e1e8dd; font: 600 9px var(--font-display); }
-.game-message { min-height: 20px; margin: 7px 0 0; color: var(--game-lime); text-align: center; font-size: 10px; }
+.game-help { margin: 10px 0 0; color: var(--game-muted); text-align: center; font-size: 12px; line-height: 1.6; }
+.game-help kbd { display: inline-grid; min-width: 19px; height: 19px; place-items: center; margin-inline: 1px; padding: 0 4px; border: 1px solid #4a5c60; border-radius: 3px; background: #223238; color: #e1e8dd; font: 600 12px var(--font-display); }
+.game-message { min-height: 20px; margin: 7px 0 0; color: var(--game-lime); text-align: center; font-size: 12px; }
 .game-message:empty { display: none; }
 .game-message.is-error { color: var(--game-coral); }
 .game-score { color: var(--game-sand); font: 600 15px/1 var(--font-display); }
-.game-small { color: var(--game-muted); font-size: 9px; }
+.game-small { color: var(--game-muted); font-size: 12px; }
 canvas { display: block; image-rendering: pixelated; }
 .tetris-page { --cabinet-width: 540px; }
 .flappy-page { --cabinet-width: 520px; }

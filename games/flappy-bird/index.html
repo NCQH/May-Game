@@ -12,11 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/shared.css" />
-    <script type="module" src="./game.js?v=9"></script>
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=2" />
+    <script type="module" src="./game.js?v=10"></script>
     <script type="module" src="../../assets/js/game-menu.js"></script>
-    <link rel="stylesheet" href="../../assets/css/viewport.css?v=3">
-    <link rel="stylesheet" href="./game.css?v=6" />
+    <link rel="stylesheet" href="../../assets/css/viewport.css?v=4">
+    <link rel="stylesheet" href="./game.css?v=8" />
 </head>
   <body>
     <main class="game-page flappy-page arcade-game">
@@ -28,7 +28,7 @@
         <div class="arcade-screen-meta">
           <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
           <h1 class="game-title">Flappy Bird</h1>
-          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Menu trò chơi" title="Menu trò chơi" aria-controls="game-menu" aria-expanded="false">☰</button>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" title="Tạm dừng và mở menu" aria-controls="game-menu" aria-expanded="false">☰</button>
         </div>
         <div class="arcade-game-content">
           <div class="flappy-board-wrap">
@@ -47,9 +47,6 @@
       </section>
           </div>
           <p class="game-help" id="flappy-hint" aria-live="polite">Chạm để bay · Space hoặc ↑ trên máy tính</p>
-          <div class="game-actions">
-            <button class="game-button game-icon-button" id="pause" type="button" aria-label="Tạm dừng" title="Tạm dừng" disabled>Ⅱ</button>
-          </div>
         </div>
         <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title">
           <div class="game-menu-card">
