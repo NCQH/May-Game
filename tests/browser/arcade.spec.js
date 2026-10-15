@@ -209,6 +209,21 @@ test("catalog failure keeps its recovery action and retries without reloading", 
   expect(attempts).toBe(3);
 });
 
+test("catalog retry focuses the heading and omits missing optional game details", async ({ page }) => {
+  let attempts = 0;
+  await page.route("**/games.json*", (route) => ++attempts === 1
+    ? route.fulfill({ status: 503, body: "Unavailable" })
+    : route.fulfill({ contentType: "application/json", body: JSON.stringify([{ id: "tetris", title: "Tetris" }]) }));
+  await page.goto("/");
+  await page.getByRole("button", { name: "Thử lại" }).click();
+  await expect(page.locator(".game-feature h1")).toBeFocused();
+  await expect(page.locator(".is-unavailable")).toHaveText("Chưa có trang chơi");
+  await expect(page.locator(".game-feature")).not.toContainText("undefined");
+  await page.keyboard.press("/");
+  await page.keyboard.type("undef");
+  await expect(page.locator(".game-feature")).toHaveCount(0);
+});
+
 test("catalog distinguishes invalid data from an empty library", async ({ page }) => {
   for (const body of ["not json", "{}", '[{"id":"bad","title":42}]', "[]"]) {
     await page.route("**/games.json*", (route) => route.fulfill({ contentType: "application/json", body }));
