@@ -12,11 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/shared.css?v=2" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=3" />
     <link rel="stylesheet" href="./game.css" />
     <script type="module" src="./game.js"></script>
   <link rel="stylesheet" href="../../assets/css/viewport.css?v=4">
-<script type="module" src="../../assets/js/game-menu.js"></script>
+<script type="module" src="../../assets/js/game-menu.js?v=2"></script>
 </head>
   <body>
     <main class="game-page arcade-game">
@@ -25,13 +25,13 @@
         <span class="arcade-case-lights" aria-hidden="true"><i></i><i></i><i></i></span>
       </div>
       <section class="arcade-screen" aria-label="Màn hình máy arcade">
-        <div class="arcade-screen-meta"><a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a><h1 class="game-title">Tên game</h1><button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" title="Tạm dừng và mở menu" aria-controls="game-menu" aria-expanded="false">☰</button></div>
+        <div class="arcade-screen-meta"><a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a><h1 class="game-title">Tên game</h1><button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" aria-keyshortcuts="Escape" title="Tạm dừng và mở menu (Esc)" aria-controls="game-menu" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg></button></div>
         <div class="arcade-game-content">
-          <section class="game-panel" aria-label="Khu vực chơi game">
+          <section class="game-panel" tabindex="-1" aria-label="Khu vực chơi game">
             <!-- Thêm canvas hoặc các nút game vào đây. -->
           </section>
         </div>
-        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title"><div class="game-menu-card"><h2 id="game-menu-title">Menu trò chơi</h2><p>Thêm hướng dẫn và cài đặt của game tại đây; nút ☰ cũng là nút tạm dừng: xử lý sự kiện game-menu-open để dừng gameplay, không thêm nút pause riêng.</p><button class="game-button" type="button" data-menu-close>Đóng menu</button></div></dialog>
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus=".game-panel"><div class="game-menu-card"><h2 id="game-menu-title">Menu trò chơi</h2><p>Thêm hướng dẫn và cài đặt của game tại đây; nút ☰ và phím Esc cũng là nút tạm dừng: xử lý sự kiện game-menu-open để dừng gameplay, không thêm nút pause riêng.</p><button class="game-button" type="button" data-menu-close>Đóng menu</button></div></dialog>
       </section>
       <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
     </main>

@@ -126,6 +126,7 @@ let accumulator = 0;
 let saveElapsed = 0;
 let animationTime = 0;
 let audioContext;
+let audioOutput;
 const sounds = new Map();
 function unlockAudio() {
   try {
@@ -133,6 +134,10 @@ function unlockAudio() {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return;
       audioContext = new AudioContext();
+      // The original samples peak near 0 dBFS; -9 dB keeps Flappy in line with the other games' effects.
+      audioOutput = audioContext.createGain();
+      audioOutput.gain.value = .35;
+      audioOutput.connect(audioContext.destination);
       for (const name of ["wing", "point", "hit", "die", "swoosh"]) {
         sounds.set(name, fetch(new URL(`./assets/audio/${name}.wav`, import.meta.url))
           .then((r) => { if (!r.ok) throw new Error("Audio unavailable"); return r.arrayBuffer(); })
@@ -148,7 +153,7 @@ function sound(name) {
     if (!buffer || record.muted || document.hidden || audioContext.state !== "running") return;
     const source = audioContext.createBufferSource();
     source.buffer = buffer;
-    source.connect(audioContext.destination);
+    source.connect(audioOutput);
     source.start(audioContext.currentTime + (name === "die" ? .12 : 0));
   }).catch(() => {});
 }

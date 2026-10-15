@@ -12,9 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/shared.css?v=2" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=3" />
     <script type="module" src="./game.js?v=13"></script>
-    <script type="module" src="../../assets/js/game-menu.js"></script>
+    <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
   <link rel="stylesheet" href="../../assets/css/viewport.css?v=4">
     <link rel="stylesheet" href="./game.css?v=10" />
 </head>
@@ -28,7 +28,7 @@
         <div class="arcade-screen-meta">
           <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
           <h1 class="game-title">Tetris</h1>
-          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" title="Tạm dừng và mở menu" aria-controls="game-menu" aria-expanded="false">☰</button>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" aria-keyshortcuts="Escape" title="Tạm dừng và mở menu (Esc)" aria-controls="game-menu" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg></button>
         </div>
         <div class="tetris-menu" aria-labelledby="mode-heading">
           <h2 id="mode-heading">Chọn chế độ</h2>
@@ -69,10 +69,10 @@
             </aside>
           </section>
         </div>
-        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title">
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#tetris-board">
           <div class="game-menu-card">
             <h2 id="game-menu-title">Menu Tetris</h2>
-            <p>Kéo ngang để di chuyển; chạm trái/phải để xoay; vuốt lên để giữ; vuốt nhanh xuống để thả. Bàn phím: ← ↓ → di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng. Mở menu sẽ tạm dừng ván; đóng menu rồi chạm bàn chơi hoặc nhấn P để chơi tiếp.</p>
+            <p>Kéo ngang để di chuyển; chạm trái/phải để xoay; vuốt lên để giữ; vuốt nhanh xuống để thả. Bàn phím: ← ↓ → di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng. Nhấn ☰ hoặc Esc để tạm dừng và mở menu; đóng menu (Esc) rồi chạm bàn chơi hoặc nhấn P để chơi tiếp.</p>
             <p>Chế độ: <span id="mode-name">Marathon</span></p>
             <div class="game-menu-actions">
               <button class="game-button" id="choose-mode" type="button">▦ Chọn chế độ</button>
