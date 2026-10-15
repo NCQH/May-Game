@@ -131,7 +131,7 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .tetris-page .tetris-touch { grid-column: 3; grid-row: 3; }
   .tetris-page .tetris-touch:not([hidden]) ~ .game-message { align-self: end; }
 }
-@media (max-height: 500px) and (min-width: 620px) {
+@media (max-height: 500px) and (min-width: 540px) {
   .arcade-game.pikachu-page .arcade-game-content { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto; align-content: center; gap: 8px 16px; }
   .pikachu-page :is(.pika-heading, .pika-hud, .pika-time-row, .pika-controls) { grid-column: 1; }
   .pikachu-page .pika-board-wrap { grid-column: 2; grid-row: 1 / span 4; }
@@ -167,4 +167,10 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   /* Landscape phones: document pages scroll as a whole page instead of a short inner box. */
   .arcade-home .arcade-cabinet:has(.page-content) { height: auto; }
   .arcade-home .arcade-cabinet:has(.page-content) .page-content { overflow: visible; }
+  /* Landscape gameplay: drop decorative cabinet header/deck so the board gets the height. */
+  .arcade-game:is(.tetris-page, .flappy-page, .pikachu-page) :is(.arcade-case-header, .arcade-deck) { display: none; }
+  .arcade-game:is(.tetris-page, .flappy-page, .pikachu-page) { padding-top: clamp(5px, 1vw, 10px); }
+}
+@media (max-height: 500px) and (min-width: 540px) {
+  .pikachu-page :is(.pika-heading, .pika-hud, .pika-time-row, .pika-controls) { width: 100%; }
 }

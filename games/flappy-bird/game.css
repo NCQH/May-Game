@@ -23,7 +23,7 @@
 @media (max-height: 500px) {
   .flappy-page.arcade-game { min-height: calc(100dvh - var(--page-inset) * 2 - 8px); }
   .flappy-page .arcade-game-content { display: grid; grid-template-columns: auto minmax(140px,220px); column-gap: 20px; }
-  .flappy-board-wrap { grid-row: 1 / span 2; width: calc((100dvh - 195px) * .5625); }
+  .flappy-board-wrap { grid-row: 1 / span 2; width: calc((100dvh - 155px) * .5625); }
   .arcade-game.flappy-page .game-help { grid-row: 1 / span 2; align-self: center; }
   .flappy-results { gap: 6px; padding: 6px; }
   .flappy-scorecard { gap: 4px; padding: 4px; }

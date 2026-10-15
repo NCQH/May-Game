@@ -67,7 +67,7 @@ Giao diện hiện tại dark-only (`color-scheme: dark`). Màu board/tetromino/
 
 Khung game mặc định rộng tối đa 760px; mobile override theo nội dung: Tetris 540px, Flappy 520px. Desktop (≥900×600) Tetris/Flappy/Pikachu và trang chủ/tài liệu rộng theo chiều cao màn hình: `min(1760px, max(1100–1200px, chiều cao khả dụng × 1.6))`, để khung luôn nằm ngang và không để trống hai bên ở 1920/2560px. Trang chủ ≥1600×800 tăng cỡ chữ card (tiêu đề 48–64px, mô tả 18px, controls 16px, CTA 52px).
 
-Ưu tiên bàn chơi và điều khiển trước header/deck khi màn hình thấp. Không coi các lỗi responsive đã biết là bố cục cần sao chép. Trang tài liệu có nội dung dài nên cuộn đọc được đầy đủ, không ép hành vi một màn hình của game.
+Ưu tiên bàn chơi và điều khiển trước header/deck khi màn hình thấp. Màn ≤500px cao (phone ngang), trang game ẩn hẳn header/deck trang trí của khung để bàn chơi lớn nhất. Không coi các lỗi responsive đã biết là bố cục cần sao chép. Trang tài liệu có nội dung dài nên cuộn đọc được đầy đủ, không ép hành vi một màn hình của game.
 
 ## 5. Component trong game
 

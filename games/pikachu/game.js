@@ -229,9 +229,9 @@ function updateClock() {
 
 function resizeBoard() {
   const maxWidth = state.cols * 60 + (state.cols - 1) * 2 + 18;
-  const compactLandscape = matchMedia('(max-height: 500px) and (min-width: 620px)').matches;
+  const compactLandscape = matchMedia('(max-height: 500px) and (min-width: 540px)').matches;
   const compactPhone = matchMedia('(max-width: 580px) and (max-height: 700px)').matches;
-  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 225 : compactPhone ? 360 : 330 + document.documentElement.clientHeight * .09));
+  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 190 : compactPhone ? 360 : 335 + document.documentElement.clientHeight * .09));
   const heightLimitedWidth = availableHeight * state.cols / state.rows * 42 / 52 + 18;
   const boardWidth = Math.min(maxWidth, heightLimitedWidth);
   boardWrap.style.width = `min(100%, ${boardWidth}px)`;
