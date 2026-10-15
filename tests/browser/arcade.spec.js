@@ -149,7 +149,10 @@ test("arcade actions retain shared readable fonts, touch targets and keyboard fo
         const style = await action.evaluate((el) => {
           const css = getComputedStyle(el);
           const box = el.getBoundingClientRect();
-          return { font: css.fontSize, weight: css.fontWeight, family: css.fontFamily, border: css.borderTopWidth, shadow: css.boxShadow, width: box.width, height: box.height, overflow: el.scrollWidth > el.clientWidth };
+          // The compact menu toggle extends its touch target with an absolutely positioned ::after.
+          const after = getComputedStyle(el, "::after");
+          const grow = after.content !== "none" && after.position === "absolute" ? Math.max(0, -parseFloat(after.top)) : 0;
+          return { font: css.fontSize, weight: css.fontWeight, family: css.fontFamily, border: css.borderTopWidth, shadow: css.boxShadow, width: box.width + grow * 2, height: box.height + grow * 2, overflow: !grow && el.scrollWidth > el.clientWidth };
         });
         expect(style.font).toBe(selector === "#game-menu-toggle" ? "22px" : selector === "#start-game" && viewport.width >= 1600 && viewport.height >= 800 ? "16px" : "14px");
         expect(style.weight).toBe("600");
@@ -608,7 +611,7 @@ test("PvZ ZIP import confirms, stages across reload and applies before engine st
     await page.screenshot({path:`/tmp/pvz-save-menu-${viewport.width}.png`});
   }
   await page.keyboard.press('Escape');
-  await expect(page.locator('#game-menu-toggle')).toBeFocused();
+  expect(await page.evaluate(() => ['canvas', 'game-menu-toggle'].includes(document.activeElement.id))).toBe(true);
 });
 
 test("every catalog start link remains visible and tappable on small screens", async ({ page }) => {
@@ -733,6 +736,24 @@ test("Flappy can resume its death animation after closing the menu", async ({ pa
   await expect(page.locator('#revive')).toBeVisible();
   await page.locator('#play').click();
   await expect(page.locator('.flappy-results')).not.toBeVisible();
+});
+
+test("Flappy effects play through a -9 dB output gain and stay silent when muted", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.flappyAudio = [];
+    const createGain = AudioContext.prototype.createGain;
+    AudioContext.prototype.createGain = function () { const node = createGain.call(this); setTimeout(() => window.flappyAudio.push(`gain:${node.gain.value.toFixed(2)}`)); return node; };
+    const start = AudioBufferSourceNode.prototype.start;
+    AudioBufferSourceNode.prototype.start = function (...args) { window.flappyAudio.push("start"); return start.apply(this, args); };
+  });
+  await page.goto('/games/flappy-bird/');
+  await page.locator('#flappy-board').click();
+  await expect.poll(() => page.evaluate(() => window.flappyAudio)).toEqual(['gain:0.35', 'start']);
+  await page.keyboard.press('m');
+  await page.evaluate(() => { window.flappyAudio.length = 0; });
+  await page.locator('#flappy-board').click();
+  await page.waitForTimeout(300);
+  expect(await page.evaluate(() => window.flappyAudio)).toEqual([]);
 });
 
 test("Flappy shortcuts preserve native result-button activation", async ({ page }) => {
@@ -1007,8 +1028,10 @@ test("game pages fit phone and desktop viewports without horizontal overflow", a
       for (const selector of route.includes('tetris') ? ['#game-menu-toggle'] : []) {
         await page.locator(selector).scrollIntoViewIfNeeded();
         const rect = await page.locator(selector).boundingBox();
-        expect(rect.height, selector).toBeGreaterThanOrEqual(44);
-        expect(rect.width, selector).toBeGreaterThanOrEqual(44);
+        const hit = await page.evaluate(([x, y, w, h]) => [[x - 4, y + h / 2], [x + w + 4, y + h / 2], [x + w / 2, y - 4], [x + w / 2, y + h + 4]]
+          .every(([px, py]) => document.elementFromPoint(px, py)?.closest('#game-menu-toggle')), [rect.x, rect.y, rect.width, rect.height]);
+        expect(rect.width + 8, selector).toBeGreaterThanOrEqual(44);
+        expect(hit, `${selector} touch target`).toBe(true);
         expect(rect.y, selector).toBeGreaterThanOrEqual(-1);
         expect(rect.y + rect.height, selector).toBeLessThanOrEqual(viewport.height + 1);
       }
@@ -1044,7 +1067,23 @@ test("common menus expose settings, lock gameplay and restore focus with Escape"
     await page.keyboard.press("Escape");
     await expect(menu).not.toBeVisible();
     await expect(toggle).toHaveAttribute("aria-expanded", "false");
-    await expect(toggle).toBeFocused();
+    // Focus returns to the board (when visible) so the next Space/Enter plays instead of reopening the menu.
+    const returnTo = await menu.getAttribute("data-return-focus");
+    const board = returnTo ? page.locator(returnTo) : null;
+    await expect(board && await board.isVisible() ? board : toggle).toBeFocused();
+    if (board && await board.isVisible()) {
+      await page.keyboard.press("Space");
+      await expect(menu).not.toBeVisible();
+    }
+    // Esc opens the menu, except in PvZ where the engine owns Esc.
+    await page.keyboard.press("Escape");
+    if (game === "pvz-goty") await expect(menu).not.toBeVisible();
+    else {
+      await expect(menu).toBeVisible();
+      await expect(toggle).toHaveAttribute("aria-expanded", "true");
+      await page.keyboard.press("Escape");
+      await expect(menu).not.toBeVisible();
+    }
   }
 });
 
