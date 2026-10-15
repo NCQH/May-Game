@@ -141,7 +141,7 @@ function gameArt(game) {
 function updateVisibleGames() {
   if (!catalogReady) return;
   const query = searchInput.value.trim().toLocaleLowerCase("vi");
-  visibleGames = games.filter((game) => `${game.title} ${game.category} ${game.description}`.toLocaleLowerCase("vi").includes(query));
+  visibleGames = games.filter((game) => `${game.title} ${game.category ?? ""} ${game.description ?? ""}`.toLocaleLowerCase("vi").includes(query));
   if (!visibleGames.some((game) => game.id === selectedGameId)) selectedGameId = visibleGames[0]?.id || null;
   renderSelection();
 }
@@ -172,13 +172,13 @@ function renderSelection() {
   selection.innerHTML = `<article class="game-feature" data-game="${escapeHTML(game.id)}">
     <div class="feature-art-wrap">${gameArt(game)}</div>
     <div class="feature-copy">
-      <div class="feature-overline"><span>${escapeHTML(game.category)}</span><span>${hasSavedGame ? "CONTINUE" : "P1"}</span></div>
+      <div class="feature-overline">${game.category ? `<span>${escapeHTML(game.category)}</span>` : ""}<span>${hasSavedGame ? "CONTINUE" : "P1"}</span></div>
       <h1>${escapeHTML(game.title)}</h1>
-      <p class="feature-description">${escapeHTML(game.description)}</p>
+      ${game.description ? `<p class="feature-description">${escapeHTML(game.description)}</p>` : ""}
       <div class="feature-stats">
         <span><small>Kỷ lục</small><b>${bestScore ? bestScore.toLocaleString("vi-VN") : "—"}</b></span>
       </div>
-      <p class="feature-controls">${escapeHTML(game.controls)}</p>
+      ${game.controls ? `<p class="feature-controls">${escapeHTML(game.controls)}</p>` : ""}
       ${href
         ? `<a class="start-game" id="start-game" data-game-id="${escapeHTML(game.id)}" href="${href}"><span class="start-mark" aria-hidden="true">▶</span><span>${hasSavedGame ? "Chơi tiếp" : "Vào chơi"}</span></a>`
         : `<span class="start-game is-unavailable" aria-disabled="true">Chưa có trang chơi</span>`}
@@ -263,7 +263,11 @@ async function loadCatalog(retry = false) {
     catalogReady = true;
     searchToggle.disabled = searchInput.disabled = !games.length;
     updateVisibleGames();
-    if (retry) (selection.querySelector("#start-game") || selection.querySelector("h1"))?.focus();
+    if (retry) {
+      const heading = selection.querySelector("h1");
+      if (heading) heading.tabIndex = -1;
+      (selection.querySelector("#start-game") || heading)?.focus();
+    }
   } catch {
     selection.innerHTML = `<div class="empty-selection"><span class="empty-pixel" aria-hidden="true">!</span><h1>Không tải được thư viện</h1><p>Kiểm tra kết nối mạng rồi thử lại.</p><button class="start-game" id="retry-catalog" type="button">Thử lại</button></div>`;
     statusLabel.textContent = "Không tải được thư viện. Kiểm tra kết nối mạng rồi thử lại.";
