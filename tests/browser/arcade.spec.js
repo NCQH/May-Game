@@ -156,17 +156,21 @@ test("arcade actions retain shared readable fonts, touch targets and keyboard fo
         });
         expect(style.font).toBe(selector === "#game-menu-toggle" ? "22px" : selector === "#start-game" && viewport.width >= 1600 && viewport.height >= 800 ? "16px" : "14px");
         expect(style.weight).toBe("600");
-        expect(style.border).toBe("2px");
-        expect(style.shadow).toBe("rgb(104, 124, 67) 0px 4px 0px 0px");
+        // Action buttons are raised; the ☰ screen-bar tool is flat like the home search button.
+        const tool = selector === "#game-menu-toggle";
+        expect(style.border).toBe(tool ? "1px" : "2px");
+        expect(style.shadow).toBe(tool ? "none" : "rgb(104, 124, 67) 0px 4px 0px 0px");
         expect(style.family).toContain("Be Vietnam Pro");
         expect(style.width).toBeGreaterThanOrEqual(44);
         expect(style.height).toBeGreaterThanOrEqual(44);
         expect(style.overflow).toBe(false);
       }
+      const tool = selector === "#game-menu-toggle";
       await actions.first().hover();
-      expect(await actions.first().evaluate((el) => getComputedStyle(el).transform)).toBe("matrix(1, 0, 0, 1, 0, -1)");
+      expect(await actions.first().evaluate((el) => getComputedStyle(el).transform)).toBe(tool ? "none" : "matrix(1, 0, 0, 1, 0, -1)");
+      if (tool) expect(await actions.first().evaluate((el) => getComputedStyle(el).borderTopColor)).toBe("rgb(199, 232, 117)");
       await page.mouse.down();
-      expect(await actions.first().evaluate((el) => getComputedStyle(el).boxShadow)).toBe("rgb(104, 124, 67) 0px 1px 0px 0px");
+      expect(await actions.first().evaluate((el) => getComputedStyle(el).boxShadow)).toBe(tool ? "none" : "rgb(104, 124, 67) 0px 1px 0px 0px");
       await page.mouse.move(0, 0);
       await page.mouse.up();
       if (path !== "/") {
@@ -1028,10 +1032,8 @@ test("game pages fit phone and desktop viewports without horizontal overflow", a
       for (const selector of route.includes('tetris') ? ['#game-menu-toggle'] : []) {
         await page.locator(selector).scrollIntoViewIfNeeded();
         const rect = await page.locator(selector).boundingBox();
-        const hit = await page.evaluate(([x, y, w, h]) => [[x - 4, y + h / 2], [x + w + 4, y + h / 2], [x + w / 2, y - 4], [x + w / 2, y + h + 4]]
-          .every(([px, py]) => document.elementFromPoint(px, py)?.closest('#game-menu-toggle')), [rect.x, rect.y, rect.width, rect.height]);
-        expect(rect.width + 8, selector).toBeGreaterThanOrEqual(44);
-        expect(hit, `${selector} touch target`).toBe(true);
+        expect(rect.height, selector).toBeGreaterThanOrEqual(44);
+        expect(rect.width, selector).toBeGreaterThanOrEqual(44);
         expect(rect.y, selector).toBeGreaterThanOrEqual(-1);
         expect(rect.y + rect.height, selector).toBeLessThanOrEqual(viewport.height + 1);
       }

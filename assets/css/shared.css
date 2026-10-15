@@ -198,10 +198,11 @@ canvas { display: block; image-rendering: pixelated; }
 .arcade-screen-meta .game-title { margin-left: auto; }
 .game-icon-button { width: 44px; height: 44px; padding: 8px; flex: none; font-size: 22px; }
 .game-icon-button svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
-/* Menu toggle: compact 36px raised square with a thin three-line icon; ::after keeps a 50px touch target. */
-.arcade-screen-meta #game-menu-toggle { position: relative; z-index: 1; display: grid; place-items: center; width: 36px; height: 36px; min-width: 0; min-height: 0; padding: 0; }
-.arcade-screen-meta #game-menu-toggle::after { position: absolute; inset: -7px; content: ""; }
-.arcade-screen-meta #game-menu-toggle svg { width: 16px; height: 16px; stroke-width: 2; stroke-linecap: square; }
+/* Menu toggle is a screen-bar tool like the home search button: flat 44px square, quiet border, thin icon. */
+.arcade-screen-meta #game-menu-toggle { display: grid; place-items: center; width: 44px; height: 44px; min-width: 0; min-height: 0; padding: 0; border: 1px solid #53683e; background: #203023; box-shadow: none; color: #d4e5a1; }
+.arcade-screen-meta #game-menu-toggle:hover:not(:disabled), .arcade-screen-meta #game-menu-toggle[aria-expanded="true"] { border-color: var(--game-lime); background: #2b3b2d; color: #eff8c1; transform: none; }
+.arcade-screen-meta #game-menu-toggle:active:not(:disabled) { transform: none; box-shadow: none; }
+.arcade-screen-meta #game-menu-toggle svg { width: 18px; height: 18px; stroke-width: 1.8; stroke-linecap: square; }
 .game-menu { width: min(calc(100% - 28px), 460px); max-height: calc(100dvh - 28px); margin: auto; overflow-y: auto; padding: 0; border: 2px solid var(--control-border); background: var(--game-panel); color: var(--game-text); }
 .game-menu::backdrop { background: rgba(9,14,10,.8); }
 .game-menu-card { display: grid; gap: 16px; padding: 20px; }
