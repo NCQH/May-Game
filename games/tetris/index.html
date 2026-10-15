@@ -12,11 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/shared.css" />
-    <script type="module" src="./game.js?v=12"></script>
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=2" />
+    <script type="module" src="./game.js?v=13"></script>
     <script type="module" src="../../assets/js/game-menu.js"></script>
-  <link rel="stylesheet" href="../../assets/css/viewport.css?v=3">
-    <link rel="stylesheet" href="./game.css?v=8" />
+  <link rel="stylesheet" href="../../assets/css/viewport.css?v=4">
+    <link rel="stylesheet" href="./game.css?v=9" />
 </head>
   <body>
     <main class="game-page tetris-page arcade-game">
@@ -28,7 +28,7 @@
         <div class="arcade-screen-meta">
           <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
           <h1 class="game-title">Tetris</h1>
-          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Menu trò chơi" title="Menu trò chơi" aria-controls="game-menu" aria-expanded="false">☰</button>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" title="Tạm dừng và mở menu" aria-controls="game-menu" aria-expanded="false">☰</button>
         </div>
         <div class="tetris-menu" aria-labelledby="mode-heading">
           <h2 id="mode-heading">Chọn chế độ</h2>
@@ -52,7 +52,6 @@
             <aside class="tetris-hold" aria-label="Khối đang giữ">
               <span class="game-small">Giữ</span>
               <canvas id="tetris-hold" width="100" height="54" aria-label="Khối đang giữ: trống"></canvas>
-              <button id="hold" data-action="hold" type="button" aria-label="Giữ hoặc đổi khối bằng phím C" title="Giữ hoặc đổi khối">⇄</button>
             </aside>
             <div class="tetris-board-wrap">
               <canvas id="tetris-board" width="260" height="520" tabindex="0" aria-label="Bàn Tetris, rộng 10 ô và cao 20 ô. Mũi tên di chuyển. Z xoay trái, X hoặc mũi tên lên xoay phải, C giữ, Space thả, P tạm dừng."></canvas>
@@ -69,12 +68,11 @@
               </div>
             </aside>
           </section>
-          <div class="side-actions"><button class="game-icon-button" id="pause" type="button" aria-label="Tạm dừng" title="Tạm dừng">Ⅱ</button></div>
         </div>
         <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title">
           <div class="game-menu-card">
             <h2 id="game-menu-title">Menu Tetris</h2>
-            <p>Kéo ngang để di chuyển; chạm trái/phải để xoay; vuốt lên để giữ; vuốt nhanh xuống để thả. Bàn phím: ← ↓ → di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng.</p>
+            <p>Kéo ngang để di chuyển; chạm trái/phải để xoay; vuốt lên để giữ; vuốt nhanh xuống để thả. Bàn phím: ← ↓ → di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng. Mở menu sẽ tạm dừng ván; đóng menu rồi chạm bàn chơi hoặc nhấn P để chơi tiếp.</p>
             <p>Chế độ: <span id="mode-name">Marathon</span></p>
             <div class="game-menu-actions">
               <button class="game-button" id="choose-mode" type="button">▦ Chọn chế độ</button>

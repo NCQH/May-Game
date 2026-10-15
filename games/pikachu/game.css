@@ -44,7 +44,7 @@
 }
 
 .pika-heading {
-  width: min(100%, 760px);
+  width: min(100%, var(--pika-width, 760px));
   margin: 0 auto 2px;
   text-align: center;
 }
@@ -62,7 +62,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  width: min(100%, 760px);
+  width: min(100%, var(--pika-width, 760px));
   margin: 0 auto;
   padding: 3px 0 8px;
   border-bottom: 1px solid rgba(171, 185, 154, .24);
@@ -83,7 +83,7 @@
 
 .pika-stat span {
   color: var(--game-muted);
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.2;
 }
 
@@ -106,7 +106,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  width: min(100%, 760px);
+  width: min(100%, var(--pika-width, 760px));
   margin: 0 auto 2px;
 }
 
@@ -144,7 +144,7 @@
 
 .pika-board-wrap {
   position: relative;
-  width: min(100%, 760px);
+  width: min(100%, var(--pika-width, 760px));
   margin: 0 auto;
 }
 
@@ -247,11 +247,11 @@
 }
 
 .pikachu-page .pika-message {
-  width: min(100%, 760px);
+  width: min(100%, var(--pika-width, 760px));
   min-height: 0;
   margin: 0 auto;
   color: var(--game-text);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -282,7 +282,7 @@
   grid-template-columns: repeat(2, 64px);
   justify-content: center;
   gap: 7px;
-  width: min(100%, 760px);
+  width: min(100%, var(--pika-width, 760px));
   margin: 0 auto;
 }
 
@@ -324,7 +324,7 @@
   place-items: center;
   border: 1px solid rgba(199, 232, 117, .35);
   color: var(--game-lime);
-  font: 600 10px/1 var(--font-display);
+  font: 600 12px/1 var(--font-display);
 }
 
 .pika-control:disabled {

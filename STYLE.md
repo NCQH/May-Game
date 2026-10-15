@@ -49,7 +49,7 @@ Giao diện hiện tại dark-only (`color-scheme: dark`). Màu board/tetromino/
 - Nút hành động: `--font-control` = Be Vietnam Pro 600, 14px, line-height 1.4. Token nền/viền/chữ/accent (`--control-bg`, `--control-border`, `--control-text`, `--control-accent`) nằm trong `typography.css`; dùng lại CSS hiện có, không thêm `controls.css` hoặc hệ class mới. Giữ artwork, tile và chữ vẽ trong canvas riêng.
 - Luôn có fallback, không chặn chơi khi Google Fonts chưa tải. Không dùng font pixel khó đọc cho đoạn hướng dẫn dài.
 - Heading game chung hiện tại 24px, xuống 21px ở ≤580px; một số tiêu đề trong meta xuống 16px ở ≤620px. Heading catalog 28–40px; heading tài liệu 28–48px.
-- CSS cũ có nhiều label/helper 7–12px. Đây là **hiện trạng, không phải chuẩn bắt buộc cho game mới**. Định hướng: body/hướng dẫn 14–16px, label phụ khoảng 12px; kiểm tra khả năng đọc và bố cục trước khi áp dụng.
+- Cỡ chữ tối thiểu: label/nhãn HUD/overline/số đếm **12px**; body/hướng dẫn 14–16px; link “← Màn hình chính” 14px. Không dùng chữ 8–11px cho nội dung đọc được (glyph trang trí như ▶ ngoại lệ).
 - Dùng `font-variant-numeric: tabular-nums` cho điểm, thời gian, tiến độ cần ổn định chiều rộng. Tiêu đề/đường dẫn dài phải wrap, không đẩy trang tràn ngang.
 
 ## 4. Khung máy và điều hướng
@@ -60,12 +60,12 @@ Giao diện hiện tại dark-only (`color-scheme: dark`). Màu board/tetromino/
 | Header | `.arcade-case-header` / `.cabinet-topline` | Logo trái, đèn trang trí phải; flex, không co mất tên |
 | Logo/đèn | `.arcade-case-brand`, `.arcade-brand-mark`, `.arcade-case-lights` | Dấu pixel 2×2, ba đèn; phần trang trí `aria-hidden="true"` |
 | Bezel | `.arcade-screen` / `.screen-bezel` | Viền tối 5px, inset highlight; `min-height: 0` cho vùng co giãn |
-| Meta | `.arcade-screen-meta` / `.screen-meta` | Điều hướng/tên game; game hiện tại đặt back trái, title phải |
-| Về thư viện | `.back-link` / `.screen-home-link` | Nhãn “← Màn hình chính”, link HTML thật; vùng chạm ≥44px |
+| Meta | `.arcade-screen-meta` / `.screen-meta` | Back trái, tên game và ☰ phải (cả template). Tên dài cắt bằng dấu …; ≤420px chỉ hiện back và ☰, tên game ẩn trực quan nhưng vẫn cho trình đọc màn hình |
+| Về thư viện | `.back-link` / `.screen-home-link` | Nhãn “← Màn hình chính” 14px, một dòng; link HTML thật; vùng chạm ≥44px |
 | Nội dung | `.arcade-game-content` / `.page-content` | Nền màn hình; không thêm một cabinet lồng bên trong |
 | Deck/loa | `.arcade-deck`, `.arcade-speaker` / `.cabinet-deck`, `.deck-speaker` | Trang trí đáy khung; không được chiếm chỗ khiến điều khiển mất khỏi viewport |
 
-Khung game mặc định rộng tối đa 760px; các game override theo nội dung: Tetris 540px, Flappy 520px, Pikachu 1120px; Tetris/Flappy có override desktop 1100px. Trang chủ tối đa 1200px. Đây là giới hạn theo game, không yêu cầu game mới dùng chung một độ rộng.
+Khung game mặc định rộng tối đa 760px; mobile override theo nội dung: Tetris 540px, Flappy 520px. Desktop (≥900×600) Tetris/Flappy/Pikachu và trang chủ/tài liệu rộng theo chiều cao màn hình: `min(1760px, max(1100–1200px, chiều cao khả dụng × 1.6))`, để khung luôn nằm ngang và không để trống hai bên ở 1920/2560px. Trang chủ ≥1600×800 tăng cỡ chữ card (tiêu đề 48–64px, mô tả 18px, controls 16px, CTA 52px).
 
 Ưu tiên bàn chơi và điều khiển trước header/deck khi màn hình thấp. Không coi các lỗi responsive đã biết là bố cục cần sao chép. Trang tài liệu có nội dung dài nên cuộn đọc được đầy đủ, không ép hành vi một màn hình của game.
 
@@ -83,18 +83,18 @@ Khung game mặc định rộng tối đa 760px; các game override theo nội d
 | Hướng dẫn/phím | `.game-help`, `kbd`: đúng phím/gesture của game. Mobile phải có chỉ dẫn chạm, không chỉ có P/C/M. |
 | Thông báo | `.game-message`: lime, ẩn khi rỗng; `.is-error`: coral. Thông báo lỗi nói cách phục hồi, không chỉ “thất bại”. |
 | Dialog/overlay | Pikachu có native `<dialog>` với title/message/actions, backdrop và góc vuông. Tetris có overlay trong board. Dialog cần focus/đóng/phục hồi focus; kết quả có CTA chơi lại gần nội dung. |
-| Icon/menu | `.game-icon-button`: 44×44px, symbol có `aria-label`/`title`; SVG trang trí `aria-hidden`. Chỉ giữ pause/hold/hint/shuffle thiết yếu ngoài board. Nút ☰ mở native `#game-menu` qua `assets/js/game-menu.js`; hướng dẫn và cài đặt sound/restart/mode/size nằm trong menu, có chữ rõ. CTA kết quả/chọn chế độ giữ chữ. |
-| Pause/mute/restart | Symbol phản ánh trạng thái thật; toggle dùng `aria-pressed`. Mở menu pause và chặn input game; Escape đóng/trả focus, không tự tiếp tục Tetris/Flappy. Pikachu dừng timer trong menu. Không mở chồng dialog; pause/resume không làm mất tiến trình. PvZ menu ngoài không đảm bảo pause engine: dùng Esc của engine trước. |
+| Icon/menu | `.game-icon-button`: 44×44px, symbol có `aria-label`/`title`; SVG trang trí `aria-hidden`. Nút ☰ (`aria-label` “Tạm dừng và mở menu”) là nút tạm dừng duy nhất: không thêm nút pause riêng. Ngoài board chỉ giữ thao tác gameplay không có gesture thay thế (Pikachu xáo/gợi ý); Tetris giữ khối bằng vuốt lên/C, không có nút ⇄. Hướng dẫn và cài đặt sound/restart/mode/size nằm trong menu, có chữ rõ. CTA kết quả/chọn chế độ giữ chữ. |
+| Pause/mute/restart | Mở menu = tạm dừng và chặn input game (sự kiện `game-menu-open`). Đóng menu không tự chơi tiếp: Tetris/Flappy hiện “Tạm dừng · chạm để tiếp tục”, chạm bàn chơi hoặc P để tiếp tục (kể cả khi Flappy đang rơi sau va chạm). Pikachu dừng timer trong menu. Toggle dùng `aria-pressed`. Không mở chồng dialog; pause/resume không làm mất tiến trình. PvZ menu ngoài không đảm bảo pause engine: dùng Esc của engine trước. |
 
 Các biến thể `.pika-control`, `.tetris-*`, `.flappy-*` có thể giữ hình dáng riêng, nhưng phải thống nhất focus, vùng chạm, màu semantic và ngôn ngữ action với khung chung.
 
 ### Ngoại lệ PvZ
 
-Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated lên art HD. `.pvz-display` có nền đen; toolbar trong menu gồm chất lượng, “Tải bản lưu”, “Nạp save” cạnh nhau và fullscreen, control cao ≥44px, wrap khi thiếu chỗ. Không có khu quản lý/xóa save riêng. Nạp ZIP kiểm tra đường dẫn/dung lượng, xác nhận ghi đè và tải lại để áp dụng trước khi engine chạy; giữ tự lưu và xuất dự phòng khi tự lưu lỗi. UI nằm bên trong canvas không tự hưởng CSS ngoài game: phải kiểm tra riêng độ dễ đọc/chạm. Fullscreen là tùy chọn, không thay thế bố cục mặc định. Không chỉnh art/âm thanh engine chỉ để giống palette cabinet.
+Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated lên art HD. Khung PvZ rộng theo chiều cao: `min(1760px, (90svh − 150px) × 16/9 + 50px)` để canvas lớn nhất mà không cuộn trang. `.pvz-display` có nền đen; toolbar trong menu gồm chất lượng, “Tải bản lưu”, “Nạp save” cạnh nhau và fullscreen, control cao ≥44px, wrap khi thiếu chỗ. Không có khu quản lý/xóa save riêng. Nạp ZIP kiểm tra đường dẫn/dung lượng, xác nhận ghi đè và tải lại để áp dụng trước khi engine chạy; giữ tự lưu và xuất dự phòng khi tự lưu lỗi. UI nằm bên trong canvas không tự hưởng CSS ngoài game: phải kiểm tra riêng độ dễ đọc/chạm. Fullscreen là tùy chọn, không thay thế bố cục mặc định. Không chỉnh art/âm thanh engine chỉ để giống palette cabinet.
 
 ## 6. Trang thư viện và tài liệu
 
-- **Catalog:** `.selection-row` và `.game-feature` chia artwork/copy; mô tả/controls 14px, overline/nhãn kỷ lục 12px, điểm 14px. Portrait ≤760px và cao >500px đặt previous/next trong hàng 44px dưới card, không dùng hai rail lấy chiều ngang; desktop/landscape thấp giữ rail. Phone cao ≤700px ẩn stats phụ, artwork co trong khoảng 50–76px theo font/nội dung để CTA vẫn hiện. Card giữ artwork riêng, previous/next có tên truy cập và disabled thật. Nội dung dài/zoom vẫn được cuộn; card thông thường không tràn khi đổi game.
+- **Catalog:** `.selection-row` và `.game-feature` chia artwork/copy; mô tả/controls 14px, overline/nhãn kỷ lục 12px, điểm 14px. Portrait ≤760px và cao >500px đặt previous/next trong hàng 44px dưới card, không dùng hai rail lấy chiều ngang; desktop/landscape thấp giữ rail. Phone cao ≤700px ẩn stats phụ, artwork co trong khoảng 50–76px theo font/nội dung để CTA vẫn hiện. Màn thấp ≤500px (phone ngang): trang tài liệu cuộn cả trang thay vì khung trong nhỏ. Card giữ artwork riêng, previous/next có tên truy cập và disabled thật. Nội dung dài/zoom vẫn được cuộn; card thông thường không tràn khi đổi game.
 - **Search:** `.screen-search`/`.screen-search-toggle`, input và nút cao 44px; trạng thái mở dùng `aria-expanded`. Giữ focus hiển thị, có empty state khi không tìm thấy.
 - **Loading/empty/error:** `.selection-loading`, `.loader-pixel`, `.empty-selection`. Luôn có chữ giải thích; loading kéo dài có tiến độ/ngữ cảnh, lỗi có retry phù hợp. Tránh thông báo chạy local trên site live.
 - **Contributors:** `.contributor-grid` tự fit cột tối thiểu 280px hoặc toàn chiều rộng; `.contributor-card` có avatar, tên, profile và danh sách game. Link profile/game/chưa ghi nhận có vùng chạm ≥44×44px, nhãn chính 14px; tên/handle dài wrap, không tràn ngang. Giữ link semantic và focus outline chung.
@@ -125,8 +125,9 @@ Trang chủ có âm boot tổng hợp bằng Web Audio, không cần file âm th
 
 ## 9. Component UX đã cập nhật
 
-- Tetris: “Cách chơi” trong menu giải thích gesture/phím; kết quả có CTA chơi lại/đổi chế độ ngay trên board. Pause overlay vẫn cho phép chạm canvas để tiếp tục. Layout ngang thấp đặt board giữa, HUD/hold trái và next/actions phải.
-- Flappy: pause/resume bằng symbol ngoài canvas; mute và hướng dẫn đầy đủ trong menu chung. Hồi sinh ghi rõ một lần/ván; CTA kết quả giữ chữ. Layout ngang thấp đặt hướng dẫn ngắn/actions cạnh board.
+- Tetris: “Cách chơi” trong menu giải thích gesture/phím; kết quả có CTA chơi lại/đổi chế độ ngay trên board. Pause overlay cho phép chạm canvas để tiếp tục. Desktop: cột trái Giữ rồi Thông số (bảng nhãn–giá trị), cột phải Tiếp theo; phone ngang: ba chế độ xếp 3 cột. Không có nút pause/giữ ngoài board.
+- Flappy: tạm dừng bằng ☰ hoặc P, chạm board để tiếp tục; mute và hướng dẫn đầy đủ trong menu chung. Hồi sinh ghi rõ một lần/ván; CTA kết quả giữ chữ. Desktop/ngang thấp đặt dòng hướng dẫn ngắn giữa cạnh board.
+- Pikachu: kích thước ô tính theo cả chiều rộng và chiều cao khả dụng (tối đa 60px/ô); HUD, thanh thời gian và nút rộng bằng bàn. Không để trang cuộn ở 1366×768 hay phone ngang.
 - PvZ: gợi ý xoay ngang ở portrait; toolbar ngoài nằm trong menu chung. Loading phân biệt kiểm tra dữ liệu, tải tệp và khởi động engine; native progress chỉ đo số tệp hoàn tất, không phải phần trăm dung lượng/ETA. Lỗi có “Thử lại”, cập nhật lỗi giữ bộ dữ liệu cache đầy đủ. Menu touch bên trong engine và gameplay cần kiểm tra với build WASM.
 
 ## 10. Checklist game mới

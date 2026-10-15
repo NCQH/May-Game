@@ -226,11 +226,6 @@ function syncControls() {
   document.querySelector("#score").textContent = String(state.score);
   document.querySelector("#record").textContent = String(record.bestScore);
   reviveButton.hidden = state.revived;
-  const pauseButton = document.querySelector("#pause");
-  pauseButton.disabled = !["playing", "dying"].includes(state.phase);
-  pauseButton.textContent = state.paused ? "▶" : "Ⅱ";
-  pauseButton.setAttribute("aria-label", state.paused ? "Tiếp tục" : "Tạm dừng");
-  pauseButton.title = state.paused ? "Tiếp tục" : "Tạm dừng";
   const muteButton = document.querySelector("#mute");
   muteButton.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
   muteButton.setAttribute("aria-pressed", String(record.muted));
@@ -242,7 +237,7 @@ function syncControls() {
 }
 function flap() {
   unlockAudio();
-  if (document.hidden || document.querySelector("#game-menu").open || ["dying", "results"].includes(state.phase)) return;
+  if (document.hidden || document.querySelector("#game-menu").open || state.phase === "results" || (state.phase === "dying" && !state.paused)) return;
   if (state.paused || state.phase === "ready") resetClock();
   if (state.paused) state.paused = false;
   else { state.phase = "playing"; state.birdV = FLAP_SPEED; sound("wing"); }
@@ -289,7 +284,6 @@ reviveButton.addEventListener("click", () => {
   if (!revive(state)) return;
   unlockAudio(); resetClock(); persist(); syncControls(); draw(); canvas.focus();
 });
-document.querySelector("#pause").addEventListener("click", togglePause);
 document.querySelector("#mute").addEventListener("click", toggleMute);
 document.addEventListener("keydown", (event) => {
   if (document.querySelector("#game-menu").open || event.repeat || event.ctrlKey || event.altKey || event.metaKey) return;

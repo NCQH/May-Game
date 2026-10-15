@@ -228,16 +228,18 @@ function updateClock() {
 }
 
 function resizeBoard() {
-  const maxWidth = state.cols * 44 + (state.cols - 1) * 2 + 18;
+  const maxWidth = state.cols * 60 + (state.cols - 1) * 2 + 18;
   const compactLandscape = matchMedia('(max-height: 500px) and (min-width: 620px)').matches;
   const compactPhone = matchMedia('(max-width: 580px) and (max-height: 700px)').matches;
-  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 170 : compactPhone ? 360 : 320));
+  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 225 : compactPhone ? 360 : 330 + document.documentElement.clientHeight * .09));
   const heightLimitedWidth = availableHeight * state.cols / state.rows * 42 / 52 + 18;
-  boardWrap.style.width = `min(100%, ${Math.min(maxWidth, heightLimitedWidth)}px)`;
+  const boardWidth = Math.min(maxWidth, heightLimitedWidth);
+  boardWrap.style.width = `min(100%, ${boardWidth}px)`;
+  boardWrap.parentElement.style.setProperty("--pika-width", `${boardWidth}px`);
   boardNode.style.setProperty("--cols", String(state.cols));
   const firstTile = boardNode.querySelector(".pika-tile");
   if (!firstTile) return;
-  const scale = Math.max(0.1, Math.min(1.2, firstTile.clientWidth / SPRITE_WIDTH, firstTile.clientHeight / SPRITE_HEIGHT));
+  const scale = Math.max(0.1, Math.min(1.5, firstTile.clientWidth / SPRITE_WIDTH, firstTile.clientHeight / SPRITE_HEIGHT));
   boardNode.querySelectorAll(".pika-piece").forEach((piece) => {
     const sprite = Number(piece.dataset.sprite);
     piece.style.width = `${SPRITE_WIDTH * scale}px`;

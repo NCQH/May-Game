@@ -297,10 +297,6 @@ if (typeof document !== "undefined") {
     $("#timer").textContent = time(state.mode === "blitz" ? Math.max(0,120000-state.elapsed) : state.elapsed);
     const best = record.records[state.mode];
     $("#record").textContent = state.mode === "sprint" ? best === null ? "—" : time(best) : String(best);
-    $("#pause").textContent = state.paused ? "▶" : "Ⅱ";
-    $("#pause").setAttribute("aria-label", state.paused ? "Tiếp tục" : "Tạm dừng");
-    $("#pause").title = state.paused ? "Tiếp tục" : "Tạm dừng"; $("#pause").disabled = state.over;
-    $("#hold").disabled = state.over || state.paused || state.holdUsed;
     $("#mute").textContent = record.muted ? "🔇 Âm thanh: Tắt" : "🔊 Âm thanh: Bật";
     $("#mute").setAttribute("aria-pressed", String(record.muted));
     const message = state.over ? `${state.won ? "Hoàn thành" : "Ván kết thúc"}. ${state.mode === "sprint" ? `${state.lines} / 40 hàng · ${time(state.elapsed)}` : `${state.score} điểm`}. Nhấn Chơi lại để bắt đầu ván mới.` : state.paused ? "Tạm dừng." : state.message;
@@ -341,7 +337,6 @@ if (typeof document !== "undefined") {
     button.addEventListener("click", event => { if (event.detail === 0) { unlockAudio(); act(button.dataset.action); } });
   });
   document.addEventListener("game-menu-open", () => pause(true));
-  $("#pause").addEventListener("click", () => { unlockAudio(); pause(); });
   function restart(mode = state.mode) { clearInputs(); state = freshState(mode); previous = null; feedbackUntil = 0; persist(); draw(); }
   function requestRestart() {
     if (state.over || !(state.score || state.board.some(row => row.some(Boolean))) || confirm("Bắt đầu ván mới và bỏ tiến trình hiện tại?")) restart();

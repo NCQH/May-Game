@@ -97,7 +97,7 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
 }
 @media (max-height: 500px) and (min-width: 540px) {
   .tetris-page .arcade-game-content { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(0, 1.2fr); align-content: center; gap: 6px 12px; }
-  .tetris-page .arcade-game-content > :is(.game-title, .tetris-settings, .tetris-metrics, .side-actions, .tetris-touch, .tetris-help, .game-message) { grid-column: 1; }
+  .tetris-page .arcade-game-content > :is(.game-title, .tetris-settings, .tetris-metrics, .tetris-touch, .tetris-help, .game-message) { grid-column: 1; }
   .tetris-page .tetris-layout { grid-column: 2; grid-row: 1 / span 6; grid-template-columns: 52px minmax(90px, 120px) 58px; grid-template-rows: auto; gap: 6px; }
   .tetris-page .tetris-board-wrap { grid-column: 2; grid-row: 1; }
   .tetris-page .tetris-hold { grid-column: 1; grid-row: 1; }
@@ -126,7 +126,6 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .tetris-page .tetris-metric + .tetris-metric { border: 0; }
   .tetris-page .tetris-hold { grid-column: 1; grid-row: 2; width: 100px; justify-self: start; }
   .tetris-page .tetris-tools { grid-column: 3; grid-row: 1; width: 80px; }
-  .tetris-page .side-actions { grid-column: 3; grid-row: 2; grid-template-columns: 1fr; }
   .tetris-page .tetris-help { grid-column: 3; grid-row: 3; text-align: left; }
   .tetris-page .game-message { grid-column: 1; grid-row: 3; text-align: left; }
   .tetris-page .tetris-touch { grid-column: 3; grid-row: 3; }
@@ -137,4 +136,35 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
   .pikachu-page :is(.pika-heading, .pika-hud, .pika-time-row, .pika-controls) { grid-column: 1; }
   .pikachu-page .pika-board-wrap { grid-column: 2; grid-row: 1 / span 4; }
   .pikachu-page .pika-controls { grid-template-columns: repeat(2, 64px); }
+}
+/* Wide desktops: grow the cabinet with the viewport height so it stays landscape instead of a fixed narrow column. */
+.arcade-home .arcade-cabinet { max-width: min(1760px, max(1200px, (100dvh - var(--page-inset) * 2 - 8px) * 1.6)); }
+@media (min-width: 900px) and (min-height: 600px) {
+  .arcade-game:is(.tetris-page, .flappy-page, .pikachu-page) { --cabinet-width: min(1760px, max(1100px, (100dvh - var(--page-inset) * 2 - 8px) * 1.6)); }
+}
+@media (min-width: 1600px) and (min-height: 800px) {
+  .arcade-home .game-feature { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .arcade-home .feature-copy { padding-inline: clamp(34px, 4vw, 72px); }
+  .arcade-home .feature-overline { font-size: 14px; }
+  .arcade-home .feature-copy h1 { font-size: clamp(48px, 3.4vw, 64px); }
+  .arcade-home .feature-description { max-width: 620px; font-size: 18px; }
+  .arcade-home .feature-controls { font-size: 16px; }
+  .arcade-home .feature-stats { max-width: 620px; }
+  .arcade-home .feature-stats small { font-size: 14px; }
+  .arcade-home .feature-stats b { font-size: 18px; }
+  .arcade-home .start-game { min-height: 52px; padding-inline: 18px; font-size: 16px; }
+  .arcade-home .screen-meta { font-size: 13px; }
+}
+/* Game headers: keep the back link on one line and let long titles truncate instead of wrapping. */
+.arcade-screen-meta .back-link { flex: none; white-space: nowrap; }
+.arcade-screen-meta .game-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 420px) {
+  /* Narrow phones: keep only back link and menu visible; the title stays available to screen readers. */
+  .arcade-game .arcade-screen-meta .game-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .arcade-game .arcade-screen-meta { justify-content: space-between; }
+}
+@media (max-height: 500px) {
+  /* Landscape phones: document pages scroll as a whole page instead of a short inner box. */
+  .arcade-home .arcade-cabinet:has(.page-content) { height: auto; }
+  .arcade-home .arcade-cabinet:has(.page-content) .page-content { overflow: visible; }
 }
