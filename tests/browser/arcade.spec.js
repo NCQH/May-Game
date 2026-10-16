@@ -131,6 +131,67 @@ test("reduced motion keeps slow catalog loading static and respects preference c
   await expect(page.locator('#start-game')).toBeVisible();
 });
 
+test("home and games share the green frame, machine surface and content styling", async ({ page }) => {
+  const screens = ["/", "/contributors.html", "/contribute.html", "/games/tetris/", "/games/flappy-bird/", "/games/pikachu/", "/games/pvz-goty/", "/games/_template/"];
+  for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
+    await page.setViewportSize(viewport);
+    let reference;
+    for (const path of screens) {
+      await page.goto(path);
+      const style = await page.evaluate(() => {
+        const read = (selector, properties) => {
+          const node = document.querySelector(selector);
+          const css = getComputedStyle(node);
+          return Object.fromEntries(properties.map(property => [property, css[property]]));
+        };
+        return {
+          wall: read('body', ['backgroundColor', 'backgroundImage', 'backgroundSize']),
+          frame: read('.arcade-cabinet, .arcade-game', ['backgroundColor', 'backgroundImage', 'border', 'boxShadow', 'paddingLeft', 'paddingRight']),
+          machine: read('.screen-bezel, .arcade-screen', ['backgroundColor', 'backgroundImage', 'border', 'boxShadow', 'padding']),
+          brand: read('.cabinet-title, .arcade-case-brand', ['font', 'color', 'gap']),
+          mark: read('.brand-pixels, .arcade-brand-mark', ['gridTemplateColumns', 'gridTemplateRows', 'gap', 'transform']),
+          meta: read('.screen-meta, .arcade-screen-meta', ['minHeight', 'padding']),
+        };
+      });
+      reference ??= style;
+      expect(style, `${path} at ${viewport.width}`).toEqual(reference);
+      expect(style.frame.backgroundColor).toBe('rgb(148, 169, 81)');
+      expect(style.machine.backgroundColor).toBe('rgb(25, 37, 28)');
+      const content = page.locator('.selected-game, .page-content, .arcade-game-content');
+      expect(await content.evaluate(node => getComputedStyle(node).backgroundColor)).toBe('rgb(16, 27, 21)');
+      expect(await content.evaluate(node => getComputedStyle(node).borderTopColor)).toBe('rgb(57, 74, 55)');
+      if (path.includes('pvz-goty')) {
+        await expect(page.locator('.arcade-screen > .arcade-game-content > .pvz-display')).toBeVisible();
+        await expect(page.locator('.arcade-screen-meta > .game-title')).toHaveText('Plants vs. Zombies GOTY');
+        const display = await page.locator('.pvz-display').boundingBox();
+        const panel = await content.boundingBox();
+        expect(Math.abs(display.width / display.height - 16 / 9)).toBeLessThan(.02);
+        expect(display.y).toBeGreaterThanOrEqual(panel.y);
+        expect(display.y + display.height).toBeLessThanOrEqual(panel.y + panel.height);
+        expect(display.x).toBeGreaterThanOrEqual(panel.x);
+        expect(display.x + display.width).toBeLessThanOrEqual(panel.x + panel.width);
+        // The engine's black canvas surface is game artwork, not machine chrome.
+        expect(await page.locator('.pvz-display').evaluate(node => getComputedStyle(node).backgroundColor)).toBe('rgb(0, 0, 0)');
+        if (viewport.height > 500) await expect(page.locator('.arcade-deck .arcade-speaker')).toBeVisible();
+        if (viewport.width >= 900) expect((await page.locator('.pvz-page').boundingBox()).width).toBeGreaterThanOrEqual(1100);
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+      if (path.startsWith('/games/')) expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight), `${path} at ${viewport.width}×${viewport.height}`).toBe(false);
+    }
+  }
+});
+
+test("Tetris mode menu scrolls inside the cabinet with wider fallback fonts", async ({ page }) => {
+  await page.setViewportSize({width:320,height:568});
+  await page.goto('/games/tetris/');
+  await page.addStyleTag({content: ':root { --font-body: "DejaVu Sans", sans-serif; --font-display: "DejaVu Sans", sans-serif; }'});
+  await page.locator('.tetris-howto').evaluate(node => { node.open = true; });
+  expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight)).toBe(false);
+  await page.locator('button[data-mode=blitz]').click();
+  await expect(page.locator('#tetris-board')).toBeInViewport();
+  expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight)).toBe(false);
+});
+
 test("arcade actions retain shared readable fonts, touch targets and keyboard focus", async ({ page }) => {
   const screens = [
     ["/", "#start-game"],
@@ -604,6 +665,12 @@ test("PvZ ZIP import confirms, stages across reload and applies before engine st
   expect(await getPending()).toBeNull();
   for (const viewport of [{width:320,height:568},{width:390,height:844},{width:844,height:390},{width:1366,height:768},{width:1440,height:900},{width:1920,height:1080}]) {
     await page.setViewportSize(viewport);
+    const display = await page.locator('.pvz-display').boundingBox();
+    await expect.poll(async () => {
+      const canvas = await page.locator('#canvas').boundingBox();
+      return Math.abs(canvas.width / canvas.height - 16 / 9) < .02
+        && canvas.width <= display.width && canvas.height <= display.height;
+    }).toBe(true);
     if (!await page.locator('#game-menu').evaluate(node => node.open)) await page.locator('#game-menu-toggle').click();
     for (const id of ['#save-export-btn','#save-import-btn']) {
       const box = await page.locator(id).boundingBox();
@@ -614,8 +681,16 @@ test("PvZ ZIP import confirms, stages across reload and applies before engine st
     }
     await page.screenshot({path:`/tmp/pvz-save-menu-${viewport.width}.png`});
   }
+  await page.locator('#pvz-fullscreen').click();
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id)).toBe('pvz-cabinet');
+  await page.locator('#pvz-fullscreen').click();
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement)).toBeNull();
   await page.keyboard.press('Escape');
   expect(await page.evaluate(() => ['canvas', 'game-menu-toggle'].includes(document.activeElement.id))).toBe(true);
+  await page.setViewportSize({width:844,height:390});
+  await page.evaluate(async () => { window.failSaveSync = true; await window.syncSaves().catch(() => {}); });
+  await expect(page.locator('#save-warning')).toBeInViewport();
+  expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight)).toBe(false);
 });
 
 test("every catalog start link remains visible and tappable on small screens", async ({ page }) => {

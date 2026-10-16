@@ -1,0 +1,107 @@
+/* Three layers shared by home and games: green frame, machine surface, content. */
+:root {
+  --arcade-wall: #101814;
+  --arcade-case: #94a951;
+  --arcade-case-light: #d6e99a;
+  --arcade-case-dark: #596a38;
+  --arcade-bezel: #19251c;
+  --arcade-bezel-line: #364334;
+  --arcade-screen: #101b15;
+  --arcade-screen-line: #394a37;
+}
+body {
+  background-color: var(--arcade-wall);
+  background-image: linear-gradient(rgba(185, 219, 128, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(185, 219, 128, .035) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+:is(.arcade-cabinet, .arcade-game) {
+  padding: 0 clamp(7px, 1.3vw, 14px) 9px;
+  border: 3px solid var(--arcade-case-light);
+  background: var(--arcade-case);
+  box-shadow: 0 4px 0 var(--arcade-case-dark), 0 8px 0 rgba(0, 0, 0, .24);
+}
+:is(.cabinet-topline, .arcade-case-header) {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  min-height: clamp(42px, 6.5vh, 60px);
+  padding: 0 clamp(4px, 1vw, 12px);
+  color: #344128;
+}
+:is(.cabinet-title, .arcade-case-brand) {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: .12em;
+}
+:is(.brand-pixels, .arcade-brand-mark) {
+  display: grid;
+  grid-template-columns: 7px 7px;
+  grid-template-rows: 7px 7px;
+  gap: 2px;
+}
+:is(.brand-pixels, .arcade-brand-mark) i { background: #c7e875; }
+:is(.brand-pixels, .arcade-brand-mark) i:nth-child(2) { opacity: .75; }
+:is(.brand-pixels, .arcade-brand-mark) i:nth-child(3) { opacity: .65; }
+:is(.cabinet-lights, .arcade-case-lights) { display: flex; gap: 5px; }
+:is(.cabinet-lights, .arcade-case-lights) i { width: 6px; height: 6px; background: #ed8a67; }
+:is(.cabinet-lights, .arcade-case-lights) i:nth-child(2) { background: #e7c655; }
+:is(.cabinet-lights, .arcade-case-lights) i:nth-child(3) { background: #526839; }
+:is(.screen-bezel, .arcade-screen) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: clamp(5px, 1vw, 10px);
+  border: 5px solid var(--arcade-bezel-line);
+  background: var(--arcade-bezel);
+  box-shadow: inset 0 0 0 2px rgba(207, 228, 151, .12);
+}
+:is(.screen-meta, .arcade-screen-meta) {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 4px 8px;
+  color: #a7bd7a;
+  font: 700 12px/1 var(--font-display);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+:is(.selected-game, .page-content, .arcade-game-content, .tetris-menu) {
+  border: 1px solid var(--arcade-screen-line);
+  background: var(--arcade-screen);
+}
+:is(.cabinet-deck, .arcade-deck) {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 8px clamp(4px, 1vw, 12px) 0;
+}
+.arcade-deck { justify-content: center; }
+.arcade-speaker {
+  display: block;
+  width: 105px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #6c7d43 0 22px, transparent 22px 26px);
+}
+.deck-speaker { display: flex; gap: 4px; }
+.deck-speaker i { width: 22px; height: 3px; background: #6c7d43; }
+@media (max-width: 580px) {
+  :is(.arcade-cabinet, .arcade-game) { padding-inline: 5px; border-width: 2px; }
+  :is(.cabinet-topline, .arcade-case-header) { min-height: 39px; }
+  :is(.cabinet-title, .arcade-case-brand) { gap: 7px; font-size: 12px; }
+  :is(.brand-pixels, .arcade-brand-mark) { grid-template-columns: 6px 6px; grid-template-rows: 6px 6px; }
+  :is(.screen-bezel, .arcade-screen) { padding: 5px; border-width: 3px; }
+}
+@media (max-height: 500px) {
+  :is(.cabinet-topline, .arcade-case-header) { min-height: 32px; }
+  :is(.cabinet-deck, .arcade-deck) { min-height: 24px; padding-top: 4px; }
+}

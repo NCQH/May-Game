@@ -153,9 +153,9 @@ canvas#canvas {
     #resource-split-actions { grid-template-columns: 1fr; }
 }
 </style>
-<link rel="stylesheet" href="../../assets/css/shared.css?v=4">
-<link rel="stylesheet" href="./cabinet.css?v=3">
-<link rel="stylesheet" href="../../assets/css/viewport.css?v=4">
+<link rel="stylesheet" href="../../assets/css/shared.css?v=5">
+<link rel="stylesheet" href="./cabinet.css?v=5">
+<link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
 </head>
 <body class="upload-mode">
 <main id="pvz-cabinet" class="game-page arcade-game pvz-page">
@@ -166,10 +166,11 @@ canvas#canvas {
   <section class="arcade-screen" aria-label="Màn hình Plants vs. Zombies GOTY">
     <div class="arcade-screen-meta">
       <a class="back-link" href="../../index.html">← Màn hình chính</a>
-      <h1 class="pvz-title">Plants vs. Zombies <span>GOTY</span></h1>
+      <h1 class="game-title">Plants vs. Zombies GOTY</h1>
       <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Menu trò chơi" title="Menu trò chơi" aria-controls="game-menu" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg></button>
     </div>
-    <div class="pvz-display">
+    <div class="arcade-game-content">
+      <div class="pvz-display">
 <div id="upload-screen" hidden style="display:none">
     <h1><a href="https://github.com/wszqkzqk/PvZ-Portable" target="_blank" rel="noopener noreferrer">PvZ Portable | Chơi mọi nơi</a></h1>
     <p id="project-links">
@@ -213,12 +214,11 @@ canvas#canvas {
 <div id="canvas-container">
     <canvas id="canvas" width="800" height="600" tabindex="0" aria-label="Màn chơi Plants vs. Zombies GOTY"></canvas>
 </div>
+      </div>
+      <p class="game-help pvz-hint">Chuột hoặc chạm để chơi · Esc mở menu trong game<span class="pvz-rotate-hint"> · Xoay ngang để đọc và chạm dễ hơn</span></p>
     </div>
   </section>
-  <footer class="pvz-deck">
-    <p class="pvz-hint">Chuột hoặc chạm để chơi <span>· Esc mở menu</span><span class="pvz-rotate-hint"> · Xoay ngang để đọc và chạm dễ hơn</span></p>
-
-  </footer>
+  <footer class="arcade-deck pvz-deck"><span class="arcade-speaker" aria-hidden="true"></span></footer>
 <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#canvas" data-escape="off"><div class="game-menu-card">
 <h2 id="game-menu-title">Menu Plants vs. Zombies</h2>
 <p>Chuột hoặc chạm để chơi. Esc mở menu trong game. Menu này chỉ quản lý giao diện ngoài game, không tạm dừng engine; hãy dùng Esc trước khi đổi cài đặt.</p>
