@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/shared.css?v=5" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=6" />
     <script type="module" src="./game.js?v=13"></script>
     <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
   <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
@@ -70,14 +70,34 @@
         </div>
         <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#tetris-board">
           <div class="game-menu-card">
-            <h2 id="game-menu-title">Menu Tetris</h2>
-            <p>Kéo ngang để di chuyển; chạm trái/phải để xoay; vuốt lên để giữ; vuốt nhanh xuống để thả. Bàn phím: ← ↓ → di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng. Nhấn ☰ hoặc Esc để tạm dừng và mở menu; đóng menu (Esc) rồi chạm bàn chơi hoặc nhấn P để chơi tiếp.</p>
-            <p>Chế độ: <span id="mode-name">Marathon</span></p>
-            <div class="game-menu-actions">
-              <button class="game-button" id="choose-mode" type="button">▦ Chọn chế độ</button>
-              <button class="game-button" id="mute" type="button" aria-pressed="false">Âm thanh</button>
-              <button class="game-button" id="restart" type="button">↻ Chơi lại</button>
-              <button class="game-button game-button-primary" type="button" data-menu-close>Đóng menu</button>
+            <header class="game-menu-header">
+              <h2 id="game-menu-title">Menu Tetris</h2>
+              <button class="game-button game-button-primary" type="button" data-menu-close autofocus>Đóng menu</button>
+            </header>
+            <div class="game-menu-body">
+              <p>Đóng menu rồi chạm bàn chơi hoặc nhấn <kbd>P</kbd> để chơi tiếp.</p>
+              <details>
+                <summary>Cách chơi</summary>
+                <ul>
+                  <li>Kéo ngang để di chuyển; chạm trái/phải để xoay; vuốt lên để giữ; vuốt nhanh xuống để thả.</li>
+                  <li><kbd>←</kbd> <kbd>↓</kbd> <kbd>→</kbd> di chuyển; <kbd>Z</kbd>/<kbd>X</kbd> hoặc <kbd>↑</kbd> xoay; <kbd>C</kbd> giữ; <kbd>Space</kbd> thả.</li>
+                  <li><kbd>P</kbd> tạm dừng. ☰ hoặc <kbd>Esc</kbd> mở menu; <kbd>Esc</kbd> lần nữa đóng menu.</li>
+                </ul>
+              </details>
+              <section class="game-menu-section" aria-labelledby="settings-heading">
+                <h3 id="settings-heading">Cài đặt</h3>
+                <div class="game-menu-actions">
+                  <button class="game-button" id="mute" type="button" aria-pressed="false">Âm thanh</button>
+                </div>
+              </section>
+              <section class="game-menu-section" aria-labelledby="round-heading">
+                <h3 id="round-heading">Ván chơi</h3>
+                <p>Chế độ: <span id="mode-name">Marathon</span></p>
+                <div class="game-menu-actions">
+                  <button class="game-button" id="choose-mode" type="button">▦ Chọn chế độ</button>
+                  <button class="game-button" id="restart" type="button">↻ Chơi lại</button>
+                </div>
+              </section>
             </div>
           </div>
         </dialog>

@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/shared.css?v=5" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=6" />
     <link rel="stylesheet" href="./game.css?v=6" />
     <script type="module" src="./game.js?v=8"></script>
   <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
@@ -68,22 +68,43 @@
 
           <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#pika-board">
             <div class="game-menu-card">
-              <h2 id="game-menu-title">Menu Pikachu · Tạm dừng</h2>
-              <p>Nối hai Pokémon giống nhau bằng đường không bị chặn, tối đa hai góc rẽ; có thể đi vòng ngoài bàn. Phím mũi tên chọn ô, Enter hoặc Space chọn cặp. Đổi vị trí tốn một lượt đổi; gợi ý có giới hạn. Nhấn ☰ hoặc Esc để mở menu; đồng hồ dừng khi menu mở.</p>
-              <div class="game-menu-actions">
-<button class="pika-control" id="sound-toggle" type="button" aria-pressed="true">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11"/></svg>
-              <span>Âm thanh</span>
-            </button>
-<button class="pika-control" id="size" type="button">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18M15 9v12M9 15h12"/></svg>
-              <span>Cỡ bàn</span>
-            </button>
-<button class="pika-control pika-control-restart" id="restart" type="button">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 9a7 7 0 0 1 12-2L20 12M4 12l2.5 5a7 7 0 0 0 12-2"/></svg>
-              <span>Chơi lại</span>
-            </button>
-                <button class="game-button game-button-primary" type="button" data-menu-close>Tiếp tục</button>
+              <header class="game-menu-header">
+                <h2 id="game-menu-title">Menu Pikachu</h2>
+                <button class="game-button game-button-primary" type="button" data-menu-close autofocus>Tiếp tục</button>
+              </header>
+              <div class="game-menu-body">
+                <p>Đồng hồ dừng khi menu mở.</p>
+                <details>
+                  <summary>Cách chơi</summary>
+                  <ul>
+                    <li>Nối hai Pokémon giống nhau bằng đường không bị chặn, tối đa hai góc rẽ; có thể đi vòng ngoài bàn.</li>
+                    <li>Chạm hai ô để chọn cặp. Phím mũi tên chọn ô; <kbd>Enter</kbd> hoặc <kbd>Space</kbd> chọn cặp.</li>
+                    <li>Đổi vị trí tốn một lượt đổi; gợi ý có giới hạn.</li>
+                    <li>☰ hoặc <kbd>Esc</kbd> mở menu; <kbd>Esc</kbd> lần nữa đóng menu và tiếp tục.</li>
+                  </ul>
+                </details>
+                <section class="game-menu-section" aria-labelledby="settings-heading">
+                  <h3 id="settings-heading">Cài đặt</h3>
+                  <div class="game-menu-actions">
+                    <button class="pika-control" id="sound-toggle" type="button" aria-pressed="true">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11"/></svg>
+                      <span>Âm thanh</span>
+                    </button>
+                    <button class="pika-control" id="size" type="button">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18M15 9v12M9 15h12"/></svg>
+                      <span>Cỡ bàn</span>
+                    </button>
+                  </div>
+                </section>
+                <section class="game-menu-section" aria-labelledby="round-heading">
+                  <h3 id="round-heading">Ván chơi</h3>
+                  <div class="game-menu-actions">
+                    <button class="pika-control pika-control-restart" id="restart" type="button">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 9a7 7 0 0 1 12-2L20 12M4 12l2.5 5a7 7 0 0 0 12-2"/></svg>
+                      <span>Chơi lại</span>
+                    </button>
+                  </div>
+                </section>
               </div>
             </div>
           </dialog>

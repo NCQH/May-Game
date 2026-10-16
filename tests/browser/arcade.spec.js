@@ -1177,6 +1177,40 @@ test("common menus expose settings, lock gameplay and restore focus with Escape"
 });
 
 
+test("redesigned menus keep close visible while expanded instructions scroll on phone and desktop", async ({ page }) => {
+  for (const game of ["tetris", "flappy-bird", "pikachu", "pvz-goty", "_template"]) {
+    await page.goto(`/games/${game}/`);
+    if (game === "tetris") await page.locator('button[data-mode=marathon]').click();
+    for (const viewport of [{width:320,height:568}, {width:390,height:844}, {width:844,height:390}, {width:568,height:320}, {width:1366,height:768}, {width:1440,height:900}, {width:1920,height:1080}]) {
+      await page.setViewportSize(viewport);
+      await page.locator('#game-menu-toggle').click();
+      const menu = page.locator('#game-menu');
+      const close = menu.locator('[data-menu-close]');
+      await expect(close).toBeFocused();
+      const instructions = menu.locator('details');
+      if (await instructions.getAttribute('open') !== null) await menu.locator('summary').click();
+      await expect(instructions.locator('p, ul')).not.toBeVisible();
+      await menu.locator('summary').focus();
+      await page.keyboard.press('Enter');
+      await expect(instructions.locator('p, ul')).toBeVisible();
+      for (const action of await menu.locator('button, select, summary').all()) {
+        expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(44);
+      }
+      await menu.evaluate(node => { node.scrollTop = node.scrollHeight; });
+      const bounds = await menu.boundingBox(), button = await close.boundingBox();
+      expect(button.y).toBeGreaterThanOrEqual(bounds.y);
+      expect(button.y + button.height).toBeLessThanOrEqual(bounds.y + bounds.height);
+      expect(await close.evaluate(node => {
+        const box = node.getBoundingClientRect();
+        return node.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2));
+      })).toBe(true);
+      expect(await menu.evaluate(node => node.scrollWidth > node.clientWidth)).toBe(false);
+      await close.click();
+      await expect(menu).not.toBeVisible();
+    }
+  }
+});
+
 test("PvZ loading distinguishes first-file download from engine startup", async ({ page }) => {
   let releaseFile;
   const fileGate = new Promise(resolve => { releaseFile = resolve; });
