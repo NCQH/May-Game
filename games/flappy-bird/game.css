@@ -13,17 +13,12 @@
 .flappy-result-actions { display: grid; justify-items: center; gap: 12px; }
 .flappy-result-actions button { width: 70%; }
 @media (min-width: 900px) and (min-height: 501px) {
-  .flappy-page .arcade-game-content { display: grid; grid-template-columns: auto minmax(160px,220px); gap: 20px; }
-  .flappy-board-wrap { grid-row: 1 / span 2; width: calc((100dvh - 280px) * .5625); margin: 0; }
-  .arcade-game.flappy-page .game-help { grid-row: 1 / span 2; align-self: center; font-size: 14px; }
+  .flappy-board-wrap { width: calc((100dvh - 280px) * .5625); }
 }
-.flappy-page .game-help { font-size: 12px; }
 @media (max-width: 899px) and (min-height: 501px) { .flappy-board-wrap { width: min(100%,calc((100dvh - 280px) * .5625)); } }
 @media (max-height: 500px) {
   .flappy-page.arcade-game { min-height: calc(100dvh - var(--page-inset) * 2 - 8px); }
-  .flappy-page .arcade-game-content { display: grid; grid-template-columns: auto minmax(140px,220px); column-gap: 20px; }
-  .flappy-board-wrap { grid-row: 1 / span 2; width: calc((100dvh - 155px) * .5625); }
-  .arcade-game.flappy-page .game-help { grid-row: 1 / span 2; align-self: center; }
+  .flappy-board-wrap { width: calc((100dvh - 155px) * .5625); }
   .flappy-results { gap: 6px; padding: 6px; }
   .flappy-scorecard { gap: 4px; padding: 4px; }
   .flappy-scorecard > div { gap: 2px; padding: 0; }

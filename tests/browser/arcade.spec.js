@@ -158,6 +158,10 @@ test("home and games share the green frame, machine surface and content styling"
       expect(style.frame.backgroundColor).toBe('rgb(148, 169, 81)');
       expect(style.machine.backgroundColor).toBe('rgb(25, 37, 28)');
       const content = page.locator('.selected-game, .page-content, .arcade-game-content');
+      if (path.startsWith('/games/')) {
+        await expect(page.locator('.arcade-game-content .game-help, .tetris-howto, #flappy-hint, .pvz-hint')).toHaveCount(0);
+        await expect(page.locator('#game-menu p').first()).not.toBeEmpty();
+      }
       expect(await content.evaluate(node => getComputedStyle(node).backgroundColor)).toBe('rgb(16, 27, 21)');
       expect(await content.evaluate(node => getComputedStyle(node).borderTopColor)).toBe('rgb(57, 74, 55)');
       if (path.includes('pvz-goty')) {
@@ -166,6 +170,11 @@ test("home and games share the green frame, machine surface and content styling"
         const display = await page.locator('.pvz-display').boundingBox();
         const panel = await content.boundingBox();
         expect(Math.abs(display.width / display.height - 16 / 9)).toBeLessThan(.02);
+        const available = await content.evaluate(node => {
+          const css = getComputedStyle(node);
+          return {width: node.clientWidth - parseFloat(css.paddingLeft) - parseFloat(css.paddingRight), height: node.clientHeight - parseFloat(css.paddingTop) - parseFloat(css.paddingBottom)};
+        });
+        expect(Math.abs(display.height - Math.min(available.height, available.width * 9 / 16))).toBeLessThan(2);
         expect(display.y).toBeGreaterThanOrEqual(panel.y);
         expect(display.y + display.height).toBeLessThanOrEqual(panel.y + panel.height);
         expect(display.x).toBeGreaterThanOrEqual(panel.x);
@@ -185,7 +194,10 @@ test("Tetris mode menu scrolls inside the cabinet with wider fallback fonts", as
   await page.setViewportSize({width:320,height:568});
   await page.goto('/games/tetris/');
   await page.addStyleTag({content: ':root { --font-body: "DejaVu Sans", sans-serif; --font-display: "DejaVu Sans", sans-serif; }'});
-  await page.locator('.tetris-howto').evaluate(node => { node.open = true; });
+  await expect(page.locator('.tetris-howto')).toHaveCount(0);
+  await page.locator('#game-menu-toggle').click();
+  await expect(page.locator('#game-menu')).toContainText('Kéo ngang');
+  await page.locator('[data-menu-close]').click();
   expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight)).toBe(false);
   await page.locator('button[data-mode=blitz]').click();
   await expect(page.locator('#tetris-board')).toBeInViewport();
@@ -769,11 +781,21 @@ test("Flappy supports pause, muted reload, one revival and a fresh retry", async
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/games/flappy-bird/');
   const board = page.locator('#flappy-board');
+  const status = page.locator('#flappy-status');
+  await expect(status).toHaveAttribute('role', 'status');
+  await expect(status).toHaveText('Sẵn sàng');
+  expect((await status.boundingBox()).height).toBe(1);
   await expect(page.locator('.flappy-info, .flappy-controls, .flappy-help, #status')).toHaveCount(0);
   await page.keyboard.press('m');
   await board.click();
+  await expect(status).toHaveText('Đang chơi');
   await page.keyboard.press('p');
   await expect(board).toHaveAttribute('aria-label', /Tạm dừng/);
+  await expect(status).toHaveText('Tạm dừng');
+  await page.keyboard.press('p');
+  await expect(status).toHaveText('Đang chơi');
+  await page.keyboard.press('p');
+  await expect(status).toHaveText('Tạm dừng');
   await page.reload();
   await expect(board).toHaveAttribute('aria-label', /Tạm dừng.*Âm thanh tắt/);
   await board.click();
@@ -944,7 +966,7 @@ test("small-phone game boards and touch controls stay visible together", async (
   }
 });
 
-test("desktop Tetris and Flappy use side panels without page scrolling", async ({ page }) => {
+test("desktop Tetris keeps side panels and Flappy stays centered without page scrolling", async ({ page }) => {
   for (const viewport of [{ width: 900, height: 600 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);
     for (const game of ['tetris', 'flappy-bird']) {
@@ -976,12 +998,11 @@ test("desktop Tetris and Flappy use side panels without page scrolling", async (
         await expect(page.locator('#level')).not.toBeVisible();
         expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(viewport.height);
       } else {
-        const controls = await page.locator('#flappy-hint').boundingBox();
         const panel = await page.locator('.arcade-game-content').boundingBox();
-        expect(controls.x).toBeGreaterThan(board.x + board.width);
+        await expect(page.locator('#flappy-hint')).toHaveCount(0);
+        expect(Math.abs(board.x + board.width / 2 - panel.x - panel.width / 2)).toBeLessThan(1);
         expect(board.y).toBeGreaterThanOrEqual(panel.y);
         expect(board.y + board.height).toBeLessThanOrEqual(panel.y + panel.height);
-        expect(controls.y + controls.height + 4).toBeLessThanOrEqual(panel.y + panel.height);
         await page.locator('#flappy-board').click();
         await page.keyboard.press('p');
         await expect(page.locator('#flappy-board')).toHaveAttribute('aria-label', /Tạm dừng/);
@@ -1084,7 +1105,8 @@ test("review controls fit without scrolling and touch pause/mute work", async ({
   await page.locator("#flappy-board").click();
   await expect(page.locator("#game-menu-toggle")).toHaveAttribute("aria-label", "Tạm dừng và mở menu");
   await page.locator("#game-menu-toggle").click();
-  await expect(page.locator("#flappy-hint")).toContainText("Chạm để tiếp tục");
+  await expect(page.locator("#flappy-board")).toHaveAttribute('aria-label', /Tạm dừng/);
+  await expect(page.locator("#game-menu")).toContainText('chạm bàn chơi để tiếp tục');
   await page.locator("#mute").click();
   await expect(page.locator("#mute")).toHaveAttribute("aria-pressed", "true");
   await page.goto("/contribute.html");
@@ -1164,6 +1186,51 @@ test("common menus expose settings, lock gameplay and restore focus with Escape"
   }
 });
 
+
+test("redesigned menus keep close visible while expanded instructions scroll on phone and desktop", async ({ page }) => {
+  for (const game of ["tetris", "flappy-bird", "pikachu", "pvz-goty", "_template"]) {
+    await page.goto(`/games/${game}/`);
+    if (game === "tetris") await page.locator('button[data-mode=marathon]').click();
+    for (const viewport of [{width:320,height:568}, {width:390,height:844}, {width:844,height:390}, {width:568,height:320}, {width:1366,height:768}, {width:1440,height:900}, {width:1920,height:1080}]) {
+      await page.setViewportSize(viewport);
+      await page.locator('#game-menu-toggle').click();
+      const menu = page.locator('#game-menu');
+      const close = menu.locator('[data-menu-close]');
+      await expect(close).toBeFocused();
+      const instructions = menu.locator('details');
+      if (await instructions.getAttribute('open') !== null) await menu.locator('summary').click();
+      await expect(instructions.locator('p, ul')).not.toBeVisible();
+      await menu.locator('summary').focus();
+      await page.keyboard.press('Enter');
+      await expect(instructions.locator('p, ul')).toBeVisible();
+      for (const action of await menu.locator('button, select, summary').all()) {
+        expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(44);
+      }
+      const body = menu.locator('.game-menu-body');
+      const actions = body.locator('button, select');
+      if (await actions.count()) {
+        await actions.first().focus();
+        await page.keyboard.press('Shift+Tab');
+        await expect(menu.locator('summary')).toBeFocused();
+        expect(await menu.locator('summary').evaluate(node => {
+          const box = node.getBoundingClientRect();
+          return node.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2));
+        })).toBe(true);
+      }
+      await body.evaluate(node => { node.scrollTop = node.scrollHeight; });
+      const bounds = await menu.boundingBox(), button = await close.boundingBox();
+      expect(button.y).toBeGreaterThanOrEqual(bounds.y);
+      expect(button.y + button.height).toBeLessThanOrEqual(bounds.y + bounds.height);
+      expect(await close.evaluate(node => {
+        const box = node.getBoundingClientRect();
+        return node.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2));
+      })).toBe(true);
+      expect(await menu.evaluate(node => node.scrollWidth > node.clientWidth)).toBe(false);
+      await close.click();
+      await expect(menu).not.toBeVisible();
+    }
+  }
+});
 
 test("PvZ loading distinguishes first-file download from engine startup", async ({ page }) => {
   let releaseFile;

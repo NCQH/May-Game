@@ -8,25 +8,22 @@ body, body.upload-mode, body.game-mode {
   min-height: 0;
 }
 .pvz-page .arcade-game-content { container-type: size; align-items: center; }
-.pvz-rotate-hint { display: none; }
-@media (orientation: portrait) { .pvz-rotate-hint { display: inline; } }
 .pvz-display {
   position: relative; flex: none; aspect-ratio: 16 / 9;
-  width: min(100%, calc((100cqh - 54px) * 16 / 9));
+  width: min(100%, calc(100cqh * 16 / 9));
   background: #000; border: 1px solid #536344; overflow: hidden;
 }
 #canvas-container { position: absolute; inset: 0; width: 100%; height: 100%; background: #000; }
 canvas#canvas { max-width: 100%; max-height: 100%; image-rendering: auto; }
-.pvz-hint { width: 100%; }
 .pvz-deck { flex-wrap: wrap; gap: 10px; }
-#save-toolbar { position: static; max-width: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 7px; }
+#save-toolbar { position: static; z-index: auto; max-width: none; display: grid; gap: 20px; }
 #save-toolbar button, .pvz-quality select {
   min-height: 44px; padding: 6px 10px;
   font: var(--font-control);
   backdrop-filter: none;
 }
 .pvz-save-actions { display: flex; flex-wrap: wrap; gap: 7px; }
-.pvz-quality { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+.pvz-quality { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; font-size: 14px; }
 #pvz-cabinet:fullscreen { width: 100%; height: 100%; max-width: none; }
 .pvz-boot-status { position: absolute; inset: 0; display: grid; place-items: center; align-content: center; gap: 12px; padding: 20px; color: var(--game-text); background: var(--game-bg); text-align: center; font-size: 14px; }
 .pvz-boot-status progress { width: min(100%, 320px); accent-color: var(--game-lime); }
@@ -34,16 +31,8 @@ canvas#canvas { max-width: 100%; max-height: 100%; image-rendering: auto; }
 @media (min-width: 900px) and (min-height: 600px) {
   .pvz-page { --cabinet-width: min(1760px, max(1100px, (100dvh - var(--page-inset) * 2 - 8px) * 1.6)); }
 }
-@media (max-width: 700px) {
-  #save-toolbar { justify-content: center; flex-wrap: wrap; }
-}
 @media (max-height: 500px) {
   .pvz-page :is(.arcade-case-header, .arcade-deck) { display: none; }
   .pvz-page .arcade-deck:has(#save-warning) { display: flex; }
   .pvz-page { --cabinet-width: 100%; padding-top: clamp(5px, 1vw, 10px); }
-  .pvz-display { width: min(100%, calc(100cqh * 16 / 9)); }
-  .pvz-hint { display: none; }
-}
-@media (max-width: 420px) {
-  .pvz-quality { flex-direction: column; align-items: flex-start; gap: 2px; }
 }

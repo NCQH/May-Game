@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/shared.css?v=5" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=7" />
     <link rel="stylesheet" href="./game.css" />
     <script type="module" src="./game.js"></script>
   <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
@@ -31,7 +31,23 @@
             <!-- Thêm canvas hoặc các nút game vào đây. -->
           </section>
         </div>
-        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus=".game-panel"><div class="game-menu-card"><h2 id="game-menu-title">Menu trò chơi</h2><p>Thêm hướng dẫn và cài đặt của game tại đây; nút ☰ và phím Esc cũng là nút tạm dừng: xử lý sự kiện game-menu-open để dừng gameplay, không thêm nút pause riêng.</p><button class="game-button" type="button" data-menu-close>Đóng menu</button></div></dialog>
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus=".game-panel">
+          <div class="game-menu-card">
+            <header class="game-menu-header">
+              <h2 id="game-menu-title">Menu trò chơi</h2>
+              <button class="game-button game-button-primary" type="button" data-menu-close autofocus>Đóng menu</button>
+            </header>
+            <div class="game-menu-body">
+              <p>Thêm trạng thái tạm dừng và cách tiếp tục tại đây.</p>
+              <details>
+                <summary>Cách chơi</summary>
+                <p>Thêm hướng dẫn chạm và bàn phím của game tại đây.</p>
+              </details>
+              <!-- Thêm các nhóm Cài đặt/Ván chơi khi game có thao tác tương ứng.
+                   Xử lý game-menu-open để dừng gameplay; không thêm nút pause riêng. -->
+            </div>
+          </div>
+        </dialog>
       </section>
       <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
     </main>
