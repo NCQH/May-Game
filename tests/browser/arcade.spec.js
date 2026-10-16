@@ -1206,7 +1206,18 @@ test("redesigned menus keep close visible while expanded instructions scroll on 
       for (const action of await menu.locator('button, select, summary').all()) {
         expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(44);
       }
-      await menu.evaluate(node => { node.scrollTop = node.scrollHeight; });
+      const body = menu.locator('.game-menu-body');
+      const actions = body.locator('button, select');
+      if (await actions.count()) {
+        await actions.first().focus();
+        await page.keyboard.press('Shift+Tab');
+        await expect(menu.locator('summary')).toBeFocused();
+        expect(await menu.locator('summary').evaluate(node => {
+          const box = node.getBoundingClientRect();
+          return node.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2));
+        })).toBe(true);
+      }
+      await body.evaluate(node => { node.scrollTop = node.scrollHeight; });
       const bounds = await menu.boundingBox(), button = await close.boundingBox();
       expect(button.y).toBeGreaterThanOrEqual(bounds.y);
       expect(button.y + button.height).toBeLessThanOrEqual(bounds.y + bounds.height);
