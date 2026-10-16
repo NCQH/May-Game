@@ -66,9 +66,6 @@
   .tetris-page .game-small { font-size: 12px; }
   .tetris-metrics > .panel-title { display: none; }
 }
-.tetris-howto { width: min(100%,420px); margin-inline: auto; font-size: 12px; }
-.tetris-howto summary { min-height: 44px; cursor: pointer; padding-block: 10px; }
-.tetris-howto p { padding-block: 6px; }
 .tetris-result-actions { display: grid; gap: 8px; pointer-events: auto; }
 .tetris-page .tetris-result-actions button { padding: 6px 12px; text-align: center;  }
 @media (max-width: 899px) and (min-height: 501px) {
