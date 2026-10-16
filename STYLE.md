@@ -9,7 +9,8 @@ Tài liệu mô tả CSS hiện tại và quy tắc dùng lại. Những mục g
 | Nguồn | Trách nhiệm |
 | --- | --- |
 | [typography.css](assets/css/typography.css) | Font body/display và fallback |
-| [shared.css](assets/css/shared.css) | Token, cabinet và component chung cho game |
+| [cabinet.css](assets/css/cabinet.css) | Ba lớp vỏ máy dùng chung cho home, tài liệu và mọi game; được import từ `arcade.css` và `shared.css` |
+| [shared.css](assets/css/shared.css) | Token semantic và component chung cho game |
 | [arcade.css](assets/css/arcade.css) | Trang chủ, catalog, contributors và hướng dẫn |
 | [viewport.css](assets/css/viewport.css) | Các override responsive dùng chung và theo game |
 | `games/<id>/game.css` | Bàn chơi, HUD, trạng thái và artwork riêng |
@@ -30,7 +31,8 @@ Dùng biến CSS cho giao diện ngoài game; không sao chép mã màu sang m�
 | Viền vỏ sáng | `--arcade-case-light` | `#d6e99a` |
 | Chân/độ sâu vỏ | `--arcade-case-dark` | `#596a38` |
 | Bezel game | `--arcade-bezel` | `#19251c` |
-| Màn hình | `--arcade-screen` | Game `#101b15`; trang chủ `#14221c` |
+| Nội dung/màn hình | `--arcade-screen` | `#101b15` trên home và game |
+| Viền nền máy / nội dung | `--arcade-bezel-line` / `--arcade-screen-line` | `#364334` / `#394a37` |
 | Panel | `--game-panel` / `--arcade-panel` | `#1b2b23` |
 | Đường phân cách game | `--game-line` | `#394a37` |
 | Chữ chính | `--game-text` / `--arcade-text` | `#eff2cd` |
@@ -54,6 +56,8 @@ Giao diện hiện tại dark-only (`color-scheme: dark`). Màu board/tetromino/
 
 ## 4. Khung máy và điều hướng
 
+Giao diện có đúng **ba lớp thị giác**: **khung arcade xanh olive → nền máy tối → nội dung/game**. `assets/css/cabinet.css` là nguồn duy nhất cho màu, viền, bóng, padding vỏ máy, logo, đèn và thanh màn hình. Dùng cùng style cho home/tài liệu và game; CSS riêng chỉ thay đổi layout/kích thước bàn chơi, không ghi đè màu nền hay viền của vỏ. Nền ngoài máy dùng lưới nhẹ thống nhất; không phủ scanline toàn trang lên chữ, nút và engine. Artwork trong catalog/canvas vẫn giữ riêng.
+
 | Phần | Class game / trang thư viện | Style và cách dùng |
 | --- | --- | --- |
 | Khung ngoài | `.game-page.arcade-game` / `.arcade-cabinet` | Vỏ olive, viền sáng 3px, shadow bậc 4px/8px; góc vuông |
@@ -62,7 +66,7 @@ Giao diện hiện tại dark-only (`color-scheme: dark`). Màu board/tetromino/
 | Bezel | `.arcade-screen` / `.screen-bezel` | Viền tối 5px, inset highlight; `min-height: 0` cho vùng co giãn |
 | Meta | `.arcade-screen-meta` / `.screen-meta` | Back trái, tên game và ☰ phải (cả template). Tên dài cắt bằng dấu …; ≤420px chỉ hiện back và ☰, tên game ẩn trực quan nhưng vẫn cho trình đọc màn hình |
 | Về thư viện | `.back-link` / `.screen-home-link` | Nhãn “← Màn hình chính” 14px, một dòng; link HTML thật; vùng chạm ≥44px |
-| Nội dung | `.arcade-game-content` / `.page-content` | Nền màn hình; không thêm một cabinet lồng bên trong |
+| Nội dung | `.arcade-game-content`, `.tetris-menu` / `.selected-game`, `.page-content` | Nền `--arcade-screen`, viền 1px `--arcade-screen-line`; không thêm một cabinet lồng bên trong |
 | Deck/loa | `.arcade-deck`, `.arcade-speaker` / `.cabinet-deck`, `.deck-speaker` | Trang trí đáy khung; không được chiếm chỗ khiến điều khiển mất khỏi viewport |
 
 Khung game mặc định rộng tối đa 760px; mobile override theo nội dung: Tetris 540px, Flappy 520px. Desktop (≥900×600) Tetris/Flappy/Pikachu và trang chủ/tài liệu rộng theo chiều cao màn hình: `min(1760px, max(1100–1200px, chiều cao khả dụng × 1.6))`, để khung luôn nằm ngang và không để trống hai bên ở 1920/2560px. Trang chủ ≥1600×800 tăng cỡ chữ card (tiêu đề 48–64px, mô tả 18px, controls 16px, CTA 52px).
@@ -90,7 +94,7 @@ Các biến thể `.pika-control`, `.tetris-*`, `.flappy-*` có thể giữ hìn
 
 ### Ngoại lệ PvZ
 
-Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated lên art HD. Khung PvZ rộng theo chiều cao: `min(1760px, (90svh − 150px) × 16/9 + 50px)` để canvas lớn nhất mà không cuộn trang. `.pvz-display` có nền đen; toolbar trong menu gồm chất lượng, “Tải bản lưu”, “Nạp save” cạnh nhau và fullscreen, control cao ≥44px, wrap khi thiếu chỗ. Không có khu quản lý/xóa save riêng. Nạp ZIP kiểm tra đường dẫn/dung lượng, xác nhận ghi đè và tải lại để áp dụng trước khi engine chạy; giữ tự lưu và xuất dự phòng khi tự lưu lỗi. UI nằm bên trong canvas không tự hưởng CSS ngoài game: phải kiểm tra riêng độ dễ đọc/chạm. Fullscreen là tùy chọn, không thay thế bố cục mặc định. Không chỉnh art/âm thanh engine chỉ để giống palette cabinet.
+Canvas engine tỷ lệ **16:9**, `image-rendering: auto`; không áp pixelated lên art HD. Khung PvZ dùng cùng chiều rộng desktop và chiều cao viewport như các game khác, cùng `.game-title`, `.arcade-game-content` và `.arcade-deck` có loa. Gợi ý chơi nằm trong nền nội dung, không thay thế deck. `.arcade-game-content` là size container; `.pvz-display` vừa cả chiều rộng và chiều cao khả dụng bằng `cqh`, giữ 16:9 kể cả fullscreen; không ép tỷ lệ khung máy theo canvas. Màn thấp ≤500px ẩn header/deck trang trí như các game khác, nhưng vẫn hiện deck khi có cảnh báo lỗi tự lưu. `.pvz-display` có nền đen; toolbar trong menu gồm chất lượng, “Tải bản lưu”, “Nạp save” cạnh nhau và fullscreen, control cao ≥44px, wrap khi thiếu chỗ. Không có khu quản lý/xóa save riêng. Nạp ZIP kiểm tra đường dẫn/dung lượng, xác nhận ghi đè và tải lại để áp dụng trước khi engine chạy; giữ tự lưu và xuất dự phòng khi tự lưu lỗi. UI nằm bên trong canvas không tự hưởng CSS ngoài game: phải kiểm tra riêng độ dễ đọc/chạm. Fullscreen là tùy chọn, không thay thế bố cục mặc định. Không chỉnh art/âm thanh engine chỉ để giống palette cabinet.
 
 ## 6. Trang thư viện và tài liệu
 

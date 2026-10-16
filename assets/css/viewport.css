@@ -7,7 +7,6 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
 .arcade-home .deck-links-quiet .deck-link, .back-link, .screen-home-link { min-height: 44px; min-width: 44px; }
 .screen-home-link { display: inline-flex; align-items: center; }
 .start-game { min-height: 44px; min-width: 44px; }
-.arcade-game-content { background-image: none; }
 @media (max-width: 760px) and (min-height: 501px) {
   .arcade-home .selection-row { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr) 44px; }
   .arcade-home .selected-game { grid-column: 1 / -1; grid-row: 1; }
@@ -75,8 +74,6 @@ body.upload-mode { display: block; height: auto; overflow: auto; }
 }
 @media (max-height: 500px) {
   .arcade-cabinet { min-height: 0; }
-  .cabinet-topline, .arcade-case-header { min-height: 32px; }
-  .cabinet-deck, .arcade-deck { min-height: 24px; padding-top: 4px; }
   .page-content { padding: 8px; }
   .page-heading { margin-bottom: 8px; gap: 8px; }
   .page-heading h1 { font-size: 23px; }

@@ -1,6 +1,5 @@
-.flappy-page .arcade-screen { border-color: #364334; background: #111812; }
 .flappy-page .game-title { color: var(--game-text); font-size: 20px; font-weight: 600; text-transform: none; }
-.flappy-page .arcade-game-content { display: flex; align-items: center; justify-content: center; padding: 10px; background: #0d120f; border-color: #303d32; }
+.flappy-page .arcade-game-content { display: flex; align-items: center; justify-content: center; padding: 10px; }
 .flappy-board-wrap { position: relative; width: min(100%,calc((100dvh - 220px) * .5625)); margin: auto; border: 1px solid #53664b; }
 .arcade-game.flappy-page #flappy-board { display: block; width: 100%; height: auto; aspect-ratio: 288/512; background: #d9ede3; image-rendering: pixelated; touch-action: manipulation; }
 .flappy-page :is(canvas,button):focus-visible { outline: 3px solid var(--game-sand); outline-offset: 3px; }
@@ -15,7 +14,7 @@
 .flappy-result-actions button { width: 70%; }
 @media (min-width: 900px) and (min-height: 501px) {
   .flappy-page .arcade-game-content { display: grid; grid-template-columns: auto minmax(160px,220px); gap: 20px; }
-  .flappy-board-wrap { grid-row: 1 / span 2; width: calc((100dvh - 260px) * .5625); margin: 0; }
+  .flappy-board-wrap { grid-row: 1 / span 2; width: calc((100dvh - 280px) * .5625); margin: 0; }
   .arcade-game.flappy-page .game-help { grid-row: 1 / span 2; align-self: center; font-size: 14px; }
 }
 .flappy-page .game-help { font-size: 12px; }

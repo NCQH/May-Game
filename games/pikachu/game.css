@@ -21,26 +21,11 @@
   padding-bottom: 9px;
 }
 
-.pikachu-page .arcade-screen {
-  border-color: #364334;
-  background: #111812;
-}
-
-.pikachu-page .arcade-screen-meta {
-  min-height: 34px;
-}
-
 .pikachu-page .arcade-game-content {
   align-items: stretch;
   justify-content: flex-start;
   gap: 9px;
   padding: clamp(10px, 2vw, 18px);
-  border-color: #303d32;
-  background-color: #0d120f;
-  background-image:
-    linear-gradient(rgba(142, 168, 122, .025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(142, 168, 122, .025) 1px, transparent 1px);
-  background-size: 24px 24px;
 }
 
 .pika-heading {
