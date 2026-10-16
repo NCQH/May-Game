@@ -234,7 +234,10 @@ function syncControls() {
   const muteButton = document.querySelector("#mute");
   muteButton.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
   muteButton.setAttribute("aria-pressed", String(record.muted));
-  canvas.setAttribute("aria-label", `Flappy Bird. ${state.paused ? "Tạm dừng" : ended ? "Ván kết thúc" : state.phase === "ready" ? "Sẵn sàng" : "Đang chơi"}. Điểm ${state.score}. ${record.muted ? "Âm thanh tắt" : "Âm thanh bật"}. Space hoặc mũi tên lên để vỗ cánh; P tạm dừng; M bật/tắt âm.`);
+  const status = document.querySelector("#flappy-status");
+  const message = state.paused ? "Tạm dừng" : ended ? "Ván kết thúc" : state.phase === "ready" ? "Sẵn sàng" : "Đang chơi";
+  if (status.textContent !== message) status.textContent = message;
+  canvas.setAttribute("aria-label", `Flappy Bird. ${message}. Điểm ${state.score}. ${record.muted ? "Âm thanh tắt" : "Âm thanh bật"}. Space hoặc mũi tên lên để vỗ cánh; P tạm dừng; M bật/tắt âm.`);
 }
 function flap() {
   unlockAudio();
