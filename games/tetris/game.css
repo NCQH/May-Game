@@ -1,4 +1,4 @@
-.tetris-page { --cabinet-width: 1100px; --tetra-bg: #101b15; --tetra-line: #42583e; --tetra-text: #edf3ce; --tetra-muted: #afbd97; --tetra-accent: #c7e875; }
+.tetris-page { --cabinet-width: 1100px; --tetra-bg: #101b15; --tetra-line: #42583e; --tetra-text: #edf3ce; --tetra-muted: #afbd97; --tetra-accent: #c7e875; height: calc(100dvh - var(--page-inset) * 2 - 8px); min-height: 0; }
 .tetris-page .game-title { color: var(--tetra-text); font-size: 23px; }
 .tetris-page .back-link { color: var(--tetra-muted); }
 .tetris-page .arcade-game-content {

@@ -176,9 +176,20 @@ test("home and games share the green frame, machine surface and content styling"
         if (viewport.width >= 900) expect((await page.locator('.pvz-page').boundingBox()).width).toBeGreaterThanOrEqual(1100);
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
-      if (path.startsWith('/games/')) expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight)).toBe(false);
+      if (path.startsWith('/games/')) expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight), `${path} at ${viewport.width}×${viewport.height}`).toBe(false);
     }
   }
+});
+
+test("Tetris mode menu scrolls inside the cabinet with wider fallback fonts", async ({ page }) => {
+  await page.setViewportSize({width:320,height:568});
+  await page.goto('/games/tetris/');
+  await page.addStyleTag({content: ':root { --font-body: "DejaVu Sans", sans-serif; --font-display: "DejaVu Sans", sans-serif; }'});
+  await page.locator('.tetris-howto').evaluate(node => { node.open = true; });
+  expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight)).toBe(false);
+  await page.locator('button[data-mode=blitz]').click();
+  await expect(page.locator('#tetris-board')).toBeInViewport();
+  expect(await page.evaluate(() => document.documentElement.scrollHeight > innerHeight)).toBe(false);
 });
 
 test("arcade actions retain shared readable fonts, touch targets and keyboard focus", async ({ page }) => {
