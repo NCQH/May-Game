@@ -133,7 +133,7 @@ test("reduced motion keeps slow catalog loading static and respects preference c
 
 test("home and games share the green frame, machine surface and content styling", async ({ page }) => {
   const screens = ["/", "/contributors.html", "/contribute.html", "/games/tetris/", "/games/flappy-bird/", "/games/pikachu/", "/games/pvz-goty/", "/games/_template/"];
-  for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
+  for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1880, height: 924 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);
     let reference;
     for (const path of screens) {
@@ -175,10 +175,11 @@ test("home and games share the green frame, machine surface and content styling"
           return {width: node.clientWidth - parseFloat(css.paddingLeft) - parseFloat(css.paddingRight), height: node.clientHeight - parseFloat(css.paddingTop) - parseFloat(css.paddingBottom)};
         });
         expect(Math.abs(display.height - Math.min(available.height, available.width * 9 / 16))).toBeLessThan(2);
-        expect(display.y).toBeGreaterThanOrEqual(panel.y);
-        expect(display.y + display.height).toBeLessThanOrEqual(panel.y + panel.height);
-        expect(display.x).toBeGreaterThanOrEqual(panel.x);
-        expect(display.x + display.width).toBeLessThanOrEqual(panel.x + panel.width);
+        expect(Math.abs(display.x + display.width / 2 - panel.x - panel.width / 2)).toBeLessThan(1);
+        expect(Math.abs(display.y + display.height / 2 - panel.y - panel.height / 2)).toBeLessThan(1);
+        expect(await content.evaluate(node => getComputedStyle(node).padding)).toBe('0px');
+        expect(await page.locator('.pvz-display').evaluate(node => getComputedStyle(node).borderTopWidth)).toBe('0px');
+        if (viewport.width >= 900) expect(Math.abs(display.height - available.height)).toBeLessThan(1);
         // The engine's black canvas surface is game artwork, not machine chrome.
         expect(await page.locator('.pvz-display').evaluate(node => getComputedStyle(node).backgroundColor)).toBe('rgb(0, 0, 0)');
         if (viewport.height > 500) await expect(page.locator('.arcade-deck .arcade-speaker')).toBeVisible();
@@ -677,11 +678,12 @@ test("PvZ ZIP import confirms, stages across reload and applies before engine st
   expect(await getPending()).toBeNull();
   for (const viewport of [{width:320,height:568},{width:390,height:844},{width:844,height:390},{width:1366,height:768},{width:1440,height:900},{width:1920,height:1080}]) {
     await page.setViewportSize(viewport);
-    const display = await page.locator('.pvz-display').boundingBox();
     await expect.poll(async () => {
+      const display = await page.locator('.pvz-display').boundingBox();
       const canvas = await page.locator('#canvas').boundingBox();
       return Math.abs(canvas.width / canvas.height - 16 / 9) < .02
-        && canvas.width <= display.width && canvas.height <= display.height;
+        && Math.abs(canvas.width - display.width) < 3
+        && Math.abs(canvas.height - display.height) < 2;
     }).toBe(true);
     if (!await page.locator('#game-menu').evaluate(node => node.open)) await page.locator('#game-menu-toggle').click();
     for (const id of ['#save-export-btn','#save-import-btn']) {
@@ -695,6 +697,16 @@ test("PvZ ZIP import confirms, stages across reload and applies before engine st
   }
   await page.locator('#pvz-fullscreen').click();
   await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id)).toBe('pvz-cabinet');
+  await expect.poll(() => page.locator('.arcade-game-content').evaluate(node => {
+    const panel = node.getBoundingClientRect();
+    const display = node.querySelector('.pvz-display').getBoundingClientRect();
+    const cabinet = document.getElementById('pvz-cabinet').getBoundingClientRect();
+    return Math.abs(display.height - panel.height + 2) < 1
+      && Math.abs(display.x + display.width / 2 - panel.x - panel.width / 2) < 1
+      && Math.abs(display.width / display.height - 16 / 9) < .02
+      && getComputedStyle(node).backgroundColor === 'rgb(16, 27, 21)'
+      && cabinet.height <= innerHeight && cabinet.width <= innerWidth;
+  })).toBe(true);
   await page.locator('#pvz-fullscreen').click();
   await expect.poll(() => page.evaluate(() => document.fullscreenElement)).toBeNull();
   await page.keyboard.press('Escape');
