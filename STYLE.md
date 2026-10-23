@@ -13,6 +13,8 @@ Tài liệu mô tả CSS hiện tại và quy tắc dùng lại. Những mục g
 | [shared.css](assets/css/shared.css) | Token semantic và component chung cho game |
 | [arcade.css](assets/css/arcade.css) | Trang chủ, catalog, contributors và hướng dẫn |
 | [viewport.css](assets/css/viewport.css) | Các override responsive dùng chung và theo game |
+| [play.css](assets/css/play.css) | Bố cục một màn hình dùng chung cho game `arcade-play`: HUD, sân chơi, nút, overlay, D-pad |
+| [game-kit.js](assets/js/game-kit.js) | Lưu `localStorage`, âm thanh Web Audio và thông báo trạng thái cho game `arcade-play` |
 | `games/<id>/game.css` | Bàn chơi, HUD, trạng thái và artwork riêng |
 | [cabinet.css của PvZ](games/pvz-goty/cabinet.css) | Vỏ arcade, toolbar và canvas engine PvZ |
 
@@ -70,6 +72,8 @@ Giao diện có đúng **ba lớp thị giác**: **khung arcade xanh olive → n
 | Deck/loa | `.arcade-deck`, `.arcade-speaker` / `.cabinet-deck`, `.deck-speaker` | Trang trí đáy khung; không được chiếm chỗ khiến điều khiển mất khỏi viewport |
 
 Khung game mặc định rộng tối đa 760px; mobile override theo nội dung: Tetris 540px, Flappy 520px. Desktop (≥900×600) Tetris/Flappy/Pikachu và trang chủ/tài liệu rộng theo chiều cao màn hình: `min(1760px, max(1100–1200px, chiều cao khả dụng × 1.6))`, để khung luôn nằm ngang và không để trống hai bên ở 1920/2560px. Trang chủ ≥1600×800 tăng cỡ chữ card (tiêu đề 48–64px, mô tả 18px, controls 16px, CTA 52px).
+
+Game dùng `arcade-play` (Ô ăn quan, Cờ caro, Cờ tướng, Rắn săn mồi, 2048, Dò mìn, Phá gạch) cao đúng một màn hình. Dọc: HUD → sân chơi → nút; ngang (tỉ lệ ≥ 5:4): HUD trái, sân giữa, nút phải để sân luôn ở chính giữa. Sân là size container; `.play-board` tự vừa cả chiều rộng và chiều cao theo `--stage-ratio`. Overlay `.play-overlay` cho bắt đầu/tạm dừng/kết thúc; D-pad chỉ hiện trên màn hình cảm ứng. Desktop và phone ngang dùng cùng độ rộng khung, ẩn header/deck như các game khác.
 
 Ưu tiên bàn chơi và điều khiển trước header/deck khi màn hình thấp. Màn ≤500px cao (phone ngang), trang game ẩn hẳn header/deck trang trí của khung để bàn chơi lớn nhất. Không coi các lỗi responsive đã biết là bố cục cần sao chép. Trang tài liệu có nội dung dài nên cuộn đọc được đầy đủ, không ép hành vi một màn hình của game.
 
@@ -135,6 +139,8 @@ Trang chủ có âm boot tổng hợp bằng Web Audio, không cần file âm th
 - Flappy: tạm dừng bằng ☰ hoặc P, chạm board để tiếp tục; mute và hướng dẫn đầy đủ trong menu chung. Hồi sinh ghi rõ một lần/ván; CTA kết quả giữ chữ. Board căn giữa vùng chơi, không có cột hướng dẫn bên cạnh.
 - Pikachu: kích thước ô tính theo cả chiều rộng và chiều cao khả dụng (tối đa 60px/ô); HUD, thanh thời gian và nút rộng bằng bàn. Không để trang cuộn ở 1366×768 hay phone ngang.
 - PvZ: hướng dẫn và toolbar ngoài nằm trong menu chung; Esc vẫn dành cho menu engine. Loading phân biệt kiểm tra dữ liệu, tải tệp và khởi động engine; native progress chỉ đo số tệp hoàn tất, không phải phần trăm dung lượng/ETA. Lỗi có “Thử lại”, cập nhật lỗi giữ bộ dữ liệu cache đầy đủ. Menu touch bên trong engine và gameplay cần kiểm tra với build WASM.
+
+- Game `arcade-play`: menu mở bằng ☰/Esc thì game thời gian thực tạm dừng, đóng menu vẫn giữ trạng thái “Tạm dừng” đến khi người chơi chạm/nhấn tiếp tục; game theo lượt chỉ chặn thao tác khi menu mở. Đấu với máy hoặc hai người cùng máy chọn trong “Cài đặt”, áp dụng từ ván mới; nút “Đi lại” nằm cạnh sân khi game hỗ trợ. Thẻ catalog dùng `recordLabel` khi `bestScore` không phải điểm, ví dụ “Thắng máy”, “Ván thắng”.
 
 ## 10. Checklist game mới
 

@@ -1,0 +1,2 @@
+.snake-page .play-board { border: 2px solid var(--game-line); }
+.snake-page #snake-board { cursor: pointer; }

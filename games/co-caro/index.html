@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cờ caro — Máy Game</title>
+    <meta name="theme-color" content="#101814">
+    <link rel="icon" href="../../assets/favicon.ico?v=1" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="../../assets/favicon.svg?v=1" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=1">
+    <link rel="stylesheet" href="../../assets/css/typography.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=7" />
+    <link rel="stylesheet" href="../../assets/css/play.css?v=1" />
+    <link rel="stylesheet" href="./game.css?v=1" />
+    <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
+    <script type="module" src="../../assets/js/game-kit.js?v=1"></script>
+    <script type="module" src="./game.js?v=1"></script>
+    <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
+  </head>
+  <body>
+    <main class="game-page co-caro-page arcade-game arcade-play">
+      <div class="arcade-case-header">
+        <span class="arcade-case-brand"><span class="arcade-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>MÁY GAME</span>
+        <span class="arcade-case-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+      <section class="arcade-screen" aria-label="Màn hình máy arcade">
+        <div class="arcade-screen-meta">
+          <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
+          <h1 class="game-title">Cờ caro</h1>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" aria-keyshortcuts="Escape" title="Tạm dừng và mở menu (Esc)" aria-controls="game-menu" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg></button>
+        </div>
+        <div class="arcade-game-content">
+          <section class="play-hud" aria-label="Lượt đi và thành tích đấu với máy">
+            <p class="play-turn" id="caro-turn"><i id="caro-turn-mark" aria-hidden="true"></i><span id="caro-turn-text">Lượt X — bạn</span></p>
+            <div class="play-stat"><span>Thắng</span><strong id="tally-win">0</strong></div>
+            <div class="play-stat"><span>Thua</span><strong id="tally-loss">0</strong></div>
+            <div class="play-stat"><span>Hòa</span><strong id="tally-draw">0</strong></div>
+            <p class="game-small co-caro-mode" id="caro-mode">Đấu với máy</p>
+          </section>
+          <div class="play-stage">
+            <div class="play-board">
+              <div class="co-caro-board" id="caro-board" role="group" aria-label="Bàn cờ caro 15×15. Dùng phím mũi tên để chọn ô, Enter hoặc Space để đặt quân." aria-describedby="caro-status"></div>
+              <div class="play-overlay co-caro-banner" id="caro-result" hidden>
+                <div class="co-caro-banner-text"><h2>Bạn thắng!</h2><p></p></div>
+                <div class="play-overlay-actions"><button class="game-button game-button-primary" id="caro-replay" type="button">Chơi lại</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="play-controls">
+            <button class="game-button" id="undo" type="button">Đi lại</button>
+            <button class="game-button" id="new-game" type="button">Ván mới</button>
+          </div>
+          <p class="sr-only" id="caro-status" role="status"></p>
+        </div>
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#caro-board [tabindex='0']">
+          <div class="game-menu-card">
+            <header class="game-menu-header">
+              <h2 id="game-menu-title">Menu Cờ caro</h2>
+              <button class="game-button game-button-primary" type="button" data-menu-close autofocus>Đóng menu</button>
+            </header>
+            <div class="game-menu-body">
+              <p id="menu-state">Ván đang chơi. Đóng menu để đi tiếp.</p>
+              <details>
+                <summary>Cách chơi</summary>
+                <ul>
+                  <li>Bàn 15×15. X đi trước, O đi sau, mỗi lượt đặt một quân vào ô trống.</li>
+                  <li>Ai có 5 quân liền nhau trở lên theo hàng ngang, dọc hoặc chéo là thắng. Kín bàn mà chưa ai thắng là hòa.</li>
+                  <li>Luật “Chặn hai đầu”: khi bật, hàng 5 bị quân đối thủ chặn cả hai đầu không tính thắng.</li>
+                  <li>Chạm vào ô để đặt quân. Bàn phím: <kbd>←</kbd><kbd>↑</kbd><kbd>→</kbd><kbd>↓</kbd> chọn ô, <kbd>Enter</kbd> hoặc <kbd>Space</kbd> đặt quân.</li>
+                  <li>“Đi lại” rút nước vừa đi (đấu với máy: rút cả nước của máy). <kbd>M</kbd> bật/tắt âm thanh; ☰ hoặc <kbd>Esc</kbd> mở menu.</li>
+                </ul>
+              </details>
+              <section class="game-menu-section" aria-labelledby="settings-heading">
+                <h3 id="settings-heading">Cài đặt</h3>
+                <div class="game-menu-actions co-caro-settings">
+                  <label class="play-setting">Chế độ
+                    <select id="mode"><option value="ai">Đấu với máy</option><option value="pvp">2 người cùng máy</option></select>
+                  </label>
+                  <label class="play-setting">Độ khó
+                    <select id="difficulty"><option value="easy">Dễ</option><option value="normal">Thường</option><option value="hard">Khó</option></select>
+                  </label>
+                  <label class="play-setting">Đi trước
+                    <select id="first"><option value="human">Người đi trước</option><option value="ai">Máy đi trước</option></select>
+                  </label>
+                </div>
+                <div class="game-menu-actions">
+                  <button class="game-button" id="blocked" type="button" aria-pressed="false">Chặn hai đầu: tắt</button>
+                  <button class="game-button" id="mute" type="button" aria-pressed="false">🔊 Tắt âm thanh</button>
+                </div>
+                <p class="game-small" id="settings-note" aria-live="polite">Đổi chế độ, độ khó hoặc luật áp dụng từ ván mới.</p>
+              </section>
+              <section class="game-menu-section" aria-labelledby="session-heading">
+                <h3 id="session-heading">Ván chơi</h3>
+                <div class="game-menu-actions"><button class="game-button" id="menu-new-game" type="button">Ván mới</button></div>
+              </section>
+            </div>
+          </div>
+        </dialog>
+      </section>
+      <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
+    </main>
+  </body>
+</html>

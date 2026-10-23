@@ -1,0 +1,83 @@
+/* Dò mìn: DOM grid of buttons. The board fills the stage; tiny phones scroll Vừa/Khó instead of shrinking cells. */
+.do-min-page .play-stage { display: block; }
+.do-min-page .mine-scroll { position: absolute; inset: 0; display: flex; overflow: auto; overscroll-behavior: contain; }
+.do-min-page .play-board {
+  --cell-min: 16px; /* plus the 1px gap; the grid border adds 4px */
+  flex: none;
+  width: max(min(100cqw, 100cqh * var(--stage-ratio, 1)), var(--cols, 9) * (var(--cell-min) + 1px) + 3px);
+  max-height: none;
+  margin: auto;
+  container-type: inline-size;
+}
+.do-min-page .play-overlay { background: rgba(16, 27, 21, .9); }
+
+.mine-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 9), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows, 9), minmax(0, 1fr));
+  gap: 1px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--game-line);
+  background: var(--game-line);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.mine-cell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #2d4534;
+  box-shadow: inset 2px 2px 0 #43614a, inset -2px -2px 0 #1c2c21;
+  color: var(--game-text);
+  font: 700 clamp(11px, calc(100cqw / var(--cols, 9) * .56), 40px)/1 var(--font-display);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.mine-cell svg { width: 72%; height: 72%; overflow: visible; }
+.mine-cell:focus-visible { z-index: 1; outline-offset: 0; }
+@media (hover: hover) and (pointer: fine) { .mine-cell:not(.is-open):hover { background: #375440; } }
+.mine-cell.is-open { background: #142119; box-shadow: none; cursor: default; }
+.mine-cell[data-n] { cursor: pointer; }
+.mine-cell[data-n="1"] { color: #79c9c4; }
+.mine-cell[data-n="2"] { color: #c7e875; }
+.mine-cell[data-n="3"] { color: #ee886b; }
+.mine-cell[data-n="4"] { color: #b9a9f7; }
+.mine-cell[data-n="5"] { color: #f2b55e; }
+.mine-cell[data-n="6"] { color: #6fd6e2; }
+.mine-cell[data-n="7"] { color: #eff2cd; }
+.mine-cell[data-n="8"] { color: #abb99a; }
+.mine-cell.is-mine { color: #e0e8bd; }
+.mine-cell.is-exploded { background: #ee886b; color: #101814; }
+.mine-cell.is-wrong { background: #3a2a24; }
+
+/* Long-press feedback: a lime frame grows while the finger is held, then flashes when the flag lands. */
+.mine-cell.is-holding::after, .mine-cell.is-held::after { position: absolute; inset: 8%; border: 2px solid var(--game-lime); content: ""; pointer-events: none; }
+.mine-cell.is-holding::after { animation: mine-hold 310ms linear forwards; }
+.mine-cell.is-held::after { inset: 0; border-color: var(--game-sand); }
+@keyframes mine-hold { from { transform: scale(.35); opacity: .4; } to { transform: scale(1); opacity: 1; } }
+
+#game-menu .mine-levels .game-button[aria-pressed="true"] { border-color: var(--control-edge); background: var(--control-accent); color: var(--control-primary-text); }
+.mine-confirm { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--game-coral); background: #24261d; }
+.do-min-page .play-controls #mode[aria-pressed="true"] { border-color: var(--game-coral); color: #ffd9cc; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mine-cell.is-holding::after { animation: none; }
+}
+.do-min-page .play-stat span { white-space: normal; overflow-wrap: anywhere; }
+/* Landscape: HUD and the one control need little room, so the (often wide) board gets it. */
+@media (min-aspect-ratio: 5/4) {
+  .do-min-page .arcade-game-content { grid-template-columns: clamp(112px, 15vw, 200px) minmax(0, 1fr) clamp(112px, 15vw, 200px); }
+}
+@media (max-width: 420px) {
+  .do-min-page .play-hud { gap: 4px; }
+  .do-min-page .play-stat { min-width: 0; padding: 4px 6px; }
+  .do-min-page .play-stat strong { font-size: 16px; }
+}

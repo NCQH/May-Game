@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cờ tướng — Máy Game</title>
+    <meta name="theme-color" content="#101814">
+    <link rel="icon" href="../../assets/favicon.ico?v=1" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="../../assets/favicon.svg?v=1" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=1">
+    <link rel="stylesheet" href="../../assets/css/typography.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=7" />
+    <link rel="stylesheet" href="../../assets/css/play.css?v=1" />
+    <link rel="stylesheet" href="./game.css?v=1" />
+    <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
+    <script type="module" src="../../assets/js/game-kit.js?v=1"></script>
+    <script type="module" src="./game.js?v=1"></script>
+    <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
+  </head>
+  <body>
+    <main class="game-page co-tuong-page arcade-game arcade-play">
+      <div class="arcade-case-header">
+        <span class="arcade-case-brand"><span class="arcade-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>MÁY GAME</span>
+        <span class="arcade-case-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+      <section class="arcade-screen" aria-label="Màn hình máy arcade">
+        <div class="arcade-screen-meta">
+          <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
+          <h1 class="game-title">Cờ tướng</h1>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" aria-keyshortcuts="Escape" title="Tạm dừng và mở menu (Esc)" aria-controls="game-menu" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg></button>
+        </div>
+        <div class="arcade-game-content">
+          <section class="play-hud" aria-label="Thông tin ván cờ">
+            <p class="play-turn"><i id="xq-turn-swatch" class="is-red" aria-hidden="true"></i><span id="xq-turn-text">Lượt Đỏ</span></p>
+            <div class="play-stat"><span>Nước</span><strong id="xq-moves">0</strong></div>
+            <div class="play-stat"><span>Đỏ ăn</span><strong id="xq-red-takes">0</strong></div>
+            <div class="play-stat"><span>Đen ăn</span><strong id="xq-black-takes">0</strong></div>
+            <div class="play-stat xq-wins-stat" id="xq-wins-stat"><span>Thắng máy</span><strong id="xq-wins">0</strong></div>
+          </section>
+          <div class="play-stage">
+            <div class="play-board">
+              <svg class="xq-lines" viewBox="0 0 90 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <rect class="xq-frame" x="3" y="3" width="84" height="94"/>
+                <line x1="5" y1="5" x2="85" y2="5"/>
+                <line x1="5" y1="15" x2="85" y2="15"/>
+                <line x1="5" y1="25" x2="85" y2="25"/>
+                <line x1="5" y1="35" x2="85" y2="35"/>
+                <line x1="5" y1="45" x2="85" y2="45"/>
+                <line x1="5" y1="55" x2="85" y2="55"/>
+                <line x1="5" y1="65" x2="85" y2="65"/>
+                <line x1="5" y1="75" x2="85" y2="75"/>
+                <line x1="5" y1="85" x2="85" y2="85"/>
+                <line x1="5" y1="95" x2="85" y2="95"/>
+                <line x1="5" y1="5" x2="5" y2="95"/>
+                <line x1="15" y1="5" x2="15" y2="45"/><line x1="15" y1="55" x2="15" y2="95"/>
+                <line x1="25" y1="5" x2="25" y2="45"/><line x1="25" y1="55" x2="25" y2="95"/>
+                <line x1="35" y1="5" x2="35" y2="45"/><line x1="35" y1="55" x2="35" y2="95"/>
+                <line x1="45" y1="5" x2="45" y2="45"/><line x1="45" y1="55" x2="45" y2="95"/>
+                <line x1="55" y1="5" x2="55" y2="45"/><line x1="55" y1="55" x2="55" y2="95"/>
+                <line x1="65" y1="5" x2="65" y2="45"/><line x1="65" y1="55" x2="65" y2="95"/>
+                <line x1="75" y1="5" x2="75" y2="45"/><line x1="75" y1="55" x2="75" y2="95"/>
+                <line x1="85" y1="5" x2="85" y2="95"/>
+                <line x1="35" y1="5" x2="55" y2="25"/><line x1="55" y1="5" x2="35" y2="25"/>
+                <line x1="35" y1="75" x2="55" y2="95"/><line x1="55" y1="75" x2="35" y2="95"/>
+                <path d="M13.8 21.8V23.8H11.8M13.8 28.2V26.2H11.8M16.2 21.8V23.8H18.2M16.2 28.2V26.2H18.2M73.8 21.8V23.8H71.8M73.8 28.2V26.2H71.8M76.2 21.8V23.8H78.2M76.2 28.2V26.2H78.2M13.8 71.8V73.8H11.8M13.8 78.2V76.2H11.8M16.2 71.8V73.8H18.2M16.2 78.2V76.2H18.2M73.8 71.8V73.8H71.8M73.8 78.2V76.2H71.8M76.2 71.8V73.8H78.2M76.2 78.2V76.2H78.2M6.2 31.8V33.8H8.2M6.2 38.2V36.2H8.2M23.8 31.8V33.8H21.8M23.8 38.2V36.2H21.8M26.2 31.8V33.8H28.2M26.2 38.2V36.2H28.2M43.8 31.8V33.8H41.8M43.8 38.2V36.2H41.8M46.2 31.8V33.8H48.2M46.2 38.2V36.2H48.2M63.8 31.8V33.8H61.8M63.8 38.2V36.2H61.8M66.2 31.8V33.8H68.2M66.2 38.2V36.2H68.2M83.8 31.8V33.8H81.8M83.8 38.2V36.2H81.8M6.2 61.8V63.8H8.2M6.2 68.2V66.2H8.2M23.8 61.8V63.8H21.8M23.8 68.2V66.2H21.8M26.2 61.8V63.8H28.2M26.2 68.2V66.2H28.2M43.8 61.8V63.8H41.8M43.8 68.2V66.2H41.8M46.2 61.8V63.8H48.2M46.2 68.2V66.2H48.2M63.8 61.8V63.8H61.8M63.8 68.2V66.2H61.8M66.2 61.8V63.8H68.2M66.2 68.2V66.2H68.2M83.8 61.8V63.8H81.8M83.8 68.2V66.2H81.8"/>
+                <text x="25" y="50.3">Sở hà</text><text x="65" y="50.3">Hán giới</text>
+              </svg>
+              <div class="xq-grid" id="xq-board" role="group" aria-label="Bàn cờ tướng 9 cột, 10 hàng. Dùng phím mũi tên để di chuyển, Enter hoặc Space để chọn quân và đi, Esc để bỏ chọn." aria-describedby="xq-status"></div>
+              <div class="play-overlay" id="xq-overlay" hidden>
+                <h2>Kết thúc</h2>
+                <p></p>
+                <div class="play-overlay-actions">
+                  <button class="game-button game-button-primary" id="xq-primary" type="button">Chơi lại</button>
+                  <button class="game-button" id="xq-secondary" type="button">Xem bàn cờ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="play-controls">
+            <button class="game-button" id="xq-undo" type="button" aria-keyshortcuts="U">Đi lại</button>
+            <button class="game-button" id="xq-new" type="button">Ván mới</button>
+          </div>
+          <p class="sr-only" id="xq-status" role="status"></p>
+        </div>
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#xq-board .xq-point[tabindex='0']">
+          <div class="game-menu-card">
+            <header class="game-menu-header">
+              <h2 id="game-menu-title">Menu Cờ tướng</h2>
+              <button class="game-button game-button-primary" type="button" data-menu-close autofocus>Đóng menu</button>
+            </header>
+            <div class="game-menu-body">
+              <p>Ván cờ được lưu tự động. Đóng menu để đi tiếp.</p>
+              <details>
+                <summary>Cách chơi</summary>
+                <ul>
+                  <li>Chạm quân của mình để xem các điểm đi được, rồi chạm điểm đến. Chạm chỗ khác để bỏ chọn.</li>
+                  <li>Bàn phím: <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> di chuyển ô chọn, <kbd>Enter</kbd> hoặc <kbd>Space</kbd> chọn quân và đi, <kbd>Esc</kbd> bỏ chọn, <kbd>U</kbd> đi lại, <kbd>M</kbd> bật/tắt âm thanh.</li>
+                  <li>Đỏ đi trước. Tướng và Sĩ ở trong cung; Tượng không qua sông và bị chặn ở mắt tượng; Mã bị cản chân; Pháo ăn quân phải nhảy qua đúng một quân; Tốt qua sông được đi ngang.</li>
+                  <li>Hai Tướng không được đối mặt trên một cột trống. Không được đi nước để Tướng mình bị chiếu.</li>
+                  <li>Bên đến lượt mà không còn nước đi hợp lệ thì thua (bị chiếu bí hoặc hết nước).</li>
+                  <li>Hòa khi 60 nước liền không ăn quân, hoặc cùng một thế cờ lặp lại ba lần. Luật chiếu dai và đuổi dai được đơn giản hóa: chỉ xét lặp lại thế cờ.</li>
+                  <li>Đấu với máy: “Đi lại” lùi cả nước của bạn và nước máy vừa đi.</li>
+                </ul>
+              </details>
+              <section class="game-menu-section" aria-labelledby="settings-heading">
+                <h3 id="settings-heading">Cài đặt</h3>
+                <div class="game-menu-actions">
+                  <label class="play-setting">Chế độ
+                    <select id="set-mode"><option value="ai">Đấu với máy</option><option value="local">2 người cùng máy</option></select>
+                  </label>
+                  <label class="play-setting">Quân của bạn
+                    <select id="set-side"><option value="red">Cầm quân Đỏ</option><option value="black">Cầm quân Đen</option></select>
+                  </label>
+                  <label class="play-setting">Mức máy
+                    <select id="set-level"><option value="easy">Dễ</option><option value="normal">Thường</option><option value="hard">Khó</option></select>
+                  </label>
+                  <label class="play-setting">Ký hiệu quân
+                    <select id="set-labels"><option value="han">Chữ Hán</option><option value="viet">Chữ Việt</option></select>
+                  </label>
+                  <button class="game-button" id="mute" type="button" aria-pressed="false">🔊 Tắt âm thanh</button>
+                </div>
+                <p class="game-small">Chế độ và quân cầm áp dụng từ ván mới. Mức máy và ký hiệu đổi ngay.</p>
+              </section>
+              <section class="game-menu-section" aria-labelledby="session-heading">
+                <h3 id="session-heading">Ván chơi</h3>
+                <div class="game-menu-actions"><button class="game-button" id="new-game" type="button">Ván mới</button></div>
+              </section>
+            </div>
+          </div>
+        </dialog>
+      </section>
+      <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
+    </main>
+  </body>
+</html>
