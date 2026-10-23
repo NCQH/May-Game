@@ -33,7 +33,9 @@ Thêm một mục vào `games.json` theo cấu trúc sau:
 }
 ```
 
-`id` chỉ dùng chữ thường, số và dấu gạch ngang. `art` hiện hỗ trợ `tetris`, `pikachu`, `flappy`, `pvz-goty`; `accent` hiện hỗ trợ `lime`, `coral`, `blue`.
+`id` chỉ dùng chữ thường, số và dấu gạch ngang. `art` hiện hỗ trợ `tetris`, `pikachu`, `flappy`, `pvz-goty` và các thẻ pixel `snake`, `2048`, `do-min`, `pha-gach`, `co-caro`, `o-an-quan`, `co-tuong` (thêm thẻ mới trong `PIXEL_ART` của `src/app.js`); `accent` hiện hỗ trợ `lime`, `coral`, `blue`. `recordLabel` (không bắt buộc) đổi nhãn “Kỷ lục” trên thẻ, ví dụ “Thắng máy” khi `bestScore` là số ván thắng máy.
+
+Game mới có thể dùng khung chơi chung: thêm class `arcade-play` cho `<main>`, nạp `assets/css/play.css` sau `shared.css`, và `assets/js/game-kit.js` trước script game. Tham khảo [Rắn săn mồi](./games/snake/) cho bố cục HUD, sân chơi, nút điều khiển, overlay và cách lưu.
 
 ## Giao diện một màn hình
 

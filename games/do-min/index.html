@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dò mìn — Máy Game</title>
+    <meta name="theme-color" content="#101814">
+    <link rel="icon" href="../../assets/favicon.ico?v=1" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="../../assets/favicon.svg?v=1" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=1">
+    <link rel="stylesheet" href="../../assets/css/typography.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=7" />
+    <link rel="stylesheet" href="../../assets/css/play.css?v=1" />
+    <link rel="stylesheet" href="./game.css?v=1" />
+    <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
+    <script type="module" src="../../assets/js/game-kit.js?v=1"></script>
+    <script type="module" src="./game.js?v=1"></script>
+    <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
+  </head>
+  <body>
+    <main class="game-page do-min-page arcade-game arcade-play">
+      <div class="arcade-case-header">
+        <span class="arcade-case-brand"><span class="arcade-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>MÁY GAME</span>
+        <span class="arcade-case-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+      <section class="arcade-screen" aria-label="Màn hình máy arcade">
+        <div class="arcade-screen-meta">
+          <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
+          <h1 class="game-title">Dò mìn</h1>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" aria-keyshortcuts="Escape" title="Tạm dừng và mở menu (Esc)" aria-controls="game-menu" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg></button>
+        </div>
+        <div class="arcade-game-content">
+          <section class="play-hud" aria-label="Thông số ván">
+            <div class="play-stat"><span>Mìn còn lại</span><strong id="mines-left">10</strong></div>
+            <div class="play-stat"><span>Thời gian</span><strong id="timer">0:00</strong></div>
+            <div class="play-stat"><span>Nhanh nhất</span><strong id="best-time">—</strong></div>
+          </section>
+          <div class="play-stage">
+            <div class="mine-scroll">
+              <div class="play-board">
+                <div class="mine-grid" id="mine-grid" role="group" aria-label="Bàn dò mìn" aria-describedby="mine-status"></div>
+              </div>
+            </div>
+            <div class="play-overlay" id="mine-overlay" hidden>
+              <h2>Thắng rồi!</h2>
+              <p></p>
+              <div class="play-overlay-actions">
+                <button class="game-button game-button-primary" id="mine-primary" type="button">Chơi lại</button>
+                <button class="game-button" id="mine-view" type="button">Xem bàn</button>
+              </div>
+            </div>
+          </div>
+          <div class="play-controls">
+            <button class="game-button" id="mode" type="button" aria-pressed="false">Chế độ: Mở ô</button>
+          </div>
+          <p class="sr-only" id="mine-status" role="status"></p>
+        </div>
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#mine-grid [tabindex='0']">
+          <div class="game-menu-card">
+            <header class="game-menu-header">
+              <h2 id="game-menu-title">Menu Dò mìn</h2>
+              <button class="game-button game-button-primary" type="button" data-menu-close autofocus>Đóng menu</button>
+            </header>
+            <div class="game-menu-body">
+              <p id="menu-state">Đồng hồ dừng khi menu mở. Đóng menu để chơi tiếp.</p>
+              <details>
+                <summary>Cách chơi</summary>
+                <ul>
+                  <li>Mở hết các ô không có mìn để thắng. Số trên ô cho biết có bao nhiêu mìn trong 8 ô quanh nó.</li>
+                  <li>Lần mở đầu tiên luôn an toàn và mở ra một vùng trống.</li>
+                  <li>Chuột: nhấp trái để mở ô, nhấp phải để cắm hoặc gỡ cờ.</li>
+                  <li>Chạm: chạm để mở ô, giữ khoảng nửa giây để cắm cờ. Bật “Chế độ: Cắm cờ” thì chạm là cắm cờ, giữ là mở ô.</li>
+                  <li>Mở một ô số đã đủ cờ xung quanh sẽ mở nhanh các ô còn lại. Cắm cờ sai thì có thể trúng mìn.</li>
+                  <li>Bàn phím: <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> di chuyển, <kbd>Space</kbd> hoặc <kbd>Enter</kbd> mở ô, <kbd>F</kbd> cắm cờ, <kbd>M</kbd> bật/tắt âm thanh; ☰ hoặc <kbd>Esc</kbd> mở menu.</li>
+                </ul>
+              </details>
+              <section class="game-menu-section" aria-labelledby="settings-heading">
+                <h3 id="settings-heading">Cài đặt</h3>
+                <div class="game-menu-actions mine-levels" role="group" aria-label="Độ khó">
+                  <button class="game-button" type="button" data-level="easy" aria-pressed="true">Dễ · 9×9</button>
+                  <button class="game-button" type="button" data-level="medium" aria-pressed="false">Vừa · 16×16</button>
+                  <button class="game-button" type="button" data-level="hard" aria-pressed="false">Khó · 30×16</button>
+                </div>
+                <div class="mine-confirm" id="level-confirm" hidden>
+                  <p id="level-confirm-text">Bỏ ván đang chơi?</p>
+                  <div class="game-menu-actions">
+                    <button class="game-button game-button-primary" id="level-confirm-yes" type="button">Đổi độ khó</button>
+                    <button class="game-button" id="level-confirm-no" type="button">Giữ ván</button>
+                  </div>
+                </div>
+                <p class="game-small">Đổi độ khó sẽ bắt đầu ván mới. Bàn Khó xoay dọc trên màn hình đứng.</p>
+                <div class="game-menu-actions">
+                  <button class="game-button" id="mute" type="button" aria-pressed="false">🔊 Tắt âm thanh</button>
+                </div>
+              </section>
+              <section class="game-menu-section" aria-labelledby="session-heading">
+                <h3 id="session-heading">Ván chơi</h3>
+                <div class="game-menu-actions"><button class="game-button" id="new-game" type="button">Ván mới</button></div>
+              </section>
+            </div>
+          </div>
+        </dialog>
+      </section>
+      <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
+    </main>
+  </body>
+</html>

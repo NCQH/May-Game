@@ -1,4 +1,7 @@
 const { test, expect } = require("@playwright/test");
+const newGames = ["snake", "2048", "do-min", "pha-gach", "co-caro", "o-an-quan", "co-tuong"];
+const newGameRoutes = newGames.map(id => `/games/${id}/`);
+const catalogCount = require('../../games.json').length;
 
 function spyHomeAudio() {
   window.audioEvents = [];
@@ -132,7 +135,7 @@ test("reduced motion keeps slow catalog loading static and respects preference c
 });
 
 test("home and games share the green frame, machine surface and content styling", async ({ page }) => {
-  const screens = ["/", "/contributors.html", "/contribute.html", "/games/tetris/", "/games/flappy-bird/", "/games/pikachu/", "/games/pvz-goty/", "/games/_template/"];
+  const screens = ["/", "/contributors.html", "/contribute.html", "/games/tetris/", "/games/flappy-bird/", "/games/pikachu/", "/games/pvz-goty/", "/games/_template/", ...newGameRoutes];
   for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1880, height: 924 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);
     let reference;
@@ -212,6 +215,7 @@ test("arcade actions retain shared readable fonts, touch targets and keyboard fo
     ["/games/pikachu/", ".pika-controls .pika-control"],
     ["/games/flappy-bird/", "#game-menu-toggle"],
     ["/games/pvz-goty/", "#game-menu-toggle"],
+    ...newGameRoutes.map(path => [path, '#game-menu-toggle']),
   ];
   for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);
@@ -343,7 +347,7 @@ test("home loads the game catalog and supports search and keyboard selection", a
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await expect(page.locator(".game-feature h1")).toHaveText("Tetris");
-  await expect(page.locator("#game-position")).toHaveText("01 / 04");
+  await expect(page.locator("#game-position")).toHaveText(`01 / ${String(catalogCount).padStart(2, '0')}`);
   await page.keyboard.press("ArrowRight");
   await expect(page.locator(".game-feature h1")).toHaveText("Pikachu");
   await page.keyboard.press("/");
@@ -722,7 +726,7 @@ test("every catalog start link remains visible and tappable on small screens", a
     await page.setViewportSize(viewport);
     await page.goto("/");
     await expect(page.locator("#start-game")).toBeVisible();
-    for (let game = 0; game < 4; game++) {
+    for (let game = 0; game < catalogCount; game++) {
       const card = page.locator('.selected-game');
       for (const time of [0, 80, 160]) {
         const overflow = await card.evaluate((node, currentTime) => {
@@ -758,7 +762,7 @@ test("small-phone catalog fits wider Linux fallback fonts without scrolling", as
   await page.goto('/');
   await expect(page.locator('#start-game')).toBeVisible();
   await page.addStyleTag({ content: ':root { --font-body: "DejaVu Sans", sans-serif; --font-display: "DejaVu Sans", sans-serif; }' });
-  for (let game = 0; game < 4; game++) {
+  for (let game = 0; game < catalogCount; game++) {
     expect(await page.locator('.selected-game').evaluate(node => [node.scrollWidth - node.clientWidth, node.scrollHeight - node.clientHeight])).toEqual([0, 0]);
     await expect(page.locator('#start-game')).toBeInViewport();
     await page.keyboard.press('ArrowRight');
@@ -772,7 +776,7 @@ test("shared styles and relocated Flappy assets load without missing requests", 
   });
   await page.goto("/");
   await expect(page.locator("#start-game")).toBeVisible();
-  for (let game = 0; game < 4; game++) {
+  for (let game = 0; game < catalogCount; game++) {
     const art = page.locator(".game-feature");
     const backgrounds = await art.evaluate((node) => [...node.querySelectorAll("*")].flatMap((element) => {
       const match = getComputedStyle(element).backgroundImage.match(/url\("?([^"\)]+)"?\)/);
@@ -782,7 +786,7 @@ test("shared styles and relocated Flappy assets load without missing requests", 
     await expect.poll(() => art.locator("img").evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0))).toBe(true);
     await page.keyboard.press("ArrowRight");
   }
-  for (const route of ["/contribute.html", "/contributors.html", "/games/_template/", "/games/flappy-bird/", "/games/pikachu/", "/games/tetris/"]) {
+  for (const route of ["/contribute.html", "/contributors.html", "/games/_template/", "/games/flappy-bird/", "/games/pikachu/", "/games/tetris/", ...newGameRoutes]) {
     await page.goto(route);
     await expect.poll(() => page.evaluate(() => getComputedStyle(document.body).getPropertyValue("--font-body").trim())).not.toBe("");
   }
@@ -1129,7 +1133,7 @@ test("review controls fit without scrolling and touch pause/mute work", async ({
 test("game pages fit phone and desktop viewports without horizontal overflow", async ({ page }) => {
   for (const viewport of [{ width: 320, height: 568 }, { width: 412, height: 924 }, { width: 568, height: 320 }, { width: 1280, height: 800 }]) {
     await page.setViewportSize(viewport);
-    for (const route of ["/", "/games/pikachu/", "/games/tetris/", "/games/flappy-bird/"]) {
+    for (const route of ["/", "/games/pikachu/", "/games/tetris/", "/games/flappy-bird/", ...newGameRoutes]) {
       await page.goto(route);
       if (route.includes('tetris')) await page.locator('button[data-mode=marathon]').click();
       const dimensions = await page.evaluate(() => ({

@@ -1,0 +1,64 @@
+/* Shared one-screen layout for the board and arcade games built on game-kit.js.
+   Load after shared.css and before the game's own CSS; viewport.css stays last. */
+.arcade-game.arcade-play { --cabinet-width: 760px; height: calc(100dvh - var(--page-inset) * 2 - 8px); min-height: 0; }
+.arcade-play .arcade-game-content {
+  display: grid;
+  grid-template: "hud" auto "stage" minmax(0, 1fr) "controls" auto / minmax(0, 1fr);
+  gap: 10px;
+  padding: clamp(8px, 1.6vw, 16px);
+}
+.arcade-play [hidden] { display: none !important; }
+.arcade-play :is(button, [tabindex]):focus-visible { outline: 3px solid var(--game-sand); outline-offset: 3px; }
+
+.play-hud { grid-area: hud; display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.play-stat { display: grid; flex: 1 1 0; gap: 2px; min-width: 68px; padding: 5px 10px; border: 1px solid var(--game-line); background: var(--game-panel); }
+.play-stat span { color: var(--game-muted); font: 600 12px/1.3 var(--font-display); }
+.play-stat strong { overflow: hidden; color: var(--game-sand); font: 600 18px/1.2 var(--font-display); font-variant-numeric: tabular-nums; text-overflow: ellipsis; white-space: nowrap; }
+.play-turn { display: flex; flex: 1 1 100%; align-items: center; gap: 8px; min-height: 32px; color: var(--game-text); font: 600 14px/1.3 var(--font-body); }
+.play-turn i { flex: none; width: 14px; height: 14px; border: 2px solid var(--game-bg); box-shadow: 0 0 0 1px var(--game-line); }
+
+.play-stage { position: relative; display: grid; grid-area: stage; place-items: center; min-width: 0; min-height: 0; container-type: size; }
+.play-board { position: relative; width: min(100cqw, 100cqh * var(--stage-ratio, 1)); aspect-ratio: var(--stage-ratio, 1); max-height: 100cqh; }
+.play-board > canvas { width: 100%; height: 100%; image-rendering: auto; touch-action: none; }
+
+.play-controls { display: flex; grid-area: controls; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
+.play-controls .game-button { flex: 1 1 auto; max-width: 220px; }
+
+.play-overlay { position: absolute; inset: 0; z-index: 2; display: grid; place-content: center; justify-items: center; gap: 12px; padding: 16px; background: rgba(16, 27, 21, .88); text-align: center; }
+.play-overlay h2 { margin: 0; color: var(--game-text); font: 600 22px/1.2 var(--font-display); }
+.play-overlay p { max-width: 32ch; margin: 0; color: var(--game-muted); font-size: 14px; line-height: 1.6; }
+.play-overlay-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+/* Direction pad for touch screens; keyboards and fine pointers keep the board full size. */
+.play-pad { display: grid; grid-template: ". up ." 44px "left down right" 44px / 52px 52px 52px; gap: 4px; }
+.play-pad button { min-width: 0; padding: 0; font-size: 18px; }
+.play-pad [data-dir="up"] { grid-area: up; }
+.play-pad [data-dir="left"] { grid-area: left; }
+.play-pad [data-dir="down"] { grid-area: down; }
+.play-pad [data-dir="right"] { grid-area: right; }
+@media (hover: hover) and (pointer: fine) { .play-pad { display: none; } }
+
+.game-menu select { min-height: 44px; padding: 6px 10px; border: 2px solid var(--control-border); border-radius: 0; background: var(--control-bg); color: var(--control-text); font: var(--font-control); }
+.game-menu label.play-setting { display: grid; gap: 6px; font-size: 14px; }
+
+/* Landscape stages: stats and controls move beside the board. */
+@media (min-aspect-ratio: 5/4) {
+  /* Stats left, controls right, so the board stays centred in the screen. */
+  .arcade-play .arcade-game-content { grid-template: "hud stage controls" minmax(0, 1fr) / minmax(130px, 230px) minmax(0, 1fr) minmax(130px, 230px); }
+  .arcade-play .play-hud { flex-direction: column; align-self: start; }
+  .arcade-play .play-stat { flex: none; }
+  .arcade-play .play-controls { flex-direction: column; align-items: stretch; align-self: center; justify-content: center; }
+  .arcade-play .play-controls .game-button { flex: none; max-width: none; }
+  .arcade-play .play-pad { align-self: center; justify-self: center; }
+}
+@media (min-width: 900px) and (min-height: 600px) {
+  .arcade-game.arcade-play { --cabinet-width: min(1760px, max(1100px, (100dvh - var(--page-inset) * 2 - 8px) * 1.6)); }
+}
+@media (max-height: 500px) {
+  /* Landscape phones: drop the decorative cabinet header/deck so the board gets the height. */
+  .arcade-game.arcade-play :is(.arcade-case-header, .arcade-deck) { display: none; }
+  .arcade-game.arcade-play { --cabinet-width: 100%; padding-top: clamp(5px, 1vw, 10px); }
+  .arcade-play .play-stat { padding: 3px 8px; }
+  .arcade-play .play-stat strong { font-size: 16px; }
+  .arcade-play .play-overlay { gap: 8px; padding: 8px; }
+}

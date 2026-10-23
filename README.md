@@ -10,6 +10,13 @@ Thư viện game cổ điển tiếng Việt, chơi trực tiếp trên trình d
 - **Pikachu** — nối các cặp hình giống nhau.
 - **Flappy Bird** — bay qua các cột và tránh va chạm.
 - **Plants vs. Zombies GOTY** — trồng cây phòng thủ trước zombie.
+- **Ô ăn quan** — trò dân gian rải quân, ăn dân và ăn quan; đấu máy hoặc hai người.
+- **Cờ caro** — xếp năm quân liền hàng; đấu máy hoặc hai người.
+- **Cờ tướng** — đủ luật cờ tướng; đấu máy hoặc hai người.
+- **Rắn săn mồi** — ăn mồi để dài ra, tránh cắn vào thân.
+- **2048** — trượt và gộp các ô cùng số.
+- **Dò mìn** — mở hết ô an toàn nhờ các con số gợi ý.
+- **Phá gạch** — đỡ bóng phá hết gạch qua từng màn.
 
 ## Đóng góp và phát triển
 
@@ -22,6 +29,6 @@ Mỗi game nằm trong `games/` và được đăng ký trong `games.json`.
 
 ## Tiến trình và asset
 
-Tetris, Pikachu và Flappy Bird lưu điểm/tiến trình bằng `localStorage`; PvZ lưu dữ liệu bằng IndexedDB. Dữ liệu nằm trên trình duyệt của thiết bị hiện tại, không đồng bộ giữa các thiết bị.
+Các game lưu điểm/tiến trình bằng `localStorage`; PvZ lưu dữ liệu bằng IndexedDB. Dữ liệu nằm trên trình duyệt của thiết bị hiện tại, không đồng bộ giữa các thiết bị.
 
 Nguồn và giấy phép asset được ghi trong [ASSETS.md](./ASSETS.md).

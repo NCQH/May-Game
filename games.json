@@ -66,5 +66,128 @@
         "github": "NCQH"
       }
     ]
+  },
+  {
+    "id": "o-an-quan",
+    "title": "Ô ăn quan",
+    "category": "Dân gian",
+    "description": "Rải quân quanh bàn, ăn dân và ăn quan. Hết quan thì tính điểm, ai nhiều hơn thắng.",
+    "players": "1–2 người",
+    "controls": "Chọn ô của bạn rồi chọn hướng rải · ← → đổi ô · Enter chọn",
+    "path": "./games/o-an-quan/index.html",
+    "art": "o-an-quan",
+    "accent": "coral",
+    "recordLabel": "Thắng máy",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
+  },
+  {
+    "id": "co-caro",
+    "title": "Cờ caro",
+    "category": "Đấu trí",
+    "description": "Xếp đủ năm quân liền hàng ngang, dọc hoặc chéo trước đối thủ. Đấu với máy hoặc hai người.",
+    "players": "1–2 người",
+    "controls": "Chạm ô để đặt quân · phím mũi tên chọn ô · Enter đặt",
+    "path": "./games/co-caro/index.html",
+    "art": "co-caro",
+    "accent": "lime",
+    "recordLabel": "Thắng máy",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
+  },
+  {
+    "id": "co-tuong",
+    "title": "Cờ tướng",
+    "category": "Đấu trí",
+    "description": "Chiếu bí tướng đối phương với đủ luật xe, pháo, mã, tượng, sĩ, tốt. Đấu với máy hoặc hai người.",
+    "players": "1–2 người",
+    "controls": "Chọn quân rồi chọn điểm đến · phím mũi tên · Enter chọn",
+    "path": "./games/co-tuong/index.html",
+    "art": "co-tuong",
+    "accent": "coral",
+    "recordLabel": "Thắng máy",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
+  },
+  {
+    "id": "snake",
+    "title": "Rắn săn mồi",
+    "category": "Phản xạ",
+    "description": "Điều khiển rắn ăn mồi để dài ra. Đừng cắn vào thân mình.",
+    "players": "1 người",
+    "controls": "Phím mũi tên / WASD / vuốt để đổi hướng · P tạm dừng",
+    "path": "./games/snake/index.html",
+    "art": "snake",
+    "accent": "lime",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
+  },
+  {
+    "id": "2048",
+    "title": "2048",
+    "category": "Giải đố",
+    "description": "Trượt để gộp các ô cùng số. Ghép được ô 2048 là thắng.",
+    "players": "1 người",
+    "controls": "Phím mũi tên / WASD / vuốt để trượt · U đi lại",
+    "path": "./games/2048/index.html",
+    "art": "2048",
+    "accent": "blue",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
+  },
+  {
+    "id": "do-min",
+    "title": "Dò mìn",
+    "category": "Giải đố",
+    "description": "Mở hết ô an toàn dựa vào số mìn xung quanh. Cắm cờ những ô bạn đoán có mìn.",
+    "players": "1 người",
+    "controls": "Chạm mở ô · giữ hoặc chuột phải cắm cờ · F cắm cờ bằng phím",
+    "path": "./games/do-min/index.html",
+    "art": "do-min",
+    "accent": "blue",
+    "recordLabel": "Ván thắng",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
+  },
+  {
+    "id": "pha-gach",
+    "title": "Phá gạch",
+    "category": "Phản xạ",
+    "description": "Đỡ bóng bằng thanh trượt để phá hết gạch qua từng màn.",
+    "players": "1 người",
+    "controls": "Kéo / ← → di chuyển · Space hoặc chạm để phóng bóng",
+    "path": "./games/pha-gach/index.html",
+    "art": "pha-gach",
+    "accent": "coral",
+    "contributors": [
+      {
+        "name": "NCQH",
+        "github": "NCQH"
+      }
+    ]
   }
 ]

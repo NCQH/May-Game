@@ -1,0 +1,79 @@
+/* Cờ tướng: SVG board lines under a 9×10 grid of intersection buttons. */
+.co-tuong-page .play-board {
+  --stage-ratio: .9;
+  --xq-surface: #213529;
+  --xq-line: #9fb08a;
+  --xq-disc: #f1e6c6;
+  --xq-disc-edge: #c8b582;
+  --xq-red: #b3261e;
+  --xq-black: #1c1d1a;
+  container-type: size;
+  background: var(--xq-surface);
+  border: 2px solid var(--game-line);
+}
+.xq-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.xq-lines line, .xq-lines path, .xq-lines rect { fill: none; stroke: var(--xq-line); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.xq-lines .xq-frame { stroke-width: 2px; }
+.xq-lines text { fill: var(--xq-line); font: 600 4.2px/1 var(--font-display); letter-spacing: .3px; text-anchor: middle; dominant-baseline: middle; opacity: .85; }
+
+.xq-grid { position: absolute; inset: 0; touch-action: manipulation; }
+.xq-point {
+  position: absolute; display: grid; place-items: center; width: calc(100% / 9); height: 10%; margin: 0; padding: 0;
+  border: 0; border-radius: 0; background: transparent; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.co-tuong-page .xq-point:focus-visible { outline-offset: -3px; }
+.xq-point > span { grid-area: 1 / 1; }
+.xq-piece {
+  --xq-ink: var(--xq-red);
+  display: grid; place-items: center; width: 90%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%, #fbf4de, var(--xq-disc) 62%);
+  box-shadow: inset 0 0 0 calc(100cqw / 9 * .045) var(--xq-disc), inset 0 0 0 calc(100cqw / 9 * .07) var(--xq-ink), 0 0 0 1px var(--xq-disc-edge), 0 2px 0 rgba(0, 0, 0, .45);
+  color: var(--xq-ink);
+  font: 700 calc(100cqw / 9 * .5) / 1 "Noto Sans CJK TC", "Noto Sans CJK SC", "Noto Sans SC", "Noto Serif CJK TC", "Source Han Sans TC", "Microsoft JhengHei", "Microsoft YaHei", "PingFang TC", "PingFang SC", serif;
+  user-select: none;
+}
+.xq-piece.is-black { --xq-ink: var(--xq-black); }
+.is-viet .xq-piece { font: 700 calc(100cqw / 9 * .25) / 1 var(--font-body); letter-spacing: -.02em; }
+
+/* Selection, legal destinations, last move and check. Shape cues accompany colour. */
+.xq-point.is-selected .xq-piece { box-shadow: inset 0 0 0 calc(100cqw / 9 * .045) var(--xq-disc), inset 0 0 0 calc(100cqw / 9 * .07) var(--xq-ink), 0 0 0 3px var(--game-lime), 0 3px 0 rgba(0, 0, 0, .5); transform: translateY(-2px); }
+.xq-point.is-target::after { content: ""; grid-area: 1 / 1; width: 30%; aspect-ratio: 1; border: 2px solid var(--game-bg); border-radius: 50%; background: var(--game-lime); }
+.xq-point.is-target:has(.xq-piece)::after { width: 96%; border: 3px solid var(--game-lime); background: transparent; }
+.xq-point.is-last-from::before { content: ""; grid-area: 1 / 1; width: 46%; aspect-ratio: 1; border: 2px dashed var(--game-sand); border-radius: 50%; opacity: .8; }
+.xq-point.is-last-to .xq-piece { box-shadow: inset 0 0 0 calc(100cqw / 9 * .045) var(--xq-disc), inset 0 0 0 calc(100cqw / 9 * .07) var(--xq-ink), 0 0 0 3px var(--game-sand), 0 2px 0 rgba(0, 0, 0, .45); }
+.xq-point.is-check .xq-piece { box-shadow: inset 0 0 0 calc(100cqw / 9 * .045) var(--xq-disc), inset 0 0 0 calc(100cqw / 9 * .07) var(--xq-ink), 0 0 0 4px var(--game-coral), 0 0 14px 2px rgba(238, 136, 107, .7); }
+.xq-grid[aria-busy="true"] .xq-point { cursor: progress; }
+
+.co-tuong-page .play-turn { margin: 0; }
+/* Turn swatch is a tiny piece: ink dot on the light disc. */
+.co-tuong-page .play-turn i { width: 16px; height: 16px; border: 0; border-radius: 50%; box-shadow: 0 0 0 1px var(--game-line); }
+.co-tuong-page .play-turn i.is-red { background: radial-gradient(circle, #c4302a 0 42%, #f1e6c6 48%); }
+.co-tuong-page .play-turn i.is-black { background: radial-gradient(circle, #1c1d1a 0 42%, #f1e6c6 48%); }
+.co-tuong-page .play-turn i:not(.is-red):not(.is-black) { background: var(--game-lime); }
+.co-tuong-page .game-menu-actions { align-items: flex-end; }
+.co-tuong-page .play-stat { min-width: 58px; }
+.co-tuong-page .play-overlay { background: rgba(16, 27, 21, .8); }
+.co-tuong-page .play-overlay.is-result { background: rgba(16, 27, 21, .72); }
+
+/* Phones: compact one-line stats so the board keeps the space. */
+@media (max-aspect-ratio: 5/4) and (max-width: 560px) {
+  .co-tuong-page .play-hud { gap: 4px; }
+  .co-tuong-page .play-stat { display: flex; flex: 1 1 auto; align-items: baseline; justify-content: center; gap: 5px; min-width: 0; padding: 3px 6px; }
+  .co-tuong-page .play-stat strong { font-size: 15px; }
+  .co-tuong-page .play-turn { min-height: 26px; font-size: 13px; }
+}
+@media (max-aspect-ratio: 5/4) and (max-width: 360px) {
+  .co-tuong-page .xq-wins-stat { display: none; }
+}
+/* Short portrait screens: drop the decorative deck (the header stays) so the board gets the height. */
+@media (max-aspect-ratio: 5/4) and (max-height: 640px) {
+  .arcade-game.co-tuong-page .arcade-deck { display: none; }
+}
+/* Landscape phones: two-by-two stats beside the board. */
+@media (min-aspect-ratio: 5/4) and (max-height: 500px) {
+  .arcade-play.co-tuong-page .arcade-game-content { padding: 6px; gap: 8px; }
+  .co-tuong-page .play-hud { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+  .co-tuong-page .play-turn { grid-column: 1 / -1; min-height: 0; font-size: 13px; }
+  .co-tuong-page .play-stat { min-width: 0; padding: 2px 6px; }
+  .co-tuong-page .play-stat span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}

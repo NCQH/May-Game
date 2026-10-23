@@ -1,0 +1,20 @@
+.pha-gach-page .play-board { --stage-ratio: .75; border: 2px solid var(--game-line); }
+.pha-gach-page #pha-gach-board { cursor: pointer; }
+/* Hold-to-move buttons for touch screens; fine pointers move the paddle on the board itself. */
+.pha-gach-move { display: flex; justify-content: center; gap: 10px; width: 100%; }
+.arcade-play .pha-gach-move .game-button { flex: 1 1 0; min-width: 52px; max-width: 160px; min-height: 52px; padding: 0; font-size: 20px; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+@media (hover: hover) and (pointer: fine) { .pha-gach-move { display: none; } }
+@media (min-aspect-ratio: 5/4) {
+  .arcade-play .pha-gach-move .game-button { flex: 1 1 0; }
+}
+/* Narrow phones: keep the four stats on one row so the board keeps its height. */
+@media (max-width: 420px) and (min-height: 501px) {
+  .pha-gach-page .play-hud { flex-wrap: nowrap; gap: 4px; }
+  .pha-gach-page .play-stat { min-width: 0; padding: 3px 6px; }
+  .pha-gach-page .play-stat strong { font-size: 16px; }
+}
+/* Small boards: tighter overlay so the title, text and button stay inside the field. */
+@container (max-height: 320px) {
+  .pha-gach-page .play-overlay { gap: 6px; padding: 6px; }
+  .pha-gach-page .play-overlay h2 { font-size: 18px; }
+}

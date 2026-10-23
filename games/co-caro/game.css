@@ -1,0 +1,62 @@
+.co-caro-page { --stage-ratio: 1; --caro-paper: #15241b; --caro-stroke: clamp(2px, .8cqmin, 5px); }
+.co-caro-page .play-hud .co-caro-mode { flex: 1 1 100%; margin: 0; }
+.co-caro-page .play-turn i { background: var(--game-panel); }
+.co-caro-page .play-turn i[data-stone="x"] { background: var(--game-lime); }
+.co-caro-page .play-turn i[data-stone="o"] { border-radius: 50%; background: var(--game-coral); }
+
+/* The 1px gaps over the line colour draw the grid. */
+.co-caro-board { display: grid; grid-template: repeat(15, minmax(0, 1fr)) / repeat(15, minmax(0, 1fr)); gap: 1px; width: 100%; height: 100%;
+  border: 2px solid var(--game-line); background: var(--game-line); touch-action: manipulation; user-select: none; }
+.caro-cell { position: relative; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; background: var(--caro-paper); cursor: pointer; }
+.caro-cell[data-stone] { cursor: default; }
+.co-caro-page .caro-cell:focus-visible { z-index: 1; outline: 3px solid var(--game-sand); outline-offset: -2px; }
+.caro-cell.is-last { background: #26392a; box-shadow: inset 0 0 0 2px rgba(224, 232, 189, .55); }
+.caro-cell.is-win { background: #3b5427; box-shadow: inset 0 0 0 2px var(--game-lime); }
+
+/* X: two lime bars; O: a coral ring. Hover previews use the same shapes, faded. */
+.caro-cell[data-stone="x"]::before, .caro-cell[data-stone="x"]::after,
+.co-caro-board[data-preview="x"] .caro-cell:not([data-stone]):hover::before,
+.co-caro-board[data-preview="x"] .caro-cell:not([data-stone]):hover::after {
+  position: absolute; top: calc(50% - var(--caro-stroke) / 2); left: 17%; width: 66%; height: var(--caro-stroke);
+  background: var(--game-lime); content: ""; transform: rotate(45deg); }
+.caro-cell[data-stone="x"]::after, .co-caro-board[data-preview="x"] .caro-cell:not([data-stone]):hover::after { transform: rotate(-45deg); }
+.caro-cell[data-stone="o"]::before, .co-caro-board[data-preview="o"] .caro-cell:not([data-stone]):hover::before {
+  position: absolute; inset: 19%; border: var(--caro-stroke) solid var(--game-coral); border-radius: 50%; content: ""; }
+.co-caro-board[data-preview] .caro-cell:not([data-stone]):hover::before,
+.co-caro-board[data-preview] .caro-cell:not([data-stone]):hover::after { opacity: .3; }
+@media not (hover: hover) { .co-caro-board .caro-cell:not([data-stone])::before, .co-caro-board .caro-cell:not([data-stone])::after { content: none !important; } }
+.caro-cell.is-last[data-stone]::before, .caro-cell.is-last[data-stone]::after { animation: caro-drop .16s ease-out; }
+@keyframes caro-drop { from { opacity: 0; scale: .6; } }
+@media (prefers-reduced-motion: reduce) { .caro-cell[data-stone]::before, .caro-cell[data-stone]::after { animation: none !important; } }
+
+/* Result banner: keeps the final board and winning line visible. */
+.co-caro-page .co-caro-banner { inset: auto 0 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px;
+  padding: 10px 12px; border-top: 2px solid var(--game-lime); background: rgba(16, 27, 21, .93); text-align: left; }
+.co-caro-page .co-caro-banner[data-at="top"] { inset: 0 0 auto; border-top: 0; border-bottom: 2px solid var(--game-lime); }
+.co-caro-banner-text { display: grid; gap: 2px; }
+.co-caro-page .co-caro-banner h2 { font-size: 20px; }
+.co-caro-page .co-caro-banner p { font-size: 13px; line-height: 1.4; }
+@container (max-width: 420px) {
+  .co-caro-page .co-caro-banner { flex-wrap: nowrap; gap: 12px; padding: 8px 10px; }
+  .co-caro-page .co-caro-banner h2 { font-size: 18px; }
+  .co-caro-page .co-caro-banner p { display: none; }
+}
+
+.co-caro-settings .play-setting { flex: 1 1 150px; }
+#settings-note.is-pending { color: var(--game-lime); }
+
+/* Portrait: one turn row plus one compact tally row, so the 15-cell board gets the height. */
+@media (max-aspect-ratio: 5/4) {
+  .co-caro-page .play-hud { gap: 4px 6px; }
+  .co-caro-page .play-turn { min-height: 28px; }
+  .co-caro-page .play-stat { display: flex; align-items: baseline; justify-content: center; gap: 6px; padding: 3px 8px; }
+  .co-caro-page .play-stat strong { font-size: 16px; }
+}
+@media (max-aspect-ratio: 5/4) and (max-height: 700px) {
+  .co-caro-page .play-hud .co-caro-mode { display: none; }
+  .co-caro-page.arcade-play .arcade-game-content { gap: 6px; padding: 6px; }
+}
+@media (max-aspect-ratio: 5/4) and (max-height: 640px) {
+  .co-caro-page.arcade-game.arcade-play .arcade-deck { display: none; }
+}
+@media (max-height: 500px) { .co-caro-page.arcade-play .arcade-game-content { padding: 6px; } }

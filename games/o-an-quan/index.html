@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ô ăn quan — Máy Game</title>
+    <meta name="theme-color" content="#101814">
+    <link rel="icon" href="../../assets/favicon.ico?v=1" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="../../assets/favicon.svg?v=1" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=1">
+    <link rel="stylesheet" href="../../assets/css/typography.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/shared.css?v=7" />
+    <link rel="stylesheet" href="../../assets/css/play.css?v=1" />
+    <link rel="stylesheet" href="./game.css?v=1" />
+    <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
+    <script type="module" src="../../assets/js/game-kit.js?v=1"></script>
+    <script type="module" src="./game.js?v=1"></script>
+    <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
+  </head>
+  <body>
+    <main class="game-page o-an-quan-page arcade-game arcade-play">
+      <div class="arcade-case-header">
+        <span class="arcade-case-brand"><span class="arcade-brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>MÁY GAME</span>
+        <span class="arcade-case-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+      <section class="arcade-screen" aria-label="Màn hình máy arcade">
+        <div class="arcade-screen-meta">
+          <a class="back-link" href="../../index.html" aria-label="Về màn hình chính">← Màn hình chính</a>
+          <h1 class="game-title">Ô ăn quan</h1>
+          <button class="game-button game-icon-button" id="game-menu-toggle" type="button" aria-label="Tạm dừng và mở menu" aria-keyshortcuts="Escape" title="Tạm dừng và mở menu (Esc)" aria-controls="game-menu" aria-expanded="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg></button>
+        </div>
+        <div class="arcade-game-content">
+          <section class="play-hud" aria-label="Điểm số">
+            <div class="play-turn" id="oaq-turn" data-player="0"><i aria-hidden="true"></i><span id="oaq-turn-text">Lượt của bạn</span></div>
+            <div class="play-stat oaq-stat-0"><span id="oaq-name-0">Bạn</span><strong id="oaq-score-0">0</strong></div>
+            <div class="play-stat oaq-stat-1"><span id="oaq-name-1">Máy</span><strong id="oaq-score-1">0</strong></div>
+            <div class="play-stat" id="oaq-wins-stat"><span>Thắng máy</span><strong id="oaq-wins">0</strong></div>
+          </section>
+          <div class="play-stage">
+            <div class="play-board oaq-board" id="oaq-board" role="group" tabindex="-1" aria-label="Bàn ô ăn quan. Hàng dưới là của bạn, hàng trên là của đối thủ. Dùng phím mũi tên để chọn ô, Enter để mở hướng rải." aria-describedby="oaq-status">
+              <div class="oaq-dirs" id="oaq-dirs" hidden>
+                <button class="game-button game-button-primary oaq-dir" type="button" aria-label="Rải về trái">◀</button>
+                <button class="game-button game-button-primary oaq-dir" type="button" aria-label="Rải về phải">▶</button>
+              </div>
+            </div>
+            <div class="play-overlay" id="oaq-overlay" hidden>
+              <h2>Hết ván</h2>
+              <p></p>
+              <div class="play-overlay-actions"><button class="game-button game-button-primary" id="oaq-primary" type="button">Chơi lại</button></div>
+            </div>
+          </div>
+          <div class="play-controls">
+            <button class="game-button" id="oaq-new" type="button">Ván mới</button>
+          </div>
+          <p class="sr-only" id="oaq-status" role="status"></p>
+        </div>
+        <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#oaq-board">
+          <div class="game-menu-card">
+            <header class="game-menu-header">
+              <h2 id="game-menu-title">Menu Ô ăn quan</h2>
+              <button class="game-button game-button-primary" type="button" data-menu-close autofocus>Đóng menu</button>
+            </header>
+            <div class="game-menu-body">
+              <p id="oaq-menu-state">Đóng menu để chơi tiếp.</p>
+              <details>
+                <summary>Cách chơi</summary>
+                <ul>
+                  <li>Bàn có 10 ô dân (mỗi bên 5 ô, mỗi ô 5 dân) và 2 ô quan ở hai đầu (mỗi ô 1 quan, quan = 10 điểm, dân = 1 điểm). Hàng dưới là của bạn (Người 1).</li>
+                  <li>Đến lượt, chọn một ô dân có quân của mình và một hướng. Bốc hết quân, rải mỗi ô một viên theo hướng đó, kể cả ô quan.</li>
+                  <li>Rải xong, nhìn ô kế tiếp: là ô dân có quân thì bốc lên rải tiếp; là ô quan còn quân thì hết lượt; nếu trống mà ô sau nó có quân thì ăn hết ô đó. Sau đó cứ một ô trống rồi một ô có quân thì ăn tiếp (ăn liên). Hai ô trống liền nhau thì hết lượt.</li>
+                  <li>Quan non (bật sẵn): ô quan còn quan mà có dưới 5 dân thì chưa được ăn; nếu ô đó là mục tiêu ăn thì hết lượt.</li>
+                  <li>Đến lượt mà 5 ô của mình đều trống thì phải rải lại 5 dân từ quân đã ăn, mỗi ô một dân; thiếu thì vay đối thủ, cuối ván trả lại.</li>
+                  <li>Khi cả hai ô quan đều trống (hết quan, tàn dân), dân còn trên hàng bên nào thuộc về bên đó. Ai nhiều điểm hơn thắng; bằng nhau là hòa.</li>
+                  <li>Giới hạn an toàn: sau 80 lần bốc liên tiếp thì hết lượt; sau 400 lượt hoặc không còn dân ở cả hai kho để rải lại thì gom quân còn trên mỗi bên để tính điểm.</li>
+                  <li>Chạm ô của mình rồi chạm ◀ ▶ (hoặc ▲ ▼ khi bàn dựng đứng) để chọn hướng. Bàn phím: mũi tên chọn ô, <kbd>Enter</kbd> mở hướng, <kbd>←</kbd>/<kbd>→</kbd> (hoặc <kbd>↑</kbd>/<kbd>↓</kbd>) chọn hướng, <kbd>Esc</kbd> hủy. <kbd>M</kbd> bật/tắt âm thanh; ☰ hoặc <kbd>Esc</kbd> mở menu.</li>
+                </ul>
+              </details>
+              <section class="game-menu-section" aria-labelledby="settings-heading">
+                <h3 id="settings-heading">Cài đặt</h3>
+                <div class="game-menu-actions">
+                  <label class="play-setting">Chế độ
+                    <select id="oaq-mode"><option value="ai">Đấu với máy</option><option value="pvp">2 người cùng máy</option></select>
+                  </label>
+                  <label class="play-setting">Mức máy
+                    <select id="oaq-level"><option value="easy">Dễ</option><option value="normal">Thường</option><option value="hard">Khó</option></select>
+                  </label>
+                  <label class="play-setting">Tốc độ rải
+                    <select id="oaq-speed"><option value="normal">Thường</option><option value="fast">Nhanh</option></select>
+                  </label>
+                  <button class="game-button" id="oaq-ai-first" type="button" aria-pressed="false">Máy đi trước: tắt</button>
+                  <button class="game-button" id="oaq-quan-non" type="button" aria-pressed="true">Quan non: không được ăn</button>
+                  <button class="game-button" id="mute" type="button" aria-pressed="false">🔊 Tắt âm thanh</button>
+                </div>
+                <p class="game-small">Chế độ, máy đi trước và quan non áp dụng từ ván mới. Mức máy đổi ngay.</p>
+              </section>
+              <section class="game-menu-section" aria-labelledby="session-heading">
+                <h3 id="session-heading">Ván chơi</h3>
+                <div class="game-menu-actions"><button class="game-button" id="oaq-menu-new" type="button">Ván mới</button></div>
+              </section>
+            </div>
+          </div>
+        </dialog>
+      </section>
+      <div class="arcade-deck"><span class="arcade-speaker" aria-hidden="true"></span></div>
+    </main>
+  </body>
+</html>

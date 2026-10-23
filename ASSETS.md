@@ -18,6 +18,12 @@
 - Khối, ghost và preview được vẽ bằng Canvas trong repo; hiệu ứng âm thanh tạo bằng Web Audio, không tải nhạc/skin từ TETR.IO.
 - TETR.IO là tham chiếu trải nghiệm solo, không phải nguồn asset hoặc engine của bản này.
 
+## Ô ăn quan, Cờ caro, Cờ tướng, Rắn săn mồi, 2048, Dò mìn, Phá gạch
+
+- Bàn chơi, quân, gạch, ô số và hiệu ứng được vẽ bằng Canvas, CSS hoặc SVG trong repo; âm thanh tạo bằng Web Audio. Không dùng ảnh, nhạc hay font tải về riêng.
+- Chữ Hán trên quân Cờ tướng dùng font CJK có sẵn trên thiết bị; có thể chuyển sang chữ Việt trong menu.
+- Luật chơi là luật dân gian/phổ biến, không lấy mã nguồn hay asset từ game thương mại.
+
 ## Pikachu
 
 - **Nguồn:** [Pikachu Cổ Điển](https://www.pikachucodien.net/) và [game Pikachu 2026](https://www.pikachucodien.net/games/pikachu-2026/index.html).

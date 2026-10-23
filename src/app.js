@@ -93,6 +93,18 @@ const TETRIS_PIXELS = [
   [2, 7, "#f5b16e"], [3, 7, "#f5b16e"], [4, 7, "#f5b16e"], [4, 6, "#f5b16e"],
 ];
 
+// Pixel cards for the newer games: [column, row, colour] on the same 9×8 grid as Tetris.
+const L = "#c7e875", C = "#ee886b", B = "#79c9c4", S = "#e0e8bd", G = "#5f7350", W = "#a8794f", K = "#1a1f1b";
+const PIXEL_ART = {
+  snake: [[2, 6, L], [3, 6, L], [4, 6, L], [5, 6, L], [5, 5, L], [5, 4, L], [6, 4, L], [7, 4, S], [7, 2, C]],
+  2048: [[3, 3, S], [4, 3, L], [5, 3, G], [6, 3, B], [3, 4, G], [4, 4, C], [5, 4, L], [6, 4, G], [3, 5, B], [4, 5, G], [5, 5, S], [6, 5, C], [3, 6, L], [4, 6, S], [5, 6, G], [6, 6, L]],
+  "do-min": [[3, 3, S], [4, 3, S], [5, 3, S], [6, 3, G], [7, 3, G], [3, 4, S], [4, 4, B], [5, 4, S], [6, 4, G], [7, 4, C], [3, 5, S], [4, 5, S], [5, 5, K], [6, 5, G], [7, 5, G], [3, 6, G], [4, 6, G], [5, 6, G], [6, 6, G], [7, 6, G]],
+  "pha-gach": [[2, 2, C], [3, 2, C], [4, 2, C], [5, 2, C], [6, 2, C], [7, 2, C], [8, 2, C], [2, 3, S], [3, 3, S], [5, 3, S], [7, 3, S], [8, 3, S], [6, 5, S], [4, 7, L], [5, 7, L], [6, 7, L]],
+  "co-caro": [[3, 3, L], [4, 4, L], [5, 5, L], [6, 6, L], [7, 7, L], [4, 3, C], [6, 4, C], [3, 5, C], [5, 6, C]],
+  "o-an-quan": [[2, 4, C], [2, 5, C], [3, 4, W], [4, 4, S], [5, 4, W], [6, 4, S], [7, 4, W], [3, 5, S], [4, 5, W], [5, 5, S], [6, 5, W], [7, 5, S], [8, 4, C], [8, 5, C]],
+  "co-tuong": [[3, 2, S], [5, 2, S], [7, 2, S], [4, 3, S], [6, 3, S], [2, 5, B], [3, 5, B], [4, 5, B], [5, 5, B], [6, 5, B], [7, 5, B], [8, 5, B], [4, 6, C], [6, 6, C], [3, 7, C], [5, 7, C], [7, 7, C]],
+};
+
 let catalogReady = false;
 let catalogLoading = false;
 let games = [];
@@ -133,6 +145,10 @@ function gameArt(game) {
   }
   if (game.art === "tetris") {
     const blocks = TETRIS_PIXELS.map(([column, row, color]) => `<i class="tetris-pixel" style="--column:${column};--row:${row};--pixel-color:${color}"></i>`).join("");
+    return `<div class="pixel-art pixel-art-tetris" aria-hidden="true"><div class="tetris-grid">${blocks}</div></div>`;
+  }
+  if (Object.hasOwn(PIXEL_ART, game.art)) {
+    const blocks = PIXEL_ART[game.art].map(([column, row, color]) => `<i class="tetris-pixel" style="--column:${column};--row:${row};--pixel-color:${color}"></i>`).join("");
     return `<div class="pixel-art pixel-art-tetris" aria-hidden="true"><div class="tetris-grid">${blocks}</div></div>`;
   }
   return `<div class="pixel-art pixel-art-generic" aria-hidden="true"><span>${escapeHTML(String(game.title || "?").slice(0, 2).toUpperCase())}</span></div>`;
@@ -176,7 +192,7 @@ function renderSelection() {
       <h1>${escapeHTML(game.title)}</h1>
       ${game.description ? `<p class="feature-description">${escapeHTML(game.description)}</p>` : ""}
       <div class="feature-stats">
-        <span><small>Kỷ lục</small><b>${bestScore ? bestScore.toLocaleString("vi-VN") : "—"}</b></span>
+        <span><small>${escapeHTML(game.recordLabel || "Kỷ lục")}</small><b>${bestScore ? bestScore.toLocaleString("vi-VN") : "—"}</b></span>
       </div>
       ${game.controls ? `<p class="feature-controls">${escapeHTML(game.controls)}</p>` : ""}
       ${href
@@ -248,12 +264,12 @@ async function loadCatalog(retry = false) {
   statusLabel.textContent = "Đang tải thư viện...";
   positionLabel.textContent = "00 / 00";
   try {
-    const response = await fetch("./games.json?v=4", { signal: AbortSignal.timeout(15000) });
+    const response = await fetch("./games.json?v=5", { signal: AbortSignal.timeout(15000) });
     if (!response.ok) throw new Error("Catalog unavailable");
     const catalog = await response.json();
     if (!Array.isArray(catalog) || catalog.some((game) => !game || typeof game !== "object" ||
       typeof game.id !== "string" || !game.id || typeof game.title !== "string" || !game.title ||
-      ["category", "description", "controls", "path"].some((key) => game[key] != null && typeof game[key] !== "string"))) {
+      ["category", "description", "controls", "path", "recordLabel"].some((key) => game[key] != null && typeof game[key] !== "string"))) {
       throw new Error("Invalid catalog");
     }
     games = catalog;

@@ -1,0 +1,63 @@
+/* 2048: DOM tiles on a 4×4 board. Tile colours are game artwork, not cabinet tokens. */
+.game-2048-page .play-board { --stage-ratio: 1; container-type: size; }
+.game-2048-page .board-2048 {
+  --gap: 2.6cqw;
+  position: absolute; inset: 0;
+  box-sizing: border-box;
+  padding: var(--gap);
+  box-shadow: inset 0 0 0 2px var(--game-line);
+  background: #0c140f;
+  cursor: grab;
+  touch-action: none;
+  user-select: none; -webkit-user-select: none;
+}
+.game-2048-page .cells-2048 { display: grid; grid-template: repeat(4, 1fr) / repeat(4, 1fr); gap: var(--gap); height: 100%; }
+.game-2048-page .cells-2048 i { background: #17241b; box-shadow: inset 0 0 0 1px #223325; }
+.game-2048-page .tiles-2048 { position: absolute; inset: var(--gap); pointer-events: none; }
+
+.game-2048-page .tile-2048 {
+  position: absolute; top: 0; left: 0;
+  display: grid; place-items: center;
+  width: calc((100cqw - var(--gap) * 5) / 4);
+  aspect-ratio: 1;
+  transform: translate(calc(var(--x) * (100% + var(--gap))), calc(var(--y) * (100% + var(--gap))));
+  background: var(--tile-bg, #263a2c); color: var(--tile-fg, #e0e8bd);
+  font: 700 10cqw/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  box-shadow: inset 0 -.8cqw 0 rgba(0, 0, 0, .22);
+}
+.game-2048-page .tile-2048[data-digits="3"] { font-size: 8.4cqw; }
+.game-2048-page .tile-2048[data-digits="4"] { font-size: 6.6cqw; }
+.game-2048-page .tile-2048[data-digits="5"] { font-size: 5.3cqw; }
+.game-2048-page .tile-2048[data-digits="6"] { font-size: 4.5cqw; }
+.game-2048-page .tile-2048.is-sliding { transition: transform 100ms ease-out; }
+.game-2048-page .tile-2048.is-new { animation: tile-2048-appear 140ms ease-out; }
+.game-2048-page .tile-2048.is-merged { z-index: 1; animation: tile-2048-pop 140ms ease-out; }
+@keyframes tile-2048-appear { from { opacity: 0; scale: .4; } }
+@keyframes tile-2048-pop { 50% { scale: 1.14; } }
+@media (prefers-reduced-motion: reduce) {
+  .game-2048-page .tile-2048 { transition: none !important; animation: none !important; }
+}
+
+/* Light-to-hot progression; dark text on bright tiles keeps contrast above 4.5:1. */
+.game-2048-page .tile-2048[data-value="2"] { --tile-bg: #2a4030; --tile-fg: #e0e8bd; }
+.game-2048-page .tile-2048[data-value="4"] { --tile-bg: #3b5a35; --tile-fg: #eff2cd; }
+.game-2048-page .tile-2048[data-value="8"] { --tile-bg: #79c9c4; --tile-fg: #0e1d19; }
+.game-2048-page .tile-2048[data-value="16"] { --tile-bg: #4fa5a6; --tile-fg: #08140f; }
+.game-2048-page .tile-2048[data-value="32"] { --tile-bg: #c7e875; --tile-fg: #16220f; }
+.game-2048-page .tile-2048[data-value="64"] { --tile-bg: #9ccc3f; --tile-fg: #121c08; }
+.game-2048-page .tile-2048[data-value="128"] { --tile-bg: #e0e8bd; --tile-fg: #1b2b23; }
+.game-2048-page .tile-2048[data-value="256"] { --tile-bg: #f2d77a; --tile-fg: #2a2108; }
+.game-2048-page .tile-2048[data-value="512"] { --tile-bg: #f0b45e; --tile-fg: #2a1806; }
+.game-2048-page .tile-2048[data-value="1024"] { --tile-bg: #ee886b; --tile-fg: #2a0f08; }
+.game-2048-page .tile-2048[data-value="2048"] { --tile-bg: #f2624c; --tile-fg: #1c0604; box-shadow: 0 0 0 .6cqw #f8ecb0, 0 0 3cqw rgba(242, 98, 76, .55); }
+.game-2048-page .tile-2048[data-value="4096"] { --tile-bg: #b48ce6; --tile-fg: #160a24; }
+.game-2048-page .tile-2048[data-value="8192"] { --tile-bg: #7fa6ef; --tile-fg: #08142a; }
+.game-2048-page .tile-2048[data-value="super"] { --tile-bg: #f4f6e6; --tile-fg: #101814; box-shadow: inset 0 0 0 .7cqw #c7e875; }
+
+/* Narrow phones: three stats share one row without truncating six-digit scores. */
+@media (max-width: 380px) {
+  .game-2048-page .play-stat { min-width: 0; padding: 4px 6px; }
+  .game-2048-page .play-stat span { white-space: nowrap; }
+  .game-2048-page .play-stat strong { font-size: 16px; }
+}
