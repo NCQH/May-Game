@@ -37,4 +37,4 @@ if [ "${PVZ_FULL:-0}" != "1" ]; then
 fi
 node scripts/pvz/chunk-main-pak.cjs .site
 python3 scripts/check-static.py .site
-"${WRANGLER[@]}" pages deploy .site --project-name "$PROJECT" --branch "$BRANCH"
+"${WRANGLER[@]}" pages deploy .site --project-name "$PROJECT" --branch "$BRANCH" --commit-dirty=true
