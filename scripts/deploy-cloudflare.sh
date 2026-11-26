@@ -15,8 +15,8 @@ if [ ! -f .site/index.html ]; then
   exit 1
 fi
 
-WRANGLER=(npx --yes wrangler)
-if command -v wrangler >/dev/null 2>&1; then WRANGLER=(wrangler); fi
+# Wrangler 4.168.0 is pinned; newer 4.x releases delegate Pages commands to Workers.
+WRANGLER=(npx --yes wrangler@4.168.0)
 if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] && ! "${WRANGLER[@]}" whoami >/dev/null 2>&1; then
   echo "Run 'npx wrangler login' or set CLOUDFLARE_API_TOKEN first." >&2
   exit 1

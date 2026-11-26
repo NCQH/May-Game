@@ -117,12 +117,13 @@ Nếu `.wasm` MIME gây lỗi với server local, dùng `npx http-server` (đã 
 ### B1. Tạo project
 
 ```bash
-npx wrangler login
-npx wrangler whoami
-npx wrangler pages project create may-game --production-branch main
+npx --yes wrangler@4.168.0 login
+npx --yes wrangler@4.168.0 whoami
+# Wrangler 4.168+ mặc định delegate Pages sang Workers; --force chỉ cần cho lần tạo đầu tiên.
+npx --yes wrangler@4.168.0 pages project create may-game --production-branch main --force
 ```
 
-Free plan. Direct Upload không dùng build quota.
+Lưu ý: project `may-game` đã được tạo ngày 27/11/2026, nên không cần chạy lại lệnh create. Sau khi project tồn tại, `pages deploy` chạy trực tiếp trên Pages và **không** dùng `--force`. Free plan; Direct Upload không dùng build quota.
 
 ### B2. Deploy preview
 
@@ -274,8 +275,8 @@ python3 scripts/check-static.py /tmp/may-game-site-core
 npx --yes http-server /tmp/may-game-site-core -p 8000 -c-1
 
 # Cloudflare
-npx wrangler login
-npx wrangler pages project create may-game --production-branch main
+npx --yes wrangler@4.168.0 login
+npx --yes wrangler@4.168.0 pages project create may-game --production-branch main --force
 bash scripts/deploy-cloudflare.sh may-game preview
 # sau khi nghiệm thu:
 bash scripts/deploy-cloudflare.sh may-game main
