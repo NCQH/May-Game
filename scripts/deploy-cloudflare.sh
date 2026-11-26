@@ -15,6 +15,16 @@ if [ ! -f .site/index.html ]; then
   exit 1
 fi
 
+SOURCE=.site/games/pvz-goty/engine/source.zip
+if [ -f "$SOURCE" ]; then
+  SIZE=$(wc -c < "$SOURCE" | tr -d '[:space:]')
+  if [ "$SIZE" -gt $((25 * 1024 * 1024)) ]; then
+    echo "ERROR: source.zip is over 25 MiB. Publish it as a GitHub Release and remove it from .site." >&2
+    echo "See docs/CLOUDFLARE-MIGRATION.md (Phase A3)." >&2
+    exit 1
+  fi
+fi
+
 # Wrangler 4.168.0 is pinned; newer 4.x releases delegate Pages commands to Workers.
 WRANGLER=(npx --yes wrangler@4.168.0)
 if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] && ! "${WRANGLER[@]}" whoami >/dev/null 2>&1; then

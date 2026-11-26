@@ -17,7 +17,7 @@ Tài liệu này là kế hoạch thực thi. Bối cảnh và các lựa chọn
 | `main.pak` | Chunk 20 MiB → 3 phần; loader ghép trước khi start |
 | Save | `migrate.html` cho localStorage; PvZ dùng ZIP export/import |
 | Legacy | Giữ GitHub Pages 2–4 tuần; không redirect cưỡng bức |
-| R2 | Không dùng, trừ khi `.wasm` hoặc `source.zip` >25 MiB |
+| R2 | Không dùng; `.wasm` 7.0 MiB; `source.zip` 33.5 MiB → GitHub Release |
 | Origin | Chốt `may-game.pages.dev` hoặc custom domain **trước** production |
 
 ## 1. Hiện trạng
@@ -43,7 +43,7 @@ Preflight: 10 files | 44.06 MiB | pass
 
 Test local: `npm run check`, `npm test`, `npm run test:browser` (97 passed).
 
-**Chưa xác minh:** kích thước thật của `engine/pvz-portable.wasm` và `engine/source.zip`; gameplay PvZ thật với engine (test hiện dùng mock).
+**Artifact 27/11/2026 (run 45908417143):** `.site` 130 MB; `.wasm` 7.0 MiB; `source.zip` 33.5 MiB (>25 MiB) đã phát hành tại [GitHub Release](https://github.com/NCQH/May-Game/releases/tag/cloudflare-pvz-source-2026-11-27) và bỏ khỏi output Cloudflare; `main.pak` 42.84 MiB đã chunk. Còn chờ test engine PvZ thật ở local/preview.
 
 ## 2. Nguyên tắc
 
