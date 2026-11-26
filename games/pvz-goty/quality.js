@@ -244,7 +244,19 @@ async function loadHostedResources() {
     if (!name || name !== entry.name || names.has(name)) throw new Error('Đường dẫn dữ liệu GOTY không hợp lệ.');
     names.add(name);
   }
-  const queue = [...names];
+  // Cloudflare Pages caps each file at 25 MiB, so the build may split main.pak.
+  const parts = [];
+  if (manifest.mainPak != null) {
+    const chunks = manifest.mainPak.parts;
+    if (names.has('main.pak') || !Array.isArray(chunks) || chunks.length < 1 || chunks.length > 64) throw new Error('Danh sách phần main.pak không hợp lệ.');
+    if (manifest.mainPak.size != null && (!Number.isSafeInteger(manifest.mainPak.size) || manifest.mainPak.size < 1)) throw new Error('Kích thước main.pak không hợp lệ.');
+    for (const part of chunks) {
+      if (!part || typeof part.name !== 'string' || !/^main\.pak\.\d{3}$/.test(part.name) || names.has(part.name) || parts.some((seen) => seen.name === part.name)) throw new Error('Phần main.pak không hợp lệ.');
+      if (!Number.isSafeInteger(part.size) || part.size < 0 || part.size > 25 * 1048576) throw new Error('Phần main.pak quá lớn.');
+      parts.push(part);
+    }
+  }
+  const queue = [...names, ...parts.map((part) => part.name)];
   const abort = new AbortController();
   let next = 0;
   let completed = 0;
@@ -268,6 +280,14 @@ async function loadHostedResources() {
   };
   try { await Promise.all(Array.from({ length: Math.min(8, queue.length) }, worker)); }
   catch (error) { abort.abort(); throw error; }
+  if (parts.length) {
+    const blobs = parts.map((part) => staged.get(part.name));
+    if (blobs.some((blob) => !blob)) throw new Error('Thiếu phần main.pak.');
+    const size = blobs.reduce((sum, blob) => sum + blob.size, 0);
+    if (manifest.mainPak.size != null && size !== manifest.mainPak.size) throw new Error('main.pak không khớp kích thước.');
+    staged.set('main.pak', new File(blobs, 'main.pak'));
+    for (const part of parts) staged.delete(part.name);
+  }
   if (!staged.has('main.pak') || ![...staged.keys()].some(name => name.startsWith('properties/'))) throw new Error('Thiếu dữ liệu GOTY.');
   collectedFiles.clear();
   resourceRevision = typeof manifest.revision === 'string' ? manifest.revision : null;

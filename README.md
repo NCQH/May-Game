@@ -24,6 +24,7 @@ Mỗi game nằm trong `games/` và được đăng ký trong `games.json`.
 
 - [Quy chuẩn giao diện](./STYLE.md) — style chung cho game hiện tại và game mới.
 - [Hướng dẫn đóng góp](./CONTRIBUTING.md) và [hướng dẫn trên website](./contribute.html).
+- [Chuyển dữ liệu chơi](./migrate.html) — xuất/nhập tiến trình khi đổi địa chỉ web.
 - [Danh sách người đóng góp](./contributors.html).
 - [Build và vận hành PvZ GOTY](./games/pvz-goty/README.md) — chi tiết engine WebAssembly, tài nguyên và triển khai.
 

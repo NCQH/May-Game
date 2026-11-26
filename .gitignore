@@ -31,3 +31,7 @@ games/pvz-goty/vendor/
 /.source-review/
 /tests/pvz-runtime-local.html
 /.local-artifacts/
+
+# Wrangler local state
+.wrangler/
+__pycache__/

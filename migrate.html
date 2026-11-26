@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101814" />
+    <meta name="description" content="Xuất và nhập tiến trình chơi khi chuyển Máy Game sang địa chỉ web mới." />
+    <title>Chuyển dữ liệu chơi — Máy Game</title>
+    <link rel="icon" href="./assets/favicon.ico?v=1" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="./assets/favicon.svg?v=1" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png?v=1">
+    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/arcade.css?v=7" />
+    <link rel="stylesheet" href="./assets/css/viewport.css?v=5">
+    <style>
+      .transfer-card { display: grid; gap: 12px; }
+      .transfer-card .start-game { width: 100%; justify-content: center; margin-top: 0; }
+      .transfer-card button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+      .transfer-status { min-height: 21px; color: var(--arcade-muted); font-size: 14px; line-height: 1.5; }
+      .transfer-status[data-error="true"] { color: var(--arcade-coral); }
+      .transfer-summary { margin: 0; color: var(--arcade-text); font-size: 14px; line-height: 1.5; }
+      .transfer-note { color: var(--arcade-muted); font-size: 13px; line-height: 1.6; }
+      .transfer-note a { color: var(--arcade-lime); }
+      .transfer-card input[type="file"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    </style>
+  </head>
+  <body class="arcade-home">
+    <a class="skip-link" href="#transfer-content">Bỏ qua phần đầu trang</a>
+    <main class="arcade-main" id="transfer-content">
+      <section class="arcade-cabinet" aria-label="Máy arcade chuyển dữ liệu">
+        <div class="cabinet-topline">
+          <span class="cabinet-title"><span class="brand-pixels" aria-hidden="true"><i></i><i></i><i></i><i></i></span> MÁY GAME</span>
+          <span class="cabinet-lights" aria-label="Máy đang bật"><i></i><i></i><i></i></span>
+        </div>
+        <div class="screen-bezel">
+          <div class="screen-meta">
+            <span><i aria-hidden="true"></i> Chuyển dữ liệu chơi</span>
+            <a class="screen-home-link" href="./index.html">← Sảnh arcade</a>
+          </div>
+          <div class="page-content">
+            <header class="page-heading">
+              <div class="page-heading-copy">
+                <p class="page-kicker">SAO LƯU · ĐỔI ĐỊA CHỈ WEB</p>
+                <h1>Mang tiến trình sang máy mới</h1>
+                <p>Điểm số và ván đang chơi nằm trong trình duyệt của từng địa chỉ web. Xuất ở trang cũ, rồi nhập ở trang mới.</p>
+              </div>
+            </header>
+
+            <div class="guide-note-grid">
+              <section class="guide-note transfer-card" aria-labelledby="export-title">
+                <h2 id="export-title">1. Xuất dữ liệu ở trang cũ</h2>
+                <p class="transfer-note">Mở trang này trên địa chỉ cũ, tải tệp JSON rồi giữ lại. Tệp chỉ chứa dữ liệu game, không gửi lên máy chủ.</p>
+                <p class="transfer-summary" id="save-count">Đang kiểm tra dữ liệu…</p>
+                <button class="start-game" id="save-export" type="button" disabled>
+                  <span class="start-mark" aria-hidden="true">↓</span><span>Tải tệp sao lưu</span>
+                </button>
+                <p class="transfer-status" id="save-export-status" role="status" aria-live="polite"></p>
+              </section>
+
+              <section class="guide-note transfer-card" aria-labelledby="import-title">
+                <h2 id="import-title">2. Nhập ở trang mới</h2>
+                <p class="transfer-note">Mở trang này trên địa chỉ mới, chọn tệp vừa tải. Dữ liệu trùng tên sẽ bị ghi đè.</p>
+                <button class="start-game" id="save-import-choose" type="button">
+                  <span class="start-mark" aria-hidden="true">↑</span><span>Chọn tệp JSON</span>
+                </button>
+                <input id="save-import-input" type="file" accept=".json,application/json" hidden />
+                <p class="transfer-summary" id="save-import-summary" aria-live="polite"></p>
+                <button class="start-game" id="save-import-button" type="button" disabled>
+                  <span class="start-mark" aria-hidden="true">✓</span><span>Nhập vào máy này</span>
+                </button>
+                <p class="transfer-status" id="save-import-status" role="status" aria-live="polite"></p>
+                <button class="start-game" id="save-reload" type="button" hidden>
+                  <span class="start-mark" aria-hidden="true">↻</span><span>Tải lại trang</span>
+                </button>
+              </section>
+            </div>
+
+            <section class="guide-note" aria-labelledby="pvz-save-title">
+              <h2 id="pvz-save-title">Riêng Plants vs. Zombies</h2>
+              <p class="transfer-note">Save PvZ nằm trong IndexedDB của game, không nằm trong tệp JSON ở trên. Vào <a href="./games/pvz-goty/">PvZ</a>, mở menu và dùng “Tải bản lưu” trước khi đổi địa chỉ; sau đó dùng “Nạp save” ở trang mới. Tài nguyên GOTY đã lưu trên máy vẫn dùng được, nhưng save cần được chuyển riêng.</p>
+            </section>
+
+            <section class="guide-note" aria-labelledby="transfer-help-title">
+              <h2 id="transfer-help-title">Nếu không thấy dữ liệu</h2>
+              <p class="transfer-note">Hãy chắc chắn bạn đang mở đúng địa chỉ cũ và không ở chế độ riêng tư. Dữ liệu trong chế độ riêng tư hoặc sau khi xóa dữ liệu trình duyệt không thể khôi phục.</p>
+            </section>
+          </div>
+        </div>
+        <div class="cabinet-deck">
+          <nav class="deck-links" aria-label="Điều hướng">
+            <a class="deck-link" href="./index.html">← Sảnh arcade</a>
+            <a class="deck-link" href="./contribute.html">Góp game</a>
+          </nav>
+          <span class="deck-speaker" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </section>
+    </main>
+    <script src="./assets/js/save-transfer.js?v=1"></script>
+  </body>
+</html>

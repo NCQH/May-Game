@@ -10,6 +10,10 @@ Qua HTTP, game tự dùng tài nguyên đã nhớ trong IndexedDB hoặc tải d
 
 Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Save and Exit để lưu màn đang chơi. Export Saves tải ZIP để sao lưu/chuyển thiết bị. Nhập save trước khi chơi. Xóa dữ liệu trình duyệt xóa cả tài nguyên và save.
 
+## Bản Cloudflare (game gốc, không HD/widescreen)
+
+`scripts/pvz/trim-pvz.cjs` bỏ `hd/` và `wide/` khỏi output Cloudflare trước khi chunk `main.pak`; engine tự fallback về ảnh gốc khi thiếu. First load còn khoảng 43 MB thay vì 86.4 MB. Giữ `wide/images/titlescreen.png` cho thẻ catalog; file này không nằm trong manifest nên engine dùng ảnh title gốc. GitHub Pages vẫn dùng bản đầy đủ. Đặt `PVZ_FULL=1` khi chạy `scripts/deploy-cloudflare.sh` nếu muốn giữ HD/widescreen.
+
 ## Chất lượng hình ảnh
 
 Camera 16:9 rộng 1066⅔×600, đặt hệ tọa độ GOTY 800×600 ở giữa và quy đổi chuột theo đúng camera. Không kéo giãn cây, zombie hoặc thay đổi ô chơi. Framebuffer tự tăng theo màn hình và devicePixelRatio, tối đa 3840×2160; mức 1080p là 1920×1080. Nền widescreen được nạp riêng từ `wide/images/` và `wide/reanim/`, giữ nguyên kích thước resource logic của GOTY. Nền sân của mod rộng 1666 px, nền các màn 1066 px. Riêng Zombatar, khi thiếu nền widescreen, phản chiếu hai dải mép nền ra hai bên theo yêu cầu người dùng; giữ nguyên ảnh trung tâm và UI. Các màn khác dùng ảnh widescreen hoặc giữ ảnh gốc khi thiếu. Chế độ lấy mẫu không tạo chi tiết AI.
