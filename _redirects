@@ -1,2 +1,3 @@
-/html5/* /games/bangbang/html5/:splat 200
-/rez/* /games/bangbang/rez/:splat 200
+/games/bangbang/* https://may-game-bangbang.pages.dev/games/bangbang/:splat 302
+/html5/* https://may-game-bangbang.pages.dev/html5/:splat 302
+/rez/* https://may-game-bangbang.pages.dev/rez/:splat 302

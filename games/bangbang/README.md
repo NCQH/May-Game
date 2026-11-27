@@ -61,6 +61,7 @@ http://127.0.0.1:18086/games/bangbang/html5/
 - Build: `bash scripts/bangbang/build-site.sh` (tạo `.bangbang-site`)
 - Deploy: `bash scripts/bangbang/deploy.sh may-game-bangbang`
 - Workflow: `.github/workflows/bangbang.yml` (`workflow_dispatch`)
+- Site chính `may-game` chỉ còn card catalog và redirect cũ; asset BangBang không còn nằm trong deployment chính.
 
 ## Test local
 
