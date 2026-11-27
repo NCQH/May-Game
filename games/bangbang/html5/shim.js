@@ -140,7 +140,7 @@
     const name = path.split('/').pop();
     if (Object.prototype.hasOwnProperty.call(CATALOG_PARTS, name)) {
       const dir = path.slice(0, path.lastIndexOf('/') + 1);
-      const pieces = await Promise.all(Array.from({ length: CATALOG_PARTS[name] }, (_, index) => realFetch(dir + name + '.part' + index).then((response) => {
+      const pieces = await Promise.all(Array.from({ length: CATALOG_PARTS[name] }, (_, index) => realFetch(dir + name + '.part' + index + '.json').then((response) => {
         if (!response.ok) throw new Error('Không tải được phần danh mục ' + name + '.' + index);
         return response.arrayBuffer();
       })));

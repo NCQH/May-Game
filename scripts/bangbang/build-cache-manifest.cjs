@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '../../games/bangbang');
 const query = 'm81345-inventory-click-fix-9e251171f0314e86641a';
-const cache = 'bangbang-web-v11';
+const cache = 'bangbang-web-v12';
 const assets = new Set();
 const walk = (dir) => {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
