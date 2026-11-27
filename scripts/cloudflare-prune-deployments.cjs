@@ -1,6 +1,7 @@
 // Keep the newest production deployments and delete older ones.
 // Usage: CLOUDFLARE_API_TOKEN=... CLOUDFLARE_ACCOUNT_ID=... node scripts/cloudflare-prune-deployments.cjs [project] [keep]
 const API = "https://api.cloudflare.com/client/v4";
+const PER_PAGE = 25;
 
 function selectDeployments(deployments, keep = 2) {
   const sorted = [...deployments].sort((a, b) => String(b.created_on || "").localeCompare(String(a.created_on || "")));
@@ -14,11 +15,14 @@ function selectDeployments(deployments, keep = 2) {
 async function listDeployments(account, token, project) {
   const deployments = [];
   for (let page = 1; ; page++) {
-    const response = await fetch(`${API}/accounts/${account}/pages/projects/${encodeURIComponent(project)}/deployments?page=${page}&per_page=100`, {
+    const response = await fetch(`${API}/accounts/${account}/pages/projects/${encodeURIComponent(project)}/deployments?page=${page}&per_page=${PER_PAGE}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     const body = await response.json();
-    if (!response.ok || !body.success) throw new Error(`Cannot list deployments: HTTP ${response.status}`);
+    if (!response.ok || !body.success) {
+      const message = body.errors?.map((error) => error.message).filter(Boolean).join("; ") || `HTTP ${response.status}`;
+      throw new Error(`Cannot list deployments: ${message}`);
+    }
     deployments.push(...(body.result || []));
     if (page >= (body.result_info?.total_pages || 1)) break;
   }
