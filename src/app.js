@@ -124,12 +124,21 @@ function readProgress(gameId) {
   catch { return null; }
 }
 
+const EXTERNAL_GAME_HOSTS = new Set(["may-game-bangbang.pages.dev"]);
+
 function safeGamePath(path) {
-  if (typeof path !== "string" || !path.startsWith("./games/")) return null;
-  const segments = path.slice(8).split("/");
-  if (!segments.length || segments.some((segment) => !/^[A-Za-z0-9._-]+$/.test(segment) || segment === "." || segment === "..")) return null;
-  const resolved = new URL(path, document.baseURI);
-  if (resolved.origin !== location.origin || !resolved.pathname.startsWith(new URL("./games/", document.baseURI).pathname)) return null;
+  if (typeof path !== "string") return null;
+  let resolved;
+  try { resolved = new URL(path, document.baseURI); } catch { return null; }
+  if (resolved.origin === location.origin) {
+    if (!path.startsWith("./games/")) return null;
+  } else if (resolved.protocol !== "https:" || !EXTERNAL_GAME_HOSTS.has(resolved.hostname)) {
+    return null;
+  }
+  const segments = resolved.pathname.split("/").filter(Boolean);
+  if (!segments.length || segments[0] !== "games") return null;
+  if (segments.some((segment) => !/^[A-Za-z0-9._-]+$/.test(segment) || segment === "." || segment === "..")) return null;
+  if (resolved.origin === location.origin && !resolved.pathname.startsWith(new URL("./games/", document.baseURI).pathname)) return null;
   return escapeHTML(path);
 }
 
