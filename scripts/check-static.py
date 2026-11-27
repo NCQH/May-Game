@@ -9,7 +9,19 @@ import sys
 MAX_FILES = 20_000
 MAX_BYTES = 25 * 1024 * 1024
 WARN_FILES = 16_000
-BLOCKED = {".git", "node_modules", ".venv", "__pycache__"}
+BLOCKED = {".git", ".claude", "node_modules", ".venv", "__pycache__", "tests", "scripts", "docs", ".github"}
+DEV_ROOT_FILES = {
+    ".gitignore",
+    ".gitattributes",
+    "README.md",
+    "ASSETS.md",
+    "CONTRIBUTING.md",
+    "STYLE.md",
+    "package.json",
+    "package-lock.json",
+    "playwright.config.js",
+    "May-Game_Cloudflare_Migration_Plan.md",
+}
 
 if len(sys.argv) != 2:
     raise SystemExit(__doc__.strip())
@@ -29,6 +41,9 @@ for entry in root.rglob("*"):
         continue
     if any(part in BLOCKED or part == ".env" or part.startswith(".env.") for part in rel.parts):
         errors.append(f"Unexpected private/dev path: {rel}")
+        continue
+    if len(rel.parts) == 1 and rel.name in DEV_ROOT_FILES:
+        errors.append(f"Unexpected dev file: {rel}")
         continue
     if not entry.is_file():
         continue

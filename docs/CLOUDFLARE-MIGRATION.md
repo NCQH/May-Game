@@ -63,7 +63,7 @@ gh workflow run pvz-build.yml --ref main
 gh run watch
 ```
 
-Lưu ý: `pvz-build.yml` chạy khi mở PR khớp `paths` hoặc khi `workflow_dispatch`. Push lên `main` **không** tự build (CI vẫn chạy test). Build chạy Emscripten, timeout 45 phút; workflow chỉ upload artifact, không deploy Cloudflare.
+Lưu ý: `pvz-build.yml` chạy khi mở PR khớp `paths` hoặc khi `workflow_dispatch`. Push lên `main` **không** tự build (CI vẫn chạy test). Build chạy Emscripten, timeout 45 phút. `workflow_dispatch` trên `main` chạy thêm job deploy: trim/chunk → cập nhật source release → preflight → Cloudflare. Ref khác chỉ build artifact. Cần secrets `CLOUDFLARE_API_TOKEN` và `CLOUDFLARE_ACCOUNT_ID`.
 
 ### A2. Tải artifact
 
@@ -180,9 +180,10 @@ Không giữ legacy, không banner, không redirect, không thông báo migrate.
 
 ## 7. Phase E — Dọn dẹp và tự động hóa
 
-- GitHub Pages đã tắt; workflow Pages đã xóa.
-- Tùy chọn: thêm workflow Cloudflare dùng `CLOUDFLARE_API_TOKEN`; chỉ deploy production từ `main`, không từ PR.
-- Tùy chọn: publish allowlist để `.site` không chứa `tests/`, `scripts/`, `docs/`, plan, config dev.
+- GitHub Pages đã tắt; workflow Pages đã xóa; chỉ còn `main`.
+- **Release workflow:** `pvz-build.yml` (`workflow_dispatch` trên `main`) build artifact → deploy job trim/chunk → cập nhật source release → preflight → `deploy-cloudflare.sh`. PR chỉ build. Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+- **Publish allowlist:** `scripts/pvz/build-pvz.sh` chỉ đưa runtime files vào `.site`; `scripts/check-static.py` chặn `tests/`, `scripts/`, `docs/`, `.github/`, package và root dev docs.
+- Giữ deployment production trước đó để rollback; workflow không xóa deployment cũ.
 - Tùy chọn: bỏ `hd/`/`wide/` khỏi Git nếu không cần bản full nữa; backup trước.
 - Tùy chọn: thêm `_headers` khi đã có content hash; không dùng `immutable` cho `data/` hiện tại.
 
@@ -234,9 +235,10 @@ Không giữ legacy, không banner, không redirect, không thông báo migrate.
 ## 12. Lệnh nhanh
 
 ```bash
-# Build artifact
+# Build + deploy production (workflow_dispatch on main; requires secrets)
 gh workflow run pvz-build.yml --ref main
 gh run watch
+# Build artifact only: run workflow_dispatch on another ref, or use the build job above.
 gh run download <run-id> -n may-game-pvz-goty-site -D .site
 
 # Audit + local engine
@@ -258,5 +260,5 @@ PVZ_FULL=1 bash scripts/deploy-cloudflare.sh may-game main
 ## 13. Quyết định còn mở
 
 - Chấp nhận PvZ core-only lâu dài, hay chỉ trong giai đoạn đầu?
-- Có thêm publish allowlist trước khi deploy production không?
-- Có thêm workflow CI deploy Cloudflare sau này không?
+- Có bỏ `hd/`/`wide/` khỏi Git sau khi chắc không cần bản full không?
+- Có thêm `_headers`/content hash sau này không?

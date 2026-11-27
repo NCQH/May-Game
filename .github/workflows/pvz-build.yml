@@ -1,6 +1,7 @@
-name: Build PvZ GOTY artifact
+name: Build and release PvZ GOTY
 
-# Builds the site artifact for Cloudflare Direct Upload; GitHub Pages is not used.
+# Builds the site artifact. A manual workflow_dispatch from main also trims/chunks
+# the PvZ output, refreshes the source release and deploys Cloudflare Pages.
 
 on:
   pull_request:
@@ -48,3 +49,50 @@ jobs:
           path: .site
           include-hidden-files: true
           retention-days: 14
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    concurrency:
+      group: cloudflare-production
+      cancel-in-progress: false
+    environment:
+      name: cloudflare-production
+      url: https://may-game.pages.dev
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v4
+        with:
+          name: may-game-pvz-goty-site
+          path: .site
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Prepare Cloudflare output
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/pvz/trim-pvz.cjs .site
+          node scripts/pvz/chunk-main-pak.cjs .site
+          SOURCE=.site/games/pvz-goty/engine/source.zip
+          TAG=cloudflare-pvz-source-2026-11-27
+          if [ -f "$SOURCE" ]; then
+            SIZE=$(wc -c < "$SOURCE" | tr -d '[:space:]')
+            if [ "$SIZE" -gt $((25 * 1024 * 1024)) ]; then
+              gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "PvZ engine source" --notes "Source archive for the PvZ engine."
+              gh release upload "$TAG" "$SOURCE" --clobber
+              gh release edit "$TAG" --notes "Source archive for the PvZ engine used by the Cloudflare build. Latest asset built from ${GITHUB_SHA}. LGPL-3.0-or-later for the engine changes; upstream and commercial game data licenses still apply."
+              rm "$SOURCE"
+            fi
+          fi
+          python3 scripts/check-static.py .site
+      - name: Deploy production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: bash scripts/deploy-cloudflare.sh may-game main

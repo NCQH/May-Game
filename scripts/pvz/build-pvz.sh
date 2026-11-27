@@ -40,7 +40,9 @@ cd "${TASK_SOURCE_EXPORT}"
 zip -qr "${TASK_ROOT}/games/pvz-goty/engine/source.zip" .
 cd "${TASK_ROOT}"
 mkdir -p .site
-git archive HEAD | tar -x -C .site
+# Publish allowlist: runtime files only. Keep tests/, scripts/, docs/, .github/
+# and package metadata out of the public site.
+git archive HEAD index.html 404.html games.json contribute.html contributors.html assets src games | tar -x -C .site
 cp -R games/pvz-goty/engine games/pvz-goty/vendor .site/games/pvz-goty/
 node -e 'const fs=require("fs"); const root=".site/games/pvz-goty/"; const manifest=JSON.parse(fs.readFileSync(root+"resources.json","utf8")); for(const file of manifest.files) if(!fs.statSync(root+"data/"+file.name).isFile()) throw Error("Missing resource: "+file.name); console.log("Packaged "+manifest.files.length+" PvZ resource files.");'
 touch .site/.nojekyll
