@@ -42,9 +42,11 @@ cd "${TASK_ROOT}"
 mkdir -p .site
 # Publish allowlist: runtime files only. Keep tests/, scripts/, docs/, .github/
 # and package metadata out of the public site.
-git archive HEAD index.html 404.html games.json contribute.html contributors.html assets src games sw.js _redirects _headers | tar -x -C .site
+git archive HEAD index.html 404.html games.json contribute.html contributors.html assets src games _redirects | tar -x -C .site
 # BangBang is deployed from its own Pages project.
 rm -rf .site/games/bangbang
+# Retire the old BangBang service worker and its multi-GB cache on may-game.
+cp scripts/pvz/cleanup-sw.js .site/sw.js
 cp -R games/pvz-goty/engine games/pvz-goty/vendor .site/games/pvz-goty/
 node -e 'const fs=require("fs"); const root=".site/games/pvz-goty/"; const manifest=JSON.parse(fs.readFileSync(root+"resources.json","utf8")); for(const file of manifest.files) if(!fs.statSync(root+"data/"+file.name).isFile()) throw Error("Missing resource: "+file.name); console.log("Packaged "+manifest.files.length+" PvZ resource files.");'
 touch .site/.nojekyll

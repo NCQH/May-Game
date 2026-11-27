@@ -2,6 +2,12 @@ name: Deploy Bang Bang
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'games/bangbang/**'
+      - 'scripts/bangbang/**'
+      - 'sw.js'
+      - '.github/workflows/bangbang.yml'
 
 permissions:
   contents: read

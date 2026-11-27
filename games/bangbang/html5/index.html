@@ -605,6 +605,10 @@
       status.classList.add('is-ok');
       manifestPromise.then((manifest) => {
         if (!manifest) return;
+        // ponytail: skip the multi-GB bulk fill on saveData/2g/3g or under 3 Mbps;
+        // the service worker still caches assets on demand during play.
+        const conn = navigator.connection || {};
+        if (conn.saveData || ['slow-2g', '2g', '3g'].includes(conn.effectiveType) || (typeof conn.downlink === 'number' && conn.downlink < 3)) return;
         let started = false;
         const start = () => { if (started) return; started = true; cacheAll(manifest); };
         // Wait for the lobby assets to finish before the bulk download competes with them.

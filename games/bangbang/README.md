@@ -49,7 +49,7 @@ http://127.0.0.1:18086/games/bangbang/html5/
 
 ## Cache
 
-- `cache-manifest.json` liệt kê **18.558 URL asset**; `essential` (528 URL) được tải trước màn hình tạo nhân vật.
+- `cache-manifest.json` liệt kê **18.558 URL asset**; `essential` (319 URL) được tải trước màn hình tạo nhân vật.
 - Sau khi tạo nhân vật và sảnh hiện xong, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ. Cache nền tạm dừng khi rời sảnh và tự tiếp tục khi quay lại.
 - Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.
@@ -60,7 +60,7 @@ http://127.0.0.1:18086/games/bangbang/html5/
 - URL: https://may-game-bangbang.pages.dev/games/bangbang/html5/
 - Build: `bash scripts/bangbang/build-site.sh` (tạo `.bangbang-site`)
 - Deploy: `bash scripts/bangbang/deploy.sh may-game-bangbang`
-- Workflow: `.github/workflows/bangbang.yml` (`workflow_dispatch`)
+- Workflow: `.github/workflows/bangbang.yml` (`workflow_dispatch` + push `games/bangbang/**`, `scripts/bangbang/**`, `sw.js`)
 - Site chính `may-game` chỉ còn card catalog và redirect cũ; asset BangBang không còn nằm trong deployment chính.
 
 ## Test local

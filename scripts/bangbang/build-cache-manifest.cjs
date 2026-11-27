@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '../../games/bangbang');
 const query = 'm81345-inventory-click-fix-9e251171f0314e86641a';
-const cache = 'bangbang-web-v10';
+const cache = 'bangbang-web-v11';
 const assets = new Set();
 const walk = (dir) => {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -48,7 +48,7 @@ for (const row of Object.values(catalog.assets || {})) {
 }
 for (const url of assets) {
   const name = new URL('http://x' + url).pathname;
-  if (name.startsWith('/games/bangbang/html5/') && !name.slice('/games/bangbang/html5/'.length).includes('/') && /\.(js|css)$/.test(name)) essential.add(url);
+  if (name.startsWith('/games/bangbang/html5/') && !name.slice('/games/bangbang/html5/'.length).includes('/') && /\.(js|css)$/.test(name) && /\?v=/.test(url)) essential.add(url);
 }
 const payload = {
   cache,
