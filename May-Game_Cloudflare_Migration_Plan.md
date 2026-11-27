@@ -1,8 +1,10 @@
 # May-Game — Kế hoạch migration từ GitHub Pages sang Cloudflare
 
-> Ngày lập: 27/11/2026 · Trạng thái: đề xuất, chưa triển khai  
+> Ngày lập: 27/11/2026 · Trạng thái: đã triển khai một phần  
 > Repository: https://github.com/NCQH/May-Game  
-> Website hiện tại: https://ncqh.github.io/May-Game/index.html
+> Website: https://may-game.pages.dev/ · GitHub Pages: đã bỏ  
+>
+> **Cập nhật 27/11/2026:** đã chốt bỏ GitHub Pages, không banner và không thông báo migrate. Kế hoạch thực thi hiện tại: [docs/CLOUDFLARE-MIGRATION.md](./docs/CLOUDFLARE-MIGRATION.md).
 
 ## 1. Mục tiêu và phạm vi
 

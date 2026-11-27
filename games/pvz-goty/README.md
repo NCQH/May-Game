@@ -12,7 +12,7 @@ Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Sav
 
 ## Bản Cloudflare (game gốc, không HD/widescreen)
 
-`scripts/pvz/trim-pvz.cjs` bỏ `hd/` và `wide/` khỏi output Cloudflare trước khi chunk `main.pak`; engine tự fallback về ảnh gốc khi thiếu. First load còn khoảng 43 MB thay vì 86.4 MB. Giữ `wide/images/titlescreen.png` cho thẻ catalog; file này không nằm trong manifest nên engine dùng ảnh title gốc. GitHub Pages vẫn dùng bản đầy đủ. Đặt `PVZ_FULL=1` khi chạy `scripts/deploy-cloudflare.sh` nếu muốn giữ HD/widescreen.
+`scripts/pvz/trim-pvz.cjs` bỏ `hd/` và `wide/` khỏi output Cloudflare trước khi chunk `main.pak`; engine tự fallback về ảnh gốc khi thiếu. First load còn khoảng 43 MB thay vì 86.4 MB. Giữ `wide/images/titlescreen.png` cho thẻ catalog; file này không nằm trong manifest nên engine dùng ảnh title gốc. GitHub Pages đã bỏ; bản Cloudflare là bản production duy nhất. Repo vẫn giữ bộ đầy đủ. Đặt `PVZ_FULL=1` khi chạy `scripts/deploy-cloudflare.sh` nếu muốn giữ HD/widescreen.
 
 `engine/source.zip` (33.5 MB) vượt giới hạn 25 MiB của Cloudflare nên được phát hành tại [GitHub Release](https://github.com/NCQH/May-Game/releases/tag/cloudflare-pvz-source-2026-11-27); output Cloudflare không chứa file này.
 
@@ -49,7 +49,7 @@ Chạy patcher trên checkout sạch. GitHub Actions làm các bước trên và
 
 ## Phát hành và nghiệm thu
 
-Workflow build trên nhánh làm việc tạo artifact đầy đủ. Khi thay đổi vào main, workflow triển khai `.site` lên GitHub Pages; đặt Settings → Pages → Source thành GitHub Actions. Không thể xác nhận giống toàn bộ GOTY chỉ bằng build; đối chiếu các chế độ, save, input và asset theo docs/PVZ-GOTY-PLAN.md. Texture HD còn cần dữ liệu thật.
+Workflow build tạo artifact đầy đủ cho Cloudflare Direct Upload; không deploy GitHub Pages. Triển khai bằng `scripts/deploy-cloudflare.sh` (trim/chunk/preflight/wrangler). Không thể xác nhận giống toàn bộ GOTY chỉ bằng build; đối chiếu các chế độ, save, input và asset theo docs/PVZ-GOTY-PLAN.md. Texture HD còn cần dữ liệu thật.
 
 Bridge/patch mới: LGPL-3.0-or-later. Giữ license upstream/dependency và nguồn tương ứng khi phân phối. Quyền engine không cấp quyền phân phối tài nguyên GOTY.
 
