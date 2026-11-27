@@ -40,6 +40,7 @@
 - **Pyodide:** MPL-2.0; license tại [`games/bangbang/html5/pyodide/LICENSE`](./games/bangbang/html5/pyodide/LICENSE). Python runtime đi kèm Pyodide giữ license tương ứng.
 - **Không server:** trang web tĩnh; `/html5/*` và `/rez/*` được map từ `games/bangbang/` qua `_redirects` (Pages) hoặc `scripts/bangbang/serve.cjs` (local). Service worker `sw.js` chỉ cache asset; không yêu cầu offline.
 - **Đã vô hiệu hoá logic:** bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad. UI vẫn giữ nguyên (disabled/“chưa mở”). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank; PvP/guild/economy chưa test offline.
+- **Boot:** splash art `splash.png` từ client Godot của game, dùng làm nền màn hình boot; thanh tiến trình/hexagon lấy từ `html5/assets_m8/loading_*`.
 - **Tank/màn hình:** asset tank, battle scene, PvE/PvP map, HUD, SWF skill/portrait, icon, NPC/map effect được lấy từ gói gốc.
 - **Tạo nhân vật:** dùng 57 body sprite `rez/zh_CN/char/*` từ `m8_account_catalog`; lưu `name`/`body` vào `worlds.state` SQLite, persist DB sang IndexedDB.
 

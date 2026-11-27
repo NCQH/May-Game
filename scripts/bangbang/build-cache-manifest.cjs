@@ -34,6 +34,11 @@ const essential = new Set([
   '/games/bangbang/html5/pyodide/python_stdlib.zip',
   '/games/bangbang/html5/pyodide/pyodide-lock.json',
   '/games/bangbang/html5/pyodide/pyodide.js',
+  '/games/bangbang/html5/assets/boot/splash.png',
+  '/games/bangbang/html5/assets_m8/loading_hexagon_ed623d6d2167.png',
+  '/games/bangbang/html5/assets_m8/loading_selfHexagon_5a055b04cef3.png',
+  '/games/bangbang/html5/assets_m8/loading_progressTrack_a8c0dc0f07aa.png',
+  '/games/bangbang/html5/assets_m8/loading_progress_7072361e34c4.png',
 ]);
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'html5/m8_account_catalog.json'), 'utf8'));
 for (const row of Object.values(catalog.assets || {})) {

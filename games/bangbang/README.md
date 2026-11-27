@@ -26,7 +26,7 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Cấu trúc
 
-- `html5/offline.html` — entry web + màn hình tạo nhân vật
+- `html5/offline.html` — entry web + màn hình boot + màn hình tạo nhân vật
 - `html5/shim.js` — thay `fetch`/`WebSocket` bằng Worker + SAB; ghép catalog bị split; RPC tạo nhân vật
 - `html5/offline-worker.js` — Pyodide + Python PvE server; tạo/cập nhật character; persist SQLite
 - `html5/bangbang-py.zip` — server PvE + SQLite mẫu
@@ -40,7 +40,8 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 - Đã thêm toàn bộ asset **tank + màn hình game**: battle scenes, HUD, PvE/PvP map, tank model, skill SWF, portrait/avatar, icon, NPC/map effects.
 - **Chỉ cắt logic** của bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad; **UI vẫn giữ nguyên** (nút disabled/“chưa mở”, panel chat trang trí). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank.
 - `m5_asset_catalog` bị bỏ vì không có JS reference; `m4_asset_catalog` được giữ lại.
-- Dùng service worker cache-first: lần đầu preload essential trước màn hình tạo nhân vật, sau đó tải nền toàn bộ asset; các lần sau đọc từ Cache Storage.
+- Dùng service worker cache-first: lần đầu preload essential trước màn hình tạo nhân vật, sau khi vào sảnh mới tải nền toàn bộ asset; tạm dừng khi rời sảnh (vào trận/garage/shop) để không tranh băng thông, và tiếp tục khi quay lại sảnh. Các lần sau đọc từ Cache Storage.
+- Màn hình boot dùng splash art của client Godot (`html5/assets/boot/splash.png`) và thanh tiến trình gốc; hiển thị % theo từng giai đoạn: bộ nhớ đệm → asset thiết yếu → máy chủ → hồ sơ → tạo nhân vật.
 - Không yêu cầu offline; service worker chỉ để tránh tải lại asset mỗi lần vào.
 - Server PvE chạy trong Pyodide; PvP/guild/economy vẫn còn trong client/server nhưng chưa test trên web.
 - Checkpoint SQLite vẫn cần giảm tần suất nếu chơi dài.
@@ -48,8 +49,8 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Cache
 
-- `cache-manifest.json` liệt kê **15.194 URL asset**; `essential` (500 URL) được tải trước màn hình tạo nhân vật.
-- Sau khi tạo nhân vật, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ.
+- `cache-manifest.json` liệt kê **15.195 URL asset**; `essential` (505 URL) được tải trước màn hình tạo nhân vật.
+- Sau khi tạo nhân vật và sảnh hiện xong, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ. Cache nền tạm dừng khi rời sảnh và tự tiếp tục khi quay lại.
 - Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.
 
