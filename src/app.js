@@ -265,7 +265,7 @@ async function loadCatalog(retry = false) {
   statusLabel.textContent = "Đang tải thư viện...";
   positionLabel.textContent = "00 / 00";
   try {
-    const response = await fetch("./games.json?v=5", { signal: AbortSignal.timeout(15000) });
+    const response = await fetch("./games.json?v=6", { signal: AbortSignal.timeout(15000) });
     if (!response.ok) throw new Error("Catalog unavailable");
     const catalog = await response.json();
     if (!Array.isArray(catalog) || catalog.some((game) => !game || typeof game !== "object" ||
