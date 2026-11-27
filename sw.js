@@ -1,4 +1,4 @@
-let CACHE = 'bangbang-web-v9';
+let CACHE = 'bangbang-web-v10';
 const DAY = 24 * 60 * 60 * 1000;
 
 function cacheKey(url, origin) {
@@ -35,6 +35,9 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.method !== 'GET') return;
+  // Navigations must go to the network so Cloudflare's clean-URL redirects
+  // resolve normally; a service worker may not return a redirected response here.
+  if (request.mode === 'navigate') return;
   const key = cacheKey(request.url, location.origin);
   if (!key) return;
   event.respondWith((async () => {
