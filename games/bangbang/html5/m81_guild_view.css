@@ -1,0 +1,121 @@
+/* Fixed Flash coordinates; the owning account viewport scales the whole stage. */
+.m81-guild-view{position:relative;width:1018px;height:618px;color:#10334b;font:13px Arial,sans-serif;text-align:left;isolation:isolate;box-sizing:border-box}
+.m81-guild-view *{box-sizing:border-box}
+.m81-guild-view>section,.m81-guild-art,.m81-guild-close{position:absolute}
+.m81-guild-art{pointer-events:none;z-index:-1;max-width:none}
+.m81-guild-close{right:15px;top:15px;width:24px;height:24px;border:0;padding:0;background:transparent;color:#31516b;font-size:24px;cursor:pointer}
+.m81-guild-close img{width:100%;height:100%}
+.m81-guild-view>section{min-width:0;overflow:auto;scrollbar-width:thin}
+.m81-guild-view .m8-account-card{margin:0;padding:8px;border:0;border-radius:0;background:transparent;box-shadow:none;min-width:0}
+.m81-guild-view h3{margin:3px 0 8px;font-size:15px;color:#123d5c}
+.m81-guild-view .m8-note{margin:5px 0;font-size:12px;line-height:1.3;white-space:pre-line;color:inherit}
+.m81-guild-view .m8-note.error{color:#a32323}
+.m81-guild-view .m8-account-table{width:100%;table-layout:auto;border-collapse:collapse;font-size:12px;background:rgba(237,250,255,.78)}
+.m81-guild-view th{background:#008ec5;color:white;text-align:left;padding:7px 5px}
+.m81-guild-view td{padding:5px;border-bottom:1px solid #96c9df;overflow-wrap:anywhere}
+.m81-guild-view tbody tr:nth-child(even){background:rgba(171,221,243,.6)}
+.m81-guild-view .m8-button{min-height:27px;padding:4px 9px;font-size:12px;white-space:normal}
+.m81-guild-view input,.m81-guild-view select,.m81-guild-view textarea{max-width:100%;min-width:0;color:#123a57;background:#edf9ff;border:1px solid #6cabc6;border-radius:3px;padding:4px;font:12px Arial,sans-serif}
+.m81-guild-view select{color-scheme:light;background:#fff;color:#111}
+.m81-guild-view select option,.m81-guild-view select optgroup{background:#fff;color:#111}
+.m81-guild-view select option:checked,.m81-guild-view select option:hover{background:#147bbd;color:#fff}
+.m81-guild-view .m8-field{display:flex;align-items:center;gap:6px;margin:4px 0}
+.m81-guild-view .m8-field>span{min-width:75px}
+.m81-guild-info{background:rgba(233,248,255,.86);border-radius:8px;padding:8px}
+.m81-guild-info .m8-account-guild-summary{display:block;padding:0;margin:0;background:none}
+.m81-guild-info .m8-account-guild-summary span{display:block;font-size:12px}
+.m81-guild-workspace{background:rgba(234,249,255,.85);border-radius:7px}
+.m81-guild-tabpanel[hidden]{display:none!important}
+.m81-guild-tabpanel{min-height:100%;padding:5px}
+.m81-guild-view .m8-account-guild-slots,.m81-guild-view .m8-account-skill-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.m81-guild-view .m8-account-slot,.m81-guild-view .m8-account-skill{padding:6px;background:#d1effb;border:1px solid #83bad1;border-radius:4px;min-width:0}
+.m81-guild-view .m8-account-skill img{max-width:48px;max-height:48px}
+.m81-guild-view .m8-account-inline{display:flex;flex-wrap:wrap;gap:4px}
+.m81-guild-navigation{text-align:center;padding:0 8px}
+.m81-guild-view .m81-guild-nav{display:block;width:124px;height:46px;min-height:46px;margin:8px auto;border:1px solid #157ba6;border-radius:7px;background:#079cd2;color:white;font-weight:bold}
+.m81-guild-view .m81-guild-nav.is-active{background:#087cae;outline:2px solid #f1b33c;outline-offset:1px}
+.m81-guild-view button:focus-visible{outline:3px solid #f1b33c;outline-offset:1px}
+.m81-guild-donation{padding:2px 4px}
+.m81-guild-donation .m8-account-card{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;padding:2px}
+.m81-guild-donation h3,.m81-guild-donation .m8-note{grid-column:1/-1}
+.m81-guild-donation .m8-field{margin:0}.m81-guild-donation .m8-note{margin:1px 0}
+.m81-guild-create{border-radius:6px;background:rgba(234,249,255,.8)}
+.m81-guild-create .m8-account-card{padding:5px}
+.m81-guild-create h3{font-size:13px;margin:0}
+.m81-guild-create .m8-field{display:inline-flex;width:49%;flex-direction:column;align-items:start;gap:1px}
+.m81-guild-create input{width:100%}
+.m81-guild-invitations .m8-account-card{padding:6px;background:#e4f3fb;border-radius:5px;margin-bottom:6px}
+/* Original 124×46 button_skyblue/green pixels. M43 ships their verified bytes;
+   the former /rez aliases were absent from the supplied runtime. */
+.m81-guild-view .m81-guild-nav{border:0;border-radius:0;background:transparent url('/html5/assets/m81343/guild/navBlue.png') center/124px 46px no-repeat;text-shadow:0 1px 2px #215c77}
+.m81-guild-view .m81-guild-nav.is-active{background:transparent url('/html5/assets/m81343/guild/navGreen.png') center/124px 46px no-repeat}
+/* M43: native ClanSkillFrame dimensions and original PNG controls. */
+.m81-guild-view{color:#fff;text-shadow:0 1px 1px #075b88}
+.m81-guild-view h3{color:#fff;text-shadow:0 1px 2px #075b88}
+.m81-guild-view .m81-guild-nav{margin:4px auto;background-size:124px 46px;background-color:transparent;box-shadow:none;color:#fff;font-size:13px}
+.m81-guild-navigation h3{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;margin:0 0 4px}
+.m81-guild-navigation>p{font-size:12px;line-height:17px;margin:0 0 7px}
+.m81-guild-view .m43-guild-navigation{background:linear-gradient(#008bb7,#006e98);border:3px solid #62d9f2;border-radius:13px;padding:12px 8px;box-shadow:inset 0 0 0 2px #177aab}
+.m81-guild-info,.m81-guild-create,.m81-guild-donation{padding:0;background:transparent;border-radius:0;overflow:hidden!important}
+.m43-guild-panel{position:absolute;pointer-events:auto}
+.m43-guild-info-row{position:absolute;display:flex;align-items:center;gap:6px;font-size:12px}
+.m43-guild-info-row strong{flex:0 0 87px;color:#c6f5ff;text-shadow:0 1px 2px #003e6b}
+.m43-guild-info-row span{display:block;flex:1;min-width:0;height:28px;line-height:28px;padding:0 9px;border-radius:14px;background:#006c9a;box-shadow:inset 0 2px 3px #004c78,inset 0 -1px 1px #42c8ed;color:#fff;font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m43-guild-notice{position:absolute;padding:7px 10px;background:#0075a9;border-radius:8px;box-shadow:inset 0 1px 3px #004b7a}
+.m43-guild-notice strong{color:#c6f5ff;font-size:12px}
+.m43-guild-notice p{margin:5px 0 0;height:57px;overflow:auto;font-size:12px;line-height:18px;white-space:pre-line;overflow-wrap:anywhere}
+.m43-guild-info-actions{position:absolute;display:flex;align-items:center;justify-content:center;gap:8px}
+.m81-guild-view .m8-button{color:#fff;text-shadow:0 1px 2px #064c74}
+.m81-guild-workspace{background:transparent;border-radius:0}
+.m81-guild-tabpanel{padding:0}
+.m81-guild-view .m8-account-table{background:#007fb8;color:#fff;table-layout:fixed;border-collapse:collapse}
+.m81-guild-view th{background:#006d9f;color:#bbf3ff;border-bottom:2px solid #39bee6;height:29px;padding:5px 9px;font-weight:bold}
+.m81-guild-view td{border-bottom:1px solid #3bb4d8;padding:5px 9px;line-height:18px}
+.m81-guild-view tbody tr:nth-child(even){background:#008dc4}
+.m81-guild-view tbody tr:hover{background:#0d9dd5}
+.m81-guild-join{padding:7px 8px;background:#087eb5;border:2px solid #5bc5e9;border-radius:10px;box-shadow:inset 0 1px 4px #045283;overflow:hidden!important}
+.m81-guild-view .m43-guild-join-card{padding:0;display:flex;flex-direction:column;height:100%;gap:5px}
+.m43-guild-join-card>h3{margin:0;height:19px;flex:0 0 auto}
+.m43-guild-join-toolbar{display:flex;align-items:center;gap:7px;flex:0 0 auto;min-height:30px}
+.m43-guild-join-toolbar>input{width:220px!important;height:27px!important;background:#00658d!important;color:#fff!important;border:1px solid #6bdbf6!important;box-shadow:inset 0 1px 3px #004a72;text-shadow:none}
+.m43-guild-join-toolbar>input::placeholder{color:#c7efff}
+.m43-guild-join-toolbar>label{margin:0 0 0 auto;font-size:12px;display:flex;align-items:center;flex-wrap:nowrap;gap:5px}
+.m43-guild-join-toolbar>label>input{width:16px;height:16px;accent-color:#9bdb00}
+.m43-guild-join-status{max-height:63px;overflow:auto;flex:0 0 auto}
+.m43-guild-join-status:empty{display:none}
+.m43-guild-join-status .m8-note{margin:1px 0;font-size:12px}
+.m43-guild-join-list{flex:1;min-height:0;overflow:auto;border-radius:6px;background:#007fb8;scrollbar-width:thin;scrollbar-color:#62e1ff #0078b4}
+.m43-guild-join-list .m8-account-table{margin:0}.m43-guild-join-list th{top:0}
+.m43-guild-join-list th:first-child{width:49%}.m43-guild-join-list th:nth-child(2){width:30%}.m43-guild-join-list th:last-child{width:21%}
+.m43-guild-join-list td:first-child{white-space:pre-line;font-weight:bold}
+.m43-guild-join-card>.m8-account-pager{margin:0;min-height:26px;flex:0 0 auto;justify-content:flex-end;gap:10px}
+.m81-guild-create .m8-account-card{padding:16px 17px}.m81-guild-create .m8-note{margin:8px 0 10px;font-size:12px;line-height:18px}
+.m81-guild-donation .m8-account-card{display:block;padding:17px 20px}.m81-guild-donation .m8-account-card .m8-note{font-size:13px;line-height:21px;margin:10px 0 14px}
+.m43-guild-welcome-content{padding:18px 20px;font-size:13px;line-height:20px}.m43-guild-welcome-content h3{margin:0 0 10px}.m43-guild-welcome-content p{margin:6px 0}
+.m81-guild-invitations:empty{display:none}.m81-guild-invitations .m8-account-card{background:#006f9c;color:#fff;border:1px solid #59d1ef}
+.m81-guild-view .m43-guild-art{pointer-events:none;max-width:none;object-fit:fill}
+.m81-guild-view .m43-guild-button{border:0;border-radius:0;background-color:transparent;background-position:center;background-size:100% 100%;background-repeat:no-repeat;min-width:0;min-height:0;max-width:none;margin:0;padding:0;box-shadow:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;cursor:pointer}
+.m81-guild-view .m43-guild-button img{width:auto;height:auto;pointer-events:none}
+.m81-guild-view .m43-guild-button:disabled{filter:grayscale(.4) brightness(.8);opacity:.65;cursor:default}
+.m81-guild-view .m43-guild-button:not(:disabled):hover{filter:brightness(1.12)}
+.m43-guild-skill-shade{position:absolute;inset:0;width:1018px;height:618px;z-index:30;background:rgba(0,31,55,.17)}
+.m43-guild-skills{color:#fff;font:13px Arial,sans-serif;text-shadow:0 1px 1px #08628d;filter:drop-shadow(0 4px 5px rgba(0,0,0,.35))}
+.m43-guild-skill-grid{display:grid;grid-template-columns:260px 260px;grid-auto-rows:90px;gap:4px;align-content:start;overflow-y:scroll;overflow-x:hidden;padding:0;scrollbar-width:thin;scrollbar-color:#75e8ff #0080bc}
+.m43-guild-skill-card{position:relative;width:260px;height:90px;min-height:90px;border-radius:10px;background:#0178b8;box-shadow:inset 0 0 0 1px rgba(0,88,147,.18);overflow:hidden}
+.m43-guild-skill-card:focus-visible{outline:2px solid #e9ff95;outline-offset:-2px}
+.m43-guild-skill-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:20px;color:#fff;font-size:13px}
+.m43-guild-progress-fill{overflow:hidden;pointer-events:none}
+.m43-guild-research-cap{background:#002e51;opacity:.55;pointer-events:none}
+.m43-guild-progress-value{font:bold 11px/20px Verdana,sans-serif;color:#fff}
+.m43-guild-skill-cost{text-align:right;font-weight:bold;font-size:12px;white-space:nowrap;color:#fff;line-height:18px}
+.m43-guild-skill-cost.is-short{color:#ff4c2a;text-shadow:0 1px 1px #743c16}
+.m81-guild-view .m43-guild-slot-button{min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;cursor:pointer}
+.m81-guild-view .m43-guild-slot-button:disabled{opacity:.75;cursor:default}
+.m43-guild-skill-slot .m43-guild-button{z-index:1}
+.m43-guild-currency{font:bold 13px/22px Arial,sans-serif;text-align:center;color:#fff;white-space:nowrap}
+.m43-guild-skill-picker{z-index:5;filter:drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+.m43-guild-pick-grid{display:grid;grid-template-columns:repeat(5,60px);grid-auto-rows:56px;gap:4px;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#8de9ff #0875a2}
+.m81-guild-view .m43-guild-pick-option{width:60px;height:56px;border:1px solid #77dbf2;border-radius:5px;background:#087aaf;padding:2px;margin:0;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;box-shadow:none}
+.m43-guild-pick-option img{max-width:50px;max-height:50px}.m81-guild-view .m43-guild-pick-option[aria-pressed="true"]{border:2px solid #c7f332;background:#175d80}
+.m81-guild-view .m43-guild-picker-close{min-width:0;min-height:0;padding:0;border:0;background:none;box-shadow:none;font:bold 23px/24px Arial,sans-serif;color:#fff}
+.m43-guild-skills .m81-native-panel-close{z-index:8}

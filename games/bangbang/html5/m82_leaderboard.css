@@ -1,0 +1,61 @@
+/* SummerRankFrame 882x532; CropsListFrame/ClanRankListFrame 788x340 at 47,119. */
+.m82-rank-tabs{display:flex;gap:6px;align-items:center;z-index:2}
+.m82-rank-tabs .m8-button{width:109px;height:39px}
+.m82-rank-table{overflow:auto;box-sizing:border-box;font-size:12px}
+.m82-rank-header,.m82-rank-entry{display:grid;align-items:center;text-align:center;box-sizing:border-box;min-width:100%;height:31px;gap:6px;padding:0 8px}
+.m82-rank-table-guild .m82-rank-header,.m82-rank-table-guild .m82-rank-entry{grid-template-columns:48px 1.4fr 48px 1.2fr 92px 101px 66px}
+.m82-rank-table-team .m82-rank-header,.m82-rank-table-team .m82-rank-entry{grid-template-columns:48px 1fr 54px 156px 204px 66px}
+.m82-rank-header{height:22px;position:sticky;top:0;font-weight:bold;background:#12628d;z-index:1}
+.m82-rank-entry:nth-child(even){background:#08548077}
+.m82-rank-entry>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.m82-rank-entry>span:nth-child(2){text-align:left}
+.m8-account .m82-rank-entry .m8-button{min-height:23px;height:25px;padding:2px 8px;font-size:11px}
+.m82-rank-detail-title{margin:0;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m82-rank-detail-content{overflow:auto;box-sizing:border-box;font-size:12px}
+.m82-rank-detail-content h4{margin:14px 0 8px;font-size:14px}
+.m82-rank-detail-metric{display:flex;gap:8px;align-items:center;min-height:27px;line-height:20px}
+.m82-rank-detail-metric>span{min-width:100px;color:#b5e7f7}
+.m82-rank-detail-metric>strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.m82-rank-detail-actions{display:flex;gap:8px;justify-content:center}
+.m82-rank-detail-actions>.m8-button{width:120px;height:35px}
+.m82-public-team-list{max-height:230px;overflow:auto}
+.m82-public-team{display:grid;grid-template-columns:1fr 62px;gap:4px 8px;padding:9px 7px;border-bottom:1px solid #3d87aa}
+.m82-public-team>span{grid-column:1;font-size:11px;color:#b9e0ed}
+.m82-public-team>button{grid-column:2;grid-row:1 / 3}
+.m82-public-team>strong,.m82-public-team>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m82-public-team-fields{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.m82-public-team-fields .m82-rank-detail-metric:nth-child(-n+2){grid-column:1 / 3}
+.m82-public-team-fields .m82-rank-detail-metric>span{min-width:65px}
+.m82-public-member-list{max-height:190px;overflow:auto}
+.m82-public-member{display:grid;grid-template-columns:1fr 66px;gap:2px 7px;padding:7px 8px;border-bottom:1px solid #3d87aa}
+.m82-public-member:nth-child(even){background:#08548077}
+.m82-public-member>strong,.m82-public-member>span{grid-column:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m82-public-member>span{font-size:11px;color:#b9e0ed}
+.m82-public-member>button{grid-column:2;grid-row:1 / 4;align-self:center}
+
+/* Original SummerRankFrame stage, podium and 10 rows; keep public API order. */
+.m8134-rank-tabs{z-index:2}
+.m8134-rank-preview{overflow:hidden;isolation:isolate}
+.m8134-rank-preview>.m8134-rank-tank{z-index:1}
+.m8134-rank-preview>.m8134-rank-avatar{z-index:2}
+.m8134-rank-preview-level,.m8134-rank-preview>.m84-native-button{z-index:3}
+.m8134-rank-header,.m8-account .m8134-rank-row{display:grid;grid-template-columns:50px 171px 140px 55px;align-items:center;box-sizing:border-box;text-align:center;color:#fff}
+.m8134-rank-header{font:bold 12px Tahoma,Arial,sans-serif;text-shadow:0 1px 2px #1274a0}
+.m8134-rank-list{overflow:hidden}
+.m8-account .m8134-rank-row{position:relative;width:416px;height:32px;min-height:32px;padding:0;border:0;border-bottom:1px solid #49b2d8;border-radius:0;background:#008bc8;box-shadow:none;font:bold 12px Tahoma,Arial,sans-serif}
+.m8-account .m8134-rank-row:nth-child(even){background:#0083be}
+.m8-account .m8134-rank-row:hover{background:#079bd5;transform:none}
+.m8-account .m8134-rank-row.is-selected{outline:3px solid #ffff00;outline-offset:-3px;border-radius:5px;background:#0082bb}
+.m8134-rank-row>span{position:relative;min-width:0;height:32px;display:flex;align-items:center;justify-content:center}
+.m8134-rank-person{gap:2px;padding-right:3px;box-sizing:border-box}
+.m8134-rank-level{position:relative;display:block;width:40px;height:20px;flex:none}
+.m8134-rank-person .m8134-rank-level>img,.m8134-rank-person .m8134-rank-level>.m84-native-art{transform:scale(.5);transform-origin:0 0}
+.m8134-rank-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;text-shadow:0 1px 1px #004577}
+.m8134-rank-bot{flex:none;font:10px Tahoma,Arial,sans-serif;color:#b9f1ff}
+.m8134-rank-medal{gap:2px;padding-right:2px;box-sizing:border-box}
+.m8134-rank-medal>span:last-child{flex:1;min-width:0;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}
+.m8134-rank-medal-art{position:relative;display:block;width:32px!important;height:27px!important;flex:none;object-fit:contain!important}
+.m8134-rank-points{font:bold 13px Arial,sans-serif;font-variant-numeric:tabular-nums}
+.m8134-rank-own{display:flex;align-items:center;gap:8px;color:#086597;font:bold 12px Tahoma,Arial,sans-serif}
+.m8134-rank-own strong{font-size:20px}
+.m8134-character-rank>.m8-account-note{color:#07547c;font-size:12px;font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

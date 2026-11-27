@@ -1,0 +1,15 @@
+.m82-selection-extras{position:absolute;inset:0;pointer-events:none;color:#fff;font:12px Tahoma,Arial,sans-serif}
+.m82-selection-extras[hidden]{display:none}
+.m82-selection-extras img{max-width:none;max-height:none;pointer-events:none;user-select:none}
+.m82-selection-extras>select,.m82-selection-extras>button,.m82-selection-guild-popup{pointer-events:auto}
+.m82-selection-extras>select{padding:0 3px;font:bold 12px Tahoma,sans-serif;border:1px solid #1b79b4;border-radius:3px;background:#108ec6;color:#fff;box-sizing:border-box}
+.m82-selection-extras .m82-selection-guild-icon,.m82-selection-extras .m82-selection-guild-switch{padding:0;border:0;min-width:0;min-height:0;box-shadow:none;border-radius:0;background:transparent;color:#fff;font-size:11px}
+.m82-selection-guild-icon>img{width:50px;height:50px;object-fit:contain;display:block}
+.m82-selection-guild-switch>img{width:49px;height:21px;display:block}
+.m82-selection-guild-popup{z-index:22}
+.m82-selection-guild-options{display:grid;grid-template-columns:repeat(5,60px);grid-auto-rows:60px;overflow:auto;padding-top:5px;box-sizing:border-box}
+.m82-selection-guild-options .m82-selection-guild-option{padding:5px;width:60px;height:60px;border:0;border-radius:0;background:none;box-shadow:none;min-height:0;color:#fff}
+.m82-selection-guild-option>img{width:50px;height:50px;display:block;object-fit:contain}
+.m82-selection-guild-options>p{grid-column:1/-1;margin:6px 0;font-size:14px}
+.m82-selection-extras .m8-button:focus-visible,.m82-selection-extras select:focus-visible{outline:2px solid #ffec87;outline-offset:1px}
+.m82-selection-extra-status{padding:3px 7px;background:#063d60df;border-radius:3px;font-size:11px;line-height:15px;box-sizing:border-box}

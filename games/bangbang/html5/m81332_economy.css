@@ -1,0 +1,7 @@
+.m81332-economy-shade{position:fixed;inset:0;z-index:2147480000;display:grid;place-items:center;padding:16px;background:#001a2dcc;font:15px/1.5 Arial,sans-serif;color:#eafaff}
+.m81332-economy-dialog{box-sizing:border-box;max-width:560px;width:100%;max-height:90vh;overflow:auto;border:2px solid #69cfff;border-radius:15px;padding:22px;background:#073850;box-shadow:0 16px 60px #00151c}
+.m81332-economy-dialog h2{margin:0 0 16px;font-size:22px;color:#fff}.m81332-economy-dialog p{margin:12px 0;white-space:pre-wrap}
+.m81332-economy-dialog button{cursor:pointer;border:1px solid #70d5ff;border-radius:8px;padding:9px 14px;margin:6px 8px 0 0;color:#fff;background:#087caf;font:inherit}
+.m81332-economy-dialog button:disabled{cursor:default;opacity:.45}.m81332-economy-dialog button:focus-visible,.m81332-economy-dialog input:focus-visible{outline:3px solid #ffdc4f;outline-offset:3px}
+.m81332-economy-dialog input{width:120px;padding:8px;border:1px solid #69cfff;border-radius:5px;background:#fff;color:#00324b;font:inherit}
+.m81332-economy-items{max-height:225px;overflow:auto;padding:0 0 0 23px}.m81332-economy-items li{padding:5px 0}.m81332-economy-total{color:#ffe265;font-weight:bold}.m81332-economy-warning{color:#ffbc90}.m81332-economy-status{border-top:1px solid #447b94;padding-top:12px}

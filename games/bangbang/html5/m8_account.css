@@ -1,0 +1,71 @@
+.m8-account{position:absolute;inset:0;background-size:100% 100%;font:13px Tahoma,Arial,sans-serif;color:#f5fcff}
+.m8-account-panel{position:absolute;left:25px;top:58px;width:950px;height:480px;display:flex;flex-direction:column;background:rgba(13,85,123,.88);border:1px solid #83e4ff;border-radius:7px;overflow:hidden;box-shadow:0 2px 8px #003d6480}
+.m8-account-toolbar{height:47px;min-height:47px;display:flex;align-items:center;gap:10px;padding:0 110px 0 12px;background:#156b9a;border-bottom:1px solid #6ac4ee}
+.m8-account h2{margin:0;font-size:19px;min-width:100px;color:#fff;text-shadow:1px 2px #234d70}.m8-account h3{font-size:15px;margin:0 0 10px}.m8-account h4{font-size:13px;margin:0 0 5px}
+.m8-account-sections{display:flex;gap:5px;flex:1}.m8-account .m8-button{font-size:12px;min-height:29px;padding:4px 11px;white-space:normal}
+.m8-account .m8-button.is-active{background:#fdb74e;border-color:#ffe48c;color:#4d330f}.m8-account .m8-button:focus-visible{outline:3px solid #ffe97a;outline-offset:2px}
+.m8-account-scroll{flex:1;overflow:auto;padding:11px;min-height:0;scrollbar-color:#54b7df #124f72}
+.m8-account-status{min-height:20px;margin:0!important;padding:4px 12px;background:#124966;font-size:12px!important;white-space:pre-wrap}.m8-account-status.error{color:#ffcf8e}
+.m8-account-filter{display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.m8-account-filter input{margin-left:auto;min-width:180px}
+.m8-account input,.m8-account select,.m8-account textarea{font:13px Tahoma,Arial,sans-serif;border:1px solid #7fcfee;border-radius:3px;background:#eafaff;color:#123e58;padding:6px;max-width:100%;box-sizing:border-box}
+.m8-account textarea{width:100%;min-height:104px;resize:vertical}.m8-account .m8-field{display:flex;gap:8px;align-items:center;margin-bottom:9px}.m8-account .m8-field>span{min-width:85px}.m8-account .m8-field input{flex:1;min-width:0}
+.m8-account .m8-note{font-size:12px;line-height:1.5;white-space:pre-wrap;margin:7px 0;color:inherit}.m8-account .m8-note.error{color:#ffcf8e}
+.m8-account-inventory{display:grid;grid-template-columns:540px 1fr;gap:17px}.m8-account-bag-wrap{position:relative;width:540px;min-height:400px;box-sizing:border-box;padding:7px;background:#12628d;border:1px solid #5fb1d2;border-radius:5px}
+.m8-account-bag-grid{display:grid;grid-template-columns:repeat(9,55px);grid-template-rows:repeat(5,55px);gap:2px;justify-content:center}.m8-account .m8-account-bag-slot{position:relative;width:55px;height:55px;min-height:55px;padding:0;border:0;background-color:transparent;background-size:55px 55px;border-radius:0;overflow:hidden;box-shadow:none}
+.m8-account-bag-slot img{position:absolute;left:3px;top:3px;width:49px;height:49px;object-fit:contain}.m8-account-bag-slot.is-selected{outline:2px solid #fff17a;outline-offset:-2px}.m8-account-stack{position:absolute;right:3px;bottom:1px;font-size:11px;line-height:14px;color:#fff;text-shadow:1px 1px #001c31}.m8-account-equipped{position:absolute;left:2px;top:1px;color:#fff67f;font-weight:bold;text-shadow:1px 1px #073e5a}
+.m8-account-pager{display:flex;justify-content:center;gap:13px;align-items:center;margin-top:8px}.m8-account-detail{padding:12px;background:#0e4c6c;border:1px solid #65b6d3;border-radius:4px;min-height:280px}.m8-account-detail .m8-button{margin-right:5px}.m8-account-item-preview{display:block;max-width:125px;height:130px;object-fit:contain;margin:5px auto}
+.m8-account-shop-layout{display:grid;grid-template-columns:220px 1fr;gap:10px}.m8-account-shop-main{min-width:0}.m8-account-goods-grid{display:grid;grid-template-columns:repeat(3,212px);justify-content:center;gap:7px}.m8-account-goods{position:relative;width:212px;height:320px;background-size:100% 100%;text-align:center;box-sizing:border-box}.m8-account-goods h3{position:absolute;left:8px;right:8px;top:9px;height:25px;font-size:13px;display:flex;justify-content:center;align-items:center;margin:0;color:#fff;text-shadow:0 1px #643c18}.m8-account-goods-image{position:absolute;left:31px;top:44px;width:150px;height:200px;object-fit:contain}.m8-account-price{position:absolute;left:0;right:0;bottom:46px;height:20px;margin:0;color:#603018;font-weight:bold}.m8-account-goods-actions{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:3px}.m8-account-goods .m8-button{margin:0;font-size:11px;padding:4px 8px}
+.m8-account-avatar{position:relative;width:190px;height:273px;margin:28px 15px;background-size:100% 100%;overflow:visible}.m8-account-avatar-decor,.m8-account-avatar-person{position:absolute;object-fit:contain}.m8-account-avatar-person{left:13.57px;top:39.81px;width:162.86px;height:217.14px;z-index:1}.m8-account-avatar-name{position:absolute;left:43px;right:7px;top:12px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:2}.m8-account-avatar-level{position:absolute;left:7px;top:12px;text-align:center;font-size:11px;z-index:2}
+.m8-account-profile{display:grid;grid-template-columns:220px 1fr;gap:16px}.m8-account-profile-info{min-width:0}.m8-account-rank{display:flex;align-items:center;gap:15px;margin-bottom:9px}.m8-account-rank img{width:66px;height:66px;object-fit:contain}.m8-account-rank h3{margin:0}
+.m8-account-table{border-collapse:collapse;width:100%;font-size:12px;margin:8px 0}.m8-account-table th{text-align:left;color:#a8e8ff;background:#0d405f;padding:8px 9px;position:sticky;top:-11px}.m8-account-table td{padding:8px 9px;border-bottom:1px solid #3884a6;white-space:pre-line;vertical-align:middle}.m8-account-table tr:nth-child(even){background:#124f6f}.m8-account-table .m8-button{font-size:11px;padding:4px 8px}
+.m8-account-columns{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:12px}.m8-account-card{min-width:0;border:1px solid #58a9cd;background:#105573;padding:13px;border-radius:5px}.m8-account-card>.m8-button{margin:5px 5px 0 0}.m8-account-inline{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap}.m8-account-guild-summary{display:flex;gap:18px;align-items:center;margin:0 0 9px}.m8-account-guild-summary h3{margin:0}.m8-account-guild-summary span{color:#b6e7ff;font-size:12px}
+.m8-account-guild-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-bottom:13px}.m8-account-slot{padding:9px;background:#134764;border:1px solid #6cbbd7;border-radius:4px}.m8-account-slot strong{display:block;margin-bottom:8px;font-size:12px}.m8-account-slot select{width:100%;font-size:11px}.m8-account-slot .m8-button{margin-top:7px}
+.m8-account-skill-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.m8-account-skill{padding:10px;background:#0f4e6d;border:1px solid #62accc;border-radius:4px;min-width:0}.m8-account-skill>img{width:50px;height:50px;object-fit:contain;float:left;margin-right:9px}.m8-account-skill .m8-note{font-size:11px}.m8-account-skill .m8-button{margin-top:6px;width:100%;font-size:11px}
+.m8-account-modal{position:absolute;inset:0;z-index:40;background:#021d3dc4;display:flex;align-items:center;justify-content:center}.m8-account-dialog{background:#116995;border:3px solid #b7f1ff;border-radius:12px;padding:20px 25px;min-width:300px;max-width:480px;box-shadow:0 8px 30px #001c3cc9;text-align:center}.m8-account-dialog h3{font-size:18px}.m8-account-dialog-image{max-width:100px;max-height:135px;object-fit:contain}.m8-account-dialog .m8-account-inline{margin-top:15px}
+/* Source geometry: PlayerInfoFrame828x568 / SummerRankFrame882x532. */
+.m81-account-native .m8-account-scroll{position:absolute;inset:0;padding:0;overflow:visible}
+.m81-account-native .m8-account-status{position:absolute;left:30px;right:30px;bottom:2px;z-index:5}
+.m81-native-avatar.m8-account-avatar{width:214px;height:306px;margin:0;background-size:214px 306px}
+.m81-native-avatar .m8-account-avatar-person{left:12px;top:46px;width:180px;height:240px}
+.m81-native-avatar .m8-account-avatar-name{left:49px;top:13px;width:152px;right:auto;height:24px;font-size:14px}
+.m81-native-avatar .m8-account-avatar-level{left:-9px;top:7px;width:50px}
+.m81-profile-query input{width:240px;height:28px}.m81-profile-query .m8-button{height:28px}
+.m81-profile-history h3,.m81-profile-tank-report h3{font-size:14px;color:#fff;margin:0 0 9px}
+.m81-profile-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 10px}
+.m81-profile-metric{display:flex;align-items:center;justify-content:space-between;gap:5px;font-size:12px;min-width:0}
+.m81-profile-metric strong{min-width:30px;padding:3px 7px;background:#075582;border:1px solid #5aaccb;border-radius:4px;text-align:right}
+.m81-profile-membership{border:1px solid #63b5d2;border-radius:4px;padding:5px 9px}.m81-profile-membership .m8-note{margin:2px 0}
+.m81-profile-tank-list{overflow:auto;background:#075680;border:1px solid #51b6df;border-radius:4px}
+.m8-account .m81-profile-tank-row{width:100%;height:76px;min-height:76px;display:flex;align-items:center;padding:0;border:0;border-radius:0;background:#0b6996;box-shadow:none;text-align:left;font-weight:normal}
+.m81-profile-tank-row:nth-child(even){background:#085480}.m81-profile-tank-row.is-selected{outline:2px solid #fff49b;outline-offset:-2px}.m81-profile-tank-row>span:last-child{white-space:pre-line;font-size:12px;line-height:1.6;flex:1}
+.m81-rank-list{overflow:auto;background:#075680;border:1px solid #51b6df;border-radius:4px}
+.m8-account .m81-rank-row{display:grid;grid-template-columns:48px 1fr 64px;align-items:center;width:100%;height:32px;min-height:32px;border:0;border-radius:0;background:#0b6996;box-shadow:none;padding:0 5px;color:white;font-size:13px;text-align:center}
+.m8-account .m81-rank-row:nth-child(even){background:#085480}.m81-rank-row>span:nth-child(2){overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}.m81-rank-header{position:sticky;top:0;font-weight:bold;z-index:2}
+/* ShopFrame1020x620 + CharAvatarGoodsFrame250x380, original card pitch250. */
+.m81-native-shop .m8-account-shop-layout{display:block;position:absolute;inset:0;pointer-events:none}
+.m81-native-shop .m8-account-shop-layout>*{pointer-events:auto}
+.m81-native-shop .m8-account-filter{position:absolute;left:235px;top:55px;width:750px;height:72px;margin:0;z-index:2;align-items:start;padding-left:292px;gap:0}
+.m81-native-shop .m8-account-filter>.m8-button{width:101px;height:33px;border-radius:0}
+.m81-native-shop .m8-account-filter input{position:absolute;left:0;top:40px;width:250px;margin:0;height:28px}
+.m81-shop-avatar.m8-account-avatar{position:absolute;left:16px;top:49px;width:210px;height:302px;margin:0;background-image:none!important}
+.m81-shop-avatar .m8-account-avatar-person{left:15px;top:44px;width:180px;height:240px}
+.m81-shop-avatar .m8-account-avatar-name{left:48px;top:13px;width:152px;right:auto;height:24px;font-size:14px}
+.m81-shop-avatar .m8-account-avatar-level{left:-2px;top:10px;width:50px}
+.m81-shop-wallet{position:absolute;left:21px;top:356px;width:190px;font-weight:bold}
+.m81-native-shop .m8-account-shop-main{position:absolute;left:235px;top:139px;width:750px}
+.m81-native-shop .m8-account-goods-grid{grid-template-columns:repeat(3,250px);gap:0}
+.m81-native-shop .m8-account-goods{width:250px;height:380px;background:none}
+.m81-goods-background{position:absolute;left:-2px;top:-2px;width:254px;height:384px;pointer-events:none}
+.m81-native-shop .m8-account-goods h3{left:10px;right:auto;top:13px;width:230px;height:24px;font-size:14px}
+.m81-native-shop .m8-account-goods-image{left:37px;top:41px;width:180px;height:240px}
+.m81-native-shop .m8-account-price{bottom:59px;height:24px}
+.m81-native-shop .m8-account-goods-actions{left:32px;right:32px;bottom:12px;height:32px;justify-content:flex-start}
+.m81-native-shop .m8-account-goods-actions>.m8-button{width:90px;height:32px;padding:0}
+.m81-native-shop .m8-account-pager{margin-top:16px}
+.m81-native-shop .m8-account-goods>.m81-shop-try{position:absolute;left:185px;top:9px;min-height:30px;height:30px;width:56px;padding:0;border:0;background:transparent;z-index:2;font-size:11px}
+.m81-native-shop .m8-account-filter>.m81-shop-tab{background-color:transparent;background-size:101px 33px;border:0;box-shadow:none;color:#fff;text-shadow:0 1px #035278}
+.m81-native-shop .m8-account-filter>.m81-shop-tab.is-active{color:#164968;text-shadow:none;outline:none}
+.m81-native-shop .m8-account-goods-actions>.m81-native-buy{background-color:transparent;background-size:90px 32px;border:0;border-radius:0;box-shadow:none}
+.m81-profile-tank-list,.m81-rank-list{border:0;border-radius:0;background:transparent}
+
+.m81-military-root{position:absolute;left:0;top:12px;width:1000px;height:576px}.m81-military-root>.m8-account-scroll{max-height:none;overflow:visible}.m81-military-root>.m8-account-status:empty{display:none}

@@ -1,0 +1,2178 @@
+{
+  "schema": "bangbang-m85-native-tank-ui/v1",
+  "assets": {
+    "m85.tank.button_2_ss_green": {
+      "url": "/html5/assets_m85/tanks/button_2_ss_green_e6a61fdb4674f5c9.png",
+      "logical": "zh_CN/gui_summer/controls/public/button_2_ss_green.png",
+      "width": 66,
+      "height": 29,
+      "bytes": 1554,
+      "sha256": "e6a61fdb4674f5c910c3da6a3c802daafe648859060883b57745814bfa3d6510",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 279,
+        "tagType": 36,
+        "tagSha256": "222aacf123c423176518193a5e581e8fb7da02dd5711a4b61574f1154fb030b7",
+        "symbol": "mxml.tank.SkinAttrItemFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_button_2_ss_green_png_1922726905"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.button_2_ss_orange": {
+      "url": "/html5/assets_m85/tanks/button_2_ss_orange_19d82927acd13b12.png",
+      "logical": "zh_CN/gui_summer/controls/public/button_2_ss_orange.png",
+      "width": 66,
+      "height": 29,
+      "bytes": 1863,
+      "sha256": "19d82927acd13b12c03e310a33dc9ea59841b47ef69c5699fbee8ac417f66992",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 622,
+        "tagType": 36,
+        "tagSha256": "54745e6971f62e469d76aa2110e1075f7a29993ea41bca367091963a5a1328b6",
+        "symbol": "mxml.tank.SkinAttrItemFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_button_2_ss_orange_png_269204407"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.button_buy_s_t": {
+      "url": "/html5/assets_m85/tanks/button_buy_s_t_dd528bc6f53addd8.png",
+      "logical": "zh_CN/gui_summer/controls/shop/button_buy_s_t.png",
+      "width": 60,
+      "height": 32,
+      "bytes": 3059,
+      "sha256": "dd528bc6f53addd830e859e99e5060287644a5b6e0985032e822e2ab4910044f",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 28,
+        "tagType": 36,
+        "tagSha256": "1aa7aa5bdee641c1c9a14a48964868096a70ca1f7eeb6bd0bc0b8a51f6507e33",
+        "symbol": "mxml.tank.SkinAttrItemFrame__embed_mxml__rez_zh_CN_gui_summer_controls_shop_button_buy_s_t_png_1963074231"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.or_t": {
+      "url": "/html5/assets_m85/tanks/or_t_006ebe5383b76a71.png",
+      "logical": "zh_CN/gui_summer/controls/shop/or_t.png",
+      "width": 13,
+      "height": 13,
+      "bytes": 210,
+      "sha256": "006ebe5383b76a712a77362c55dd85f2b40a66e22245692f52be5379d8c5f34e",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 147,
+        "tagType": 36,
+        "tagSha256": "a4e7bb7f9ab28a41340c48cb0afbd1bdbdd3d9a2c121a8d477ca3ea8a73aaab6",
+        "symbol": "mxml.tank.SkinAttrItemFrame__embed_mxml__rez_zh_CN_gui_summer_controls_shop_or_t_png_1670914105"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.w1_convert_t": {
+      "url": "/html5/assets_m85/tanks/w1_convert_t_9ad983d5afbc92cf.png",
+      "logical": "zh_CN/gui_summer/controls/tank/w1_convert_t.png",
+      "width": 36,
+      "height": 18,
+      "bytes": 1233,
+      "sha256": "9ad983d5afbc92cf907a83d4281cfa2afd329e9ee62d765ac58fe9caf50f4c28",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 635,
+        "tagType": 36,
+        "tagSha256": "a7c35991bd3b089ee8a153e71d3a44d437a0e018243b40515b555f8b7bb52ae9",
+        "symbol": "mxml.tank.SkinAttrItemFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tank_w1_convert_t_png_1140297993"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.w1_use_t": {
+      "url": "/html5/assets_m85/tanks/w1_use_t_a8ef2bc1fc86f5b7.png",
+      "logical": "zh_CN/gui_summer/controls/tank/w1_use_t.png",
+      "width": 35,
+      "height": 19,
+      "bytes": 1188,
+      "sha256": "a8ef2bc1fc86f5b7384131482741306f1f1fa45f8f2794fe1e6eddcdc86b5ad5",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 102,
+        "tagType": 36,
+        "tagSha256": "c7451c9fa385ecbffffb47cb5d535f23327070cbe9fad7d82b1e77a200b81ddb",
+        "symbol": "mxml.tank.SkinAttrItemFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tank_w1_use_t_png_713776209"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_has_active_t": {
+      "url": "/html5/assets_m85/tanks/btn_has_active_t_28f1c4b48299c17b.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_has_active_t.png",
+      "width": 39,
+      "height": 19,
+      "bytes": 1092,
+      "sha256": "28f1c4b48299c17b0aa20fa8e8b719fa10877f16229d6dd8efb21983ee648208",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 141,
+        "tagType": 36,
+        "tagSha256": "9a58c34750765a6ac70320c66d0dbee655f448b61f378ba557cad31f78728449",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_has_active_t_png_972841783"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_seleted_a_t": {
+      "url": "/html5/assets_m85/tanks/btn_seleted_a_t_235781ad43e18087.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_seleted_a_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 1072,
+      "sha256": "235781ad43e180876e0fe5b18cb0176c6bbc1206af85f711de9c50aeedb5fdb6",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 381,
+        "tagType": 36,
+        "tagSha256": "6449de696d5bbe0e65df818a18e8303c0f8ae5ab5108b1c3948eeb6d4c0ae1a7",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_seleted_a_t_png_1179454001"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_seleted_all_t": {
+      "url": "/html5/assets_m85/tanks/btn_seleted_all_t_21b8483662c57f84.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_seleted_all_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 594,
+      "sha256": "21b8483662c57f84c41125d6c38930c887634c9e056b9a79c4a305e046276d9b",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 502,
+        "tagType": 36,
+        "tagSha256": "a2b5b48a5ab3327fc15cb4d9d377cca78b75f7229c2957e0b263cbc7462aa7e0",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_seleted_all_t_png_1249740495"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_seleted_s_t": {
+      "url": "/html5/assets_m85/tanks/btn_seleted_s_t_ab7d58d0caf230bd.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_seleted_s_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 1104,
+      "sha256": "ab7d58d0caf230bd626dbe1c993a5d06c06acc2661f049ee4aaed7953536e2e1",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 310,
+        "tagType": 36,
+        "tagSha256": "ff336f4e86923451188ba8bd3c864ab8eb8e00c622b58baeb55fd40859314cf7",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_seleted_s_t_png_1001774247"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_seleted_ss_t": {
+      "url": "/html5/assets_m85/tanks/btn_seleted_ss_t_6f0b3036b33bb903.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_seleted_ss_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 1169,
+      "sha256": "6f0b3036b33bb90354545d1fd155e557d06d3c9f1643f42f4e23d0a9e2e4132d",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 332,
+        "tagType": 36,
+        "tagSha256": "7cb7aba8081f28c6759989d0d0aac780865c46a7433ea137baf8581a78eb51fe",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_seleted_ss_t_png_131833009"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_seleted_sss_t": {
+      "url": "/html5/assets_m85/tanks/btn_seleted_sss_t_3cafa2a4fac6108f.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_seleted_sss_t.png",
+      "width": 60,
+      "height": 25,
+      "bytes": 1306,
+      "sha256": "3cafa2a4fac6108faecb405b77cdf07c0b912a450fdab5c7d7543efc4382dc70",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 91,
+        "tagType": 36,
+        "tagSha256": "f952cd6862c96e67f8fd3d179d3b901a1ba10e9161d9ac6205e97c906a432ecb",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_seleted_sss_t_png_1256544999"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_skin_selected": {
+      "url": "/html5/assets_m85/tanks/btn_skin_selected_1ccb50af51f00d80.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_skin_selected.png",
+      "width": 76,
+      "height": 39,
+      "bytes": 1847,
+      "sha256": "1ccb50af51f00d80191028b65437368571755e54d9737c1294d984980535ddb1",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 604,
+        "tagType": 36,
+        "tagSha256": "2f81be12ac2320e1d5a899470bd9426eff19cefb64cf880f3205dd5099bfbf30",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_skin_selected_png_1250131663"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_skin_unselect": {
+      "url": "/html5/assets_m85/tanks/btn_skin_unselect_7c4d1d092c54b02b.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_skin_unselect.png",
+      "width": 76,
+      "height": 39,
+      "bytes": 1185,
+      "sha256": "7c4d1d092c54b02b5e4780544f88bf618def84c5209bab1cff7b654be4bd56df",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 562,
+        "tagType": 36,
+        "tagSha256": "6cc9226e788189152ec39eec5c0d340fb5bbc86d5f657a8429b0db710172eb73",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_skin_unselect_png_1256413871"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_un_active_t": {
+      "url": "/html5/assets_m85/tanks/btn_un_active_t_52ff0d38f98d276f.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_un_active_t.png",
+      "width": 39,
+      "height": 19,
+      "bytes": 1181,
+      "sha256": "52ff0d38f98d276f75b50140e1b052a5ebd34fae34b55aaf2a7eb090098d1485",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 533,
+        "tagType": 36,
+        "tagSha256": "16eca046ed79b983a441368d99d74ea11c341d90ba49dcb8ed33bdad6149e344",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_un_active_t_png_2080309063"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_unselet_a_t": {
+      "url": "/html5/assets_m85/tanks/btn_unselet_a_t_cd99e537ec3f13c5.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_unselet_a_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 1178,
+      "sha256": "cd99e537ec3f13c5a5f46f14ea21f2c2112f10d2235d1d08236f32a664f93eb2",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 499,
+        "tagType": 36,
+        "tagSha256": "2e47b169b8d5ab5085e0165e50870ed43afd8448e7b6368ea679c0511c1a0e98",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_unselet_a_t_png_431480655"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_unselet_all_t": {
+      "url": "/html5/assets_m85/tanks/btn_unselet_all_t_78e1425f661c21e8.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_unselet_all_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 652,
+      "sha256": "78e1425f661c21e832b19b281cefff77ef4d54ad80387d1d1a1c98dd9e6bda1e",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 614,
+        "tagType": 36,
+        "tagSha256": "f17b67fc3f913b17006916cf22e9a40392bad0f2caa4d79b4d76be679b569595",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_unselet_all_t_png_1253004879"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_unselet_s_t": {
+      "url": "/html5/assets_m85/tanks/btn_unselet_s_t_434245b883d6b7cd.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_unselet_s_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 1170,
+      "sha256": "434245b883d6b7cd8315ca46b5ed3a1ae61acd0a3089d30d19bd884ad031e3e7",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 620,
+        "tagType": 36,
+        "tagSha256": "99195631be0d6a1e5dad05b45628fcde5391de2bfe2c48adba94928ae5a07c05",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_unselet_s_t_png_1179190409"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_unselet_ss_t": {
+      "url": "/html5/assets_m85/tanks/btn_unselet_ss_t_efe4526acc695ca2.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_unselet_ss_t.png",
+      "width": 43,
+      "height": 24,
+      "bytes": 1310,
+      "sha256": "efe4526acc695ca2b3aaf0568119c834f38e9fd4ea175ccc5d765e0b402701d1",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 521,
+        "tagType": 36,
+        "tagSha256": "889f551894f831622b2f890af2a3e56f8bf9353a236c7050be971b50f695f611",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_unselet_ss_t_png_943488975"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.btn_unselet_sss_t": {
+      "url": "/html5/assets_m85/tanks/btn_unselet_sss_t_1c64a419879ae606.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/btn_unselet_sss_t.png",
+      "width": 60,
+      "height": 25,
+      "bytes": 1451,
+      "sha256": "1c64a419879ae606337f05939dcb58a3e42d48a315f8b83e12f244e73620821b",
+      "source": {
+        "path": "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf",
+        "sha256": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+        "bitmapId": 150,
+        "tagType": 36,
+        "tagSha256": "5553222671a69bd93bd7c98f76c8a4b4447c827ef5de7691a3afca7254a376c9",
+        "symbol": "mxml.tank.TankSkinAttrFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankskin_btn_unselet_sss_t_png_1252497847"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.img_cell_grid1": {
+      "url": "/html5/assets_m85/tanks/img_cell_grid1_455cd8d4d51b690a.png",
+      "logical": "zh_CN/gui_summer/controls/tank/garage/img_cell_grid1.png",
+      "width": 41,
+      "height": 23,
+      "bytes": 1095,
+      "sha256": "455cd8d4d51b690a60d48e2627183c97daae9472235dc52f78f95757a3771b9e",
+      "source": {
+        "path": "www/rez/zh_CN/module/96838ee0cb7737bed3be00f9cd63d4c3.swf",
+        "sha256": "4e1f13989bfc7bd0dc98191daa7fef3d0eaeeabba64587c0baa8788d9b3cc490",
+        "bitmapId": 86,
+        "tagType": 36,
+        "tagSha256": "b50cc114c2667014842eb4a0e3510f3b7f5c618b2c667157fda8ae68c725957c",
+        "symbol": "mxml.tank.TankCellFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tank_garage_img_cell_grid1_png_1627236036"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.img_cell_grid2": {
+      "url": "/html5/assets_m85/tanks/img_cell_grid2_0ec0156db7bbfd03.png",
+      "logical": "zh_CN/gui_summer/controls/tank/garage/img_cell_grid2.png",
+      "width": 41,
+      "height": 23,
+      "bytes": 1137,
+      "sha256": "0ec0156db7bbfd03210c40d88ae4dcedb9c3f02001f34bb1a355e3164ac401bc",
+      "source": {
+        "path": "www/rez/zh_CN/module/96838ee0cb7737bed3be00f9cd63d4c3.swf",
+        "sha256": "4e1f13989bfc7bd0dc98191daa7fef3d0eaeeabba64587c0baa8788d9b3cc490",
+        "bitmapId": 114,
+        "tagType": 36,
+        "tagSha256": "57120992e98c8b6cac77c7cacce58592e2033a2a51f25f4acf2f090c41fa726f",
+        "symbol": "mxml.tank.TankCellFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tank_garage_img_cell_grid2_png_1624269022"
+      },
+      "conversion": "Exact embedded bitmap; no resize, recolor or redraw"
+    },
+    "m85.tank.itembox2": {
+      "url": "/rez/zh_CN/gui_summer/controls/tank/84f52b2222bde04dffd109d4cfde17c5.png",
+      "logical": "zh_CN/gui_summer/controls/tank/itembox2.png",
+      "width": 94,
+      "height": 87,
+      "bytes": 2219,
+      "sha256": "f9c9a7b9b0aad34f7b547da9c0b142db9f3318a213bffd16660b38a01a6782c5",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/84f52b2222bde04dffd109d4cfde17c5.png",
+        "sha256": "f9c9a7b9b0aad34f7b547da9c0b142db9f3318a213bffd16660b38a01a6782c5"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.booth": {
+      "url": "/rez/zh_CN/gui_summer/controls/tank/cbc2f208680cc94e17a44b99deb7db1e.png",
+      "logical": "zh_CN/gui_summer/controls/tank/booth.png",
+      "width": 207,
+      "height": 150,
+      "bytes": 5963,
+      "sha256": "2bc5db929cf4588ae0a2ebfe1c9e26fad9a46aaabde3fa6e130498bfa2c4e365",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/cbc2f208680cc94e17a44b99deb7db1e.png",
+        "sha256": "2bc5db929cf4588ae0a2ebfe1c9e26fad9a46aaabde3fa6e130498bfa2c4e365"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.ico_used_t": {
+      "url": "/rez/zh_CN/gui_summer/controls/tank/d51e98c478a856c1220237636369f916.png",
+      "logical": "zh_CN/gui_summer/controls/tank/ico_used_t.png",
+      "width": 65,
+      "height": 19,
+      "bytes": 3070,
+      "sha256": "91b3302fc523124228fa46d08409d2716014d4fb9e736c1928c2a1748e89f742",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/d51e98c478a856c1220237636369f916.png",
+        "sha256": "91b3302fc523124228fa46d08409d2716014d4fb9e736c1928c2a1748e89f742"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.tank_skin_view_BG": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankskin/2c44b1819bea21cbf6cfa19e57da416b.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/tank_skin_view_BG.png",
+      "width": 995,
+      "height": 570,
+      "bytes": 80493,
+      "sha256": "5a117e99718ed4287c788f866f1493db26eade855b91c5aeced1c4240281013a",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankskin/2c44b1819bea21cbf6cfa19e57da416b.png",
+        "sha256": "5a117e99718ed4287c788f866f1493db26eade855b91c5aeced1c4240281013a"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.tank_skin_title_t": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankskin/a7ea36287c369ba9c9c455a6eaa65607.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/tank_skin_title_t.png",
+      "width": 189,
+      "height": 60,
+      "bytes": 5825,
+      "sha256": "82850c8728e9e01fbae1e05d0cc042166cf8432319d7fa9122ec047363dccd85",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankskin/a7ea36287c369ba9c9c455a6eaa65607.png",
+        "sha256": "82850c8728e9e01fbae1e05d0cc042166cf8432319d7fa9122ec047363dccd85"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.tank_skin_attr_BG": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankskin/ab18e03b3402027819e6dbf82065d7cf.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/tank_skin_attr_BG.png",
+      "width": 225,
+      "height": 496,
+      "bytes": 2023,
+      "sha256": "4eb78c0124717c1a80a81bc7840bf8c03da21380e6997a42eb4be548e1cf2601",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankskin/ab18e03b3402027819e6dbf82065d7cf.png",
+        "sha256": "4eb78c0124717c1a80a81bc7840bf8c03da21380e6997a42eb4be548e1cf2601"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.tank_skin_attr_other_t": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankskin/c71b1f0ac43d44929b90857ef918276f.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/tank_skin_attr_other_t.png",
+      "width": 117,
+      "height": 27,
+      "bytes": 2942,
+      "sha256": "57080a98372134faa99ac1dcfe75251bebbb9bf2cc3bae69293787496abd7df8",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankskin/c71b1f0ac43d44929b90857ef918276f.png",
+        "sha256": "57080a98372134faa99ac1dcfe75251bebbb9bf2cc3bae69293787496abd7df8"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.tank_skin_attr_total_t": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankskin/57dce13338dbefe7942bb0df9bf06234.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/tank_skin_attr_total_t.png",
+      "width": 137,
+      "height": 24,
+      "bytes": 4363,
+      "sha256": "9d9105b0056d568e7996d3e719257f5a97bc149f6ae502e7ab48f06c46dc6661",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankskin/57dce13338dbefe7942bb0df9bf06234.png",
+        "sha256": "9d9105b0056d568e7996d3e719257f5a97bc149f6ae502e7ab48f06c46dc6661"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.tank_skin_quality_titile_t": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankskin/96e8690f0b4609cd657c5b300a2f122b.png",
+      "logical": "zh_CN/gui_summer/controls/tankskin/tank_skin_quality_titile_t.png",
+      "width": 47,
+      "height": 25,
+      "bytes": 1842,
+      "sha256": "67aac9cbd0562f7174e1a8dd1a825bc4dad4cb84fccf86d3fd0bd8dffd280cdd",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankskin/96e8690f0b4609cd657c5b300a2f122b.png",
+        "sha256": "67aac9cbd0562f7174e1a8dd1a825bc4dad4cb84fccf86d3fd0bd8dffd280cdd"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.bg2_white": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankbarn/41f5435a4dc33d304bc0ea235a507eee.png",
+      "logical": "zh_CN/gui_summer/controls/tankbarn/bg2_white.png",
+      "width": 74,
+      "height": 74,
+      "bytes": 1019,
+      "sha256": "fa5c2f47c0e5bd014153cc6e6baeff9529d55e5a46a998371623c1b1d5dae9ab",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankbarn/41f5435a4dc33d304bc0ea235a507eee.png",
+        "sha256": "fa5c2f47c0e5bd014153cc6e6baeff9529d55e5a46a998371623c1b1d5dae9ab"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.bg2_green": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankbarn/55efca5daee8e74d7fb64b8d3f209499.png",
+      "logical": "zh_CN/gui_summer/controls/tankbarn/bg2_green.png",
+      "width": 74,
+      "height": 74,
+      "bytes": 2248,
+      "sha256": "fa88413ccb5e3841b1a3c815160a9ff1ea6df9d00869a21d88157a325e4dc018",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankbarn/55efca5daee8e74d7fb64b8d3f209499.png",
+        "sha256": "fa88413ccb5e3841b1a3c815160a9ff1ea6df9d00869a21d88157a325e4dc018"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.bg2_blue": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankbarn/8e95f3246e9ebf40e4cd141bbcc8e5f2.png",
+      "logical": "zh_CN/gui_summer/controls/tankbarn/bg2_blue.png",
+      "width": 74,
+      "height": 74,
+      "bytes": 2448,
+      "sha256": "74f5fc972735fbd91afdc67b438145b56150214e3c9a86f67e97a40feac6f0e2",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankbarn/8e95f3246e9ebf40e4cd141bbcc8e5f2.png",
+        "sha256": "74f5fc972735fbd91afdc67b438145b56150214e3c9a86f67e97a40feac6f0e2"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.bg2_purple": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankbarn/33f9317f88c0ad83b9d386b9440acedf.png",
+      "logical": "zh_CN/gui_summer/controls/tankbarn/bg2_purple.png",
+      "width": 74,
+      "height": 74,
+      "bytes": 2757,
+      "sha256": "b0bf686229fdc89585572cb96db5fefa1d535adbd9c6156a609c0e90d0d7f892",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankbarn/33f9317f88c0ad83b9d386b9440acedf.png",
+        "sha256": "b0bf686229fdc89585572cb96db5fefa1d535adbd9c6156a609c0e90d0d7f892"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.bg2_orange": {
+      "url": "/rez/zh_CN/gui_summer/controls/tankbarn/c6330cbde245e95f7d717dcd96cbb3af.png",
+      "logical": "zh_CN/gui_summer/controls/tankbarn/bg2_orange.png",
+      "width": 74,
+      "height": 74,
+      "bytes": 2148,
+      "sha256": "bcaec3d16ad212d519501c1d3616b6317959336e47364d39aa153643ceebcf12",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankbarn/c6330cbde245e95f7d717dcd96cbb3af.png",
+        "sha256": "bcaec3d16ad212d519501c1d3616b6317959336e47364d39aa153643ceebcf12"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.scrollbar_up": {
+      "url": "/rez/zh_CN/gui_summer/controls/gameroom/d2da85f5881dd1f98c7040677070aa39.png",
+      "logical": "zh_CN/gui_summer/controls/gameroom/scrollbar_up.png",
+      "width": 19,
+      "height": 19,
+      "bytes": 263,
+      "sha256": "f4e7f050514c281938a8e4f2ff5527d5859877e0a37f97222905846891b4648d",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/gameroom/d2da85f5881dd1f98c7040677070aa39.png",
+        "sha256": "f4e7f050514c281938a8e4f2ff5527d5859877e0a37f97222905846891b4648d"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.scrollbar_down": {
+      "url": "/rez/zh_CN/gui_summer/controls/gameroom/c13374a7a7bcbe5de0def3c9eb39665a.png",
+      "logical": "zh_CN/gui_summer/controls/gameroom/scrollbar_down.png",
+      "width": 19,
+      "height": 19,
+      "bytes": 265,
+      "sha256": "cb081a9cacdc1428f3ed0d4d93269214ac77b30e4079959fd6134af845ecef44",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/gameroom/c13374a7a7bcbe5de0def3c9eb39665a.png",
+        "sha256": "cb081a9cacdc1428f3ed0d4d93269214ac77b30e4079959fd6134af845ecef44"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.scrollbar_bk": {
+      "url": "/rez/zh_CN/gui_summer/controls/gameroom/d2a8bd6f9358218e79760099957aa6df.png",
+      "logical": "zh_CN/gui_summer/controls/gameroom/scrollbar_bk.png",
+      "width": 20,
+      "height": 100,
+      "bytes": 115,
+      "sha256": "a5c848d3bd28ae3f44e9e929aadd098d8e25fd3804eaf29092f7d3262b889b06",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/gameroom/d2a8bd6f9358218e79760099957aa6df.png",
+        "sha256": "a5c848d3bd28ae3f44e9e929aadd098d8e25fd3804eaf29092f7d3262b889b06"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.scrollbar_block": {
+      "url": "/rez/zh_CN/gui_summer/controls/gameroom/258da21261e4888e887484eb4983722c.png",
+      "logical": "zh_CN/gui_summer/controls/gameroom/scrollbar_block.png",
+      "width": 19,
+      "height": 505,
+      "bytes": 405,
+      "sha256": "b545fb32de9383d51818e25b8b99123440be0cb8d1462093be6864ac40d4a5ef",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/gameroom/258da21261e4888e887484eb4983722c.png",
+        "sha256": "b545fb32de9383d51818e25b8b99123440be0cb8d1462093be6864ac40d4a5ef"
+      },
+      "conversion": "Original image bytes unchanged"
+    },
+    "m85.tank.progress_middle": {
+      "url": "/html5/assets_m85/tanks/progress_middle_05eeee6167dd91cb.png",
+      "logical": "zh_CN/gui_summer/controls/swf/progress_1.swf#bitmap4",
+      "width": 1,
+      "height": 17,
+      "bytes": 138,
+      "sha256": "05eeee6167dd91cb6b85f9e06547c18157dec4f63d6b6ac76a9fd2d8b4d0d51d",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/swf/d7535bbbdc85da3ced4e0a19e838b0e7.swf",
+        "sha256": "b7c11ccc4a37fe1f13a7f8f33f129e0d4e4658761f16f08888f5159ec3d6810c",
+        "bitmapId": 4,
+        "tagType": 36,
+        "tagSha256": "9a9b9ad9bf5c3d015cc56a58799a272904b60abe713f94bb33229c0571053b1a"
+      },
+      "conversion": "Exact original1×17 bitmap; native shape width/position from per-frame SWF matrices"
+    }
+  },
+  "missing": [],
+  "sourceFileListSha256": "9582d5554d0314c839ebb69ce68986b7db4f561538124b80ab94f91009592dd3",
+  "sources": {
+    "www/rez/zh_CN/module/8637c9481eda3ef4c36df5dd338a4269.swf": "79b4ac69baf9b49610cd95e8721f65b1590e9825962edebc6406a4c9d9a5aa09",
+    "www/rez/zh_CN/module/96838ee0cb7737bed3be00f9cd63d4c3.swf": "4e1f13989bfc7bd0dc98191daa7fef3d0eaeeabba64587c0baa8788d9b3cc490",
+    "www/rez/zh_CN/gui_summer/controls/tank/84f52b2222bde04dffd109d4cfde17c5.png": "f9c9a7b9b0aad34f7b547da9c0b142db9f3318a213bffd16660b38a01a6782c5",
+    "www/rez/zh_CN/gui_summer/controls/tank/cbc2f208680cc94e17a44b99deb7db1e.png": "2bc5db929cf4588ae0a2ebfe1c9e26fad9a46aaabde3fa6e130498bfa2c4e365",
+    "www/rez/zh_CN/gui_summer/controls/tank/d51e98c478a856c1220237636369f916.png": "91b3302fc523124228fa46d08409d2716014d4fb9e736c1928c2a1748e89f742",
+    "www/rez/zh_CN/gui_summer/controls/tankskin/2c44b1819bea21cbf6cfa19e57da416b.png": "5a117e99718ed4287c788f866f1493db26eade855b91c5aeced1c4240281013a",
+    "www/rez/zh_CN/gui_summer/controls/tankskin/a7ea36287c369ba9c9c455a6eaa65607.png": "82850c8728e9e01fbae1e05d0cc042166cf8432319d7fa9122ec047363dccd85",
+    "www/rez/zh_CN/gui_summer/controls/tankskin/ab18e03b3402027819e6dbf82065d7cf.png": "4eb78c0124717c1a80a81bc7840bf8c03da21380e6997a42eb4be548e1cf2601",
+    "www/rez/zh_CN/gui_summer/controls/tankskin/c71b1f0ac43d44929b90857ef918276f.png": "57080a98372134faa99ac1dcfe75251bebbb9bf2cc3bae69293787496abd7df8",
+    "www/rez/zh_CN/gui_summer/controls/tankskin/57dce13338dbefe7942bb0df9bf06234.png": "9d9105b0056d568e7996d3e719257f5a97bc149f6ae502e7ab48f06c46dc6661",
+    "www/rez/zh_CN/gui_summer/controls/tankskin/96e8690f0b4609cd657c5b300a2f122b.png": "67aac9cbd0562f7174e1a8dd1a825bc4dad4cb84fccf86d3fd0bd8dffd280cdd",
+    "www/rez/zh_CN/gui_summer/controls/tankbarn/41f5435a4dc33d304bc0ea235a507eee.png": "fa5c2f47c0e5bd014153cc6e6baeff9529d55e5a46a998371623c1b1d5dae9ab",
+    "www/rez/zh_CN/gui_summer/controls/tankbarn/55efca5daee8e74d7fb64b8d3f209499.png": "fa88413ccb5e3841b1a3c815160a9ff1ea6df9d00869a21d88157a325e4dc018",
+    "www/rez/zh_CN/gui_summer/controls/tankbarn/8e95f3246e9ebf40e4cd141bbcc8e5f2.png": "74f5fc972735fbd91afdc67b438145b56150214e3c9a86f67e97a40feac6f0e2",
+    "www/rez/zh_CN/gui_summer/controls/tankbarn/33f9317f88c0ad83b9d386b9440acedf.png": "b0bf686229fdc89585572cb96db5fefa1d535adbd9c6156a609c0e90d0d7f892",
+    "www/rez/zh_CN/gui_summer/controls/tankbarn/c6330cbde245e95f7d717dcd96cbb3af.png": "bcaec3d16ad212d519501c1d3616b6317959336e47364d39aa153643ceebcf12",
+    "www/rez/zh_CN/gui_summer/controls/gameroom/d2da85f5881dd1f98c7040677070aa39.png": "f4e7f050514c281938a8e4f2ff5527d5859877e0a37f97222905846891b4648d",
+    "www/rez/zh_CN/gui_summer/controls/gameroom/c13374a7a7bcbe5de0def3c9eb39665a.png": "cb081a9cacdc1428f3ed0d4d93269214ac77b30e4079959fd6134af845ecef44",
+    "www/rez/zh_CN/gui_summer/controls/gameroom/d2a8bd6f9358218e79760099957aa6df.png": "a5c848d3bd28ae3f44e9e929aadd098d8e25fd3804eaf29092f7d3262b889b06",
+    "www/rez/zh_CN/gui_summer/controls/gameroom/258da21261e4888e887484eb4983722c.png": "b545fb32de9383d51818e25b8b99123440be0cb8d1462093be6864ac40d4a5ef",
+    "www/rez/vi_VN/mo/LoaderText.mo": "dd8e1e7a34147dd06d666d38888d0c073940f30b3851a153bb87923469802eb0",
+    "www/rez/vi_VN/mo/data_a.mo": "9dd98d49850f245c143790878da5171135796929eff60cd59951adcab4e77c08",
+    "www/rez/vi_VN/mo/data_b.mo": "ff2615964aec3680a5ebbce51ec06980afd6a475ee64053b9f1eb7c4c5f2fbbb",
+    "www/rez/vi_VN/mo/data_c.mo": "0ca79a5ddab6cf5fc7e5d47ab537a3681c8c268c3fa6aad36d05aa874f49a0b8",
+    "www/rez/vi_VN/mo/data_d.mo": "a0d1725718170b58da33711344a9fb705e5fdccfea9cc1822ecbaed0c50dbdb3",
+    "www/rez/vi_VN/mo/data_e.mo": "f972c3fca0c1ecd5ada1d5bf527fe1fa46d067c1bf8d81cb6370032b38131cb5",
+    "www/rez/vi_VN/mo/game.mo": "656bf0f8f4e69f5a794f8062d899e538d9d0a1109a2e8267c19e6b62dc3dbdca",
+    "www/rez/vi_VN/mo/ui.mo": "4173f0012a5371b7477249b533c5457151c8381a247c3ba898d7ee3155e6e839",
+    "www/html5/m8_garage_catalog.json": "f4c9a5acd172f440aad47df05765db64a825cb3f0149065766897b8840f37049",
+    "www/rez/zh_CN/xml/32c756c7568ff19d90e89180e67fde4b.xml": "0ca1a2ee5165f50b05dda792372cd87c7f96f34e8f7e93bd3b47be08dd9db935",
+    "www/rez/zh_CN/gui_summer/controls/swf/d7535bbbdc85da3ced4e0a19e838b0e7.swf": "b7c11ccc4a37fe1f13a7f8f33f129e0d4e4658761f16f08888f5159ec3d6810c"
+  },
+  "sourceClasses": {
+    "GameUILayerModuleFactory/scripts/mxml/tank/RewardItemFrame.as": "40ff22fffbf877fc9417afa9cb5105b4c1fa0f44a9998918249f776a1dad2e6e",
+    "GameUILayerModuleFactory/scripts/mxml/tank/SkinAttrItemFrame.as": "ee8c99b3ba016526b46d235bb759e21e4c75c95c226af7ee1cb0eca2af2db2ed",
+    "GameUILayerModuleFactory/scripts/mxml/tank/TankSkinAttrFrame.as": "c9e001dbffb13eec3537042844d568f4b524e47844961a9e13e2e210248d99ba",
+    "GameUILayerModuleFactory/scripts/mxml/tank/TankUPFrame.as": "8a2d4eda4a0aefa6808236251050f088fcb0669ffb75c3a36d5c2b019b3ac2dc",
+    "GameUILayerModuleFactory/scripts/view/tank/ConsumeItemBoxProxy.as": "b9fe50aa000a09479dbf2b3c33cc545ade8a9e384dd6c35dfbbc637904058030",
+    "GameUILayerModuleFactory/scripts/view/tank/TankSkinAttrView.as": "c2123d83bad0accd35b6ed04c637f71e81e7c9a705ad729ddd4469e2d5dd422f",
+    "GameUILayerModuleFactory/scripts/view/tank/TankSkinStruct.as": "2ea1cf2c6f7cfac4ccf36279cf2eb0de8d394a969868121514a8e9d52ae08694",
+    "GameUILayerModuleFactory/scripts/view/tank/TankUpWindow.as": "08edaccd76752cd704a826bc9d7e88a84f40b82ab0126a7023471d7e6953c0b1",
+    "TankGarageFactory/scripts/mxml/tank/TankCellFrame.as": "90f4e892f3f4e986923c03eb411380ed6d6957acee2fef08a108ebbc83d3ab74",
+    "TankGarageFactory/scripts/mxml/tank/TankCellProxy.as": "c7c7388d132181d2cda155851c17f47afc94f8edeef46a93234ea1c195b9b742",
+    "TankLib/scripts/TankMainFrame.as": "57c61838995e91beb741502890aa2a46c52a464bb8f0eb183a1b8fcc20bbc6fa",
+    "TankLib/scripts/control/TextTool.as": "7e2a861f57bcb458a976dc88a352c88dcce3d4b452a21d4382cdbca4c2b1ff2e",
+    "TankLib/scripts/control/item/ItemTool.as": "1ba567bf991b58372dfb8f9057d7ab507b5f00b98753f860291fa2c49c1b3483",
+    "TankLib/scripts/control/skill/SkillTool.as": "5a1e6c888756080e7c51dd0bf2a7fc777b4bdf2f2889cfaeb92935f1509e470d",
+    "TankLib/scripts/model/GameText.as": "14600274fd69d23bc7b955051d2679b12fda0e68dae5ccaaab02eebc4973e4fa",
+    "TankLib/scripts/model/ResourcePath.as": "e75858c9205ebe8c83fc2f0b9ff05ffd0f5665a91207c77a1ca6e7bcb0c66511",
+    "TankLib/scripts/view/mouseTip/MouseHintBase.as": "18bc5a3f5e1aa869f5239ea10fc601b636e67f419dc0c1a579c742bf8f9fddea",
+    "TankLib/scripts/view/mouseTip/SkillTipWindow.as": "17d7f3293bc95b700548479dfe2a16078ea7421d60df71a59644be1e0edcdcfa"
+  },
+  "originalWrites": 0,
+  "databaseOpened": false,
+  "rules": {
+    "skinBonus": false,
+    "upgradeRequiresNativeAck": true,
+    "insufficientMaterials": "Keep source button enabled, explain shortage without sending or granting"
+  },
+  "geometry": {
+    "skinPanel": [
+      996,
+      570
+    ],
+    "skinList": [
+      260,
+      115,
+      690,
+      420
+    ],
+    "skinCard": [
+      230,
+      380
+    ],
+    "skinAvatar": [
+      15,
+      50,
+      200,
+      200
+    ],
+    "upgradeMaterialCard": [
+      91,
+      110
+    ],
+    "upgradeMaterialsY": 353,
+    "levelBadge": [
+      31,
+      86
+    ],
+    "tooltipWidth": 252
+  },
+  "texts": {
+    "attackSuffix": "X Tấn Công",
+    "introduction": "[Giới thiệu]",
+    "cooldown": "Thời gian CD @num1@ s",
+    "mp": "MP tiêu hao: @num1@",
+    "fontFamily": "Tahoma",
+    "hp": "HP:",
+    "attack": "TC:",
+    "armor": "Giáp: ",
+    "shield": "Khiên:"
+  },
+  "contentPolicy": "Current served skill text and cooldown; restore native rich presentation only, never obsolete tooltip formulas",
+  "progressFill": {
+    "assetKey": "m85.tank.progress_middle",
+    "capsAssetKey": "upgrade.progressAtlas",
+    "nativeWidth": 498.0,
+    "nativeHeight": 17.0,
+    "fps": 24.0,
+    "source": {
+      "path": "www/rez/zh_CN/gui_summer/controls/swf/d7535bbbdc85da3ced4e0a19e838b0e7.swf",
+      "sha256": "b7c11ccc4a37fe1f13a7f8f33f129e0d4e4658761f16f08888f5159ec3d6810c",
+      "shapeId": 5,
+      "shapeBoundsTwips": [
+        0,
+        7,
+        -170,
+        170
+      ],
+      "tagSha256": "6bf1d49741c69f1f10200d83885b6d7c198cbc115e47c480731b5f771a262e97",
+      "fillBitmapId": 4,
+      "fillStyleType": 66,
+      "displayDepth": 3
+    },
+    "frames": [
+      {
+        "frame": 1,
+        "visible": false
+      },
+      {
+        "frame": 2,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1.0,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 0.35,
+        "height": 17.0
+      },
+      {
+        "frame": 3,
+        "visible": true,
+        "matrix": {
+          "scaleX": 14.808853149414062,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 5.183098602294922,
+        "height": 17.0
+      },
+      {
+        "frame": 4,
+        "visible": true,
+        "matrix": {
+          "scaleX": 28.6387939453125,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 10.023577880859374,
+        "height": 17.0
+      },
+      {
+        "frame": 5,
+        "visible": true,
+        "matrix": {
+          "scaleX": 42.44764709472656,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 14.856676483154297,
+        "height": 17.0
+      },
+      {
+        "frame": 6,
+        "visible": true,
+        "matrix": {
+          "scaleX": 56.256500244140625,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 19.68977508544922,
+        "height": 17.0
+      },
+      {
+        "frame": 7,
+        "visible": true,
+        "matrix": {
+          "scaleX": 70.08644104003906,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 24.530254364013672,
+        "height": 17.0
+      },
+      {
+        "frame": 8,
+        "visible": true,
+        "matrix": {
+          "scaleX": 83.89529418945312,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 29.363352966308593,
+        "height": 17.0
+      },
+      {
+        "frame": 9,
+        "visible": true,
+        "matrix": {
+          "scaleX": 97.72523498535156,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 34.20383224487305,
+        "height": 17.0
+      },
+      {
+        "frame": 10,
+        "visible": true,
+        "matrix": {
+          "scaleX": 111.53408813476562,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 39.036930847167966,
+        "height": 17.0
+      },
+      {
+        "frame": 11,
+        "visible": true,
+        "matrix": {
+          "scaleX": 125.34295654296875,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 43.870034790039064,
+        "height": 17.0
+      },
+      {
+        "frame": 12,
+        "visible": true,
+        "matrix": {
+          "scaleX": 139.17288208007812,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 48.71050872802734,
+        "height": 17.0
+      },
+      {
+        "frame": 13,
+        "visible": true,
+        "matrix": {
+          "scaleX": 152.98175048828125,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 53.54361267089844,
+        "height": 17.0
+      },
+      {
+        "frame": 14,
+        "visible": true,
+        "matrix": {
+          "scaleX": 166.7906036376953,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 58.37671127319336,
+        "height": 17.0
+      },
+      {
+        "frame": 15,
+        "visible": true,
+        "matrix": {
+          "scaleX": 180.62054443359375,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 63.21719055175781,
+        "height": 17.0
+      },
+      {
+        "frame": 16,
+        "visible": true,
+        "matrix": {
+          "scaleX": 194.4293975830078,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 68.05028915405273,
+        "height": 17.0
+      },
+      {
+        "frame": 17,
+        "visible": true,
+        "matrix": {
+          "scaleX": 208.23825073242188,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 72.88338775634766,
+        "height": 17.0
+      },
+      {
+        "frame": 18,
+        "visible": true,
+        "matrix": {
+          "scaleX": 222.0681915283203,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 77.7238670349121,
+        "height": 17.0
+      },
+      {
+        "frame": 19,
+        "visible": true,
+        "matrix": {
+          "scaleX": 235.87704467773438,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 82.55696563720703,
+        "height": 17.0
+      },
+      {
+        "frame": 20,
+        "visible": true,
+        "matrix": {
+          "scaleX": 249.68589782714844,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 87.39006423950195,
+        "height": 17.0
+      },
+      {
+        "frame": 21,
+        "visible": true,
+        "matrix": {
+          "scaleX": 263.5158386230469,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 92.23054351806641,
+        "height": 17.0
+      },
+      {
+        "frame": 22,
+        "visible": true,
+        "matrix": {
+          "scaleX": 277.32469177246094,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 97.06364212036132,
+        "height": 17.0
+      },
+      {
+        "frame": 23,
+        "visible": true,
+        "matrix": {
+          "scaleX": 291.1546325683594,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 101.90412139892578,
+        "height": 17.0
+      },
+      {
+        "frame": 24,
+        "visible": true,
+        "matrix": {
+          "scaleX": 304.96348571777344,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 106.7372200012207,
+        "height": 17.0
+      },
+      {
+        "frame": 25,
+        "visible": true,
+        "matrix": {
+          "scaleX": 318.7723388671875,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 111.57031860351563,
+        "height": 17.0
+      },
+      {
+        "frame": 26,
+        "visible": true,
+        "matrix": {
+          "scaleX": 332.60227966308594,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 116.41079788208008,
+        "height": 17.0
+      },
+      {
+        "frame": 27,
+        "visible": true,
+        "matrix": {
+          "scaleX": 346.41114807128906,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 121.24390182495117,
+        "height": 17.0
+      },
+      {
+        "frame": 28,
+        "visible": true,
+        "matrix": {
+          "scaleX": 360.2200012207031,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 126.07700042724609,
+        "height": 17.0
+      },
+      {
+        "frame": 29,
+        "visible": true,
+        "matrix": {
+          "scaleX": 374.04994201660156,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 130.91747970581054,
+        "height": 17.0
+      },
+      {
+        "frame": 30,
+        "visible": true,
+        "matrix": {
+          "scaleX": 387.8587951660156,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 135.75057830810547,
+        "height": 17.0
+      },
+      {
+        "frame": 31,
+        "visible": true,
+        "matrix": {
+          "scaleX": 401.6676483154297,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 140.58367691040038,
+        "height": 17.0
+      },
+      {
+        "frame": 32,
+        "visible": true,
+        "matrix": {
+          "scaleX": 415.4975891113281,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 145.42415618896484,
+        "height": 17.0
+      },
+      {
+        "frame": 33,
+        "visible": true,
+        "matrix": {
+          "scaleX": 429.3064422607422,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 150.25725479125975,
+        "height": 17.0
+      },
+      {
+        "frame": 34,
+        "visible": true,
+        "matrix": {
+          "scaleX": 443.1363830566406,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 155.0977340698242,
+        "height": 17.0
+      },
+      {
+        "frame": 35,
+        "visible": true,
+        "matrix": {
+          "scaleX": 456.9452362060547,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 159.93083267211915,
+        "height": 17.0
+      },
+      {
+        "frame": 36,
+        "visible": true,
+        "matrix": {
+          "scaleX": 470.75408935546875,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 164.76393127441406,
+        "height": 17.0
+      },
+      {
+        "frame": 37,
+        "visible": true,
+        "matrix": {
+          "scaleX": 484.5840301513672,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 169.60441055297852,
+        "height": 17.0
+      },
+      {
+        "frame": 38,
+        "visible": true,
+        "matrix": {
+          "scaleX": 498.39288330078125,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 174.43750915527343,
+        "height": 17.0
+      },
+      {
+        "frame": 39,
+        "visible": true,
+        "matrix": {
+          "scaleX": 512.2017364501953,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 179.27060775756837,
+        "height": 17.0
+      },
+      {
+        "frame": 40,
+        "visible": true,
+        "matrix": {
+          "scaleX": 526.0316772460938,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 184.1110870361328,
+        "height": 17.0
+      },
+      {
+        "frame": 41,
+        "visible": true,
+        "matrix": {
+          "scaleX": 539.8405303955078,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 188.94418563842774,
+        "height": 17.0
+      },
+      {
+        "frame": 42,
+        "visible": true,
+        "matrix": {
+          "scaleX": 553.6493988037109,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 193.77728958129882,
+        "height": 17.0
+      },
+      {
+        "frame": 43,
+        "visible": true,
+        "matrix": {
+          "scaleX": 567.4793243408203,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 198.6177635192871,
+        "height": 17.0
+      },
+      {
+        "frame": 44,
+        "visible": true,
+        "matrix": {
+          "scaleX": 581.2881927490234,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 203.45086746215821,
+        "height": 17.0
+      },
+      {
+        "frame": 45,
+        "visible": true,
+        "matrix": {
+          "scaleX": 595.0970458984375,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 208.28396606445312,
+        "height": 17.0
+      },
+      {
+        "frame": 46,
+        "visible": true,
+        "matrix": {
+          "scaleX": 608.9269866943359,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 213.12444534301758,
+        "height": 17.0
+      },
+      {
+        "frame": 47,
+        "visible": true,
+        "matrix": {
+          "scaleX": 622.73583984375,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 217.9575439453125,
+        "height": 17.0
+      },
+      {
+        "frame": 48,
+        "visible": true,
+        "matrix": {
+          "scaleX": 636.5657806396484,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 222.79802322387695,
+        "height": 17.0
+      },
+      {
+        "frame": 49,
+        "visible": true,
+        "matrix": {
+          "scaleX": 650.3746337890625,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 227.63112182617186,
+        "height": 17.0
+      },
+      {
+        "frame": 50,
+        "visible": true,
+        "matrix": {
+          "scaleX": 664.1834869384766,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 232.4642204284668,
+        "height": 17.0
+      },
+      {
+        "frame": 51,
+        "visible": true,
+        "matrix": {
+          "scaleX": 678.013427734375,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 237.30469970703126,
+        "height": 17.0
+      },
+      {
+        "frame": 52,
+        "visible": true,
+        "matrix": {
+          "scaleX": 691.8222808837891,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 242.13779830932617,
+        "height": 17.0
+      },
+      {
+        "frame": 53,
+        "visible": true,
+        "matrix": {
+          "scaleX": 705.6311340332031,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 246.97089691162108,
+        "height": 17.0
+      },
+      {
+        "frame": 54,
+        "visible": true,
+        "matrix": {
+          "scaleX": 719.4610748291016,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 251.81137619018554,
+        "height": 17.0
+      },
+      {
+        "frame": 55,
+        "visible": true,
+        "matrix": {
+          "scaleX": 733.2699279785156,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 256.6444747924805,
+        "height": 17.0
+      },
+      {
+        "frame": 56,
+        "visible": true,
+        "matrix": {
+          "scaleX": 747.0787811279297,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 261.4775733947754,
+        "height": 17.0
+      },
+      {
+        "frame": 57,
+        "visible": true,
+        "matrix": {
+          "scaleX": 760.9087219238281,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 266.3180526733398,
+        "height": 17.0
+      },
+      {
+        "frame": 58,
+        "visible": true,
+        "matrix": {
+          "scaleX": 774.7175750732422,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 271.1511512756348,
+        "height": 17.0
+      },
+      {
+        "frame": 59,
+        "visible": true,
+        "matrix": {
+          "scaleX": 788.5475158691406,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 275.9916305541992,
+        "height": 17.0
+      },
+      {
+        "frame": 60,
+        "visible": true,
+        "matrix": {
+          "scaleX": 802.3563690185547,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 280.82472915649413,
+        "height": 17.0
+      },
+      {
+        "frame": 61,
+        "visible": true,
+        "matrix": {
+          "scaleX": 816.1652374267578,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 285.65783309936523,
+        "height": 17.0
+      },
+      {
+        "frame": 62,
+        "visible": true,
+        "matrix": {
+          "scaleX": 829.9951629638672,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 290.4983070373535,
+        "height": 17.0
+      },
+      {
+        "frame": 63,
+        "visible": true,
+        "matrix": {
+          "scaleX": 843.8040313720703,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 295.33141098022463,
+        "height": 17.0
+      },
+      {
+        "frame": 64,
+        "visible": true,
+        "matrix": {
+          "scaleX": 857.6128845214844,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 300.16450958251954,
+        "height": 17.0
+      },
+      {
+        "frame": 65,
+        "visible": true,
+        "matrix": {
+          "scaleX": 871.4428253173828,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 305.004988861084,
+        "height": 17.0
+      },
+      {
+        "frame": 66,
+        "visible": true,
+        "matrix": {
+          "scaleX": 885.2516784667969,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 309.8380874633789,
+        "height": 17.0
+      },
+      {
+        "frame": 67,
+        "visible": true,
+        "matrix": {
+          "scaleX": 899.0605316162109,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 314.67118606567385,
+        "height": 17.0
+      },
+      {
+        "frame": 68,
+        "visible": true,
+        "matrix": {
+          "scaleX": 912.8904724121094,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 319.5116653442383,
+        "height": 17.0
+      },
+      {
+        "frame": 69,
+        "visible": true,
+        "matrix": {
+          "scaleX": 926.6993255615234,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 324.3447639465332,
+        "height": 17.0
+      },
+      {
+        "frame": 70,
+        "visible": true,
+        "matrix": {
+          "scaleX": 940.5081787109375,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 329.1778625488281,
+        "height": 17.0
+      },
+      {
+        "frame": 71,
+        "visible": true,
+        "matrix": {
+          "scaleX": 954.3381195068359,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 334.0183418273926,
+        "height": 17.0
+      },
+      {
+        "frame": 72,
+        "visible": true,
+        "matrix": {
+          "scaleX": 968.14697265625,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 338.8514404296875,
+        "height": 17.0
+      },
+      {
+        "frame": 73,
+        "visible": true,
+        "matrix": {
+          "scaleX": 981.9769134521484,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 343.69191970825193,
+        "height": 17.0
+      },
+      {
+        "frame": 74,
+        "visible": true,
+        "matrix": {
+          "scaleX": 995.7857666015625,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 348.5250183105469,
+        "height": 17.0
+      },
+      {
+        "frame": 75,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1009.5946197509766,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 353.3581169128418,
+        "height": 17.0
+      },
+      {
+        "frame": 76,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1023.424560546875,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 358.19859619140624,
+        "height": 17.0
+      },
+      {
+        "frame": 77,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1037.2334289550781,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 363.03170013427734,
+        "height": 17.0
+      },
+      {
+        "frame": 78,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1051.0422821044922,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 367.86479873657225,
+        "height": 17.0
+      },
+      {
+        "frame": 79,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1064.8722229003906,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 372.70527801513674,
+        "height": 17.0
+      },
+      {
+        "frame": 80,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1078.6810760498047,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 377.53837661743165,
+        "height": 17.0
+      },
+      {
+        "frame": 81,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1092.4899291992188,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 382.37147521972656,
+        "height": 17.0
+      },
+      {
+        "frame": 82,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1106.3198699951172,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 387.211954498291,
+        "height": 17.0
+      },
+      {
+        "frame": 83,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1120.1287231445312,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 392.04505310058596,
+        "height": 17.0
+      },
+      {
+        "frame": 84,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1133.9586639404297,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 396.8855323791504,
+        "height": 17.0
+      },
+      {
+        "frame": 85,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1147.7675170898438,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 401.7186309814453,
+        "height": 17.0
+      },
+      {
+        "frame": 86,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1161.5763702392578,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 406.5517295837402,
+        "height": 17.0
+      },
+      {
+        "frame": 87,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1175.4063110351562,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 411.3922088623047,
+        "height": 17.0
+      },
+      {
+        "frame": 88,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1189.2151641845703,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 416.2253074645996,
+        "height": 17.0
+      },
+      {
+        "frame": 89,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1203.0240173339844,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 421.0584060668945,
+        "height": 17.0
+      },
+      {
+        "frame": 90,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1216.8539581298828,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 425.898885345459,
+        "height": 17.0
+      },
+      {
+        "frame": 91,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1230.6628112792969,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 430.7319839477539,
+        "height": 17.0
+      },
+      {
+        "frame": 92,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1244.4716796875,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 435.565087890625,
+        "height": 17.0
+      },
+      {
+        "frame": 93,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1258.3016052246094,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 440.40556182861326,
+        "height": 17.0
+      },
+      {
+        "frame": 94,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1272.1104736328125,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 445.23866577148436,
+        "height": 17.0
+      },
+      {
+        "frame": 95,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1285.9193267822266,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 450.0717643737793,
+        "height": 17.0
+      },
+      {
+        "frame": 96,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1299.749267578125,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 454.91224365234376,
+        "height": 17.0
+      },
+      {
+        "frame": 97,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1313.558120727539,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 459.7453422546387,
+        "height": 17.0
+      },
+      {
+        "frame": 98,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1327.3880615234375,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 464.5858215332031,
+        "height": 17.0
+      },
+      {
+        "frame": 99,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1341.1969146728516,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 469.41892013549807,
+        "height": 17.0
+      },
+      {
+        "frame": 100,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1355.0057678222656,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 474.252018737793,
+        "height": 17.0
+      },
+      {
+        "frame": 101,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1368.835708618164,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 479.0924980163574,
+        "height": 17.0
+      },
+      {
+        "frame": 102,
+        "visible": true,
+        "matrix": {
+          "scaleX": 1382.6445617675781,
+          "scaleY": 1.0,
+          "translateX": 157,
+          "translateY": 170
+        },
+        "x": 7.85,
+        "y": 0.0,
+        "width": 483.9255966186523,
+        "height": 17.0
+      }
+    ],
+    "reason": "Old cap atlas omitted the7twip-wide repeating middle shape; preserve original bitmap and every native matrix"
+  }
+}

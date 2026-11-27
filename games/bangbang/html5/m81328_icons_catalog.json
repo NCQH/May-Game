@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scope": "Native skill/skin icons only; all gameplay and ownership unchanged",
+  "source": {
+    "m6CatalogSha256": "950ef6d7c527f76009480e8818844889ae01f95da4452d45032a31437a1d1aeb",
+    "nativeAliasSource": {
+      "path": "m28_sources/increment_20261104/assets_delta/www/rez/fileList.xml",
+      "sha256": "249c406650e8cf1b8fc92406ab90cd7db6f3a87a0bce89d54580d27c4ae1585b",
+      "entries": 32601
+    },
+    "skillTableSha256": "682fcb88aa4840520d19f9d686d63a3d3c1be338247147aeadd4ac1ea4f9661d",
+    "itemTableSha256": "66feec1f13d7db784b6aa37c69b99dbbc07e4ceccca2c7f37eefbed3115581d1"
+  },
+  "assets": {
+    "zh_CN/icon/skills/skill_sanli01_pf01.jpg": {
+      "logical": "zh_CN/icon/skills/skill_sanli01_pf01.jpg",
+      "mapped": "zh_CN/icon/skills/96ebbd6b7c73f71d5e2b2f3219f06962.jpg",
+      "url": "/html5/assets/m81314/original/a961fdb6411566849a8ba674602bc2032bb5c233a0049cd00c183657a6d46e57.jpg",
+      "sha256": "a961fdb6411566849a8ba674602bc2032bb5c233a0049cd00c183657a6d46e57",
+      "bytes": 2811,
+      "width": 50,
+      "height": 50,
+      "status": "ready",
+      "exists": true,
+      "category": "original",
+      "source": {
+        "path": "m28_sources/supplement_20261102/assets_delta/www/rez/zh_CN/icon/skills/skill_sanli01_pf01.jpg",
+        "resolution": "literal"
+      }
+    }
+  },
+  "skills": {
+    "474401:1": {
+      "icon": "zh_CN/icon/skills/skill_sanli01_pf01.jpg",
+      "expectedBeforeIcon": "zh_CN/icon/skills/skill_sanli01_pf01.jpg",
+      "sourceOrdinal": 1854
+    }
+  },
+  "hudSkills": {
+    "474401": {
+      "logical": "zh_CN/icon/skills/skill_sanli01_pf01.jpg",
+      "szIconPath1": "skill_sanli01_pf01.jpg",
+      "expectedBeforeLogical": "zh_CN/icon/skills/skill_sanli01_pf01.jpg",
+      "expectedBeforeAssetSha256": "24b3a782372e3426bf9680aebbe6a7bbb509b84412aea8c9a4fa371b65d404c0"
+    }
+  },
+  "items": {}
+}

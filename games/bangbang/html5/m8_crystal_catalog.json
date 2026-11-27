@@ -1,0 +1,2603 @@
+{
+  "version": 1,
+  "source": {
+    "database": "data/bangbang.sqlite3",
+    "databaseSha256": "6a1db4ae0e0b49fbea16442e1ac1e6d1540f51afbad086849f852ff964b16709",
+    "templates": {
+      "ItemTemplate_table.xml": {
+        "table": "client_ItemTemplate_table",
+        "rows": 4222,
+        "sha256": "14e9d6107422d025c28a74cf41160c6360c9526f8fded58861316ec13f57e10f"
+      },
+      "CrystalSchemeTemplate_table.xml": {
+        "table": "client_CrystalSchemeTemplate_table",
+        "rows": 30,
+        "sha256": "c1ec0d7329a7b87bfc15aa4e1e3c4ff7fccecac092e7929e99217301cdf71c2b"
+      },
+      "CrystalAttrTemplate_table.xml": {
+        "table": "client_CrystalAttrTemplate_table",
+        "rows": 263,
+        "sha256": "b7bf1c5666a485151f5bc74353929e532b3d2633f024da65326f9c078bdffc57"
+      },
+      "SecondDropTemplate_table.xml": {
+        "table": "client_SecondDropTemplate_table",
+        "rows": 6747,
+        "sha256": "97f3e97ab3ea5404fcda15aee2a2abee232614dcacd88ecb5a2a3bdf2d44af22"
+      },
+      "ItemConvertTemplate_table.xml": {
+        "table": "client_ItemConvertTemplate_table",
+        "rows": 495,
+        "sha256": "e11784ab282111e5997ddf2e644bc1e04e15868143227e60e7c2df53aa3c6f68"
+      }
+    },
+    "files": {
+      "server/crystals.py": "f44c7cebf83eec7e6a8b68769864ae6d20bca7dfb840689d85d166b2911ef280",
+      "data/fileList_unpacked.xml": "e0cf9afcb38f62cb75823f94fbef23560a311901ddaf0c97d0fd4c491e9c8585",
+      "tools/as3_recent/crystal_audit_20261014/new_module/scripts/mxml/newcrystal/NewCrystalSchemeFrame.as": "f752bcc87076d0d854654858ef9e6b8c3d221d013c37852a43fe2464d03cd9ec",
+      "tools/as3_recent/crystal_audit_20261014/new_module/scripts/VI/view/crystal/VICrystalSchemeProxy.as": "a387b46fdae167adcd84e9aad7cff80bb04055780e0ba03c528b9efad887e411",
+      "tools/as3_recent/crystal_audit_20261014/new_module/scripts/mxml/newcrystal/NewCrystalItemBase.as": "aa9dbe0959cd03197c683e619d66d82f8ecc43222bfab2e86aeb6c7cef372ef0",
+      "tools/as3_tanklib_full/scripts/model/ResourcePath.as": "e75858c9205ebe8c83fc2f0b9ff05ffd0f5665a91207c77a1ca6e7bcb0c66511",
+      "tools/as3_tanklib_full/scripts/control/item/ItemTool.as": "1ba567bf991b58372dfb8f9057d7ab507b5f00b98753f860291fa2c49c1b3483"
+    },
+    "readOnly": true
+  },
+  "items": {
+    "5610101": {
+      "itemId": 5610101,
+      "name": "Tinh thể Lv1 - Tấn công vật lý",
+      "description": "Chỉ số: 0.5 Tấn công vật lý.",
+      "type": 2,
+      "level": 1,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5610101,
+      "attributes": [
+        {
+          "type": 4,
+          "valueType": 1,
+          "value": "0.5"
+        }
+      ],
+      "sellPieces": 10,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hgj01.png",
+        "url": "/rez/zh_CN/icon/item/d8ac7ea5f63898ee39497161e9e91470.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/d8ac7ea5f63898ee39497161e9e91470.png",
+        "exists": true,
+        "sha256": "3ef307ad93c9407c8fac9ff90f0d6834dab1dd638190fa85aab63470fec716c1",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5610105": {
+      "itemId": 5610105,
+      "name": "Tinh thể Lv1 - Tấn công năng lượng",
+      "description": "Chỉ số: 0.5 Tấn công năng lượng.",
+      "type": 2,
+      "level": 1,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5610105,
+      "attributes": [
+        {
+          "type": 5,
+          "valueType": 1,
+          "value": "0.5"
+        }
+      ],
+      "sellPieces": 10,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hfg01.png",
+        "url": "/rez/zh_CN/icon/item/33628a4e5e366fe68c52d5e11fe2162d.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/33628a4e5e366fe68c52d5e11fe2162d.png",
+        "exists": true,
+        "sha256": "aac0ba164024a2ace1a4d2e5689065b5df14a38d4a9904020bb61f1422ee8e5c",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5610205": {
+      "itemId": 5610205,
+      "name": "Tinh thể Lv1 - Giáp",
+      "description": "Chỉ số: 0.4 Giáp.",
+      "type": 4,
+      "level": 1,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5610205,
+      "attributes": [
+        {
+          "type": 2,
+          "valueType": 1,
+          "value": "0.4"
+        }
+      ],
+      "sellPieces": 10,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lfy01.png",
+        "url": "/rez/zh_CN/icon/item/62f756e447d1e4f8d30d99817f8361d5.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/62f756e447d1e4f8d30d99817f8361d5.png",
+        "exists": true,
+        "sha256": "55a0aa8c0306ece3947f1db202b751ca3ffb33da332b1ed6c20d945065ffe708",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5610309": {
+      "itemId": 5610309,
+      "name": "Tinh thể Lv1 - HP",
+      "description": "Chỉ số: 6 HP.",
+      "type": 3,
+      "level": 1,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5610309,
+      "attributes": [
+        {
+          "type": 12,
+          "valueType": 1,
+          "value": "6"
+        }
+      ],
+      "sellPieces": 10,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hsm01.png",
+        "url": "/rez/zh_CN/icon/item/50a560ce19b61ebce80d400019006bba.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/50a560ce19b61ebce80d400019006bba.png",
+        "exists": true,
+        "sha256": "baa4e12c6a4b3f337dd485561a77aeb48da2e29cb182d6172f72cb996f1e2f42",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620101": {
+      "itemId": 5620101,
+      "name": "Tinh thể Lv2 - Tấn công vật lý",
+      "description": "Chỉ số: 0.75 Tấn công vật lý.",
+      "type": 2,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620101,
+      "attributes": [
+        {
+          "type": 4,
+          "valueType": 1,
+          "value": "0.75"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hgj02.png",
+        "url": "/rez/zh_CN/icon/item/8e5e46a9ab66c254bca00a6ad984edc4.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/8e5e46a9ab66c254bca00a6ad984edc4.png",
+        "exists": true,
+        "sha256": "2ef6f1f799ccf804dcefc35ea40340fb8cfc34e32fb1597917105450d6c85a27",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620102": {
+      "itemId": 5620102,
+      "name": "Tinh thể Lv2 - Tốc độ bắn",
+      "description": "Chỉ số: 0.3% Tốc độ bắn.",
+      "type": 4,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620102,
+      "attributes": [
+        {
+          "type": 10,
+          "valueType": 2,
+          "value": "0.003"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lys02.png",
+        "url": "/rez/zh_CN/icon/item/cea2b45c8822cb72185cf00b1adaefa8.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/cea2b45c8822cb72185cf00b1adaefa8.png",
+        "exists": true,
+        "sha256": "6701797f1a8cd1b3dcb3ebcd236cf11e5094ca62e7b2ac338f6ec9ab1673b5e3",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620105": {
+      "itemId": 5620105,
+      "name": "Tinh thể Lv2 - Tấn công năng lượng",
+      "description": "Chỉ số: 0.75 Tấn công năng lượng.",
+      "type": 2,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620105,
+      "attributes": [
+        {
+          "type": 5,
+          "valueType": 1,
+          "value": "0.75"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hfg02.png",
+        "url": "/rez/zh_CN/icon/item/426456a286c833c525b3bcdfd53eeb77.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/426456a286c833c525b3bcdfd53eeb77.png",
+        "exists": true,
+        "sha256": "c4f21134a4bd325d822645d95d138e35d2446b7ac6b72d064ceb2a112749d56e",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620205": {
+      "itemId": 5620205,
+      "name": "Tinh thể Lv2 - Giáp",
+      "description": "Chỉ số: 0.6 Giáp.",
+      "type": 4,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620205,
+      "attributes": [
+        {
+          "type": 2,
+          "valueType": 1,
+          "value": "0.6"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lfy02.png",
+        "url": "/rez/zh_CN/icon/item/20d90b28333fea3603c6b15eed8cef0c.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/20d90b28333fea3603c6b15eed8cef0c.png",
+        "exists": true,
+        "sha256": "fa2332af8e6d983a29ba1f344cbce9857a796e28ffe3697fcc33e7a82828dad1",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620206": {
+      "itemId": 5620206,
+      "name": "Tinh thể Lv2 - Tốc độ bắn",
+      "description": "Chỉ số: 0.3% Tốc độ bắn.",
+      "type": 4,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620206,
+      "attributes": [
+        {
+          "type": 10,
+          "valueType": 2,
+          "value": "0.003"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lss02.png",
+        "url": "/rez/zh_CN/icon/item/7fcec0a08e875a286f8a449ce63a0d2d.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/7fcec0a08e875a286f8a449ce63a0d2d.png",
+        "exists": true,
+        "sha256": "340a4365009241c02aedab317cb52f3037ca89d5621356ab94b135ae6bbe363c",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620207": {
+      "itemId": 5620207,
+      "name": "Tinh thể Lv2 - Giảm hồi chiêu kỹ năng",
+      "description": "Chỉ số: -0.3% Giảm hồi chiêu kỹ năng.",
+      "type": 4,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620207,
+      "attributes": [
+        {
+          "type": 16,
+          "valueType": 2,
+          "value": "-0.003"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_ljl02.png",
+        "url": "/rez/zh_CN/icon/item/48ed311212722ad1c0495bb6646f6710.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/48ed311212722ad1c0495bb6646f6710.png",
+        "exists": true,
+        "sha256": "a924e96ae80af2c4310bf47b8643412ec3a436a8ce773d40e9d5ba223292d214",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620309": {
+      "itemId": 5620309,
+      "name": "Tinh thể Lv2 - HP",
+      "description": "Chỉ số: 9 HP.",
+      "type": 3,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620309,
+      "attributes": [
+        {
+          "type": 12,
+          "valueType": 1,
+          "value": "9"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hsm02.png",
+        "url": "/rez/zh_CN/icon/item/491a1bc8b4840418b763a8164de59788.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/491a1bc8b4840418b763a8164de59788.png",
+        "exists": true,
+        "sha256": "4e56c99c0e48e8924a9b3a0446ff1f775f5729a8c6baba0f31b74187a636f50b",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620310": {
+      "itemId": 5620310,
+      "name": "Tinh thể Lv2 - Xuyên giáp vật lý",
+      "description": "Chỉ số: 0.45 Xuyên giáp vật lý.",
+      "type": 3,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620310,
+      "attributes": [
+        {
+          "type": 8,
+          "valueType": 1,
+          "value": "0.45"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hct02.png",
+        "url": "/rez/zh_CN/icon/item/9e8689ed708dbcc2c18668d7d033f5cd.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/9e8689ed708dbcc2c18668d7d033f5cd.png",
+        "exists": true,
+        "sha256": "39fd30299a8725e7878d2b56135ea16a920ecec4d67fca69989634d45b2be14b",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5620312": {
+      "itemId": 5620312,
+      "name": "Tinh thể Lv2 - Xuyên giáp năng lượng",
+      "description": "Chỉ số: 0.45 Xuyên giáp năng lượng.",
+      "type": 3,
+      "level": 2,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5620312,
+      "attributes": [
+        {
+          "type": 9,
+          "valueType": 1,
+          "value": "0.45"
+        }
+      ],
+      "sellPieces": 20,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hfc02.png",
+        "url": "/rez/zh_CN/icon/item/29238e65a37ed831470f6c2cc47ce477.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/29238e65a37ed831470f6c2cc47ce477.png",
+        "exists": true,
+        "sha256": "09b3a4b36f879ef1469af68664e0580da1e9446842077edacb3cc6240fce7e5d",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630101": {
+      "itemId": 5630101,
+      "name": "Tinh thể Lv3 - Tấn công vật lý",
+      "description": "Chỉ số: 1 Tấn công vật lý.",
+      "type": 2,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630101,
+      "attributes": [
+        {
+          "type": 4,
+          "valueType": 1,
+          "value": "1"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hgj03.png",
+        "url": "/rez/zh_CN/icon/item/abdea326f4b5a6587027e058172db00a.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/abdea326f4b5a6587027e058172db00a.png",
+        "exists": true,
+        "sha256": "fb2825a85c42b3bb82333689f26f70da1c0edd540d3921e8de714e2b4c5cd1a4",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630102": {
+      "itemId": 5630102,
+      "name": "Tinh thể Lv3 - Tốc độ di chuyển",
+      "description": "Chỉ số: 0.4% Tốc độ di chuyển.",
+      "type": 4,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630102,
+      "attributes": [
+        {
+          "type": 11,
+          "valueType": 2,
+          "value": "0.004"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lys03.png",
+        "url": "/rez/zh_CN/icon/item/7441e96727e85ac8a51b636791bfb93a.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/7441e96727e85ac8a51b636791bfb93a.png",
+        "exists": true,
+        "sha256": "95839da6436ce02f4316beaec1618b808eca33c64a06ff5b1b904afdcf235185",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630103": {
+      "itemId": 5630103,
+      "name": "Tinh thể Lv3 - Hồi HP mỗi 5 giây",
+      "description": "Chỉ số: 2 Hồi HP mỗi 5 giây.",
+      "type": 2,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630103,
+      "attributes": [
+        {
+          "type": 26,
+          "valueType": 1,
+          "value": "2"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hyh03.png",
+        "url": "/rez/zh_CN/icon/item/94fc7c2311ffae4f04ba3cc3f203f574.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/94fc7c2311ffae4f04ba3cc3f203f574.png",
+        "exists": true,
+        "sha256": "436b8dae636fe0196b8f661aa8652bdc425c1e3b98f26c5381612030586e8c16",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630104": {
+      "itemId": 5630104,
+      "name": "Tinh thể Lv3 - Hút máu kỹ năng",
+      "description": "Chỉ số: 0.4% Hút máu kỹ năng.",
+      "type": 2,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630104,
+      "attributes": [
+        {
+          "type": 29,
+          "valueType": 2,
+          "value": "0.004"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hjx03.png",
+        "url": "/rez/zh_CN/icon/item/67b728fc8563ef34466c6e0241d02c31.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/67b728fc8563ef34466c6e0241d02c31.png",
+        "exists": true,
+        "sha256": "8c34f100ce5fa950cc8d97c19bf128fbcc1ac581203c42f329db6cefc57b84d9",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630105": {
+      "itemId": 5630105,
+      "name": "Tinh thể Lv3 - Tấn công năng lượng",
+      "description": "Chỉ số: 1 Tấn công năng lượng.",
+      "type": 2,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630105,
+      "attributes": [
+        {
+          "type": 5,
+          "valueType": 1,
+          "value": "1"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hfg03.png",
+        "url": "/rez/zh_CN/icon/item/19430d4b029a3ed9329b70ddc20aef72.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/19430d4b029a3ed9329b70ddc20aef72.png",
+        "exists": true,
+        "sha256": "3828b8a25cf3b849d12ab08032ffc2e8d941a8bb2a92ca005f23581cb15bc61a",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630205": {
+      "itemId": 5630205,
+      "name": "Tinh thể Lv3 - Giáp",
+      "description": "Chỉ số: 0.8 Giáp.",
+      "type": 4,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630205,
+      "attributes": [
+        {
+          "type": 2,
+          "valueType": 1,
+          "value": "0.8"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lfy03.png",
+        "url": "/rez/zh_CN/icon/item/2bd3c8377bdb1eda1ae9c5d15bc43be9.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/2bd3c8377bdb1eda1ae9c5d15bc43be9.png",
+        "exists": true,
+        "sha256": "1123d936ea181da30048fb867f1529e9f9b0afefeb07360db8b313f47e1d0248",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630206": {
+      "itemId": 5630206,
+      "name": "Tinh thể Lv3 - Tốc độ bắn",
+      "description": "Chỉ số: 0.4% Tốc độ bắn.",
+      "type": 4,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630206,
+      "attributes": [
+        {
+          "type": 10,
+          "valueType": 2,
+          "value": "0.004"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lss03.png",
+        "url": "/rez/zh_CN/icon/item/d53d8f1ebdd49624ffab0eb210463cca.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/d53d8f1ebdd49624ffab0eb210463cca.png",
+        "exists": true,
+        "sha256": "7c6075cd8e65d47b2fc030e07b2349db469d5257e3def1f4fe0d78f4e170573f",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630207": {
+      "itemId": 5630207,
+      "name": "Tinh thể Lv3 - Giảm hồi chiêu kỹ năng",
+      "description": "Chỉ số: -0.4% Giảm hồi chiêu kỹ năng.",
+      "type": 4,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630207,
+      "attributes": [
+        {
+          "type": 16,
+          "valueType": 2,
+          "value": "-0.004"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_ljl03.png",
+        "url": "/rez/zh_CN/icon/item/a2fb0e47978d23d12a8e03cf120b581b.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/a2fb0e47978d23d12a8e03cf120b581b.png",
+        "exists": true,
+        "sha256": "0fe171cb74d1c254b0c7a326bbb6e9ddf0295c76196e55c238dbbf65a9647afd",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630208": {
+      "itemId": 5630208,
+      "name": "Tinh thể Lv3 - Hút máu bắn thường",
+      "description": "Chỉ số: 0.4% Hút máu bắn thường.",
+      "type": 2,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630208,
+      "attributes": [
+        {
+          "type": 28,
+          "valueType": 2,
+          "value": "0.004"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hpx03.png",
+        "url": "/rez/zh_CN/icon/item/f7f0a960763aa0bba26cbfe78c48b87d.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/f7f0a960763aa0bba26cbfe78c48b87d.png",
+        "exists": true,
+        "sha256": "04ce807f5804acbe73810b2f564a94fdb107b9e5be905dc7526ebb23d70b91ae",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630309": {
+      "itemId": 5630309,
+      "name": "Tinh thể Lv3 - HP",
+      "description": "Chỉ số: 12 HP.",
+      "type": 3,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630309,
+      "attributes": [
+        {
+          "type": 12,
+          "valueType": 1,
+          "value": "12"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hsm03.png",
+        "url": "/rez/zh_CN/icon/item/a62f2d4c6084a42891525ae6c9651ce1.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/a62f2d4c6084a42891525ae6c9651ce1.png",
+        "exists": true,
+        "sha256": "269964e8edcde574a65875742a16a242f2ca1c260a49e17726adfec4d7261c8a",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630310": {
+      "itemId": 5630310,
+      "name": "Tinh thể Lv3 - Xuyên giáp vật lý",
+      "description": "Chỉ số: 0.6 Xuyên giáp vật lý.",
+      "type": 3,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630310,
+      "attributes": [
+        {
+          "type": 8,
+          "valueType": 1,
+          "value": "0.6"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hct03.png",
+        "url": "/rez/zh_CN/icon/item/a9e06aad0b452d276b231d9404f6e55a.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/a9e06aad0b452d276b231d9404f6e55a.png",
+        "exists": true,
+        "sha256": "f9a4d18cf9ec4a2a8a914920e973abe0aadf22bf8c82dcfcd1bc7c5c40c18c5d",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630311": {
+      "itemId": 5630311,
+      "name": "Tinh thể Lv3 - Tỷ lệ bạo kích",
+      "description": "Chỉ số: 0.4% Tỷ lệ bạo kích.",
+      "type": 3,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630311,
+      "attributes": [
+        {
+          "type": 27,
+          "valueType": 2,
+          "value": "0.004"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hpb03.png",
+        "url": "/rez/zh_CN/icon/item/b4615a577e45a970802d2a833a4e5e75.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/b4615a577e45a970802d2a833a4e5e75.png",
+        "exists": true,
+        "sha256": "ae96575d7698679d824ab06536ed60a170de015b5ab45bf282cba7a875e6d935",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5630312": {
+      "itemId": 5630312,
+      "name": "Tinh thể Lv3 - Xuyên giáp năng lượng",
+      "description": "Chỉ số: 0.6 Xuyên giáp năng lượng.",
+      "type": 3,
+      "level": 3,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5630312,
+      "attributes": [
+        {
+          "type": 9,
+          "valueType": 1,
+          "value": "0.6"
+        }
+      ],
+      "sellPieces": 30,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hfc03.png",
+        "url": "/rez/zh_CN/icon/item/7f674ab69cf520874cbf63778409583e.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/7f674ab69cf520874cbf63778409583e.png",
+        "exists": true,
+        "sha256": "e52b1ac97e45a05e8bc672a402a07d6d5d9248e50b605cee6731af4f3b3d713e",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640101": {
+      "itemId": 5640101,
+      "name": "Tinh thể Lv4 - Tấn công vật lý",
+      "description": "Chỉ số: 1.75 Tấn công vật lý.",
+      "type": 2,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640101,
+      "attributes": [
+        {
+          "type": 4,
+          "valueType": 1,
+          "value": "1.75"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hgj04.png",
+        "url": "/rez/zh_CN/icon/item/bb109a4cabee54c906999a84f8737908.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/bb109a4cabee54c906999a84f8737908.png",
+        "exists": true,
+        "sha256": "35f17857d41c77b09b6df39ac801e123fb05b727d9a1624f0b0f1c1f0a0eaa7c",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640102": {
+      "itemId": 5640102,
+      "name": "Tinh thể Lv4 - Tốc độ di chuyển",
+      "description": "Chỉ số: 0.7% Tốc độ di chuyển.",
+      "type": 4,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640102,
+      "attributes": [
+        {
+          "type": 11,
+          "valueType": 2,
+          "value": "0.007"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lys04.png",
+        "url": "/rez/zh_CN/icon/item/9d5851b54fc1a373123be0d655242633.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/9d5851b54fc1a373123be0d655242633.png",
+        "exists": true,
+        "sha256": "6977775777569de372adb3736ae5e8c64f604a5a43ec5cfde3356c1d41f1fa6a",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640103": {
+      "itemId": 5640103,
+      "name": "Tinh thể Lv4 - Hồi HP mỗi 5 giây",
+      "description": "Chỉ số: 3.5 Hồi HP mỗi 5 giây.",
+      "type": 2,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640103,
+      "attributes": [
+        {
+          "type": 26,
+          "valueType": 1,
+          "value": "3.5"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hyh04.png",
+        "url": "/rez/zh_CN/icon/item/611ce1b548cf3819809da92a28e39fd2.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/611ce1b548cf3819809da92a28e39fd2.png",
+        "exists": true,
+        "sha256": "3e4cb8307bfb8df72ada1f3785cf87ff4959faa143d14e1128f41139ff7c1d3c",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640104": {
+      "itemId": 5640104,
+      "name": "Tinh thể Lv4 - Hút máu kỹ năng",
+      "description": "Chỉ số: 0.7% Hút máu kỹ năng.",
+      "type": 2,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640104,
+      "attributes": [
+        {
+          "type": 29,
+          "valueType": 2,
+          "value": "0.007"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hjx04.png",
+        "url": "/rez/zh_CN/icon/item/3e6be05c951ac048e7f1e505ff40afe0.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/3e6be05c951ac048e7f1e505ff40afe0.png",
+        "exists": true,
+        "sha256": "e574c7ae75c4940988dc4b817e12a7902f50fe290cb6b667ccc38044601d026b",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640105": {
+      "itemId": 5640105,
+      "name": "Tinh thể Lv4 - Tấn công năng lượng",
+      "description": "Chỉ số: 1.75 Tấn công năng lượng.",
+      "type": 2,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640105,
+      "attributes": [
+        {
+          "type": 5,
+          "valueType": 1,
+          "value": "1.75"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hfg04.png",
+        "url": "/rez/zh_CN/icon/item/27d8b52bb90db6dacdee2a137746ecc3.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/27d8b52bb90db6dacdee2a137746ecc3.png",
+        "exists": true,
+        "sha256": "512581efa978d3ef922100c4346643b5ba38419000291af6bb5f631cee59c0b7",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640205": {
+      "itemId": 5640205,
+      "name": "Tinh thể Lv4 - Giáp",
+      "description": "Chỉ số: 1.4 Giáp.",
+      "type": 4,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640205,
+      "attributes": [
+        {
+          "type": 2,
+          "valueType": 1,
+          "value": "1.4"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lfy04.png",
+        "url": "/rez/zh_CN/icon/item/a5987bff39ba7cb5c90a528c2b5c3fc3.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/a5987bff39ba7cb5c90a528c2b5c3fc3.png",
+        "exists": true,
+        "sha256": "16b32904c0b41fe3553cc9eb3aadb5bf6375986d7308c09e7e955b82d5e38ada",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640206": {
+      "itemId": 5640206,
+      "name": "Tinh thể Lv4 - Tốc độ bắn",
+      "description": "Chỉ số: 0.7% Tốc độ bắn.",
+      "type": 4,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640206,
+      "attributes": [
+        {
+          "type": 10,
+          "valueType": 2,
+          "value": "0.007"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lss04.png",
+        "url": "/rez/zh_CN/icon/item/3da3ef61302df7dd07ba8a58260c1592.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/3da3ef61302df7dd07ba8a58260c1592.png",
+        "exists": true,
+        "sha256": "5ce7a1b76cd5abdd15ce36a3ffd92fac1bff7e2b63f6743afc86f6f84fcf46ab",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640207": {
+      "itemId": 5640207,
+      "name": "Tinh thể Lv4 - Giảm hồi chiêu kỹ năng",
+      "description": "Chỉ số: -0.7% Giảm hồi chiêu kỹ năng.",
+      "type": 4,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640207,
+      "attributes": [
+        {
+          "type": 16,
+          "valueType": 2,
+          "value": "-0.007"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_ljl04.png",
+        "url": "/rez/zh_CN/icon/item/c68864333ddb26cdaae5704a33dfa4f9.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/c68864333ddb26cdaae5704a33dfa4f9.png",
+        "exists": true,
+        "sha256": "118dd2e3e378e31d84c0ab02881757ede2df5de4424420144ca15b9f48d606af",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640208": {
+      "itemId": 5640208,
+      "name": "Tinh thể Lv4 - Hút máu bắn thường",
+      "description": "Chỉ số: 0.7% Hút máu bắn thường.",
+      "type": 2,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640208,
+      "attributes": [
+        {
+          "type": 28,
+          "valueType": 2,
+          "value": "0.007"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hpx04.png",
+        "url": "/rez/zh_CN/icon/item/5c6c38c686b468723d96874badadba5b.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/5c6c38c686b468723d96874badadba5b.png",
+        "exists": true,
+        "sha256": "f833408c588cf2d9a0aec3b122275b90b94a96b929c39efbcc3239742a6b60bd",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640309": {
+      "itemId": 5640309,
+      "name": "Tinh thể Lv4 - HP",
+      "description": "Chỉ số: 21 HP.",
+      "type": 3,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640309,
+      "attributes": [
+        {
+          "type": 12,
+          "valueType": 1,
+          "value": "21"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hsm04.png",
+        "url": "/rez/zh_CN/icon/item/4d1c22203cef41d4fa9bf30cd1a027bb.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/4d1c22203cef41d4fa9bf30cd1a027bb.png",
+        "exists": true,
+        "sha256": "aec64c20a08efd9158bd090c10c53114ee99e2d7b66b6744643da957328fd5d4",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640310": {
+      "itemId": 5640310,
+      "name": "Tinh thể Lv4 - Xuyên giáp vật lý",
+      "description": "Chỉ số: 1.05 Xuyên giáp vật lý.",
+      "type": 3,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640310,
+      "attributes": [
+        {
+          "type": 8,
+          "valueType": 1,
+          "value": "1.05"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hct04.png",
+        "url": "/rez/zh_CN/icon/item/abdb1359583ffa85e66a232fcd7f197a.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/abdb1359583ffa85e66a232fcd7f197a.png",
+        "exists": true,
+        "sha256": "5e47c4a7cf31f394b878cffff1037414a18f65b147dd5be6d2b5460e3ab36a28",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640311": {
+      "itemId": 5640311,
+      "name": "Tinh thể Lv4 - Tỷ lệ bạo kích",
+      "description": "Chỉ số: 0.7% Tỷ lệ bạo kích.",
+      "type": 3,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640311,
+      "attributes": [
+        {
+          "type": 27,
+          "valueType": 2,
+          "value": "0.007"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hpb04.png",
+        "url": "/rez/zh_CN/icon/item/15bc11ac10ea449ed4f2ac434fefe251.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/15bc11ac10ea449ed4f2ac434fefe251.png",
+        "exists": true,
+        "sha256": "f0916cd0e82c64886eb85ca365085a7720f4272a2d1dd2ee975ca1a80ed01181",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5640312": {
+      "itemId": 5640312,
+      "name": "Tinh thể Lv4 - Xuyên giáp năng lượng",
+      "description": "Chỉ số: 1.05 Xuyên giáp năng lượng.",
+      "type": 3,
+      "level": 4,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5640312,
+      "attributes": [
+        {
+          "type": 9,
+          "valueType": 1,
+          "value": "1.05"
+        }
+      ],
+      "sellPieces": 40,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hfc04.png",
+        "url": "/rez/zh_CN/icon/item/00c08f8aa528232836eb9ef03ac02cfc.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/00c08f8aa528232836eb9ef03ac02cfc.png",
+        "exists": true,
+        "sha256": "3776bd5f9726645ae3ae24c495b38b5c6129e9bded12eb8717495afeb55725b4",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5650101": {
+      "itemId": 5650101,
+      "name": "Tinh thể Lv5 - Tấn công vật lý",
+      "description": "Chỉ số: 2.5 Tấn công vật lý.",
+      "type": 2,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650101,
+      "attributes": [
+        {
+          "type": 4,
+          "valueType": 1,
+          "value": "2.5"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650102": {
+      "itemId": 5650102,
+      "name": "Tinh thể Lv5 - Tốc độ di chuyển",
+      "description": "Chỉ số: 1% Tốc độ di chuyển.",
+      "type": 4,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650102,
+      "attributes": [
+        {
+          "type": 11,
+          "valueType": 2,
+          "value": "0.01"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_lys05.png",
+        "url": "/rez/zh_CN/icon/item/e746fa5d9cdd679e5d6167cd8a129de7.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/e746fa5d9cdd679e5d6167cd8a129de7.png",
+        "exists": true,
+        "sha256": "ad076c7a1f6f1c1f8ac8f3382f2614907675abc37dc45ed0c8d7b21176ef6828",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5650103": {
+      "itemId": 5650103,
+      "name": "Tinh thể Lv5 - Hồi HP mỗi 5 giây",
+      "description": "Chỉ số: 5 Hồi HP mỗi 5 giây.",
+      "type": 2,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650103,
+      "attributes": [
+        {
+          "type": 26,
+          "valueType": 1,
+          "value": "5"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650104": {
+      "itemId": 5650104,
+      "name": "Tinh thể Lv5 - Hút máu kỹ năng",
+      "description": "Chỉ số: 1% Hút máu kỹ năng.",
+      "type": 2,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650104,
+      "attributes": [
+        {
+          "type": 29,
+          "valueType": 2,
+          "value": "0.01"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650105": {
+      "itemId": 5650105,
+      "name": "Tinh thể Lv5 - Tấn công năng lượng",
+      "description": "Chỉ số: 2.5 Tấn công năng lượng.",
+      "type": 2,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650105,
+      "attributes": [
+        {
+          "type": 5,
+          "valueType": 1,
+          "value": "2.5"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650205": {
+      "itemId": 5650205,
+      "name": "Tinh thể Lv5 - Giáp vật lý",
+      "description": "Chỉ số: 3 Giáp vật lý.",
+      "type": 4,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650205,
+      "attributes": [
+        {
+          "type": 6,
+          "valueType": 1,
+          "value": "3"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650206": {
+      "itemId": 5650206,
+      "name": "Tinh thể Lv5 - Tốc độ bắn",
+      "description": "Chỉ số: 1% Tốc độ bắn.",
+      "type": 4,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650206,
+      "attributes": [
+        {
+          "type": 10,
+          "valueType": 2,
+          "value": "0.01"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650207": {
+      "itemId": 5650207,
+      "name": "Tinh thể Lv5 - Giảm hồi chiêu kỹ năng",
+      "description": "Chỉ số: -1% Giảm hồi chiêu kỹ năng.",
+      "type": 4,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650207,
+      "attributes": [
+        {
+          "type": 16,
+          "valueType": 2,
+          "value": "-0.01"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_ljl05.png",
+        "url": "/rez/zh_CN/icon/item/5ba82d5bef47eba7e197f7b9c15c173f.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/5ba82d5bef47eba7e197f7b9c15c173f.png",
+        "exists": true,
+        "sha256": "9267e59767477882dbf422e8d547e5c3edadc1bc5a57ae7a4c329e4d8ec9ef92",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5650208": {
+      "itemId": 5650208,
+      "name": "Tinh thể Lv5 - Hút máu bắn thường",
+      "description": "Chỉ số: 1% Hút máu bắn thường.",
+      "type": 2,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650208,
+      "attributes": [
+        {
+          "type": 28,
+          "valueType": 2,
+          "value": "0.01"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650209": {
+      "itemId": 5650209,
+      "name": "Tinh thể Lv5 - Giáp năng lượng",
+      "description": "Chỉ số: 3 Giáp năng lượng.",
+      "type": 4,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650209,
+      "attributes": [
+        {
+          "type": 7,
+          "valueType": 1,
+          "value": "3"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650309": {
+      "itemId": 5650309,
+      "name": "Tinh thể Lv5 - HP",
+      "description": "Chỉ số: 30 HP.",
+      "type": 3,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650309,
+      "attributes": [
+        {
+          "type": 12,
+          "valueType": 1,
+          "value": "30"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650310": {
+      "itemId": 5650310,
+      "name": "Tinh thể Lv5 - Xuyên giáp vật lý",
+      "description": "Chỉ số: 1.5 Xuyên giáp vật lý.",
+      "type": 3,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650310,
+      "attributes": [
+        {
+          "type": 8,
+          "valueType": 1,
+          "value": "1.5"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/js_hct05.png",
+        "url": "/rez/zh_CN/icon/item/2d3ea79b65063606e9e25412a49d4693.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/2d3ea79b65063606e9e25412a49d4693.png",
+        "exists": true,
+        "sha256": "31493cf442167ea77c26435dfac8e1f04614b69073b2c599b748f08acb68fc60",
+        "width": 100,
+        "height": 100,
+        "transparent": false
+      }
+    },
+    "5650311": {
+      "itemId": 5650311,
+      "name": "Tinh thể Lv5 - Tỷ lệ bạo kích",
+      "description": "Chỉ số: 1% Tỷ lệ bạo kích.",
+      "type": 3,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650311,
+      "attributes": [
+        {
+          "type": 27,
+          "valueType": 2,
+          "value": "0.01"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    },
+    "5650312": {
+      "itemId": 5650312,
+      "name": "Tinh thể Lv5 - Xuyên giáp năng lượng",
+      "description": "Chỉ số: 1.5 Xuyên giáp năng lượng.",
+      "type": 3,
+      "level": 5,
+      "containerType": 10,
+      "stackMax": 999,
+      "attributeGroupId": 5650312,
+      "attributes": [
+        {
+          "type": 9,
+          "valueType": 1,
+          "value": "1.5"
+        }
+      ],
+      "sellPieces": 50,
+      "icon": {
+        "logical": "zh_CN/icon/item/offline_empty_crystal.png",
+        "url": "/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+        "exists": true,
+        "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+        "width": 1,
+        "height": 1,
+        "transparent": true
+      }
+    }
+  },
+  "slots": [
+    {
+      "position": 1,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem1",
+      "x": 138,
+      "y": 0,
+      "style": "atk"
+    },
+    {
+      "position": 2,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem1",
+      "x": 195,
+      "y": 101,
+      "style": "def"
+    },
+    {
+      "position": 3,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem1",
+      "x": 307,
+      "y": 0,
+      "style": "aid"
+    },
+    {
+      "position": 4,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem2",
+      "x": 81,
+      "y": 0,
+      "style": "atk"
+    },
+    {
+      "position": 5,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem2",
+      "x": 252,
+      "y": 101,
+      "style": "def"
+    },
+    {
+      "position": 6,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem2",
+      "x": 363,
+      "y": 0,
+      "style": "aid"
+    },
+    {
+      "position": 7,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem3",
+      "x": 111,
+      "y": 52,
+      "style": "atk"
+    },
+    {
+      "position": 8,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem3",
+      "x": 168,
+      "y": 150,
+      "style": "def"
+    },
+    {
+      "position": 9,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem3",
+      "x": 334,
+      "y": 52,
+      "style": "aid"
+    },
+    {
+      "position": 10,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem4",
+      "x": 55,
+      "y": 52,
+      "style": "atk"
+    },
+    {
+      "position": 11,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem4",
+      "x": 223,
+      "y": 150,
+      "style": "def"
+    },
+    {
+      "position": 12,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem4",
+      "x": 391,
+      "y": 52,
+      "style": "aid"
+    },
+    {
+      "position": 13,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem5",
+      "x": 27,
+      "y": 101,
+      "style": "atk"
+    },
+    {
+      "position": 14,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem5",
+      "x": 279,
+      "y": 150,
+      "style": "def"
+    },
+    {
+      "position": 15,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem5",
+      "x": 418,
+      "y": 101,
+      "style": "aid"
+    },
+    {
+      "position": 16,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem6",
+      "x": 55,
+      "y": 150,
+      "style": "atk"
+    },
+    {
+      "position": 17,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem6",
+      "x": 139,
+      "y": 199,
+      "style": "def"
+    },
+    {
+      "position": 18,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem6",
+      "x": 391,
+      "y": 150,
+      "style": "aid"
+    },
+    {
+      "position": 19,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem7",
+      "x": 27,
+      "y": 199,
+      "style": "atk"
+    },
+    {
+      "position": 20,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem7",
+      "x": 195,
+      "y": 199,
+      "style": "def"
+    },
+    {
+      "position": 21,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem7",
+      "x": 418,
+      "y": 199,
+      "style": "aid"
+    },
+    {
+      "position": 22,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem8",
+      "x": 55,
+      "y": 250,
+      "style": "atk"
+    },
+    {
+      "position": 23,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem8",
+      "x": 252,
+      "y": 199,
+      "style": "def"
+    },
+    {
+      "position": 24,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem8",
+      "x": 391,
+      "y": 250,
+      "style": "aid"
+    },
+    {
+      "position": 25,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem9",
+      "x": 27,
+      "y": 300,
+      "style": "atk"
+    },
+    {
+      "position": 26,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem9",
+      "x": 306,
+      "y": 199,
+      "style": "def"
+    },
+    {
+      "position": 27,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem9",
+      "x": 418,
+      "y": 300,
+      "style": "aid"
+    },
+    {
+      "position": 28,
+      "type": 2,
+      "minLevel": 1,
+      "nativeName": "atkItem10",
+      "x": 81,
+      "y": 300,
+      "style": "atk"
+    },
+    {
+      "position": 29,
+      "type": 3,
+      "minLevel": 1,
+      "nativeName": "defItem10",
+      "x": 223,
+      "y": 250,
+      "style": "def"
+    },
+    {
+      "position": 30,
+      "type": 4,
+      "minLevel": 1,
+      "nativeName": "aidItem10",
+      "x": 363,
+      "y": 300,
+      "style": "aid"
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": 15640101,
+      "itemId": 5640101,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640102,
+      "itemId": 5640102,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640103,
+      "itemId": 5640103,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640104,
+      "itemId": 5640104,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640105,
+      "itemId": 5640105,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640205,
+      "itemId": 5640205,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640206,
+      "itemId": 5640206,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640207,
+      "itemId": 5640207,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640208,
+      "itemId": 5640208,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640309,
+      "itemId": 5640309,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640310,
+      "itemId": 5640310,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640311,
+      "itemId": 5640311,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15640312,
+      "itemId": 5640312,
+      "pieceCost": 100,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650101,
+      "itemId": 5650101,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650102,
+      "itemId": 5650102,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650103,
+      "itemId": 5650103,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650104,
+      "itemId": 5650104,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650105,
+      "itemId": 5650105,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650205,
+      "itemId": 5650205,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650206,
+      "itemId": 5650206,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650207,
+      "itemId": 5650207,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650208,
+      "itemId": 5650208,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650209,
+      "itemId": 5650209,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650309,
+      "itemId": 5650309,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650310,
+      "itemId": 5650310,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650311,
+      "itemId": 5650311,
+      "pieceCost": 200,
+      "outputCount": 1
+    },
+    {
+      "recipeId": 15650312,
+      "itemId": 5650312,
+      "pieceCost": 200,
+      "outputCount": 1
+    }
+  ],
+  "packages": [
+    {
+      "kind": 5,
+      "tier": 0,
+      "count": 1,
+      "price": 10,
+      "currency": "silver",
+      "limitId": 284,
+      "dropGroup": 301,
+      "guaranteedGroup": 311
+    },
+    {
+      "kind": 6,
+      "tier": 0,
+      "count": 5,
+      "price": 40,
+      "currency": "silver",
+      "limitId": 284,
+      "dropGroup": 301,
+      "guaranteedGroup": 311
+    },
+    {
+      "kind": 3,
+      "tier": 1,
+      "count": 1,
+      "price": 20,
+      "currency": "silver",
+      "limitId": 285,
+      "dropGroup": 321,
+      "guaranteedGroup": 331
+    },
+    {
+      "kind": 4,
+      "tier": 1,
+      "count": 5,
+      "price": 90,
+      "currency": "silver",
+      "limitId": 285,
+      "dropGroup": 321,
+      "guaranteedGroup": 331
+    }
+  ],
+  "dropGroups": {
+    "301": [
+      {
+        "itemId": 5610101,
+        "weight": 2305329
+      },
+      {
+        "itemId": 5610105,
+        "weight": 2305328
+      },
+      {
+        "itemId": 5610205,
+        "weight": 2305328
+      },
+      {
+        "itemId": 5610309,
+        "weight": 2305328
+      },
+      {
+        "itemId": 5620101,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620105,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620102,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620205,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620206,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620207,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620309,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620310,
+        "weight": 71721
+      },
+      {
+        "itemId": 5620312,
+        "weight": 71721
+      },
+      {
+        "itemId": 5630101,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630105,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630102,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630103,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630104,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630205,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630206,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630207,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630208,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630309,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630310,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630312,
+        "weight": 10246
+      },
+      {
+        "itemId": 5630311,
+        "weight": 10246
+      }
+    ],
+    "311": [
+      {
+        "itemId": 5620101,
+        "weight": 1000001
+      },
+      {
+        "itemId": 5620105,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5620102,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5620205,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5620206,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5620207,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5620309,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5620310,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5620312,
+        "weight": 1000000
+      },
+      {
+        "itemId": 5630101,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630105,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630102,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630103,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630104,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630205,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630206,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630207,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630208,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630309,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630310,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630312,
+        "weight": 76923
+      },
+      {
+        "itemId": 5630311,
+        "weight": 76923
+      }
+    ],
+    "321": [
+      {
+        "itemId": 5620101,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620102,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620205,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620206,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620207,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620309,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620310,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620105,
+        "weight": 363290
+      },
+      {
+        "itemId": 5620312,
+        "weight": 363290
+      },
+      {
+        "itemId": 5630101,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630102,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630103,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630104,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630205,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630206,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630207,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630208,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630309,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630310,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630311,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630105,
+        "weight": 454112
+      },
+      {
+        "itemId": 5630312,
+        "weight": 454112
+      },
+      {
+        "itemId": 5640101,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640102,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640103,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640104,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640205,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640206,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640207,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640208,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640309,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640310,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640311,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640105,
+        "weight": 40870
+      },
+      {
+        "itemId": 5640312,
+        "weight": 40870
+      },
+      {
+        "itemId": 5650101,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650102,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650103,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650104,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650105,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650205,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650206,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650207,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650208,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650209,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650309,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650310,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650311,
+        "weight": 21116
+      },
+      {
+        "itemId": 5650312,
+        "weight": 21116
+      }
+    ],
+    "331": [
+      {
+        "itemId": 5640101,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640102,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640103,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640104,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640205,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640206,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640207,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640208,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640309,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640310,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640311,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640105,
+        "weight": 734934
+      },
+      {
+        "itemId": 5640312,
+        "weight": 734934
+      },
+      {
+        "itemId": 5650101,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650102,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650103,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650104,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650105,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650205,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650206,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650207,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650208,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650209,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650309,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650310,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650311,
+        "weight": 31847
+      },
+      {
+        "itemId": 5650312,
+        "weight": 31847
+      }
+    ]
+  },
+  "guaranteePeriod": 5,
+  "maximumBoards": 255,
+  "capacity": {
+    "3": 135,
+    "10": 100
+  },
+  "piece": {
+    "itemId": 8000024,
+    "name": "晶片碎片",
+    "containerType": 3,
+    "icon": {
+      "logical": "zh_CN/icon/item/jingpianhuobi.png",
+      "url": "/rez/zh_CN/icon/item/65f81fa4815531f507812cf3ab8c994d.png",
+      "sourcePath": "www/rez/zh_CN/icon/item/65f81fa4815531f507812cf3ab8c994d.png",
+      "exists": true,
+      "sha256": "82adbeb0d230b4e1af2cc62133f8b45512134f22ac72676010c0d7bfc68b4125",
+      "width": 100,
+      "height": 100,
+      "transparent": false
+    }
+  },
+  "layout": {
+    "width": 526,
+    "height": 360,
+    "slotWidth": 52,
+    "slotHeight": 60,
+    "background": {
+      "logical": "zh_CN/VI/crystal/img_crystal_scheme_bk.png",
+      "url": "/rez/zh_CN/VI/crystal/12cb5ce31452b88d0301cce23b27967f.png",
+      "sourcePath": "www/rez/zh_CN/VI/crystal/12cb5ce31452b88d0301cce23b27967f.png",
+      "exists": true,
+      "sha256": "106e5e6baec6e921926ba22d3e8740acba474cc1fef93d3349767ce459e99750",
+      "width": 526,
+      "height": 360,
+      "transparent": false
+    },
+    "grids": {
+      "2": {
+        "logical": "zh_CN/VI/crystal/grid1.png",
+        "url": "/rez/zh_CN/VI/crystal/32c62d9ab6b64d25b660bfbb3b9be347.png",
+        "sourcePath": "www/rez/zh_CN/VI/crystal/32c62d9ab6b64d25b660bfbb3b9be347.png",
+        "exists": true,
+        "sha256": "651413910bd431e7319df21420ed9f4a28aaae7852affb0dae70b0715be9340d",
+        "width": 52,
+        "height": 60,
+        "transparent": false
+      },
+      "3": {
+        "logical": "zh_CN/VI/crystal/grid2.png",
+        "url": "/rez/zh_CN/VI/crystal/75d9b0a5ee730392746ac531c2eee935.png",
+        "sourcePath": "www/rez/zh_CN/VI/crystal/75d9b0a5ee730392746ac531c2eee935.png",
+        "exists": true,
+        "sha256": "26214f6de347d3378fe4724c4565bb03cb823f5f336b6aa6aa4ab094a805074a",
+        "width": 52,
+        "height": 60,
+        "transparent": false
+      },
+      "4": {
+        "logical": "zh_CN/VI/crystal/grid3.png",
+        "url": "/rez/zh_CN/VI/crystal/ab2c9b99b7ae56528af16509abeffe98.png",
+        "sourcePath": "www/rez/zh_CN/VI/crystal/ab2c9b99b7ae56528af16509abeffe98.png",
+        "exists": true,
+        "sha256": "83235d519a44d7632fdacc4101a75c2deaf4b9de38320764b36af047712c8fc9",
+        "width": 52,
+        "height": 60,
+        "transparent": false
+      }
+    }
+  },
+  "transparentIconItems": [
+    5650101,
+    5650103,
+    5650104,
+    5650105,
+    5650205,
+    5650206,
+    5650208,
+    5650209,
+    5650309,
+    5650311,
+    5650312
+  ],
+  "counts": {
+    "items": 53,
+    "slots": 30,
+    "recipes": 27,
+    "transparentIcons": 11,
+    "sourceImages": 48
+  }
+}

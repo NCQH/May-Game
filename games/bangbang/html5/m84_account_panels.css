@@ -1,0 +1,66 @@
+/* Current Flash CharAvatarFrame / CharFrame / ShopFrame / PlayerInfoFrame.
+   Native bitmap dimensions are set on each layer, including button labels. */
+.m84-native-art{display:block;max-width:none!important;max-height:none!important;pointer-events:none;user-select:none;object-fit:contain}
+.m84-character-appearance{margin:0;overflow:visible;pointer-events:none;isolation:isolate}
+.m84-character-level{transform-origin:0 0;overflow:visible}
+.m84-character-body{object-fit:contain}
+.m84-native-vip-name{background-clip:text;-webkit-background-clip:text;color:transparent!important}
+.m84-native-label{box-sizing:border-box;display:block;margin:0;padding:0;font-family:Tahoma,Arial,sans-serif;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+.m84-character-name{padding-top:2px}
+.m84-character-bonus{text-shadow:-1px -1px #1b2626,1px -1px #1b2626,-1px 1px #1b2626,1px 1px #1b2626}
+.m8-account .m84-native-button,.m8-account .m84-native-button:hover,.m8-account .m84-native-button:active,.m8-account .m84-native-button:focus,.m8-account .m84-native-button.is-active{margin:0;padding:0;border:0;border-radius:0;box-shadow:none;min-width:0;min-height:0;background:transparent;color:#fff}
+.m84-native-button>.m84-native-art{position:absolute;max-width:none;max-height:none}
+.m84-button-label{display:flex;align-items:center;justify-content:center}
+.m8-account .m84-native-button:disabled{opacity:1}
+.m84-native-value{font-family:Tahoma,Arial,sans-serif;overflow:hidden;white-space:nowrap;color:#fff;pointer-events:none}
+.m84-native-value>span{position:absolute;inset:4px 8px 0 4px;text-align:right;font-weight:bold;line-height:19px}
+.m84-inventory,.m84-shop,.m84-public-profile{overflow:visible!important}
+.m84-shop-cards,.m84-cosmetic-cards{position:absolute;overflow:visible}
+.m84-shop-card,.m84-cosmetic-card{position:absolute;overflow:visible}
+.m84-shop-card-name{padding-top:2px;text-shadow:0 1px #954715}
+.m84-shop-price{display:flex;align-items:start;justify-content:center;gap:0;white-space:nowrap;font:700 14px Tahoma,Arial,sans-serif;color:#8d4c06;line-height:25px;pointer-events:none}
+.m84-shop-price>img{position:static;display:block;max-width:none;max-height:none}
+.m84-shop-price>span{padding-left:2px;padding-top:2px}
+.m84-cosmetic-name{padding-top:1px;text-shadow:0 1px #0b7b9d}
+.m84-cosmetic-time{white-space:normal;text-align:center;line-height:20px}
+.m84-profile-query{position:absolute;z-index:20;left:237px;top:82px;width:552px;padding:9px;background:#057eab;border:2px solid #86dff8;border-radius:4px;box-shadow:0 3px 8px #03445a80}
+.m84-profile-query[hidden]{display:none}
+.m84-profile-query input{width:230px;height:28px}
+.m84-profile-query .m8-button{height:28px}
+.m8-account .m84-id-query{color:#fff;font:bold 16px Tahoma,Arial,sans-serif;text-align:left;padding-top:2px}
+.m84-profile-tank-list{position:absolute;overflow-y:auto;overflow-x:hidden;background:transparent;border:0;border-radius:0;padding:0;scrollbar-color:#118ebd #03a3dc;scrollbar-width:thin}
+.m84-profile-tank-spacer{position:relative;width:220px}
+.m8-account .m84-profile-tank-row{position:absolute;margin:0;padding:0;border:0;background:transparent;min-width:0;min-height:0;box-shadow:none;overflow:visible;border-radius:0;text-align:left}
+.m84-profile-tank-row:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.m84-profile-tank-row>.m8-portrait{pointer-events:none}
+/* Keep the complete portrait below profile labels, including native SWF
+   children and custom halo frames that extend outside the 200px viewport. */
+.m84-profile-tank-detail,.m84-profile-tank-row{isolation:isolate}
+.m84-profile-tank-detail>.m8-portrait,.m84-profile-tank-row>.m8-portrait{z-index:0}
+.m84-profile-tank-detail>.m84-native-label,.m84-profile-tank-detail>.m84-native-art,.m84-profile-tank-detail>.m84-native-value,.m84-profile-tank-row>.m84-native-label{z-index:1}
+.m84-profile-tank-row>.m8133-profile-tank-level{z-index:1}
+.m84-profile-tank-name{color:#00ffff;text-shadow:1px 1px 2px #005391}
+.m84-native-unavailable:disabled{filter:none!important;cursor:default}
+.m84-bag-extra-menu{position:absolute;z-index:15;display:grid;gap:3px;padding:6px;background:#087baf;border:2px solid #8cd7ee;border-radius:4px}
+.m84-bag-extra-menu[hidden]{display:none}
+.m84-bag-exp{overflow:hidden}
+.m84-bag-exp-fill{position:absolute;inset:0 auto 0 0;overflow:hidden}
+.m84-bag-exp-label{line-height:16px;text-align:center;font-size:14px}
+.m8-account .m84-art-hit,.m8-account .m84-art-hit:hover,.m8-account .m84-art-hit:active,.m8-account .m84-art-hit:disabled{display:block;border:0;border-radius:0;background:transparent;padding:0;margin:0;min-width:0;min-height:0;box-shadow:none;opacity:1}
+.m8-account .m84-art-hit:disabled{filter:none!important;cursor:default}
+.m8-account .m84-profile-tank-row:hover,.m8-account .m84-profile-tank-row:active,.m8-account .m84-profile-tab:hover,.m8-account .m84-profile-tab:active{background:transparent!important;filter:none!important;transform:none}
+.m8-account .m84-profile-tank-list{display:block;gap:0;border:0;padding:0;background:transparent;overflow-y:scroll;overflow-x:hidden}
+.m84-profile-tank-row .m84-native-art{pointer-events:none}
+.m84-screen-reader-action:not(:focus){position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip-path:inset(50%);white-space:nowrap;border:0!important}
+.m84-screen-reader-action:focus{position:absolute;left:540px;top:96px;z-index:25}
+.m84-shop-search{z-index:26;display:flex;gap:5px;align-items:center;padding:3px;background:#068fc8;border:1px solid #8cddff;border-radius:4px}
+.m84-shop-search input{flex:1;min-width:0;height:27px}
+.m84-shop-search button{height:27px}
+.m84-profile-query{display:flex;gap:5px;align-items:center}
+.m84-cosmetic-pager{position:absolute;overflow:visible}
+.m8-account[data-section="inventory"] .m8-account-status{right:150px}
+.m84-profile-tank-detail>.m81317-profile-companion{z-index:2;cursor:help;isolation:isolate}
+.m81317-profile-companion:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.m81317-profile-companion>*{pointer-events:none}
+.m81317-profile-companion-progress{background:repeating-linear-gradient(to top,#176c88 0 4px,#74c8cf 4px 5px);overflow:hidden;border-radius:1px}
+.m81317-profile-companion-progress>span{position:absolute;bottom:0;left:0;width:100%;background:repeating-linear-gradient(to top,#e7ed66 0 4px,#7aa86b 4px 5px)}

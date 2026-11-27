@@ -1,0 +1,14 @@
+/* TankWizardPanel: native 286×348, 72×35 tabs at 71px intervals,
+   txtPanel (5,43) 276×257, 13px #fdfdfd. Native stat numerals: Verdana. */
+.m81-garage-wizard { box-sizing:border-box; color:#fdfdfd; font:13px 'Microsoft YaHei',Arial,sans-serif; }
+.m81-wizard-background { pointer-events:none; }
+.m81-wizard-tabs { position:absolute; inset:0; pointer-events:none; }
+.m81-wizard-tab { pointer-events:auto; padding:0; border:0; border-radius:0; cursor:pointer; background-color:transparent; background-size:72px 35px; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center; color:#fff; }
+.m81-wizard-tab img { max-width:100%; object-fit:contain; pointer-events:none; }
+.m81-wizard-tab:focus-visible,.m81-wizard-content:focus-visible { outline:2px solid #fff; outline-offset:-2px; }
+.m81-wizard-content { box-sizing:border-box; overflow:auto; scrollbar-width:thin; scrollbar-color:#51a8d0 #173c54; white-space:pre-wrap; overflow-wrap:anywhere; padding:0 5px; line-height:1.45; }
+.m81-wizard-content p { margin:0 0 12px; }
+.m81-wizard-role { font-size:16px; font-weight:bold; }
+.m81-wizard-stat { display:flex; justify-content:space-between; gap:8px; min-height:24px; }
+.m81-wizard-stat strong { font-family:Verdana,sans-serif; font-size:16px; }
+.m81-wizard-unavailable { color:#bdd2df; }

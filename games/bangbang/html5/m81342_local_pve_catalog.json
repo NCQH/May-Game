@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "scope": "M42 native bridgehead support presentation; exact spare NPC rows; no art replacement",
+  "source": {
+    "m6_asset_catalog.json": "950ef6d7c527f76009480e8818844889ae01f95da4452d45032a31437a1d1aeb",
+    "m81314_assets_catalog.json": "e25d8a1087f04b0c884591c717042ca8bc5544dd4adb80e7e58c2a7c1ec41da8"
+  },
+  "bindings": {
+    "aiNPCs": {
+      "3140311": {
+        "_ordinal": 1529,
+        "getProps": null,
+        "iCanRotate": null,
+        "iDropId": null,
+        "iFeatureLimit": 7,
+        "iFireStop": null,
+        "iHurtStop": null,
+        "iLifeShowType": null,
+        "iRelive": 1000,
+        "iReset": null,
+        "iRoller": null,
+        "iScore": 1,
+        "iTarget": null,
+        "iTrack": 1,
+        "isShowName": null,
+        "nAIType": null,
+        "nArmsId": 4040201,
+        "nBattleLvType": null,
+        "nCampBattleExp": null,
+        "nCampBattleGold": null,
+        "nCampBattleRadius": null,
+        "nDropType": 2,
+        "nLevelId": 3,
+        "nOpCampArmsId": null,
+        "nSingleBattleExp": null,
+        "nSingleBattleGold": null,
+        "nTemplateId": 3140311,
+        "nType": 3,
+        "szName": "Pháo đài laser"
+      },
+      "3140312": {
+        "_ordinal": 1530,
+        "getProps": 1,
+        "iCanRotate": null,
+        "iDropId": null,
+        "iFeatureLimit": null,
+        "iFireStop": null,
+        "iHurtStop": null,
+        "iLifeShowType": null,
+        "iRelive": 1000,
+        "iReset": null,
+        "iRoller": null,
+        "iScore": 1,
+        "iTarget": null,
+        "iTrack": 1,
+        "isShowName": null,
+        "nAIType": null,
+        "nArmsId": 2010301,
+        "nBattleLvType": null,
+        "nCampBattleExp": null,
+        "nCampBattleGold": null,
+        "nCampBattleRadius": null,
+        "nDropType": 1,
+        "nLevelId": 2,
+        "nOpCampArmsId": null,
+        "nSingleBattleExp": null,
+        "nSingleBattleGold": null,
+        "nTemplateId": 3140312,
+        "nType": 3,
+        "szName": "Tank Quân Phản Kháng"
+      },
+      "3140313": {
+        "_ordinal": 1531,
+        "getProps": null,
+        "iCanRotate": null,
+        "iDropId": null,
+        "iFeatureLimit": null,
+        "iFireStop": 1,
+        "iHurtStop": null,
+        "iLifeShowType": null,
+        "iRelive": 3000,
+        "iReset": null,
+        "iRoller": null,
+        "iScore": null,
+        "iTarget": 3,
+        "iTrack": 1,
+        "isShowName": null,
+        "nAIType": null,
+        "nArmsId": 2200101,
+        "nBattleLvType": null,
+        "nCampBattleExp": null,
+        "nCampBattleGold": null,
+        "nCampBattleRadius": null,
+        "nDropType": 1,
+        "nLevelId": 2,
+        "nOpCampArmsId": null,
+        "nSingleBattleExp": null,
+        "nSingleBattleGold": null,
+        "nTemplateId": 3140313,
+        "nType": 3,
+        "szName": "Bác Sĩ Chiến Trường"
+      }
+    }
+  },
+  "runtime": {
+    "npc": {
+      "3140311": {
+        "typedIds": {
+          "skill": [
+            1000006
+          ],
+          "buff": [],
+          "effect": [
+            10000061
+          ],
+          "prop": [],
+          "scene": [],
+          "npc": [
+            3140311
+          ],
+          "arms": [
+            4040201
+          ],
+          "mapNpc": [],
+          "appearance": [
+            30
+          ],
+          "exhibit": [
+            105
+          ]
+        },
+        "logicalResources": [
+          "zh_CN/sound/bullet/paodan_laser.mp3",
+          "zh_CN/sound/death/deadtank3.mp3",
+          "zh_CN/swf/skills/light_blow.swf",
+          "zh_CN/swf/tank/birth/birth01.swf",
+          "zh_CN/swf/tank/blow/tank_blow.swf",
+          "zh_CN/swf/tank/death/cannon_death.swf",
+          "zh_CN/tank/body/cannon_body.png",
+          "zh_CN/tank/bullet/laser_yellow.png",
+          "zh_CN/tank/cannon/scifisix_cannon.png"
+        ],
+        "missing": []
+      },
+      "3140312": {
+        "typedIds": {
+          "skill": [
+            1000012
+          ],
+          "buff": [
+            30107
+          ],
+          "effect": [
+            10000121
+          ],
+          "prop": [],
+          "scene": [],
+          "npc": [
+            3140312
+          ],
+          "arms": [
+            2010301
+          ],
+          "mapNpc": [],
+          "appearance": [
+            21
+          ],
+          "exhibit": [
+            102
+          ]
+        },
+        "logicalResources": [
+          "zh_CN/icon/buff/buff_fensan.jpg",
+          "zh_CN/sound/bullet/paodan_putong.mp3",
+          "zh_CN/sound/death/deadtank3.mp3",
+          "zh_CN/swf/skills/normal_bullet_blow.swf",
+          "zh_CN/swf/tank/birth/birth01.swf",
+          "zh_CN/swf/tank/blow/tank_blow.swf",
+          "zh_CN/swf/tank/death/normaljagred_death.swf",
+          "zh_CN/tank/body/normaljagred_body.png",
+          "zh_CN/tank/bullet/putong.png",
+          "zh_CN/tank/bullet/tail/putong.png",
+          "zh_CN/tank/bullet/tail/putong_blue.png",
+          "zh_CN/tank/bullet/tail/putong_red.png",
+          "zh_CN/tank/cannon/normaljagred_cannon.png"
+        ],
+        "missing": []
+      },
+      "3140313": {
+        "typedIds": {
+          "skill": [
+            1000057
+          ],
+          "buff": [],
+          "effect": [
+            10000571
+          ],
+          "prop": [],
+          "scene": [],
+          "npc": [
+            3140313
+          ],
+          "arms": [
+            2200101
+          ],
+          "mapNpc": [],
+          "appearance": [
+            1022
+          ],
+          "exhibit": [
+            110
+          ]
+        },
+        "logicalResources": [
+          "zh_CN/sound/death/deadtank3.mp3",
+          "zh_CN/swf/skills/xiulidan_blow.swf",
+          "zh_CN/swf/tank/birth/birth01.swf",
+          "zh_CN/swf/tank/blow/tank_blow.swf",
+          "zh_CN/swf/tank/death/oil_death.swf",
+          "zh_CN/tank/body/ambulance01_body.png",
+          "zh_CN/tank/bullet/bone.png",
+          "zh_CN/tank/cannon/ambulance01_cannon.png"
+        ],
+        "missing": []
+      }
+    }
+  },
+  "maps": {
+    "31403": {
+      "typedIds": {
+        "skill": [
+          1000006,
+          1000012,
+          1000057
+        ],
+        "buff": [
+          30107
+        ],
+        "effect": [
+          10000061,
+          10000121,
+          10000571
+        ],
+        "prop": [],
+        "scene": [],
+        "npc": [
+          3140311,
+          3140312,
+          3140313
+        ],
+        "arms": [
+          2010301,
+          2200101,
+          4040201
+        ],
+        "mapNpc": [],
+        "appearance": [
+          21,
+          30,
+          1022
+        ],
+        "exhibit": [
+          102,
+          105,
+          110
+        ]
+      },
+      "logicalResources": [
+        "zh_CN/icon/buff/buff_fensan.jpg",
+        "zh_CN/sound/bullet/paodan_laser.mp3",
+        "zh_CN/sound/bullet/paodan_putong.mp3",
+        "zh_CN/sound/death/deadtank3.mp3",
+        "zh_CN/swf/skills/light_blow.swf",
+        "zh_CN/swf/skills/normal_bullet_blow.swf",
+        "zh_CN/swf/skills/xiulidan_blow.swf",
+        "zh_CN/swf/tank/birth/birth01.swf",
+        "zh_CN/swf/tank/blow/tank_blow.swf",
+        "zh_CN/swf/tank/death/cannon_death.swf",
+        "zh_CN/swf/tank/death/normaljagred_death.swf",
+        "zh_CN/swf/tank/death/oil_death.swf",
+        "zh_CN/tank/body/ambulance01_body.png",
+        "zh_CN/tank/body/cannon_body.png",
+        "zh_CN/tank/body/normaljagred_body.png",
+        "zh_CN/tank/bullet/bone.png",
+        "zh_CN/tank/bullet/laser_yellow.png",
+        "zh_CN/tank/bullet/putong.png",
+        "zh_CN/tank/bullet/tail/putong.png",
+        "zh_CN/tank/bullet/tail/putong_blue.png",
+        "zh_CN/tank/bullet/tail/putong_red.png",
+        "zh_CN/tank/cannon/ambulance01_cannon.png",
+        "zh_CN/tank/cannon/normaljagred_cannon.png",
+        "zh_CN/tank/cannon/scifisix_cannon.png"
+      ]
+    }
+  }
+}

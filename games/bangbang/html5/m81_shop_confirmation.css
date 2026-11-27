@@ -1,0 +1,17 @@
+/* Native logical pixels; enclosing account stage owns responsive scaling. */
+.m81-shop-confirm-overlay{z-index:30;display:flex;align-items:center;justify-content:center}
+.m81-shop-confirm{flex:none;color:#fff;font-family:Arial,sans-serif}
+.m81-shop-confirm .m81-native-panel-content{overflow:visible}
+.m81-shop-confirm-name{margin:0;font-size:16px;line-height:22px;text-align:center;overflow-wrap:anywhere}
+.m81-shop-confirm-preview{overflow:hidden;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.m81-shop-confirm-preview img{flex:none;max-width:none;max-height:none}
+.m81-shop-confirm-option{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:bold}
+.m81-shop-confirm-option img{width:26px;height:26px}
+.m81-shop-confirm-price{font-size:16px;font-weight:bold;color:#fff}
+.m81-shop-confirm-detail{margin:0;font-size:14px;line-height:20px;overflow:auto}
+.m81-shop-confirm-close.m8-button{padding:0;margin:0;min-width:0;min-height:0;background:none;border:0;box-shadow:none}
+.m81-shop-confirm-close img{display:block;width:100%;height:100%}
+.m81-shop-confirm-submit.m8-button{position:absolute;left:50%;bottom:17px;transform:translateX(-50%);width:120px;height:35px;min-height:0;min-width:0;padding:0;border:0;box-shadow:none;background-color:transparent;background-repeat:no-repeat;background-size:100% 100%;display:flex;align-items:center;justify-content:center}
+.m81-shop-confirm-submit img{display:block;width:78px;height:21px}
+.m81-shop-confirm button:focus-visible{outline:3px solid #ffe200;outline-offset:3px}
+.m81-shop-confirm button:disabled{opacity:.5;cursor:not-allowed}

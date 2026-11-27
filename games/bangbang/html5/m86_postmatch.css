@@ -1,0 +1,60 @@
+/* Original BattleResultMV (0x99000000 shade), PvpBroadFrame 977×618.
+   Every game image is recovered from the shipped Flash assets. */
+.m86-postmatch{position:absolute;inset:0;z-index:90;background:rgba(0,0,0,.6);overflow:hidden;isolation:isolate;font-family:Arial,sans-serif;color:#fff;cursor:default}
+.m86-postmatch[hidden]{display:none!important}
+.m86-postmatch:focus{outline:none}
+.m86-postmatch-stage{position:absolute;left:50%;top:50%;transform-origin:50% 50%;overflow:visible;isolation:isolate}
+.m86-postmatch-stage[data-layout=results]{overflow:hidden}
+.m86-postmatch-status{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);width:min(700px,90%);text-align:center;color:#fff;font-size:14px;line-height:1.5;white-space:pre-wrap;text-shadow:0 1px 3px #000}
+.m86-postmatch-status:empty{display:none}
+.m86-native-art{display:block;max-width:none!important;max-height:none!important;pointer-events:none;user-select:none;transform-origin:0 0;object-fit:fill;border:0}
+.m86-native-title{position:absolute;display:block;background-repeat:no-repeat;pointer-events:none;transform-origin:0 0}
+.m86-result-text{display:block;box-sizing:border-box;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.35;font-size:14px;font-weight:700;text-shadow:0 1px 2px #17485580;pointer-events:none;transform-origin:0 0}
+.m86-draw-title{text-align:center;font-size:62px;line-height:100px;color:#fff4a0;text-shadow:0 3px 3px #133e60,0 0 18px #27ddff}
+.m86-honor-player,.m86-honor-medal{pointer-events:none;transform-origin:0 0}
+.m86-honor-name,.m86-honor-tank-name{display:block;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;line-height:1.35;transform-origin:0 0}
+.m86-honor-name{font-size:18px;color:#fffabf;text-shadow:1px 0 #eb3901,-1px 0 #eb3901,0 1px #eb3901,0 -1px #eb3901}
+.m86-honor-tank-name{font-size:14px;color:#fff;text-shadow:0 1px 2px #091a20}
+.m86-honor-avatar-mask{overflow:hidden;pointer-events:none}
+.m86-honor-avatar,.m86-medal-word,.m86-medal-picture{display:block;transform-origin:0 0}
+.m86-kda-heading{font-size:15px;text-align:center;color:#d0f8ff}
+.m86-result-team{overflow:hidden}
+.m86-result-team-heading{font-size:14px;color:#d9faff;text-shadow:0 1px 2px #125a7a}
+.m86-result-tank-name{font-size:11px;font-weight:400;color:#c5edfa}
+.m86-result-player{color:#dcf7fc}
+.m86-result-player.is-self{color:#fff600}
+.m86-result-player.is-escaped{opacity:.6}
+.m86-result-player-name{font-size:13px}
+.m86-result-level{font-size:12px;text-align:center;color:#f8f6a6}
+.m86-result-kda{text-align:center;font-size:13px}
+.m86-result-elo{text-align:center;font-size:18px}
+.m86-result-elo-delta{text-align:center;color:#b2ff4c;font-family:Georgia,serif;font-size:12px}
+.m86-result-elo-delta.negative{color:#ffc1b2}
+.m86-result-summary{font-size:12px;color:#e8faff;text-align:right;padding-right:12px}
+.m86-result-button{margin:0!important;padding:0!important;min-width:0!important;min-height:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;position:absolute;display:block;cursor:pointer;overflow:visible;color:#fff;font:700 18px Arial,sans-serif}
+.m86-result-button:hover:not(:disabled){filter:brightness(1.15)}
+.m86-result-button:active:not(:disabled){filter:brightness(.95)}
+.m86-result-button:focus-visible{outline:3px solid #fff49c!important;outline-offset:2px}
+.m86-result-button:disabled{cursor:wait;opacity:.55}
+.m86-result-exp-rate{color:#fff;text-align:right;font-size:12px;letter-spacing:0}
+.m86-result-exp-number{color:#fff;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0;text-overflow:clip;overflow:visible}
+.m86-result-exp-number.current{text-align:right}.m86-result-exp-number.next{text-align:left}
+.m86-result-exp-divider{color:#c9e869;text-align:right;font-size:12px}
+.m86-reward-items{overflow:hidden}
+.m86-reward-page{padding:0!important;margin:0!important;min-width:0!important;min-height:0!important;border:1px solid #1585ad!important;border-radius:5px!important;background:#e9f7fc!important;color:#087ca6!important;font:700 21px/22px Arial,sans-serif!important;cursor:pointer}
+.m86-reward-page:hover:not(:disabled){background:#c9effa!important}
+.m86-reward-page:focus-visible{outline:2px solid #005e86;outline-offset:1px}
+.m86-reward-page:disabled{opacity:.35;cursor:default}
+.m86-reward-page-number{font-size:12px;text-align:center;color:#238eb6;text-shadow:none}
+.m86-reward-item-label{font-size:11px;text-align:center;white-space:normal;color:#e6faff;overflow-wrap:anywhere}
+.m86-reward-item-count{text-align:right;font-size:14px;text-shadow:1px 1px #000,-1px -1px #000}
+.m86-reward-total{font-size:16px;font-style:italic;letter-spacing:2px;text-align:right;color:#008dd2;text-shadow:none}
+.m86-reward-progress{overflow:hidden}
+.m86-reward-segment{font-size:12px;text-align:center;line-height:24px;color:#183e29;text-shadow:none}
+.m86-feature-tank-name{font-size:20px;text-align:left;color:#ffb45d;text-shadow:0 2px #875437,0 0 3px #754234}
+.m86-feature-player-name{font-size:20px;text-align:center;color:#effaff}
+.m86-feature-empty{font-size:14px;text-align:center;white-space:normal;color:#d9edf1}
+.m86-postmatch .m8-portrait{position:absolute;pointer-events:none}
+/* The result dialog owns focus and blocks the map/HUD hit targets. */
+.m86-postmatch-active>#robo-settings,.m86-postmatch-active>#battle-paused{visibility:hidden}
+@media (prefers-reduced-motion:reduce){.m86-result-button{transition:none}}

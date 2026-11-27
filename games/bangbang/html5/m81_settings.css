@@ -1,0 +1,55 @@
+/* SystemSetFrame 726×510 and BattleSettings 531×365. The enclosing game
+   viewport owns scaling; controls keep the original Flash coordinates. */
+.m81-settings{position:relative;box-sizing:border-box;width:726px;height:510px;max-height:510px;padding:0;display:block;background:#103640;border:2px solid #85a598;border-radius:10px;color:#fff;font:14px Tahoma,sans-serif;outline:none}
+.m81-settings-skinned{background:transparent;border:0;border-radius:0;box-shadow:none}
+.m81-settings-art{position:absolute;display:block;max-width:none;max-height:none;pointer-events:none;user-select:none}
+.m81-settings-header{position:absolute;left:30px;right:24px;top:17px;height:32px;display:flex;align-items:center;justify-content:center}
+.m81-settings h2{margin:0;font:bold 20px/27px Tahoma,sans-serif;color:#fff;text-shadow:0 2px 2px #264a61}
+.m85-settings-sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0);white-space:nowrap}
+.m81-settings-tabs{position:absolute;left:30px;top:119px;width:147px;height:212px;padding:0;margin:0;border:0}
+.m81-settings-tabs button{position:absolute;left:0;height:47px}
+.m81-settings-tabs button:nth-child(1){top:0}.m81-settings-tabs button:nth-child(2){top:55px}.m81-settings-tabs button:nth-child(3){top:110px}.m81-settings-tabs button:nth-child(4){top:165px}
+.m81-settings .m81-settings-native-tab,.m81-settings .m81-settings-native-confirm,.m81-settings .m85-settings-button{position:relative;display:block;flex:none;min-width:0;min-height:0;padding:0;margin:0;border:0;border-radius:0;background:transparent none no-repeat;box-shadow:none;color:#eff6fd;text-shadow:none;cursor:pointer;box-sizing:border-box}
+.m81-settings .m81-settings-native-tab:hover,.m81-settings .m81-settings-native-confirm:hover,.m81-settings .m85-settings-button:hover{background-color:transparent;border:0;box-shadow:none}
+.m85-settings-surface .m8-button:hover:not(:disabled),.m85-settings-surface .m81-native-panel-close:hover:not(:disabled),.m81-settings .m81-settings-native-tab:hover:not(:disabled),.m81-settings .m81-settings-native-confirm:hover:not(:disabled),.m81-settings .m85-settings-button:hover:not(:disabled){filter:var(--m85-settings-highlight)}
+.m81-settings .m85-settings-button:disabled,.m81-settings .m81-settings-native-confirm:disabled{filter:grayscale(1);opacity:.8;cursor:default}
+.m81-settings .m85-settings-unavailable:disabled{filter:none;opacity:1}
+.m81-settings-body{position:absolute;left:164px;top:64px;width:531px;height:365px;box-sizing:border-box;overflow:auto;padding:35px 28px 15px;min-height:0}
+.m81-settings-body.m85-settings-battle,.m81-settings-body.m85-settings-audio{overflow:visible;padding:0}
+.m81-settings .m85-settings-button{position:absolute}
+.m85-settings-row-label{font:bold 13px/22px Tahoma,sans-serif;color:#eff6fd;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;pointer-events:none}
+.m85-settings-key-label{display:block;overflow:hidden;white-space:nowrap;text-align:center;font:bold 12px/19px Tahoma,sans-serif;pointer-events:none}
+.m85-settings-check{display:block;margin:0;padding:0;cursor:pointer;line-height:0}
+.m81-settings .m85-settings-check input[type=checkbox]{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;opacity:0;cursor:pointer}
+.m81-settings .m85-settings-check:has(input:focus-visible){outline:2px solid #fff;outline-offset:2px}
+.m81-settings .m85-settings-check:has(input:disabled){cursor:default;opacity:.7}
+.m85-settings-help{cursor:help;border-radius:50%}
+.m81-settings-footer{position:absolute;left:164px;top:455px;width:531px;height:40px;border:0;padding:0;display:flex;align-items:center}
+.m81-settings .m81-settings-native-confirm{position:absolute;left:431px;top:0}
+.m81-settings-footer .m8-note{max-width:405px;margin:0;color:#123d5c;line-height:1.4}
+.m81-settings .m8-note{font-size:12px;line-height:1.5}
+.m81-settings h3{color:#fff;margin:0 0 16px;font-size:15px}
+.m81-settings .m8-field{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0}
+.m81-settings select{min-width:145px;padding:6px;background:#0d4570;color:#fff;border:1px solid #51a4d5;border-radius:3px;font:13px Tahoma,sans-serif}
+.m81-settings input[type=checkbox]{width:22px;height:22px;accent-color:#74ba13}
+.m81-settings button:focus-visible,.m81-settings select:focus-visible,.m85-settings-help:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.m85-settings-capture-shade{position:absolute;inset:0;z-index:5;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
+.m85-settings-capture{position:relative;width:400px;height:300px;outline:none;background:rgba(0,0,0,.8);border-radius:8px;text-align:center;color:#fff}
+.m85-settings-capture strong{position:absolute;left:0;top:124px;width:400px;font-size:20px;line-height:26px}
+.m85-settings-capture>span{position:absolute;left:0;top:166px;width:400px;font-size:15px;line-height:22px}
+.m85-settings-capture-error{position:absolute;left:16px;top:191px;width:368px;color:#ff7070;font-size:15px;line-height:21px;margin:0}
+.m82-audio-volume{display:flex;align-items:center;gap:14px;margin:8px 0 24px}
+.m82-audio-volume input[type=range]{flex:1;width:340px;accent-color:#7be4ff}
+.m82-audio-volume output{width:42px;text-align:right;font-weight:bold}
+.m85-settings-slider{position:absolute;width:272px;height:24px}
+.m85-settings-slider-track,.m85-settings-slider-fill{position:absolute;inset:0;background-repeat:no-repeat;pointer-events:none}
+.m85-settings-slider-fill{right:auto;overflow:hidden}
+.m85-settings-slider-fill img{position:absolute;left:0;top:0;width:272px;height:24px;max-width:none}
+.m85-settings-slider input[type=range]{position:absolute;inset:0;appearance:none;-webkit-appearance:none;width:272px;height:24px;margin:0;padding:0;background:transparent;cursor:pointer}
+.m85-settings-slider input[type=range]::-webkit-slider-runnable-track{height:24px;background:transparent}
+.m85-settings-slider input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:45px;height:24px;background:var(--settings-slider-thumb) no-repeat;border:0}
+.m85-settings-slider input[type=range]::-moz-range-track{height:24px;background:transparent;border:0}
+.m85-settings-slider input[type=range]::-moz-range-thumb{width:45px;height:24px;background:var(--settings-slider-thumb) no-repeat;border:0;border-radius:0}
+.m85-settings-slider output{position:absolute;right:-45px;top:3px;width:40px;font:bold 12px/20px Tahoma,sans-serif;text-align:right;pointer-events:none}
+.m85-settings-slider:has(input:disabled){opacity:.55}
+.m81-settings-tabs .m81-settings-native-tab{position:absolute}

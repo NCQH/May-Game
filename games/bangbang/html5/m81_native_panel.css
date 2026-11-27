@@ -1,0 +1,10 @@
+/* Native coordinates are never reflowed here; scale the enclosing viewport. */
+.m81-native-panel { position:relative; flex:none; isolation:isolate; box-sizing:content-box; }
+.m81-native-panel-frame,.m81-native-panel-content { position:absolute; inset:0; }
+.m81-native-panel-frame { pointer-events:none; z-index:0; }
+.m81-native-panel-background { overflow:hidden; }
+.m81-native-panel .m81-native-panel-art { display:block; max-width:none; max-height:none; margin:0; padding:0; border:0; object-fit:fill; pointer-events:none; user-select:none; }
+.m81-native-panel-content { z-index:1; }
+.m81-native-panel-title { z-index:2; }
+.m81-native-panel .m81-native-panel-close { z-index:3; display:block; min-width:0; min-height:0; margin:0; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; cursor:pointer; }
+.m81-native-panel-close:focus-visible { outline:2px solid #fff; outline-offset:2px; }

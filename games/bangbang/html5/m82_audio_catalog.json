@@ -1,0 +1,68 @@
+{
+  "schema": "bangbang-m82-menu-audio/v1",
+  "assets": {
+    "hall": {
+      "url": "/rez/zh_CN/sound/login_bgm.mp3",
+      "sha256": "c8f2ffd4ba64440e8743ca9da78d2cc55a188f0663f3ea03991fe266de45c5b1",
+      "bytes": 918281,
+      "sourcePath": "www/rez/zh_CN/sound/login_bgm.mp3"
+    },
+    "shop": {
+      "url": "/rez/zh_CN/sound/shop.mp3",
+      "sha256": "eb473d8c0e4b82dbd1f3a5dd2f5d719f44c9124d1e5acb6a073b5b2170dd2144",
+      "bytes": 410879,
+      "sourcePath": "www/rez/zh_CN/sound/shop.mp3"
+    },
+    "garage": {
+      "url": "/rez/zh_CN/sound/tankuplevel.mp3",
+      "sha256": "dc0d13fba8acb428c4c0d1f69fe57f16b708dade07dc53850617ba2ab260e100",
+      "bytes": 516205,
+      "sourcePath": "www/rez/zh_CN/sound/tankuplevel.mp3"
+    },
+    "room": {
+      "url": "/rez/zh_CN/sound/gameroom.mp3",
+      "sha256": "dd4edd5c09e7ae560a1f2c9ccfd78fdd28b25ea96b2e815763f02fee5eb6cb15",
+      "bytes": 3499,
+      "sourcePath": "www/rez/zh_CN/sound/gameroom.mp3"
+    },
+    "selecting": {
+      "url": "/rez/zh_CN/sound/ui/startfightfx.mp3",
+      "sha256": "d008c32a332ab7ffecf4486c29a3ff1551eb76cb9efa5b4fe95a3e62516bee9e",
+      "bytes": 576972,
+      "sourcePath": "www/rez/zh_CN/sound/ui/startfightfx.mp3"
+    },
+    "common": {
+      "url": "/rez/zh_CN/sound/ui/ui_common.mp3",
+      "sha256": "3eaa15c7b37637e393798b9287db4f183ca514d26bf0f92c6af6ccbb4a8db110",
+      "bytes": 7548,
+      "sourcePath": "www/rez/zh_CN/sound/ui/ui_common.mp3"
+    },
+    "levelUp": {
+      "url": "/rez/zh_CN/sound/ui/very_happy.mp3",
+      "sha256": "ad89918729cab19d2244dee99b12d50e03e86e25c524fe444504dc5e2d1a32f0",
+      "bytes": 79195,
+      "sourcePath": "www/rez/zh_CN/sound/ui/very_happy.mp3"
+    }
+  },
+  "screens": {
+    "hall": "hall",
+    "shop": "shop",
+    "garage": "garage",
+    "selecting": "selecting",
+    "room": "room",
+    "lobby": "hall",
+    "login": ""
+  },
+  "phases": {
+    "room": "room",
+    "lobby": "hall"
+  },
+  "sourceReferences": [
+    "tools/as3_tanklib_full/scripts/model/ResourcePath.as",
+    "tools/as3_tank_upgrade_native/scripts/view/UILayer.as",
+    "tools/as3_recent/prebattle_select_20261017/client/scripts/view/pvp/SelectTankWindow.as",
+    "tools/as3_tank_upgrade_native/scripts/view/system_set/SettingsAudioProxy.as",
+    "view/main/room/GameRoomView.as:161 (current served CommonModuleFactory)",
+    "view/main/GameMainBase.as:40 (current served Main2edModule)"
+  ]
+}

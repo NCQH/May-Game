@@ -1,0 +1,20 @@
+/* Robo uses the Flash stage coordinate system, one map unit per CSS pixel.
+   Smaller windows clip the minimum 1000x600 stage; the game is never scaled. */
+body.m7-robo-active{overflow:hidden}
+#battle-panel.robo-native,#battle-panel.robo-native *{cursor:var(--m7-native-cursor,auto)}
+#battle-panel.robo-native{position:fixed;inset:0;z-index:1000;margin:0;padding:0;background:#090e12;overflow:hidden;border:0;border-radius:0}
+#battle-panel.robo-native>.battle-toolbar,#battle-panel.robo-native>.battle-team,
+#battle-panel.robo-native>.battle-hud,#battle-panel.robo-native>.input-message,
+#battle-panel.robo-native>.battle-controls,#battle-panel.robo-native>#battle-asset-status{display:none}
+#battle-panel.robo-native .battle-stage{position:absolute;inset:0;width:max(100vw,1000px);height:max(100vh,600px);min-height:600px;max-height:none;border:0;border-radius:0;box-shadow:none;outline:none}
+#battle-panel.robo-native #battle-canvas,#battle-panel.robo-native #battle-overlay{border:0;border-radius:0}
+#robo-hud-host{position:absolute;inset:0;pointer-events:none;z-index:2;font-family:Tahoma,Arial,sans-serif}
+#battle-panel.robo-native #battle-paused{inset:auto auto 87px 50%;transform:translateX(-50%);z-index:3;pointer-events:none;background:#101010aa;border-radius:0;padding:5px 12px;font:12px Tahoma,Arial,sans-serif}
+#battle-panel.robo-native #battle-loading{z-index:5}
+#battle-panel.robo-native #battle-result{z-index:6}
+.robo-settings{position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%);width:270px;padding:18px;background:#151f27f5;border:2px solid #bac3c8;border-radius:5px;box-shadow:0 8px 32px #000a;font-family:Tahoma,Arial,sans-serif}
+.robo-settings h3{margin:0 0 15px;text-align:center;font-size:16px}
+.robo-settings button{display:block;width:100%;margin:8px 0;padding:9px 12px;font-size:13px}
+.robo-settings #robo-exit{margin-top:18px}
+#robo-hud-host .m85-skill-tooltip{position:absolute;z-index:35;width:292px;max-height:calc(100vh - 120px);overflow-y:auto;box-sizing:border-box;padding:12px;background:rgba(0,0,0,.86);border:1px solid #858585;color:#fff;font:12px Tahoma,Arial,sans-serif;pointer-events:auto;box-shadow:0 3px 15px #0008}
+#robo-hud-host .m85-skill-tooltip[hidden]{display:none}

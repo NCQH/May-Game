@@ -1,0 +1,15 @@
+.m813-rank-panel{position:absolute;left:26px;top:107px;width:772px;height:292px;box-sizing:border-box;border:2px solid #92e5ff;border-radius:10px;background:linear-gradient(#087da9,#009dd0);color:white;padding:12px 18px;font:15px Arial,sans-serif;overflow:hidden}
+.m813-rank-panel h2{margin:0;font-size:23px;text-shadow:0 2px #005170}
+.m813-season{position:absolute;right:15px;top:4px;color:#ffff80;font-weight:bold;font-size:14px}
+.m813-rank-card{display:flex;align-items:center;gap:22px;background:#07598666;border:1px solid #57ccec;border-radius:8px;padding:12px;margin:12px 0 8px;height:105px;box-sizing:border-box}
+.m813-rank-card h3{margin:0 0 5px;color:#ffff77;font-size:22px}.m813-rank-card p{margin:4px 0}.m813-rank-card progress{width:400px;height:9px;accent-color:#8df13e}
+.m813-rank-badge{position:relative;width:105px;height:82px;flex:none}.m813-rank-emblem{position:absolute!important;left:10px;top:1px;transform:scale(.4);transform-origin:top left}
+.m813-rank-description{margin:7px 0;font-weight:bold}.m813-rank-rule{margin:5px 0;font-size:13px}
+.m813-rank-actions{display:flex;gap:10px;position:absolute;bottom:10px;left:18px}.m813-rank-actions button{font-size:14px;min-height:28px}
+.m813-rank-history{position:absolute;top:48px;left:18px;right:18px;bottom:47px;overflow-y:auto;background:#07567d;border-radius:6px}
+.m813-history-row{padding:8px 10px;border-bottom:1px solid #55bad7;display:grid;gap:4px}.m813-history-row span{font-size:12px;color:#ceefff}
+.m813-rank-join-hint{position:absolute;left:527px;top:505px;width:275px;text-align:center;color:#fff;font-weight:bold}
+.m8-account .m813-character-rank .m81-rank-row{grid-template-columns:36px 1fr 105px 52px;font-size:12px}
+.m813-character-rank .m81-rank-row>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.m813-season-picker{background:white!important;color:#111!important;border:1px solid #3985ab;border-radius:4px;font-size:14px}
+.m813-season-picker option{background:white;color:#111}.m813-season-picker option:checked{background:#0679ce;color:#fff}

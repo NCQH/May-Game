@@ -1,0 +1,27 @@
+.m81317-tooltip-layer{position:fixed;z-index:2147483000;box-sizing:border-box;pointer-events:none;color:#fff;font:12px/1.4 Tahoma,Arial,sans-serif;width:290px;max-width:none;max-height:none;overflow:visible;transform-origin:top left;border-radius:5px;background:rgba(0,0,0,.8);box-shadow:0 3px 14px #0006;text-align:left;white-space:normal;animation:m81318-companion-tip-enter 100ms ease-out both;}
+.m81317-tooltip-layer[hidden]{display:none!important;}
+.m81317-tooltip-layer *{box-sizing:border-box;pointer-events:none;}
+.m81317-item-tip{padding:.8em;overflow-wrap:anywhere;color:#f5fbff;}
+.m81317-item-tip h4{font-size:1.17em;font-weight:bold;line-height:1.25;margin:0 0 .65em;}
+.m81317-item-tip p{margin:.15em 0;line-height:1.4;}
+.m81317-tip-header{display:flex;gap:.65em;align-items:flex-start;min-height:8.2em;}
+.m81317-tip-portrait{width:9.5em;flex:0 0 9.5em;text-align:center;}
+.m81317-tip-icon{display:block;width:9.5em;height:7.5em;object-fit:contain;}
+.m81317-tip-identity{min-width:0;flex:1;}
+.m81317-tip-stars{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:9.5em;}
+.m81317-tip-stars img{width:1.3em;height:1.3em;object-fit:contain;}
+.m81317-tip-stars .is-empty{filter:grayscale(1);opacity:.5;}
+.m81317-tip-enhanced,.m81317-tip-equipped{color:#13f600;}
+.m81317-tip-equipped{font-weight:bold;}
+.m81317-tip-basics{display:grid;grid-template-columns:minmax(0,1fr) 80px;gap:.7em;margin-top:1.15em;}
+.m81317-tip-power{display:flex;flex-direction:column;align-items:center;justify-content:center;width:80px;min-width:0;align-self:flex-start;padding-top:.6em;}
+.m81317-tip-power strong{font-size:1.5em;line-height:1.2;}
+.m81318-tip-power-badge{display:block;width:80px;height:40px;object-fit:contain;}
+.m81317-tip-section{color:#c8ced0;}
+.m81317-tip-bonuses{margin:1.15em 0;}
+.m81317-tip-description{white-space:pre-line;}
+.m81317-item-tip .m81317-tip-validity{margin-top:1.5em;}
+.m81317-item-tip .m81317-tip-count{margin-top:.7em;color:#b7dce9;}
+.m81317-item-tip .m81317-tip-preview{margin:0 0 .75em;color:#ffdf7c;font-weight:bold;}
+@keyframes m81318-companion-tip-enter{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.m81317-tooltip-layer{animation:none}}

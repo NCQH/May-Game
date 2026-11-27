@@ -1,0 +1,2265 @@
+{
+  "schemaVersion": 1,
+  "consumer": "CTank/AutoCenterLoader",
+  "stageFps": 24,
+  "itemBuffIds": {
+    "5500008": 15008,
+    "5500002": 15002,
+    "5500003": 15003,
+    "5500004": 15004,
+    "5500005": 15005,
+    "5500006": 15006,
+    "5500007": 15007,
+    "7003002": 15001
+  },
+  "buffs": {
+    "15001": {
+      "nativeFields": {
+        "nBuffId": 15001,
+        "iBuffLayer": 1,
+        "nFollowType": 0,
+        "nEffectType": 49
+      },
+      "szBuffSwf": "buff_level6.swf",
+      "resource": {
+        "logical": "zh_CN/swf/buff/buff_level6.swf",
+        "sourcePath": "www/rez/zh_CN/swf/buff/30263e834b8f3ec243ada0f0136939aa.swf",
+        "url": "/rez/zh_CN/swf/buff/30263e834b8f3ec243ada0f0136939aa.swf",
+        "exists": true,
+        "category": "swf",
+        "bytes": 109618,
+        "sha256": "4e0bdd8cf75a874f6ac86a960dd69f096d0cddfae8edfc9407194f50d7d6db73",
+        "derived": {
+          "mode": "root-timeline",
+          "nativeConsumer": "AutoCenterLoader",
+          "rootFrameCount": 23,
+          "headerFps": 24,
+          "originalStageRect": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "nativeBounds": [
+            -90.0,
+            -92.0,
+            89.0,
+            90.0
+          ],
+          "viewport": [
+            -106,
+            -108,
+            105,
+            106
+          ],
+          "autoCenterOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "timing": {
+            "clock": "FlashStage",
+            "nominalTickMs": 41.666666666666664,
+            "ticksPerFrame": 1
+          },
+          "animation": {
+            "loopCount": 0,
+            "includeLastFrame": true
+          },
+          "asset": {
+            "url": "/html5/assets_m83/battle_halo/halo_15001_4e0bdd8cf75a874f.png",
+            "width": 1024,
+            "height": 634,
+            "sha256": "213087b9076dd69cb8bd31ba7f4b35a8802204066a9603379602d0c4523067b6",
+            "bytes": 567286,
+            "category": "derived-swf-atlas"
+          },
+          "frames": [
+            {
+              "sx": 1,
+              "sy": 1,
+              "w": 155,
+              "h": 155,
+              "offsetX": -78,
+              "offsetY": -77,
+              "sourceFrame": 1
+            },
+            {
+              "sx": 158,
+              "sy": 1,
+              "w": 155,
+              "h": 155,
+              "offsetX": -78,
+              "offsetY": -77,
+              "sourceFrame": 2
+            },
+            {
+              "sx": 315,
+              "sy": 1,
+              "w": 156,
+              "h": 157,
+              "offsetX": -79,
+              "offsetY": -78,
+              "sourceFrame": 3
+            },
+            {
+              "sx": 473,
+              "sy": 1,
+              "w": 156,
+              "h": 157,
+              "offsetX": -79,
+              "offsetY": -78,
+              "sourceFrame": 4
+            },
+            {
+              "sx": 631,
+              "sy": 1,
+              "w": 154,
+              "h": 159,
+              "offsetX": -77,
+              "offsetY": -78,
+              "sourceFrame": 5
+            },
+            {
+              "sx": 787,
+              "sy": 1,
+              "w": 154,
+              "h": 159,
+              "offsetX": -77,
+              "offsetY": -78,
+              "sourceFrame": 6
+            },
+            {
+              "sx": 1,
+              "sy": 162,
+              "w": 152,
+              "h": 158,
+              "offsetX": -76,
+              "offsetY": -78,
+              "sourceFrame": 7
+            },
+            {
+              "sx": 155,
+              "sy": 162,
+              "w": 152,
+              "h": 158,
+              "offsetX": -76,
+              "offsetY": -78,
+              "sourceFrame": 8
+            },
+            {
+              "sx": 309,
+              "sy": 162,
+              "w": 150,
+              "h": 157,
+              "offsetX": -75,
+              "offsetY": -78,
+              "sourceFrame": 9
+            },
+            {
+              "sx": 461,
+              "sy": 162,
+              "w": 150,
+              "h": 157,
+              "offsetX": -75,
+              "offsetY": -78,
+              "sourceFrame": 10
+            },
+            {
+              "sx": 613,
+              "sy": 162,
+              "w": 151,
+              "h": 154,
+              "offsetX": -75,
+              "offsetY": -77,
+              "sourceFrame": 11
+            },
+            {
+              "sx": 766,
+              "sy": 162,
+              "w": 151,
+              "h": 154,
+              "offsetX": -75,
+              "offsetY": -77,
+              "sourceFrame": 12
+            },
+            {
+              "sx": 1,
+              "sy": 322,
+              "w": 154,
+              "h": 152,
+              "offsetX": -78,
+              "offsetY": -75,
+              "sourceFrame": 13
+            },
+            {
+              "sx": 157,
+              "sy": 322,
+              "w": 154,
+              "h": 152,
+              "offsetX": -78,
+              "offsetY": -75,
+              "sourceFrame": 14
+            },
+            {
+              "sx": 313,
+              "sy": 322,
+              "w": 156,
+              "h": 149,
+              "offsetX": -79,
+              "offsetY": -74,
+              "sourceFrame": 15
+            },
+            {
+              "sx": 471,
+              "sy": 322,
+              "w": 156,
+              "h": 149,
+              "offsetX": -79,
+              "offsetY": -74,
+              "sourceFrame": 16
+            },
+            {
+              "sx": 629,
+              "sy": 322,
+              "w": 157,
+              "h": 151,
+              "offsetX": -79,
+              "offsetY": -75,
+              "sourceFrame": 17
+            },
+            {
+              "sx": 788,
+              "sy": 322,
+              "w": 157,
+              "h": 151,
+              "offsetX": -79,
+              "offsetY": -75,
+              "sourceFrame": 18
+            },
+            {
+              "sx": 1,
+              "sy": 476,
+              "w": 158,
+              "h": 154,
+              "offsetX": -79,
+              "offsetY": -75,
+              "sourceFrame": 19
+            },
+            {
+              "sx": 161,
+              "sy": 476,
+              "w": 158,
+              "h": 154,
+              "offsetX": -79,
+              "offsetY": -75,
+              "sourceFrame": 20
+            },
+            {
+              "sx": 321,
+              "sy": 476,
+              "w": 158,
+              "h": 156,
+              "offsetX": -79,
+              "offsetY": -78,
+              "sourceFrame": 21
+            },
+            {
+              "sx": 481,
+              "sy": 476,
+              "w": 158,
+              "h": 156,
+              "offsetX": -79,
+              "offsetY": -78,
+              "sourceFrame": 22
+            },
+            {
+              "sx": 641,
+              "sy": 476,
+              "w": 156,
+              "h": 157,
+              "offsetX": -78,
+              "offsetY": -79,
+              "sourceFrame": 23
+            }
+          ],
+          "sourceSha256": "4e0bdd8cf75a874f6ac86a960dd69f096d0cddfae8edfc9407194f50d7d6db73",
+          "sourceTagStreamSha256": "c84d169e4c355c5ddde809ade7f182539334db9cafec8802a1cab0b5b5f10683"
+        }
+      }
+    },
+    "15002": {
+      "nativeFields": {
+        "nBuffId": 15002,
+        "iBuffLayer": 1,
+        "nFollowType": 0,
+        "nEffectType": 49
+      },
+      "szBuffSwf": "halo/halo_blue.swf",
+      "resource": {
+        "logical": "zh_CN/swf/buff/halo/halo_blue.swf",
+        "sourcePath": "www/rez/zh_CN/swf/buff/halo/0e858d22185348c6cb09bc95a44ee740.swf",
+        "url": "/rez/zh_CN/swf/buff/halo/0e858d22185348c6cb09bc95a44ee740.swf",
+        "exists": true,
+        "category": "swf",
+        "bytes": 174023,
+        "sha256": "50d01aec7ad1244dc3214bc55dc279348eb0003236b24806c8833732a8899637",
+        "derived": {
+          "mode": "root-timeline",
+          "nativeConsumer": "AutoCenterLoader",
+          "rootFrameCount": 36,
+          "headerFps": 24,
+          "originalStageRect": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "nativeBounds": [
+            -87.0,
+            -92.0,
+            88.0,
+            87.0
+          ],
+          "viewport": [
+            -103,
+            -108,
+            104,
+            103
+          ],
+          "autoCenterOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "timing": {
+            "clock": "FlashStage",
+            "nominalTickMs": 41.666666666666664,
+            "ticksPerFrame": 1
+          },
+          "animation": {
+            "loopCount": 0,
+            "includeLastFrame": true
+          },
+          "asset": {
+            "url": "/html5/assets_m83/battle_halo/halo_15002_50d01aec7ad1244d.png",
+            "width": 1024,
+            "height": 995,
+            "sha256": "c5a7c9c80f3dddf060f5f3c34decefdfd1b5807a6518a4931ded9445d45af855",
+            "bytes": 472930,
+            "category": "derived-swf-atlas"
+          },
+          "frames": [
+            {
+              "sx": 1,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 1
+            },
+            {
+              "sx": 156,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 2
+            },
+            {
+              "sx": 311,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 3
+            },
+            {
+              "sx": 466,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 4
+            },
+            {
+              "sx": 635,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 5
+            },
+            {
+              "sx": 804,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 6
+            },
+            {
+              "sx": 1,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 7
+            },
+            {
+              "sx": 154,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 8
+            },
+            {
+              "sx": 307,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 9
+            },
+            {
+              "sx": 460,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 10
+            },
+            {
+              "sx": 617,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 11
+            },
+            {
+              "sx": 774,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 12
+            },
+            {
+              "sx": 1,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 13
+            },
+            {
+              "sx": 159,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 14
+            },
+            {
+              "sx": 317,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 15
+            },
+            {
+              "sx": 475,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 16
+            },
+            {
+              "sx": 636,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 17
+            },
+            {
+              "sx": 797,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 18
+            },
+            {
+              "sx": 1,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 19
+            },
+            {
+              "sx": 172,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 20
+            },
+            {
+              "sx": 343,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 21
+            },
+            {
+              "sx": 514,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 22
+            },
+            {
+              "sx": 681,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 23
+            },
+            {
+              "sx": 848,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 24
+            },
+            {
+              "sx": 1,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 25
+            },
+            {
+              "sx": 156,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 26
+            },
+            {
+              "sx": 311,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 27
+            },
+            {
+              "sx": 466,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 28
+            },
+            {
+              "sx": 621,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 29
+            },
+            {
+              "sx": 776,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 30
+            },
+            {
+              "sx": 1,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 31
+            },
+            {
+              "sx": 164,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 32
+            },
+            {
+              "sx": 327,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 33
+            },
+            {
+              "sx": 490,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 34
+            },
+            {
+              "sx": 633,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 35
+            },
+            {
+              "sx": 776,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 36
+            }
+          ],
+          "sourceSha256": "50d01aec7ad1244dc3214bc55dc279348eb0003236b24806c8833732a8899637",
+          "sourceTagStreamSha256": "d2ad8323e47a27a26b946e1e17c10bd8cb09429080729d02fc58c78503f8b0d6"
+        }
+      }
+    },
+    "15004": {
+      "nativeFields": {
+        "nBuffId": 15004,
+        "iBuffLayer": 1,
+        "nFollowType": 0,
+        "nEffectType": 49
+      },
+      "szBuffSwf": "halo/halo_orange.swf",
+      "resource": {
+        "logical": "zh_CN/swf/buff/halo/halo_orange.swf",
+        "sourcePath": "www/rez/zh_CN/swf/buff/halo/78a60484aff7593110bc850806986ff3.swf",
+        "url": "/rez/zh_CN/swf/buff/halo/78a60484aff7593110bc850806986ff3.swf",
+        "exists": true,
+        "category": "swf",
+        "bytes": 411562,
+        "sha256": "6f1d53a81e472ca0fa1053ca1fb5bd5d7ced485577db931cea7ca9cd838b6fa7",
+        "derived": {
+          "mode": "root-timeline",
+          "nativeConsumer": "AutoCenterLoader",
+          "rootFrameCount": 36,
+          "headerFps": 24,
+          "originalStageRect": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "nativeBounds": [
+            -87.0,
+            -92.0,
+            88.0,
+            87.0
+          ],
+          "viewport": [
+            -103,
+            -108,
+            104,
+            103
+          ],
+          "autoCenterOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "timing": {
+            "clock": "FlashStage",
+            "nominalTickMs": 41.666666666666664,
+            "ticksPerFrame": 1
+          },
+          "animation": {
+            "loopCount": 0,
+            "includeLastFrame": true
+          },
+          "asset": {
+            "url": "/html5/assets_m83/battle_halo/halo_15004_6f1d53a81e472ca0.png",
+            "width": 1024,
+            "height": 1010,
+            "sha256": "c384ba76243dca14c11a53199af4eb8df9b6af4843d391682111a2afa243a940",
+            "bytes": 540880,
+            "category": "derived-swf-atlas"
+          },
+          "frames": [
+            {
+              "sx": 1,
+              "sy": 1,
+              "w": 165,
+              "h": 159,
+              "offsetX": -83,
+              "offsetY": -75,
+              "sourceFrame": 1
+            },
+            {
+              "sx": 168,
+              "sy": 1,
+              "w": 165,
+              "h": 159,
+              "offsetX": -83,
+              "offsetY": -75,
+              "sourceFrame": 2
+            },
+            {
+              "sx": 335,
+              "sy": 1,
+              "w": 165,
+              "h": 159,
+              "offsetX": -83,
+              "offsetY": -75,
+              "sourceFrame": 3
+            },
+            {
+              "sx": 502,
+              "sy": 1,
+              "w": 164,
+              "h": 164,
+              "offsetX": -83,
+              "offsetY": -80,
+              "sourceFrame": 4
+            },
+            {
+              "sx": 668,
+              "sy": 1,
+              "w": 164,
+              "h": 164,
+              "offsetX": -83,
+              "offsetY": -80,
+              "sourceFrame": 5
+            },
+            {
+              "sx": 834,
+              "sy": 1,
+              "w": 164,
+              "h": 164,
+              "offsetX": -83,
+              "offsetY": -80,
+              "sourceFrame": 6
+            },
+            {
+              "sx": 1,
+              "sy": 167,
+              "w": 163,
+              "h": 166,
+              "offsetX": -79,
+              "offsetY": -82,
+              "sourceFrame": 7
+            },
+            {
+              "sx": 166,
+              "sy": 167,
+              "w": 163,
+              "h": 166,
+              "offsetX": -79,
+              "offsetY": -82,
+              "sourceFrame": 8
+            },
+            {
+              "sx": 331,
+              "sy": 167,
+              "w": 163,
+              "h": 166,
+              "offsetX": -79,
+              "offsetY": -82,
+              "sourceFrame": 9
+            },
+            {
+              "sx": 496,
+              "sy": 167,
+              "w": 161,
+              "h": 171,
+              "offsetX": -77,
+              "offsetY": -87,
+              "sourceFrame": 10
+            },
+            {
+              "sx": 659,
+              "sy": 167,
+              "w": 161,
+              "h": 171,
+              "offsetX": -77,
+              "offsetY": -87,
+              "sourceFrame": 11
+            },
+            {
+              "sx": 822,
+              "sy": 167,
+              "w": 161,
+              "h": 171,
+              "offsetX": -77,
+              "offsetY": -87,
+              "sourceFrame": 12
+            },
+            {
+              "sx": 1,
+              "sy": 340,
+              "w": 165,
+              "h": 164,
+              "offsetX": -80,
+              "offsetY": -81,
+              "sourceFrame": 13
+            },
+            {
+              "sx": 168,
+              "sy": 340,
+              "w": 165,
+              "h": 164,
+              "offsetX": -80,
+              "offsetY": -81,
+              "sourceFrame": 14
+            },
+            {
+              "sx": 335,
+              "sy": 340,
+              "w": 165,
+              "h": 164,
+              "offsetX": -80,
+              "offsetY": -81,
+              "sourceFrame": 15
+            },
+            {
+              "sx": 502,
+              "sy": 340,
+              "w": 156,
+              "h": 164,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 16
+            },
+            {
+              "sx": 660,
+              "sy": 340,
+              "w": 156,
+              "h": 164,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 17
+            },
+            {
+              "sx": 818,
+              "sy": 340,
+              "w": 156,
+              "h": 164,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 18
+            },
+            {
+              "sx": 1,
+              "sy": 506,
+              "w": 166,
+              "h": 163,
+              "offsetX": -81,
+              "offsetY": -82,
+              "sourceFrame": 19
+            },
+            {
+              "sx": 169,
+              "sy": 506,
+              "w": 166,
+              "h": 163,
+              "offsetX": -81,
+              "offsetY": -82,
+              "sourceFrame": 20
+            },
+            {
+              "sx": 337,
+              "sy": 506,
+              "w": 166,
+              "h": 163,
+              "offsetX": -81,
+              "offsetY": -82,
+              "sourceFrame": 21
+            },
+            {
+              "sx": 505,
+              "sy": 506,
+              "w": 167,
+              "h": 158,
+              "offsetX": -82,
+              "offsetY": -81,
+              "sourceFrame": 22
+            },
+            {
+              "sx": 674,
+              "sy": 506,
+              "w": 167,
+              "h": 158,
+              "offsetX": -82,
+              "offsetY": -81,
+              "sourceFrame": 23
+            },
+            {
+              "sx": 843,
+              "sy": 506,
+              "w": 167,
+              "h": 158,
+              "offsetX": -82,
+              "offsetY": -81,
+              "sourceFrame": 24
+            },
+            {
+              "sx": 1,
+              "sy": 671,
+              "w": 167,
+              "h": 167,
+              "offsetX": -83,
+              "offsetY": -83,
+              "sourceFrame": 25
+            },
+            {
+              "sx": 170,
+              "sy": 671,
+              "w": 167,
+              "h": 167,
+              "offsetX": -83,
+              "offsetY": -83,
+              "sourceFrame": 26
+            },
+            {
+              "sx": 339,
+              "sy": 671,
+              "w": 167,
+              "h": 167,
+              "offsetX": -83,
+              "offsetY": -83,
+              "sourceFrame": 27
+            },
+            {
+              "sx": 508,
+              "sy": 671,
+              "w": 161,
+              "h": 163,
+              "offsetX": -80,
+              "offsetY": -79,
+              "sourceFrame": 28
+            },
+            {
+              "sx": 671,
+              "sy": 671,
+              "w": 161,
+              "h": 163,
+              "offsetX": -80,
+              "offsetY": -79,
+              "sourceFrame": 29
+            },
+            {
+              "sx": 834,
+              "sy": 671,
+              "w": 161,
+              "h": 163,
+              "offsetX": -80,
+              "offsetY": -79,
+              "sourceFrame": 30
+            },
+            {
+              "sx": 1,
+              "sy": 840,
+              "w": 158,
+              "h": 167,
+              "offsetX": -83,
+              "offsetY": -85,
+              "sourceFrame": 31
+            },
+            {
+              "sx": 161,
+              "sy": 840,
+              "w": 158,
+              "h": 167,
+              "offsetX": -83,
+              "offsetY": -85,
+              "sourceFrame": 32
+            },
+            {
+              "sx": 321,
+              "sy": 840,
+              "w": 158,
+              "h": 167,
+              "offsetX": -83,
+              "offsetY": -85,
+              "sourceFrame": 33
+            },
+            {
+              "sx": 481,
+              "sy": 840,
+              "w": 159,
+              "h": 169,
+              "offsetX": -80,
+              "offsetY": -85,
+              "sourceFrame": 34
+            },
+            {
+              "sx": 642,
+              "sy": 840,
+              "w": 159,
+              "h": 169,
+              "offsetX": -80,
+              "offsetY": -85,
+              "sourceFrame": 35
+            },
+            {
+              "sx": 803,
+              "sy": 840,
+              "w": 159,
+              "h": 169,
+              "offsetX": -80,
+              "offsetY": -85,
+              "sourceFrame": 36
+            }
+          ],
+          "sourceSha256": "6f1d53a81e472ca0fa1053ca1fb5bd5d7ced485577db931cea7ca9cd838b6fa7",
+          "sourceTagStreamSha256": "0a6ba7c7455cf4c3276b9a1dc1764d5b1e603365271def7c580e224f8d29346d"
+        }
+      }
+    },
+    "15005": {
+      "nativeFields": {
+        "nBuffId": 15005,
+        "iBuffLayer": 1,
+        "nFollowType": 0,
+        "nEffectType": 49
+      },
+      "szBuffSwf": "halo/halo_purple.swf",
+      "resource": {
+        "logical": "zh_CN/swf/buff/halo/halo_purple.swf",
+        "sourcePath": "www/rez/zh_CN/swf/buff/halo/bea2281770da86acbfce50c9985ebe6e.swf",
+        "url": "/rez/zh_CN/swf/buff/halo/bea2281770da86acbfce50c9985ebe6e.swf",
+        "exists": true,
+        "category": "swf",
+        "bytes": 237817,
+        "sha256": "d8948d940122776f871d359d3bec6196ef29ad2b2bcf63c95bb9f5c383a5898a",
+        "derived": {
+          "mode": "root-timeline",
+          "nativeConsumer": "AutoCenterLoader",
+          "rootFrameCount": 36,
+          "headerFps": 24,
+          "originalStageRect": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "nativeBounds": [
+            -87.0,
+            -92.0,
+            88.0,
+            87.0
+          ],
+          "viewport": [
+            -103,
+            -108,
+            104,
+            103
+          ],
+          "autoCenterOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "timing": {
+            "clock": "FlashStage",
+            "nominalTickMs": 41.666666666666664,
+            "ticksPerFrame": 1
+          },
+          "animation": {
+            "loopCount": 0,
+            "includeLastFrame": true
+          },
+          "asset": {
+            "url": "/html5/assets_m83/battle_halo/halo_15005_d8948d940122776f.png",
+            "width": 1024,
+            "height": 1032,
+            "sha256": "0eee47036c6de37aa43746a90d5d4e08f3e79680e0e4a10899efe868eb09588b",
+            "bytes": 415090,
+            "category": "derived-swf-atlas"
+          },
+          "frames": [
+            {
+              "sx": 1,
+              "sy": 1,
+              "w": 153,
+              "h": 170,
+              "offsetX": -82,
+              "offsetY": -92,
+              "sourceFrame": 1
+            },
+            {
+              "sx": 156,
+              "sy": 1,
+              "w": 153,
+              "h": 170,
+              "offsetX": -82,
+              "offsetY": -92,
+              "sourceFrame": 2
+            },
+            {
+              "sx": 311,
+              "sy": 1,
+              "w": 153,
+              "h": 170,
+              "offsetX": -82,
+              "offsetY": -92,
+              "sourceFrame": 3
+            },
+            {
+              "sx": 466,
+              "sy": 1,
+              "w": 167,
+              "h": 165,
+              "offsetX": -85,
+              "offsetY": -92,
+              "sourceFrame": 4
+            },
+            {
+              "sx": 635,
+              "sy": 1,
+              "w": 167,
+              "h": 165,
+              "offsetX": -85,
+              "offsetY": -92,
+              "sourceFrame": 5
+            },
+            {
+              "sx": 804,
+              "sy": 1,
+              "w": 167,
+              "h": 165,
+              "offsetX": -85,
+              "offsetY": -92,
+              "sourceFrame": 6
+            },
+            {
+              "sx": 1,
+              "sy": 173,
+              "w": 151,
+              "h": 179,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 7
+            },
+            {
+              "sx": 154,
+              "sy": 173,
+              "w": 151,
+              "h": 179,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 8
+            },
+            {
+              "sx": 307,
+              "sy": 173,
+              "w": 151,
+              "h": 179,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 9
+            },
+            {
+              "sx": 460,
+              "sy": 173,
+              "w": 155,
+              "h": 176,
+              "offsetX": -77,
+              "offsetY": -92,
+              "sourceFrame": 10
+            },
+            {
+              "sx": 617,
+              "sy": 173,
+              "w": 155,
+              "h": 176,
+              "offsetX": -77,
+              "offsetY": -92,
+              "sourceFrame": 11
+            },
+            {
+              "sx": 774,
+              "sy": 173,
+              "w": 155,
+              "h": 176,
+              "offsetX": -77,
+              "offsetY": -92,
+              "sourceFrame": 12
+            },
+            {
+              "sx": 1,
+              "sy": 354,
+              "w": 156,
+              "h": 174,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 13
+            },
+            {
+              "sx": 159,
+              "sy": 354,
+              "w": 156,
+              "h": 174,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 14
+            },
+            {
+              "sx": 317,
+              "sy": 354,
+              "w": 156,
+              "h": 174,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 15
+            },
+            {
+              "sx": 475,
+              "sy": 354,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 16
+            },
+            {
+              "sx": 636,
+              "sy": 354,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 17
+            },
+            {
+              "sx": 797,
+              "sy": 354,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 18
+            },
+            {
+              "sx": 1,
+              "sy": 530,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 19
+            },
+            {
+              "sx": 172,
+              "sy": 530,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 20
+            },
+            {
+              "sx": 343,
+              "sy": 530,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 21
+            },
+            {
+              "sx": 514,
+              "sy": 530,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 22
+            },
+            {
+              "sx": 681,
+              "sy": 530,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 23
+            },
+            {
+              "sx": 848,
+              "sy": 530,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 24
+            },
+            {
+              "sx": 1,
+              "sy": 693,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 25
+            },
+            {
+              "sx": 156,
+              "sy": 693,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 26
+            },
+            {
+              "sx": 311,
+              "sy": 693,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 27
+            },
+            {
+              "sx": 466,
+              "sy": 693,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 28
+            },
+            {
+              "sx": 621,
+              "sy": 693,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 29
+            },
+            {
+              "sx": 776,
+              "sy": 693,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 30
+            },
+            {
+              "sx": 1,
+              "sy": 864,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 31
+            },
+            {
+              "sx": 164,
+              "sy": 864,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 32
+            },
+            {
+              "sx": 327,
+              "sy": 864,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 33
+            },
+            {
+              "sx": 490,
+              "sy": 864,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 34
+            },
+            {
+              "sx": 633,
+              "sy": 864,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 35
+            },
+            {
+              "sx": 776,
+              "sy": 864,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 36
+            }
+          ],
+          "sourceSha256": "d8948d940122776f871d359d3bec6196ef29ad2b2bcf63c95bb9f5c383a5898a",
+          "sourceTagStreamSha256": "072bca03bd8bec1571fb23f06c7593fed21ef9337b87a6aae295f20b12d31250"
+        }
+      }
+    },
+    "15006": {
+      "nativeFields": {
+        "nBuffId": 15006,
+        "iBuffLayer": 1,
+        "nFollowType": 0,
+        "nEffectType": 49
+      },
+      "szBuffSwf": "halo/halo_red.swf",
+      "resource": {
+        "logical": "zh_CN/swf/buff/halo/halo_red.swf",
+        "sourcePath": "www/rez/zh_CN/swf/buff/halo/41d56bcadd5d0223afad3c92c759cd59.swf",
+        "url": "/rez/zh_CN/swf/buff/halo/41d56bcadd5d0223afad3c92c759cd59.swf",
+        "exists": true,
+        "category": "swf",
+        "bytes": 172507,
+        "sha256": "d217ec203ca0cf47eb7e1eb4adb8699c32d0a4ac8976772dfa95e2756382672c",
+        "derived": {
+          "mode": "root-timeline",
+          "nativeConsumer": "AutoCenterLoader",
+          "rootFrameCount": 36,
+          "headerFps": 24,
+          "originalStageRect": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "nativeBounds": [
+            -87.0,
+            -92.0,
+            88.0,
+            87.0
+          ],
+          "viewport": [
+            -103,
+            -108,
+            104,
+            103
+          ],
+          "autoCenterOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "timing": {
+            "clock": "FlashStage",
+            "nominalTickMs": 41.666666666666664,
+            "ticksPerFrame": 1
+          },
+          "animation": {
+            "loopCount": 0,
+            "includeLastFrame": true
+          },
+          "asset": {
+            "url": "/html5/assets_m83/battle_halo/halo_15006_d217ec203ca0cf47.png",
+            "width": 1024,
+            "height": 995,
+            "sha256": "a52fd2c1d03cdc9f04177fe47a6ac9a6959333e7ca28912f9ae06f5b8f903c08",
+            "bytes": 504313,
+            "category": "derived-swf-atlas"
+          },
+          "frames": [
+            {
+              "sx": 1,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 1
+            },
+            {
+              "sx": 156,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 2
+            },
+            {
+              "sx": 311,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 3
+            },
+            {
+              "sx": 466,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 4
+            },
+            {
+              "sx": 635,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 5
+            },
+            {
+              "sx": 804,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 6
+            },
+            {
+              "sx": 1,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 7
+            },
+            {
+              "sx": 154,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 8
+            },
+            {
+              "sx": 307,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 9
+            },
+            {
+              "sx": 460,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 10
+            },
+            {
+              "sx": 617,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 11
+            },
+            {
+              "sx": 774,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 12
+            },
+            {
+              "sx": 1,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 13
+            },
+            {
+              "sx": 159,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 14
+            },
+            {
+              "sx": 317,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 15
+            },
+            {
+              "sx": 475,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 16
+            },
+            {
+              "sx": 636,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 17
+            },
+            {
+              "sx": 797,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 18
+            },
+            {
+              "sx": 1,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 19
+            },
+            {
+              "sx": 172,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 20
+            },
+            {
+              "sx": 343,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 21
+            },
+            {
+              "sx": 514,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 22
+            },
+            {
+              "sx": 681,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 23
+            },
+            {
+              "sx": 848,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 24
+            },
+            {
+              "sx": 1,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 25
+            },
+            {
+              "sx": 156,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 26
+            },
+            {
+              "sx": 311,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 27
+            },
+            {
+              "sx": 466,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 28
+            },
+            {
+              "sx": 621,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 29
+            },
+            {
+              "sx": 776,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 30
+            },
+            {
+              "sx": 1,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 31
+            },
+            {
+              "sx": 164,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 32
+            },
+            {
+              "sx": 327,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 33
+            },
+            {
+              "sx": 490,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 34
+            },
+            {
+              "sx": 633,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 35
+            },
+            {
+              "sx": 776,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 36
+            }
+          ],
+          "sourceSha256": "d217ec203ca0cf47eb7e1eb4adb8699c32d0a4ac8976772dfa95e2756382672c",
+          "sourceTagStreamSha256": "2a5f7786f48bd8006cdc49f8c7a820dfc9f8c601f48acad147cf888dfd028507"
+        }
+      }
+    },
+    "15007": {
+      "nativeFields": {
+        "nBuffId": 15007,
+        "iBuffLayer": 1,
+        "nFollowType": 0,
+        "nEffectType": 49
+      },
+      "szBuffSwf": "halo/halo_yellow.swf",
+      "resource": {
+        "logical": "zh_CN/swf/buff/halo/halo_yellow.swf",
+        "sourcePath": "www/rez/zh_CN/swf/buff/halo/b4eb6bd213d9fd7f73c5f5a284ce8769.swf",
+        "url": "/rez/zh_CN/swf/buff/halo/b4eb6bd213d9fd7f73c5f5a284ce8769.swf",
+        "exists": true,
+        "category": "swf",
+        "bytes": 234508,
+        "sha256": "8f6abbc7d3d909bb2569fb7c93b436b0920d529188a3792d42617206aca7e137",
+        "derived": {
+          "mode": "root-timeline",
+          "nativeConsumer": "AutoCenterLoader",
+          "rootFrameCount": 36,
+          "headerFps": 24,
+          "originalStageRect": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "nativeBounds": [
+            -87.0,
+            -92.0,
+            88.0,
+            87.0
+          ],
+          "viewport": [
+            -103,
+            -108,
+            104,
+            103
+          ],
+          "autoCenterOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "timing": {
+            "clock": "FlashStage",
+            "nominalTickMs": 41.666666666666664,
+            "ticksPerFrame": 1
+          },
+          "animation": {
+            "loopCount": 0,
+            "includeLastFrame": true
+          },
+          "asset": {
+            "url": "/html5/assets_m83/battle_halo/halo_15007_8f6abbc7d3d909bb.png",
+            "width": 1024,
+            "height": 995,
+            "sha256": "d9eb5a37b973054576f4a77626dfdd964343472c85fb7b3e3950b411d7d4d865",
+            "bytes": 491304,
+            "category": "derived-swf-atlas"
+          },
+          "frames": [
+            {
+              "sx": 1,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 1
+            },
+            {
+              "sx": 156,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 2
+            },
+            {
+              "sx": 311,
+              "sy": 1,
+              "w": 153,
+              "h": 150,
+              "offsetX": -82,
+              "offsetY": -72,
+              "sourceFrame": 3
+            },
+            {
+              "sx": 466,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 4
+            },
+            {
+              "sx": 635,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 5
+            },
+            {
+              "sx": 804,
+              "sy": 1,
+              "w": 167,
+              "h": 145,
+              "offsetX": -85,
+              "offsetY": -72,
+              "sourceFrame": 6
+            },
+            {
+              "sx": 1,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 7
+            },
+            {
+              "sx": 154,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 8
+            },
+            {
+              "sx": 307,
+              "sy": 153,
+              "w": 151,
+              "h": 173,
+              "offsetX": -76,
+              "offsetY": -86,
+              "sourceFrame": 9
+            },
+            {
+              "sx": 460,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 10
+            },
+            {
+              "sx": 617,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 11
+            },
+            {
+              "sx": 774,
+              "sy": 153,
+              "w": 155,
+              "h": 160,
+              "offsetX": -77,
+              "offsetY": -76,
+              "sourceFrame": 12
+            },
+            {
+              "sx": 1,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 13
+            },
+            {
+              "sx": 159,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 14
+            },
+            {
+              "sx": 317,
+              "sy": 328,
+              "w": 156,
+              "h": 163,
+              "offsetX": -76,
+              "offsetY": -81,
+              "sourceFrame": 15
+            },
+            {
+              "sx": 475,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 16
+            },
+            {
+              "sx": 636,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 17
+            },
+            {
+              "sx": 797,
+              "sy": 328,
+              "w": 159,
+              "h": 155,
+              "offsetX": -71,
+              "offsetY": -84,
+              "sourceFrame": 18
+            },
+            {
+              "sx": 1,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 19
+            },
+            {
+              "sx": 172,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 20
+            },
+            {
+              "sx": 343,
+              "sy": 493,
+              "w": 169,
+              "h": 161,
+              "offsetX": -87,
+              "offsetY": -80,
+              "sourceFrame": 21
+            },
+            {
+              "sx": 514,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 22
+            },
+            {
+              "sx": 681,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 23
+            },
+            {
+              "sx": 848,
+              "sy": 493,
+              "w": 165,
+              "h": 152,
+              "offsetX": -86,
+              "offsetY": -75,
+              "sourceFrame": 24
+            },
+            {
+              "sx": 1,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 25
+            },
+            {
+              "sx": 156,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 26
+            },
+            {
+              "sx": 311,
+              "sy": 656,
+              "w": 153,
+              "h": 169,
+              "offsetX": -82,
+              "offsetY": -83,
+              "sourceFrame": 27
+            },
+            {
+              "sx": 466,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 28
+            },
+            {
+              "sx": 621,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 29
+            },
+            {
+              "sx": 776,
+              "sy": 656,
+              "w": 153,
+              "h": 156,
+              "offsetX": -78,
+              "offsetY": -71,
+              "sourceFrame": 30
+            },
+            {
+              "sx": 1,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 31
+            },
+            {
+              "sx": 164,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 32
+            },
+            {
+              "sx": 327,
+              "sy": 827,
+              "w": 161,
+              "h": 167,
+              "offsetX": -86,
+              "offsetY": -85,
+              "sourceFrame": 33
+            },
+            {
+              "sx": 490,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 34
+            },
+            {
+              "sx": 633,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 35
+            },
+            {
+              "sx": 776,
+              "sy": 827,
+              "w": 141,
+              "h": 166,
+              "offsetX": -76,
+              "offsetY": -92,
+              "sourceFrame": 36
+            }
+          ],
+          "sourceSha256": "8f6abbc7d3d909bb2569fb7c93b436b0920d529188a3792d42617206aca7e137",
+          "sourceTagStreamSha256": "5d0306fc4141c9facec42fc8cbf6af5b29be0ff13723d6e5f497c1655d844ca0"
+        }
+      }
+    }
+  },
+  "missing": [
+    {
+      "buffId": 15003,
+      "logical": "zh_CN/swf/buff/halo/halo_green.swf",
+      "sourcePath": "www/rez/zh_CN/swf/buff/halo/8556da309b111c29c960d70ba8617ba6.swf",
+      "reason": "original-source-absent"
+    },
+    {
+      "buffId": 15008,
+      "logical": "zh_CN/swf/buff/halo/light.swf",
+      "sourcePath": "www/rez/zh_CN/swf/buff/halo/light.swf",
+      "reason": "original-source-absent"
+    }
+  ],
+  "source": {
+    "tankLibSha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+    "itemTableSha256": "71779312e0663871f24bb892ee84163dc0d201a517e41c9aa1be7c85ad83c62d",
+    "buffTableSha256": "5e41b782396d8450f6db62a74b5cc0fcf639758e7e80172059bf3dcd14576feb"
+  }
+}

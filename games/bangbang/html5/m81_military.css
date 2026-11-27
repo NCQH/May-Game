@@ -1,0 +1,17 @@
+/* MilitaryRankFrame native 1000×576; no independent responsive scale. */
+.m81-military{position:relative;width:1000px;height:576px;padding:0!important;box-sizing:border-box;color:#fff;font:14px Tahoma,sans-serif;isolation:isolate;background:#073746}
+.m81-military .m81-military-art{display:block;max-width:none;max-height:none;pointer-events:none;user-select:none}
+.m81-military .m81-military-label{line-height:20px;white-space:pre-line;text-shadow:1px 1px 1px #023343;box-sizing:border-box}
+.m81-military .is-centered{text-align:center}.m81-military .is-right{text-align:right}
+.m81-military .is-heading{font-weight:bold;font-size:16px;color:#7dffff}
+.m81-military .is-total{font-weight:bold;color:#fff8d9}
+.m81-military .is-description{font-size:13px;line-height:19px}
+.m81-military button{z-index:1}.m81-military button:disabled{cursor:not-allowed}
+
+.m81-military button.m81-military-preview{padding:0;border:0;border-radius:0;background:none;box-shadow:none;min-width:0;min-height:0}
+.m81-military-preview img{display:block;width:100%;height:100%;max-width:none}
+
+.m81-military-shade{z-index:5;background:#001a2bd9}.m81-military-list{background:#073746;color:#fff}
+
+/* CommonBG.as no_border: hide nested border, retain alpha on this layer only. */
+.m81-military-inner{background:#083b66;border:2px solid #083b66;border-radius:5px;box-sizing:border-box;opacity:.5;pointer-events:none}

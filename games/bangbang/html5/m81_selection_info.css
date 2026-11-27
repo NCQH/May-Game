@@ -1,0 +1,25 @@
+/* TankInfoFrame 220x540, right=0,y=34 in the owner's 1000x600 stage.
+   Embedded art remains its original 215x538 and 58x57 dimensions. */
+.m81-selection-info{position:absolute;left:780px;top:34px;width:220px;height:540px;z-index:20;overflow:hidden;pointer-events:none;font-family:Arial,sans-serif;font-weight:bold;color:#fff;box-sizing:border-box}
+.m81-selection-info[hidden]{display:none}
+.m81-selection-info *{box-sizing:border-box}
+.m81-selection-info-bg{position:absolute;left:0;top:0;width:215px;height:538px}
+.m81-selection-info-name{position:absolute;left:0;top:14px;width:220px;height:30px;font-size:23px;line-height:30px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 2px #003453}
+.m81-selection-info-intro{position:absolute;left:25.5px;top:57.5px;width:169px;height:73px;font-size:18px;line-height:22px;color:#ffdd1f;white-space:pre-line;overflow:hidden}
+.m81-selection-info-skill{position:absolute;left:0;top:0;width:220px;height:540px}
+.m81-selection-info-skill-name{position:absolute;left:0;width:220px;height:22px;line-height:22px;text-align:center;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m81-selection-info-icon{position:absolute;left:21px;width:50px;height:50px;object-fit:fill}
+.m81-selection-info-grid{position:absolute;left:16px;width:58px;height:57px}
+.m81-selection-info-description{position:absolute;width:140px;height:110px;font-size:13px;line-height:16px;color:#a6d6ff;white-space:pre-line;overflow:hidden;overflow-wrap:break-word}
+.m81-selection-info .slot-0 .m81-selection-info-skill-name{top:138px}
+.m81-selection-info .slot-1 .m81-selection-info-skill-name{top:270px}
+.m81-selection-info .slot-2 .m81-selection-info-skill-name{top:402px}
+.m81-selection-info .slot-0 .m81-selection-info-icon{top:172px}
+.m81-selection-info .slot-1 .m81-selection-info-icon{top:305px}
+.m81-selection-info .slot-2 .m81-selection-info-icon{top:438px}
+.m81-selection-info .slot-0 .m81-selection-info-grid{top:168.5px}
+.m81-selection-info .slot-1 .m81-selection-info-grid{top:300.5px}
+.m81-selection-info .slot-2 .m81-selection-info-grid{top:433.5px}
+.m81-selection-info .slot-0 .m81-selection-info-description{left:73px;top:155px}
+.m81-selection-info .slot-1 .m81-selection-info-description{left:75px;top:289px}
+.m81-selection-info .slot-2 .m81-selection-info-description{left:72px;top:422px}

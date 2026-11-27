@@ -1,0 +1,169 @@
+/* Original Flash coordinates, native menu artwork and responsive downscaling.
+   Shared appearance/lifecycle fixes are supplied by the M8.3 presentation code. */
+body{margin:0;background:#030c1d;overflow:hidden}
+body>.shell{display:none}
+#m8-shell[hidden]{display:none!important}
+.m8-shell{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1050;background:#030c1d;font:14px Tahoma,Arial,sans-serif;color:#fff}
+.m8-shell *{box-sizing:border-box}
+.m8-shell [hidden]{display:none!important}
+.m8-viewport{position:relative;flex:none;overflow:hidden;box-shadow:0 0 80px #12598f33}
+.m8-stage{position:absolute;left:0;top:0;width:1000px;height:600px;transform-origin:0 0;overflow:hidden;background:#063052;isolation:isolate}
+.m8-content{position:absolute;inset:0;overflow:hidden}
+.m8-art{pointer-events:none;user-select:none;max-width:none}
+.m8-shell h1,.m8-shell h2,.m8-shell h3,.m8-shell p{margin:0}
+.m8-shell form{display:block}
+.m8-shell h2{font-size:20px;line-height:1.3}.m8-shell h3{font-size:15px}
+.m8-button{appearance:none;min-height:32px;padding:6px 15px;border:1px solid #88c8ee;border-radius:6px;background:linear-gradient(#2388bb,#105385);color:#fff;font:bold 13px Tahoma,Arial,sans-serif;text-shadow:0 1px 2px #003450;cursor:pointer;box-shadow:inset 0 1px #c3e8ff55,0 2px 3px #00132477}
+.m8-button:hover:not(:disabled){filter:brightness(1.12)}
+.m8-button:active:not(:disabled){filter:brightness(.95)}
+.m8-button:disabled{opacity:.48;cursor:default}
+.m8-button:focus-visible,.m8-shell input:focus-visible,.m8-shell select:focus-visible{outline:2px solid #ffe37a;outline-offset:2px}
+.m8-button.primary{background:linear-gradient(#ffa650,#e75c18);border-color:#ffda93;font-size:16px}
+.m8-image-button{padding:0;border:0;border-radius:0;background:none;box-shadow:none;min-height:0;display:block}
+.m8-image-button>img{display:block;max-width:none;pointer-events:none}
+.m8-image-button>img:first-child{width:100%;height:100%}
+.m8-native-button>img{display:block;max-width:none;pointer-events:none}
+.m8-native-button>img:first-child{width:100%;height:100%}
+.m8-image-caption{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:bold 17px Tahoma,Arial;color:white;text-shadow:0 2px 2px #803a0e}
+.m8-shell input,.m8-shell select,.m8-shell textarea{background:#063451;border:1px solid #6eb7da;border-radius:4px;color:#fff;font:14px Arial;padding:6px 9px;min-width:0;height:32px}
+/* Native dropdown popups can inherit the dark shell even inside a light Guild
+   panel. Give the control and every option an explicit, readable light scheme. */
+body :is(.m8-shell,.m81-settings,.m8-account) select{color-scheme:light;background:#fff;color:#111;text-shadow:none}
+body :is(.m8-shell,.m81-settings,.m8-account) select :is(option,optgroup){background:#fff;color:#111;text-shadow:none}
+body :is(.m8-shell,.m81-settings,.m8-account) select option:checked,body :is(.m8-shell,.m81-settings,.m8-account) select option:hover{background:#147bbd;color:#fff}
+body :is(.m8-shell,.m81-settings,.m8-account) select option:disabled{background:#fff;color:#666}
+.m8-field{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:9px 0;min-width:0;font-size:13px}
+.m8-field>input,.m8-field>select{min-width:110px}
+.m8-note{font-size:13px;line-height:1.5;white-space:pre-line;color:#cde9ff;margin:8px 0!important}
+.m8-note.error,.m8-note.warning{color:#ffcf98}
+.m8-panel{border:1px solid #8ac7e0;border-radius:9px;background:linear-gradient(145deg,#0f6b99ed,#063d65f7);box-shadow:inset 0 0 0 2px #09284055,0 3px 10px #001b3b88;padding:18px}
+.m8-header{position:absolute;left:0;top:0;width:100%;height:44px;padding:5px 12px;display:flex;align-items:center;gap:10px;z-index:20;background:linear-gradient(#071c30ed,#0b3a52dc);border-bottom:1px solid #72bbd17a}
+.m8-player-name{max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:#05263d}
+.m8-wallet{display:flex;gap:16px;align-items:center;margin-left:auto;margin-right:auto}
+.m8-wallet-cell{display:flex;gap:5px;align-items:center;font-size:11px;color:#b1d7ed;white-space:nowrap}
+.m8-wallet-cell img{width:21px;height:21px;object-fit:contain}.m8-wallet-cell strong{font-size:14px;color:#fff9c7}
+.m8-footer{position:absolute;bottom:0;left:0;width:100%;height:50px;z-index:20;display:flex;justify-content:center;gap:5px;background:linear-gradient(#0b5878e8,#031b37);border-top:1px solid #6cc8f4}
+.m8-nav{width:120px;height:46px;margin:2px 0;display:flex;align-items:center;justify-content:center;gap:5px;padding:3px 7px;background:linear-gradient(#3b86a366,#133e59)}
+.m8-nav img{max-width:55px;max-height:38px;object-fit:contain}.m8-nav span{font-size:12px;white-space:normal;line-height:1.2;max-width:52px}
+.m8-nav.selected{border-color:#fff0a8;box-shadow:inset 0 0 12px #fde59477}
+.m8-back{position:absolute;right:20px;top:13px;z-index:30;height:30px;min-height:30px;padding:4px 12px}
+.m8-shell[data-screen=hall] .m8-back,.m8-shell[data-screen=inventory] .m8-back,.m8-shell[data-screen=shop] .m8-back,.m8-shell[data-screen=profile] .m8-back,.m8-shell[data-screen=guild] .m8-back{top:54px;right:30px}
+.m8-status{position:absolute;left:250px;right:250px;top:45px;z-index:50;text-align:center;background:#08213be8;border-radius:0 0 8px 8px;padding:7px 10px;pointer-events:none;font-size:13px}
+.m8-error{position:absolute;bottom:52px;left:130px;right:130px;z-index:70;background:#742820ee;border:1px solid #f8ac8b;border-radius:6px;color:#fff2d8;padding:8px 15px;font-size:13px;text-align:center;white-space:pre-line;max-height:100px;overflow:auto}
+.m8-boot-title{position:absolute;top:200px;width:100%;text-align:center;font-size:48px!important;color:#d7f6ff;text-shadow:0 2px 5px #2375b9}
+.m8-boot-note{position:absolute;top:280px;width:100%;text-align:center}
+.m8-login h1{text-align:center;font-size:34px;color:#fff7d2;text-shadow:0 3px #03355a}
+.m8-login .m8-subtitle{text-align:center;margin:10px 0 22px;color:#b8e3ff}
+.m8-login .m8-field{display:block;margin:14px 0}.m8-login .m8-field span{display:block;margin-bottom:5px}
+.m8-login input{width:100%;height:37px}.m8-login .primary{width:100%;height:42px;margin-top:12px}
+.m8-portrait{position:relative;display:inline-block;flex:none;overflow:hidden;pointer-events:none;vertical-align:middle;contain:layout paint;user-select:none}
+.m8-portrait-content{position:absolute;left:0;top:0;width:200px;height:200px;transform-origin:0 0}
+.m8-portrait-layer,.m8-portrait-bitmap{position:absolute;left:0;top:0;max-width:none;background-repeat:no-repeat;image-rendering:auto}
+.m8-lobby-tank-name{text-align:center;font-size:21px!important;text-shadow:0 2px 3px #041d38;color:#ffffd9;white-space:nowrap}
+.m8-lobby-tank-stats{text-align:center;color:#f7e9a1;font-weight:bold;text-shadow:0 1px 3px #000}
+.m8-robo-intro{padding:10px 18px;background:linear-gradient(90deg,#052c48cc,#052c4811);border-left:3px solid #55d4f1}
+.m8-robo-intro h2{font-size:30px;color:#fff3a7;letter-spacing:3px}.m8-robo-intro .m8-button{margin-top:8px}
+.m8-hall-setup h2,.m8-hall-list h2{color:#fff3bd;margin-bottom:10px}
+.m8-map-preview{display:block;width:308px;height:140px;object-fit:cover;margin:10px auto 17px;border:2px solid #a8ddeb}
+.m8-hall-setup>.primary{width:100%;margin-top:8px}.m8-hall-setup .m8-note{font-size:11px}
+.m8-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.m8-room-list{height:375px;overflow:auto;margin-top:13px}
+.m8-hall-row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #77c0e53b}
+.m8-hall-row>img{width:92px;height:48px;object-fit:cover}.m8-hall-row>div{white-space:pre-line;line-height:1.7;flex:1}.m8-hall-row>button{font-size:12px}
+.m8-room-title{font-size:17px!important;color:#fff9bd}
+.m8-room-note{color:#235675;pointer-events:none}
+.m8-room-card{isolation:isolate;text-align:center}.m8-room-card.self{filter:drop-shadow(0 0 3px #fff69f)}
+.m8-card-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#ffeda5;font-size:13px}
+.m8-card-tank{color:#d8f5ff;font-size:12px}.m8-card-ready{font-size:13px;font-weight:bold;color:#baffaf}.m8-empty-slot{color:#bdd9e7;font-size:12px}
+.m8-enemy-list{border:1px solid #2e90b7;background:#0b4e74aa;border-radius:6px;padding:8px 3px}
+.m8-enemy-list h3{text-align:center;margin:4px 0 9px;color:#ffdbd0}.m8-enemy{display:flex;align-items:center;gap:2px;margin:5px 0}.m8-enemy>span:last-child{font-size:10px;line-height:1.5;white-space:pre-line;overflow:hidden;max-width:90px}
+.m8-selection-grid{display:block;overflow:auto;padding:0 4px 0 0}
+.m8-selection-window{position:relative;width:510px}
+.m8-select-tank{width:96px;height:96px;padding:0;position:relative;background-color:transparent;background-size:96px 96px;border:0;border-radius:0;box-shadow:none;overflow:hidden}
+.m8-select-tank>.m8-portrait{position:absolute;left:10px;top:0}.m8-select-tank>span:last-child:not(.m8-portrait){position:absolute;left:4px;right:4px;bottom:4px;font-size:10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;color:#fff;text-shadow:0 1px 3px #00395d}
+.m8-select-tank.selected{outline:2px solid #ffedaa;outline-offset:-3px}
+.m8-select-tank>.m8135-selection-level{position:absolute;z-index:2;pointer-events:none;object-fit:contain}
+.m8-selection-player{position:relative;width:178px;height:98px;margin-bottom:6px;background-size:100% 100%;background-repeat:no-repeat}
+.m8-selection-player>.m8-portrait{left:3px;top:1px}.m8-selection-player>strong{position:absolute;left:79px;right:7px;top:11px;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.m8-selection-player>small{position:absolute;left:79px;right:7px;top:35px;font-size:10px;line-height:1.3;color:#c2e5f8}
+.m8-selection-player>span:last-child{position:absolute;left:12px;right:12px;bottom:5px;text-align:center;font-size:11px;color:#ffef94}
+.m8-selection-clock{font-size:39px;color:#fff6b6;text-align:center;text-shadow:0 3px 1px #135572}
+.m8-selection-detail{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:bold;white-space:pre-line;line-height:1.8;color:#fff0ae}
+.m8-loading-player{isolation:isolate}.m8-loading-player>strong{font-size:13px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px #074c74}
+.m8-loading-player progress{appearance:none;border:1px solid #133b66;border-radius:2px;background:#15314a;color:#36dbfc}
+.m8-loading-player progress::-webkit-progress-bar{background:#15314a}.m8-loading-player progress::-webkit-progress-value{background:linear-gradient(#89ffff,#17a1e1)}
+.m8-loading-player progress::-moz-progress-bar{background:linear-gradient(#89ffff,#17a1e1)}
+.m8-load-percent{font-size:11px;line-height:23px;text-align:left}
+.m8-loading-title{text-align:center;color:#fff0a5;font-size:25px;text-shadow:0 2px 3px #064269;letter-spacing:1px}
+.m8-loading-text{text-align:center;line-height:1.7;font-size:12px;color:#e9fbff;white-space:pre-line}
+.m8-modal-shade{position:absolute;inset:0;z-index:100;background:#00132ac9;display:grid;place-items:center}
+.m8-shell.m85-settings-surface{z-index:1800;background:#00132a80;display:block;overflow:hidden}
+.m85-settings-stage{position:absolute;left:50%;top:50%;transform-origin:center;isolation:isolate}
+.m8-settings-panel{width:490px;display:flex;flex-direction:column;gap:14px}.m8-settings-panel .m8-note{margin:0!important}
+.m8-content>.m8-crystals{position:absolute;inset:0;overflow:auto;padding:22px 25px;background:linear-gradient(#096494,#043a60)}
+.m8-content>.m8-crystals>h2,.m8-content>.m8-crystals>h3{padding-right:120px}
+.m8-shell table{border-collapse:collapse;width:100%;font-size:13px}.m8-shell th,.m8-shell td{padding:8px;text-align:left;border-bottom:1px solid #88c8ee33}
+.m8-shell button:disabled img{filter:grayscale(.35)}
+
+.m8-shell[data-screen=military] .m8-back,.m8-shell[data-screen=leaderboard] .m8-back{top:54px;right:30px}
+.m81-profile-summary{padding:12px 0;color:#fff2ba}
+
+/* Native selection card pitch98, clocks20px and 0.48×200 portrait tiles. */
+.m8-selection-player{margin-bottom:0}.m8-selection-clock{font:700 20px Tahoma,sans-serif;color:#ffe92e;text-shadow:none}.m81-selection-team-label{text-align:center;font:700 16px Tahoma,sans-serif}.m8-select-tank>.m8-portrait{left:0;top:0}.m8-select-tank>.m81-selection-stars{top:2px;bottom:auto!important;left:0!important;right:0!important;text-align:center;color:#ffed83!important}.m8-selection-detail{font-size:12px;line-height:1.5}.m81-loading-map{border:3px solid #0077d3;box-sizing:border-box}.m8-loading-title{font-size:13px;letter-spacing:0}.m81-loading-progress{pointer-events:none}.m8-load-percent{text-align:center;font:700 12px Tahoma,sans-serif;z-index:2}
+
+.m8-selection-player{overflow:hidden}.m8-selection-player>.m81-selection-head{max-width:none;max-height:none;pointer-events:none}.m8-selection-player>strong{font:700 13px Tahoma,sans-serif;text-align:center;color:white}.m8-selection-player>.m81-selection-locked{font:700 13px Tahoma,sans-serif;color:#fff296;text-align:center}
+.m81-hall-list{overflow:hidden}.m81-hall-row{position:relative;height:36px;color:#fff;font:13px Tahoma,sans-serif}.m81-hall-row>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:26px}.m81-hall-row button{font:12px Tahoma,sans-serif;padding:2px}.m81-hall-page{text-align:center;font:14px Tahoma,sans-serif}.m81-hall-note,.m81-hall-chat-note{font:13px Tahoma,sans-serif;color:#ddd}.m81-create-shade{z-index:40;background:#0008}.m81-create-form{font:14px Tahoma,sans-serif}.m81-create-form .m8-field{margin:15px 0}.m81-create-form select{min-width:90px}.m81-create-form p{font-size:13px;line-height:1.6}
+/* Active vi_VN MenuButtonFrame is VN (no 360-state overrides). */
+.m8-footer{left:242px;top:550px;bottom:auto;width:760px;height:46px;display:block;padding:0;background:none;border:0;z-index:20}
+.m8-footer>.m8-art{pointer-events:none}.m81-bottom-bar{position:absolute;left:0;bottom:0;width:1000px;height:64px;pointer-events:none;z-index:19}
+.m8-footer .m8-image-button>img:first-child{width:100%;height:100%;max-width:none;max-height:none}
+/* CoinFrame shell geometry only. Retain tested currency bindings and explicit labels:
+   amount-proxy/silver-state selection is absent from extracted Flash sources. */
+.m8-header{height:44px;padding:0;display:block;background:none;border:0;pointer-events:none}
+.m8-header>button,.m8-wallet{pointer-events:auto}.m8-player-name{position:absolute;left:12px;top:4px}.m8-header>[data-testid=m8-logout]{position:absolute;left:345px;top:3px}
+.m8-wallet{position:absolute;left:480px;top:0;width:520px;height:31px;display:block;margin:0}
+.m8-wallet-cell{position:absolute;top:0;width:137px;height:31px;display:block;background-size:137px 31px;color:#f3f7ff}
+.m8-wallet-cell:nth-child(1){left:107px}.m8-wallet-cell:nth-child(2){left:245px}.m8-wallet-cell:nth-child(3){left:383px}
+.m8-wallet-cell>img{position:absolute;left:4px;top:3px;width:26px;height:26px}
+.m8-wallet-cell>span{position:absolute;left:34px;top:0;font:9px Tahoma,sans-serif;line-height:12px}
+.m8-wallet-cell>strong{position:absolute;left:34px;top:12px;width:67px;overflow:hidden;text-overflow:ellipsis;font:700 12px Tahoma,sans-serif;line-height:17px}
+.m8-wallet{left:auto;right:0}
+
+/* Native Flash world coordinates stay unscaled on larger viewports. */
+.m8-stage{background:transparent}
+.m83-world-background{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:0}
+.m8-content{inset:auto;overflow:visible;z-index:5}
+.m83-underlay{position:absolute;pointer-events:none;overflow:visible;z-index:4}
+/* CModalUIBase.DEFAULT_COLOR = 0x4C000000. */
+.m83-outside-shade{position:absolute;inset:0;background:rgba(0,0,0,.2980392156862745);z-index:25;pointer-events:auto}
+.m8-shell[data-modal-outside=true] .m8-content{z-index:30}
+.m8-shell .m8-lobby-tank-name{font:400 16px Tahoma,Arial,sans-serif!important;line-height:25px!important;color:#fff;text-shadow:none}
+.m83-lobby-tank-level{font:700 16px Tahoma,Arial,sans-serif;color:#ffdf20;line-height:22px;text-shadow:1px 1px 1px #7b4c00;pointer-events:none}
+.m83-lobby-avatar{appearance:none;padding:0;border:0;min-height:0;background:none;box-shadow:none;overflow:visible;cursor:pointer}
+.m83-lobby-avatar:hover:not(:disabled){filter:brightness(1.15)}
+.m8-shell .m83-native-disabled:disabled{opacity:1;filter:none}
+.m8-shell .m83-native-disabled:disabled img{filter:none}
+
+/* CharInfo360Frame and CoinProxy's Vietnamese currency state. */
+.m8-header{height:66px}
+.m8-header>.m81329-mail-nav{font:700 12px Tahoma,Arial,sans-serif;color:#fff6bc;background:linear-gradient(#29b7d3,#087caa);border:2px solid #c6f7ff;border-radius:15px;text-shadow:0 1px 2px #004767;padding:3px 9px;pointer-events:auto;white-space:nowrap}
+.m83-character-chrome{position:absolute;left:0;top:0;width:251px;height:66px;pointer-events:none}
+.m83-character-avatar{pointer-events:auto}
+.m83-character-rank{transform:scale(.5);transform-origin:0 0;overflow:visible}
+.m83-character-name{font:400 12px Tahoma,Arial,sans-serif;line-height:18px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m83-character-progress{font:400 10px Verdana,Arial,sans-serif;line-height:18px;color:#fff;text-align:center;white-space:nowrap;pointer-events:none}
+.m83-character-bar,.m83-native-digit{background-repeat:no-repeat;pointer-events:none}
+.m83-native-currency{position:absolute;pointer-events:auto}
+.m8-shell .m83-native-unavailable:disabled{opacity:1;filter:none;cursor:default}
+.m8-shell .m83-native-unavailable:disabled img{filter:none}
+
+.m83-native-filters{position:absolute;pointer-events:none}
+.m8-shell .m8-button:hover:not(:disabled),.m8-shell .cr-slot:hover:not(:disabled),.m8-shell .cr-card:hover:not(:disabled),.m8-shell .m81-native-panel-close:hover:not(:disabled),.m83-lobby-avatar:hover:not(:disabled){filter:url(#m83-native-highlight)}
+.m8-shell .m8-image-button:active:hover:not(:disabled),.m8-shell .m8-native-button:active:hover:not(:disabled){filter:url(#m83-native-highlight);translate:1px 1px}
+.m8-shell .m8-image-button:disabled,.m8-shell .m8-native-button:disabled{opacity:1;filter:url(#m83-native-grayscale)}
+.m8-shell .m8-image-button:disabled img,.m8-shell .m8-native-button:disabled img{filter:none}
+.m8-shell .m83-native-disabled:disabled,.m8-shell .m83-native-unavailable:disabled{filter:none}
+.m8-shell .m83-character-avatar:hover:not(:disabled),.m8-shell .m83-character-avatar:active:hover:not(:disabled){filter:none;translate:none}
+
+/* M8.11: independent bot loadouts fit the native create-room panel. */
+.m811-create-form .m8-field{margin:9px 0;min-height:34px}.m811-create-form .m8-field:first-child{display:block}.m811-create-form .m8-field:first-child>select{display:block;width:100%;margin-top:5px}.m811-create-form p{margin:8px 0;font-size:12px;line-height:1.4}

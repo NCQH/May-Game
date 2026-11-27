@@ -1,0 +1,31 @@
+/* Small shared-room controls laid over the retained native room art. */
+.m81337-create-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.m811-create-form .m81337-create-pair .m8-field{display:block;margin:6px 0}
+.m811-create-form .m81337-create-pair .m8-field>select{display:block;width:100%;margin-top:4px}
+.m811-create-form.m81337-create-form>.m8-field{margin:8px 0}
+.m81337-online-list{overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.m81337-online-list::-webkit-scrollbar{display:none}
+/* Reuse the native 163x67 card; its 66px row pitch matches the empty slots.
+ * Avatar, level badge, name and actions share the PvE/native anchors. */
+.m81337-online-list>.m81337-online-player{position:relative;box-sizing:border-box;margin-bottom:-1px;color:#fff;font:11px/18px Tahoma,Arial,sans-serif}
+.m81337-online-avatar{object-fit:contain;pointer-events:none}
+.m81337-online-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.m81337-online-list .m81337-online-status{font:11px/18px Tahoma,Arial,sans-serif;color:#d0f2ff;text-shadow:0 1px 1px #254b62}
+.m81337-online-actions{z-index:2}
+.m81337-online-invite-caption{position:absolute;inset:0;font:bold 9px/18px Tahoma,Arial,sans-serif;color:#fff;text-align:center;white-space:nowrap;pointer-events:none;text-shadow:0 1px 1px #24536b}
+.m81337-online-profile{z-index:2}
+.m81337-online-empty{margin:14px 8px;font:12px/18px Tahoma,Arial,sans-serif;color:#fff}
+.m81337-room-policies{position:absolute;left:197px;top:51px;display:flex;gap:14px;z-index:2;height:26px}
+.m81337-room-policies[hidden]{display:none}
+.m81337-room-policies label{display:flex;align-items:center;gap:5px;color:white;font:11px Tahoma,Arial,sans-serif}
+.m81337-room-policies select{width:92px;height:26px;padding:1px 3px;font:11px Tahoma,Arial,sans-serif;background:#006b8c;border:1px solid #8acfe0;color:white}
+.m81337-room-count{font-size:11px;text-align:right}
+.m81337-room-bot-label{font-size:10px;color:#b1fffc;text-shadow:0 1px 2px #003a46}
+.m81337-card-caption{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font:10px Tahoma,Arial,sans-serif;pointer-events:none;white-space:nowrap}
+.m81337-invitation{position:absolute;top:58px;right:18px;z-index:75;box-sizing:border-box;width:310px;padding:11px 13px;color:white;border:2px solid #a0e6ff;border-radius:7px;background:linear-gradient(#0b87b5,#035a87);box-shadow:0 4px 15px #003752b0;font:13px/19px Tahoma,Arial,sans-serif}
+.m81337-invitation[hidden]{display:none}
+.m81337-invitation strong{color:#fff386}.m81337-invitation p{margin:7px 0;overflow-wrap:anywhere}
+.m81337-invite-actions{display:flex;align-items:center;gap:7px}.m81337-invite-actions .m8-button{font-size:12px;padding:4px 9px;min-height:28px}
+.m81337-invite-clock{margin-left:auto;font-size:11px;color:#c8f4ff}
+.m81337-rank-caption{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font:bold 18px Tahoma,Arial,sans-serif;color:#fff;text-shadow:0 2px 2px #89350c;pointer-events:none}
+.m81337-rank-hint{top:495px;font:12px/18px Tahoma,Arial,sans-serif}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "supported": [
+    5500002,
+    5500004,
+    5500005,
+    5500006,
+    5500007
+  ],
+  "defaultItem": 7003002,
+  "assets": {
+    "halo.title": {
+      "url": "/html5/assets_m812/halo_title_cf2af8ea58cc.png",
+      "width": 73,
+      "height": 26,
+      "sha256": "cf2af8ea58cc30fc421dd8bd849b958ad10b8f60a962668064289d4bc68ff278",
+      "bytes": 3206,
+      "source": {
+        "logical": "zh_CN/gui_summer/controls/tank/title_halo_t.png",
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/a248b5b21ef8393acddd41fe10b9bd90.png",
+        "sha256": "cf2af8ea58cc30fc421dd8bd849b958ad10b8f60a962668064289d4bc68ff278"
+      }
+    },
+    "halo.backdrop": {
+      "url": "/html5/assets_m812/halo_backdrop_30494af9801b.png",
+      "width": 720,
+      "height": 360,
+      "sha256": "30494af9801b93ee13c624c72c13980ecbcce33da71714c299f56852df5f2be4",
+      "bytes": 22946,
+      "source": {
+        "logical": "zh_CN/gui_summer/controls/tank/tank_bk.png",
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/6faf93be2a00c12e769b4fc4458c51b3.png",
+        "sha256": "30494af9801b93ee13c624c72c13980ecbcce33da71714c299f56852df5f2be4"
+      }
+    },
+    "halo.booth": {
+      "url": "/html5/assets_m812/halo_booth_2bc5db929cf4.png",
+      "width": 207,
+      "height": 150,
+      "sha256": "2bc5db929cf4588ae0a2ebfe1c9e26fad9a46aaabde3fa6e130498bfa2c4e365",
+      "bytes": 5963,
+      "source": {
+        "logical": "zh_CN/gui_summer/controls/tank/booth.png",
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/cbc2f208680cc94e17a44b99deb7db1e.png",
+        "sha256": "2bc5db929cf4588ae0a2ebfe1c9e26fad9a46aaabde3fa6e130498bfa2c4e365"
+      }
+    },
+    "halo.used": {
+      "url": "/html5/assets_m812/halo_used_91b3302fc523.png",
+      "width": 65,
+      "height": 19,
+      "sha256": "91b3302fc523124228fa46d08409d2716014d4fb9e736c1928c2a1748e89f742",
+      "bytes": 3070,
+      "source": {
+        "logical": "zh_CN/gui_summer/controls/tank/ico_used_t.png",
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/d51e98c478a856c1220237636369f916.png",
+        "sha256": "91b3302fc523124228fa46d08409d2716014d4fb9e736c1928c2a1748e89f742"
+      }
+    },
+    "halo.useLabel": {
+      "url": "/html5/assets_m812/halo_useLabel_44227cf557d0.png",
+      "width": 35,
+      "height": 19,
+      "sha256": "44227cf557d0ff33529c8b350f8eb6ff6bc642d09202aadee887db24a17351c7",
+      "bytes": 1052,
+      "source": {
+        "logical": "zh_CN/gui_summer/controls/tank/w1_use_t.png",
+        "path": "www/rez/zh_CN/gui_summer/controls/tank/e0372c7abef9c9e3b39adf88b32e7a88.png",
+        "sha256": "44227cf557d0ff33529c8b350f8eb6ff6bc642d09202aadee887db24a17351c7"
+      }
+    },
+    "halo.useButton": {
+      "url": "/html5/assets_m812/halo_useButton_f3366ba9d784.png",
+      "width": 66,
+      "height": 29,
+      "sha256": "f3366ba9d7840d66b64490ada5cb3d6b8817f8a14ae01333ffbe59a4dff18d51",
+      "bytes": 1250,
+      "source": {
+        "logical": "zh_CN/gui_summer/controls/public/button_2_ss_green.png",
+        "path": "www/rez/zh_CN/gui_summer/controls/public/5f1a8326a3c2187c7338d1d00f058f98.png",
+        "sha256": "f3366ba9d7840d66b64490ada5cb3d6b8817f8a14ae01333ffbe59a4dff18d51"
+      }
+    }
+  },
+  "nativeFrame": {
+    "width": 730,
+    "height": 440,
+    "cardWidth": 230,
+    "cardHeight": 380
+  },
+  "sources": [
+    "tools/as3_tank_upgrade_native/scripts/mxml/tank/HaloFrame.as",
+    "tools/as3_tank_upgrade_native/scripts/mxml/tank/HaloItemFrame.as"
+  ]
+}

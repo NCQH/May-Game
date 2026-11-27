@@ -1,0 +1,1053 @@
+{
+  "schemaVersion": 1,
+  "scope": "M81333 two source-approved missing HTML5 skins; presentation only",
+  "source": {
+    "baselineCatalogSha256": {
+      "m6_asset_catalog.json": "950ef6d7c527f76009480e8818844889ae01f95da4452d45032a31437a1d1aeb",
+      "m81314_assets_catalog.json": "e25d8a1087f04b0c884591c717042ca8bc5544dd4adb80e7e58c2a7c1ec41da8",
+      "m8_garage_catalog.json": "f4c9a5acd172f440aad47df05765db64a825cb3f0149065766897b8840f37049"
+    },
+    "supplementArchiveSha256": "69e9e26058186d0096f8938567bcf18cc4daee989d512753e778ebcfbf1ef6cd",
+    "supplementManifestSha256": "5f0e5bcf2128a8771917281d5e19e45d3a487b1ac15faf08267da770ca9df40e",
+    "decisionDocument": {
+      "member": "BangBang_BoSung_PvE_TroThu_20261102/reference_docs/HienTaiBangbang.md",
+      "sha256": "c14e44ffe3b5c5e11bac152dacd09da996af6f4436b43fcaf6b40f39d87fc580",
+      "lines": [
+        67,
+        70,
+        72,
+        74
+      ]
+    },
+    "rowPins": [
+      {
+        "member": "BangBang_BoSung_PvE_TroThu_20261102/config/static_settings.json",
+        "sha256": "788d8cf5f1ef3d28cc3932d6fe535679099100a87eb56d24141dfb17dbedf916"
+      },
+      {
+        "member": "BangBang_BoSung_PvE_TroThu_20261102/config/tables/ItemTemplate_table.json",
+        "sha256": "66feec1f13d7db784b6aa37c69b99dbbc07e4ceccca2c7f37eefbed3115581d1"
+      },
+      {
+        "member": "BangBang_BoSung_PvE_TroThu_20261102/config/tables/TankSkinAttrTemplate_table.json",
+        "sha256": "3a479eec282b78ac9916cd3c8b5bd012527cf6a90599d1d490364f501ef3cd43"
+      },
+      {
+        "member": "BangBang_BoSung_PvE_TroThu_20261102/config/tables/TankExternalTemplate_table.json",
+        "sha256": "e26add2060633a329c1949517360b6d71be3e2cba934701fcd20799e988c1b7e"
+      },
+      {
+        "member": "BangBang_BoSung_PvE_TroThu_20261102/config/tables/TankComponentExhibit_table.json",
+        "sha256": "a035d1f7aceea77b88a60aa5c826d1b56c16a62b6b3c70ba65479ac9571f99ea"
+      },
+      {
+        "member": "BangBang_BoSung_PvE_TroThu_20261102/config/tables/BulletExhibit_table.json",
+        "sha256": "89a5c17a88e9ef667e027d433e72f53aa460eaf4090d9f0eea0041a048d7e28a"
+      },
+      {
+        "member": "BangBang_BoSung_PvE_TroThu_20261102/config/tables/SkillTemplate_table.json",
+        "sha256": "682fcb88aa4840520d19f9d686d63a3d3c1be338247147aeadd4ac1ea4f9661d"
+      }
+    ],
+    "noHistoricalOriginalClaim": true
+  },
+  "targets": [
+    {
+      "tankId": 10000008,
+      "externalId": 10142,
+      "sourceBaseExternalId": 143,
+      "expectedBaseTypedIdsSha256": "e97b84b91232bab1f9dc0f27c88d9dc12130e865d119139e1ae5039968e4735d",
+      "expectedAppearanceRawSha256": "40e25eb0a69db9c3d46dbd996e0ec4d18087db0327df4e4a4b8e2f77fde501cf",
+      "expectedAppearanceSources": {
+        "body": {
+          "sha256": "0e1bf09eeb2e2f825b93fc5ae18e52a167cd9b7a4547a87ac41e3cd1ac7bc073",
+          "url": "/html5/assets/m81314/original/0e1bf09eeb2e2f825b93fc5ae18e52a167cd9b7a4547a87ac41e3cd1ac7bc073.png",
+          "bytes": 43310,
+          "status": "ready",
+          "width": 150,
+          "height": 1200,
+          "derivedSha256": null
+        },
+        "cannon": {
+          "sha256": "c8960e0b563f04c1b17cb9e2c4c0042de8b1c3154dc4be8783b506906a3034e6",
+          "url": "/html5/assets/m81314/original/c8960e0b563f04c1b17cb9e2c4c0042de8b1c3154dc4be8783b506906a3034e6.png",
+          "bytes": 2579,
+          "status": "ready",
+          "width": 150,
+          "height": 150,
+          "derivedSha256": null
+        }
+      },
+      "expectedPreviousSkinManifestSha256": null,
+      "declarationBefore": "Skill:303100$303101$303131$303201$303301$303401$403100;Buff:303111$303121$303136$303141$303203$303214$303215$303403$303610$303611$303711$303811;",
+      "declarationAfter": "Skill:303100$303101$303131$303201$303301$303401$403100;Buff:303111$303121$303136$303141$303203$303214$303215$303403$303610$303611$303711$303811;",
+      "items": [
+        {
+          "itemId": 2900802,
+          "expectedName": "Tơ Nhện Siêu Năng",
+          "expectedDescription": "Skin Tơ Nhện Siêu Năng đang được bảo trì và tạm khóa sử dụng. Skin vẫn được giữ nguyên trong Bộ sưu tập.",
+          "expectedNativeDescription": "Skin Tơ Nhện Siêu Năng đang được bảo trì và tạm khóa sử dụng. Skin vẫn được giữ nguyên trong Bộ sưu tập.",
+          "expectedIcon": "zh_CN/icon/item/wangchong_pf02.png",
+          "description": "Trang phục Tơ Nhện Siêu Năng: đổi ngoại hình và hiệu ứng đòn đánh thường; giữ bộ kỹ năng cơ sở của Spider Man."
+        },
+        {
+          "itemId": 2910002,
+          "expectedName": "Tơ Nhện Siêu Năng",
+          "expectedDescription": "Skin Tơ Nhện Siêu Năng đang được bảo trì và tạm khóa sử dụng. Skin vẫn được giữ nguyên trong Bộ sưu tập.",
+          "expectedNativeDescription": "Skin Tơ Nhện Siêu Năng đang được bảo trì và tạm khóa sử dụng. Skin vẫn được giữ nguyên trong Bộ sưu tập.",
+          "expectedIcon": "zh_CN/icon/item/wangchong_pf02.png",
+          "description": "Trang phục Tơ Nhện Siêu Năng: đổi ngoại hình và hiệu ứng đòn đánh thường; giữ bộ kỹ năng cơ sở của Spider Man."
+        }
+      ],
+      "dependency": {
+        "tankId": 10000008,
+        "externalId": 10142,
+        "kind": "skin",
+        "nativeSupport": "ready",
+        "nativeSourceSupport": "ready",
+        "typedIds": {
+          "skill": [
+            303100,
+            303101,
+            303131,
+            303201,
+            303301,
+            303401,
+            403100
+          ],
+          "buff": [
+            303101,
+            303102,
+            303111,
+            303112,
+            303113,
+            303121,
+            303122,
+            303132,
+            303133,
+            303134,
+            303135,
+            303136,
+            303141,
+            303202,
+            303203,
+            303213,
+            303214,
+            303215,
+            303303,
+            303305,
+            303403,
+            303404,
+            303405,
+            303406,
+            303610,
+            303611,
+            303711,
+            303811
+          ],
+          "effect": [
+            303100,
+            303101,
+            303102,
+            303111,
+            303121,
+            303122,
+            303131,
+            303132,
+            303133,
+            303134,
+            303135,
+            303136,
+            303201,
+            303202,
+            303301,
+            303302,
+            303303,
+            303304,
+            303305,
+            303306,
+            303311,
+            303401,
+            303402,
+            303403,
+            303404,
+            303405,
+            303406,
+            403100
+          ],
+          "prop": [
+            303301,
+            303311,
+            303402
+          ],
+          "scene": [
+            303301,
+            303311,
+            303402
+          ],
+          "npc": [],
+          "arms": [],
+          "mapNpc": [],
+          "appearance": [
+            10142
+          ],
+          "exhibit": [
+            431,
+            525,
+            100801,
+            100802
+          ]
+        },
+        "logicalResources": [
+          "zh_CN/avatar/head/zhizhuxia_pf02.png",
+          "zh_CN/avatar/micro/zhizhuxia_small.png",
+          "zh_CN/avatar/zhizhuxia_pf02.png",
+          "zh_CN/icon/buff/buff_wangchong1.jpg",
+          "zh_CN/icon/buff/buff_wangchong2.jpg",
+          "zh_CN/icon/buff/buff_wangchong3.jpg",
+          "zh_CN/icon/buff/offline_empty_buff.png",
+          "zh_CN/sound/bullet/zhizhudan_fly.mp3",
+          "zh_CN/sound/bullet/zhusi_fly.mp3",
+          "zh_CN/sound/death/deadtank2.mp3",
+          "zh_CN/swf/buff/buff_speed.swf",
+          "zh_CN/swf/buff/buff_wangchong_e01.swf",
+          "zh_CN/swf/buff/buff_wangchong_e02.swf",
+          "zh_CN/swf/buff/buff_wangchong_e03.swf",
+          "zh_CN/swf/buff/protect_time.swf",
+          "zh_CN/swf/buff/slow01.swf",
+          "zh_CN/swf/buff/spider_netting.swf",
+          "zh_CN/swf/sceneItem/si_wangchong_k01.swf",
+          "zh_CN/swf/sceneItem/si_wangchong_k02.swf",
+          "zh_CN/swf/sceneItem/si_wangchong_k03.swf",
+          "zh_CN/swf/sceneItem/si_wangchong_r.swf",
+          "zh_CN/swf/skills/blow_wangchong_r.swf",
+          "zh_CN/swf/skills/normal_bullet_blow02.swf",
+          "zh_CN/swf/skills/spidernet_changeplace.swf",
+          "zh_CN/swf/tank/blow/tank_blow.swf",
+          "zh_CN/swf/tank/death/gaoda05_death.swf",
+          "zh_CN/tank/body/zhizhuxia_pf02_body.png",
+          "zh_CN/tank/bullet/lightning.png",
+          "zh_CN/tank/bullet/lightning02.png",
+          "zh_CN/tank/bullet/spidernet.png",
+          "zh_CN/tank/bullet/spidernet_1.png",
+          "zh_CN/tank/cannon/zhizhuxia_pf02_cannon.png"
+        ],
+        "missing": [],
+        "unavailableVisuals": [],
+        "presentationRemap": {
+          "tank": 10000008,
+          "skill": {
+            "303100": 403100
+          },
+          "buff": {},
+          "scene": {}
+        },
+        "source": {
+          "release": "M81333",
+          "nativeKitManifestExternalId": 143,
+          "method": "Audited native base-kit closure plus explicit source-approved normal-shot alias; appearance-only replacement",
+          "sourceBaseTypedIdsSha256": "e97b84b91232bab1f9dc0f27c88d9dc12130e865d119139e1ae5039968e4735d",
+          "sourceBaseLogicalResourcesSha256": "6f703a7e20b1ba865efd9ff65b22b8c62b603d453d1df0dc271c0c1fea0608d7"
+        }
+      }
+    },
+    {
+      "tankId": 10000107,
+      "externalId": 865,
+      "sourceBaseExternalId": 866,
+      "expectedBaseTypedIdsSha256": "8665f6f533b40c7d46b2a13b3541ee67b8d3e4fd6dcedb00beaff6721448a432",
+      "expectedAppearanceRawSha256": "1041376ef9ef4ad37ba68e8d55850f01db368e32313f7754583df566ed0a2016",
+      "expectedAppearanceSources": {
+        "body": {
+          "sha256": "1a04f949a90c2ee9b228972a31f2292085feedea6ffed58214523321dd445c4a",
+          "url": "/html5/assets/m81314/original/1a04f949a90c2ee9b228972a31f2292085feedea6ffed58214523321dd445c4a.png",
+          "bytes": 366518,
+          "status": "ready",
+          "width": 200,
+          "height": 1600,
+          "derivedSha256": null
+        },
+        "cannon": {
+          "sha256": "958c5d019ec5b9edcd95b70a9c8318eb47db24eac9ed4fee309cbeb21f9ba89c",
+          "url": "/html5/assets/m81314/original/958c5d019ec5b9edcd95b70a9c8318eb47db24eac9ed4fee309cbeb21f9ba89c.png",
+          "bytes": 25556,
+          "status": "ready",
+          "width": 1600,
+          "height": 200,
+          "derivedSha256": null
+        }
+      },
+      "expectedPreviousSkinManifestSha256": null,
+      "declarationBefore": "Skill:382501$382601;Buff:382101$382111$382121$382123$382213$382301$382321$382322$382331$382412$382422$382605$382608$392120$392130$392141$392213$392216$392302$392307$392311$392312$392313$392318$392319$392401$392402$392409$392410$392415;",
+      "declarationAfter": "Skill:382501$382601;Buff:382101$382111$382121$382123$382213$382301$382321$382322$382331$382412$382422$382605$382608;",
+      "excludedUnrelatedBuffIds": [
+        392120,
+        392130,
+        392141,
+        392213,
+        392216,
+        392302,
+        392307,
+        392311,
+        392312,
+        392313,
+        392318,
+        392319,
+        392401,
+        392402,
+        392409,
+        392410,
+        392415
+      ],
+      "items": [
+        {
+          "itemId": 2970211,
+          "expectedName": "Hikari II",
+          "expectedDescription": "Mẫu skin: #COLOR_fff333_Hikari Ⅱ_END##ENTER#Cấp skin: #COLOR_fff333_Cấp A_END##ENTER#Đặc điểm: #COLOR_fff333_Phiên bản thế hệ hai của Hikari; vũ khí và hệ thống phòng thủ được nâng cấp_END##ENTER#Cách nhận: #COLOR_fff333_Nhận khi tank đạt cấp 4_END#",
+          "expectedNativeDescription": "皮肤型号：#COLOR_fff333_绮翡之心Ⅱ_END##ENTER#皮肤评级：#COLOR_fff333_A级_END##ENTER#特征描述：#COLOR_fff333_绮翡之心的第二代型号，武器和防御系统得到了提升_END##ENTER#获取途径：#COLOR_fff333_坦克升到4级立即获得_END#",
+          "expectedIcon": "zh_CN/icon/item/qifei_pf_lock06.png"
+        }
+      ],
+      "dependency": {
+        "tankId": 10000107,
+        "externalId": 865,
+        "kind": "skin",
+        "nativeSupport": "ready",
+        "nativeSourceSupport": "ready",
+        "typedIds": {
+          "skill": [
+            382100,
+            382101,
+            382201,
+            382301,
+            382401,
+            382501,
+            382601
+          ],
+          "buff": [
+            382101,
+            382102,
+            382111,
+            382112,
+            382113,
+            382121,
+            382122,
+            382123,
+            382213,
+            382214,
+            382301,
+            382302,
+            382303,
+            382304,
+            382321,
+            382322,
+            382331,
+            382412,
+            382422,
+            382501,
+            382605,
+            382606,
+            382607,
+            382608
+          ],
+          "effect": [
+            382100,
+            382101,
+            382102,
+            382111,
+            382112,
+            382113,
+            382121,
+            382122,
+            382123,
+            382201,
+            382211,
+            382212,
+            382213,
+            382214,
+            382301,
+            382302,
+            382303,
+            382304,
+            382311,
+            382312,
+            382313,
+            382314,
+            382315,
+            382316,
+            382317,
+            382318,
+            382401,
+            382402,
+            382411,
+            382412,
+            382501,
+            382601,
+            382602,
+            382603,
+            382604,
+            382605,
+            382606,
+            382607,
+            382608
+          ],
+          "prop": [
+            382201,
+            382401,
+            382402
+          ],
+          "scene": [
+            382201,
+            382401,
+            382402
+          ],
+          "npc": [],
+          "arms": [],
+          "mapNpc": [],
+          "appearance": [
+            865
+          ],
+          "exhibit": [
+            90701,
+            90702,
+            90703
+          ]
+        },
+        "logicalResources": [
+          "zh_CN/avatar/head/qifeizhixin02.png",
+          "zh_CN/avatar/micro/qifei_small.png",
+          "zh_CN/avatar/qifeizhixin02.png",
+          "zh_CN/icon/buff/buff_qifei_b01.jpg",
+          "zh_CN/icon/buff/buff_qifei_e01.jpg",
+          "zh_CN/icon/buff/buff_qifei_k01.jpg",
+          "zh_CN/icon/buff/buff_qifei_r01.jpg",
+          "zh_CN/icon/buff/offline_empty_buff.png",
+          "zh_CN/sound/death/deadtank2.mp3",
+          "zh_CN/swf/buff/buff_chenmo.swf",
+          "zh_CN/swf/buff/buff_qifei_b01.swf",
+          "zh_CN/swf/buff/buff_qifei_b02.swf",
+          "zh_CN/swf/buff/buff_qifei_k01.swf",
+          "zh_CN/swf/buff/buff_qifei_k02.swf",
+          "zh_CN/swf/buff/buff_qifei_k03.swf",
+          "zh_CN/swf/buff/buff_qifei_k04.swf",
+          "zh_CN/swf/buff/buff_qifei_k05.swf",
+          "zh_CN/swf/buff/buff_qifei_r01.swf",
+          "zh_CN/swf/buff/buff_qifei_r02.swf",
+          "zh_CN/swf/buff/buff_zhicai.swf",
+          "zh_CN/swf/sceneItem/si_qifei_e01.swf",
+          "zh_CN/swf/sceneItem/si_qifei_r01.swf",
+          "zh_CN/swf/sceneItem/si_qifei_r02.swf",
+          "zh_CN/swf/skills/skill_qifei_k01.swf",
+          "zh_CN/swf/tank/blow/tank_blow.swf",
+          "zh_CN/swf/tank/death/gaoda05_death.swf",
+          "zh_CN/tank/body/qifeizhixin02_body.png",
+          "zh_CN/tank/bullet/bullet_qifei.png",
+          "zh_CN/tank/bullet/bullet_qifei_e.png",
+          "zh_CN/tank/cannon/qifeizhixin02_cannon.png"
+        ],
+        "missing": [],
+        "unavailableVisuals": [],
+        "presentationRemap": {},
+        "source": {
+          "release": "M81333",
+          "nativeKitManifestExternalId": 866,
+          "method": "Audited native base-kit closure plus explicit source-approved normal-shot alias; appearance-only replacement",
+          "sourceBaseTypedIdsSha256": "8665f6f533b40c7d46b2a13b3541ee67b8d3e4fd6dcedb00beaff6721448a432",
+          "sourceBaseLogicalResourcesSha256": "7b0078da0758e82a82aff76a94a09639eae00e4c9a2cbea3843ea151895fa32e"
+        }
+      }
+    }
+  ],
+  "requiredBattleAssets": {
+    "zh_CN/avatar/head/zhizhuxia_pf02.png": {
+      "sha256": "5357ea8afa817c99e193bb85cee3cfc30a6d84f3c7b97b8c18c4144ab4c47dd7",
+      "url": "/html5/assets/m81314/original/5357ea8afa817c99e193bb85cee3cfc30a6d84f3c7b97b8c18c4144ab4c47dd7.png",
+      "bytes": 8387,
+      "status": "ready",
+      "width": 178,
+      "height": 98,
+      "derivedSha256": null
+    },
+    "zh_CN/avatar/micro/zhizhuxia_small.png": {
+      "sha256": "65658f59d9c8cf0b66798213e2d2398d01eac15f17f86d4684a288289f1304da",
+      "url": "/rez/zh_CN/avatar/micro/e9c7388ba12e286a7d369d12ce211ed3.png",
+      "bytes": 1406,
+      "status": "ready",
+      "width": 24,
+      "height": 24,
+      "derivedSha256": null
+    },
+    "zh_CN/avatar/zhizhuxia_pf02.png": {
+      "sha256": "7c1287f23038504e8cb66819fd5dedb6a18d4fc07dd8e3e664bc875c0811c11b",
+      "url": "/html5/assets/m81314/original/7c1287f23038504e8cb66819fd5dedb6a18d4fc07dd8e3e664bc875c0811c11b.png",
+      "bytes": 15525,
+      "status": "ready",
+      "width": 200,
+      "height": 200,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/buff_wangchong1.jpg": {
+      "sha256": "d46eef41ae17310001523bfe5d9ebb4e871df4cc07c74c9a89c3108105e965f1",
+      "url": "/rez/zh_CN/icon/buff/3036dc3c04e051dc939052af809fc01d.jpg",
+      "bytes": 882,
+      "status": "ready",
+      "width": 32,
+      "height": 32,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/buff_wangchong2.jpg": {
+      "sha256": "a88c3a6b6d33b6bc0ce945d07c4ef9195cfa67975e4208ddf85c608583c348f6",
+      "url": "/rez/zh_CN/icon/buff/b821094e858813c22fba494424e8e3e1.jpg",
+      "bytes": 923,
+      "status": "ready",
+      "width": 32,
+      "height": 32,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/buff_wangchong3.jpg": {
+      "sha256": "2a659924e31bf3e12ccffad9f2fbb08dbc2496bb8b5516b3456d785435d78794",
+      "url": "/rez/zh_CN/icon/buff/85b8fd1adf719fcf1db20ff243478398.jpg",
+      "bytes": 1024,
+      "status": "ready",
+      "width": 32,
+      "height": 32,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/offline_empty_buff.png": {
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "url": "/rez/zh_CN/icon/buff/offline_empty_buff.png",
+      "bytes": 68,
+      "status": "ready",
+      "width": 1,
+      "height": 1,
+      "derivedSha256": null
+    },
+    "zh_CN/sound/bullet/zhizhudan_fly.mp3": {
+      "sha256": "2ba698c01993c202496e03717b81301cff5d7cbeb44bc1d4e4b58722b2347f3f",
+      "url": "/rez/zh_CN/sound/bullet/zhizhudan_fly.mp3",
+      "bytes": 13400,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": null
+    },
+    "zh_CN/sound/bullet/zhusi_fly.mp3": {
+      "sha256": "345ae2f9f2668c0ccdea1d80d0f5d3a231426d39b24d01a7b0f3a55c845e6d5c",
+      "url": "/rez/zh_CN/sound/bullet/zhusi_fly.mp3",
+      "bytes": 11310,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": null
+    },
+    "zh_CN/sound/death/deadtank2.mp3": {
+      "sha256": "d3d088d6db86fa06314ee1007ceb74fe75d6e9b69c17944835c06f3f92ded9a6",
+      "url": "/rez/zh_CN/sound/death/deadtank2.mp3",
+      "bytes": 9373,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": null
+    },
+    "zh_CN/swf/buff/buff_speed.swf": {
+      "sha256": "a504687bc6778b3118d3d482e8999d58bbb0b46237e14e5e166c9441535342f5",
+      "url": "/rez/zh_CN/swf/buff/e8be3803391dc9d71c68d66c127cd0ab.swf",
+      "bytes": 10187,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "416c2817159e75554aea54a90c577266bed2c812af3771572e2ec8214e453eb3"
+    },
+    "zh_CN/swf/buff/buff_wangchong_e01.swf": {
+      "sha256": "d86759d8d7a2736ecc81e7d76d92fe1b86705077f9300e3ada80ed7fb252b5e7",
+      "url": "/rez/zh_CN/swf/buff/1fd6b33ef4441d98198638b485601e4f.swf",
+      "bytes": 118968,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "b931133d5eddb1f380116d5de1e924cb5f2f1702a1e57a9edd8a09eadbf72222"
+    },
+    "zh_CN/swf/buff/buff_wangchong_e02.swf": {
+      "sha256": "d102ade025f2217dd7b69f2a11fee2b3969c2f1c6acab7a47af68b92c372fab4",
+      "url": "/rez/zh_CN/swf/buff/0ce80cabbce9ba483fd14b30a1eef3f4.swf",
+      "bytes": 39383,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "bfe930b52aed31ce3874fc71b4619675dd31f8993d81cb95a810261d2e997082"
+    },
+    "zh_CN/swf/buff/buff_wangchong_e03.swf": {
+      "sha256": "08de781d57ad844c18e70742bcc5c797aa14fe582935c7f0ebd37ebd431b2a5b",
+      "url": "/rez/zh_CN/swf/buff/3acee023420cc36df1bce26fdd7e05cd.swf",
+      "bytes": 50365,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "1115e52dd1459d5b3f0f3991570af77aae77fd79b0e3ffcf0e956812abd746f8"
+    },
+    "zh_CN/swf/buff/protect_time.swf": {
+      "sha256": "6702210bc6c0262e89414e2b3b892e0f2fb349f9fdee9d58264fe252d4f8916e",
+      "url": "/rez/zh_CN/swf/buff/e62cdf756eb8c4237cf592e461573d0b.swf",
+      "bytes": 51245,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "d5c2953f1761d27ee411c3869288193af986cdef9249e5ab64619ed41471db17"
+    },
+    "zh_CN/swf/buff/slow01.swf": {
+      "sha256": "ec7614714366642c71d703cfcf3f03d58dc42d62e6bbc9e05a2255d97e066afe",
+      "url": "/rez/zh_CN/swf/buff/51eb6850b033d3b1dd972b3476007b7b.swf",
+      "bytes": 151952,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "a1e226ed255f18bd7ea3c757b6d64e378430f02b68925e23d647e2b4081d18a3"
+    },
+    "zh_CN/swf/buff/spider_netting.swf": {
+      "sha256": "188a8c035b449d6d0729ba09ef3caf30e77b9a9c32d58f1b289c7d004804a0f4",
+      "url": "/rez/zh_CN/swf/buff/163e78a0c9b2859f5b541ef515cdf33e.swf",
+      "bytes": 65774,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "7453ecb7d8e8da71909eadf6661a3f5fd6e1c46d279119b8d070fee34fc47eea"
+    },
+    "zh_CN/swf/sceneItem/si_wangchong_k01.swf": {
+      "sha256": "c45957583ba4fd85b17aa529d2b2b1581d4a27bef59fca869a7a0a5eb4c75bb1",
+      "url": "/rez/zh_CN/swf/sceneItem/41437c5e9828c48182bf4d8e02696d4f.swf",
+      "bytes": 36471,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "53f2c3d9e95309264be064d0c0060c4d0a8338ca8eaea61a92c1fbbf4b2e9d7a"
+    },
+    "zh_CN/swf/sceneItem/si_wangchong_k02.swf": {
+      "sha256": "ec43d661dc7784e48b9e5efa046fe68f393f6ecb66c3c1f300e5b03459fba7ab",
+      "url": "/rez/zh_CN/swf/sceneItem/91787b7ac16d0f9f6c9af68b18d0af1a.swf",
+      "bytes": 36552,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "301ebaaad4ab2359962fe3b7c24c01cd30102d67618269cccc7efada4d831a25"
+    },
+    "zh_CN/swf/sceneItem/si_wangchong_k03.swf": {
+      "sha256": "d5f38a5e0fc9f3bfba5b85740bb836f4671ed83401b8a9b8c40907885753a6de",
+      "url": "/rez/zh_CN/swf/sceneItem/f89d1767166ba308282a0bb72515fcee.swf",
+      "bytes": 117290,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "668f45e585f0f94b05460028cbda304c3fb7d39e46eac5e7f663234a049d8153"
+    },
+    "zh_CN/swf/sceneItem/si_wangchong_r.swf": {
+      "sha256": "188a8c035b449d6d0729ba09ef3caf30e77b9a9c32d58f1b289c7d004804a0f4",
+      "url": "/rez/zh_CN/swf/sceneItem/163e78a0c9b2859f5b541ef515cdf33e.swf",
+      "bytes": 65774,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "7453ecb7d8e8da71909eadf6661a3f5fd6e1c46d279119b8d070fee34fc47eea"
+    },
+    "zh_CN/swf/skills/blow_wangchong_r.swf": {
+      "sha256": "d102ade025f2217dd7b69f2a11fee2b3969c2f1c6acab7a47af68b92c372fab4",
+      "url": "/rez/zh_CN/swf/skills/0ce80cabbce9ba483fd14b30a1eef3f4.swf",
+      "bytes": 39383,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "bfe930b52aed31ce3874fc71b4619675dd31f8993d81cb95a810261d2e997082"
+    },
+    "zh_CN/swf/skills/normal_bullet_blow02.swf": {
+      "sha256": "616537436f486c458a3ab0b116f7121a9a3d419175afa05f5f2a96a6ea0f5154",
+      "url": "/rez/zh_CN/swf/skills/d61e09020413621f4c5658ac5a73e256.swf",
+      "bytes": 33170,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "3b918d5df84423c5a188de13ca3c6909c8600b367d28668ff3edd7a327ab00c2"
+    },
+    "zh_CN/swf/skills/spidernet_changeplace.swf": {
+      "sha256": "3ba2062d160a2edce0a113fe358f7c435bf7bec66d2cd99a493570a069b4a264",
+      "url": "/rez/zh_CN/swf/skills/5c1f5f94602a83f9b9e7eed78bdb6367.swf",
+      "bytes": 57691,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "f197275a1ec40e34c2e953e71d20fcc1497e6d38fc2a428e5e15c0beb3e9be8c"
+    },
+    "zh_CN/swf/tank/blow/tank_blow.swf": {
+      "sha256": "d7888901e64e987267ae74b476e460b54162654c08e83de68619ae4e5d5d93fe",
+      "url": "/rez/zh_CN/swf/tank/blow/f79f727ea5300a8c6e52427597a1850e.swf",
+      "bytes": 34933,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "bc6fb260fb728a8ccbd9b660fdbfeb1d035a3025e69000dd65055a9ec811b7a4"
+    },
+    "zh_CN/swf/tank/death/gaoda05_death.swf": {
+      "sha256": "9bc5631a46e8d03d38af93b52d314f5c349d8e147d73a21fdc8d0f46b3251948",
+      "url": "/rez/zh_CN/swf/tank/death/9c8a6dca160afc14b5bfafe1c1fc11e0.swf",
+      "bytes": 44457,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "28e3fc8e4e8513497052be8996caa4db51f3cbf985decffb9db08b5861fd37ad"
+    },
+    "zh_CN/tank/body/zhizhuxia_pf02_body.png": {
+      "sha256": "0e1bf09eeb2e2f825b93fc5ae18e52a167cd9b7a4547a87ac41e3cd1ac7bc073",
+      "url": "/html5/assets/m81314/original/0e1bf09eeb2e2f825b93fc5ae18e52a167cd9b7a4547a87ac41e3cd1ac7bc073.png",
+      "bytes": 43310,
+      "status": "ready",
+      "width": 150,
+      "height": 1200,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/bullet/lightning.png": {
+      "sha256": "0a49a671c8b2cfb383d59f5723d15928dc68af264464125eac6150926afa4a56",
+      "url": "/rez/zh_CN/tank/bullet/0c77c222af12fbb82d83386779ec9c50.png",
+      "bytes": 1138,
+      "status": "ready",
+      "width": 20,
+      "height": 70,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/bullet/lightning02.png": {
+      "sha256": "eee83f8cce0438f48534634fb750e7745d6b6eda45228e2ef3cf94acf8e0aa6f",
+      "url": "/html5/assets/m81314/original/eee83f8cce0438f48534634fb750e7745d6b6eda45228e2ef3cf94acf8e0aa6f.png",
+      "bytes": 12739,
+      "status": "ready",
+      "width": 128,
+      "height": 50,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/bullet/spidernet.png": {
+      "sha256": "fa8f48538ce251a2c8bdbea7cdc203784441af66afb468b302b566161c405920",
+      "url": "/rez/zh_CN/tank/bullet/79cd6e349fb02ef9e0ffa3df87724dac.png",
+      "bytes": 3691,
+      "status": "ready",
+      "width": 63,
+      "height": 122,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/bullet/spidernet_1.png": {
+      "sha256": "cdac2eb6e84d50771d92ed36827445096e4bb050a7218f8e3630b56067377181",
+      "url": "/rez/zh_CN/tank/bullet/4384d903b4e43b085d1950893686d913.png",
+      "bytes": 16769,
+      "status": "ready",
+      "width": 50,
+      "height": 97,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/cannon/zhizhuxia_pf02_cannon.png": {
+      "sha256": "c8960e0b563f04c1b17cb9e2c4c0042de8b1c3154dc4be8783b506906a3034e6",
+      "url": "/html5/assets/m81314/original/c8960e0b563f04c1b17cb9e2c4c0042de8b1c3154dc4be8783b506906a3034e6.png",
+      "bytes": 2579,
+      "status": "ready",
+      "width": 150,
+      "height": 150,
+      "derivedSha256": null
+    },
+    "zh_CN/avatar/head/qifeizhixin02.png": {
+      "sha256": "40008949d26d78def795539541cc4f17f98499e5291f4fd95c7f35b9d5e049e9",
+      "url": "/html5/assets/m81314/original/40008949d26d78def795539541cc4f17f98499e5291f4fd95c7f35b9d5e049e9.png",
+      "bytes": 8775,
+      "status": "ready",
+      "width": 178,
+      "height": 98,
+      "derivedSha256": null
+    },
+    "zh_CN/avatar/micro/qifei_small.png": {
+      "sha256": "5fdcb8a16d4f61368b3db4862407cac881dda7227aeef38eb9b9dce58c50c1fe",
+      "url": "/rez/zh_CN/avatar/micro/e29100d02a41414b699c3fd23ed909c3.png",
+      "bytes": 4789,
+      "status": "ready",
+      "width": 24,
+      "height": 24,
+      "derivedSha256": null
+    },
+    "zh_CN/avatar/qifeizhixin02.png": {
+      "sha256": "36f180a8b0424617cb32b58353458cd44dfe406a954a67a9fb00d17c0264c76f",
+      "url": "/html5/assets/m81314/original/36f180a8b0424617cb32b58353458cd44dfe406a954a67a9fb00d17c0264c76f.png",
+      "bytes": 60430,
+      "status": "ready",
+      "width": 200,
+      "height": 200,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/buff_qifei_b01.jpg": {
+      "sha256": "996ef8201291c303dc2f8eda86110c46504df6806fe1404ae2978b074b4fa598",
+      "url": "/rez/zh_CN/icon/buff/5b582907bb753211b50712cfca25adf5.jpg",
+      "bytes": 1251,
+      "status": "ready",
+      "width": 32,
+      "height": 32,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/buff_qifei_e01.jpg": {
+      "sha256": "b7fb770dde11edb2bee3a20b0a65b8381a7f90f8a2d4fa2b1ef4d98b9702b783",
+      "url": "/rez/zh_CN/icon/buff/399b3d73406ae1b3c4cfe1dca5bad99a.jpg",
+      "bytes": 1411,
+      "status": "ready",
+      "width": 32,
+      "height": 32,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/buff_qifei_k01.jpg": {
+      "sha256": "0cea61c5853721c81444d3c79d70130c1ae41b85ce63dc3e02ab0b97411fa06c",
+      "url": "/rez/zh_CN/icon/buff/16702412bafd281e655066307b1e3662.jpg",
+      "bytes": 1559,
+      "status": "ready",
+      "width": 32,
+      "height": 32,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/buff/buff_qifei_r01.jpg": {
+      "sha256": "139e6d7381e5239838f49af667c503f1a9fe24f9aa89ed1c7200fae69b320080",
+      "url": "/rez/zh_CN/icon/buff/e1381d5ff317b261a3aeb93a5bebcd46.jpg",
+      "bytes": 1407,
+      "status": "ready",
+      "width": 32,
+      "height": 32,
+      "derivedSha256": null
+    },
+    "zh_CN/swf/buff/buff_chenmo.swf": {
+      "sha256": "f16bdb3e1cc07df7da0e34f6890e726627b014a5cbed305a29cbd1b34efb5ebd",
+      "url": "/rez/zh_CN/swf/buff/ebe7688a38957a8a7f8dd0f0c935d4f0.swf",
+      "bytes": 2880,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "c85d04f7ef4b6a717469984cd944c17b5009408257e4606bd8a0e24f892c320f"
+    },
+    "zh_CN/swf/buff/buff_qifei_b01.swf": {
+      "sha256": "e3c9d660f6a5df4b885e4981996f51a6e4b1a7b3c51b5bba63ec752e3684aba8",
+      "url": "/rez/zh_CN/swf/buff/7f7309d8fec7125890dbb51ec4e546c3.swf",
+      "bytes": 5440,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "47129935def5122e86d0e9cb860faa0833cdbb134cba4de1680f608830b4ce5c"
+    },
+    "zh_CN/swf/buff/buff_qifei_b02.swf": {
+      "sha256": "d28e280d1558858e045952a7b22ee7597e17d49ac7aacbd2e574f55fb1d23bf6",
+      "url": "/rez/zh_CN/swf/buff/e0c94bd118c534c7e77cf6a229897f6f.swf",
+      "bytes": 207234,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "74117721b83227abc505c58def7960949a51b9ef1d0f10e7fe95e672eb1ecdce"
+    },
+    "zh_CN/swf/buff/buff_qifei_k01.swf": {
+      "sha256": "cfad766650af6616d9ea9301f72d3db578a6ef203bb001f10a499937d630fe18",
+      "url": "/rez/zh_CN/swf/buff/d82ea98626a0108f9c5f3ce92a9a6a32.swf",
+      "bytes": 50549,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "27293aa69529cea8635f07b697c5531528d414ea3d7a0552c4ea708045eceb30"
+    },
+    "zh_CN/swf/buff/buff_qifei_k02.swf": {
+      "sha256": "e2b758c6171fef0c85279f97dbb21235cca6703dc3981351a52e8b5cde6dfbaa",
+      "url": "/rez/zh_CN/swf/buff/cf34ab019470720e2d8b6e2945284c92.swf",
+      "bytes": 336528,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "5e00819c14d1bf8365da9b12e7fc2f00b2b2bd7c2b8de3d354d9ad697d969f3f"
+    },
+    "zh_CN/swf/buff/buff_qifei_k03.swf": {
+      "sha256": "af379d0917ee484280ffb18bd8f2e18b41f109b584f945e2198ce5fd815e151b",
+      "url": "/rez/zh_CN/swf/buff/6dbc2e93c8e24791db4a1fe6e0384c43.swf",
+      "bytes": 191119,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "52cf57813ae614a52aecbfac3f4807dc0879b1152c6a38dabdaa1b6588621479"
+    },
+    "zh_CN/swf/buff/buff_qifei_k04.swf": {
+      "sha256": "281d2b3ece34ec9bd2f47c29eca6990dc4b2256008602539b6a60f5355bf60ba",
+      "url": "/rez/zh_CN/swf/buff/908479435d814c6d013956960606b939.swf",
+      "bytes": 42982,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "a7f6bc1a2b08e2c4af5ad8f4b9307ed77deddaaa2f27d9906ca25af62676d23e"
+    },
+    "zh_CN/swf/buff/buff_qifei_k05.swf": {
+      "sha256": "9eae921561a96e5c36e5ca2ec02089cbad392f594db01ebe83ef5640781ce7d1",
+      "url": "/rez/zh_CN/swf/buff/d257aaf717993cec1ba6f57374b14195.swf",
+      "bytes": 33359,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "686f922065fc9ba2da9e56b17c3997a3d4a4dadf0300c4955a9cae60dc0cd850"
+    },
+    "zh_CN/swf/buff/buff_qifei_r01.swf": {
+      "sha256": "46e6eb1db240d3044673abea63bfc2582d77d0d68e2767e7adf9919be13a3821",
+      "url": "/rez/zh_CN/swf/buff/5c527c2d381958d603de31fedb605e34.swf",
+      "bytes": 113941,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "e26c72823ca23227ca4d9b8c1eac7c79343f8b98e0b87d28c2eb8d0262bc6b8e"
+    },
+    "zh_CN/swf/buff/buff_qifei_r02.swf": {
+      "sha256": "5d1ca6134f1238d02ba68a089f536b6bf3780d149635c226f8e1ac8c5f97e02f",
+      "url": "/rez/zh_CN/swf/buff/fb137300adaf38f81b40c1642e3e85ff.swf",
+      "bytes": 101121,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "c0e8a8152e8edca2853bb3ff3156526dbd35e43fcd441f83585adc8db5bcf5a2"
+    },
+    "zh_CN/swf/buff/buff_zhicai.swf": {
+      "sha256": "c05a0fb2a61b12e2aba79c9c8145f86d9df1b788bd818f182fdedfce8d0eb5c9",
+      "url": "/rez/zh_CN/swf/buff/8d6d6fe8f207301f6770ae7a36c1e747.swf",
+      "bytes": 3009,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "d940f6c7b31a3d131f6b746ecbd99bdcab4bca4bfbbcc99aa8254f20a4e67c5d"
+    },
+    "zh_CN/swf/sceneItem/si_qifei_e01.swf": {
+      "sha256": "6a7ca32c80b1bb1962a5c26ad63847208e4aedac4086b51b9406f3944e6d3881",
+      "url": "/rez/zh_CN/swf/sceneItem/0e667d28972823396f3c552fbe1c8a9d.swf",
+      "bytes": 285599,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "99e89a94ad3ff649e7495cf96abe8c30c7cb40de39ad3273e9f1120066f49e78"
+    },
+    "zh_CN/swf/sceneItem/si_qifei_r01.swf": {
+      "sha256": "7257ee852795e7fc64bb374d1ac7a2465b6de814127984f145f30d8184528b44",
+      "url": "/rez/zh_CN/swf/sceneItem/d82f8cfdbda5647c41ebd64fb2d0a03b.swf",
+      "bytes": 236327,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "b17cc46a76a31138f8facb4b1e7f3072fc69f2bbb2deb3a13d5bfb923a026632"
+    },
+    "zh_CN/swf/sceneItem/si_qifei_r02.swf": {
+      "sha256": "b86a12a7a5d5355675ceb8a3e8422e847d9249e90b93a728e11409fa6db3e490",
+      "url": "/rez/zh_CN/swf/sceneItem/4acb53df356c32278ad7cfc18ded69d9.swf",
+      "bytes": 156218,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "24d6c9041d635a477381fad9af3206d88fdc8dc6aa63582129dc56cf5181be0c"
+    },
+    "zh_CN/swf/skills/skill_qifei_k01.swf": {
+      "sha256": "ca067eca53df243e794adead92937e163248a625394feb4e93cf9c36b977d679",
+      "url": "/rez/zh_CN/swf/skills/7716551fc5f3555992ac837f0e03d633.swf",
+      "bytes": 332289,
+      "status": "ready",
+      "width": null,
+      "height": null,
+      "derivedSha256": "b03183256943e2c451a7e6d552dec89e4ef03aa46fa68e38d2c9be905243ecf9"
+    },
+    "zh_CN/tank/body/qifeizhixin02_body.png": {
+      "sha256": "1a04f949a90c2ee9b228972a31f2292085feedea6ffed58214523321dd445c4a",
+      "url": "/html5/assets/m81314/original/1a04f949a90c2ee9b228972a31f2292085feedea6ffed58214523321dd445c4a.png",
+      "bytes": 366518,
+      "status": "ready",
+      "width": 200,
+      "height": 1600,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/bullet/bullet_qifei.png": {
+      "sha256": "3927aa69dc7778b32c01a61b5b4e003f506e3c6418ee01125241344b7e50d8f5",
+      "url": "/rez/zh_CN/tank/bullet/aef0adfeec13b3dc045be08a42d64dc4.png",
+      "bytes": 15392,
+      "status": "ready",
+      "width": 400,
+      "height": 120,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/bullet/bullet_qifei_e.png": {
+      "sha256": "b2ab6e28464cbfd27d9f4cf122c46894342172aca3c841efe4b29a2a82f4a790",
+      "url": "/rez/zh_CN/tank/bullet/4c13f9b122d4c7bef4afe622f3d8dfe4.png",
+      "bytes": 47586,
+      "status": "ready",
+      "width": 600,
+      "height": 350,
+      "derivedSha256": null
+    },
+    "zh_CN/tank/cannon/qifeizhixin02_cannon.png": {
+      "sha256": "958c5d019ec5b9edcd95b70a9c8318eb47db24eac9ed4fee309cbeb21f9ba89c",
+      "url": "/html5/assets/m81314/original/958c5d019ec5b9edcd95b70a9c8318eb47db24eac9ed4fee309cbeb21f9ba89c.png",
+      "bytes": 25556,
+      "status": "ready",
+      "width": 1600,
+      "height": 200,
+      "derivedSha256": null
+    }
+  },
+  "requiredMenuAssets": {
+    "zh_CN/icon/item/wangchong_pf02.png": {
+      "sha256": "51f886d81d60e8f3b1da9790e5a51f5ebc0f7dde4b78217ae9d13fbfd70ddc70",
+      "url": "/rez/zh_CN/icon/item/7e8cb7915fbc88c03cf7c8258a4a1c3b.png",
+      "width": 100,
+      "height": 100,
+      "derivedSha256": null
+    },
+    "zh_CN/icon/item/qifei_pf_lock06.png": {
+      "sha256": "d10fa5f808ca46548e9d2bd8c2b72cd283fbab7b7d79dc93dba0b07f86dce248",
+      "url": "/html5/assets/m81314/original/d10fa5f808ca46548e9d2bd8c2b72cd283fbab7b7d79dc93dba0b07f86dce248.png",
+      "bytes": 18126,
+      "status": "ready",
+      "width": 100,
+      "height": 100,
+      "derivedSha256": null
+    }
+  },
+  "skillPresentationPatch": {
+    "id": 403100,
+    "fields": {
+      "iFlyRange": {
+        "before": 480,
+        "after": 408
+      },
+      "iLifeTime": {
+        "before": 850,
+        "after": 700
+      },
+      "iRange": {
+        "before": 480,
+        "after": 408
+      }
+    },
+    "unchangedBindings": {
+      "fCondition": 1,
+      "fEffect": 403100,
+      "iBulletEffectId": 525
+    }
+  },
+  "garageSkillPatch": {
+    "externalId": 10142,
+    "before": {
+      "nSkill1": 403201,
+      "nSkill2": 403301,
+      "nSkill3": 403101,
+      "nSkill4": 303401,
+      "nSkill5": 0
+    },
+    "after": {
+      "nSkill1": 303201,
+      "nSkill2": 303301,
+      "nSkill3": 303101,
+      "nSkill4": 303401,
+      "nSkill5": 0
+    }
+  },
+  "audit": {
+    "existingNewReadySkinsPreserved": 66,
+    "sourceReadyBefore": 309,
+    "effectiveReadyAfter": 311,
+    "targetPhysicalFilesVerified": 89,
+    "independentBrowserPaintVerified": false,
+    "originalCatalogsAndArtUnchanged": true,
+    "noPlayerDatabaseRead": true,
+    "noOwnershipGrant": true,
+    "minion10712AlreadyCorrect": true
+  }
+}

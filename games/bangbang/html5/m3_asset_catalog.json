@@ -1,0 +1,3189 @@
+{
+  "schemaVersion": 1,
+  "scope": "Original generic tank micro icons and prebattle map covers only",
+  "sources": {
+    "database": "data/bangbang.sqlite3",
+    "databaseSha256": "6a1db4ae0e0b49fbea16442e1ac1e6d1540f51afbad086849f852ff964b16709",
+    "databaseAccess": "mode=ro&immutable=1",
+    "configurationRowsSha256": "58f9654b6fe75d9a0e0dc84daa3ec15ffe42d8e7d6a58f0bd7998a0b141b7c1e",
+    "queries": {
+      "tanks": "SELECT nTankId, szName, szMicroHead FROM client_TankBaseTemplate_table ORDER BY CAST(nTankId AS INTEGER)",
+      "maps": "SELECT nMapId, szMapName, nModeType, szGuiImgFile FROM client_MapTemplate_table ORDER BY CAST(nMapId AS INTEGER)"
+    },
+    "fileList": "data/fileList_unpacked.xml",
+    "fileListSha256": "e0cf9afcb38f62cb75823f94fbef23560a311901ddaf0c97d0fd4c491e9c8585",
+    "tankMapping": "TankBaseTemplate.szMicroHead + ResourcePath.IMG_TANK_MICRO_HEAD_PATH",
+    "mapMapping": "MapTool.getMapIconPath: szGuiImgFile.replace('_t.jpg', '_m_t.jpg')"
+  },
+  "tanks": {
+    "10000001": {
+      "name": "Iron Man",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/gangtiexia_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/abb38b228abbd1213055168a48a0b889.png",
+        "logicalPath": "zh_CN/avatar/micro/gangtiexia_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/abb38b228abbd1213055168a48a0b889.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1442,
+        "sha256": "b0e6c9513daac843f5f6e19f2d1f63ea1113dc775157bed84c2a9ab88fe967de",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000002": {
+      "name": "Groot",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/shuren_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/2d6922ff8ed982e8508f2e9f9376a19f.png",
+        "logicalPath": "zh_CN/avatar/micro/shuren_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/2d6922ff8ed982e8508f2e9f9376a19f.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1446,
+        "sha256": "bc62f1fd64de23da114291fcde9e5c08ee04ea7ec2d917c543dfb6030fe4abf8",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000003": {
+      "name": "Panda",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/gongfuxiongmao_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/a542620ecf860c851a2b2a98ec444955.png",
+        "logicalPath": "zh_CN/avatar/micro/gongfuxiongmao_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/a542620ecf860c851a2b2a98ec444955.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1433,
+        "sha256": "ea0189e9f213001061737d2b8e51a47c22a74375bafe7d02537fe95f6e100b64",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000008": {
+      "name": "Spider Man",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/zhizhuxia_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/e9c7388ba12e286a7d369d12ce211ed3.png",
+        "logicalPath": "zh_CN/avatar/micro/zhizhuxia_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/e9c7388ba12e286a7d369d12ce211ed3.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1406,
+        "sha256": "65658f59d9c8cf0b66798213e2d2398d01eac15f17f86d4684a288289f1304da",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000019": {
+      "name": "Gundam",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/gaoda_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/3e490e27cde36ad677336ce024c0aa87.png",
+        "logicalPath": "zh_CN/avatar/micro/gaoda_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/3e490e27cde36ad677336ce024c0aa87.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1543,
+        "sha256": "47c3e28a943fbb29652fcf4188e04da791bc7f2f4889a07bcff43cfd4eace6a6",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000029": {
+      "name": "Chopper",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/qiaoba_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/99588001120c47c3dcc3f4daf8c3de48.png",
+        "logicalPath": "zh_CN/avatar/micro/qiaoba_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/99588001120c47c3dcc3f4daf8c3de48.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1425,
+        "sha256": "4de845f80dfc0583e064e008b85547d247ae940a02ab4525fbe35cbb4d0e39e1",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000030": {
+      "name": "Dark Knight",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/bianfuxia_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/02ca8c64402053f1f7430f26be17aabd.png",
+        "logicalPath": "zh_CN/avatar/micro/bianfuxia_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/02ca8c64402053f1f7430f26be17aabd.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1324,
+        "sha256": "df76544fa9da31166019aa3f33b5ebd28ae44725f414a98d371dcb59109a9bdc",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000031": {
+      "name": "Captain",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/meiguoduizhang_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/a1a350944a38fda3cb6ed9e9adcd33e9.png",
+        "logicalPath": "zh_CN/avatar/micro/meiguoduizhang_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/a1a350944a38fda3cb6ed9e9adcd33e9.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1393,
+        "sha256": "26f53b97eb891727779d6a1c18e7795cf27becd841a5f6f5b7d0fc1b4d59fded",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000032": {
+      "name": "Teddy Bear",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/taidixiong_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/c700d069824dfe1910e931f1fa4ab257.png",
+        "logicalPath": "zh_CN/avatar/micro/taidixiong_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/c700d069824dfe1910e931f1fa4ab257.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1396,
+        "sha256": "8aa932aa1ee9467b3e5dfc9b866df09175b0b83e6350e80cd415aaec4c090eed",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000033": {
+      "name": "Pea Shooter",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/wandousheshou_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/af10a3ac1529fd5cf8751c4e9e029d25.png",
+        "logicalPath": "zh_CN/avatar/micro/wandousheshou_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/af10a3ac1529fd5cf8751c4e9e029d25.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1431,
+        "sha256": "27b4e8b786363aa0aa811627da3e9bf47110bdaf83fffc19718219cbad649bc1",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000034": {
+      "name": "Hulk",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/lvjuren_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/e2a533b71da160239622186d9228fd45.png",
+        "logicalPath": "zh_CN/avatar/micro/lvjuren_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/e2a533b71da160239622186d9228fd45.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1438,
+        "sha256": "fcce89043ae52eb01bf5cd199e7fe305b19fc9baaa49d8bc0248584c7e68ac20",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000035": {
+      "name": "Pegasus",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/xingshi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/059fa45f9d327c37709332338fc1a907.png",
+        "logicalPath": "zh_CN/avatar/micro/xingshi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/059fa45f9d327c37709332338fc1a907.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1455,
+        "sha256": "29822c22185ed21578f9740adacc6f4a1adc34411e6ffd8c2d7563986ce9d194",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000036": {
+      "name": "Ngộ Không",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/wukong_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/28e31a6691b93dab1afad21387068ffd.png",
+        "logicalPath": "zh_CN/avatar/micro/wukong_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/28e31a6691b93dab1afad21387068ffd.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1459,
+        "sha256": "ce9fb260517812d6a62025a6baaa4bb919c9087b387f1e00d084d55a4e77256b",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000037": {
+      "name": "Hồ Lô",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/huluwa_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/83cadfdf73f533e59dfc6d498acc76d8.png",
+        "logicalPath": "zh_CN/avatar/micro/huluwa_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/83cadfdf73f533e59dfc6d498acc76d8.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1423,
+        "sha256": "acef0633b8783ffbe3a5e5d3848b5565e30bdb93199513baf1dc0b25446dd525",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000038": {
+      "name": "Ghost Rider",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/eling_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/ec6fec48a04d72e477e58a78243a654a.png",
+        "logicalPath": "zh_CN/avatar/micro/eling_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/ec6fec48a04d72e477e58a78243a654a.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1451,
+        "sha256": "be572bdedc8663e63dcffedecc06770f3e1061eaf7fd37beca1a139e406e285d",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000039": {
+      "name": "Thor",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/leishen_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/a1649a6f843b057e6811071daa8fb02b.png",
+        "logicalPath": "zh_CN/avatar/micro/leishen_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/a1649a6f843b057e6811071daa8fb02b.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1465,
+        "sha256": "fc50f7b2cd4d66a7bf4a0179273da6efefaa0ab4e4175b921b6c1859fbaa253b",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000040": {
+      "name": "Người Sói",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/jinganglang_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/64fb4afa91a538cccb8230fc7542b03f.png",
+        "logicalPath": "zh_CN/avatar/micro/jinganglang_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/64fb4afa91a538cccb8230fc7542b03f.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1397,
+        "sha256": "e75fcac0de0e1fd5eaf9f749f47f230002b837d607fab64ba6035aab09b5f629",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000041": {
+      "name": "Legolas",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/wangzi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/eb42b083c53c15877f408d37c41e001a.png",
+        "logicalPath": "zh_CN/avatar/micro/wangzi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/eb42b083c53c15877f408d37c41e001a.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1425,
+        "sha256": "752d7ab42f41f037c3605266fee35fdccad077ba166a5aedd24b01d9d5a88912",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000042": {
+      "name": "Songoku",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/saiya_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/9af9f06f135c3c895010fdfda3f82cd1.png",
+        "logicalPath": "zh_CN/avatar/micro/saiya_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/9af9f06f135c3c895010fdfda3f82cd1.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1560,
+        "sha256": "fd09b8e9f80ec8f0a63b50f996f48b9b3fc557ba45e8a332e379f872ffc0edb9",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000043": {
+      "name": "Thánh Gióng",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/shengyong_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/c01accdab817eeab29bd442d2b411be6.png",
+        "logicalPath": "zh_CN/avatar/micro/shengyong_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/c01accdab817eeab29bd442d2b411be6.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1388,
+        "sha256": "bdd208fd3ac9a1d0e9a9bb965a8d18dfd12063209353847cf4f01e50e7677b0e",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000044": {
+      "name": "Naruto",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/xuanwo_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/5ad4565bf3072ebb4788d7cd118304e3.png",
+        "logicalPath": "zh_CN/avatar/micro/xuanwo_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/5ad4565bf3072ebb4788d7cd118304e3.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1462,
+        "sha256": "1fd33903329fa72f40d288bea630a78afab60d278ed9dde5b3d6a448bf7b37fd",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000045": {
+      "name": "Bọt Biển",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/feizao_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/6de240ad7fd5d288d88af3576ed7210a.png",
+        "logicalPath": "zh_CN/avatar/micro/feizao_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/6de240ad7fd5d288d88af3576ed7210a.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1506,
+        "sha256": "e224209f64e19f6861b92438628acef3b479b37ad9781ccec8af2d8c2bbcea16",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000046": {
+      "name": "Luffy",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/lufei_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/a692892a575419d7a49fe2ded83f66f1.png",
+        "logicalPath": "zh_CN/avatar/micro/lufei_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/a692892a575419d7a49fe2ded83f66f1.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1418,
+        "sha256": "30a80e865659e5dc9be99b4648714fc533c74a8e709458695a29e813db7f09ca",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000047": {
+      "name": "Pikachu",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/bika_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/cfb8becbfa1166dcf485bc4d3c2b0604.png",
+        "logicalPath": "zh_CN/avatar/micro/bika_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/cfb8becbfa1166dcf485bc4d3c2b0604.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1420,
+        "sha256": "93339f84663552acce1202e696667ff30810a5e96aaf148428a49e60edd245a1",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000048": {
+      "name": "Sát thủ",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/cike_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/c3321a91e91b26dfe1cb4cf1cc5833cd.png",
+        "logicalPath": "zh_CN/avatar/micro/cike_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/c3321a91e91b26dfe1cb4cf1cc5833cd.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1409,
+        "sha256": "ea222755c86b1566332b66f9f516ab2f61ab6105538a437f259461d1adee37d0",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000049": {
+      "name": "Transformer",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/dahuangfeng_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/009945e0c90f14468eb0d4757278d5a3.png",
+        "logicalPath": "zh_CN/avatar/micro/dahuangfeng_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/009945e0c90f14468eb0d4757278d5a3.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1441,
+        "sha256": "042f75ac6453b5a2205bdfb6471dd5c554fdc4685f4fc0509452b4e7edd19f1a",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000050": {
+      "name": "Thợ Săn Thời Gian",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/shikonglieren_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/0586d19dcf773b0d29b63f97a45fcd67.png",
+        "logicalPath": "zh_CN/avatar/micro/shikonglieren_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/0586d19dcf773b0d29b63f97a45fcd67.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1543,
+        "sha256": "cf848f77c1dda2c263eefb7a6f4ba84ef77c56bc9253d00538b68508124cfada",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000051": {
+      "name": "Sơn Tinh",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/shanjing_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/767bbdaf9190ecd485d5a2aa8b42dee5.png",
+        "logicalPath": "zh_CN/avatar/micro/shanjing_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/767bbdaf9190ecd485d5a2aa8b42dee5.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1434,
+        "sha256": "98b20953e4b4d7e9530d483d1919da377c7364a7f0298eda52300a5febe4d5f8",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000052": {
+      "name": "Bí Ngô Vương",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/nangua_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/8b6e72ef69f836040cdda6d73ba24158.png",
+        "logicalPath": "zh_CN/avatar/micro/nangua_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/8b6e72ef69f836040cdda6d73ba24158.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1437,
+        "sha256": "dc709c63088b6bf77966c6116d686f98deb9bd074fc4a2fea49a38a814cd39ff",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000053": {
+      "name": "Superman",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/chaoren_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/0d1bd48977f9529fc396c7f060cdaeee.png",
+        "logicalPath": "zh_CN/avatar/micro/chaoren_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/0d1bd48977f9529fc396c7f060cdaeee.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1372,
+        "sha256": "dc4800c32555385e432dfd4b8e819a90faf28483bca286b8d1222556e40b7541",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000054": {
+      "name": "Ông già Noel",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/shengdan_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/bb3a89b093fbfbfbec5f649ecb3aa5ab.png",
+        "logicalPath": "zh_CN/avatar/micro/shengdan_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/bb3a89b093fbfbfbec5f649ecb3aa5ab.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1407,
+        "sha256": "24d1e718509ef2e192e185b8430f2b107c132375526c4c3d6198d442a290bef8",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000055": {
+      "name": "Kakashi",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/kakaxi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/a1598edbe702d23a003abf1d67f5fe58.png",
+        "logicalPath": "zh_CN/avatar/micro/kakaxi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/a1598edbe702d23a003abf1d67f5fe58.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1402,
+        "sha256": "0e2f468d8b52c84d149f1f31fde359514e86e701b65a038b64d143d09ec07a93",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000056": {
+      "name": "Quan Công",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/guanyu_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/42b616a929291490eca1b2faa29f00d7.png",
+        "logicalPath": "zh_CN/avatar/micro/guanyu_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/42b616a929291490eca1b2faa29f00d7.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1406,
+        "sha256": "02c8915beef3070f9c469d2e1b4fa47bc0ebc02e36aa138a854de09e7ffb5a50",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000057": {
+      "name": "Dracula",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/degula_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/10cc9149b800f3f2f5d556a0d1a715a3.png",
+        "logicalPath": "zh_CN/avatar/micro/degula_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/10cc9149b800f3f2f5d556a0d1a715a3.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1429,
+        "sha256": "9d66d555ae3f7eb430e0e5a980d5b98c296d4c60e7d471bf2e6f5d5da65f456c",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000058": {
+      "name": "Medusa",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/meidusha_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/768399607de1be251344a7dbfef9d119.png",
+        "logicalPath": "zh_CN/avatar/micro/meidusha_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/768399607de1be251344a7dbfef9d119.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1374,
+        "sha256": "4d5eb08dbca6f10e85ed93560e530dd01222ab56affe67de32d8518b86f18ec5",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000059": {
+      "name": "Phượng Hoàng Lửa",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/fenghuang_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/36d2d24fb84f82e7be4a27360ba73a79.png",
+        "logicalPath": "zh_CN/avatar/micro/fenghuang_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/36d2d24fb84f82e7be4a27360ba73a79.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1461,
+        "sha256": "3d36b38e72fe59cfbb575589c9262f2a4a0cf4120cdc2e8b30439bee6d1a0178",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000060": {
+      "name": "Minion",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/minions_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/5d9428e81f0ab596c367d4e001a5a84b.png",
+        "logicalPath": "zh_CN/avatar/micro/minions_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/5d9428e81f0ab596c367d4e001a5a84b.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1454,
+        "sha256": "46147f1fdbd13244026722c0adbc3a70448fa1e768f6768116ca12ce2fc0b930",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000061": {
+      "name": "Thiên Thần",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/tianshi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/1556ea3587d2a37190b2e805b08e2481.png",
+        "logicalPath": "zh_CN/avatar/micro/tianshi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/1556ea3587d2a37190b2e805b08e2481.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1575,
+        "sha256": "fbba61f3ca0f7be1dab30dd5d939fa7840b4352ac31870459573cce8d4a56158",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000062": {
+      "name": "Optimus Prime",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/qingtianzhu_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/acf82d93bdcf3e001955b4191370839f.png",
+        "logicalPath": "zh_CN/avatar/micro/qingtianzhu_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/acf82d93bdcf3e001955b4191370839f.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1382,
+        "sha256": "a560c6b957de3481dc3baf6b025fee098cd43d93fd8d7b259f37d57f83aa0a00",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000063": {
+      "name": "Thạch Sanh",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/houyi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/7f750325aba78479815243131e38b250.png",
+        "logicalPath": "zh_CN/avatar/micro/houyi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/7f750325aba78479815243131e38b250.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1434,
+        "sha256": "592ad1bad735df1d8a0590c768a7431348bda5e972f7769b5481362ed22eb1a2",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000064": {
+      "name": "Ichigo",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/sishen_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/7f4c8f729ab276205558bdd9bcc16389.png",
+        "logicalPath": "zh_CN/avatar/micro/sishen_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/7f4c8f729ab276205558bdd9bcc16389.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1191,
+        "sha256": "46b4e473958cba06fdebc3d28d321d6ee286d99a14c99e4eeee778a0689bdd59",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000065": {
+      "name": "Tiên Cá",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/haishen_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/74b8aec480dc306eaa194aa566aa8a24.png",
+        "logicalPath": "zh_CN/avatar/micro/haishen_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/74b8aec480dc306eaa194aa566aa8a24.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1392,
+        "sha256": "87ede9b6b793097ecfdf1b01492e340f69c18d9134fa8c8528f8a588366f963a",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000066": {
+      "name": "Edwina Knight",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/shouwang_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/40d8efe9e90c12ef93b25709ec264a7b.png",
+        "logicalPath": "zh_CN/avatar/micro/shouwang_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/40d8efe9e90c12ef93b25709ec264a7b.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1376,
+        "sha256": "255eb42d09da787b9a3598dee2471e0051e8c573aaea797d67ba136e000b560e",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000067": {
+      "name": "Triệu Vân",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/zhaoyun_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/c2cab0625ebbb83468dcae2ff236e399.png",
+        "logicalPath": "zh_CN/avatar/micro/zhaoyun_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/c2cab0625ebbb83468dcae2ff236e399.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1401,
+        "sha256": "89e865c61503480eb3ccdc6415935c8a50751e94ae6a20a8112e096f57f8ce03",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000069": {
+      "name": "Bò Cạp Độc",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/duxie_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/04b931c8b544866b675ffcf1c6d13845.png",
+        "logicalPath": "zh_CN/avatar/micro/duxie_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/04b931c8b544866b675ffcf1c6d13845.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1401,
+        "sha256": "1d433c940463e830ac892800cd7264f883720671d8ba4264dd0c721a8e16925d",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000070": {
+      "name": "Deadpool",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/sishi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/2f93634a3175f795ba7c8bdc676fb9ec.png",
+        "logicalPath": "zh_CN/avatar/micro/sishi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/2f93634a3175f795ba7c8bdc676fb9ec.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1440,
+        "sha256": "4fbdf2df9dbf2a2d98e9c207bc2e71d3294f78d7172c5622ce56243b10553fb9",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000071": {
+      "name": "Joker",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/douwa_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/c4be3754ee7d306b37e6fdea928e452a.png",
+        "logicalPath": "zh_CN/avatar/micro/douwa_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/c4be3754ee7d306b37e6fdea928e452a.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1421,
+        "sha256": "19a76410e45b910f1ac763e22b7986d946f41b6e95adff61bfb626b1d61b98b7",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000072": {
+      "name": "Apocalypse",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/tianqi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/1bda24f1bc5d330e723711a9f079690d.png",
+        "logicalPath": "zh_CN/avatar/micro/tianqi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/1bda24f1bc5d330e723711a9f079690d.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1387,
+        "sha256": "d7d4a3b76562d7f137150c9bae0f0201adf3fdcce9643be4b9e0b105c1bbe6c4",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000073": {
+      "name": "Baymax",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/dabai_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/75f9a29f3042fbaa6875a70ad571144c.png",
+        "logicalPath": "zh_CN/avatar/micro/dabai_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/75f9a29f3042fbaa6875a70ad571144c.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1366,
+        "sha256": "5dcddc6f6b334d56c2f89635d469f85587b49e37f656afb4b238b4bd66be30f7",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000074": {
+      "name": "Điêu Thuyền",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/diaochan_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/8d60b79c4427a9851f1687c235f188bb.png",
+        "logicalPath": "zh_CN/avatar/micro/diaochan_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/8d60b79c4427a9851f1687c235f188bb.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1477,
+        "sha256": "572c6e0ef87ae3030b3c6dac4363ab587581d8a33e8959c8ff547a0ad0ddec88",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000075": {
+      "name": "Lữ Bố",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/lvbu_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/2792f0f5a387651f66a3c8e927345b0a.png",
+        "logicalPath": "zh_CN/avatar/micro/lvbu_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/2792f0f5a387651f66a3c8e927345b0a.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1480,
+        "sha256": "500907e55f5ea7f96d1f3e1bbe9c2d1bc76d7ad57e89411fcd05e3b8c6579715",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000076": {
+      "name": "Kaneki - Ghoul",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/jinmuyan_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/3db7e53d759abdfcf2c07915ed1a508d.png",
+        "logicalPath": "zh_CN/avatar/micro/jinmuyan_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/3db7e53d759abdfcf2c07915ed1a508d.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1399,
+        "sha256": "f3772efee7cd11d2df20826f6dfa078772ff606e665393835cc4addf865aaf81",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000077": {
+      "name": "Zoro",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/suolong_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/65f9214d51d27cce71cdc62cf11dfa72.png",
+        "logicalPath": "zh_CN/avatar/micro/suolong_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/65f9214d51d27cce71cdc62cf11dfa72.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1412,
+        "sha256": "39b0c982c249db1655aa7dd40affdd1f899f1a8b3be2eb40d338747749b03973",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000078": {
+      "name": "Mikasa",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/sanli_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/93a8e68e0ae3c8be266c282105845907.png",
+        "logicalPath": "zh_CN/avatar/micro/sanli_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/93a8e68e0ae3c8be266c282105845907.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1416,
+        "sha256": "ef8b10b37aaad3156556c076147a887ec7b3bf5702e898c34396bb740bd036cb",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000079": {
+      "name": "Thủy Tinh",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/haiyao_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/9ffaaf38f54390a3bb31ddccec345acd.png",
+        "logicalPath": "zh_CN/avatar/micro/haiyao_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/9ffaaf38f54390a3bb31ddccec345acd.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1441,
+        "sha256": "240a9203b1a69d7cb201c715fd3088464f72efa9af8ad0f788339bc153bc7600",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000080": {
+      "name": "Doraemon",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/lanpangzi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/8d44ef69253f73156cf0d026a5cb5631.png",
+        "logicalPath": "zh_CN/avatar/micro/lanpangzi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/8d44ef69253f73156cf0d026a5cb5631.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1479,
+        "sha256": "26a461657b191fa9a2517c0e9b6c010f28d00801634a56dabd89aa75d482dbff",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000081": {
+      "name": "Kiếm Thần",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/libai_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/5e125b90ce8c6edb3ec1baf0965e2038.png",
+        "logicalPath": "zh_CN/avatar/micro/libai_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/5e125b90ce8c6edb3ec1baf0965e2038.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1461,
+        "sha256": "86fb0c276bdef3de3fe0313258ce26e5497bae9b206f906fb41a70a9ad8e8532",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000082": {
+      "name": "Na Tra",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/nezha_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/c37f29f3b950dd44bda5c5e71993233b.png",
+        "logicalPath": "zh_CN/avatar/micro/nezha_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/c37f29f3b950dd44bda5c5e71993233b.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1531,
+        "sha256": "a34ebe1be5ea2c8514cff51ace41e6ea0d22a3af4ac4dce68970e05691d598a0",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000083": {
+      "name": "Doctor Strange",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/boshi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/42b6de3c7a651766ccee385bd5d56c22.png",
+        "logicalPath": "zh_CN/avatar/micro/boshi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/42b6de3c7a651766ccee385bd5d56c22.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1497,
+        "sha256": "13716db6b38a9706d2e119a1f0458d783e0e4636382f3ac7c0eefa929e6c166d",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000084": {
+      "name": "Gia Cát Lượng",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/zhuge_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/8ec33a5a296153a123f395acfcf50024.png",
+        "logicalPath": "zh_CN/avatar/micro/zhuge_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/8ec33a5a296153a123f395acfcf50024.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1484,
+        "sha256": "fb29b0a187efad143d8630a958afbe306e34d28e9c209372f3b091967b02953f",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000085": {
+      "name": "Athena",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yadianna_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/17032ee537ed039de8861a5fe8dc0bff.png",
+        "logicalPath": "zh_CN/avatar/micro/yadianna_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/17032ee537ed039de8861a5fe8dc0bff.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1483,
+        "sha256": "71972e5dd264af531e6b13bc001a3ad05fc574436307e49e89e783f847d54b85",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000086": {
+      "name": "Cửu Vĩ Hồ",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yaohu_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/3aa40a8e21fe23c456651188f4873add.png",
+        "logicalPath": "zh_CN/avatar/micro/yaohu_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/3aa40a8e21fe23c456651188f4873add.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1420,
+        "sha256": "bbaed01090a7f5d59e72ae333f335b9a6aa21385806ae250b3aa59515369e74d",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000087": {
+      "name": "Dương Tiễn",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yangjian_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/1028c2e7e79520f68e556a4a0085178f.png",
+        "logicalPath": "zh_CN/avatar/micro/yangjian_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/1028c2e7e79520f68e556a4a0085178f.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1437,
+        "sha256": "79b88c74924f1a0fa3583767e5e860ff53840570a713a744239cc719443a36f9",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000088": {
+      "name": "Gilgamesh",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/jinshanshan_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/b245edd38c4b057fbb091b0bc9a091b2.png",
+        "logicalPath": "zh_CN/avatar/micro/jinshanshan_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/b245edd38c4b057fbb091b0bc9a091b2.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1442,
+        "sha256": "c9bb4498f5cdc7ba18feea359a1a8effbadfe29188e92c87a3a5eadff38e85c8",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000089": {
+      "name": "Star Lord",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/xingjue_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/d5311d5ceb288b688c270490ec1b86ae.png",
+        "logicalPath": "zh_CN/avatar/micro/xingjue_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/d5311d5ceb288b688c270490ec1b86ae.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1437,
+        "sha256": "c85db3739fdb84af9b867cf2c5050f3e069f9da7544ce79a1d43dcd30e0057e5",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000090": {
+      "name": "Natsu",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/nazi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/daaae980c035e3ad8ba9b5e9bfd48348.png",
+        "logicalPath": "zh_CN/avatar/micro/nazi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/daaae980c035e3ad8ba9b5e9bfd48348.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1485,
+        "sha256": "1f18f81cc6d347d96ba91a7c2b4ce30c4ef2447703a9f7916014ab4b996ab7c4",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000091": {
+      "name": "Tào Tháo",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/caocao_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/7e95d3c0eeccc62162b3250580a7dba6.png",
+        "logicalPath": "zh_CN/avatar/micro/caocao_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/7e95d3c0eeccc62162b3250580a7dba6.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 32,
+        "height": 32,
+        "byteLength": 5833,
+        "sha256": "b2697354e6b309c100b67b71400eb67e5f0022b288767166dcefdfb1687b124b",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000092": {
+      "name": "Hades",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/mingwang_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/b2f95f1eaf8e2ad8200488dbec764922.png",
+        "logicalPath": "zh_CN/avatar/micro/mingwang_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/b2f95f1eaf8e2ad8200488dbec764922.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1519,
+        "sha256": "bf5725a5415db13fdc20280124109a3cb315eac451c921628f755ac2aad8fa34",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000093": {
+      "name": "Sasuke",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/zuozhu_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/c81a0d5e6dd94290348c478a8ae2f851.png",
+        "logicalPath": "zh_CN/avatar/micro/zuozhu_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/c81a0d5e6dd94290348c478a8ae2f851.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1460,
+        "sha256": "69310453f94453d7f0cf53bd5a88e21a41959446cadad18ed1db3bcdc23a9313",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000094": {
+      "name": "Lạc Long Quân",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/longtaizi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/ae447cc12390d1a882cc44a61ea7655d.png",
+        "logicalPath": "zh_CN/avatar/micro/longtaizi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/ae447cc12390d1a882cc44a61ea7655d.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1460,
+        "sha256": "8a954f407bfd2b0dc7af26838945c5ab5821ee46daed6958abf4e645f01414ec",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000095": {
+      "name": "Kurumi",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/kuangsan_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/f858768e0438ce58610467bc14fb9dd6.png",
+        "logicalPath": "zh_CN/avatar/micro/kuangsan_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/f858768e0438ce58610467bc14fb9dd6.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1463,
+        "sha256": "8fdfed8e28fb410b12c9565e5005d548724a5a40617e30ed52a90f40c13562cc",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000096": {
+      "name": "Kirito",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/tongren_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/a136cf14f28308fccf3beddb6241ca14.png",
+        "logicalPath": "zh_CN/avatar/micro/tongren_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/a136cf14f28308fccf3beddb6241ca14.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1440,
+        "sha256": "b4bc2001d3b1ef3e41be6f90284a2359d9364d492830ff079e15f1ab546fe7ce",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000097": {
+      "name": "Magneto",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/laowan_small.png",
+      "icon": null,
+      "iconMissingReason": "Mapped and literal resource files are absent"
+    },
+    "10000098": {
+      "name": "Tư Mã Ý",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/sima_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/4f134cbc08737be15dda43c68260d8c8.png",
+        "logicalPath": "zh_CN/avatar/micro/sima_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/4f134cbc08737be15dda43c68260d8c8.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1492,
+        "sha256": "4110fb988ecd2e0c1fb4d84dd4e48ab4f7e124d04d4a2fd2080c5b5b28795df7",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000099": {
+      "name": "Hoa Mộc Lan",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/huamulan_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/42a381eb5658c4d237b048de70065df2.png",
+        "logicalPath": "zh_CN/avatar/micro/huamulan_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/42a381eb5658c4d237b048de70065df2.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1475,
+        "sha256": "ac8a7f87c202723fab9c8a0eeb436ab7523af7c84354dd5a1c60387982cc1bc8",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000100": {
+      "name": "Black Panther",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/heibao_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/491389fb903b4cc0698d57f538d355b4.png",
+        "logicalPath": "zh_CN/avatar/micro/heibao_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/491389fb903b4cc0698d57f538d355b4.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 2510,
+        "sha256": "deb4b1f2fd822415c343ef116acb70615558717fb7a736b3383a3565bb0250d7",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000101": {
+      "name": "Sniper",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/youying_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/271493bc2d200028d27ac0c44590c6c2.png",
+        "logicalPath": "zh_CN/avatar/micro/youying_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/271493bc2d200028d27ac0c44590c6c2.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1316,
+        "sha256": "260d9557ddb3b016be7e12e1c099894f95492a34106f3bf828372f6425bbff90",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000102": {
+      "name": "Saitama",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/qiyu_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/a2269a3b1943709e6785510e147b769c.png",
+        "logicalPath": "zh_CN/avatar/micro/qiyu_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/a2269a3b1943709e6785510e147b769c.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1366,
+        "sha256": "d695d0848b8642b7b2c9b02577266d2176670abbba87e58f68dd293f41f49ef3",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000103": {
+      "name": "Ngưu Ma Vương",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/niumo_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/e1f74566e3664b76517ec7121d4dedb1.png",
+        "logicalPath": "zh_CN/avatar/micro/niumo_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/e1f74566e3664b76517ec7121d4dedb1.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 1389,
+        "sha256": "1b5a11baab5a8e0059a724efa0867094693be84616a7a179a64e072e895057fa",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000104": {
+      "name": "Falcon",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yinghen_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/d57d13c56624b281e38f6c2df599a0a6.png",
+        "logicalPath": "zh_CN/avatar/micro/yinghen_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/d57d13c56624b281e38f6c2df599a0a6.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4638,
+        "sha256": "a744625913580847c941cd9e1b71d368ba0177e5795eb3b90710c27755950098",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000105": {
+      "name": "Hỏa Thần",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/liao_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/4792c3c64a9748ef22796fd0c6260b61.png",
+        "logicalPath": "zh_CN/avatar/micro/liao_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/4792c3c64a9748ef22796fd0c6260b61.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4672,
+        "sha256": "1886e2d99585cdc45489071f106d88c846810fe6f0dfd1e52b0a7e34845c1c54",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000106": {
+      "name": "Elsa",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/aisha_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/cf05f920a7f9e5a8ef5121cc14c4d234.png",
+        "logicalPath": "zh_CN/avatar/micro/aisha_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/cf05f920a7f9e5a8ef5121cc14c4d234.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4722,
+        "sha256": "500b77c96626fdf14d2047cb72d935a29302aa8b8143af59c27a85ec08558192",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000107": {
+      "name": "Hikari",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/qifei_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/e29100d02a41414b699c3fd23ed909c3.png",
+        "logicalPath": "zh_CN/avatar/micro/qifei_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/e29100d02a41414b699c3fd23ed909c3.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4789,
+        "sha256": "5fdcb8a16d4f61368b3db4862407cac881dda7227aeef38eb9b9dce58c50c1fe",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000108": {
+      "name": "Shadowblade",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yingren_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/dc63b0779bf8d3f452b0492b639193f6.png",
+        "logicalPath": "zh_CN/avatar/micro/yingren_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/dc63b0779bf8d3f452b0492b639193f6.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4545,
+        "sha256": "ef37af99d43bfe174c0ed9cc95acbdee4d543dc2ff56e5f5787008922ba28495",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000109": {
+      "name": "Thạch Thần",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yankai_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/5b42cfe47c6b66f6ac175346e8f53fde.png",
+        "logicalPath": "zh_CN/avatar/micro/yankai_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/5b42cfe47c6b66f6ac175346e8f53fde.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4735,
+        "sha256": "6a386768cc7e2093169cb587646afd6804b346ecc2f6d78216fd4fd2a4f58785",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000110": {
+      "name": "Aquaman",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/haiwang_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/d348749a7ffabc30d71361593346e6b3.png",
+        "logicalPath": "zh_CN/avatar/micro/haiwang_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/d348749a7ffabc30d71361593346e6b3.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4726,
+        "sha256": "e24b16f2651c7808034920b420747a49e2666c620406dc5c1e341f9f06f8efb4",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000111": {
+      "name": "Tsubasa",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/zuqiuxiaozi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/d45495c34081ef031d92fc73e6d2c437.png",
+        "logicalPath": "zh_CN/avatar/micro/zuqiuxiaozi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/d45495c34081ef031d92fc73e6d2c437.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 4746,
+        "sha256": "a17e8fd67cf67fc551835661ebebffa36d0bec741343c5522f60675548602e5a",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000112": {
+      "name": "Chu Du",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/zhouyu_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/7c9ae7b39a4663bcad261644639278cb.png",
+        "logicalPath": "zh_CN/avatar/micro/zhouyu_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/7c9ae7b39a4663bcad261644639278cb.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 2025,
+        "sha256": "5c4e5056677f64ec8d648ce4b5075afc6c94089d987530ef0d8bd22decb52edf",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000113": {
+      "name": "Nữ Thần Thời Gian",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/shiguangnvshen_small.png",
+      "icon": null,
+      "iconMissingReason": "Mapped and literal resource files are absent"
+    },
+    "10000114": {
+      "name": "Night Wing",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yeyi_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/fe7cf449f17c6466ed6b5b4fc67ef039.png",
+        "logicalPath": "zh_CN/avatar/micro/yeyi_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/fe7cf449f17c6466ed6b5b4fc67ef039.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 3610,
+        "sha256": "2315e552820a3cfb6a10674021af5d0f113196ad0799534966dc5b01ca2405fa",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10000115": {
+      "name": "Daredevil",
+      "iconKind": "generic-tank-micro",
+      "iconLabel": "Biểu tượng tank chung; không thể hiện skin hiện tại",
+      "iconLogicalPath": "zh_CN/avatar/micro/yemo_small.png",
+      "icon": {
+        "url": "/rez/zh_CN/avatar/micro/7de39f652b0da46512c1bfb6d922269f.png",
+        "logicalPath": "zh_CN/avatar/micro/yemo_small.png",
+        "physicalPath": "www/rez/zh_CN/avatar/micro/7de39f652b0da46512c1bfb6d922269f.png",
+        "resolution": "fileList",
+        "format": "PNG",
+        "width": 24,
+        "height": 24,
+        "byteLength": 6598018,
+        "sha256": "33669ee360b610e9a6feab113880166be5153c55d11a9ac91d86b9b3932a3dac",
+        "verification": "signature-and-dimensions"
+      }
+    }
+  },
+  "maps": {
+    "1": {
+      "name": "玛雅预言[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage1_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/311611d6f7a6d554392fa9b71cd429ef.jpg",
+        "logicalPath": "zh_CN/map/stage1_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/311611d6f7a6d554392fa9b71cd429ef.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5454,
+        "sha256": "fd318716f670bfc7b40ef55520af8b230cd3c9e8e55fa78fa5a620ca7c597775",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "4": {
+      "name": "冰天雪地[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage4_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/72c383fb258cb4bb836366b067d22bbd.jpg",
+        "logicalPath": "zh_CN/map/stage4_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/72c383fb258cb4bb836366b067d22bbd.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 14887,
+        "sha256": "b415581a085a96de09010f1548c213b691be2a1553184b1d84e1884e08dd4479",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "7": {
+      "name": "越野拉力[据点]",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage7_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/c5c6d3d8eeaf90c91094d3ae5c7fa55c.jpg",
+        "logicalPath": "zh_CN/map/stage7_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/c5c6d3d8eeaf90c91094d3ae5c7fa55c.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 4978,
+        "sha256": "3bfe9042dbe478f3df35e14fb76634dcc5f4e1420c8140a18c67902dd49e064e",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "9": {
+      "name": "埃及古墓[据点]",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage9_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/10c5667d15f8da7ef9643f14834b9a68.jpg",
+        "logicalPath": "zh_CN/map/stage9_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/10c5667d15f8da7ef9643f14834b9a68.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5679,
+        "sha256": "136a3270764bacb39202fc3db77542d79be3889fc009dfe1310f4114b62d39f9",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "10": {
+      "name": "货运中心[据点]",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage10_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/e7398b4b0162c861fc0f4f6c7e0f9a0a.jpg",
+        "logicalPath": "zh_CN/map/stage10_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/e7398b4b0162c861fc0f4f6c7e0f9a0a.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5872,
+        "sha256": "25b76c88a6d5b7195691a6672b3cea5bb135d857806725806b4976e5290412e6",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "12": {
+      "name": "晶矿争夺[基地]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage12_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/312c66b63676aa4d1dfb7ade964bd489.jpg",
+        "logicalPath": "zh_CN/map/stage12_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/312c66b63676aa4d1dfb7ade964bd489.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 6412,
+        "sha256": "f2e767b2c12ac9aeb854281ac26c6915fe64b0e3e2a71193ffe50c186c10e0cc",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "14": {
+      "name": "玛雅遗址[基地]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage14_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/3ff799a795c0781dafbf7ee093fc7ff4.jpg",
+        "logicalPath": "zh_CN/map/stage14_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/3ff799a795c0781dafbf7ee093fc7ff4.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5292,
+        "sha256": "d42d84cd24cf186624f99456c09c05b2c25046d9e494eb675103e23533e10cdf",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "17": {
+      "name": "热血快餐[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage17_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/70ac481a8964069b6e7c115e873fdbec.jpg",
+        "logicalPath": "zh_CN/map/stage17_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/70ac481a8964069b6e7c115e873fdbec.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5634,
+        "sha256": "fe1242248e06e95806425e3e9d119b4e40f4d621ab0bbf0b092e756508e91ae3",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "18": {
+      "name": "荒野大地[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage18_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/a5cbff6a9a8181a572a015369639f452.jpg",
+        "logicalPath": "zh_CN/map/stage18_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/a5cbff6a9a8181a572a015369639f452.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 14567,
+        "sha256": "1665d0533d552a81ac5b69a756de9136b6d2a3291b11d2ab6edaa1ca6cc8231f",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "19": {
+      "name": "星际争霸[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage19_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/e8071adb19ecaf2eba9c4f661cf49305.jpg",
+        "logicalPath": "zh_CN/map/stage19_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/e8071adb19ecaf2eba9c4f661cf49305.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 6058,
+        "sha256": "db781ca9052b0f365fcfbf17f56bbbef1efd3528449a0927de538d6dde5ad369",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "20": {
+      "name": "奶牛快跑[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage20_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/f3f5f2069631231e7e92f1dae40f6348.jpg",
+        "logicalPath": "zh_CN/map/stage20_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/f3f5f2069631231e7e92f1dae40f6348.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 7000,
+        "sha256": "f338e9cd4f08bf0ddceadecf92b677bae912bc0e8e0ac073291fab164029ef29",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "21": {
+      "name": "电闪雷鸣[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage21_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/ed366cfbcc98038d0f01cbbefbaf9a82.jpg",
+        "logicalPath": "zh_CN/map/stage21_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/ed366cfbcc98038d0f01cbbefbaf9a82.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5316,
+        "sha256": "7ecb4494d669924cd272f94b68580422cce6caac097ad5ac73ce054d3d3c5f37",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "30": {
+      "name": "崩塌矿井[死亡]",
+      "modeType": 4,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage30_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/9a535f4a0a029a718a1f0fc37c204ea3.jpg",
+        "logicalPath": "zh_CN/map/stage30_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/9a535f4a0a029a718a1f0fc37c204ea3.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 16551,
+        "sha256": "000396b1ea38bc2442914411adf638803a6c4c6f8c3dfd4b4e6a6a6b1b38fd5f",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "34": {
+      "name": "极地哨站[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/86e47014d10a9b658441f4b855a51fff.jpg",
+        "logicalPath": "zh_CN/map/stage31_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/86e47014d10a9b658441f4b855a51fff.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 13792,
+        "sha256": "84aceee3df941344b38d811208062386f2b8b2d1ef400f406310eecffc94fdc7",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "35": {
+      "name": "星际要塞[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage32_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/8768641c0894869834ca9d0791add93d.jpg",
+        "logicalPath": "zh_CN/map/stage32_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/8768641c0894869834ca9d0791add93d.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 11631,
+        "sha256": "3def1dfd7e77b70148ec847c40f66747c5a38ab8fee6bfa324c7d2e896e9b602",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "36": {
+      "name": "辐射矿区[热血]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage33_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/e56f5b259364c33050b8ce769305e219.jpg",
+        "logicalPath": "zh_CN/map/stage33_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/e56f5b259364c33050b8ce769305e219.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 13928,
+        "sha256": "2750f84981881e1f6d63385ffb7d3afe27bbd7b117cb0c12107fc4f2d955d581",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "37": {
+      "name": "死亡军区[据点]",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage37_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/stage37_gui_m_t.jpg",
+        "logicalPath": "zh_CN/map/stage37_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/stage37_gui_m_t.jpg",
+        "resolution": "literal",
+        "format": "JPEG",
+        "width": 150,
+        "height": 70,
+        "byteLength": 14602,
+        "sha256": "19480293e511e4d9e4f0480a1e8d829e54beebd7042c8e5906ad55c3b18b9051",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "40": {
+      "name": "末日之城[死亡]",
+      "modeType": 4,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage40_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/7529674edf8722e20e37cd001d94a09d.jpg",
+        "logicalPath": "zh_CN/map/stage40_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/7529674edf8722e20e37cd001d94a09d.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 12665,
+        "sha256": "6beac8483c627d9845b48d8ca6dfb4eb11fe443bd07d66f3be8584ea37e08d0e",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "50": {
+      "name": "阳光小镇[基地]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage50_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/584fe12e103cd05ac15516304d93f09b.jpg",
+        "logicalPath": "zh_CN/map/stage50_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/584fe12e103cd05ac15516304d93f09b.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 18028,
+        "sha256": "73711f052e08e7a950b16661346c78f5bb28216b03b44ef12394961ef84d1302",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "70": {
+      "name": "玩命速递[护送]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage70_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/6cd84aefd378b7944155534cd5dcb9be.jpg",
+        "logicalPath": "zh_CN/map/stage70_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/6cd84aefd378b7944155534cd5dcb9be.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 6254,
+        "sha256": "b9fa53e7129db9db58e2da779feab80d1dedcb0d87e61140348fd9706e8db06b",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "80": {
+      "name": "欢乐农场",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage29_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/9ea0c46e243f936568dfe0eb4e069dad.jpg",
+        "logicalPath": "zh_CN/map/stage29_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/9ea0c46e243f936568dfe0eb4e069dad.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 4510,
+        "sha256": "336a1cc63d246147012f185ce0ea29d4e07c9f92640485fea852c736e76d1bd9",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "81": {
+      "name": "欢乐圣诞",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage29_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/9ea0c46e243f936568dfe0eb4e069dad.jpg",
+        "logicalPath": "zh_CN/map/stage29_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/9ea0c46e243f936568dfe0eb4e069dad.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 4510,
+        "sha256": "336a1cc63d246147012f185ce0ea29d4e07c9f92640485fea852c736e76d1bd9",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "82": {
+      "name": "欢乐教学",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage10_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/e7398b4b0162c861fc0f4f6c7e0f9a0a.jpg",
+        "logicalPath": "zh_CN/map/stage10_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/e7398b4b0162c861fc0f4f6c7e0f9a0a.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5872,
+        "sha256": "25b76c88a6d5b7195691a6672b3cea5bb135d857806725806b4976e5290412e6",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "100": {
+      "name": "新兵训练营[训练]",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage100_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "101": {
+      "name": "热血教学",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage101_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/stage101_gui_m_t.jpg",
+        "logicalPath": "zh_CN/map/stage101_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/stage101_gui_m_t.jpg",
+        "resolution": "literal",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 14567,
+        "sha256": "1665d0533d552a81ac5b69a756de9136b6d2a3291b11d2ab6edaa1ca6cc8231f",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "102": {
+      "name": "基地教学",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage102_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "103": {
+      "name": "据点教学",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage103_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "104": {
+      "name": "星辰雪山[热血教学]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage4_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/72c383fb258cb4bb836366b067d22bbd.jpg",
+        "logicalPath": "zh_CN/map/stage4_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/72c383fb258cb4bb836366b067d22bbd.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 14887,
+        "sha256": "b415581a085a96de09010f1548c213b691be2a1553184b1d84e1884e08dd4479",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "130": {
+      "name": "火球赛",
+      "modeType": 7,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage130_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/9fbf34f4d9134f9eb8536e275bc7f070.jpg",
+        "logicalPath": "zh_CN/map/stage130_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/9fbf34f4d9134f9eb8536e275bc7f070.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 14567,
+        "sha256": "1665d0533d552a81ac5b69a756de9136b6d2a3291b11d2ab6edaa1ca6cc8231f",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "150": {
+      "name": "热血练习[演习基地]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage2_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "151": {
+      "name": "热血练习[考古遗址]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage3_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "152": {
+      "name": "热血练习[冰天雪地]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage4_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/72c383fb258cb4bb836366b067d22bbd.jpg",
+        "logicalPath": "zh_CN/map/stage4_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/72c383fb258cb4bb836366b067d22bbd.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 14887,
+        "sha256": "b415581a085a96de09010f1548c213b691be2a1553184b1d84e1884e08dd4479",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "153": {
+      "name": "热血练习[玛雅预言]",
+      "modeType": 3,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage153_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "166": {
+      "name": "基地练习[晶矿争夺]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage12_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/312c66b63676aa4d1dfb7ade964bd489.jpg",
+        "logicalPath": "zh_CN/map/stage12_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/312c66b63676aa4d1dfb7ade964bd489.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 6412,
+        "sha256": "f2e767b2c12ac9aeb854281ac26c6915fe64b0e3e2a71193ffe50c186c10e0cc",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "167": {
+      "name": "基地练习[玛雅遗址]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage14_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/3ff799a795c0781dafbf7ee093fc7ff4.jpg",
+        "logicalPath": "zh_CN/map/stage14_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/3ff799a795c0781dafbf7ee093fc7ff4.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 5292,
+        "sha256": "d42d84cd24cf186624f99456c09c05b2c25046d9e494eb675103e23533e10cdf",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "168": {
+      "name": "基地练习[极地DOTA]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage168_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "169": {
+      "name": "极地DOTA[基地]",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage169_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/8a148df7d9e5a22905e4ebecd486f3f3.jpg",
+        "logicalPath": "zh_CN/map/stage169_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/8a148df7d9e5a22905e4ebecd486f3f3.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 13025,
+        "sha256": "721c6aa1e2b865fb6ba869aa4c17671fe8693529e9ec62e3aaac0efafa0347e4",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "170": {
+      "name": "流沙之地[据点]",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage170_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/1bb6e868c57f5c670f75e190ce055f8e.jpg",
+        "logicalPath": "zh_CN/map/stage170_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/1bb6e868c57f5c670f75e190ce055f8e.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 13284,
+        "sha256": "9d2f2549f93a5c4b2b964a067338fcba2a47a4bdbc97948b8fe7b5e7ce5aa98c",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "175": {
+      "name": "据点练习[越野拉力]",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage7_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/c5c6d3d8eeaf90c91094d3ae5c7fa55c.jpg",
+        "logicalPath": "zh_CN/map/stage7_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/c5c6d3d8eeaf90c91094d3ae5c7fa55c.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 4978,
+        "sha256": "3bfe9042dbe478f3df35e14fb76634dcc5f4e1420c8140a18c67902dd49e064e",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "176": {
+      "name": "坦克试用场",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage7_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/c5c6d3d8eeaf90c91094d3ae5c7fa55c.jpg",
+        "logicalPath": "zh_CN/map/stage7_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/c5c6d3d8eeaf90c91094d3ae5c7fa55c.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 4978,
+        "sha256": "3bfe9042dbe478f3df35e14fb76634dcc5f4e1420c8140a18c67902dd49e064e",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "177": {
+      "name": "流沙之地[据点]",
+      "modeType": 2,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage171_gui_m_t.jpg",
+      "preview": {
+        "url": "/rez/zh_CN/map/fc543ce628a2c89a07e41cbf5e0b7336.jpg",
+        "logicalPath": "zh_CN/map/stage171_gui_m_t.jpg",
+        "physicalPath": "www/rez/zh_CN/map/fc543ce628a2c89a07e41cbf5e0b7336.jpg",
+        "resolution": "fileList",
+        "format": "JPEG",
+        "width": 154,
+        "height": 70,
+        "byteLength": 9015,
+        "sha256": "85803c3414c20e3177a4342251dce25223b96742745d6a48dfce09974a73af44",
+        "verification": "signature-and-dimensions"
+      }
+    },
+    "190": {
+      "name": "副本练习",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage116_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "201": {
+      "name": "邪恶佣兵",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage116_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "203": {
+      "name": "掘金矿场",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage203_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "204": {
+      "name": "雷霆出击",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage204_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "205": {
+      "name": "断桥激战",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage205_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "206": {
+      "name": "英雄救美",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage206_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "211": {
+      "name": "逃离集中营",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage211_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "212": {
+      "name": "跳崖求生",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage212_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "213": {
+      "name": "虎口脱险",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage213_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "301": {
+      "name": "海岸强袭",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage301_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "302": {
+      "name": "摧毁导弹",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage302_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "303": {
+      "name": "要塞巨舰",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage303_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "304": {
+      "name": "野战丛林",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage304_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "305": {
+      "name": "深入虎穴",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage305_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "306": {
+      "name": "狂暴巨坦",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage306_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "401": {
+      "name": "恐怖潜艇",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage401_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "402": {
+      "name": "勇者之路",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage402_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "403": {
+      "name": "蜘蛛VS巨坦",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage403_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "404": {
+      "name": "追击强敌",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage404_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "405": {
+      "name": "守卫大桥",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage405_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "406": {
+      "name": "疯狂火车",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage406_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "501": {
+      "name": "外星入侵",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage501_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "502": {
+      "name": "生死营救",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage502_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "503": {
+      "name": "收复空间站",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage503_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "504": {
+      "name": "绝地反攻",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage504_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "505": {
+      "name": "大战外星人",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage505_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "506": {
+      "name": "首领之战",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage506_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "601": {
+      "name": "营救女王",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage601_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "602": {
+      "name": "死亡飞车",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage602_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "603": {
+      "name": "西斯武士",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage603_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "701": {
+      "name": "机场遇险",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage701_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "702": {
+      "name": "车站狙击",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage702_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "703": {
+      "name": "飓风战舰",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage703_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "2002": {
+      "name": "冰火战场",
+      "modeType": 1,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage2001_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5211": {
+      "name": "逃离集中营",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage211_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5212": {
+      "name": "跳崖求生",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage212_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5213": {
+      "name": "虎口脱险",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage213_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5301": {
+      "name": "海岸强袭",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage301_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5302": {
+      "name": "摧毁导弹",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage302_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5303": {
+      "name": "要塞巨舰",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage303_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5304": {
+      "name": "野战丛林",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage304_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5305": {
+      "name": "深入虎穴",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage305_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5306": {
+      "name": "狂暴巨坦",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage306_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5401": {
+      "name": "恐怖潜艇",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage401_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5402": {
+      "name": "勇者之路",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage402_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5403": {
+      "name": "蜘蛛VS巨坦",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage403_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5404": {
+      "name": "追击强敌",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage404_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5405": {
+      "name": "守卫大桥",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage405_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5406": {
+      "name": "疯狂火车",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage406_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5501": {
+      "name": "外星入侵",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage501_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5502": {
+      "name": "生死营救",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage502_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5503": {
+      "name": "收复空间站",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage503_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5504": {
+      "name": "绝地反攻",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage504_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5505": {
+      "name": "大战外星人",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage505_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5506": {
+      "name": "首领之战",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage506_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5601": {
+      "name": "营救女王",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage601_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5602": {
+      "name": "死亡飞车",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage602_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5603": {
+      "name": "西斯武士",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage603_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5701": {
+      "name": "机场遇险",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage701_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5702": {
+      "name": "车站狙击",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage702_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "5703": {
+      "name": "飓风战舰",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage703_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "8000": {
+      "name": "银马迎春",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage1021_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "8001": {
+      "name": "金马迎春",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage1021_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "8002": {
+      "name": "天马迎春",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage1021_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "8003": {
+      "name": "机甲战羊(普通）",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage1021_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "8004": {
+      "name": "黄金机甲战羊(困难）",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage1021_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "8005": {
+      "name": "神圣机甲战羊(英雄）",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage1021_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "13101": {
+      "name": "魂之炼狱",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage13101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "14101": {
+      "name": "魂之炼狱",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage13101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "23101": {
+      "name": "星际深渊",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage23101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "24101": {
+      "name": "星际深渊",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage23101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "30101": {
+      "name": "钢铁囚牢",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage30101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "30102": {
+      "name": "克隆人计划",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage30102_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "30103": {
+      "name": "黑暗伯爵",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage30103_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31101": {
+      "name": "钢铁囚牢",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage30101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31102": {
+      "name": "克隆人计划",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage30102_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31103": {
+      "name": "黑暗伯爵",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage30103_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31201": {
+      "name": "生化危机",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31201_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31202": {
+      "name": "追寻病毒",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31202_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31203": {
+      "name": "生化佣兵",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31203_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31301": {
+      "name": "死亡都市",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31301_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31302": {
+      "name": "红蜂女王",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31302_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31303": {
+      "name": "死或生",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31303_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31401": {
+      "name": "死亡荒漠",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31401_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31402": {
+      "name": "荒漠基地",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31402_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31403": {
+      "name": "血色黎明",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31403_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31501": {
+      "name": "重返都市",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31501_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31502": {
+      "name": "基地迷影",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31502_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31503": {
+      "name": "末日之源",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31503_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31601": {
+      "name": "惊魂迷宫",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31601_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "31602": {
+      "name": "复仇女神",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31602_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32201": {
+      "name": "生化危机",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31201_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32202": {
+      "name": "追寻病毒",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31202_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32203": {
+      "name": "生化佣兵",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31203_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32301": {
+      "name": "死亡都市",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31301_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32302": {
+      "name": "红蜂女王",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31302_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32303": {
+      "name": "死或生",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31303_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32401": {
+      "name": "死亡荒漠",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31401_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32402": {
+      "name": "荒漠基地",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31402_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32403": {
+      "name": "血色黎明",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31403_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32501": {
+      "name": "重返都市",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31501_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32502": {
+      "name": "基地迷影",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31502_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32503": {
+      "name": "末日之源",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31503_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32601": {
+      "name": "惊魂迷宫",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31601_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "32602": {
+      "name": "复仇女神",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage31602_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "33101": {
+      "name": "众神国度",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage33101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "34101": {
+      "name": "众神国度",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage33101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "40000": {
+      "name": "火焰之王",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage33101_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    },
+    "40002": {
+      "name": "月球基地",
+      "modeType": 0,
+      "previewKind": "prebattle-map-cover",
+      "previewLogicalPath": "zh_CN/map/stage40002_gui_m_t.jpg",
+      "preview": null,
+      "previewMissingReason": "Mapped and literal resource files are absent"
+    }
+  },
+  "summary": {
+    "tankCount": 91,
+    "tankIconsAvailable": 89,
+    "mapCount": 150,
+    "mapPreviewsAvailable": 34,
+    "missingResourcesAreNull": true,
+    "equippedSkinPortraitsIncluded": false,
+    "originalDatabaseUnchanged": true
+  }
+}

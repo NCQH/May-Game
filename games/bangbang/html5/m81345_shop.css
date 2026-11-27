@@ -1,0 +1,23 @@
+/* M45 normal shop only. Existing Fashion/Decoration selectors are unchanged. */
+.m81345-shop-card .m84-shop-card-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.m81345-shop-description{margin:0;overflow:hidden;white-space:pre-line;font:12px/19px Tahoma,Arial,sans-serif;color:#164b66}
+.m81345-shop-card-rule{margin:0;font:700 12px/18px Tahoma,Arial,sans-serif;color:#176086;text-align:center;overflow:hidden}
+.m81345-shop-price{margin:0;font:700 15px/24px Tahoma,Arial,sans-serif;color:#784207;text-align:center;white-space:nowrap}
+.m81345-shop-recovery{display:flex;align-items:center;justify-content:center;gap:12px;padding:3px 8px;box-sizing:border-box;background:#075f8f;color:#fff;border:1px solid #8cddff;border-radius:5px;font:12px Tahoma,Arial,sans-serif;z-index:6}
+.m81345-shop-recovery .m8-button{min-height:25px!important;padding:2px 9px!important}
+.m81345-shop-confirm{color:#164b66;font:13px Tahoma,Arial,sans-serif}
+.m81345-shop-dialog-body{display:flex;flex-direction:column;gap:8px;box-sizing:border-box;overflow:auto;scrollbar-color:#54b7df #d6f4ff}
+.m81345-shop-dialog-body h2{font-size:18px;line-height:24px;margin:0;text-align:center;flex-shrink:0}
+.m81345-shop-dialog-body .m8-note{margin:0;line-height:1.45;font-size:13px}
+.m81345-shop-hero{display:flex;gap:12px;align-items:center;min-height:65px;max-height:94px;flex-shrink:0;overflow:hidden}
+.m81345-shop-hero>div{min-width:0;max-height:90px;overflow:auto}
+.m81345-shop-choices{display:flex;gap:12px;align-items:center;flex-shrink:0}
+.m81345-shop-choices label{white-space:nowrap}.m81345-shop-choices input{width:75px;height:31px;margin-left:5px}
+.m81345-shop-choices select{height:31px;flex:1;min-width:0}
+.m81345-shop-dialog-details{overflow:auto;min-height:36px;flex:1;padding:9px 12px;background:#d8f5ff;border:1px solid #71bfdf;border-radius:5px;scrollbar-color:#54b7df #d6f4ff}
+.m81345-shop-rewards strong{display:block;margin:4px 0;color:#075b88}.m81345-shop-rewards ul{margin:4px 0 7px;padding-left:20px;line-height:1.5}
+.m81345-shop-dialog-status{padding:8px 10px;background:#e5f8ff;border:1px solid #77c6e2;border-radius:4px;flex-shrink:0;color:#064a72}
+.m81345-shop-dialog-footer{display:flex;justify-content:flex-end;gap:12px}
+.m81345-shop-dialog-footer>.m84-native-button{position:relative!important;left:auto!important;top:auto!important;flex-shrink:0}
+.m81345-shop-dialog-footer .m84-button-label{font-size:13px!important}
+.m81345-shop-dialog-body .error{color:#a63f13!important}

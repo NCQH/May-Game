@@ -1,0 +1,31 @@
+.m8-shell[data-screen="loading"] .m8-stage{background:#0054b3}
+.m8-shell[data-screen="loading"] .m83-world-background{display:none}
+.m86-loading{color:#fff;font:13px Tahoma,Arial,sans-serif;isolation:isolate}
+.m86-loading-player{overflow:visible}
+.m86-loading-name{box-sizing:border-box;line-height:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;text-shadow:1px 1px 1px #000,-1px -1px 1px #000}
+.m86-loading-vip-name{background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 1px 1px #000)}
+.m86-loading-guild{display:flex;justify-content:center;align-items:flex-start;white-space:nowrap;overflow:visible;color:#ff8080;font-size:12px;font-weight:bold;line-height:22px;text-shadow:0 1px 2px #000}
+.m86-loading-guild>span{padding-top:6px;max-width:140px;overflow:hidden;text-overflow:ellipsis}
+.m86-loading-guild>img{flex:none;object-fit:contain;max-width:34px;max-height:34px}
+.m86-loading-map-title{font-weight:bold;text-align:center;line-height:22px;white-space:nowrap;text-shadow:1px 1px 2px #000}
+.m86-loading-ping{color:#0f0;font-size:12px;line-height:22px;text-align:left;text-shadow:0 1px 2px #000}
+.m86-loading-status{font-size:12px;line-height:18px;text-align:center;white-space:pre-line;text-shadow:0 1px 2px #003d75}
+.m86-loading-error{color:#fff4ad}
+.m86-loading-exit.m8-button{font:12px Tahoma,Arial,sans-serif;min-width:0;padding:2px 8px;border:1px solid #9bdcff;background:#006ba8cc;box-shadow:inset 0 0 0 1px #00488a;border-radius:11px;color:#fff}
+.m86-loading-exit.m8-button:hover:not(:disabled){background:#1289c0}
+.m86-loading-chat{opacity:.86;font-size:12px}
+.m86-loading-chat-channel{font-weight:bold;text-align:center;line-height:22px;text-shadow:0 1px 2px #00324c}
+.m86-loading-chat-input{box-sizing:border-box;background:transparent;border:0;border-radius:0;padding:0 4px;min-width:0;color:#def3ff!important;opacity:1!important;font:12px Tahoma,Arial,sans-serif}
+.m86-loading-chat-input::placeholder{color:#c2e5f2}
+.m86-loading-pve-enemy{box-sizing:border-box;text-align:center}
+.m86-loading-pve-enemy[hidden]{display:none}
+.m86-loading-pve-enemy .m86-loading-boss{display:block;width:300px;height:242px;margin:0 auto;object-fit:contain;filter:drop-shadow(0 7px 4px #00395b66)}
+.m86-loading-pve-enemy[data-art-kind="chapter"] .m86-loading-boss{object-fit:scale-down}
+.m86-loading-enemy-caption{padding:8px 12px;background:#007faa99;border-radius:8px;line-height:19px;text-shadow:0 1px 2px #00476e}
+.m86-loading-enemy-caption strong{display:block;font-size:17px;color:#ffef68}
+.m86-loading-enemy-caption span{display:block;font-size:11px;color:#d6f7ff}
+.m86-loading-pve .m86-loading-map-title{left:275px!important;top:152.5px!important;width:450px!important;font-size:19px;color:#ffec3b}
+/* User requested clean text for World Boss outside combat. Keep the native
+ * image shadows and ordinary PvE/PvP treatment; only this text is unshaded. */
+.m86-loading-worldboss,.m86-loading-worldboss *{text-shadow:none}
+.m86-loading-worldboss .m86-loading-vip-name{filter:none}

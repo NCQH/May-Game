@@ -1,0 +1,10 @@
+/* Native AskFrame/MsgBox bitmaps, with DOM controls for keyboard access. */
+.m82-common-ask{position:relative;isolation:isolate;flex:none;font:700 14px Tahoma,sans-serif;color:white}
+.m82-message-box{position:absolute;pointer-events:none}
+.m82-message-box-background{overflow:hidden}
+.m82-common-ask .m82-ask-art,.m82-message-box .m82-ask-art{display:block;max-width:none;max-height:none;padding:0;margin:0;border:0;pointer-events:none;user-select:none}
+.m82-common-ask .m82-ask-message{margin:0;padding:0;white-space:pre-line;overflow:auto;line-height:1.45;font:700 14px/1.45 Tahoma,sans-serif;color:#fff}
+.m82-common-ask .m82-ask-button{display:block;min-width:0;min-height:0;padding:1px 6px;margin:0;border:0;border-radius:0;background-color:transparent;background-size:100% 100%;box-shadow:none;font:700 12px/14px Tahoma,sans-serif;color:#fff;text-shadow:0 1px #163e5c;cursor:pointer}
+.m82-common-ask .m82-ask-button:disabled{opacity:.5;cursor:default}
+.m82-common-ask .m82-ask-button:focus-visible{outline:2px solid #ffe785;outline-offset:2px}
+.m82-ask-overlay{position:absolute;inset:0;z-index:50;display:grid;place-items:center;background:#00132a99}

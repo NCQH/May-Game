@@ -1,0 +1,14 @@
+/* Room-local registration fixes; no global modal/button/portrait override. */
+/* The article selector also wins over the older PvE CSS loaded on entry.
+ * Never crop avatar/portrait/level FX to the decoration's rectangle. */
+.pve-room-native article.pve-room-player,.pve-room-native article.pve-room-sidebar-player,
+.m84-native-sidebar article.m84-sidebar-player{overflow:visible;isolation:isolate}
+.m81330-room-ornament-clip{overflow:hidden;pointer-events:none;z-index:0}
+.pve-room-native .pve-room-player>.pve-room-player-name,.m84-room-card>.m84-room-player-name{font-size:12px;line-height:18px}
+.pve-room-native .pve-room-sidebar-player>.pve-room-sidebar-name,.m84-sidebar-player>.m86-sidebar-name{font-size:12px;line-height:20px}
+.pve-room-sidebar-player>.pve-room-helper-power,
+.m84-sidebar-player>.m86-sidebar-rank{font-size:11px;line-height:18px}
+.pve-room-native .pve-room-player>.pve-room-player-avatar,.pve-room-native .pve-room-sidebar-player>.pve-room-sidebar-avatar,.m84-sidebar-avatar{object-fit:contain;pointer-events:none}
+.pve-room-native .pve-room-player>.m81331-room-vip-name,.m84-room-card>.m81331-room-vip-name{background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 1px 1px #483000)}
+.m81331-room-vip{object-fit:contain;pointer-events:none}
+.m85-tank-skins>[data-testid="garage-dialog-close"]{transform-origin:50% 50%}

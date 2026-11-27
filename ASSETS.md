@@ -32,6 +32,16 @@
 - **Quyền sử dụng:** theo xác nhận của người duy trì dự án, đã xin phép PikachuCoDien.net để dùng các asset này. Nguồn không công bố giấy phép mở; không gán asset này MIT/CC0.
 - Asset được lưu trong repo và tải cục bộ, không gọi đến máy chủ nguồn khi chơi.
 
+## Bang Bang Web
+
+- **Nguồn:** `BangBang_Offline-main.zip` (bản offline do người duy trì cung cấp). Người duy trì xác nhận đã có quyền phân phối asset/game data.
+- **Dùng tại:** `games/bangbang/` — client HTML5, asset đã trim theo request thực tế của map 201 + lobby, server PvE Python đóng gói trong `html5/bangbang-py.zip`, Pyodide runtime.
+- **Catalog:** ba catalog lớn (`m5`, `m6`, `m81314`) được chia thành các file `.partN` <25 MiB; `html5/shim.js` ghép lại nguyên bytes trước khi client đọc. Hash/version trong catalog giữ nguyên.
+- **Pyodide:** MPL-2.0; license tại [`games/bangbang/html5/pyodide/LICENSE`](./games/bangbang/html5/pyodide/LICENSE). Python runtime đi kèm Pyodide giữ license tương ứng.
+- **Không server:** trang web tĩnh; `/html5/*` và `/rez/*` được map từ `games/bangbang/` qua `_redirects` (Pages) hoặc `scripts/bangbang/serve.cjs` (local). Không dùng service worker/offline.
+- **Đã vô hiệu hoá logic:** bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad. UI vẫn giữ nguyên (disabled/“chưa mở”). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank; PvP/guild/economy chưa test offline.
+- **Tạo nhân vật:** dùng 57 body sprite `rez/zh_CN/char/*` từ `m8_account_catalog`; lưu `name`/`body` vào `worlds.state` SQLite, persist DB sang IndexedDB.
+
 ## Ảnh bìa catalog
 
 Ảnh bìa nằm trong `assets/covers/`, được khai báo bằng `cover` trong `games.json` và đã cắt/đổi sang WebP trong repo; trang không hotlink ảnh từ nguồn ngoài.

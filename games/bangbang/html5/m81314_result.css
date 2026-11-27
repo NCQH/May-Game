@@ -1,0 +1,23 @@
+.m81314-pve-result{color:#fff;font-family:Tahoma,Arial,sans-serif;overflow:visible;background:none;border:0;border-radius:0;box-shadow:none}
+.m81314-pve-result .m81314-result-art{pointer-events:none;max-width:none;max-height:none}
+.pve-result-label{text-align:right;padding-right:8px;font-weight:900;line-height:40px;font-size:16px;text-shadow:0 2px 3px #004c76}
+.pve-result-value{box-sizing:border-box;padding-left:5px;text-align:left;font:italic 900 39px/50px Arial,sans-serif;color:#ffec43;text-shadow:2px 3px 1px #103c5d,0 0 3px #607847;white-space:nowrap;font-variant-numeric:tabular-nums}
+.pve-result-grade{font-size:54px;font-weight:900;text-align:center;line-height:100px;color:#ffdc24;text-shadow:0 3px 3px #111;white-space:nowrap}
+.pve-result-grade-small{font-size:31px;font-weight:900;text-align:center;line-height:48px;color:#ffdc24;text-shadow:0 2px 3px #111}
+.pve-result-map-name{font-weight:bold;font-size:16px;line-height:25px;text-align:center;text-shadow:0 2px 3px #001a34;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pve-result-avatar{object-fit:contain;filter:drop-shadow(0 3px 2px #003f6a)}
+.pve-result-player-name{text-align:center;font-weight:bold;font-size:19px;line-height:30px;text-shadow:0 2px 2px #001c43;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pve-result-player-grade{text-align:center;font-weight:900;font-size:25px;line-height:32px;color:#ffd533;text-shadow:0 2px 2px #181a10}
+.pve-result-player-stat{box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:5px;padding:1px 10px 1px 15px;background:linear-gradient(100deg,#003465e0,#002a7066);clip-path:polygon(9% 0,100% 0,100% 100%,0 100%);text-shadow:0 1px 2px #031f4b}
+.pve-result-player-stat span{font-size:12px;font-weight:bold}.pve-result-player-stat strong{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pve-result-exp-fill{overflow:hidden}.pve-result-exp-summary{text-align:center;white-space:nowrap;color:#fff;font-size:13px;font-weight:bold;line-height:24px;text-shadow:0 1px 2px #333}
+.pve-result-item-name{text-align:center;overflow:hidden;font-size:11px;line-height:15px;color:#fff;text-shadow:0 1px 2px #02375b}
+.pve-result-item-count{box-sizing:border-box;text-align:right;font-size:17px;line-height:22px;font-weight:900;color:#fff;text-shadow:1px 1px 1px #003850,-1px -1px 1px #003850;white-space:nowrap}
+.pve-result-item img{object-fit:contain}.pve-result-reward-total{font:italic bold 16px/24px Arial,sans-serif;text-align:right;color:#0096be;white-space:nowrap}
+.pve-result-reward-value{text-align:center;color:#0b6100;font-weight:bold;font-size:16px;line-height:24px}
+.pve-result-delivery{font-size:12px;text-align:center;line-height:25px;color:#e7faff;text-shadow:0 1px 3px #001528}
+.pve-result-back.m8-button{min-width:0;padding:0;background:none;border:0;box-shadow:none;border-radius:0;cursor:pointer;isolation:isolate}
+.pve-result-back-label{position:relative;display:flex;align-items:center;justify-content:center;box-sizing:border-box;height:44px;width:156px;padding:0 8px;font:bold 14px Tahoma,Arial,sans-serif;color:#fff;text-shadow:0 2px 1px #00639a;white-space:nowrap}
+.pve-result-back:hover:not(:disabled){filter:brightness(1.12)}.pve-result-back:focus-visible{outline:3px solid #fff;outline-offset:3px}.pve-result-back:disabled{filter:grayscale(.6);cursor:wait}
+.pve-reward-page.m8-button{min-width:0;padding:0;border:1px solid #318bad;background:#e0faff;color:#0477a0;line-height:23px;font-size:20px}.pve-reward-page-number{text-align:center;color:#0477a0;font-size:12px;line-height:22px}
+@media(prefers-reduced-motion:reduce){.m81314-pve-result *{animation:none!important;transition:none!important}}

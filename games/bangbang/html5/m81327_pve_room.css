@@ -1,0 +1,57 @@
+/* RoomFrame.PVE native coordinates. M8UI alone owns viewport scaling/centering. */
+.pve-room-native{position:absolute;inset:0;width:1018px;height:618px;overflow:visible;color:#fff;font:12px/1.4 Tahoma,Arial,sans-serif;isolation:isolate}
+.pve-room-native .pve-room-art{display:block;max-width:none;max-height:none;object-fit:fill;pointer-events:none;user-select:none}
+.pve-room-native .pve-room-button{min-width:0;min-height:0;padding:0;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:white;line-height:normal;overflow:visible}
+.pve-room-native .pve-room-button>img{pointer-events:none}
+.pve-room-native .pve-room-button:hover:not(:disabled){filter:brightness(1.13)}
+.pve-room-native .pve-room-button:disabled{opacity:.55;cursor:default}
+.pve-room-native .pve-room-button.is-unavailable:disabled{opacity:1}
+.pve-room-native .pve-room-button:focus-visible{outline:2px solid #fff29b;outline-offset:3px;border-radius:3px}
+.pve-room-native .pve-room-title{margin:0;line-height:24px;font-size:14px;font-weight:bold;text-align:center;text-shadow:0 1px 2px #666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pve-room-native .pve-room-label{box-sizing:border-box;font-size:12px;line-height:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:1px 1px 1px #004e77;pointer-events:none}
+.pve-room-native .pve-room-number{text-align:center;font-weight:bold;text-shadow:none}
+.pve-room-native .pve-room-id{text-align:left}
+.pve-room-native .pve-room-level{transform-origin:top left;pointer-events:none}
+.pve-room-native .pve-room-player,.pve-room-native .pve-room-sidebar-player{overflow:hidden;isolation:isolate}
+.pve-room-native .pve-room-player-name,.pve-room-native .pve-room-sidebar-name{font-weight:bold}
+.pve-room-native .pve-room-player-name{font-size:12px;line-height:22px}
+.pve-room-native .pve-room-sidebar-name{font-size:12px;color:#fff}
+.pve-room-native .pve-room-helper-power{font-size:10px;font-weight:bold;color:#ccffd6;line-height:18px}
+.pve-room-native .pve-room-ping{text-align:right;font-size:10px;font-weight:bold;color:#00ed00;text-shadow:1px 1px 1px #003e15;line-height:18px}
+.pve-room-native .pve-room-tank-name{display:flex;justify-content:center;align-items:flex-start;font-weight:bold;pointer-events:none}
+.pve-room-native .pve-room-tank-level{display:block;flex:none;margin:3px 2px 0 0;object-fit:fill}
+.pve-room-native .pve-room-tank-caption{display:block;max-width:113px;line-height:24px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:1px 1px 1px #004e77}
+.pve-room-native .pve-room-vip-label{font-size:13px;font-weight:bold;text-align:center;text-shadow:0 1px 1px #b84e04}
+.pve-room-native .pve-room-guild-caption{font-size:10px;font-weight:bold;color:#d4f8ff;text-shadow:0 1px 2px #006393}
+.pve-room-native .pve-room-map-image{display:block;width:168px;height:100px;object-fit:fill;pointer-events:none}
+.pve-room-native .pve-room-status{box-sizing:border-box;margin:0;padding:5px 0;line-height:19px;color:#f0f8fb;text-shadow:1px 1px 1px #000;white-space:pre-line;overflow-wrap:anywhere;font-size:12px;overflow:hidden}
+.pve-room-native .pve-room-tips,.pve-room-native .pve-room-guild{overflow:visible}
+.pve-room-native .pve-room-guild-tab,.pve-room-native .pve-room-guild-frame{box-sizing:border-box;background:#168fbd;border:2px solid #138ab4;box-shadow:inset 1px 1px 2px #67cef1,inset -1px -1px 2px #076f99,0 1px 2px #168cb3;pointer-events:none}
+.pve-room-native .pve-room-guild-tab{border-radius:12px 12px 0 0}
+.pve-room-native .pve-room-guild-frame{border-radius:7px}
+.pve-room-native .pve-room-chat{box-sizing:border-box;overflow:hidden}
+.pve-room-native .pve-room-chat-tabs{display:flex;gap:3px;align-items:center}
+.pve-room-native .pve-room-chat-tab{box-sizing:border-box;display:block;flex:none;width:69px;height:25px;background-repeat:no-repeat;font:bold 13px/25px Tahoma,Arial,sans-serif;text-align:center;color:#fff;text-shadow:1px 1px 2px #000;white-space:nowrap;overflow:hidden}
+.pve-room-native .pve-room-chat-offline{box-sizing:border-box;margin:0;border-bottom:1px solid #626262;color:#fff;font:bold 12px/22px Tahoma,Arial,sans-serif;text-shadow:1px 1px 1px #000}
+.pve-room-native .pve-room-chat-note{margin:0;font:10px/18px Tahoma,Arial,sans-serif;color:#c6c6c6;white-space:nowrap}
+.pve-room-native .pve-room-dialog-shade{z-index:60;isolation:isolate;background:rgba(0,24,43,.48)}
+.pve-room-native .pve-room-dialog{color:#075579}
+.pve-room-native .pve-room-dialog-title{margin:0;font:bold 15px/24px Tahoma,Arial,sans-serif;text-align:center;color:#fff;text-shadow:1px 1px 1px #4e6770}
+.pve-room-native .pve-room-purchase-copy{text-align:center;font-size:13px;line-height:22px}
+.pve-room-native .pve-room-purchase-copy strong{display:block;font-size:20px;line-height:30px;color:#075579}
+.pve-room-native .pve-room-purchase-copy p{margin:5px 0}
+.pve-room-native .pve-room-dialog-button{box-sizing:border-box;border:2px solid #1681b2;border-radius:15px;background:linear-gradient(#8af0ff,#22b7e5 45%,#008cc2);color:#fff;text-shadow:1px 1px 1px #00709a;font:bold 13px/26px Tahoma,Arial,sans-serif;box-shadow:inset 0 1px 2px #fff;min-width:0;padding:0;cursor:pointer}
+.pve-room-native .pve-room-dialog-button.is-primary{border-color:#609f0c;background:linear-gradient(#c8ff69,#87d92d 45%,#42b413);text-shadow:1px 1px 1px #398100}
+.pve-room-native .pve-room-dialog-button:disabled,.pve-room-native .pve-room-guild-choice:disabled{opacity:.55;cursor:default}
+.pve-room-native .pve-room-dialog-button:hover:not(:disabled),.pve-room-native .pve-room-guild-choice:hover:not(:disabled){filter:brightness(1.12)}
+.pve-room-native .pve-room-dialog-button:focus-visible,.pve-room-native .pve-room-guild-choice:focus-visible{outline:2px solid #fff29b;outline-offset:3px}
+.pve-room-native .pve-room-guild-shade{background:transparent}
+.pve-room-native .pve-room-guild-picker{display:grid;grid-template-columns:repeat(5,60px);grid-auto-rows:60px;align-content:start;gap:0;overflow:auto;padding:0;box-sizing:border-box;scrollbar-width:thin;scrollbar-color:#50d6f6 #0875aa}
+.pve-room-native .pve-room-guild-choice{box-sizing:border-box;position:relative;width:60px;height:60px;min-height:0;min-width:0;margin:0;padding:4px;border:1px solid transparent;border-radius:3px;background:transparent;color:#fff;font:10px/13px Tahoma,Arial,sans-serif;cursor:pointer}
+.pve-room-native .pve-room-guild-choice.is-selected{border-color:#fff899;box-shadow:inset 0 0 0 1px #fff899;background:#128ec1}
+.pve-room-native .pve-room-guild-choice-icon{display:block;width:50px;height:50px;object-fit:contain}
+.pve-room-native .pve-room-guild-choice-level{position:absolute;right:5px;bottom:4px;text-shadow:1px 1px 1px #000,-1px -1px 1px #000;pointer-events:none}
+.pve-room-native .pve-room-picker-link{min-width:0;min-height:0;padding:0;margin:0;background:transparent;box-shadow:none;border:0;color:#fff;font:11px/18px Tahoma,Arial,sans-serif;text-decoration:underline;cursor:pointer}
+.pve-room-native .pve-room-picker-link:disabled{opacity:.5;cursor:default}
+.pve-room-native .pve-room-dialog-status{box-sizing:border-box;margin:0;color:#794907;line-height:15px;font-size:11px;overflow:auto;text-align:center}
+.pve-room-native [hidden]{display:none!important}

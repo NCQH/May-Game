@@ -1,0 +1,1602 @@
+{
+  "hudSkills": {
+    "311101": {
+      "logical": "zh_CN/icon/skills/skill_hulub.jpg",
+      "nId": 311101,
+      "szIconPath1": "skill_hulub.jpg"
+    },
+    "313101": {
+      "logical": "zh_CN/icon/skills/skill_leishenb.jpg",
+      "nId": 313101,
+      "szIconPath1": "skill_leishenb.jpg"
+    },
+    "347301": {
+      "logical": "zh_CN/icon/skills/skill_dabai03.jpg",
+      "nId": 347301,
+      "szIconPath1": "skill_dabai03.jpg"
+    },
+    "347401": {
+      "logical": "zh_CN/icon/skills/skill_dabai02.jpg",
+      "nId": 347401,
+      "szIconPath1": "skill_dabai02.jpg"
+    },
+    "349101": {
+      "logical": "zh_CN/icon/skills/skill_lvbu01.jpg",
+      "nId": 349101,
+      "szIconPath1": "skill_lvbu01.jpg"
+    },
+    "349211": {
+      "logical": "zh_CN/icon/skills/skill_lvbu04.jpg",
+      "nId": 349211,
+      "szIconPath1": "skill_lvbu04.jpg"
+    },
+    "353501": {
+      "logical": "zh_CN/icon/skills/skill_haiyao04.jpg",
+      "nId": 353501,
+      "szIconPath1": "skill_haiyao04.jpg"
+    },
+    "365501": {
+      "logical": "zh_CN/icon/skills/skill_nazi04.jpg",
+      "nId": 365501,
+      "szIconPath1": "skill_nazi04.jpg"
+    },
+    "365601": {
+      "logical": "zh_CN/icon/skills/skill_nazi05.jpg",
+      "nId": 365601,
+      "szIconPath1": "skill_nazi05.jpg"
+    },
+    "368320": {
+      "logical": "zh_CN/icon/skills/skill_zuozhu05.jpg",
+      "nId": 368320,
+      "szIconPath1": "skill_zuozhu05.jpg"
+    },
+    "404101": {
+      "logical": "zh_CN/icon/skills/skill_xiongmao01_pf01.jpg",
+      "nId": 404101,
+      "szIconPath1": "skill_xiongmao01_pf01.jpg"
+    },
+    "405201": {
+      "logical": "zh_CN/icon/skills/skill_jinglingwangzi_pf01_e.jpg",
+      "nId": 405201,
+      "szIconPath1": "skill_jinglingwangzi_pf01_e.jpg"
+    },
+    "405301": {
+      "logical": "zh_CN/icon/skills/skill_jinglingwangzi_pf01_k.jpg",
+      "nId": 405301,
+      "szIconPath1": "skill_jinglingwangzi_pf01_k.jpg"
+    },
+    "405401": {
+      "logical": "zh_CN/icon/skills/skill_jinglingwangzi_pf01_r.jpg",
+      "nId": 405401,
+      "szIconPath1": "skill_jinglingwangzi_pf01_r.jpg"
+    },
+    "439101": {
+      "logical": "zh_CN/icon/skills/skill_xihun_pf01.jpg",
+      "nId": 439101,
+      "szIconPath1": "skill_xihun_pf01.jpg"
+    },
+    "440101": {
+      "logical": "zh_CN/icon/skills/skill_jiguang_pf01.jpg",
+      "nId": 440101,
+      "szIconPath1": "skill_jiguang_pf01.jpg"
+    },
+    "453301": {
+      "logical": "zh_CN/icon/skills/skill_dabai13.jpg",
+      "nId": 453301,
+      "szIconPath1": "skill_dabai13.jpg"
+    },
+    "453311": {
+      "logical": "zh_CN/icon/skills/skill_dabai13.jpg",
+      "nId": 453311,
+      "szIconPath1": "skill_dabai13.jpg"
+    },
+    "455101": {
+      "logical": "zh_CN/icon/skills/skill_dahuangfeng101.jpg",
+      "nId": 455101,
+      "szIconPath1": "skill_dahuangfeng101.jpg"
+    },
+    "456101": {
+      "logical": "zh_CN/icon/skills/skill_dahuangfeng201.jpg",
+      "nId": 456101,
+      "szIconPath1": "skill_dahuangfeng201.jpg"
+    },
+    "460101": {
+      "logical": "zh_CN/icon/skills/skill_diaochan01_pf01.jpg",
+      "nId": 460101,
+      "szIconPath1": "skill_diaochan01_pf01.jpg"
+    },
+    "461101": {
+      "logical": "zh_CN/icon/skills/skill_diaochan01_pf02.jpg",
+      "nId": 461101,
+      "szIconPath1": "skill_diaochan01_pf02.jpg"
+    },
+    "463101": {
+      "logical": "zh_CN/icon/skills/skill_lvbu01_pf01.jpg",
+      "nId": 463101,
+      "szIconPath1": "skill_lvbu01_pf01.jpg"
+    },
+    "470101": {
+      "logical": "zh_CN/icon/skills/skill_tishenshu011.jpg",
+      "nId": 470101,
+      "szIconPath1": "skill_tishenshu011.jpg"
+    },
+    "472101": {
+      "logical": "zh_CN/icon/skills/skill_xihun01.jpg",
+      "nId": 472101,
+      "szIconPath1": "skill_xihun01.jpg"
+    },
+    "474101": {
+      "logical": "zh_CN/icon/skills/skill_sanli01_pf01.jpg",
+      "nId": 474101,
+      "szIconPath1": "skill_sanli01_pf01.jpg"
+    },
+    "477101": {
+      "logical": "zh_CN/icon/skills/skill_haiyao01_pf01.jpg",
+      "nId": 477101,
+      "szIconPath1": "skill_haiyao01_pf01.jpg"
+    },
+    "477201": {
+      "logical": "zh_CN/icon/skills/skill_haiyao02_pf01.jpg",
+      "nId": 477201,
+      "szIconPath1": "skill_haiyao02_pf01.jpg"
+    },
+    "477301": {
+      "logical": "zh_CN/icon/skills/skill_haiyao03_pf01.jpg",
+      "nId": 477301,
+      "szIconPath1": "skill_haiyao03_pf01.jpg"
+    },
+    "477501": {
+      "logical": "zh_CN/icon/skills/skill_haiyao04_pf01.jpg",
+      "nId": 477501,
+      "szIconPath1": "skill_haiyao04_pf01.jpg"
+    },
+    "480101": {
+      "logical": "zh_CN/icon/skills/skill_xiaolimao01_pf01.jpg",
+      "nId": 480101,
+      "szIconPath1": "skill_xiaolimao01_pf01.jpg"
+    },
+    "483101": {
+      "logical": "zh_CN/icon/skills/skill_libai01_pf01.jpg",
+      "nId": 483101,
+      "szIconPath1": "skill_libai01_pf01.jpg"
+    },
+    "485101": {
+      "logical": "zh_CN/icon/skills/skill_nezha01_pf01.jpg",
+      "nId": 485101,
+      "szIconPath1": "skill_nezha01_pf01.jpg"
+    },
+    "486101": {
+      "logical": "zh_CN/icon/skills/skill_nezha01_pf02.jpg",
+      "nId": 486101,
+      "szIconPath1": "skill_nezha01_pf02.jpg"
+    },
+    "487101": {
+      "logical": "zh_CN/icon/skills/skill_boshi01_pf01.jpg",
+      "nId": 487101,
+      "szIconPath1": "skill_boshi01_pf01.jpg"
+    },
+    "490101": {
+      "logical": "zh_CN/icon/skills/skill_zhuge01_pf02.jpg",
+      "nId": 490101,
+      "szIconPath1": "skill_zhuge01_pf02.jpg"
+    },
+    "493101": {
+      "logical": "zh_CN/icon/skills/skill_yaohu01_pf01.jpg",
+      "nId": 493101,
+      "szIconPath1": "skill_yaohu01_pf01.jpg"
+    },
+    "608320": {
+      "logical": "zh_CN/icon/skills/skill_zuozhu_pf05.jpg",
+      "nId": 608320,
+      "szIconPath1": "skill_zuozhu_pf05.jpg"
+    },
+    "613301": {
+      "logical": "zh_CN/icon/skills/skill_shengdan_pfk.jpg",
+      "nId": 613301,
+      "szIconPath1": "skill_shengdan_pfk.jpg"
+    },
+    "613401": {
+      "logical": "zh_CN/icon/skills/skill_shengdan_pfr.jpg",
+      "nId": 613401,
+      "szIconPath1": "skill_shengdan_pfr.jpg"
+    },
+    "618101": {
+      "logical": "zh_CN/icon/skills/skill_zhiyu_pf.jpg",
+      "nId": 618101,
+      "szIconPath1": "skill_zhiyu_pf.jpg"
+    },
+    "618401": {
+      "logical": "zh_CN/icon/skills/skill_zhenkongbo_pf.jpg",
+      "nId": 618401,
+      "szIconPath1": "skill_zhenkongbo_pf.jpg"
+    },
+    "618501": {
+      "logical": "zh_CN/icon/skills/skill_congtianerjiang_pf.jpg",
+      "nId": 618501,
+      "szIconPath1": "skill_congtianerjiang_pf.jpg"
+    },
+    "618601": {
+      "logical": "zh_CN/icon/skills/skill_zhiyu_pf.jpg",
+      "nId": 618601,
+      "szIconPath1": "skill_zhiyu_pf.jpg"
+    },
+    "621101": {
+      "logical": "zh_CN/icon/skills/skill_bika_pf01.jpg",
+      "nId": 621101,
+      "szIconPath1": "skill_bika_pf01.jpg"
+    },
+    "621201": {
+      "logical": "zh_CN/icon/skills/skill_bika_pf02.jpg",
+      "nId": 621201,
+      "szIconPath1": "skill_bika_pf02.jpg"
+    },
+    "621301": {
+      "logical": "zh_CN/icon/skills/skill_bika_pf03.jpg",
+      "nId": 621301,
+      "szIconPath1": "skill_bika_pf03.jpg"
+    },
+    "621401": {
+      "logical": "zh_CN/icon/skills/skill_bika_pf04.jpg",
+      "nId": 621401,
+      "szIconPath1": "skill_bika_pf04.jpg"
+    },
+    "623301": {
+      "logical": "zh_CN/icon/skills/skill_duanzuizhitong_pf01.jpg",
+      "nId": 623301,
+      "szIconPath1": "skill_duanzuizhitong_pf01.jpg"
+    },
+    "627021": {
+      "logical": "zh_CN/icon/skills/skill_fenghuange02.jpg",
+      "nId": 627021,
+      "szIconPath1": "skill_fenghuange02.jpg"
+    },
+    "627023": {
+      "logical": "zh_CN/icon/skills/skill_fenghuange02.jpg",
+      "nId": 627023,
+      "szIconPath1": "skill_fenghuange02.jpg"
+    },
+    "627031": {
+      "logical": "zh_CN/icon/skills/skill_fenghuangk02.jpg",
+      "nId": 627031,
+      "szIconPath1": "skill_fenghuangk02.jpg"
+    },
+    "627041": {
+      "logical": "zh_CN/icon/skills/skill_fenghuangr02.jpg",
+      "nId": 627041,
+      "szIconPath1": "skill_fenghuangr02.jpg"
+    },
+    "628011": {
+      "logical": "zh_CN/icon/skills/skill_fenghuangb_pf02.jpg",
+      "nId": 628011,
+      "szIconPath1": "skill_fenghuangb_pf02.jpg"
+    },
+    "648101": {
+      "logical": "zh_CN/icon/skills/skill_diaochan01_pf03.jpg",
+      "nId": 648101,
+      "szIconPath1": "skill_diaochan01_pf03.jpg"
+    },
+    "651201": {
+      "logical": "zh_CN/icon/skills/skill_douwa02_pf02.jpg",
+      "nId": 651201,
+      "szIconPath1": "skill_douwa02_pf02.jpg"
+    },
+    "651301": {
+      "logical": "zh_CN/icon/skills/skill_douwa03_pf02.jpg",
+      "nId": 651301,
+      "szIconPath1": "skill_douwa03_pf02.jpg"
+    },
+    "651401": {
+      "logical": "zh_CN/icon/skills/skill_douwa01_pf02.jpg",
+      "nId": 651401,
+      "szIconPath1": "skill_douwa01_pf02.jpg"
+    },
+    "663101": {
+      "logical": "zh_CN/icon/skills/skill_tiejia_pf01.jpg",
+      "nId": 663101,
+      "szIconPath1": "skill_tiejia_pf01.jpg"
+    },
+    "663201": {
+      "logical": "zh_CN/icon/skills/skill_hongzha_pf01.jpg",
+      "nId": 663201,
+      "szIconPath1": "skill_hongzha_pf01.jpg"
+    },
+    "663301": {
+      "logical": "zh_CN/icon/skills/skill_penshe_pf01.jpg",
+      "nId": 663301,
+      "szIconPath1": "skill_penshe_pf01.jpg"
+    },
+    "663401": {
+      "logical": "zh_CN/icon/skills/skill_tiejia_pf01.jpg",
+      "nId": 663401,
+      "szIconPath1": "skill_tiejia_pf01.jpg"
+    },
+    "663601": {
+      "logical": "zh_CN/icon/skills/skill_penshe_pf01.jpg",
+      "nId": 663601,
+      "szIconPath1": "skill_penshe_pf01.jpg"
+    },
+    "675201": {
+      "logical": "zh_CN/icon/skills/skill_heibao_pfe.jpg",
+      "nId": 675201,
+      "szIconPath1": "skill_heibao_pfe.jpg"
+    },
+    "675301": {
+      "logical": "zh_CN/icon/skills/skill_heibao_pfk.jpg",
+      "nId": 675301,
+      "szIconPath1": "skill_heibao_pfk.jpg"
+    },
+    "675401": {
+      "logical": "zh_CN/icon/skills/skill_heibao_pfr.jpg",
+      "nId": 675401,
+      "szIconPath1": "skill_heibao_pfr.jpg"
+    },
+    "678201": {
+      "logical": "zh_CN/icon/skills/skill_niumo_pfe.jpg",
+      "nId": 678201,
+      "szIconPath1": "skill_niumo_pfe.jpg"
+    },
+    "678301": {
+      "logical": "zh_CN/icon/skills/skill_niumo_pfk.jpg",
+      "nId": 678301,
+      "szIconPath1": "skill_niumo_pfk.jpg"
+    },
+    "678401": {
+      "logical": "zh_CN/icon/skills/skill_niumo_pfr.jpg",
+      "nId": 678401,
+      "szIconPath1": "skill_niumo_pfr.jpg"
+    }
+  },
+  "items": {
+    "5650101": {
+      "icon": "zh_CN/icon/item/js_hgj05.png"
+    },
+    "5650103": {
+      "icon": "zh_CN/icon/item/js_hyh05.png"
+    },
+    "5650104": {
+      "icon": "zh_CN/icon/item/js_hjx05.png"
+    },
+    "5650105": {
+      "icon": "zh_CN/icon/item/js_hfg05.png"
+    },
+    "5650205": {
+      "icon": "zh_CN/icon/item/js_lwf05.png"
+    },
+    "5650206": {
+      "icon": "zh_CN/icon/item/js_lss05.png"
+    },
+    "5650208": {
+      "icon": "zh_CN/icon/item/js_hpx05.png"
+    },
+    "5650209": {
+      "icon": "zh_CN/icon/item/js_lff05.png"
+    },
+    "5650309": {
+      "icon": "zh_CN/icon/item/js_hsm05.png"
+    },
+    "5650311": {
+      "icon": "zh_CN/icon/item/js_hpb05.png"
+    },
+    "5650312": {
+      "icon": "zh_CN/icon/item/js_hfc05.png"
+    }
+  },
+  "nativePortraits": {
+    "10126": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 248,
+      "logical": "zh_CN/avatar/gangtiexia_pf06.swf",
+      "nativeMovie": {
+        "bytes": 136012,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "3f1e41db04b9c201e5952b6a87a85f3f72ecb10c73830fd0d5f3b4d72e6cad8f",
+        "scriptTagTypes": [],
+        "sha256": "40cd403487180263e80e8e70af34a0e04d376d8a4a66a0db4c4065696db53f3a",
+        "sourceSha256": "bd48c16128a0a647a201b48ae7af7d030631aa9e9553a426c4d58b267f483a8a",
+        "sourceTagStreamSha256": "3f1e41db04b9c201e5952b6a87a85f3f72ecb10c73830fd0d5f3b4d72e6cad8f",
+        "url": "/html5/assets/m81314_presentation/native_movies/40cd403487180263e80e8e70af34a0e04d376d8a4a66a0db4c4065696db53f3a.swf",
+        "viewport": [
+          -24,
+          -24,
+          224,
+          224
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -24,
+        -24,
+        224,
+        224
+      ],
+      "width": 248
+    },
+    "10601": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 245,
+      "logical": "zh_CN/avatar/qiaoba_pf04.swf",
+      "nativeMovie": {
+        "bytes": 242530,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "4d243095a78d7c02296b666a0abd1a72f931126bf0f6a1a64c10a9c5af548198",
+        "scriptTagTypes": [],
+        "sha256": "fc86dc9cac789338920627f87e7a65de44b185096eee6f10fe0ed750c9ab36df",
+        "sourceSha256": "83a2ee71d267ee8a7142bf6d85a5819aab876754e27c812dac83f862d0d4f149",
+        "sourceTagStreamSha256": "4d243095a78d7c02296b666a0abd1a72f931126bf0f6a1a64c10a9c5af548198",
+        "url": "/html5/assets/m81314_presentation/native_movies/fc86dc9cac789338920627f87e7a65de44b185096eee6f10fe0ed750c9ab36df.swf",
+        "viewport": [
+          -61,
+          -16,
+          211,
+          229
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": true,
+      "viewport": [
+        -61,
+        -16,
+        211,
+        229
+      ],
+      "width": 272
+    },
+    "10605": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 226,
+      "logical": "zh_CN/avatar/nangua_pf02.swf",
+      "nativeMovie": {
+        "bytes": 93163,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "1c6154146da502304ab359d26772b42e9e8da5c63459269fc88ed457da59eb88",
+        "scriptTagTypes": [],
+        "sha256": "96bfae1f431640a795f66c81e6ebb0da92e0a2398566be167cede5708d02114d",
+        "sourceSha256": "c2b018ccb532efb618c7aaf1be378d9fc6bcec753fad811891ef66be3e78f5ac",
+        "sourceTagStreamSha256": "1c6154146da502304ab359d26772b42e9e8da5c63459269fc88ed457da59eb88",
+        "url": "/html5/assets/m81314_presentation/native_movies/96bfae1f431640a795f66c81e6ebb0da92e0a2398566be167cede5708d02114d.swf",
+        "viewport": [
+          -14,
+          -31,
+          234,
+          195
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": true,
+      "viewport": [
+        -14,
+        -31,
+        234,
+        195
+      ],
+      "width": 248
+    },
+    "10612": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 535,
+      "logical": "zh_CN/avatar/shouwang_pf01.swf",
+      "nativeMovie": {
+        "bytes": 140202,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "13675f1672e4a48698b28ec6654178f988285d70c8bd00f82241802cff311e6f",
+        "scriptTagTypes": [],
+        "sha256": "57ca50238c825d9f48e2b17e04ecf79ef75648d124c7a98b2e1516e8fb247604",
+        "sourceSha256": "cebe9ebcf0b1608a5d34ce9db174d464923d0fe7a13c45d9b133968d8c064b2b",
+        "sourceTagStreamSha256": "13675f1672e4a48698b28ec6654178f988285d70c8bd00f82241802cff311e6f",
+        "url": "/html5/assets/m81314_presentation/native_movies/57ca50238c825d9f48e2b17e04ecf79ef75648d124c7a98b2e1516e8fb247604.swf",
+        "viewport": [
+          -157,
+          -203,
+          438,
+          332
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": true,
+      "viewport": [
+        -157,
+        -203,
+        438,
+        332
+      ],
+      "width": 595
+    },
+    "10622": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 208,
+      "logical": "zh_CN/avatar/xiaochou_pf01.swf",
+      "nativeMovie": {
+        "bytes": 132278,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "a35504ef50632d6f4ecfa9f776a08a1aa8d3b402932c8d4dd534212e43e114db",
+        "scriptTagTypes": [],
+        "sha256": "afd65514560c9f7e9b9ac6877d1f9f3dfbc05cdc654eff41dd89961e12bc8d59",
+        "sourceSha256": "9296229b5c83934e06d106371d666b83dfbdb6af1c3f4193e8dd1213fa1f954f",
+        "sourceTagStreamSha256": "a35504ef50632d6f4ecfa9f776a08a1aa8d3b402932c8d4dd534212e43e114db",
+        "url": "/html5/assets/m81314_presentation/native_movies/afd65514560c9f7e9b9ac6877d1f9f3dfbc05cdc654eff41dd89961e12bc8d59.swf",
+        "viewport": [
+          -2,
+          -15,
+          206,
+          193
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -2,
+        -15,
+        206,
+        193
+      ],
+      "width": 208
+    },
+    "10647": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 231,
+      "logical": "zh_CN/avatar/duxie_pf11.swf",
+      "nativeMovie": {
+        "bytes": 220339,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "4feb1bd6ca95659ee36a6b0adf40f28a29ce2619654696f035df371e8d7b4cb0",
+        "scriptTagTypes": [],
+        "sha256": "c00052335be7c2be1992cfcb37bfd38c3a751c9222d4cc07470727a0159be0e3",
+        "sourceSha256": "0bb682a555b83828cbffb0df6c938a6c940243697a0baff3566ca3c31f9a4c71",
+        "sourceTagStreamSha256": "4feb1bd6ca95659ee36a6b0adf40f28a29ce2619654696f035df371e8d7b4cb0",
+        "url": "/html5/assets/m81314_presentation/native_movies/c00052335be7c2be1992cfcb37bfd38c3a751c9222d4cc07470727a0159be0e3.swf",
+        "viewport": [
+          9,
+          -14,
+          213,
+          217
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        9,
+        -14,
+        213,
+        217
+      ],
+      "width": 204
+    },
+    "10654": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 247,
+      "logical": "zh_CN/avatar/qiaoba_pf05.swf",
+      "nativeMovie": {
+        "bytes": 213499,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "8b9e5bbe74749359c48b2eb22ea6197208fd8e18e88b6bccbc52ec724f15f915",
+        "scriptTagTypes": [],
+        "sha256": "3005ca3e3c5fa5ec2cc2c6e1b8aed4b49d8e0cc6e75d25ec6918e5e46eda495f",
+        "sourceSha256": "e39be89867d7f0cb47801acf2b0018c1ceed588ca202b662357d13248597a4cc",
+        "sourceTagStreamSha256": "8b9e5bbe74749359c48b2eb22ea6197208fd8e18e88b6bccbc52ec724f15f915",
+        "url": "/html5/assets/m81314_presentation/native_movies/3005ca3e3c5fa5ec2cc2c6e1b8aed4b49d8e0cc6e75d25ec6918e5e46eda495f.swf",
+        "viewport": [
+          -14,
+          -26,
+          224,
+          221
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -14,
+        -26,
+        224,
+        221
+      ],
+      "width": 238
+    },
+    "10663": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 273,
+      "logical": "zh_CN/avatar/dahuangfeng_pf01.swf",
+      "nativeMovie": {
+        "bytes": 282056,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "4540a45049886c5f27cb2c8dd8573b3446ed8e9c4098ec637d696dd5004bbf45",
+        "scriptTagTypes": [],
+        "sha256": "f06e44278f4bf759d8295f3bbc9a6a68be3c810f4ac1141e0e2ad1c5d6bd85dd",
+        "sourceSha256": "da32bf566b257474944557bf389c23e81b434bccda3c19b2cee5f1dac45b8e47",
+        "sourceTagStreamSha256": "4540a45049886c5f27cb2c8dd8573b3446ed8e9c4098ec637d696dd5004bbf45",
+        "url": "/html5/assets/m81314_presentation/native_movies/f06e44278f4bf759d8295f3bbc9a6a68be3c810f4ac1141e0e2ad1c5d6bd85dd.swf",
+        "viewport": [
+          2,
+          -11,
+          281,
+          262
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        2,
+        -11,
+        281,
+        262
+      ],
+      "width": 279
+    },
+    "10697": {
+      "animation": true,
+      "bodyOffset": [
+        10.5,
+        51.5
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 229,
+      "logical": "zh_CN/avatar/simayi_pf02.swf",
+      "nativeMovie": {
+        "bytes": 136644,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "bd6da9bdfa6a5128a8c5eaaca3420d577b54bbd1b3ba9d87ea361844cff0d389",
+        "scriptTagTypes": [],
+        "sha256": "17706f7399019d5f87ec1add993d84863f16bdd4dae3e3e296925e74602862bc",
+        "sourceSha256": "003ed4e2ae3a32d581cb84d2de6d084e18b5fb75702f51a6d15ec063239b1955",
+        "sourceTagStreamSha256": "bd6da9bdfa6a5128a8c5eaaca3420d577b54bbd1b3ba9d87ea361844cff0d389",
+        "url": "/html5/assets/m81314_presentation/native_movies/17706f7399019d5f87ec1add993d84863f16bdd4dae3e3e296925e74602862bc.swf",
+        "viewport": [
+          -32,
+          -62,
+          197,
+          167
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": true,
+      "viewport": [
+        -32,
+        -62,
+        197,
+        167
+      ],
+      "width": 229
+    },
+    "10698": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 248,
+      "logical": "zh_CN/avatar/heibao_pf01.swf",
+      "nativeMovie": {
+        "bytes": 143604,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "4c15a7cc371fc4b4052721d4e9aa9abf77157a9e9aa8e475e86d67ef80e6fcfc",
+        "scriptTagTypes": [],
+        "sha256": "0c458311da18c55f14e52d9889ae189def6711ddb4adef717eba578202a53fa8",
+        "sourceSha256": "b6bc2057fadc9994cd1aed0f0fe9477d8e536091a81c67e3d90be13e52aca108",
+        "sourceTagStreamSha256": "4c15a7cc371fc4b4052721d4e9aa9abf77157a9e9aa8e475e86d67ef80e6fcfc",
+        "url": "/html5/assets/m81314_presentation/native_movies/0c458311da18c55f14e52d9889ae189def6711ddb4adef717eba578202a53fa8.swf",
+        "viewport": [
+          -24,
+          -24,
+          224,
+          224
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -24,
+        -24,
+        224,
+        224
+      ],
+      "width": 248
+    },
+    "10705": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 250,
+      "logical": "zh_CN/avatar/douwa03_pf02.swf",
+      "nativeMovie": {
+        "bytes": 184073,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "9d63cac86568bfd1c5890fc94b372a2e6149ceaae607fa5324822287032c285f",
+        "scriptTagTypes": [],
+        "sha256": "f4c093ac1655ed561da7ca11bb33becd781914b309c9c2d8382d07c2c703c9aa",
+        "sourceSha256": "c249a729d5327d5c1699d3d94e8c99cd42975a73f3e9243486c033b6b0f11dbe",
+        "sourceTagStreamSha256": "9d63cac86568bfd1c5890fc94b372a2e6149ceaae607fa5324822287032c285f",
+        "url": "/html5/assets/m81314_presentation/native_movies/f4c093ac1655ed561da7ca11bb33becd781914b309c9c2d8382d07c2c703c9aa.swf",
+        "viewport": [
+          -25,
+          -25,
+          225,
+          225
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -25,
+        -25,
+        225,
+        225
+      ],
+      "width": 250
+    },
+    "10706": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 204,
+      "logical": "zh_CN/avatar/niumo_pf02.swf",
+      "nativeMovie": {
+        "bytes": 144403,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "64659e3e9c11e30bf56ba2bc81bbc3ff2eb110da2c8a3d9de5be4f6ce20cb7ee",
+        "scriptTagTypes": [],
+        "sha256": "59222bcdb2b4b7b8ee39dd2233ee4dc5bcc63ec5a579d1d2805514ba777090b1",
+        "sourceSha256": "a5cca39c464c59a9292dd472176d4c67ef648d4880114ad77965236d83673b49",
+        "sourceTagStreamSha256": "64659e3e9c11e30bf56ba2bc81bbc3ff2eb110da2c8a3d9de5be4f6ce20cb7ee",
+        "url": "/html5/assets/m81314_presentation/native_movies/59222bcdb2b4b7b8ee39dd2233ee4dc5bcc63ec5a579d1d2805514ba777090b1.swf",
+        "viewport": [
+          2,
+          -6,
+          227,
+          198
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        2,
+        -6,
+        227,
+        198
+      ],
+      "width": 225
+    },
+    "10707": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 193,
+      "logical": "zh_CN/avatar/tianqi_pf11.swf",
+      "nativeMovie": {
+        "bytes": 137126,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "bf78db5c01932eefff94baa8b63742276e2d521e25b4533dd362fd1059ccb8b5",
+        "scriptTagTypes": [],
+        "sha256": "57fb05e29dc3a8f24d2f8c5f82eb546339b8992a8ec091693395a8965609ca2f",
+        "sourceSha256": "5df6aab42b0071d9cb68bd355d08bb3b3b20962e7c40663e011afe29e5663260",
+        "sourceTagStreamSha256": "bf78db5c01932eefff94baa8b63742276e2d521e25b4533dd362fd1059ccb8b5",
+        "url": "/html5/assets/m81314_presentation/native_movies/57fb05e29dc3a8f24d2f8c5f82eb546339b8992a8ec091693395a8965609ca2f.swf",
+        "viewport": [
+          -4,
+          3,
+          206,
+          196
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -4,
+        3,
+        206,
+        196
+      ],
+      "width": 210
+    },
+    "673": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 208,
+      "logical": "zh_CN/avatar/yadianna03.swf",
+      "nativeMovie": {
+        "bytes": 46619,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "d5ce0f7e5f8f9b321b73436e5cd3d65ac2d8c9f960915d7d0e0eaa59ae0a5a0e",
+        "scriptTagTypes": [],
+        "sha256": "07aedb4c83293e96c79a36c74dcb34d4ae3c73405ad9e698db841b17de6d5232",
+        "sourceSha256": "daf7995a417c0e1ec02f9e301610234536ca484190b243639f5ff69ee84d04fd",
+        "sourceTagStreamSha256": "d5ce0f7e5f8f9b321b73436e5cd3d65ac2d8c9f960915d7d0e0eaa59ae0a5a0e",
+        "url": "/html5/assets/m81314_presentation/native_movies/07aedb4c83293e96c79a36c74dcb34d4ae3c73405ad9e698db841b17de6d5232.swf",
+        "viewport": [
+          -4,
+          -4,
+          204,
+          204
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -4,
+        -4,
+        204,
+        204
+      ],
+      "width": 208
+    },
+    "703": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 209,
+      "logical": "zh_CN/avatar/jinshanshan03.swf",
+      "nativeMovie": {
+        "bytes": 173494,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "53e92ba31039ed3e1828bb21a9da53f41152541e4b8d8a311af68d7b0e46e860",
+        "scriptTagTypes": [],
+        "sha256": "67758f4fbab95c56a03a96642f4d96d52efdedd2a54977808d113b49a3193753",
+        "sourceSha256": "6ad27f662c4c2806e0691add5dfcde12f5a6637b2fa96f1fe2fd10607d3db716",
+        "sourceTagStreamSha256": "53e92ba31039ed3e1828bb21a9da53f41152541e4b8d8a311af68d7b0e46e860",
+        "url": "/html5/assets/m81314_presentation/native_movies/67758f4fbab95c56a03a96642f4d96d52efdedd2a54977808d113b49a3193753.swf",
+        "viewport": [
+          0,
+          -3,
+          203,
+          206
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        0,
+        -3,
+        203,
+        206
+      ],
+      "width": 203
+    },
+    "713": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 188,
+      "logical": "zh_CN/avatar/xingjue03.swf",
+      "nativeMovie": {
+        "bytes": 181320,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "3102fe2a91222503b6193873a3f72adb8df6e817138355fb569d3a4a438418e1",
+        "scriptTagTypes": [],
+        "sha256": "d248367716af4e0b5b0ad61f81e3b414c8ae993817eeed36a7730b85310b132c",
+        "sourceSha256": "3e429de84395d2b6a64a4479aa3cff70149ae841d88bc3588263f7ae04486dd1",
+        "sourceTagStreamSha256": "3102fe2a91222503b6193873a3f72adb8df6e817138355fb569d3a4a438418e1",
+        "url": "/html5/assets/m81314_presentation/native_movies/d248367716af4e0b5b0ad61f81e3b414c8ae993817eeed36a7730b85310b132c.swf",
+        "viewport": [
+          6,
+          6,
+          195,
+          194
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        6,
+        6,
+        195,
+        194
+      ],
+      "width": 189
+    },
+    "753": {
+      "animation": true,
+      "bodyOffset": [
+        0.0,
+        0.0
+      ],
+      "fallbackAnimation": true,
+      "frameRate": 24,
+      "height": 249,
+      "logical": "zh_CN/avatar/zuozhu03.swf",
+      "nativeMovie": {
+        "bytes": 238623,
+        "derivation": "Viewing RECT/file length only; original frame header and every tag byte preserved",
+        "renderTagStreamSha256": "897ca6fc17f8197f4f4f4a5f37657f0c12062c2d64afd86c2a7f12f2ec00840c",
+        "scriptTagTypes": [],
+        "sha256": "b1a56bc4fe0afc399c537b0a498783fd7b72d28775607f4261add06ddab042cc",
+        "sourceSha256": "62788175219b5ca947e3e62b6250b52c37c6da71ba1cc19c21d7703fe7f1724d",
+        "sourceTagStreamSha256": "897ca6fc17f8197f4f4f4a5f37657f0c12062c2d64afd86c2a7f12f2ec00840c",
+        "url": "/html5/assets/m81314_presentation/native_movies/b1a56bc4fe0afc399c537b0a498783fd7b72d28775607f4261add06ddab042cc.swf",
+        "viewport": [
+          -23,
+          -25,
+          226,
+          224
+        ]
+      },
+      "presentationLimit": "Native child playback is available in the menu; combat HUD retains root-period raster preview",
+      "requiresNativeTimeline": false,
+      "viewport": [
+        -23,
+        -25,
+        226,
+        224
+      ],
+      "width": 249
+    }
+  },
+  "newReadySkins": [
+    {
+      "externalId": 10122,
+      "tankId": 10000001
+    },
+    {
+      "externalId": 10124,
+      "tankId": 10000001
+    },
+    {
+      "externalId": 10126,
+      "tankId": 10000001
+    },
+    {
+      "externalId": 834,
+      "tankId": 10000002
+    },
+    {
+      "externalId": 835,
+      "tankId": 10000002
+    },
+    {
+      "externalId": 10623,
+      "tankId": 10000019
+    },
+    {
+      "externalId": 10630,
+      "tankId": 10000019
+    },
+    {
+      "externalId": 10601,
+      "tankId": 10000029
+    },
+    {
+      "externalId": 10654,
+      "tankId": 10000029
+    },
+    {
+      "externalId": 175,
+      "tankId": 10000031
+    },
+    {
+      "externalId": 10221,
+      "tankId": 10000032
+    },
+    {
+      "externalId": 164,
+      "tankId": 10000032
+    },
+    {
+      "externalId": 165,
+      "tankId": 10000032
+    },
+    {
+      "externalId": 10213,
+      "tankId": 10000033
+    },
+    {
+      "externalId": 214,
+      "tankId": 10000036
+    },
+    {
+      "externalId": 10182,
+      "tankId": 10000038
+    },
+    {
+      "externalId": 235,
+      "tankId": 10000038
+    },
+    {
+      "externalId": 10162,
+      "tankId": 10000040
+    },
+    {
+      "externalId": 10251,
+      "tankId": 10000041
+    },
+    {
+      "externalId": 304,
+      "tankId": 10000045
+    },
+    {
+      "externalId": 305,
+      "tankId": 10000045
+    },
+    {
+      "externalId": 315,
+      "tankId": 10000046
+    },
+    {
+      "externalId": 10697,
+      "tankId": 10000047
+    },
+    {
+      "externalId": 10663,
+      "tankId": 10000049
+    },
+    {
+      "externalId": 10605,
+      "tankId": 10000052
+    },
+    {
+      "externalId": 414,
+      "tankId": 10000058
+    },
+    {
+      "externalId": 415,
+      "tankId": 10000058
+    },
+    {
+      "externalId": 10506,
+      "tankId": 10000060
+    },
+    {
+      "externalId": 10711,
+      "tankId": 10000060
+    },
+    {
+      "externalId": 10712,
+      "tankId": 10000060
+    },
+    {
+      "externalId": 455,
+      "tankId": 10000063
+    },
+    {
+      "externalId": 10612,
+      "tankId": 10000066
+    },
+    {
+      "externalId": 10647,
+      "tankId": 10000069
+    },
+    {
+      "externalId": 10622,
+      "tankId": 10000071
+    },
+    {
+      "externalId": 10705,
+      "tankId": 10000071
+    },
+    {
+      "externalId": 10707,
+      "tankId": 10000072
+    },
+    {
+      "externalId": 554,
+      "tankId": 10000073
+    },
+    {
+      "externalId": 555,
+      "tankId": 10000073
+    },
+    {
+      "externalId": 574,
+      "tankId": 10000075
+    },
+    {
+      "externalId": 584,
+      "tankId": 10000076
+    },
+    {
+      "externalId": 594,
+      "tankId": 10000077
+    },
+    {
+      "externalId": 614,
+      "tankId": 10000079
+    },
+    {
+      "externalId": 624,
+      "tankId": 10000080
+    },
+    {
+      "externalId": 642,
+      "tankId": 10000082
+    },
+    {
+      "externalId": 652,
+      "tankId": 10000083
+    },
+    {
+      "externalId": 662,
+      "tankId": 10000084
+    },
+    {
+      "externalId": 672,
+      "tankId": 10000085
+    },
+    {
+      "externalId": 673,
+      "tankId": 10000085
+    },
+    {
+      "externalId": 702,
+      "tankId": 10000088
+    },
+    {
+      "externalId": 703,
+      "tankId": 10000088
+    },
+    {
+      "externalId": 712,
+      "tankId": 10000089
+    },
+    {
+      "externalId": 713,
+      "tankId": 10000089
+    },
+    {
+      "externalId": 722,
+      "tankId": 10000090
+    },
+    {
+      "externalId": 753,
+      "tankId": 10000093
+    },
+    {
+      "externalId": 772,
+      "tankId": 10000095
+    },
+    {
+      "externalId": 868,
+      "tankId": 10000098
+    },
+    {
+      "externalId": 812,
+      "tankId": 10000099
+    },
+    {
+      "externalId": 10698,
+      "tankId": 10000100
+    },
+    {
+      "externalId": 818,
+      "tankId": 10000101
+    },
+    {
+      "externalId": 10706,
+      "tankId": 10000103
+    },
+    {
+      "externalId": 824,
+      "tankId": 10000103
+    },
+    {
+      "externalId": 862,
+      "tankId": 10000106
+    },
+    {
+      "externalId": 881,
+      "tankId": 10000109
+    },
+    {
+      "externalId": 890,
+      "tankId": 10000112
+    },
+    {
+      "externalId": 896,
+      "tankId": 10000114
+    },
+    {
+      "externalId": 899,
+      "tankId": 10000115
+    }
+  ],
+  "policy": "Presentation only; no stats, grants, currency, skill rules or new tank ownership",
+  "schemaVersion": 1,
+  "skills": {
+    "311101:1": {
+      "icon": "zh_CN/icon/skills/skill_hulub.jpg"
+    },
+    "313101:1": {
+      "icon": "zh_CN/icon/skills/skill_leishenb.jpg"
+    },
+    "347301:1": {
+      "icon": "zh_CN/icon/skills/skill_dabai03.jpg"
+    },
+    "347401:1": {
+      "icon": "zh_CN/icon/skills/skill_dabai02.jpg"
+    },
+    "349101:1": {
+      "icon": "zh_CN/icon/skills/skill_lvbu01.jpg"
+    },
+    "349211:1": {
+      "icon": "zh_CN/icon/skills/skill_lvbu04.jpg"
+    },
+    "353501:1": {
+      "icon": "zh_CN/icon/skills/skill_haiyao04.jpg"
+    },
+    "365501:1": {
+      "icon": "zh_CN/icon/skills/skill_nazi04.jpg"
+    },
+    "365601:1": {
+      "icon": "zh_CN/icon/skills/skill_nazi05.jpg"
+    },
+    "368320:1": {
+      "icon": "zh_CN/icon/skills/skill_zuozhu05.jpg"
+    },
+    "404101:1": {
+      "icon": "zh_CN/icon/skills/skill_xiongmao01_pf01.jpg"
+    },
+    "405201:1": {
+      "icon": "zh_CN/icon/skills/skill_jinglingwangzi_pf01_e.jpg"
+    },
+    "405301:1": {
+      "icon": "zh_CN/icon/skills/skill_jinglingwangzi_pf01_k.jpg"
+    },
+    "405401:1": {
+      "icon": "zh_CN/icon/skills/skill_jinglingwangzi_pf01_r.jpg"
+    },
+    "427101:1": {
+      "description": "Tính chất: Không       Loại ST: #COLOR_df84f3_Năng Lượng_END##ENTER#VP Bay: #COLOR_1bc38e_Không_END##ENTER##ENTER#Khi địch tử vong Xe Bí Ngô gọi ra Hồn Ma, Hồn Ma có #COLOR_00ff00_50%_END# HP của Xe Bí Ngô. Hồn Ma tấn công địch trong phạm vi, gây #EN_50%_ER# #COLOR_df84f3¬_ST Năng Lượng_END#, trong #COLOR_00ff00_1s_END# địch bị giảm tốc #COLOR_00ff00_20%_END#.#ENTER##ENTER#HP Hồn Ma sẽ giảm dần theo thời gian, khi cạn HP gây cho địch xung quanh #EN_150%_ER# #COLOR_df84f3¬_ST Năng Lượng_END#. #ENTER##ENTER#Cùng trận doanh chỉ tồn tại 1 Xe Bí Ngô.",
+      "nativeDescription": "技能性质：无       伤害类型：#COLOR_df84f3_能量_END##ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#敌人死亡时南瓜车可召唤幽灵，幽灵拥有南瓜车#COLOR_00ff00_50%_END#的生命。幽灵将攻击范围内敌人，对其造成#EN_50%_ER#的#COLOR_df84f3¬_能量伤害_END#，并使其在#COLOR_00ff00_1秒_END#内移动速度降低#COLOR_00ff00_20%_END#。#ENTER##ENTER#幽灵生命力随时间逐渐减弱，彻底消散时对范围内敌人造成#EN_150%_ER#的#COLOR_df84f3¬_能量伤害_END#。#ENTER##ENTER#同阵营只有一个南瓜车生效。"
+    },
+    "427111:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: Không#ENTER#VP Bay:#COLOR_1bc38e_Không_END##ENTER##ENTER#Tạo U Linh khi tử vong",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：无#ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#死亡后释放出幽灵"
+    },
+    "427112:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: Không#ENTER#VP Bay:#COLOR_1bc38e_Có_END##ENTER##ENTER#U Linh tấn công thường",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：无#ENTER#飞行道具：#COLOR_1bc38e_是_END##ENTER##ENTER#幽灵的普通攻击"
+    },
+    "427121:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: Không#ENTER#VP Bay:#COLOR_1bc38e_Không_END##ENTER##ENTER#U Linh tự nổ khi tử vong",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：无#ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#幽灵死亡自爆"
+    },
+    "427201:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_df84f3_Năng Lượng_END##ENTER#VP Bay: #COLOR_1bc38e_Có_END##ENTER##ENTER#Tạo ra Bí Ngô tồn tại #COLOR_00ff00_45s_END#. #ENTER##ENTER#Kẻ địch tiếp xúc thì Bí Ngô sẽ nổ, tạo #EN_215%_ER# #COLOR_df84f3¬_ ST Năng Lượng_END#, đánh bay kẻ địch. Trên đường bay nếu xảy ra va chạm, địch sẽ Choáng #COLOR_00ff00_0.5s_END#. #ENTER##ENTER#Đồng đội chạm phải Bí Ngô sẽ hồi #EN_127%_ER# HP và nhận trạng thái Vô Địch #COLOR_00ff00_1s_END#.#ENTER#Skill này được cộng dồn #COLOR_00ff00_2_END# lần, khoảng cách dùng là #COLOR_00ff00_4s_END#.",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_df84f3_能量_END##ENTER#飞行道具：#COLOR_1bc38e_是_END##ENTER##ENTER#在指定地点放置存在#COLOR_00ff00_45秒_END#的南瓜头。#ENTER##ENTER#敌人触碰南瓜头则发生爆炸，对其造成#EN_215%_ER#的#COLOR_df84f3¬_能量伤害_END#，并且击退敌人。击退过程中若发生碰撞，敌人将被眩晕#COLOR_00ff00_0.5秒_END#。#ENTER##ENTER#友方触碰南瓜头，则恢复其#EN_127%_ER#的生命且获得无敌状态#COLOR_00ff00_1秒_END#。#ENTER#该技能可积攒#COLOR_00ff00_2_END#次，使用间隔#COLOR_00ff00_4秒_END#。"
+    },
+    "427301:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_df84f3_Năng Lượng_END##ENTER#VP Bay: #COLOR_1bc38e_Có_END##ENTER##ENTER#Sau khi tụ lực ngắn hạn tại vị trí bản thân triệu hồi ra 1 U Linh Vương khổng lồ chầm chậm di chuyển về đường thẳng hướng chỉ định (Không truy kích mục tiêu), U Linh Vương va chạm mục tiêu địch hoặc đến điểm cuối sẽ nổ tung, gây lên kẻ địch trong phạm vi #EN_111%_ER# #COLOR_df84f3¬_ST Năng Lượng_END#(ST cuối cùng quyết định bởi cự ly đường thẳng giữa mục tiêu và Xe Bí Ngô khi nổ tung, cự ly càng xa ST càng lớn, tối đa ST không quá #EN_777%_ER#.) rồi choáng mục tiêu trong phạm vi #COLOR_00ff00_1.5_END#s, đồng thời tạo 1 Cổng U Linh, Cổng U Linh sẽ liên tục tạo ra Hồn Ma tấn công kẻ địch trong phạm vi.",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_df84f3_能量_END##ENTER#飞行道具：#COLOR_1bc38e_是_END##ENTER##ENTER#短暂蓄力后从自身位置召唤出一个巨大的幽灵王向指定直线方向缓慢移动（不会追击目标），幽灵王碰撞到敌方目标或者到达终点时将发生爆炸，对范围内的敌人造#EN_111%_ER#的#COLOR_df84f3¬_能量伤害_END#(最终伤害取决于爆炸时目标和南瓜车的直线距离，距离越远伤害越高，最大伤害值不超过#EN_777%_ER#。)并眩晕范围内的目标#COLOR_00ff00_1.5_END#秒，同时生成一个幽灵传送门，幽灵传送门会不断的生成小幽灵出来攻击范围内的敌人。"
+    },
+    "427401:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_df84f3_Năng Lượng_END##ENTER#VP Bay: #COLOR_1bc38e_Có_END##ENTER##ENTER#Skill này bao gồm hiệu quả bị động và chủ động.#ENTER##ENTER##COLOR_fff333_Bị động_END#: Khi kẻ địch tử vong, Xe Bí Ngô được triệu hồi Hồn Ma, Hồn Ma có #COLOR_00ff00_100%_END# HP của Xe Bí Ngô. Hồn Ma sẽ tấn công kẻ địch trong phạm vi, gây #EN_50%_ER# #COLOR_df84f3¬_ST Năng Lượng_END# lên địch, khiến địch trong #COLOR_00ff00_1.5s_END# giảm #COLOR_00ff00_25%_END# tốc độ di chuyển, hiệu quả giảm tốc cộng dồn dần theo lượt sát thương, tối đa cộng dồn đến #COLOR_00ff00_50%_END#.#ENTER##ENTER#HP Hồn Ma sẽ giảm dần theo thời gian, khi hoàn toàn biến mất sẽ gây lên địch trong phạm vi #EN_150%_ER# #COLOR_df84f3¬_ST Năng Lượng_END#.#ENTER#Cùng trận doanh chỉ có 1 Xe Bí Ngô có tác dụng.#ENTER##ENTER##COLOR_fff333_Chủ động_END#: Triệu hồi #COLOR_00ff00_10_END# Hồn Ma khóa cà theo dõi kẻ địch gần nhất trong phạm vi, sau khi Hồn Ma va chạm người chơi địch sẽ gây #EN_65%_ER# #COLOR_df84f3¬_ST Năng Lượng_END# và hồi HP bằng Xe Bí Ngô #COLOR_00ff00_5%_END# HP đã mất của Xe Bí Ngô.#ENTER##COLOR_fb0404_Skill này thi triển xong mới vào CD_END#",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_df84f3_能量_END##ENTER#飞行道具：#COLOR_1bc38e_是_END##ENTER##ENTER#该技能包括被动效果与主动效果。#ENTER##ENTER##COLOR_fff333_被动效果_END#：敌人死亡时南瓜车可召唤幽灵，幽灵拥有南瓜车#COLOR_00ff00_100%_END#的生命。幽灵将攻击范围内敌人，对其造成#EN_50%_ER#的#COLOR_df84f3¬_能量伤害_END#，并使其在#COLOR_00ff00_1.5秒_END#内移动速度降低#COLOR_00ff00_25%_END#，减速效果随着伤害次数逐渐叠加，最多叠加至#COLOR_00ff00_50%_END#。#ENTER##ENTER#幽灵生命力随时间逐渐减弱，彻底消散时对范围内敌人造成#EN_150%_ER#的#COLOR_df84f3¬_能量伤害_END#。#ENTER#同阵营只有一个南瓜车生效。#ENTER##ENTER##COLOR_fff333_主动效果_END#：召唤#COLOR_00ff00_10_END#个幽灵，锁定并追踪范围内最近的敌人，幽灵碰撞到敌方玩家后造成#EN_65%_ER#的#COLOR_df84f3¬_能量伤害_END#并恢复南瓜车已失去生命的#COLOR_00ff00_5%_END#的生命值。#ENTER##COLOR_fb0404_该技能释放完后才进入冷却_END#"
+    },
+    "427411:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_df84f3_Năng Lượng_END##ENTER#VP Bay: #COLOR_1bc38e_Có_END##ENTER##ENTER#Triệu #COLOR_00ff00_10_END# hồn ma, khóa mục tiêu và theo dõi trong phạm vi, gây #EN_129%_ER# #COLOR_df84f3¬_ST Năng Lượng_END#.",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_df84f3_能量_END##ENTER#飞行道具：#COLOR_1bc38e_是_END##ENTER##ENTER#召唤#COLOR_00ff00_10_END#个幽灵，锁定并追踪范围内最近的敌人，对其造成#EN_129%_ER#的#COLOR_df84f3¬_能量伤害_END#。"
+    },
+    "439101:1": {
+      "icon": "zh_CN/icon/skills/skill_xihun_pf01.jpg"
+    },
+    "440101:1": {
+      "icon": "zh_CN/icon/skills/skill_jiguang_pf01.jpg"
+    },
+    "442101:1": {
+      "description": "Tính chất: Không       Loại ST: Không#ENTER#VP Bay: #COLOR_1bc38e_Không_END##ENTER##ENTER#Công Thường đánh trúng địch sẽ hồi 5 Năng Lượng; sau khi thoát khỏi chiến đấu mỗi giây hồi 3% HP và 5 Năng Lượng",
+      "nativeDescription": "技能性质：无       伤害类型：无#ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#普通攻击命中敌方目标回复5点能量；脱离战斗后每秒恢复3%的生命值和5点能量值"
+    },
+    "442221:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: Không#ENTER#VP Bay:#COLOR_1bc38e_Không_END##ENTER##ENTER#Thi triển xong sẽ hủy trạng thái kết giới Phong Thần",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：无#ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#释放后取消风神结界状态"
+    },
+    "452201:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_ffae0d_Vật Lý_END##ENTER#VP Bay: #COLOR_1bc38e_Không_END##ENTER##ENTER#Ném ra một hộp quà, sau #COLOR_00ff00_1s_END# hộp sẽ phát nổ, gây cho tất cả địch xung quanh #PH_354%_IC# #COLOR_ ffae0d ¬_ST Vật Lý_END#, giảm tốc #COLOR_00ff00_50%_END# trong #COLOR_00ff00_1.5s_END#(Hiệu quả giảm theo thời gian). #ENTER##ENTER#Skill này được cộng dồn tối đa #COLOR_00ff00_5_END# lần. Khoảng cách sử dụng là #COLOR_00ff00_1s_END#.#ENTER#-----------------------------------------------#ENTER##COLOR_fb0404_ST lên kiến trúc sẽ giảm 75%。_END#",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_ffae0d_物理_END##ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#在指定地点放置一个礼盒，#COLOR_00ff00_1秒_END#后礼盒爆炸，对周围所有敌人造成#PH_354%_IC#的#COLOR_ ffae0d ¬_物理伤害_END#并使目标的移动速度降低#COLOR_00ff00_50%_END#持续#COLOR_00ff00_1.5秒_END#(效果随时间衰减)。#ENTER##ENTER#本技能可积攒，最多积攒#COLOR_00ff00_5_END#次。使用间隔为#COLOR_00ff00_1秒_END#。#ENTER#-----------------------------------------------#ENTER##COLOR_fb0404_对建筑造成的伤害降低75%。_END#"
+    },
+    "452301:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_ffae0d_Vật Lý_END# #COLOR_fff333_Thực_END##ENTER#VP Bay: #COLOR_1bc38e_Có_END##ENTER##ENTER#Ném hạt giống về phía mục tiêu, tạo #PH_412%_IC# ST Vật Lý và ký sinh lên địch.#ENTER##ENTER#Hạt giống ký sinh trong #COLOR_00ff00_0.5s_END# bắt đầu xâm nhập vào mục tiêu, khiến địch trong #COLOR_00ff00_3s_END# vào trạng thái Xé Rách Linh Hồn, cố gắng di chuyển sẽ mất máu liên tục. Mỗi lần di chuyển #COLOR_00ff00_24_END# ô sẽ nhận #PH_36%_IC# #COLOR_fff333_ST Thực_END#.",
+      "description2": "Ném hạt giống về phía mục tiêu chỉ định, gây sát thương rồi thêm Xé Rách Linh Hồn, lúc này địch di chuyển sẽ nhận sát thương",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_ffae0d_物理_END# #COLOR_fff333_真实_END##ENTER#飞行道具：#COLOR_1bc38e_是_END##ENTER##ENTER#向指定方向投放种子，若命中敌方目标则立即造成#PH_412%_IC#的物理伤害并在目标身上寄生。#ENTER##ENTER#寄生的种子在#COLOR_00ff00_0.5秒_END#后开始侵蚀目标，使其在#COLOR_00ff00_3秒_END#内处于灵魂撕裂状态，强行移动将撕扯灵魂血流不止。每移动#COLOR_00ff00_24_END#距离都会造成#PH_36%_IC#的#COLOR_fff333_真实伤害_END#。",
+      "nativeDescription2": "对指定目标投放种子，造成伤害并附加灵魂撕裂，该状态下敌人移动就会受到伤害"
+    },
+    "453301:1": {
+      "icon": "zh_CN/icon/skills/skill_dabai13.jpg"
+    },
+    "453311:1": {
+      "icon": "zh_CN/icon/skills/skill_dabai13.jpg"
+    },
+    "455101:1": {
+      "icon": "zh_CN/icon/skills/skill_dahuangfeng101.jpg"
+    },
+    "456101:1": {
+      "icon": "zh_CN/icon/skills/skill_dahuangfeng201.jpg"
+    },
+    "460101:1": {
+      "icon": "zh_CN/icon/skills/skill_diaochan01_pf01.jpg"
+    },
+    "461101:1": {
+      "icon": "zh_CN/icon/skills/skill_diaochan01_pf02.jpg"
+    },
+    "463101:1": {
+      "icon": "zh_CN/icon/skills/skill_lvbu01_pf01.jpg"
+    },
+    "470101:1": {
+      "icon": "zh_CN/icon/skills/skill_tishenshu011.jpg"
+    },
+    "472101:1": {
+      "icon": "zh_CN/icon/skills/skill_xihun01.jpg"
+    },
+    "473100:1": {
+      "description2": "",
+      "nativeDescription2": "Đạn thường gây sát thương năng lượng."
+    },
+    "473101:1": {
+      "description2": "",
+      "nativeDescription2": "Gây độc theo thời gian và có thể cộng dồn."
+    },
+    "473201:1": {
+      "description2": "Phun độc về hướng địch, được cộng dồn Độc Bò Cạp. Số lần dồn càng nhiều, thời gian phát tác độc càng ngắn, sát thương càng cao.",
+      "nativeDescription2": "Cường hóa đạn thường, xuyên thấu và tăng tốc trong thời gian ngắn."
+    },
+    "473301:1": {
+      "description2": "Kích nổ tất cả địch có kèm Độc Bò Cạp trong phạm vi, gây x2 ST Độc Bò Cạp",
+      "nativeDescription2": "Kích nổ độc trên các mục tiêu trong phạm vi."
+    },
+    "473401:1": {
+      "description2": "Phun độc về hướng hình quạt, tạo 5 lần sát thương và kèm Độc Bò Cạp",
+      "nativeDescription2": "Phun độc hình nón nhiều lần và hồi phục theo sát thương độc."
+    },
+    "474101:1": {
+      "icon": "zh_CN/icon/skills/skill_sanli01_pf01.jpg"
+    },
+    "477101:1": {
+      "icon": "zh_CN/icon/skills/skill_haiyao01_pf01.jpg"
+    },
+    "477201:1": {
+      "icon": "zh_CN/icon/skills/skill_haiyao02_pf01.jpg"
+    },
+    "477301:1": {
+      "icon": "zh_CN/icon/skills/skill_haiyao03_pf01.jpg"
+    },
+    "477501:1": {
+      "icon": "zh_CN/icon/skills/skill_haiyao04_pf01.jpg"
+    },
+    "480101:1": {
+      "icon": "zh_CN/icon/skills/skill_xiaolimao01_pf01.jpg"
+    },
+    "483101:1": {
+      "icon": "zh_CN/icon/skills/skill_libai01_pf01.jpg"
+    },
+    "485101:1": {
+      "icon": "zh_CN/icon/skills/skill_nezha01_pf01.jpg"
+    },
+    "486101:1": {
+      "icon": "zh_CN/icon/skills/skill_nezha01_pf02.jpg"
+    },
+    "487101:1": {
+      "icon": "zh_CN/icon/skills/skill_boshi01_pf01.jpg"
+    },
+    "490101:1": {
+      "icon": "zh_CN/icon/skills/skill_zhuge01_pf02.jpg"
+    },
+    "493101:1": {
+      "icon": "zh_CN/icon/skills/skill_yaohu01_pf01.jpg"
+    },
+    "608320:1": {
+      "icon": "zh_CN/icon/skills/skill_zuozhu_pf05.jpg"
+    },
+    "613301:1": {
+      "icon": "zh_CN/icon/skills/skill_shengdan_pfk.jpg"
+    },
+    "613401:1": {
+      "icon": "zh_CN/icon/skills/skill_shengdan_pfr.jpg"
+    },
+    "618101:1": {
+      "icon": "zh_CN/icon/skills/skill_zhiyu_pf.jpg"
+    },
+    "618401:1": {
+      "icon": "zh_CN/icon/skills/skill_zhenkongbo_pf.jpg"
+    },
+    "618501:1": {
+      "icon": "zh_CN/icon/skills/skill_congtianerjiang_pf.jpg"
+    },
+    "618601:1": {
+      "icon": "zh_CN/icon/skills/skill_zhiyu_pf.jpg"
+    },
+    "621101:1": {
+      "description": "Tính chất: Không       Loại ST: #COLOR_df84f3_Năng Lượng_END##ENTER#VP Bay: #COLOR_1bc38e_Không_END##ENTER##ENTER#Mỗi lần Công Thường đánh trúng mục tiêu sẽ kèm Ấn Ký Dẫn Điện trong #COLOR_00ff00_4s_END#. Ấn ký được cộng dồn, dồn đến #COLOR_00ff00_5_END# lần sẽ gây choáng địch #COLOR_00ff00_1.5s_END# và kèm #COLOR_00ff00_10%_END# giới hạn HP của địch #COLOR_df84f3¬_ST năng Lượng_END#, #COLOR_00ff00_2s_END# tiếp theo tăng #COLOR_00ff00_25%_END# ST nhận được, giảm #COLOR_00ff00_50%_END# hiệu quả trị liệu và Khiên.#ENTER##ENTER#Kẻ địch có Ấn Ký Dẫn Điện không thể ẩn thân và tàng hình.",
+      "icon": "zh_CN/icon/skills/skill_bika_pf01.jpg",
+      "nativeDescription": "技能性质：无       伤害类型：#COLOR_df84f3_能量_END##ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#每次普攻命中敌人使其附加持续#COLOR_00ff00_4秒_END#的电导体印记。电导体印记可叠加，叠加至#COLOR_00ff00_5_END#层时使该敌人眩晕#COLOR_00ff00_0.75秒_END#和附加目标生命上限#COLOR_00ff00_10%_END#的#COLOR_df84f3¬_能量伤害_END#并使其在接下#COLOR_00ff00_2秒_END#内受到的伤害提高#COLOR_00ff00_25%_END#和受到的治疗和护盾效果降低#COLOR_00ff00_50%_END#。#ENTER##ENTER#拥有电导体印记的敌人无法隐身和潜行。"
+    },
+    "621201:1": {
+      "icon": "zh_CN/icon/skills/skill_bika_pf02.jpg"
+    },
+    "621301:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_df84f3_Năng Lượng_END##ENTER#VP Bay: #COLOR_1bc38e_Không_END##ENTER##ENTER#Thi triển điện năng, mỗi #COLOR_00ff00_0.5s_END# gây #EN_75%_ER# #COLOR_df84f3¬_ST Năng Lượng_END# rồi chuyển #COLOR_00ff00_50%_END# ST gây ra thành HP, đồng thời  kèm Ấn Ký Dẫn Điện, duy trì #COLOR_00ff00_3s_END#, ST và hiệu quả khống chế phải chịu giảm #COLOR_00ff00_50%_END#.",
+      "description2": "Tạo ST kèm thêm Ký Hiệu cho địch trong phạm vi.",
+      "icon": "zh_CN/icon/skills/skill_bika_pf03.jpg",
+      "nativeDescription": "Tính chất: #COLOR_f108e3_Kỹ năng_END#       Loại sát thương: #COLOR_df84f3_Năng lượng_END##ENTER#Đạn bay: #COLOR_1bc38e_Không_END##ENTER##ENTER#Pikachu liên tục phóng điện trong #COLOR_00ff00_5 giây_END#, cứ mỗi #COLOR_00ff00_0,5 giây_END# gây #EN_75%_ER# sát thương năng lượng lên toàn bộ kẻ địch xung quanh và gắn 1 tầng Dẫn Điện. Pikachu hồi HP bằng #COLOR_00ff00_30%_END# tổng sát thương thực tế gây ra. Trong thời gian duy trì, sát thương và thời gian khống chế Pikachu phải chịu giảm #COLOR_00ff00_50%_END#.",
+      "nativeDescription2": "Phóng điện liên tục 5 giây, gây sát thương mỗi 0,5 giây, gắn Dẫn Điện và hồi 30% sát thương đã gây ra thành HP."
+    },
+    "621311:1": {
+      "description": "10 vạn Volt",
+      "nativeDescription": "十万伏特"
+    },
+    "621401:1": {
+      "icon": "zh_CN/icon/skills/skill_bika_pf04.jpg"
+    },
+    "623301:1": {
+      "icon": "zh_CN/icon/skills/skill_duanzuizhitong_pf01.jpg"
+    },
+    "627021:1": {
+      "icon": "zh_CN/icon/skills/skill_fenghuange02.jpg"
+    },
+    "627023:1": {
+      "icon": "zh_CN/icon/skills/skill_fenghuange02.jpg"
+    },
+    "627031:1": {
+      "icon": "zh_CN/icon/skills/skill_fenghuangk02.jpg"
+    },
+    "627041:1": {
+      "icon": "zh_CN/icon/skills/skill_fenghuangr02.jpg"
+    },
+    "628011:1": {
+      "icon": "zh_CN/icon/skills/skill_fenghuangb_pf02.jpg"
+    },
+    "648101:1": {
+      "icon": "zh_CN/icon/skills/skill_diaochan01_pf03.jpg"
+    },
+    "651201:1": {
+      "icon": "zh_CN/icon/skills/skill_douwa02_pf02.jpg"
+    },
+    "651301:1": {
+      "icon": "zh_CN/icon/skills/skill_douwa03_pf02.jpg"
+    },
+    "651401:1": {
+      "icon": "zh_CN/icon/skills/skill_douwa01_pf02.jpg"
+    },
+    "663101:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_ffae0d_Vật Lý_END##ENTER#VP Bay: #COLOR_1bc38e_Không_END##ENTER##ENTER#Skill này bao gồm hiệu quả chủ động và bị động.#ENTER##ENTER##COLOR_fff333_Bị Động_END#:  Năng lượng tụ lại thành Khiên, khiên này hấp thu ST bằng #COLOR_00ff00_30%_END# giới hạn HP. Nếu khiên bị phá vỡ sẽ gây #PH_236%_IC# #COLOR_ ffae0d _ST Vật Lý_END# cho địch xung quanh, sau #COLOR_00ff00_15s_END# sẽ nhận lại Khiên này. #ENTER##ENTER##COLOR_fff333_Chủ Động_END#: Bắn pháo về hướng chỉ định, kẻ địch đầu tiên va chạm sẽ lập tức phát nổ, gây cho địch xung quanh #PH_242%_IC# #COLOR_ ffae0d _ST Vật Lý_END#. Nếu mục tiêu bị đánh trúng có hiệu quả giảm tốc của [ E-Đạn Không Kích], sẽ gây thêm choáng #COLOR_00ff00_1s_END#.#ENTER#-----------------------------------------------#ENTER##COLOR_fb0404_Không gây ST lên Kiến Trúc_END#",
+      "icon": "zh_CN/icon/skills/skill_tiejia_pf01.jpg",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_ffae0d_物理_END##ENTER#飞行道具：#COLOR_1bc38e_否_END##ENTER##ENTER#该技能包括被动效果与主动效果。#ENTER##ENTER##COLOR_fff333_被动效果_END#：能量聚合形成护盾，可吸收自身生命上限#COLOR_00ff00_30%_END#的伤害。护盾被打破时，立即对周围造成#PH_236%_IC#的#COLOR_ ffae0d _物理伤害_END#，且在#COLOR_00ff00_15秒_END#后重新获得护盾。#ENTER##ENTER##COLOR_fff333_主动效果_END#：朝指定方向释放粒子炮，触碰到第一个敌人时立即爆炸，对周围所有敌人造成#PH_242%_IC#的#COLOR_ ffae0d _物理伤害_END#。若命中的敌人拥有【E飞弹空袭】的减速效果，则造成额外#COLOR_00ff00_1秒_END#的眩晕。#ENTER#-----------------------------------------------#ENTER##COLOR_fb0404_对建筑不造成伤害_END#"
+    },
+    "663201:1": {
+      "icon": "zh_CN/icon/skills/skill_hongzha_pf01.jpg"
+    },
+    "663301:1": {
+      "icon": "zh_CN/icon/skills/skill_penshe_pf01.jpg"
+    },
+    "663401:1": {
+      "description": "Tính chất: #COLOR_f108e3_Skill_END#       Loại ST: #COLOR_ffae0d_Vật Lý_END##ENTER#VP Bay: #COLOR_1bc38e_Có_END##ENTER##ENTER#Skill này bao gồm hiệu quả chủ động và bị động.#ENTER##ENTER##COLOR_fff333_Bị Động_END#:  Năng lượng tụ lại thành Khiên, khiên này hấp thu ST bằng #COLOR_00ff00_30%_END# giới hạn HP. Nếu khiên bị phá vỡ sẽ gây #PH_236%_IC# #COLOR_ ffae0d _ST Vật Lý_END# cho địch xung quanh, sau #COLOR_00ff00_15s_END# sẽ nhận lại Khiên này. #ENTER##ENTER##COLOR_fff333_Chủ Động_END#: Bắn pháo về hướng chỉ định, kẻ địch đầu tiên va chạm sẽ lập tức phát nổ, gây cho địch xung quanh #PH_267%_IC# #COLOR_ ffae0d _ST Vật Lý_END# và giảm #COLOR_00ff00_75%_END# tốc độ di chuyển trong #COLOR_00ff00_2.5s_END#(Hiệu quả giảm theo thời gian). Nếu mục tiêu bị đánh trúng có hiệu quả giảm tốc của [ E-Đạn Không Kích], sẽ gây thêm choáng #COLOR_00ff00_1s_END#.#ENTER#-----------------------------------------------#ENTER##COLOR_fb0404_Không gây ST lên Kiến Trúc_END#",
+      "icon": "zh_CN/icon/skills/skill_tiejia_pf01.jpg",
+      "nativeDescription": "技能性质：#COLOR_f108e3_技能_END#       伤害类型：#COLOR_ffae0d_物理_END##ENTER#飞行道具：#COLOR_1bc38e_是_END##ENTER##ENTER#该技能包括被动效果与主动效果。#ENTER##ENTER##COLOR_fff333_被动效果_END#：能量聚合形成护盾，可吸收自身生命上限#COLOR_00ff00_30%_END#的伤害。护盾被打破时，立即对周围造成#PH_236%_IC#的#COLOR_ ffae0d _物理伤害_END#，且在#COLOR_00ff00_15秒_END#后重新获得护盾。#ENTER##ENTER##COLOR_fff333_主动效果_END#：朝指定方向释放粒子炮，触碰到第一个敌人时立即爆炸，对周围所有敌人造成#PH_267%_IC#的#COLOR_ ffae0d _物理伤害_END#并降低移动速度#COLOR_00ff00_75%_END#持续#COLOR_00ff00_2.5秒_END#(效果随时间衰减)。若命中的敌人拥有【E飞弹空袭】的减速效果，则造成额外#COLOR_00ff00_1秒_END#的眩晕。#ENTER#-----------------------------------------------#ENTER##COLOR_fb0404_对建筑不造成伤害_END#"
+    },
+    "663601:1": {
+      "icon": "zh_CN/icon/skills/skill_penshe_pf01.jpg"
+    },
+    "675201:1": {
+      "icon": "zh_CN/icon/skills/skill_heibao_pfe.jpg"
+    },
+    "675301:1": {
+      "icon": "zh_CN/icon/skills/skill_heibao_pfk.jpg"
+    },
+    "675401:1": {
+      "icon": "zh_CN/icon/skills/skill_heibao_pfr.jpg"
+    },
+    "678201:1": {
+      "icon": "zh_CN/icon/skills/skill_niumo_pfe.jpg"
+    },
+    "678301:1": {
+      "icon": "zh_CN/icon/skills/skill_niumo_pfk.jpg"
+    },
+    "678401:1": {
+      "icon": "zh_CN/icon/skills/skill_niumo_pfr.jpg"
+    }
+  },
+  "source": {
+    "assetCatalogSha256": "e25d8a1087f04b0c884591c717042ca8bc5544dd4adb80e7e58c2a7c1ec41da8",
+    "baselineCatalogSha256": {
+      "m7_robo_ui_catalog.json": "30cebfd2a1c52f72177525b4247ba052394943a856973d7c99ad1dbfb9612d91",
+      "m8_account_catalog.json": "c752143c5b25975ed22fd662f2e14585abe3e0418899b6d63c863a82684ebf8f",
+      "m8_garage_catalog.json": "f4c9a5acd172f440aad47df05765db64a825cb3f0149065766897b8840f37049"
+    },
+    "localeSources": [
+      {
+        "path": "rez/vi_VN/mo/LoaderText.mo",
+        "sha256": "dd8e1e7a34147dd06d666d38888d0c073940f30b3851a153bb87923469802eb0"
+      },
+      {
+        "path": "rez/vi_VN/mo/data_a.mo",
+        "sha256": "9dd98d49850f245c143790878da5171135796929eff60cd59951adcab4e77c08"
+      },
+      {
+        "path": "rez/vi_VN/mo/data_b.mo",
+        "sha256": "ff2615964aec3680a5ebbce51ec06980afd6a475ee64053b9f1eb7c4c5f2fbbb"
+      },
+      {
+        "path": "rez/vi_VN/mo/data_c.mo",
+        "sha256": "0ca79a5ddab6cf5fc7e5d47ab537a3681c8c268c3fa6aad36d05aa874f49a0b8"
+      },
+      {
+        "path": "rez/vi_VN/mo/data_d.mo",
+        "sha256": "a0d1725718170b58da33711344a9fb705e5fdccfea9cc1822ecbaed0c50dbdb3"
+      },
+      {
+        "path": "rez/vi_VN/mo/data_e.mo",
+        "sha256": "f972c3fca0c1ecd5ada1d5bf527fe1fa46d067c1bf8d81cb6370032b38131cb5"
+      },
+      {
+        "path": "rez/vi_VN/mo/game.mo",
+        "sha256": "656bf0f8f4e69f5a794f8062d899e538d9d0a1109a2e8267c19e6b62dc3dbdca"
+      },
+      {
+        "path": "rez/vi_VN/mo/ui.mo",
+        "sha256": "4173f0012a5371b7477249b533c5457151c8381a247c3ba898d7ee3155e6e839"
+      }
+    ],
+    "staticPlanSha256": "38b2681f4d6c6ef0711fedb60c438c2896b703cb1c2e9d53a42b6494dc835e2e"
+  }
+}

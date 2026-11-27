@@ -1,0 +1,73 @@
+/* Native InstanceFrame is 1000×600; the existing stage owns responsive scale. */
+.m81314-pve{position:absolute;inset:0;width:1000px;height:600px;box-sizing:border-box;overflow:visible;background:#123d55;color:white;font:12px/1.4 Tahoma,Arial,sans-serif;isolation:isolate}
+.m81314-pve.is-waiting-room{width:1018px;height:618px;background:transparent}
+.m81314-pve.is-room-map-picker{left:9px;top:9px}
+.m81314-pve h2,.m81314-pve h3,.m81314-pve p{margin:0}
+.m81314-pve button{font:inherit;cursor:pointer}
+.m81314-pve button:disabled{cursor:default;opacity:.5}
+.m81314-pve button:focus-visible{outline:2px solid #fff29b;outline-offset:3px}
+.m81314-pve .pve-world{position:absolute;inset:0;width:1000px;height:600px;object-fit:fill;pointer-events:none;z-index:-1}
+.m81314-pve .pve-world-missing{position:absolute;left:25px;top:490px;background:#143e57;padding:8px}
+.m81314-pve .pve-heading{position:absolute;left:0;top:10px;width:1000px;height:30px;background:#0006;z-index:2;pointer-events:none}
+.m81314-pve .pve-heading h2{font-size:18px;line-height:30px;text-align:center;color:#f9f5d2;text-shadow:0 1px 1px #575627}
+.m81314-pve .pve-close{position:absolute;left:946px;top:4px;z-index:3;width:46px;height:46px;min-width:0;min-height:0;padding:0;border:0;background:transparent;box-shadow:none}
+.m81314-pve .pve-close-art{display:block;width:46px;height:46px;pointer-events:none}
+.m81314-pve .pve-mode-locks{position:absolute;left:20px;top:512px;z-index:2;display:flex;gap:6px}
+.m81314-pve .pve-mode-locks button{min-height:18px;padding:1px 5px;font-size:9px;line-height:15px;color:#f1eccd;background:#292f1978;border:1px solid #b8b98c88;border-radius:3px;opacity:.75}
+.m81314-pve .pve-mode-locks button.is-selected{color:#fff;border-color:#ffef99;background:#a36d16;opacity:1}
+.m81314-pve .pve-stations{position:absolute;inset:0}
+.m81314-pve .pve-station{position:absolute;min-width:0;min-height:0;margin:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:white;overflow:visible}
+.m81314-pve .pve-station-icon{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;transition:filter 120ms ease-out}
+.m81314-pve .pve-station.is-locked .pve-station-icon{filter:grayscale(1) brightness(.78)}
+.m81314-pve .pve-station:hover:not(:disabled) .pve-station-icon{filter:brightness(1.12)}
+.m81314-pve .pve-station.is-locked:hover:not(:disabled) .pve-station-icon{filter:grayscale(1) brightness(.9)}
+.m81314-pve .pve-station-grade{position:absolute;left:-2px;pointer-events:none;max-width:80px;height:45px;object-fit:contain}
+.m81314-pve .pve-station-next{position:absolute;pointer-events:none;overflow:visible}
+.m81314-pve .pve-station-next-art{position:absolute;left:0;top:0;display:block;width:71px;height:70px;pointer-events:none;will-change:transform}
+.m81314-pve .pve-station-missing{display:grid;place-items:center;height:100%;border:1px dashed #b5d4e3;background:#143e57aa}
+.m81314-pve .pve-chapter-pager{position:absolute;top:275px;width:83px;height:58px;min-width:0;min-height:0;margin:0;padding:0;border:0;background:transparent;box-shadow:none;z-index:3}
+.m81314-pve .pve-chapter-pager:disabled{opacity:1}
+.m81314-pve .pve-pager-prev{left:-13px}.m81314-pve .pve-pager-next{left:930px}
+.m81314-pve .pve-pager-background{position:absolute;inset:0;width:83px;height:58px;pointer-events:none}
+.m81314-pve .pve-pager-word{position:absolute;top:12px;width:40px;height:15px;pointer-events:none}
+.m81314-pve .pve-pager-prev .pve-pager-word{left:25px}.m81314-pve .pve-pager-next .pve-pager-word{left:14px}
+.m81314-pve .pve-chapter-pager:hover:not(:disabled){filter:brightness(1.12)}
+.m81314-pve .pve-chapters{position:absolute;right:14px;top:512px;display:flex;justify-content:center;gap:3px;z-index:2}
+.m81314-pve .pve-chapters button{width:18px;height:18px;min-width:0;min-height:0;padding:0;border:1px solid #b8b98c88;border-radius:9px;background:#292f1978;color:#f1eccd;font-size:9px;line-height:16px;box-shadow:none}
+.m81314-pve .pve-chapters button.is-selected{color:#fff;border-color:#ffef99;background:#a36d16}
+.m81314-pve .pve-rules{position:absolute;left:340px;top:514px;width:230px;text-align:center;color:#f5efd0;text-shadow:0 1px 2px #454d1a;font-size:10px;line-height:16px;pointer-events:none}
+.m81314-pve .pve-status{position:absolute;left:20px;right:20px;top:480px;max-height:24px;overflow:auto;text-align:center;color:#fff3ad;text-shadow:0 1px 2px black;font-weight:bold;pointer-events:none}
+.m81314-pve .pve-room-tools{position:absolute;left:20px;top:470px;z-index:3;display:flex;gap:9px;max-width:450px}
+.m81314-pve .pve-room-start{max-width:335px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;background:#156b3d;border-color:#c5fca3;color:#fff9bd}
+/* InstanceTipsFrame: native 440px, both scroll policies OFF, clipContent=false.
+   Full card is measured, centered below its trigger, and fitted to the actual
+   viewport by the controller. It cannot capture hover or cover a click target. */
+.m81314-pve .pve-hover-card{position:absolute;z-index:4;box-sizing:border-box;width:440px;padding:0;border:3px solid #f66628;border-radius:15px;background:#fff;color:#484848;font:12px/1.45 Tahoma,Arial,sans-serif;box-shadow:0 3px 9px #0005;pointer-events:none;isolation:isolate;transform-origin:top left;overflow:visible;will-change:transform,opacity}
+.m81314-pve .pve-hover-card *{pointer-events:none}
+.m81314-pve .pve-hover-body{box-sizing:border-box;padding:12px 13px 10px;overflow:visible;border-radius:12px}
+.m81314-pve .pve-hover-card h3{font-size:16px;line-height:22px;font-weight:bold;margin:0 0 5px;color:#484848}
+.m81314-pve .pve-hover-card h4{font-size:13px;line-height:19px;margin:6px 0 3px;font-weight:bold;color:#484848}
+.m81314-pve .pve-hover-description{color:#919191;margin-bottom:6px;white-space:pre-line;overflow-wrap:anywhere}
+.m81314-pve .pve-hover-recommendations{color:#f60;font-weight:bold;line-height:20px;margin:6px 0 4px}
+.m81314-pve .pve-hover-recommendations strong{font-size:16px;font-weight:bold}
+.m81314-pve .pve-hover-recommendations .pve-hover-helper-power{color:#0bcf29;font-size:14px;line-height:21px}
+.m81314-pve .pve-hover-reward-row{display:grid;grid-template-columns:78px repeat(4,minmax(0,1fr));gap:3px;min-height:85px;align-items:start;padding-top:2px}
+.m81314-pve .pve-hover-reward-mode{display:flex;flex-direction:column;gap:3px;align-items:center;padding-top:5px;color:#6aafdb;font-size:10px;text-align:center}
+.m81314-pve .pve-hover-reward-mode>b{font-size:11px;line-height:15px;color:#46a8d4;text-shadow:0 1px 0 #d5f2ff}
+.m81314-pve .pve-hover-reward-row.is-hard .pve-hover-reward-mode>b{color:#ffca00;text-shadow:1px 1px 0 #00689d,-1px -1px 0 #00689d;font-size:14px}
+.m81314-pve .pve-hover-today{display:inline-block;background:#999;color:#fff;font:bold 10px/12px Tahoma,Arial,sans-serif;border-radius:3px;padding:4px 3px;transform:rotate(-8deg)}
+.m81314-pve .pve-hover-today.is-complete{background:#64a845}
+.m81314-pve .pve-hover-thew{max-width:75px;color:#999;font-size:11px;line-height:14px}
+.m81314-pve .pve-hover-hard-disabled{color:#8c8c8c;font-size:10px;line-height:12px}
+.m81314-pve .pve-hover-reward-item{display:flex;flex-direction:column;align-items:center;min-width:0;text-align:center;gap:2px}
+.m81314-pve .pve-hover-reward-icon{display:block;width:48px;height:48px;object-fit:contain;flex:none;pointer-events:none}
+.m81314-pve .pve-hover-reward-name{color:#999;font-size:11px;line-height:15px;overflow-wrap:anywhere}
+.m81314-pve .pve-hover-reward-missing{display:grid;place-items:center;min-height:48px;color:#999;font-size:10px;line-height:14px}
+.m81314-pve .pve-hover-record-line{font-size:12px;line-height:19px;font-weight:bold;color:#079eda;overflow-wrap:anywhere}
+.m81314-pve .pve-hover-record-line.is-unavailable{color:#999;font-weight:normal}
+.m81314-pve .pve-hover-requirements{padding-top:3px;font-weight:bold;line-height:19px}
+.m81314-pve .pve-hover-requirements .is-met{color:#0aa52d}.m81314-pve .pve-hover-requirements .is-unmet{color:#ff3d17}.m81314-pve .pve-hover-requirements .is-unknown{color:#888}
+.m81314-pve .pve-hover-scope{padding-top:5px;color:#999;font-size:10px;line-height:14px}
+.m81314-pve .pve-hover-card::after{content:"";position:absolute;width:12px;height:12px;background:#fff;transform:rotate(45deg);pointer-events:none;display:none}
+.m81314-pve .pve-hover-card[data-side="top"]::after{display:block;left:calc(var(--pve-tip-arrow-x) - 9px);top:-9px;border-top:3px solid #f66628;border-left:3px solid #f66628}
+@media (prefers-reduced-motion:reduce){.m81314-pve .pve-station-icon{transition:none}.m81314-pve .pve-hover-card,.m81314-pve .pve-station-next-art{will-change:auto}}

@@ -1,0 +1,1132 @@
+{
+  "schema": "bangbang-m82-native-shells/v1",
+  "assets": {
+    "zh_CN/II/common/btn_normal_close.png": {
+      "logical": "zh_CN/II/common/btn_normal_close.png",
+      "url": "/html5/assets_m82/shells/TankLib_207_bb24306e57c7.png",
+      "width": 23,
+      "height": 23,
+      "sha256": "bb24306e57c7e09f163caed8d7e949660b10449d20b75c31f7180e1fcb2a419a",
+      "bytes": 953,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 207,
+        "tagType": 36,
+        "symbol": "II.mxml.button.CloseBtn__embed_mxml__rez_zh_CN_II_common_btn_normal_close_png_193233648",
+        "tagSha256": "d889085d36b14c0e060c0e9b6b6edfa40803e16e85631ddb692e3cdc691c22d6"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/mall/btn_close_t.png": {
+      "logical": "zh_CN/II/mall/btn_close_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_815_5cea1ad81716.png",
+      "width": 83,
+      "height": 32,
+      "sha256": "5cea1ad8171652acb0c7995be5eb92cf84569a93546614834fdbfc81d41372ff",
+      "bytes": 5021,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 815,
+        "tagType": 36,
+        "symbol": "II.mxml.button.CloseBtn__embed_mxml__rez_zh_CN_II_mall_btn_close_t_png_691357346",
+        "tagSha256": "041ab2d93cd09d90a27a955a2410309b3ffeadfb4257328687caedd6a59ebbcb"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/room/btn_leave_t.png": {
+      "logical": "zh_CN/II/room/btn_leave_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_323_81992d86e30b.png",
+      "width": 83,
+      "height": 32,
+      "sha256": "81992d86e30b2beec65ec176cd6d5b3dbf7dd37ad219d9250c20f8bf93fd414d",
+      "bytes": 4679,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 323,
+        "tagType": 36,
+        "symbol": "II.mxml.button.CloseBtn__embed_mxml__rez_zh_CN_II_room_btn_leave_t_png_1693801138",
+        "tagSha256": "f9c93d25f22bb9d4c1490bcc2c603f3ba060b43b0105a81525c59fcc180a0dd5"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/room/cell_btn_kick.png": {
+      "logical": "zh_CN/II/room/cell_btn_kick.png",
+      "url": "/html5/assets_m82/shells/TankLib_346_2c211b65274c.png",
+      "width": 22,
+      "height": 22,
+      "sha256": "2c211b65274c1034869d4aa5227c9ca5f41d9622f3296b12a4475d6baca75e89",
+      "bytes": 996,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 346,
+        "tagType": 36,
+        "symbol": "II.mxml.button.CloseBtn__embed_mxml__rez_zh_CN_II_room_cell_btn_kick_png_1956404401",
+        "tagSha256": "6ae1bc60dcb4beb9e4b891722d4d0423d225de4d3831bb9f3dca1f22f84f7226"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_bottom_center.png": {
+      "logical": "zh_CN/II/common/grid9_bottom_center.png",
+      "url": "/html5/assets_m82/shells/TankLib_268_0332596ca10f.png",
+      "width": 6,
+      "height": 5,
+      "sha256": "0332596ca10fa6f0ebb259030a3504bb468f29737d5bbdbca5d89a2f7abb33e8",
+      "bytes": 99,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 268,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_bottom_center_png_970102398",
+        "tagSha256": "b8670bb2ef316d9c2b10260f7b9e008f209b4b4d54674c8035e843fb6db7fb9b"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_bottom_left.png": {
+      "logical": "zh_CN/II/common/grid9_bottom_left.png",
+      "url": "/html5/assets_m82/shells/TankLib_385_6c24e41063e0.png",
+      "width": 30,
+      "height": 5,
+      "sha256": "6c24e41063e0019af6ecd5db9ad557b0668d61fdd3795bec703bfccf91229453",
+      "bytes": 204,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 385,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_bottom_left_png_1498547166",
+        "tagSha256": "7cd3740766cae94f86c943558704749b228371781a9bbede04412f7e2b0e8b39"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_bottom_right.png": {
+      "logical": "zh_CN/II/common/grid9_bottom_right.png",
+      "url": "/html5/assets_m82/shells/TankLib_327_46810b9b2427.png",
+      "width": 30,
+      "height": 5,
+      "sha256": "46810b9b2427b704f2cff5ef4061f26768e7cddd43d10c644d04ae4221acc9ce",
+      "bytes": 192,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 327,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_bottom_right_png_1750603730",
+        "tagSha256": "6308928ef9c9112fba8c0d68af6e9348c142152af50a45da3b97eaf33a1001b3"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_middle_center.jpg": {
+      "logical": "zh_CN/II/common/grid9_middle_center.jpg",
+      "url": "/html5/assets_m82/shells/TankLib_661_682156a2d972.png",
+      "width": 1000,
+      "height": 600,
+      "sha256": "682156a2d972f0b89cdb0d472e0e9dcd469536a3bfc721380e362e7e63806607",
+      "bytes": 123310,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 661,
+        "tagType": 21,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_middle_center_jpg_690132558",
+        "tagSha256": "5a8f071cd4456cfe190547a77cccb8f0187b857f10e4cd00ab8eac3a2486ed89"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_middle_left.png": {
+      "logical": "zh_CN/II/common/grid9_middle_left.png",
+      "url": "/html5/assets_m82/shells/TankLib_583_210ea8d481c5.png",
+      "width": 5,
+      "height": 6,
+      "sha256": "210ea8d481c59205b2c4cbf7623715a69361cdb1913d876a72df4b4663c5567c",
+      "bytes": 114,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 583,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_middle_left_png_782163186",
+        "tagSha256": "a2373633b7ba7b6de8654ef69ec41bbf66ee18f5ebfd153fec05fc3ecc137d7c"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_middle_right.png": {
+      "logical": "zh_CN/II/common/grid9_middle_right.png",
+      "url": "/html5/assets_m82/shells/TankLib_678_99358a2677b5.png",
+      "width": 5,
+      "height": 6,
+      "sha256": "99358a2677b550e843c864cede4f856a232bbb9f20206853b128898c28299006",
+      "bytes": 115,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 678,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_middle_right_png_1406660142",
+        "tagSha256": "3537e74be6521ba8ebd5df78774c6694bb5960f27f34d2eefcc6d8180aad5dd3"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_title_big.png": {
+      "logical": "zh_CN/II/common/grid9_title_big.png",
+      "url": "/html5/assets_m82/shells/TankLib_266_4ed76a203314.png",
+      "width": 352,
+      "height": 53,
+      "sha256": "4ed76a203314a86808239c8877590d5882c8dc680043fa900d9c07a3a30a54f5",
+      "bytes": 12192,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 266,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_title_big_png_1716404638",
+        "tagSha256": "02ce4bd81c7a9e3fe1f17166ef7091e2c269c28b2af74956c48c71e839a86e79"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_title_samll.png": {
+      "logical": "zh_CN/II/common/grid9_title_samll.png",
+      "url": "/html5/assets_m82/shells/TankLib_324_d7514fc28935.png",
+      "width": 301,
+      "height": 45,
+      "sha256": "d7514fc28935a6a76923d263a02547cc793f85a199890beec7e696b5e79ff0e3",
+      "bytes": 9819,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 324,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_title_samll_png_286974724",
+        "tagSha256": "ab27b0cc8f1dfb694410e95b034934a939be5658b9e052a72e47a612dee9c7eb"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_top_center.png": {
+      "logical": "zh_CN/II/common/grid9_top_center.png",
+      "url": "/html5/assets_m82/shells/TankLib_14_78860cfd9244.png",
+      "width": 6,
+      "height": 5,
+      "sha256": "78860cfd9244f48f1a19fe15394361d9a17fa00a7f0538d9105fd1f15b228a51",
+      "bytes": 95,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 14,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_top_center_png_1043759328",
+        "tagSha256": "8be4851f23a891adc8c15f0ad7451dfb52ae847f3eeaef21955d7dbee2a03930"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_top_left.png": {
+      "logical": "zh_CN/II/common/grid9_top_left.png",
+      "url": "/html5/assets_m82/shells/TankLib_63_92d337f4c24c.png",
+      "width": 30,
+      "height": 5,
+      "sha256": "92d337f4c24ca315b7b8417d4b82fb2341ebf86bc2d215f2e9898ae714a04285",
+      "bytes": 258,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 63,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_top_left_png_1227296220",
+        "tagSha256": "2149c62b0ff71823fee6243fae32902c55829d77fb70bea55e5326ca958c727b"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/grid9_top_right.png": {
+      "logical": "zh_CN/II/common/grid9_top_right.png",
+      "url": "/html5/assets_m82/shells/TankLib_297_b2c0c3ae8954.png",
+      "width": 30,
+      "height": 5,
+      "sha256": "b2c0c3ae895419321a343e513b556d8fe297f4b1990d1934f829b953f9bdd90c",
+      "bytes": 279,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 297,
+        "tagType": 36,
+        "symbol": "II.mxml.com.CommonBGCvs__embed_mxml__rez_zh_CN_II_common_grid9_top_right_png_1083165136",
+        "tagSha256": "0319d1843275b673a47014eecfc4920c787c9a635d22bd50998884bcc97fd521"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/btn_cancel_t.png": {
+      "logical": "zh_CN/II/common/btn_cancel_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_312_ad4ce3f55587.png",
+      "width": 79,
+      "height": 33,
+      "sha256": "ad4ce3f555878939eeae6f639db52d21390e121b42f7ac8e45c3fd710f8ae3ec",
+      "bytes": 2433,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 312,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_II_common_btn_cancel_t_png_1198717038",
+        "tagSha256": "d6de11385d148f1b2645c05ffc1de5d23f35172f80c9bb82036ee4dd07bb0693"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/btn_confirm_g_t.png": {
+      "logical": "zh_CN/II/common/btn_confirm_g_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_454_2ffc1d422008.png",
+      "width": 79,
+      "height": 33,
+      "sha256": "2ffc1d422008a0e376cb1e8984067d212ea72332256abfbbb810f59ce400b4ed",
+      "bytes": 2743,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 454,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_II_common_btn_confirm_g_t_png_947364400",
+        "tagSha256": "ec5c406f392cdaa07bb53e7ed560f795e9b1c003ec832d90f97b7791957eab49"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/common/btn_no_thanks_t.png": {
+      "logical": "zh_CN/II/common/btn_no_thanks_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_171_6ddb28a85d6b.png",
+      "width": 79,
+      "height": 33,
+      "sha256": "6ddb28a85d6b264e1b032149cc4ff9e75a33c838ec832597e25ddc751787afd0",
+      "bytes": 2937,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 171,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_II_common_btn_no_thanks_t_png_535871218",
+        "tagSha256": "9bd22e67c9c716cdf0188740acb742db63cb2a5c6be85335c6a6c37f201bed41"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/corps/check_box_checked.png": {
+      "logical": "zh_CN/II/corps/check_box_checked.png",
+      "url": "/html5/assets_m82/shells/TankLib_84_83afc72f896b.png",
+      "width": 35,
+      "height": 34,
+      "sha256": "83afc72f896b18000a5a6c8c50c63e85b5306d457c5793d2728a15ca1115196f",
+      "bytes": 1657,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 84,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_II_corps_check_box_checked_png_1122505052",
+        "tagSha256": "3470b07bb9c7962a351d519ca416b5b67f3610f38cb8dfeab66d38d3a8163a3e"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/II/corps/check_box.png": {
+      "logical": "zh_CN/II/corps/check_box.png",
+      "url": "/html5/assets_m82/shells/TankLib_199_8138c9111814.png",
+      "width": 35,
+      "height": 34,
+      "sha256": "8138c9111814910b96bbe923a8955457f4f4ffe23dd6ad58832d6252a9366bc7",
+      "bytes": 610,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 199,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_II_corps_check_box_png_564645668",
+        "tagSha256": "fd04295d36595002a30a968742d5672a4f925061f6ad8e0570eec4917a3e364f"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/button_3_blue.png": {
+      "logical": "zh_CN/gui_summer/controls/public/button_3_blue.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_52_b1e3c5e9aa6b.png",
+      "width": 100,
+      "height": 33,
+      "sha256": "b1e3c5e9aa6bb290e693d028822dbe1a282e14759ac29141c992cf4cf586c4f4",
+      "bytes": 2008,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 52,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_button_3_blue_png_290919889",
+        "tagSha256": "75bb3632c1e0a5a04a068835543fd3d80441ba8d722cd9c774e81d5ea3a92ecc"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/button_3_green.png": {
+      "logical": "zh_CN/gui_summer/controls/public/button_3_green.png",
+      "url": "/html5/assets_m82/shells/TankLib_197_c4fc274606c4.png",
+      "width": 100,
+      "height": 33,
+      "sha256": "c4fc274606c4f038083248004c8d98a09dad4439af77c4fe8339c3228ecd4846",
+      "bytes": 2124,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 197,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_button_3_green_png_700034183",
+        "tagSha256": "bae1f999f0e48d0e8ebde960eec4528c81539b84b6261946e4c8fb9e290da9a1"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/checkbox_bk.png": {
+      "logical": "zh_CN/gui_summer/controls/public/checkbox_bk.png",
+      "url": "/html5/assets_m82/shells/TankLib_522_1c4a2489631d.png",
+      "width": 22,
+      "height": 23,
+      "sha256": "1c4a2489631d63844a17f454d12ba889e94823a3c05f226742e8435c242138fe",
+      "bytes": 903,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 522,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_checkbox_bk_png_1408279753",
+        "tagSha256": "2f295624032a7376a02ec3577ae13e5cd86511f463b22067a76f501ea84c54db"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/checkbox_checked.png": {
+      "logical": "zh_CN/gui_summer/controls/public/checkbox_checked.png",
+      "url": "/html5/assets_m82/shells/TankLib_114_3fddd6a70170.png",
+      "width": 22,
+      "height": 23,
+      "sha256": "3fddd6a7017049dc6fde8546965fcd1b673375c2b5f7ada26224dfb672ef0e15",
+      "bytes": 1342,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 114,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_checkbox_checked_png_248002439",
+        "tagSha256": "177c8b7de3a208bfbc25aece0a579fc384b113e6670837720684f7802e712cd3"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tips/jiaoguan04.png": {
+      "logical": "zh_CN/gui_summer/controls/tips/jiaoguan04.png",
+      "url": "/html5/assets_m82/shells/TankLib_271_317ca4c2980c.png",
+      "width": 180,
+      "height": 292,
+      "sha256": "317ca4c2980c73242a956a7bc73ac7c455b8d62f09d77f1653191f55c6b15ae2",
+      "bytes": 64180,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 271,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tips_jiaoguan04_png_897781913",
+        "tagSha256": "f1f7590b7a84384acfa12890e1ae8853e5b39eca6f9e7bf8cb1e08a5b88360d0"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/title_cancel_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/title_cancel_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_414_3cd84cb8541e.png",
+      "width": 40,
+      "height": 21,
+      "sha256": "3cd84cb8541ee9f7914626f057c3ca05689c08ce1056808f37acfd4d8301e85a",
+      "bytes": 1066,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 414,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_title_cancel_t_png_1170897249",
+        "tagSha256": "248f19b9fb35ada88b5350a35c99948a979bd0e5edca1981834764a85822f64d"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/title_confirm_green_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/title_confirm_green_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_355_2c92bf5ae621.png",
+      "width": 40,
+      "height": 21,
+      "sha256": "2c92bf5ae62173cab96de98d5196f4d519865cee0b4f7a7f09bc34f24ed7efdd",
+      "bytes": 830,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 355,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_title_confirm_green_t_png_1941858243",
+        "tagSha256": "7557f6f824059817114200a2c3b1f035a409e9fc975d2477aaef8df5b0e151f3"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/title_nothanks_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/title_nothanks_t.png",
+      "url": "/html5/assets_m82/shells/TankLib_402_831fe2b33782.png",
+      "width": 66,
+      "height": 21,
+      "sha256": "831fe2b337821d4c5bad037f0e5863f511ffbfc12f25c5995f473e0dfb964903",
+      "bytes": 1839,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 402,
+        "tagType": 36,
+        "symbol": "mxml.AskFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_title_nothanks_t_png_167266303",
+        "tagSha256": "10029d80d44cdc8f07db8130fcf2605d2155d90520a0db71a1b7fa0f697ae8e2"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/bk_s.png": {
+      "logical": "zh_CN/gui_summer/controls/public/bk_s.png",
+      "url": "/html5/assets_m82/shells/TankLib_19_ecf4f4dd301e.png",
+      "width": 1000,
+      "height": 600,
+      "sha256": "ecf4f4dd301e8f5ea4ec0b73455912561a99efeeccbb2bcd84d8d61f75ee2a1b",
+      "bytes": 35575,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 19,
+        "tagType": 36,
+        "symbol": "mxml.common.MsgBox__embed_mxml__rez_zh_CN_gui_summer_controls_public_bk_s_png_1493615975",
+        "tagSha256": "8b7cbd538542a29c819fee3fa80f8aba5e29cffcea75ebcf7679c305d2272604"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/msg_box_h.png": {
+      "logical": "zh_CN/gui_summer/controls/public/msg_box_h.png",
+      "url": "/html5/assets_m82/shells/TankLib_609_cbb71ac5a625.png",
+      "width": 1,
+      "height": 21,
+      "sha256": "cbb71ac5a625b55018b9672469c673f0dd66bfbcb522912843ffa49e9d2a8d76",
+      "bytes": 142,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 609,
+        "tagType": 36,
+        "symbol": "mxml.common.MsgBox__embed_mxml__rez_zh_CN_gui_summer_controls_public_msg_box_h_png_160066569",
+        "tagSha256": "98007bcc51782454fd10662072757be3eaacd5e5382a0fe08926966a9b5b0098"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/msg_box_r.png": {
+      "logical": "zh_CN/gui_summer/controls/public/msg_box_r.png",
+      "url": "/html5/assets_m82/shells/TankLib_427_46489f9efd84.png",
+      "width": 99,
+      "height": 51,
+      "sha256": "46489f9efd84e942749333ae0a930aff9f5b3319d42cb5aedfa86cbe0eca3fdb",
+      "bytes": 1667,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 427,
+        "tagType": 36,
+        "symbol": "mxml.common.MsgBox__embed_mxml__rez_zh_CN_gui_summer_controls_public_msg_box_r_png_146817009",
+        "tagSha256": "25b11d0d4f725c22aa4a59a49824692822d03005199556a2fa48768d4c032da9"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/msg_box_v.png": {
+      "logical": "zh_CN/gui_summer/controls/public/msg_box_v.png",
+      "url": "/html5/assets_m82/shells/TankLib_295_e1a41f3ec420.png",
+      "width": 22,
+      "height": 1,
+      "sha256": "e1a41f3ec4201c4b9cb4661a01c37ace2815eabe158ec70b28fc348706a50a24",
+      "bytes": 138,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 295,
+        "tagType": 36,
+        "symbol": "mxml.common.MsgBox__embed_mxml__rez_zh_CN_gui_summer_controls_public_msg_box_v_png_137428937",
+        "tagSha256": "a506dbe5332d3a9a2de18819c1bce6a3e8ef10ecd3faac8f49834e6b865a4612"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/orangedot.png": {
+      "logical": "zh_CN/gui_summer/controls/public/orangedot.png",
+      "url": "/html5/assets_m82/shells/TankLib_732_59fb061f2ec6.png",
+      "width": 12,
+      "height": 13,
+      "sha256": "59fb061f2ec68926d5fa242c7361d82931e3dc090330b86c4b02abd8dfac03b0",
+      "bytes": 389,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/TankLib.dat",
+        "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056",
+        "bitmapId": 732,
+        "tagType": 36,
+        "symbol": "mxml.common.MsgBox__embed_mxml__rez_zh_CN_gui_summer_controls_public_orangedot_png_969601009",
+        "tagSha256": "7ccd7c23eff088776d21ff613b0b8499bddf342525ccd354e3e57ca9688eba1f"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/btn_s2_first.png": {
+      "logical": "zh_CN/gui_summer/controls/public/btn_s2_first.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_13_d1f28f7cb5a9.png",
+      "width": 46,
+      "height": 29,
+      "sha256": "d1f28f7cb5a93c212fed2f2c2f1ffbbec2406f862b1c0f068a23e547a45236f1",
+      "bytes": 1576,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 13,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_btn_s2_first_png_1712781495",
+        "tagSha256": "1de4c81ca8124e7e938f35c7bd98cec03b3b347d684ab0fca3db48016a55002f"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/btn_s2_last.png": {
+      "logical": "zh_CN/gui_summer/controls/public/btn_s2_last.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_1_2efcd21127f4.png",
+      "width": 46,
+      "height": 29,
+      "sha256": "2efcd21127f42956b8b1d32106592459afe6f3ae9dfb3ce073924b50c1633a0d",
+      "bytes": 1530,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 1,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_btn_s2_last_png_1375692079",
+        "tagSha256": "2dff20c85e8523f7d9ba9dad6e837c423cd114f6a460bf379f3355eb4145ef3d"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/btn_s2_next.png": {
+      "logical": "zh_CN/gui_summer/controls/public/btn_s2_next.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_25_ef0a20c9f3ef.png",
+      "width": 33,
+      "height": 29,
+      "sha256": "ef0a20c9f3ef854f43fd377b694247c7a6a0f186d6c4f18ab215d756902270ce",
+      "bytes": 834,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 25,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_btn_s2_next_png_1882809711",
+        "tagSha256": "6680d56f3f4fb69ab9278b254e5aa24eb9aa21f0f52082a75752985a9dec5bb4"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/btn_s2_prev.png": {
+      "logical": "zh_CN/gui_summer/controls/public/btn_s2_prev.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_12_32319ec42dfc.png",
+      "width": 33,
+      "height": 29,
+      "sha256": "32319ec42dfc5d2f377ade95936473cdf5f7ca3daa2e37c62c2b78cad4dd955a",
+      "bytes": 907,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 12,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_btn_s2_prev_png_856258543",
+        "tagSha256": "09bf584c93800c1773dadb7469b8fa095c30b72874e12832211af1ada2e25fda"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/button_2_green.png": {
+      "logical": "zh_CN/gui_summer/controls/public/button_2_green.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_14_b8a59a3965b7.png",
+      "width": 96,
+      "height": 28,
+      "sha256": "b8a59a3965b7ca95e426b2b4a5270d38b7e756e202b4f21467db96db80e792b5",
+      "bytes": 1453,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 14,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_button_2_green_png_1802187919",
+        "tagSha256": "9a5eb18df1652279d338319b81c4b4ca2f48fc8efca58f378f7e2eff111a27dc"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/button_4_red.png": {
+      "logical": "zh_CN/gui_summer/controls/public/button_4_red.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_50_92c13d642bf4.png",
+      "width": 81,
+      "height": 28,
+      "sha256": "92c13d642bf46407f12dcae80e4019f93f91f78f54f33d9bed214e2f148b6af8",
+      "bytes": 1719,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 50,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_button_4_red_png_1509230097",
+        "tagSha256": "35da91becf927b268c9f66f24d9d9368641e5c7d91cfb5fe5bf777dd59341ea0"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/public/label138x21.png": {
+      "logical": "zh_CN/gui_summer/controls/public/label138x21.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_45_e63d11dc2208.png",
+      "width": 138,
+      "height": 21,
+      "sha256": "e63d11dc22086e99f2c29f8334da71a8772aa9a4ba3d2028357591b2b6af8c31",
+      "bytes": 1213,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 45,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_public_label138x21_png_1930007863",
+        "tagSha256": "7fa84432d5feb84148fdee469cde5ae439055a1bf81dd1b9367714b3bdd8ca19"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/shop/shop_navItemSelected.png": {
+      "logical": "zh_CN/gui_summer/controls/shop/shop_navItemSelected.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_7_8ed64b970c2b.png",
+      "width": 101,
+      "height": 33,
+      "sha256": "8ed64b970c2b294db2205034dc5e2ce53b4aac6a7e4976ba90288d7a9eb07d15",
+      "bytes": 1062,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 7,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_shop_shop_navItemSelected_png_223945113",
+        "tagSha256": "343825a06339f621dcfa7433f58e73b19056a968566eab36c29f3c2da950280a"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/shop/shop_navItem.png": {
+      "logical": "zh_CN/gui_summer/controls/shop/shop_navItem.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_47_51b0a310c55c.png",
+      "width": 101,
+      "height": 33,
+      "sha256": "51b0a310c55cb531a803714da2254200f4c0b9b9a56bc599f6524e596d285909",
+      "bytes": 499,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 47,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_shop_shop_navItem_png_405301743",
+        "tagSha256": "e8c056dd17bdfd79f05cdca495f31cd98e65793bbbc734a77f47ab980b3a0cd0"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/shop/word_repay_t.png": {
+      "logical": "zh_CN/gui_summer/controls/shop/word_repay_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_39_4cf466ec7d87.png",
+      "width": 34,
+      "height": 19,
+      "sha256": "4cf466ec7d87be6ab70798f21983ba1b096bf643592b364cd2c18d8a6d2170b8",
+      "bytes": 1082,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 39,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_shop_word_repay_t_png_1485279537",
+        "tagSha256": "166766e3002e59135d1af9c8d9054b1fe96ef4795c8c227db5f90ef3634a548d"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/expbar.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/expbar.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_2_7a45d7f17f51.png",
+      "width": 162,
+      "height": 14,
+      "sha256": "7a45d7f17f51223590c80188fcbba67f0f376a409c9d920c2f62e3b44cfc3e42",
+      "bytes": 917,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 2,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankbarn_expbar_png_713529063",
+        "tagSha256": "d8e25a2e1a1d41f81a43d9dc6888c2c1159681419b468334d37088757744063e"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/exptrack.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/exptrack.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_21_054c05b782d7.png",
+      "width": 162,
+      "height": 14,
+      "sha256": "054c05b782d7579df0c1b33a540ef4304b466623408220412314375896ccd9d1",
+      "bytes": 186,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 21,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankbarn_exptrack_png_894716791",
+        "tagSha256": "8e6bf0676010189d9ac64ff7e921ee6caa492c661bed9b65f9676370cb659a96"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/fash_name.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/fash_name.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_55_e8d68556fdf9.png",
+      "width": 157,
+      "height": 33,
+      "sha256": "e8d68556fdf9086443c60f705a7217d5978f080210d0c6ce716beb79c342bd42",
+      "bytes": 960,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 55,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankbarn_fash_name_png_1675093623",
+        "tagSha256": "59df3bea19dff2a0bcbbf5aa937cf10a935e5b1ec71273cadec14703d4b0e875"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/fash_sBK.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/fash_sBK.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_16_0e77f2e74d96.png",
+      "width": 166,
+      "height": 326,
+      "sha256": "0e77f2e74d962e689ccb40fcbc292429cc7f0f5e6611d6168728859658d4cd43",
+      "bytes": 2515,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 16,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankbarn_fash_sBK_png_2027703503",
+        "tagSha256": "d6b004c148579ba751130e07409c497742915107299a50a1827126e2a07ea00d"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/paint_sBK.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/paint_sBK.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_48_f37f2eabeeb1.png",
+      "width": 287,
+      "height": 110,
+      "sha256": "f37f2eabeeb14129bda19966e0c52a0be34563c339213b78c0e975bd3c70f39e",
+      "bytes": 1618,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 48,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankbarn_paint_sBK_png_1834020471",
+        "tagSha256": "7e251547e1d575607a8b28f34473f8e21fb4c4523d6ad276b6ebbda89066e8e9"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/title_choise_t.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/title_choise_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_33_59289a9d8538.png",
+      "width": 35,
+      "height": 19,
+      "sha256": "59289a9d85382877ecdafb9528428ba9c2cb0bcaeb2072c8487d182e18b9a41e",
+      "bytes": 1149,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 33,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_tankbarn_title_choise_t_png_1635238193",
+        "tagSha256": "2168f5a4bfd2ab6723482e3248faa584886b2367fe35a97dbb334bfdcf3c8684"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/nav_achievement_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/nav_achievement_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_54_def2467b1d28.png",
+      "width": 37,
+      "height": 21,
+      "sha256": "def2467b1d2826168bea0321d29fceff5699ef2670fc46f32002251ced120dd1",
+      "bytes": 1249,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 54,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_nav_achievement_t_png_605641537",
+        "tagSha256": "3bf90e0b1431fbd83a247b82f57863cbbb7479ba90c378b26d47b41d3deac824"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/nav_clothe_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/nav_clothe_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_4_ccb303888e64.png",
+      "width": 37,
+      "height": 21,
+      "sha256": "ccb303888e64bdcb323a804d1485ca18ca551aed60c0ef45ada1d6a583be9df2",
+      "bytes": 1375,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 4,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_nav_clothe_t_png_708009781",
+        "tagSha256": "45716bcb333c4f8aa248839ef9ca912be4e7d2c85c6fbb7aaaf9d2448cbbcb85"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/nav_individual_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/nav_individual_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_19_fb4113fbc21c.png",
+      "width": 35,
+      "height": 19,
+      "sha256": "fb4113fbc21c61086251963a3243138cc649c991d853d5d1f434e6dbc6a0b322",
+      "bytes": 1028,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 19,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_nav_individual_t_png_1895343887",
+        "tagSha256": "840bbb6b0eafc06ba50bafbe2a83f06f663a2af0c8dca35f9f555131e434fb2a"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/nav_item_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/nav_item_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_9_13cdd63469e3.png",
+      "width": 37,
+      "height": 21,
+      "sha256": "13cdd63469e340bdcc77d87c904250550666fc51addad531bbba019acbc78e0a",
+      "bytes": 1322,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 9,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_nav_item_t_png_544211579",
+        "tagSha256": "67983ef2bb911186da5eb255d01318886b0f5e802f0af8f1aa90b6062abf4727"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/nav_meterial_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/nav_meterial_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_61_03a5fd72fbad.png",
+      "width": 37,
+      "height": 21,
+      "sha256": "03a5fd72fbadce82300571ab864836eb8d8e940338ce176affb6056fd91c074e",
+      "bytes": 612,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 61,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_nav_meterial_t_png_826964853",
+        "tagSha256": "2c6749ee438c6a28b2444ff6b79c47bd1d05c983fc9bf3eff7b0e45776f22bf0"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/nav_paintword_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/nav_paintword_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_59_4b1f3ecbcd62.png",
+      "width": 37,
+      "height": 21,
+      "sha256": "4b1f3ecbcd622e2aaf2f8e32f29d1fe260d6d04e85fa5b0c3195f084434cd4cd",
+      "bytes": 831,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 59,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_nav_paintword_t_png_1173771011",
+        "tagSha256": "1097af44ab4126a5fb2999d34a83dc26aa5582d2b76faaff0ce120baec6c7146"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/title/title_roolback_t.png": {
+      "logical": "zh_CN/gui_summer/controls/title/title_roolback_t.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_46_07a2d78d82a6.png",
+      "width": 40,
+      "height": 21,
+      "sha256": "07a2d78d82a64d26a3cdb779cb66d4e0e023da04c16f0d4476c018d4ba802fa9",
+      "bytes": 650,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 46,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_gui_summer_controls_title_title_roolback_t_png_1910294415",
+        "tagSha256": "266d480a5444ec5def7214e0a14e296ed1e820cdb7a215ec2764d9c58f09e614"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/icon/item/spraycan.png": {
+      "logical": "zh_CN/icon/item/spraycan.png",
+      "url": "/html5/assets_m82/shells/CharModuleFactory_10_8e3141a9e004.png",
+      "width": 100,
+      "height": 100,
+      "sha256": "8e3141a9e0041ae5ee200db1a49cca89f858a22c4d0dea1d18c7971414d43f30",
+      "bytes": 10421,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+        "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8",
+        "bitmapId": 10,
+        "tagType": 36,
+        "symbol": "mxml.char.CharFrame__embed_mxml__rez_zh_CN_icon_item_spraycan_png_811698990",
+        "tagSha256": "b261c0a169523c0a879d0cdeb6fdfa5d1bf033853bcb488fc1c82ac4958f4871"
+      },
+      "conversion": "Exact SymbolClass bitmap extraction from currently served native module; straight-alpha PNG"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/title_barn_t.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/title_barn_t.png",
+      "url": "/html5/assets_m82/shells/native_literal_e6937e092147.png",
+      "width": 44,
+      "height": 27,
+      "sha256": "e6937e0921472fbd22d5306cb87dab026f0da7f6a681b0ea17615308c1c4fbc2",
+      "bytes": 1504,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankbarn/79fb75f8e04401c6dd144eddd7b4729e.png",
+        "sha256": "e6937e0921472fbd22d5306cb87dab026f0da7f6a681b0ea17615308c1c4fbc2",
+        "nativeReference": "mxml.char.CharFrame"
+      },
+      "conversion": "Original mapped PNG bytes, unchanged"
+    },
+    "zh_CN/gui_summer/controls/tankbarn/char_infoBk_t.png": {
+      "logical": "zh_CN/gui_summer/controls/tankbarn/char_infoBk_t.png",
+      "url": "/html5/assets_m82/shells/native_literal_1dd507407ace.png",
+      "width": 54,
+      "height": 130,
+      "sha256": "1dd507407aceebff590d88d15670c926b0e0c77d73e283d47c0920a32d6cf279",
+      "bytes": 6670,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/tankbarn/5bf3b0c5ece8231f08775836a9c6da03.png",
+        "sha256": "1dd507407aceebff590d88d15670c926b0e0c77d73e283d47c0920a32d6cf279",
+        "nativeReference": "mxml.char.CharFrame"
+      },
+      "conversion": "Original mapped PNG bytes, unchanged"
+    },
+    "zh_CN/gui_summer/controls/pvp/extra_func_BG.png": {
+      "logical": "zh_CN/gui_summer/controls/pvp/extra_func_BG.png",
+      "url": "/html5/assets_m82/shells/native_literal_08105d906107.png",
+      "width": 183,
+      "height": 67,
+      "sha256": "08105d906107882a6012765524c8a097c956b2818f106130a8f5f0bd129e74a3",
+      "bytes": 428,
+      "mode": "P",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/pvp/4eb31a4ead593804f2dd3635abf81c6b.png",
+        "sha256": "08105d906107882a6012765524c8a097c956b2818f106130a8f5f0bd129e74a3",
+        "nativeReference": "mxml.pvp.SelectExtraFuncFrame"
+      },
+      "conversion": "Original mapped PNG bytes, unchanged"
+    },
+    "zh_CN/gui_summer/controls/pvp/extra_func_crystal_t.png": {
+      "logical": "zh_CN/gui_summer/controls/pvp/extra_func_crystal_t.png",
+      "url": "/html5/assets_m82/shells/native_literal_329754372640.png",
+      "width": 28,
+      "height": 16,
+      "sha256": "32975437264003d2576513c74054059dcd54fa8441230bb42bb371694dd0f0fb",
+      "bytes": 1637,
+      "mode": "RGBA",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/pvp/91756183865c655d2c33307fe2c7ca3f.png",
+        "sha256": "32975437264003d2576513c74054059dcd54fa8441230bb42bb371694dd0f0fb",
+        "nativeReference": "mxml.pvp.SelectExtraFuncFrame"
+      },
+      "conversion": "Original mapped PNG bytes, unchanged"
+    },
+    "zh_CN/gui_summer/controls/public/locked.png": {
+      "logical": "zh_CN/gui_summer/controls/public/locked.png",
+      "url": "/html5/assets_m82/shells/native_literal_bd3d347846a0.png",
+      "width": 29,
+      "height": 38,
+      "sha256": "bd3d347846a0dfa9b22202c9979519d4a6e7b42d9dc620b4b9664e26d38032b7",
+      "bytes": 1380,
+      "mode": "P",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/public/3c890232210ba88086d3615d097f69b0.png",
+        "sha256": "bd3d347846a0dfa9b22202c9979519d4a6e7b42d9dc620b4b9664e26d38032b7",
+        "nativeReference": "mxml.pvp.SelectExtraFuncFrame"
+      },
+      "conversion": "Original mapped PNG bytes, unchanged"
+    },
+    "zh_CN/gui_summer/controls/helper/tankhelper_arrow.png": {
+      "logical": "zh_CN/gui_summer/controls/helper/tankhelper_arrow.png",
+      "url": "/html5/assets_m82/shells/native_literal_730aafa65e3f.png",
+      "width": 21,
+      "height": 22,
+      "sha256": "730aafa65e3f88ea9bd991b4d332cf4e758b2d77dae98ba18ef93725ebc26c1b",
+      "bytes": 738,
+      "mode": "P",
+      "source": {
+        "path": "www/rez/zh_CN/gui_summer/controls/helper/3e1e593d10e9135b36bcbd652cc964bb.png",
+        "sha256": "730aafa65e3f88ea9bd991b4d332cf4e758b2d77dae98ba18ef93725ebc26c1b",
+        "nativeReference": "mxml.clan.ClanSkillSelectBoxFrame"
+      },
+      "conversion": "Original mapped PNG bytes, unchanged"
+    }
+  },
+  "sourceFileListSha256": "9582d5554d0314c839ebb69ce68986b7db4f561538124b80ab94f91009592dd3",
+  "modules": {
+    "TankLib": {
+      "sourcePath": "www/TankLib.dat",
+      "sha256": "a7cd29e8edac47f15c19ba2febece888c298550051b30eb69f65978c28695056"
+    },
+    "CharModuleFactory": {
+      "sourcePath": "www/rez/zh_CN/module/27b404acbb106930803d0ec74d94b995.swf",
+      "sha256": "232d3d74c08f7e8fd4c123eadfc9cd00c6c4e7d22f5a25cf4eba9c23e13ad7c8"
+    }
+  }
+}

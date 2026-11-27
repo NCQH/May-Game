@@ -1,0 +1,97 @@
+/* Native raster buttons/cells carry their own artwork; shared chrome must not
+   add a second background or impose block/button minimum dimensions. */
+.m812-halo-card { text-align: center; overflow: hidden; }
+.m812-halo-card p { margin: 0; line-height: 1.4; font: bold 12px Tahoma,sans-serif; }
+.m812-halo-name { color: #ffef86; font: bold 15px Tahoma,sans-serif; }
+.m812-halo-description { color: #ffe8a0; }
+.m812-halo-ownership { color: #082f54; }
+.m812-halo-status { margin: 0; color: #fff; font: bold 12px Tahoma,sans-serif; text-align: center; }
+.m8-garage .m8-native-button,
+.m8-garage .m8-garage-cell {
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0;
+  box-shadow: none;
+  line-height: 1;
+  text-shadow: none;
+  overflow: visible;
+}
+.m8-garage .m8-native-button > img,
+.m8-garage .m8-garage-cell > img {
+  display: block;
+  max-width: none;
+  max-height: none;
+  pointer-events: none;
+}
+.m8-garage .m8-garage-cell:hover:not(:disabled),
+.m8-garage .m8-garage-cell:active:not(:disabled) { filter: none; }
+.m8-garage .m8-garage-details h3 { margin: 0 0 12px; font-size: 17px; }
+.m8-garage .m8-garage-stats dd { margin: 0; }
+.m8-garage .m8-garage-details .m8-note { margin: 10px 0; }
+.m8-garage .m8-garage-dialog h2 { margin: 0 0 14px; font-size: 21px; }
+.m8-garage .m8-garage-skin-list > button { white-space: normal; }
+.m8-garage .m8-garage-skin-list small { display: block; margin-top: 5px; }
+.m8-garage .m8-garage-dialog-overlay { color: #fff; }
+
+/* M8.5: active MouseHintBase/SkillTipWindow logical dimensions and text runs.
+   Tahoma is the served VI_VN font mapping. Every rich run is a text node. */
+.m8-garage .m85-skill-tooltip {
+  position:absolute;z-index:30;box-sizing:border-box;width:252px;
+  padding:10px 5px 16px;border:0;border-radius:6px;background:rgba(0,0,0,.8);
+  color:#ccc;font:12px/16px Tahoma,Arial,sans-serif;max-height:560px;
+  overflow-y:auto;scrollbar-width:thin;white-space:normal;pointer-events:auto;
+}
+.m8-garage .m85-skill-tooltip[hidden] { display:none; }
+.m85-skill-tooltip-title { color:#fff;font-size:14px;font-weight:bold;line-height:20px; }
+.m85-skill-tooltip-cooldown { color:#21ac16;font-weight:bold; }
+.m85-skill-tooltip-mp { color:#529ee4;font-weight:bold; }
+.m85-skill-tooltip-heading { margin-top:10px;line-height:16px; }
+.m85-skill-tooltip-body { white-space:pre-wrap;overflow-wrap:anywhere;line-height:16px; }
+.m8-garage .m85-tank-cell-level { pointer-events:none; }
+
+/* RewardItemFrame: source94×87 frame centered within91×110, native76px icon. */
+.m8-garage .m85-upgrade-material {
+  box-sizing:border-box;min-width:0;min-height:0;margin:0;padding:0;
+  background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible;
+  cursor:pointer;font:12px Tahoma,Arial,sans-serif;text-shadow:none;
+}
+.m8-garage .m85-upgrade-material img { max-width:none;max-height:none;pointer-events:none; }
+.m85-upgrade-material .m85-material-name {
+  color:#fff;font-weight:bold;line-height:17px;text-align:center;white-space:normal;
+  text-shadow:0 0 2px #333300,0 0 2px #333300,0 0 2px #333300;
+}
+.m85-upgrade-material .m85-material-count { color:#333;font-size:13px;font-weight:bold;line-height:20px;text-align:center; }
+.m85-upgrade-material .m85-material-count.short { color:#f00; }
+.m85-upgrade-status { max-height:28px;overflow:hidden; }
+.m8-garage-upgrade-dialog .m8-garage-text { font-family:Tahoma,Arial,sans-serif; }
+.m85-upgrade-material:focus-visible { outline:2px solid #fff;outline-offset:1px; }
+.m8-garage .m85-upgrade-material:hover img { filter:brightness(1.08); }
+
+/* TankSkinAttrFrame996×570; source230px cards, three visible native portraits. */
+.m85-tank-skins { color:#fff;font-family:Tahoma,Arial,sans-serif;overflow:visible; }
+.m85-tank-skins > img { position:absolute;pointer-events:none;max-width:none;max-height:none; }
+.m85-skin-list { overflow:hidden; }
+.m85-skin-card { overflow:visible; }
+.m85-skin-card > img { max-width:none;max-height:none;pointer-events:none; }
+.m85-tank-skins .m8-garage-text { font-family:Tahoma,Arial,sans-serif; }
+.m85-skin-status { color:#fff;font:12px/16px Tahoma,Arial,sans-serif;text-align:center;overflow:hidden; }
+.m85-skin-scroll-arrow > img { transform:rotate(-90deg);transform-origin:50% 50%; }
+.m8-garage .m85-skin-scroll-range {
+  box-sizing:border-box;margin:0;padding:0;appearance:none;-webkit-appearance:none;border:0;border-radius:0;
+  outline:0;background:transparent;cursor:pointer;min-width:0;min-height:0;box-shadow:none;opacity:1;
+}
+.m85-skin-scroll-range::-webkit-slider-runnable-track { height:19px;background:transparent; }
+.m85-skin-scroll-range::-moz-range-track { height:19px;background:transparent;border:0; }
+.m85-skin-scroll-range::-webkit-slider-thumb {
+  appearance:none;-webkit-appearance:none;box-sizing:border-box;width:var(--m85-thumb-width,120px);height:19px;
+  border:0;border-radius:0;background:transparent;box-shadow:none;
+}
+.m85-skin-scroll-range::-moz-range-thumb {
+  box-sizing:border-box;width:var(--m85-thumb-width,120px);height:19px;
+  border:0;border-radius:0;background:transparent;box-shadow:none;
+}
+.m85-skin-scroll-range::-moz-range-progress { background:transparent; }
+.m85-skin-scroll-thumb { pointer-events:none; }
+.m85-skin-scroll-range:focus-visible { outline:2px solid #fff;outline-offset:2px; }
+
+.m812-halo-status{margin:0;line-height:18px;font-size:12px;pointer-events:none;}

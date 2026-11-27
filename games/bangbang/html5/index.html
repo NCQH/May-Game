@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Bang Bang HTML5 · Boss Thế Giới &amp; PvE</title>
+  <link rel="stylesheet" href="./style.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./battle.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m7_robo_hud.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m7_battle.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m8.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m8_account.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m81_native_panel.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m81_shop_confirmation.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m81_guild_view.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+<link rel="stylesheet" href="./m81_military.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m8_garage.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+<link rel="stylesheet" href="./m81_selection_info.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+<link rel="stylesheet" href="./m81_garage_wizard.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m82_account_shell.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m82_leaderboard.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m82_common_ask.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m82_selection_extras.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m84_account_panels.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m84_flow.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m86_loading.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m86_postmatch.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m813_ranked.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m81330_room.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m81330_worldboss.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m81337_rooms_ui.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <meta name="bb-runtime-build" content="m81345-inventory-click-fix-9e251171f0314e86641a">
+  <link rel="stylesheet" href="./m81345_shop.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
+  <script type="importmap" id="m813-runtime-importmap">
+{
+  "imports": {
+    "./app.js": "./app.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./battle_assets.js": "./battle_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./battle_effects.js": "./battle_effects.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./battle_geometry.js": "./battle_geometry.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./battle_input.js": "./battle_input.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./battle_team.js": "./battle_team.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./battle_timeline.js": "./battle_timeline.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./battle_view.js": "./battle_view.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./combat_protocol.js": "./combat_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./combat_state.js": "./combat_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m3.js": "./m3.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m4.js": "./m4.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m6_announcer.js": "./m6_announcer.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m6_assets.js": "./m6_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m6_audio.js": "./m6_audio.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m6_control_contract.js": "./m6_control_contract.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m6_visuals.js": "./m6_visuals.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m71_body_display.js": "./m71_body_display.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m71_kill_banner.js": "./m71_kill_banner.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m72_cannon_presentation.js": "./m72_cannon_presentation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m72_speed_trail.js": "./m72_speed_trail.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m72_sprite_filters.js": "./m72_sprite_filters.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m72_status_presentation.js": "./m72_status_presentation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_assets.js": "./m7_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_body_motion.js": "./m7_body_motion.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_robo_camera.js": "./m7_robo_camera.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_robo_floats.js": "./m7_robo_floats.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_robo_hud.js": "./m7_robo_hud.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_robo_world.js": "./m7_robo_world.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_skill_names.js": "./m7_skill_names.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m7_skill_presentation.js": "./m7_skill_presentation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m810_modes.js": "./m810_modes.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m810_objectives.js": "./m810_objectives.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m810_targeting.js": "./m810_targeting.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m811_death.js": "./m811_death.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m812_halos.js": "./m812_halos.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_assets.js": "./m81314_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_companion_math.js": "./m81314_companion_math.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_companion_render.js": "./m81314_companion_render.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_companions.js": "./m81314_companions.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_connection.js": "./m81314_connection.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_file_timeline.js": "./m81314_file_timeline.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_presentation.js": "./m81314_presentation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_protocol.js": "./m81314_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_pve.js": "./m81314_pve.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_result.js": "./m81314_result.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81314_state.js": "./m81314_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81315_companion_feedback.js": "./m81315_companion_feedback.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81315_pve_hud.js": "./m81315_pve_hud.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81316_panel_art.js": "./m81316_panel_art.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81316_result_art.js": "./m81316_result_art.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81317_companion_tooltip.js": "./m81317_companion_tooltip.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81317_pve_tip_data.js": "./m81317_pve_tip_data.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81318_crystal_art.js": "./m81318_crystal_art.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81318_pve_art.js": "./m81318_pve_art.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81319_tanks.js": "./m81319_tanks.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81323_pve_effects.js": "./m81323_pve_effects.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81327_pve_room.js": "./m81327_pve_room.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81327_pve_room_art.js": "./m81327_pve_room_art.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81328_icons.js": "./m81328_icons.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81329_connection.js": "./m81329_connection.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81329_mail_protocol.js": "./m81329_mail_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81329_mail_ui.js": "./m81329_mail_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8132_selection_preview.js": "./m8132_selection_preview.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_assets.js": "./m81330_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_connection.js": "./m81330_connection.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_crystal_chrome.js": "./m81330_crystal_chrome.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_protocol.js": "./m81330_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_room_layout.js": "./m81330_room_layout.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_state.js": "./m81330_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_worldboss_hud.js": "./m81330_worldboss_hud.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81330_worldboss_ui.js": "./m81330_worldboss_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81331_locale.js": "./m81331_locale.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81332_economy_connection.js": "./m81332_economy_connection.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81332_economy_protocol.js": "./m81332_economy_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81332_economy_ui.js": "./m81332_economy_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81332_visual_fixes.js": "./m81332_visual_fixes.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81333_lac_skin.js": "./m81333_lac_skin.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81333_skins.js": "./m81333_skins.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81334_skins.js": "./m81334_skins.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81335_icons.js": "./m81335_icons.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81335_skins.js": "./m81335_skins.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81336_magneto_fx.js": "./m81336_magneto_fx.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81336_timegoddess_fx.js": "./m81336_timegoddess_fx.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81337_connection.js": "./m81337_connection.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81337_rooms_protocol.js": "./m81337_rooms_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81337_rooms_ui.js": "./m81337_rooms_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81338_level_looks.js": "./m81338_level_looks.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81343_guild_skills.js": "./m81343_guild_skills.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81345_shop_protocol.js": "./m81345_shop_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81345_shop_transactions.js": "./m81345_shop_transactions.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81345_shop_ui.js": "./m81345_shop_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m813_ranked.js": "./m813_ranked.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_account_paging.js": "./m81_account_paging.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_crystal_view.js": "./m81_crystal_view.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_flow_layout.js": "./m81_flow_layout.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_garage_wizard.js": "./m81_garage_wizard.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_ack.js": "./m81_guild_ack.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_applications.js": "./m81_guild_applications.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_create.js": "./m81_guild_create.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_donation.js": "./m81_guild_donation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_invite.js": "./m81_guild_invite.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_management.js": "./m81_guild_management.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_member_options.js": "./m81_guild_member_options.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_members.js": "./m81_guild_members.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_move.js": "./m81_guild_move.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_recruitment.js": "./m81_guild_recruitment.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_team_info.js": "./m81_guild_team_info.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_guild_view.js": "./m81_guild_view.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_input_options.js": "./m81_input_options.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_military.js": "./m81_military.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_native_keycaps.js": "./m81_native_keycaps.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_native_panel.js": "./m81_native_panel.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_num_paging.js": "./m81_num_paging.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_profile.js": "./m81_profile.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_selection_info.js": "./m81_selection_info.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_settings.js": "./m81_settings.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m81_shop_confirmation.js": "./m81_shop_confirmation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m82_account_shell.js": "./m82_account_shell.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m82_common_ask.js": "./m82_common_ask.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m82_leaderboard.js": "./m82_leaderboard.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m82_menu_animation.js": "./m82_menu_animation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m82_menu_audio.js": "./m82_menu_audio.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m82_selection_extras.js": "./m82_selection_extras.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m82_swf_player.js": "./m82_swf_player.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m83_battle_halo.js": "./m83_battle_halo.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m83_chrome.js": "./m83_chrome.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m83_effect_timeline.js": "./m83_effect_timeline.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m83_flash_layout.js": "./m83_flash_layout.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m83_tank_presentation.js": "./m83_tank_presentation.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_battle_recovery.js": "./m84_battle_recovery.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_character.js": "./m84_character.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_crystal_reward.js": "./m84_crystal_reward.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_crystal_reward_data.js": "./m84_crystal_reward_data.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_crystal_view.js": "./m84_crystal_view.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_flow.js": "./m84_flow.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_inventory.js": "./m84_inventory.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_profile.js": "./m84_profile.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m84_shop.js": "./m84_shop.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m85_settings_assets.js": "./m85_settings_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m85_settings_host.js": "./m85_settings_host.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m85_tank_ui.js": "./m85_tank_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m86_loading.js": "./m86_loading.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m86_postmatch.js": "./m86_postmatch.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m88_crystal_reward_layout.js": "./m88_crystal_reward_layout.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m88_guild_assets.js": "./m88_guild_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m88_tank_level_fx.js": "./m88_tank_level_fx.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m89_pk_maps.js": "./m89_pk_maps.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_account_protocol.js": "./m8_account_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_account_state.js": "./m8_account_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_account_ui.js": "./m8_account_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_assets.js": "./m8_assets.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_connection.js": "./m8_connection.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_crystal_protocol.js": "./m8_crystal_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_crystal_state.js": "./m8_crystal_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_crystals.js": "./m8_crystals.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_flow_state.js": "./m8_flow_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_garage.js": "./m8_garage.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_meta_protocol.js": "./m8_meta_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_meta_state.js": "./m8_meta_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_ui.js": "./m8_ui.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./m8_ui_helpers.js": "./m8_ui_helpers.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./net.js": "./net.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./protocol.js": "./protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./protocol_m3.js": "./protocol_m3.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./protocol_m4.js": "./protocol_m4.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./protocol_m8.js": "./protocol_m8.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./room_protocol.js": "./room_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./scene_items.js": "./scene_items.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./scene_protocol.js": "./scene_protocol.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./sixcube.js": "./sixcube.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./spectator.js": "./spectator.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./sprite_surface.js": "./sprite_surface.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./tank_appearance.js": "./tank_appearance.js?v=m81345-inventory-click-fix-9e251171f0314e86641a",
+    "./team_hud_state.js": "./team_hud_state.js?v=m81345-inventory-click-fix-9e251171f0314e86641a"
+  }
+}
+  </script>
+</head>
+<body>
+  <div id="m8-shell"></div>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">BB</span><div><h1>BANG BANG <span>HTML5</span></h1><p>Client mới · Server hiện hành</p></div></div>
+      <span class="milestone">M7 · Bản đồ Robo</span>
+    </header>
+    <main>
+      <section class="connection panel" aria-labelledby="connection-title">
+        <div class="section-heading"><div><p class="eyebrow">PHIÊN KẾT NỐI</p><h2 id="connection-title">Vào sảnh Bang Bang</h2></div><span id="status-badge" class="badge">Chưa kết nối</span></div>
+        <p id="status-message" role="status" aria-live="polite">Đăng nhập để kết nối sảnh.</p>
+        <ol class="stages" aria-label="Các bước kết nối">
+          <li data-stage="web"><span>1</span>Phiên web</li><li data-stage="auth"><span>2</span>Đăng nhập</li><li data-stage="gate"><span>3</span>Nhân vật</li><li data-stage="lobby"><span>4</span>Dữ liệu sảnh</li>
+        </ol>
+        <form id="login-form" autocomplete="off">
+          <label>Tài khoản<input id="username" name="username" type="text" minlength="3" maxlength="32" autocomplete="username" required placeholder="Nhập tài khoản test"></label>
+          <label>Mật khẩu<input id="password" name="password" type="password" minlength="6" autocomplete="current-password" required placeholder="Mật khẩu tài khoản"></label>
+          <button id="login" type="submit" class="primary">Đăng nhập & vào sảnh</button>
+        </form>
+        <div class="actions"><button id="reconnect" type="button" disabled>Kết nối lại</button><button id="disconnect" type="button" disabled>Ngắt kết nối</button><button id="logout" type="button" disabled>Đăng xuất</button></div>
+        <p class="note">Dùng tài khoản trên bản server test. Phiên web, nhân vật và kho tank được xác nhận bởi server hiện hành.</p>
+      </section>
+
+      <section class="match panel" aria-labelledby="match-title">
+        <div class="section-heading"><div><p class="eyebrow">PHÒNG BOT</p><h2 id="match-title">Chuẩn bị trận đấu</h2></div><span id="play-badge" class="badge">Sảnh</span></div>
+        <p id="play-message" role="status" aria-live="polite">Chọn thiết lập bot và vào phòng.</p>
+        <p id="play-error" class="error-message" role="alert" hidden></p>
+        <div id="hall-panel">
+          <form id="bot-form" class="bot-form">
+            <label>Bản đồ<select id="bot-mode"><option value="pk_robo">PK · Robo</option><option value="test_desert">Sân tập sa mạc</option><option value="pk_cow">PK · Dắt bò</option></select></label>
+            <label>Bot cùng đội<select id="bot-allies"><option>0</option><option>1</option><option>2</option><option>3</option><option selected>4</option></select></label>
+            <label>Bot đối thủ<select id="bot-enemies"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option></select></label>
+            <label>Cấp bot<select id="bot-level"><option>1</option><option>2</option><option>3</option><option>4</option><option selected>5</option><option>6</option></select></label>
+            <label>Loại bot cùng đội<select id="bot-ai"><option value="legacy">Bot gốc</option><option value="elite_v1">ProV3</option></select></label>
+            <label>Loại bot đối thủ<select id="bot-ai-enemies"><option value="legacy">Bot gốc</option><option value="elite_v1">ProV3</option></select></label>
+            <label>Guild bot: 1 chủ động + 4 bị động<select id="bot-guild"><option value="0">Không</option><option value="1">Cấp tối đa</option></select></label>
+            <label>Ngọc bot<select id="bot-crystals"><option value="0">Không</option><option value="1">30 ngọc đề cử Lv5</option></select></label>
+            <label>Quân hàm bot<select id="bot-military"><option value="0">Không</option><option value="1">Cấp tối đa</option></select></label>
+            <button id="save-bots" type="submit">Lưu thiết lập</button>
+          </form>
+          <p id="bot-summary" class="subtle">Thiết lập hiện hành sẽ được tải sau khi đăng nhập.</p>
+          <p class="subtle">Rank tự chọn theo bậc người chơi khi tìm trận: Kim Cương trở lên dùng Bot V3, dưới Kim Cương dùng Bot gốc. Lựa chọn ở trên chỉ áp dụng cho PK không rank.</p>
+          <div class="actions"><button id="preset-3v3" type="button">Chọn 3v3 · Robo · Bot cấp 5</button><span class="subtle">Bạn cùng 2 bot đối đầu 3 bot; loại tank do server chọn.</span></div>
+          <div class="actions"><button id="create-room" class="primary" type="button">Tạo phòng bot</button><button id="refresh-hall" type="button">Tải lại phòng</button></div>
+          <ul id="hall-rooms" class="hall-list" aria-label="Phòng do server trả về"></ul>
+        </div>
+        <div id="room-panel" hidden>
+          <div class="map-strip"><img id="map-preview" alt="Ảnh xem trước bản đồ gốc" hidden><div><h3 id="room-title">Phòng bot</h3><p id="room-map" class="subtle"></p></div></div>
+          <div class="table-wrap roster-wrap"><table><thead><tr><th>Đội</th><th>Người chơi / bot</th><th>Tank</th><th>Trạng thái</th></tr></thead><tbody id="room-roster"></tbody></table></div>
+          <div id="room-actions" class="actions"><button id="room-ready" type="button">Sẵn sàng</button><button id="start-match" class="primary" type="button">Bắt đầu chọn tank</button></div>
+          <div id="selection-panel" class="selection-panel" hidden>
+            <div><h3>Chọn tank cho trận</h3><p class="subtle">Chọn trong Garage bên dưới. Tank chủ chiến được giữ nguyên.</p></div>
+            <strong id="selection-countdown" aria-label="Thời gian chọn tank còn lại">60</strong>
+            <p id="selection-current"></p>
+            <div class="actions"><button id="confirm-tank" class="primary" type="button">Chốt tank & vào scene</button><button id="cancel-selection" type="button">Hủy & về sảnh</button></div>
+          </div>
+          <div id="scene-panel" class="scene-panel" hidden>
+            <h3 id="scene-status">Đang nhận scene…</h3>
+            <p id="scene-summary" class="subtle"></p>
+            <div id="battle-panel" hidden>
+              <div class="battle-toolbar">
+                <div class="battle-score"><span id="score-blue">—</span><span>:</span><span id="score-red">—</span><time id="battle-clock">—:—</time></div>
+                <div class="battle-options"><button id="battle-sound" type="button" aria-pressed="false">Bật âm thanh</button><button id="battle-fullscreen" type="button">Toàn màn hình</button><label>Góc nhìn <select id="battle-zoom"><option value="0.75">Rộng</option><option value="1" selected>Gốc</option><option value="1.25">Gần</option></select></label></div>
+              </div>
+              <div id="battle-stage" class="battle-stage">
+                <canvas id="battle-canvas" tabindex="0" aria-label="Trận Bang Bang. WASD hoặc phím mũi tên để đi, chuột để ngắm và bắn, E, R, Space để dùng kỹ năng."></canvas>
+                <canvas id="battle-overlay" aria-hidden="true"></canvas>
+                <div id="robo-hud-host" hidden></div>
+                <section id="robo-settings" class="robo-settings" aria-label="Cài đặt trận đấu" hidden>
+                  <h3>Cài đặt trận đấu</h3>
+                  <button id="robo-sound" type="button">Bật âm thanh</button>
+                  <button id="robo-fullscreen" type="button">Toàn màn hình</button>
+                  <label>Đồ họa <select id="robo-renderer"><option value="auto">Tự động · ưu tiên GPU</option><option value="canvas">Tương thích</option></select></label>
+                  <button id="robo-renderer-apply" type="button">Áp dụng & kết nối lại</button>
+                  <button id="robo-settings-close" type="button">Tiếp tục</button>
+                  <button id="robo-exit" type="button">Rời trận & về sảnh</button>
+                </section>
+                <div id="battle-loading" class="battle-center" role="status">Đang tải bản đồ và tank…</div>
+                <div id="battle-paused" class="battle-center" hidden>Đã tạm ngừng điều khiển. Bấm vào bản đồ để tiếp tục.</div>
+                <div id="battle-result" class="battle-result" hidden>
+                  <p class="eyebrow">TRẬN ĐẤU ĐÃ KẾT THÚC</p><h3 id="result-title"></h3><p id="result-summary"></p>
+                  <div class="table-wrap"><table><thead><tr><th>Đội</th><th>Người chơi / bot</th><th>Hạ tank</th><th>Chết</th><th>Hỗ trợ</th></tr></thead><tbody id="result-actors"></tbody></table></div>
+                  <button id="close-result" class="primary" type="button">Về sảnh</button>
+                </div>
+              </div>
+              <section class="battle-team" aria-labelledby="battle-team-title">
+                <div class="team-toolbar"><h4 id="battle-team-title">Đội của bạn <span id="battle-team-count"></span></h4><button id="spectate-next" type="button" hidden>Theo dõi đồng đội tiếp</button></div>
+                <div id="battle-team-roster" class="team-roster"></div>
+                <p id="spectate-status" class="subtle">HP, MP, khiên và hồi Space riêng của từng tank.</p>
+              </section>
+              <div class="battle-hud">
+                <div class="self-vitals"><strong id="battle-tank-name">Tank của bạn</strong><div class="vital hp"><div id="battle-hp-fill"></div><span id="battle-hp">— / — HP</span></div><div class="vital mp"><div id="battle-mp-fill"></div><span id="battle-mp">— / — MP</span></div><p id="battle-self-status"></p></div>
+                <div class="skill-bar" aria-label="Kỹ năng của tank">
+                  <button class="skill-slot" id="skill-e" data-skill-slot="1" type="button"><kbd>E</kbd><span class="skill-name">Kỹ năng E</span><strong class="skill-timer">—</strong><small class="skill-charge"></small></button>
+                  <button class="skill-slot" id="skill-r" data-skill-slot="10" type="button"><kbd>R</kbd><span class="skill-name">Kỹ năng R</span><strong class="skill-timer">—</strong><small class="skill-charge"></small></button>
+                  <button class="skill-slot" id="skill-space" data-skill-slot="2" type="button"><kbd>Space</kbd><span class="skill-name">Tuyệt kỹ</span><strong class="skill-timer">—</strong><small class="skill-charge"></small></button>
+                </div>
+                <div class="battle-target"><span>Mục tiêu</span><strong id="battle-target-name">Trỏ chuột để chọn mục tiêu</strong><p id="battle-target-hp">Giữ Shift khi dùng kỹ năng hỗ trợ để chọn bản thân.</p><p id="battle-kda">0 / 0 / 0</p></div>
+              </div>
+              <p id="battle-input-message" class="input-message" role="status">Bấm vào bản đồ để điều khiển.</p>
+              <p class="battle-controls"><kbd>W A S D</kbd> / phím mũi tên: di chuyển · Chuột trái: bắn · <kbd>E</kbd>, <kbd>R</kbd>, <kbd>Space</kbd>: kỹ năng của tank · Giữ <kbd>Shift</kbd> để tự dùng kỹ năng hỗ trợ khi được phép · <kbd>Esc</kbd>: nhả điều khiển</p>
+              <p id="battle-asset-status" class="subtle"></p>
+            </div>
+            <div class="table-wrap"><table><thead><tr><th>Đội</th><th>Tank xuất hiện</th><th>Tọa độ ban đầu</th><th>HP / MP ban đầu</th></tr></thead><tbody id="scene-actors"></tbody></table></div>
+            <p id="battle-scope" class="note">Robo dùng giao diện trận theo client gốc. Chọn tank đang sở hữu, dùng E, R, Space theo kỹ năng hiện tại. Server quyết định chiến đấu và bot.</p>
+          </div>
+          <div class="actions"><button id="leave-room" type="button">Rời phòng & về sảnh</button></div>
+        </div>
+      </section>
+
+      <section class="lobby panel" aria-labelledby="lobby-title">
+        <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU TỪ SERVER</p><h2 id="lobby-title">Sảnh của bạn</h2></div><span id="chat-status" class="subtle">Chưa kết nối CHAT</span></div>
+        <div class="stats">
+          <div><span>Nhân vật</span><strong id="character-name">—</strong></div><div><span>Cấp nhân vật</span><strong id="character-level">—</strong></div><div><span>Tank sở hữu</span><strong id="tank-count">0</strong></div><div><span>Độ trễ kết nối</span><strong id="latency">—</strong></div>
+        </div>
+        <div class="garage-header"><h3>Garage</h3><label class="search-label"><span class="sr-only">Tìm tank</span><input id="tank-search" type="search" placeholder="Tìm tank trong kho…"></label></div>
+        <p id="garage-empty" class="empty">Danh sách tank sẽ xuất hiện sau khi server xác nhận nhân vật và gửi kho.</p>
+        <ul id="tank-list" class="tank-grid" aria-label="Tank đang sở hữu"></ul>
+        <div id="inventory-summary" class="inventory-summary"></div>
+      </section>
+
+      <details class="diagnostics panel">
+        <summary>Chi tiết kết nối <span id="packet-summary">0 gói</span></summary>
+        <p>Chỉ hiển thị loại và kích thước gói. Token đăng nhập và nội dung gói thô không được ghi tại đây.</p>
+        <p id="identity-summary" class="subtle">Chưa có nhân vật được server xác nhận.</p>
+        <div class="table-wrap"><table><thead><tr><th>Kênh</th><th>Gói server</th><th>Kiểu dữ liệu</th><th>Bytes</th></tr></thead><tbody id="packet-log"></tbody></table></div>
+      </details>
+    </main>
+    <footer>HTML5 M7 · Robo · Server Python + SQLite quyết định trạng thái trận đấu và bot.</footer>
+  </div>
+  <script type="module" src="./app.js?v=m81345-inventory-click-fix-9e251171f0314e86641a"></script>
+</body>
+</html>

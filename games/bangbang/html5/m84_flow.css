@@ -1,0 +1,19 @@
+/* Native logical pixels; the M83 stage owns scale and centering. */
+.m84-flow-label{display:block;font:700 13px/22px Tahoma,Arial,sans-serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 1px #254b62;pointer-events:none}
+.m84-flow-centered,.m84-hall-cell{text-align:center}.m84-hall-row{position:relative;width:771px;height:36px}
+.m84-native-sidebar,.m84-native-chat,.m84-room-card{overflow:visible}
+.m84-flow-level{transform-origin:0 0;pointer-events:none}.m84-flow-ornament{pointer-events:none}
+.m84-sidebar-players{overflow:hidden}.m84-sidebar-player{isolation:isolate}
+.m84-sidebar-player>.m84-flow-label{z-index:2}.m84-sidebar-player>.m84-flow-ornament{z-index:0}
+.m86-sidebar-rank-icon{transform:scale(.125);transform-origin:0 0;pointer-events:none;z-index:1}
+.m84-sidebar-player>.m86-sidebar-rank{font-size:12px;line-height:20px;text-shadow:0 0 2px #000,0 1px 1px #000}
+.m84-sidebar-player>.m86-sidebar-name{font-size:12px;line-height:22px}
+.m84-native-chat .m84-chat-tab-label{text-align:center;font-size:14px;line-height:24px;text-shadow:0 1px 1px #000}
+.m84-chat-log{pointer-events:none}.m84-chat-channel{font-size:13px;line-height:19px;text-align:center}
+.m84-chat-unavailable{font:12px/19px Tahoma,Arial,sans-serif;white-space:nowrap;color:#e7f6ff}
+.m84-room-title{text-align:center;font-size:15px;line-height:24px}
+.m84-room-player-name{font-size:13px}.m84-room-ping{font:700 10px/18px Tahoma,Arial,sans-serif;color:#72ff00;text-align:right;text-shadow:0 1px 1px #004600}
+.m84-room-roster{pointer-events:none}.m84-room-card{pointer-events:auto}.m84-room-card>.m8-art{pointer-events:none}
+.m84-cancel-label{font-size:10px;text-align:center;line-height:20px}
+.m84-find-status{font:12px/18px Tahoma,Arial,sans-serif;text-align:center;white-space:normal}
+.m84-native-chat button[aria-disabled=true],.m84-native-sidebar button[aria-disabled=true],.m84-room-card button[aria-disabled=true]{cursor:default}
