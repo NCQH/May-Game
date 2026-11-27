@@ -49,7 +49,7 @@ Chạy patcher trên checkout sạch. GitHub Actions làm các bước trên và
 
 ## Phát hành và nghiệm thu
 
-Workflow `pvz-build.yml` build artifact trên PR khớp paths hoặc `workflow_dispatch`. Chạy `workflow_dispatch` từ `main` sẽ build, trim/chunk, cập nhật source release, preflight và deploy production; cần secrets `CLOUDFLARE_API_TOKEN` (Pages:Edit) và `CLOUDFLARE_ACCOUNT_ID`. Deploy local vẫn dùng `scripts/deploy-cloudflare.sh may-game main`. Không deploy GitHub Pages. Không thể xác nhận giống toàn bộ GOTY chỉ bằng build; đối chiếu các chế độ, save, input và asset theo docs/PVZ-GOTY-PLAN.md. Texture HD còn cần dữ liệu thật.
+Workflow `pvz-build.yml` build artifact trên PR khớp paths hoặc `workflow_dispatch`. Chạy `workflow_dispatch` từ `main` sẽ build, trim/chunk, cập nhật source release, preflight, deploy production và prune deployment cũ (giữ 2 bản production); cần secrets `CLOUDFLARE_API_TOKEN` (Pages:Edit) và `CLOUDFLARE_ACCOUNT_ID`. Deploy local vẫn dùng `scripts/deploy-cloudflare.sh may-game main`. Không deploy GitHub Pages. Không thể xác nhận giống toàn bộ GOTY chỉ bằng build; đối chiếu các chế độ, save, input và asset theo docs/PVZ-GOTY-PLAN.md. Texture HD còn cần dữ liệu thật.
 
 Bridge/patch mới: LGPL-3.0-or-later. Giữ license upstream/dependency và nguồn tương ứng khi phân phối. Quyền engine không cấp quyền phân phối tài nguyên GOTY.
 

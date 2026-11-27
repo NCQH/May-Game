@@ -183,7 +183,7 @@ Không giữ legacy, không banner, không redirect, không thông báo migrate.
 - GitHub Pages đã tắt; workflow Pages đã xóa; chỉ còn `main`.
 - **Release workflow:** `pvz-build.yml` (`workflow_dispatch` trên `main`) build artifact → deploy job trim/chunk → cập nhật source release → preflight → `deploy-cloudflare.sh`. PR chỉ build. Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 - **Publish allowlist:** `scripts/pvz/build-pvz.sh` chỉ đưa runtime files vào `.site`; `scripts/check-static.py` chặn `tests/`, `scripts/`, `docs/`, `.github/`, package và root dev docs.
-- Giữ deployment production trước đó để rollback; workflow không xóa deployment cũ.
+- Deploy job prune deployments sau khi deploy: giữ 2 bản production (hiện tại + trước), xóa bản cũ và preview.
 - Tùy chọn: bỏ `hd/`/`wide/` khỏi Git nếu không cần bản full nữa; backup trước.
 - Tùy chọn: thêm `_headers` khi đã có content hash; không dùng `immutable` cho `data/` hiện tại.
 
