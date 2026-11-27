@@ -49,7 +49,7 @@ http://127.0.0.1:18086/games/bangbang/html5/
 
 ## Cache
 
-- `cache-manifest.json` liệt kê **18.558 URL asset**; `essential` (319 URL) được tải trước màn hình tạo nhân vật.
+- `cache-manifest.json` liệt kê **18.560 URL asset**; `essential` (319 URL) được tải trước màn hình tạo nhân vật.
 - Sau khi tạo nhân vật và sảnh hiện xong, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ. Cache nền tạm dừng khi rời sảnh và tự tiếp tục khi quay lại.
 - Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.
@@ -62,6 +62,13 @@ http://127.0.0.1:18086/games/bangbang/html5/
 - Deploy: `bash scripts/bangbang/deploy.sh may-game-bangbang`
 - Workflow: `.github/workflows/bangbang.yml` (`workflow_dispatch` + push `games/bangbang/**`, `scripts/bangbang/**`, `sw.js`)
 - Site chính `may-game` chỉ còn card catalog và redirect cũ; asset BangBang không còn nằm trong deployment chính.
+
+## M1 static JS engine (thử nghiệm)
+
+- Mở `?engine=js` để dùng `static-server/worker.js`: tạo nhân vật + lobby bằng frame AUTH/GATE đã chụp từ server Python, **không tải Pyodide/bangbang-py.zip**.
+- Boot local ~2,7 s; reload prefill tên/body từ `localStorage`; tên nhân vật được patch vào S1016.
+- Chưa có battle: PvE/PvP vẫn dùng engine Pyodide mặc định cho đến M2.
+- Frame golden nằm ở `html5/static-server/frames.json` (AUTH S901/S906, GATE S1005/S1016/S1100/S1150/S1455/S1454/S1351/S1350/S1045).
 
 ## Test local
 

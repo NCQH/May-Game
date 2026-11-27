@@ -7,7 +7,9 @@
   const sockets = { AUTH: null, GATE: null };
   const pending = { AUTH: [], GATE: [] };
   const inputQueue = { AUTH: [], GATE: [] };
-  const worker = new Worker('./offline-worker.js', { type: 'module' });
+  const engine = (() => { try { return new URLSearchParams(location.search).get('engine') || localStorage.getItem('bb-engine') || 'py'; } catch { return new URLSearchParams(location.search).get('engine') || 'py'; } })();
+  const worker = new Worker(engine === 'js' ? './static-server/worker.js' : './offline-worker.js', { type: 'module' });
+  try { worker.postMessage({ type: 'init', profile: { name: localStorage.getItem('bb-character-name') || '', body: localStorage.getItem('bb-character-body') || '' } }); } catch {}
   const json = (value) => new Response(JSON.stringify(value), { headers: { 'Content-Type': 'application/json' } });
   const realFetch = window.fetch.bind(window);
   const CATALOG_PARTS = {

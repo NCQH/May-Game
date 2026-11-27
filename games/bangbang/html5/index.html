@@ -354,7 +354,8 @@
         script.src = './app.js?v=m81345-inventory-click-fix-9e251171f0314e86641a';
         document.head.appendChild(script);
       };
-      window.__bbSwReady = ('serviceWorker' in navigator)
+      const engineJs = new URLSearchParams(location.search).get('engine') === 'js';
+      window.__bbSwReady = engineJs ? Promise.resolve(false) : ('serviceWorker' in navigator)
         ? navigator.serviceWorker.register('/sw.js', { scope: '/' })
             .then(() => navigator.serviceWorker.ready).then(() => true).catch(() => false)
         : Promise.resolve(false);
@@ -494,10 +495,11 @@
       return response.ok ? await response.json() : null;
     } catch { return null; }
   })();
+  const engineJs = new URLSearchParams(location.search).get('engine') === 'js';
   async function cacheEssential(manifest) {
     if (!manifest || !('caches' in window)) return;
     const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
-    const urls = manifest.essential || [];
+    const urls = (manifest.essential || []).filter((url) => !engineJs || (!url.includes('/pyodide/') && !url.endsWith('bangbang-py.zip')));
     let done = 0;
     const queue = [...urls];
     const workers = Array.from({ length: 6 }, async () => {
@@ -516,7 +518,7 @@
     await Promise.all(workers);
   }
   async function cacheAll(manifest) {
-    if (!manifest || !('caches' in window)) return;
+    if (engineJs || !manifest || !('caches' in window)) return;
     const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
     const urls = manifest.assets || [];
     let done = 0;
