@@ -11,14 +11,14 @@ node scripts/bangbang/serve.cjs
 Mở:
 
 ```text
-http://127.0.0.1:18086/games/bangbang/html5/offline.html
+http://127.0.0.1:18086/games/bangbang/html5/
 ```
 
 `scripts/bangbang/serve.cjs` maps `/html5/*` → `games/bangbang/html5/*` và `/rez/*` → `games/bangbang/rez/*`, đồng thời set COOP/COEP để SharedArrayBuffer hoạt động.
 
 ## Tạo nhân vật
 
-- Mở `offline.html`: màn hình **Tạo nhân vật** thay cho đăng nhập.
+- Mở `index.html`: màn hình **Tạo nhân vật** thay cho đăng nhập.
 - Chọn body từ `m8_account_catalog` (boy/girl/body), nhập tên, bấm **Vào sảnh**.
 - Lưu vào SQLite (`worlds.state` gồm `name`, `body`) và persist database sang IndexedDB; reload sẽ prefill lại.
 - Tank khởi đầu được đặt về Naruto (10000044) để khớp bộ asset đã trim.
@@ -26,7 +26,7 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Cấu trúc
 
-- `html5/offline.html` — entry web + màn hình boot + màn hình tạo nhân vật
+- `html5/index.html` — entry web + màn hình boot + màn hình tạo nhân vật
 - `html5/shim.js` — thay `fetch`/`WebSocket` bằng Worker + SAB; ghép catalog bị split; RPC tạo nhân vật
 - `html5/offline-worker.js` — Pyodide + Python PvE server; tạo/cập nhật character; persist SQLite
 - `html5/bangbang-py.zip` — server PvE + SQLite mẫu
@@ -49,7 +49,7 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Cache
 
-- `cache-manifest.json` liệt kê **15.195 URL asset**; `essential` (505 URL) được tải trước màn hình tạo nhân vật.
+- `cache-manifest.json` liệt kê **15.129 URL asset**; `essential` (528 URL) được tải trước màn hình tạo nhân vật.
 - Sau khi tạo nhân vật và sảnh hiện xong, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ. Cache nền tạm dừng khi rời sảnh và tự tiếp tục khi quay lại.
 - Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
+  <link rel="manifest" href="./manifest.webmanifest">
   <title>Bang Bang HTML5 · Boss Thế Giới &amp; PvE</title>
   <link rel="stylesheet" href="./style.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
   <link rel="stylesheet" href="./battle.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
@@ -325,7 +326,7 @@
       </section>
 
       <section class="lobby panel" aria-labelledby="lobby-title">
-        <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU TỪ SERVER</p><h2 id="lobby-title">Sảnh của bạn</h2></div><span id="chat-status" class="subtle">Chưa kết nối CHAT</span></div>
+        <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU TỪ SERVER</p><h2 id="lobby-title">Sảnh của bạn</h2></div></div>
         <div class="stats">
           <div><span>Nhân vật</span><strong id="character-name">—</strong></div><div><span>Cấp nhân vật</span><strong id="character-level">—</strong></div><div><span>Tank sở hữu</span><strong id="tank-count">0</strong></div><div><span>Độ trễ kết nối</span><strong id="latency">—</strong></div>
         </div>
@@ -344,6 +345,329 @@
     </main>
     <footer>HTML5 M7 · Robo · Server Python + SQLite quyết định trạng thái trận đấu và bot.</footer>
   </div>
-  <script type="module" src="./app.js?v=m81345-inventory-click-fix-9e251171f0314e86641a"></script>
+  <script src="./shim.js"></script>
+  <script>
+    (() => {
+      const start = () => {
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = './app.js?v=m81345-inventory-click-fix-9e251171f0314e86641a';
+        document.head.appendChild(script);
+      };
+      window.__bbSwReady = ('serviceWorker' in navigator)
+        ? navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(() => navigator.serviceWorker.ready).then(() => true).catch(() => false)
+        : Promise.resolve(false);
+      window.__bbSwReady.then(start);
+    })();
+  </script>
+
+<style>
+#m8-shell[data-screen="login"]{display:none!important}
+#bb-create{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:18px;background:#081713 radial-gradient(circle at 50% 0,#1f4a40 0,#081713 70%);color:#eef4ce;font-family:"Be Vietnam Pro",sans-serif}
+#bb-create[hidden]{display:none!important}
+.bb-create-card{width:min(980px,100%);max-height:calc(100dvh - 36px);overflow:auto;padding:22px;border:2px solid #4b6b4b;background:#14251d;box-shadow:0 12px 0 #07100c}
+.bb-create-kicker{margin:0;color:#c7e875;font:700 11px/1.2 "Chakra Petch",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.bb-create-card h1{margin:6px 0 0;color:#f2f7d4;font:700 30px/1.1 "Chakra Petch",sans-serif;text-transform:uppercase}
+.bb-create-lead{margin:7px 0 16px;color:#a9b89c;font-size:13px;line-height:1.5}
+.bb-create-main{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;align-items:start}
+.bb-create-preview{position:relative;display:grid;place-items:center;min-height:250px;border:1px solid #405a45;background:#0d1b16 radial-gradient(circle,#1d3b30,#0d1b16 70%)}
+.bb-create-preview img{width:180px;height:240px;object-fit:contain;image-rendering:auto}
+.bb-create-preview-name{position:absolute;bottom:8px;left:0;right:0;text-align:center;color:#e0e8bd;font:600 13px/1.2 "Chakra Petch",sans-serif;text-shadow:0 1px #000}
+.bb-create-form{display:grid;gap:12px;min-width:0}
+.bb-create-form label{display:grid;gap:5px;color:#c6db8f;font:700 11px/1.2 "Chakra Petch",sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.bb-create-form input{height:42px;padding:0 12px;border:1px solid #58704f;background:#0b1713;color:#f2f7d4;font:500 16px/1 "Be Vietnam Pro",sans-serif;outline:none}
+.bb-create-form input:focus{border-color:#c7e875}
+.bb-create-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.bb-create-tab{padding:6px 10px;border:1px solid #405a45;background:#0d1b16;color:#a9b89c;font:600 11px/1 "Chakra Petch",sans-serif;text-transform:uppercase;cursor:pointer}
+.bb-create-tab.is-active{border-color:#c7e875;color:#0d1b16;background:#c7e875}
+.bb-create-bodies{display:grid;grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:6px;max-height:250px;overflow:auto;padding:6px;border:1px solid #354734;background:#0b1713}
+.bb-body-option{padding:3px;border:2px solid transparent;background:#13251c;cursor:pointer}
+.bb-body-option img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain}
+.bb-body-option.is-selected{border-color:#c7e875;background:#243b2a}
+.bb-create-submit{justify-self:start;min-height:44px;padding:0 18px;border:2px solid #a6c96b;background:#c7e875;box-shadow:0 4px 0 #596a38;color:#17251a;font:700 14px/1 "Be Vietnam Pro",sans-serif;cursor:pointer}
+.bb-create-submit:disabled{opacity:.6;cursor:wait}
+.bb-create-status{margin:0;min-height:18px;color:#ffb8a8;font-size:12px}
+.bb-create-status.is-ok{color:#c7e875}
+@media(max-width:700px){.bb-create-card{padding:16px}.bb-create-main{grid-template-columns:130px minmax(0,1fr);gap:12px}.bb-create-preview{min-height:190px}.bb-create-preview img{width:130px;height:174px}.bb-create-bodies{max-height:200px}.bb-create-card h1{font-size:24px}}
+
+#bb-loading{position:fixed;inset:0;z-index:10001;overflow:hidden;background:#060f0c;color:#eef4ce;font-family:"Be Vietnam Pro",sans-serif}
+#bb-loading[hidden]{display:none!important}
+#bb-loading::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,8,10,.72) 0%,rgba(3,8,10,0) 32%,rgba(3,8,10,0) 46%,rgba(3,8,10,.92) 78%,#03080a 100%),linear-gradient(90deg,rgba(3,8,10,.82) 0%,rgba(3,8,10,0) 62%)}
+.bb-boot-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+.bb-boot-hud{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 max(22px,5vw) calc(26px + env(safe-area-inset-bottom))}
+.bb-boot-kicker{display:block;color:#c7e875;font:700 11px/1.2 "Chakra Petch",sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.bb-boot-hud h1{margin:4px 0 0;color:#f2f7d4;font:800 clamp(34px,5.6vw,58px)/1 "Chakra Petch",sans-serif;letter-spacing:.03em;text-transform:uppercase;text-shadow:0 3px 0 #07100c}
+.bb-boot-sub{margin:6px 0 0;color:#b9c9a8;font-size:13px;line-height:1.4}
+.bb-boot-state{display:flex;align-items:center;gap:9px;width:min(560px,100%);margin-top:18px;color:#e6efd0;font:600 12px/1.3 "Chakra Petch",sans-serif}
+.bb-boot-hex{position:relative;flex:none;width:26px;height:22px}
+.bb-boot-hex img{position:absolute;inset:0;width:100%;height:100%}
+.bb-boot-hex img:last-child{animation:bb-hex 1.4s ease-in-out infinite}
+@keyframes bb-hex{50%{opacity:.25}}
+.bb-boot-percent{margin-left:auto;color:#c7e875;font-variant-numeric:tabular-nums}
+.bb-boot-bar{position:relative;width:min(560px,100%);height:16px;margin-top:8px;background:url("./assets_m8/loading_progressTrack_a8c0dc0f07aa.png") left center/100% 100% no-repeat}
+.bb-boot-fill{position:absolute;inset:1px auto 1px 1px;width:0;background:url("./assets_m8/loading_progress_7072361e34c4.png") left center/100% 100% no-repeat;transition:width .2s linear}
+.bb-boot-note{width:min(560px,100%);margin:9px 0 0;color:#93a489;font-size:11px;line-height:1.45}
+@media(prefers-reduced-motion:reduce){.bb-boot-hex img:last-child{animation:none}}
+@media(max-width:560px){.bb-boot-hud h1{font-size:32px}.bb-boot-note{font-size:10px}}
+#bb-cache-status{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:9500;padding:7px 10px;border:1px solid #53664b;background:#14251d;color:#c7e875;font:600 11px/1.2 "Chakra Petch",sans-serif;pointer-events:none}
+#bb-cache-status[hidden]{display:none!important}
+</style>
+<div id="bb-loading" role="status" aria-live="polite">
+  <img class="bb-boot-art" src="./assets/boot/splash.png" alt="" fetchpriority="high" decoding="async">
+  <div class="bb-boot-hud">
+    <span class="bb-boot-kicker">Máy Game</span>
+    <h1>Bang Bang</h1>
+    <p class="bb-boot-sub">PvE xe tăng chạy trực tiếp trên web</p>
+    <div class="bb-boot-state">
+      <span class="bb-boot-hex" aria-hidden="true">
+        <img src="./assets_m8/loading_hexagon_ed623d6d2167.png" alt="">
+        <img src="./assets_m8/loading_selfHexagon_5a055b04cef3.png" alt="">
+      </span>
+      <span id="bb-loading-text">Đang kiểm tra bộ nhớ đệm…</span>
+      <span id="bb-loading-percent" class="bb-boot-percent">0%</span>
+    </div>
+    <div class="bb-boot-bar" id="bb-loading-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span id="bb-loading-fill" class="bb-boot-fill"></span>
+    </div>
+    <p class="bb-boot-note">Lần đầu có thể mất vài chục giây. Các lần sau mở nhanh hơn nhờ bộ nhớ đệm trên máy.</p>
+  </div>
+</div>
+<div id="bb-cache-status" hidden></div>
+<div id="bb-create" role="dialog" aria-modal="true" aria-labelledby="bb-create-title" hidden>
+  <section class="bb-create-card">
+    <p class="bb-create-kicker">Máy Game · Bang Bang Offline</p>
+    <h1 id="bb-create-title">Tạo nhân vật</h1>
+    <p class="bb-create-lead">Chọn ngoại hình, đặt tên rồi vào sảnh. Lựa chọn được lưu vào SQLite trên máy.</p>
+    <div class="bb-create-main">
+      <div class="bb-create-preview">
+        <img id="bb-create-preview" alt="Xem trước nhân vật">
+        <span class="bb-create-preview-name" id="bb-create-preview-name">Người chơi</span>
+      </div>
+      <div class="bb-create-form">
+        <label>Tên nhân vật
+          <input id="bb-create-name" maxlength="32" autocomplete="off" placeholder="Nhập tên nhân vật">
+        </label>
+        <div class="bb-create-tabs" id="bb-create-tabs">
+          <button type="button" class="bb-create-tab is-active" data-group="boy">Boy</button>
+          <button type="button" class="bb-create-tab" data-group="girl">Girl</button>
+          <button type="button" class="bb-create-tab" data-group="body">Body</button>
+        </div>
+        <div class="bb-create-bodies" id="bb-create-bodies"></div>
+        <button type="button" class="bb-create-submit" id="bb-create-submit">Vào sảnh</button>
+        <p class="bb-create-status" id="bb-create-status" role="status"></p>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+(() => {
+  const overlay = document.getElementById('bb-create');
+  const loading = document.getElementById('bb-loading');
+  const loadingText = document.getElementById('bb-loading-text');
+  const loadingFill = document.getElementById('bb-loading-fill');
+  const loadingPercent = document.getElementById('bb-loading-percent');
+  const loadingBar = document.getElementById('bb-loading-bar');
+  const cacheBadge = document.getElementById('bb-cache-status');
+  const nameInput = document.getElementById('bb-create-name');
+  const bodies = document.getElementById('bb-create-bodies');
+  const tabs = document.getElementById('bb-create-tabs');
+  const preview = document.getElementById('bb-create-preview');
+  const previewName = document.getElementById('bb-create-preview-name');
+  const submit = document.getElementById('bb-create-submit');
+  const status = document.getElementById('bb-create-status');
+  let shown = 0;
+  const boot = (value, text) => {
+    shown = Math.max(shown, Math.min(1, value || 0));
+    const pct = Math.round(shown * 100);
+    loadingFill.style.width = `${pct}%`;
+    loadingPercent.textContent = `${pct}%`;
+    loadingBar.setAttribute('aria-valuenow', pct);
+    if (text) loadingText.textContent = text;
+  };
+  const creep = (target, text) => setInterval(() => {
+    if (shown < target) boot(Math.min(target, shown + 0.008), text);
+  }, 700);
+  const manifestPromise = (async () => {
+    try {
+      const response = await fetch('./cache-manifest.json', { cache: 'no-store' });
+      return response.ok ? await response.json() : null;
+    } catch { return null; }
+  })();
+  async function cacheEssential(manifest) {
+    if (!manifest || !('caches' in window)) return;
+    const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
+    const urls = manifest.essential || [];
+    let done = 0;
+    const queue = [...urls];
+    const workers = Array.from({ length: 6 }, async () => {
+      while (queue.length) {
+        const url = queue.shift();
+        try {
+          if (!(await cache.match(url))) {
+            const response = await fetch(url);
+            if (response.ok) await cache.put(url, response.clone());
+          }
+        } catch { /* The app can still fetch this asset later. */ }
+        done += 1;
+        if (done % 4 === 0 || !queue.length) boot(0.08 + 0.54 * (done / urls.length), `Đang tải dữ liệu thiết yếu ${done}/${urls.length}…`);
+      }
+    });
+    await Promise.all(workers);
+  }
+  async function cacheAll(manifest) {
+    if (!manifest || !('caches' in window)) return;
+    const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
+    const urls = manifest.assets || [];
+    let done = 0;
+    const queue = [...urls];
+    cacheBadge.hidden = false;
+    cacheBadge.textContent = `Đang tải nền 0/${urls.length}…`;
+    const idle = () => { const snap = window.bbM8?.snapshot?.(); return !snap || snap.ui?.screen === 'lobby'; };
+    const workers = Array.from({ length: 6 }, async () => {
+      while (queue.length) {
+        if (!idle()) { await new Promise((resolve) => setTimeout(resolve, 1000)); continue; }
+        const url = queue.shift();
+        let hit = false;
+        try { hit = Boolean(await cache.match(url)); } catch {}
+        if (!hit) {
+          try {
+            const response = await fetch(url);
+            if (response.ok) await cache.put(url, response.clone());
+          } catch {}
+        }
+        done += 1;
+        if (done % 10 === 0 || !queue.length) cacheBadge.textContent = `Đang tải nền ${done}/${urls.length}…`;
+      }
+    });
+    await Promise.all(workers);
+    cacheBadge.hidden = true;
+  }
+  let groups = { boy: [], girl: [], body: [] };
+  let selected = null;
+  let group = 'boy';
+
+  const labelOf = (key) => {
+    const base = key.split('/').pop().replace(/\.png$/, '').replace(/_t$/, '');
+    const match = base.match(/^(boy|girl|body)(\d+)/i);
+    if (!match) return base;
+    return `${match[1][0].toUpperCase()}${match[1].slice(1)} ${Number(match[2])}`;
+  };
+  const choose = (item) => {
+    selected = item;
+    preview.src = item.url;
+    preview.alt = labelOf(item.key);
+    previewName.textContent = nameInput.value.trim() || labelOf(item.key);
+    for (const node of bodies.querySelectorAll('.bb-body-option')) node.classList.toggle('is-selected', node.dataset.key === item.key);
+  };
+  const render = () => {
+    bodies.innerHTML = '';
+    for (const item of groups[group]) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'bb-body-option';
+      button.dataset.key = item.key;
+      button.title = labelOf(item.key);
+      button.setAttribute('aria-label', labelOf(item.key));
+      const image = document.createElement('img');
+      image.src = item.url;
+      image.alt = '';
+      image.loading = 'lazy';
+      button.append(image);
+      button.addEventListener('click', () => choose(item));
+      bodies.append(button);
+    }
+    if (!selected || !groups[group].some((item) => item.key === selected.key)) choose(groups[group][0]);
+    else choose(selected);
+  };
+  const setGroup = (next) => {
+    group = next;
+    for (const tab of tabs.querySelectorAll('.bb-create-tab')) tab.classList.toggle('is-active', tab.dataset.group === group);
+    render();
+  };
+  nameInput.addEventListener('input', () => { previewName.textContent = nameInput.value.trim() || 'Người chơi'; });
+  tabs.addEventListener('click', (event) => {
+    const tab = event.target.closest('[data-group]');
+    if (tab) setGroup(tab.dataset.group);
+  });
+  submit.addEventListener('click', async () => {
+    const name = nameInput.value.trim();
+    if (!name) { status.textContent = 'Nhập tên nhân vật.'; status.classList.remove('is-ok'); nameInput.focus(); return; }
+    if (!selected) { status.textContent = 'Chọn ngoại hình.'; status.classList.remove('is-ok'); return; }
+    submit.disabled = true;
+    status.textContent = 'Đang tạo nhân vật và lưu SQLite…';
+    status.classList.remove('is-ok');
+    try {
+      await window.__bbOffline.create(name, selected.key);
+      localStorage.setItem('bb-character-name', name);
+      localStorage.setItem('bb-character-body', selected.key);
+      status.textContent = 'Đã lưu. Đang vào sảnh…';
+      status.classList.add('is-ok');
+      manifestPromise.then((manifest) => {
+        if (!manifest) return;
+        let started = false;
+        const start = () => { if (started) return; started = true; cacheAll(manifest); };
+        // Wait for the lobby assets to finish before the bulk download competes with them.
+        const wait = setInterval(() => {
+          if (window.bbM8?.snapshot?.().ui?.screen !== 'lobby') return;
+          clearInterval(wait);
+          setTimeout(start, 5000);
+        }, 500);
+        setTimeout(() => { clearInterval(wait); start(); }, 90000);
+      });
+      const started = Date.now();
+      while (Date.now() - started < 30000) {
+        if (window.bbM8?.snapshot?.().phase === 'ready') break;
+        await new Promise((resolve) => setTimeout(resolve, 250));
+      }
+      overlay.hidden = true;
+    } catch (error) {
+      submit.disabled = false;
+      status.textContent = String(error && error.message || error);
+      status.classList.remove('is-ok');
+    }
+  });
+  (async () => {
+    try {
+      overlay.hidden = true;
+      boot(0.02, 'Đang kiểm tra bộ nhớ đệm…');
+      await window.__bbSwReady;
+      boot(0.06, 'Đang đọc danh mục tài nguyên…');
+      const manifest = await manifestPromise;
+      if (manifest) await cacheEssential(manifest);
+      boot(0.62, 'Đang khởi động máy chủ trận đấu…');
+      const creepTimer = creep(0.8, 'Đang khởi động máy chủ trận đấu…');
+      const profile = await window.__bbOffline.ready;
+      clearInterval(creepTimer);
+      boot(0.82, 'Đang đọc hồ sơ nhân vật…');
+      const response = await fetch('./m8_account_catalog.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Không tải được catalog ngoại hình.');
+      const catalog = await response.json();
+      boot(0.9, 'Đang chuẩn bị màn hình tạo nhân vật…');
+      for (const [key, row] of Object.entries(catalog.assets || {})) {
+        if (!/^zh_CN\/char\/(boy|girl|body)\d+/i.test(key) || /_t\.png$/i.test(key) || !row.url) continue;
+        const kind = key.match(/^zh_CN\/char\/(boy|girl|body)/i)[1].toLowerCase();
+        groups[kind].push({ key, url: row.url });
+      }
+      groups.boy.sort((a, b) => labelOf(a.key).localeCompare(labelOf(b.key), 'en', { numeric: true }));
+      groups.girl.sort((a, b) => labelOf(a.key).localeCompare(labelOf(b.key), 'en', { numeric: true }));
+      groups.body.sort((a, b) => labelOf(a.key).localeCompare(labelOf(b.key), 'en', { numeric: true }));
+      nameInput.value = profile.name || 'Người chơi';
+      const preferred = profile.body && groups.boy.concat(groups.girl, groups.body).find((item) => item.key === profile.body);
+      if (preferred) { selected = preferred; group = preferred.key.includes('/girl') ? 'girl' : preferred.key.includes('/body') ? 'body' : 'boy'; for (const tab of tabs.querySelectorAll('.bb-create-tab')) tab.classList.toggle('is-active', tab.dataset.group === group); }
+      render();
+      if (preferred) choose(preferred);
+      boot(1, 'Sẵn sàng.');
+      loading.hidden = true;
+      overlay.hidden = false;
+    } catch (error) {
+      loading.hidden = true;
+      overlay.hidden = false;
+      status.textContent = String(error && error.message || error);
+    }
+  })();
+})();
+</script>
+
 </body>
 </html>

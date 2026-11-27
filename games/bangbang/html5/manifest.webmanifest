@@ -2,7 +2,7 @@
   "name": "Bang Bang Offline",
   "short_name": "Bang Bang",
   "description": "Bang Bang PvE offline (Pyodide)",
-  "start_url": "./offline.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#102226",

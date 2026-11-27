@@ -203,7 +203,7 @@
     "description": "Bắn tank PvE chạy trực tiếp trên web.",
     "players": "1 người",
     "controls": "WASD di chuyển · chuột ngắm · chuột trái bắn · R/E/Space/Q kỹ năng",
-    "path": "./games/bangbang/html5/offline.html",
+    "path": "./games/bangbang/html5/index.html",
     "cover": "./assets/covers/bangbang.webp",
     "contributors": [
       {

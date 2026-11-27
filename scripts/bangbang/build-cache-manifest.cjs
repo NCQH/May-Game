@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '../../games/bangbang');
 const query = 'm81345-inventory-click-fix-9e251171f0314e86641a';
-const cache = 'bangbang-web-v7';
+const cache = 'bangbang-web-v8';
 const assets = new Set();
 const walk = (dir) => {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -23,7 +23,7 @@ const walk = (dir) => {
 walk(root);
 const essential = new Set([
   '/games/bangbang/html5/cache-manifest.json',
-  '/games/bangbang/html5/offline.html',
+  '/games/bangbang/html5/index.html',
   '/games/bangbang/html5/shim.js',
   '/games/bangbang/html5/offline-worker.js',
   '/games/bangbang/html5/m8_account_catalog.json',
