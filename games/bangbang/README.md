@@ -54,6 +54,14 @@ http://127.0.0.1:18086/games/bangbang/html5/
 - Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.
 
+## Deploy riêng (Cloudflare Pages)
+
+- Project: `may-game-bangbang`
+- URL: https://may-game-bangbang.pages.dev/games/bangbang/html5/
+- Build: `bash scripts/bangbang/build-site.sh` (tạo `.bangbang-site`)
+- Deploy: `bash scripts/bangbang/deploy.sh may-game-bangbang`
+- Workflow: `.github/workflows/bangbang.yml` (`workflow_dispatch`)
+
 ## Test local
 
 Playwright: mở trang → tạo nhân vật → vào sảnh → PvE map 201 → battle. Reload → màn hình tạo nhân vật prefill tên/body từ SQLite/IndexedDB. Ảnh tham chiếu: `assets/covers/bangbang.webp`.
