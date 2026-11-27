@@ -489,8 +489,10 @@
     const queue = [...urls];
     cacheBadge.hidden = false;
     cacheBadge.textContent = `Đang tải nền 0/${urls.length}…`;
+    const idle = () => { const snap = window.bbM8?.snapshot?.(); return !snap || snap.ui?.screen === 'lobby'; };
     const workers = Array.from({ length: 6 }, async () => {
       while (queue.length) {
+        if (!idle()) { await new Promise((resolve) => setTimeout(resolve, 1000)); continue; }
         const url = queue.shift();
         let hit = false;
         try { hit = Boolean(await cache.match(url)); } catch {}
