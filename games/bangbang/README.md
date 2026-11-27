@@ -36,7 +36,7 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Giới hạn / lưu ý
 
-- Asset còn **938 file / ~249 MB**; tất cả file < 25 MiB, phù hợp Pages Free.
+- Asset còn **941 file / ~249 MB**; tất cả file < 25 MiB, phù hợp Pages Free.
 - **Chỉ cắt logic** của bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad; **UI vẫn giữ nguyên** (nút disabled/“chưa mở”, panel chat trang trí). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank.
 - `m5_asset_catalog` bị bỏ vì không có JS reference; `m4_asset_catalog` được giữ lại.
 - Không dùng service worker/offline; mỗi lần mở tải asset từ Pages/CDN.
