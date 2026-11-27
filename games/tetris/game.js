@@ -297,7 +297,7 @@ if (typeof document !== "undefined") {
     $("#timer").textContent = time(state.mode === "blitz" ? Math.max(0,120000-state.elapsed) : state.elapsed);
     const best = record.records[state.mode];
     $("#record").textContent = state.mode === "sprint" ? best === null ? "—" : time(best) : String(best);
-    $("#mute").textContent = record.muted ? "🔇 Âm thanh: Tắt" : "🔊 Âm thanh: Bật";
+    $("#mute").textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
     $("#mute").setAttribute("aria-pressed", String(record.muted));
     const message = state.over ? `${state.won ? "Hoàn thành" : "Ván kết thúc"}. ${state.mode === "sprint" ? `${state.lines} / 40 hàng · ${time(state.elapsed)}` : `${state.score} điểm`}. Nhấn Chơi lại để bắt đầu ván mới.` : state.paused ? "Tạm dừng." : state.message;
     canvas.setAttribute("aria-label", `Bàn Tetris. ${message || "Đang chơi."} Mũi tên di chuyển, Z/X xoay, C giữ, Space thả, P tạm dừng.`);

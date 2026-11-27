@@ -193,6 +193,7 @@ function renderSelection() {
       ${game.description ? `<p class="feature-description">${escapeHTML(game.description)}</p>` : ""}
       <div class="feature-stats">
         <span><small>${escapeHTML(game.recordLabel || "Kỷ lục")}</small><b>${bestScore ? bestScore.toLocaleString("vi-VN") : "—"}</b></span>
+        ${game.players ? `<span><small>Số người</small><b>${escapeHTML(game.players)}</b></span>` : ""}
       </div>
       ${game.controls ? `<p class="feature-controls">${escapeHTML(game.controls)}</p>` : ""}
       ${href
@@ -269,7 +270,7 @@ async function loadCatalog(retry = false) {
     const catalog = await response.json();
     if (!Array.isArray(catalog) || catalog.some((game) => !game || typeof game !== "object" ||
       typeof game.id !== "string" || !game.id || typeof game.title !== "string" || !game.title ||
-      ["category", "description", "controls", "path", "recordLabel"].some((key) => game[key] != null && typeof game[key] !== "string"))) {
+      ["category", "description", "controls", "path", "recordLabel", "players"].some((key) => game[key] != null && typeof game[key] !== "string"))) {
       throw new Error("Invalid catalog");
     }
     games = catalog;

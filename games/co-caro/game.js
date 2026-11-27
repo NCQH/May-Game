@@ -306,11 +306,13 @@ if (typeof document !== "undefined") {
   let focusIdx = game.moves.length ? game.moves.at(-1) : CENTER;
   let aiTimer = 0, thinking = false, aiPending = false;
 
+  const starPoints = new Set([[3, 3], [3, 11], [7, 7], [11, 3], [11, 11]].map(([row, col]) => row * SIZE + col));
   const cells = [];
   for (let i = 0; i < CELLS; i++) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "caro-cell";
+    if (starPoints.has(i)) button.classList.add("is-star");
     button.dataset.idx = i;
     button.tabIndex = -1;
     cells.push(button);
@@ -378,7 +380,7 @@ if (typeof document !== "undefined") {
     blockedToggle.setAttribute("aria-pressed", String(record.settings.blocked));
     blockedToggle.textContent = `Chặn hai đầu: ${record.settings.blocked ? "bật" : "tắt"}`;
     muteToggle.setAttribute("aria-pressed", String(record.muted));
-    muteToggle.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+    muteToggle.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
     const pending = !sameSettings(record.settings, game.settings);
     settingsNote.textContent = pending ? "Đã chọn. Bấm “Ván mới” để áp dụng." : "Đổi chế độ, độ khó hoặc luật áp dụng từ ván mới.";
     settingsNote.classList.toggle("is-pending", pending);

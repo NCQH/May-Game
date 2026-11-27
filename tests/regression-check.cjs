@@ -49,7 +49,31 @@ const freshSavedState = {
   timeLimit: 192, timeLeft: 192, clockStarted: false, phase: "playing", reason: "", previousLevel: 0, lastBonus: 0,
 };
 assert.equal(validatorSandbox.validate(freshSavedState), true);
+assert.equal(validatorSandbox.validate({ ...freshSavedState, selected: 0 }), true);
+for (const selected of [999, -1]) assert.equal(validatorSandbox.validate({ ...freshSavedState, selected }), false);
+assert.equal(validatorSandbox.validate({ ...freshSavedState, level: undefined }), false);
+assert.equal(validatorSandbox.validate({ ...freshSavedState, levelAwarded: "x" }), false);
 assert.equal(validatorSandbox.validate({ ...freshSavedState, phase: "over" }), false);
+
+const ensureStart = pika.indexOf('function ensurePlayable');
+const ensureEnd = pika.indexOf('\n}', ensureStart) + 2;
+const ensureSandbox = {
+  state: { phase: "playing" },
+  findAvailablePair: () => false,
+  shuffleUntilPlayable: () => { ensureSandbox.shuffled = true; },
+};
+vm.runInNewContext(`${pika.slice(ensureStart, ensureEnd)}; this.run = ensurePlayable`, ensureSandbox);
+ensureSandbox.run();
+assert.equal(ensureSandbox.shuffled, true, "a deadlocked playing board must be shuffled after a deal");
+ensureSandbox.state.phase = "between";
+ensureSandbox.shuffled = false;
+ensureSandbox.run();
+assert.equal(ensureSandbox.shuffled, false, "a finished board must not be shuffled");
+ensureSandbox.state.phase = "playing";
+ensureSandbox.findAvailablePair = () => true;
+ensureSandbox.shuffled = false;
+ensureSandbox.run();
+assert.equal(ensureSandbox.shuffled, false, "a playable board must be left alone");
 assert.match(pika, /function finishPendingMatch\(\)/);
 assert.match(pika, /window\.addEventListener\("pagehide"[\s\S]*?if \(state\.timeLeft > 0\) finishPendingMatch\(\)/);
 assert.match(pika, /\["over", "won"\]\.includes\(state\.phase\) \|\| !runStarted \|\| state\.phase === "playing" && state\.timeLeft <= 0 \? null/);

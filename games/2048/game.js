@@ -158,7 +158,7 @@ if (typeof document !== "undefined") {
     labels.max.textContent = fmt(maxTile(state.grid));
     undoButton.disabled = !state.undo;
     muteToggle.setAttribute("aria-pressed", String(record.muted));
-    muteToggle.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+    muteToggle.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
     const rows = [];
     for (let r = 0; r < SIZE; r++) rows.push(`Hàng ${r + 1}: ${state.grid.slice(r * SIZE, r * SIZE + SIZE).map((v) => v || "trống").join(", ")}.`);
     description.textContent = rows.join(" ");
@@ -267,7 +267,7 @@ if (typeof document !== "undefined") {
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     if (keys[key]) { event.preventDefault(); if (state.phase === "playing") steer(keys[key]); }
     else if (key === "u" || key === "Backspace") { event.preventDefault(); undo(); }
-    else if (key === "m") muteToggle.click();
+    else if (key === "m" && !event.repeat) muteToggle.click();
   });
   let swipe = null;
   board.addEventListener("pointerdown", (event) => {

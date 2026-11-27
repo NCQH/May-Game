@@ -44,7 +44,7 @@
 /* Landscape stages: stats and controls move beside the board. */
 @media (min-aspect-ratio: 5/4) {
   /* Stats left, controls right, so the board stays centred in the screen. */
-  .arcade-play .arcade-game-content { grid-template: "hud stage controls" minmax(0, 1fr) / minmax(130px, 230px) minmax(0, 1fr) minmax(130px, 230px); }
+  .arcade-play .arcade-game-content { grid-template: "hud stage controls" minmax(0, 1fr) / minmax(130px, 230px) minmax(0, 1fr) auto; }
   .arcade-play .play-hud { flex-direction: column; align-self: start; }
   .arcade-play .play-stat { flex: none; }
   .arcade-play .play-controls { flex-direction: column; align-items: stretch; align-self: center; justify-content: center; }

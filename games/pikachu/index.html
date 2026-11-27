@@ -13,9 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/shared.css?v=7" />
-    <link rel="stylesheet" href="./game.css?v=6" />
-    <script type="module" src="./game.js?v=8"></script>
-  <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
+    <link rel="stylesheet" href="./game.css?v=7" />
+    <script type="module" src="./game.js?v=9"></script>
+  <link rel="stylesheet" href="../../assets/css/viewport.css?v=6">
 <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
 </head>
   <body class="game-theme-pikachu">
@@ -56,17 +56,17 @@
 
             <button class="pika-control" id="shuffle" type="button" aria-label="Đổi vị trí, tốn một lượt đổi" title="Đổi vị trí, tốn một lượt đổi">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20l17-17M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-              <span class="sr-only">Đổi vị trí</span>
+              <span class="pika-control-label">Đổi chỗ</span>
             </button>
             <button class="pika-control" id="hint" type="button" aria-label="Gợi ý" title="Gợi ý">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z"/></svg>
-              <span class="sr-only">Gợi ý</span><b id="hint-count">3</b>
+              <span class="pika-control-label">Gợi ý</span><b id="hint-count">3</b>
             </button>
 
 
           </div>
 
-          <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#pika-board">
+          <dialog class="game-menu" id="game-menu" aria-labelledby="game-menu-title" data-return-focus="#pika-board [tabindex='0']">
             <div class="game-menu-card">
               <header class="game-menu-header">
                 <h2 id="game-menu-title">Menu Pikachu</h2>
@@ -86,7 +86,7 @@
                 <section class="game-menu-section" aria-labelledby="settings-heading">
                   <h3 id="settings-heading">Cài đặt</h3>
                   <div class="game-menu-actions">
-                    <button class="pika-control" id="sound-toggle" type="button" aria-pressed="true">
+                    <button class="pika-control" id="sound-toggle" type="button" aria-pressed="false">
                       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11"/></svg>
                       <span>Âm thanh</span>
                     </button>

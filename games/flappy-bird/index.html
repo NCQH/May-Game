@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../assets/css/shared.css?v=7" />
     <script type="module" src="./game.js?v=13"></script>
     <script type="module" src="../../assets/js/game-menu.js?v=2"></script>
-    <link rel="stylesheet" href="../../assets/css/viewport.css?v=5">
+    <link rel="stylesheet" href="../../assets/css/viewport.css?v=6">
     <link rel="stylesheet" href="./game.css?v=10" />
 </head>
   <body>
@@ -33,6 +33,7 @@
         <div class="arcade-game-content">
           <div class="flappy-board-wrap">
             <canvas id="flappy-board" width="288" height="512" tabindex="0" aria-label="Bảng chơi Flappy Bird. Nhấn Space hoặc mũi tên lên để vỗ cánh."></canvas>
+            <p class="flappy-start-hint" id="flappy-start-hint">Chạm hoặc nhấn Space để bắt đầu</p>
             <section class="flappy-results" aria-label="Kết quả ván chơi" hidden>
               <img src="./assets/sprites/gameover.png" alt="Hết ván" width="192" height="42">
               <div class="flappy-scorecard" role="status">
@@ -67,7 +68,7 @@
               <section class="game-menu-section" aria-labelledby="settings-heading">
                 <h3 id="settings-heading">Cài đặt</h3>
                 <div class="game-menu-actions">
-                  <button class="game-button" id="mute" type="button" aria-pressed="false">🔊 Tắt âm thanh</button>
+                  <button class="game-button" id="mute" type="button" aria-pressed="false">Tắt âm thanh</button>
                 </div>
               </section>
             </div>

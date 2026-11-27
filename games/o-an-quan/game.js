@@ -320,7 +320,7 @@ if (typeof document !== "undefined") {
     controls.quanNon.setAttribute("aria-pressed", String(record.quanNon));
     controls.quanNon.textContent = record.quanNon ? "Quan non: không được ăn" : "Quan non: được ăn";
     controls.mute.setAttribute("aria-pressed", String(record.muted));
-    controls.mute.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+    controls.mute.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
     $("#oaq-menu-state").textContent = state.phase === "over" ? "Ván đã kết thúc." :
       `${isAI() ? `Đấu với máy (${{ easy: "Dễ", normal: "Thường", hard: "Khó" }[state.settings.level]})` : "2 người cùng máy"} · ${state.settings.quanNon ? "quan non không được ăn" : "được ăn quan non"}. Đóng menu để chơi tiếp.`;
   }

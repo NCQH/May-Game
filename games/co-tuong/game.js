@@ -540,7 +540,7 @@ if (typeof document !== "undefined") {
   let pos = validateCurrent(saved?.current);
   let game = pos ? { mode: saved.current.settings.mode, humanSide: saved.current.settings.humanSide } : { mode: record.mode, humanSide: record.humanSide };
   pos ||= startPosition();
-  let result = null, selected = -1, targets = [], cursor = sqOf(9, 4), overlayMode = null, thinking = false, token = 0;
+  let result = null, selected = -1, targets = [], cursor = game.mode === "ai" && game.humanSide === "black" ? sqOf(0, 4) : sqOf(9, 4), overlayMode = null, thinking = false, token = 0;
   let worker = null, workerBroken = false, fallbackTimer = 0, pacingTimer = 0, pendingReply = null;
 
   const humanColor = () => (game.humanSide === "black" ? BLACK : RED);
@@ -621,7 +621,7 @@ if (typeof document !== "undefined") {
     selects.humanSide.disabled = record.mode !== "ai";
     selects.level.disabled = record.mode !== "ai";
     muteToggle.setAttribute("aria-pressed", String(record.muted));
-    muteToggle.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+    muteToggle.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
   }
   function showOverlay() {
     overlay.hidden = !overlayMode;

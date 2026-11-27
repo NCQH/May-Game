@@ -160,6 +160,9 @@ function isValidSavedState(saved) {
     && (saved.phase !== "playing" || saved.matched < saved.cols * saved.rows / 2)
     && saved.tiles.every((tile) => tile && Number.isInteger(tile.kind) && tile.kind >= 0 && tile.kind < SPRITE_COUNT && typeof tile.removed === "boolean")
     && saved.tiles.filter((tile) => !tile.removed).length === saved.cols * saved.rows - saved.matched * 2
+    && (saved.selected === null || Number.isInteger(saved.selected) && saved.selected >= 0 && saved.selected < saved.tiles.length && !saved.tiles[saved.selected].removed)
+    && Number.isInteger(saved.level) && saved.level >= 1
+    && Number.isInteger(saved.levelAwarded) && saved.levelAwarded >= 0
     && (saved.phase === "between" || saved.phase === "playing" && Number.isFinite(saved.timeLeft) && saved.timeLeft > 0)
     && Number.isFinite(saved.score) && saved.score >= 0
     && Number.isFinite(saved.lives) && saved.lives > 0
@@ -181,6 +184,7 @@ if (sizeMode === "auto" && state.phase === "playing") {
     restoredResponsiveState = true;
   }
 }
+ensurePlayable();
 let soundEnabled = true;
 try { soundEnabled = localStorage.getItem(SOUND_STORAGE_KEY) !== "off"; } catch { /* Sound remains enabled for this session. */ }
 let busy = false;
@@ -229,10 +233,16 @@ function updateClock() {
 
 function resizeBoard() {
   const maxWidth = state.cols * 60 + (state.cols - 1) * 2 + 18;
-  const compactLandscape = matchMedia('(max-height: 500px) and (min-width: 540px)').matches;
-  const compactPhone = matchMedia('(max-width: 580px) and (max-height: 700px)').matches;
-  const availableHeight = Math.max(100, document.documentElement.clientHeight - (compactLandscape ? 190 : compactPhone ? 360 : 360 + document.documentElement.clientHeight * .09));
-  const heightLimitedWidth = availableHeight * state.cols / state.rows * 42 / 52 + 18;
+  const content = boardWrap.parentElement;
+  const style = getComputedStyle(content);
+  const gap = parseFloat(style.rowGap) || 0;
+  const siblings = [...content.children].filter((node) => node !== boardWrap && node.offsetParent !== null);
+  const used = siblings.reduce((sum, node) => sum + node.offsetHeight, 0) + gap * siblings.length;
+  const padding = (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0);
+  // In landscape the board sits in its own grid column, so it can use the full height.
+  const besideBoard = matchMedia("(max-height: 500px) and (min-width: 540px)").matches;
+  const availableHeight = Math.max(100, content.clientHeight - (besideBoard ? 0 : used) - padding);
+  const heightLimitedWidth = Math.max(100, availableHeight - 28) * state.cols / state.rows * 42 / 52 + 18;
   const boardWidth = Math.min(maxWidth, heightLimitedWidth);
   boardWrap.style.width = `min(100%, ${boardWidth}px)`;
   boardWrap.parentElement.style.setProperty("--pika-width", `${boardWidth}px`);
@@ -264,8 +274,8 @@ function render() {
   scoreNode.textContent = String(state.score);
   hintCount.textContent = String(state.hintsLeft);
   hintButton.disabled = state.hintsLeft <= 0;
-  soundButton.setAttribute("aria-pressed", String(soundEnabled));
-  soundButton.lastElementChild.textContent = soundEnabled ? "Âm thanh: Bật" : "Âm thanh: Tắt";
+  soundButton.setAttribute("aria-pressed", String(!soundEnabled));
+  soundButton.lastElementChild.textContent = soundEnabled ? "Tắt âm thanh" : "Bật âm thanh";
   soundButton.querySelector("svg path:last-child").setAttribute("d", soundEnabled ? "M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11" : "M17 9l5 6M22 9l-5 6");
   boardNode.setAttribute("aria-label", `Bàn ghép hình ${state.cols} cột, ${state.rows} hàng. Dùng phím mũi tên để di chuyển giữa các ô.`);
   boardNode.innerHTML = state.tiles.map((tile, index) => {
@@ -488,6 +498,10 @@ function shuffleUntilPlayable() {
   return true;
 }
 
+function ensurePlayable() {
+  if (state.phase === "playing" && !findAvailablePair()) shuffleUntilPlayable();
+}
+
 function recoverDeadlock() {
   state.lives = Math.max(0, state.lives - 1);
   if (state.lives === 0) {
@@ -668,6 +682,7 @@ function setSizeMode(mode) {
   if (changed && pendingMatch) finishPendingMatch();
   if (!changed || state.phase !== "playing") return;
   state = resizeSavedLevel({ ...state, timeLeft }, cols, rows, mode);
+  ensurePlayable();
   runStarted = true;
   statusText = `Đã đổi sang bàn ${state.cols}×${state.rows} · tiến độ, điểm và thời gian được giữ lại.`;
   render();
@@ -678,6 +693,7 @@ function setSizeMode(mode) {
 function startNextLevel() {
   runStarted = true;
   state = createLevel(state.level, { score: state.score, lives: state.lives, hintsLeft: state.hintsLeft });
+  ensurePlayable();
   statusText = `Bắt đầu bàn ${state.level}.`;
   render();
   save();
@@ -687,6 +703,7 @@ function newGame() {
   cancelPendingMatch();
   runStarted = false;
   state = createLevel(1, { score: 0, lives: STARTING_LIVES, hintsLeft: HINTS_PER_RUN });
+  ensurePlayable();
   runStarted = true;
   statusText = "Bắt đầu bàn 1 · nối các cặp Pokémon trước khi hết giờ.";
   playSound("start");
@@ -723,14 +740,23 @@ function doSize() {
 }
 
 function updateSoundButton() {
-  soundButton.setAttribute("aria-pressed", String(soundEnabled));
-  soundButton.lastElementChild.textContent = soundEnabled ? "Âm thanh: Bật" : "Âm thanh: Tắt";
+  soundButton.setAttribute("aria-pressed", String(!soundEnabled));
+  soundButton.lastElementChild.textContent = soundEnabled ? "Tắt âm thanh" : "Bật âm thanh";
   soundButton.querySelector("svg path:last-child").setAttribute("d", soundEnabled ? "M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11" : "M17 9l5 6M22 9l-5 6");
 }
 
 boardNode.addEventListener("click", (event) => {
   const tile = event.target.closest("[data-index]");
   if (tile) choose(Number(tile.dataset.index));
+});
+// The shared menu returns focus to the board group; move it to the active tile
+// so the documented arrow keys work immediately.
+boardNode.addEventListener("focus", () => {
+  if (document.activeElement !== boardNode) return;
+  const index = state.selected !== null && !state.tiles[state.selected]?.removed
+    ? state.selected
+    : state.tiles.findIndex((tile) => !tile.removed);
+  boardNode.querySelector(`.pika-tile[data-index="${index}"]`)?.focus({ preventScroll: true });
 });
 boardNode.addEventListener("keydown", (event) => {
   const current = event.target.closest?.(".pika-tile[data-index]");

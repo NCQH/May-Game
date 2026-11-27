@@ -103,6 +103,7 @@ const canvas = document.querySelector("#flappy-board");
 const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
 const results = document.querySelector(".flappy-results");
+const startHint = document.querySelector("#flappy-start-hint");
 const reviveButton = document.querySelector("#revive");
 const assetRoot = new URL("./assets/sprites/", import.meta.url);
 function loadSprite(name) {
@@ -227,12 +228,13 @@ function syncControls() {
   const ended = state.phase === "results";
   const justEnded = ended && results.hidden;
   results.hidden = !ended;
+  startHint.hidden = state.phase !== "ready";
   if (justEnded) document.querySelector("#play").focus({ preventScroll: true });
   document.querySelector("#score").textContent = String(state.score);
   document.querySelector("#record").textContent = String(record.bestScore);
   reviveButton.hidden = state.revived;
   const muteButton = document.querySelector("#mute");
-  muteButton.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+  muteButton.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
   muteButton.setAttribute("aria-pressed", String(record.muted));
   const status = document.querySelector("#flappy-status");
   const message = state.paused ? "Tạm dừng" : ended ? "Ván kết thúc" : state.phase === "ready" ? "Sẵn sàng" : "Đang chơi";

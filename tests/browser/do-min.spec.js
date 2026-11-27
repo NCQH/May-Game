@@ -267,3 +267,23 @@ for (const [width, height] of [[320, 568], [390, 844], [844, 390], [1366, 768], 
     await context.close();
   });
 }
+
+test("Dò mìn no-op clicks do not start the clock", async ({ page }) => {
+  await seed(page, { version: 1, bestScore: 0, best: { easy: null }, level: "easy", current: nearlyWon() });
+  await page.goto(URL);
+  await expect(page.locator("#timer")).toHaveText("0:41");
+  await cell(page, 0).click(); // opened number, no flags: reveal() returns none
+  await page.waitForTimeout(700);
+  await expect(page.locator("#timer")).toHaveText("0:41");
+});
+
+test("Dò mìn ignores auto-repeated flag keys", async ({ page }) => {
+  await page.goto(URL);
+  await page.locator("#mine-grid [tabindex='0']").focus();
+  await page.evaluate(() => {
+    document.activeElement.dispatchEvent(new KeyboardEvent("keydown", { key: "f", repeat: true, bubbles: true }));
+  });
+  await expect(page.locator(".mine-cell.is-flag")).toHaveCount(0);
+  await page.keyboard.press("f");
+  await expect(page.locator(".mine-cell.is-flag")).toHaveCount(1);
+});

@@ -8,7 +8,6 @@
     "controls": "← → di chuyển · Z / X xoay · C giữ · Space thả · P tạm dừng",
     "path": "./games/tetris/index.html",
     "art": "tetris",
-    "accent": "lime",
     "contributors": [
       {
         "name": "NCQH",
@@ -25,7 +24,6 @@
     "controls": "Chọn hai hình giống nhau để ghép",
     "path": "./games/pikachu/index.html",
     "art": "pikachu",
-    "accent": "coral",
     "contributors": [
       {
         "name": "NCQH",
@@ -42,7 +40,6 @@
     "controls": "Space / ↑ / chạm màn hình để vỗ cánh",
     "path": "./games/flappy-bird/index.html",
     "art": "flappy",
-    "accent": "blue",
     "contributors": [
       {
         "name": "NCQH",
@@ -59,7 +56,6 @@
     "controls": "Chuột / chạm để chơi · Esc mở menu",
     "path": "./games/pvz-goty/index.html",
     "art": "pvz-goty",
-    "accent": "lime",
     "contributors": [
       {
         "name": "NCQH",
@@ -76,7 +72,6 @@
     "controls": "Chọn ô của bạn rồi chọn hướng rải · ← → đổi ô · Enter chọn",
     "path": "./games/o-an-quan/index.html",
     "art": "o-an-quan",
-    "accent": "coral",
     "recordLabel": "Thắng máy",
     "contributors": [
       {
@@ -94,7 +89,6 @@
     "controls": "Chạm ô để đặt quân · phím mũi tên chọn ô · Enter đặt",
     "path": "./games/co-caro/index.html",
     "art": "co-caro",
-    "accent": "lime",
     "recordLabel": "Thắng máy",
     "contributors": [
       {
@@ -112,7 +106,6 @@
     "controls": "Chọn quân rồi chọn điểm đến · phím mũi tên · Enter chọn",
     "path": "./games/co-tuong/index.html",
     "art": "co-tuong",
-    "accent": "coral",
     "recordLabel": "Thắng máy",
     "contributors": [
       {
@@ -130,7 +123,6 @@
     "controls": "Phím mũi tên / WASD / vuốt để đổi hướng · P tạm dừng",
     "path": "./games/snake/index.html",
     "art": "snake",
-    "accent": "lime",
     "contributors": [
       {
         "name": "NCQH",
@@ -147,7 +139,6 @@
     "controls": "Phím mũi tên / WASD / vuốt để trượt · U đi lại",
     "path": "./games/2048/index.html",
     "art": "2048",
-    "accent": "blue",
     "contributors": [
       {
         "name": "NCQH",
@@ -164,7 +155,6 @@
     "controls": "Chạm mở ô · giữ hoặc chuột phải cắm cờ · F cắm cờ bằng phím",
     "path": "./games/do-min/index.html",
     "art": "do-min",
-    "accent": "blue",
     "recordLabel": "Ván thắng",
     "contributors": [
       {
@@ -182,7 +172,6 @@
     "controls": "Kéo / ← → di chuyển · Space hoặc chạm để phóng bóng",
     "path": "./games/pha-gach/index.html",
     "art": "pha-gach",
-    "accent": "coral",
     "contributors": [
       {
         "name": "NCQH",

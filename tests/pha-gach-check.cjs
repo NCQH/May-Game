@@ -198,4 +198,13 @@ check('an autopilot paddle clears every level without the ball leaving the field
     assert.equal(s.phase, 'cleared', `level ${level}`);
   }
 });
+check('the paddle side blocks a ball that crosses while still overlapping', () => {
+  const s = playing([], { x: 195.3, y: 602.9, vx: 186.9, vy: 272 });
+  s.paddle.x = 240;
+  const lives = s.lives;
+  const events = run(s, 2);
+  assert(events.includes('paddle'), 'the paddle must register the side contact');
+  assert.equal(s.lives, lives, 'the ball must not fall past the paddle');
+  assert(s.ball.vy < 0, 'the ball must bounce upward');
+});
 console.log(`# ${checks} checks passed`);

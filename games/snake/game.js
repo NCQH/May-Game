@@ -103,7 +103,7 @@ if (typeof document !== "undefined") {
     wallsToggle.setAttribute("aria-pressed", String(record.walls));
     wallsToggle.textContent = record.walls ? "Tường: chạm là thua" : "Tường: đi xuyên";
     muteToggle.setAttribute("aria-pressed", String(record.muted));
-    muteToggle.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+    muteToggle.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
   }
   function showOverlay() {
     const texts = {
@@ -213,8 +213,8 @@ if (typeof document !== "undefined") {
     if (document.querySelector("dialog[open]") || event.altKey || event.ctrlKey || event.metaKey) return;
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     if (keys[key]) { event.preventDefault(); steer(keys[key]); }
-    else if (key === "p") { event.preventDefault(); state.phase === "playing" ? pause() : state.phase === "paused" && start(); }
-    else if (key === "m") { muteToggle.click(); }
+    else if (key === "p") { event.preventDefault(); if (!event.repeat) state.phase === "playing" ? pause() : state.phase === "paused" && start(); }
+    else if (key === "m") { if (!event.repeat) muteToggle.click(); }
     else if ((key === " " || key === "Enter") && event.target === canvas && state.phase !== "playing") { event.preventDefault(); start(); }
   });
   let swipe = null;

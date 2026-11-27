@@ -128,7 +128,7 @@ function moveBall(s, h, events, random) {
     if (s.phase !== "playing") return;
   }
   const p = s.paddle, left = p.x - p.w / 2, right = p.x + p.w / 2;
-  if (b.vy > 0 && b.y <= PADDLE_Y + PADDLE_H / 2) {
+  if (b.vy > 0 && b.y + BALL_R >= PADDLE_Y && b.y - BALL_R <= PADDLE_Y + PADDLE_H) {
     const cx = clamp(b.x, left, right), cy = clamp(b.y, PADDLE_Y, PADDLE_Y + PADDLE_H);
     if (Math.hypot(b.x - cx, b.y - cy) < BALL_R) {
       [b.vx, b.vy] = bounceVelocity((b.x - p.x) / (p.w / 2 + BALL_R), speedFor(s.level));
@@ -232,7 +232,7 @@ if (typeof document !== "undefined") {
     labels.level.textContent = String(state.level);
     labels.best.textContent = number(record.bestScore);
     muteToggle.setAttribute("aria-pressed", String(record.muted));
-    muteToggle.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+    muteToggle.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
   }
   function showOverlay() {
     const name = LEVELS[(state.level - 1) % LEVELS.length].name;
@@ -401,8 +401,8 @@ if (typeof document !== "undefined") {
     const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
     const onControl = event.target instanceof Element && event.target.closest("button, a, input, select, textarea");
     if (keys[key]) { event.preventDefault(); held.key[keys[key]] = true; }
-    else if (key === "p") { event.preventDefault(); state.phase === "playing" ? pause() : state.phase === "paused" && start(); }
-    else if (key === "m") { muteToggle.click(); }
+    else if (key === "p") { event.preventDefault(); if (!event.repeat) state.phase === "playing" ? pause() : state.phase === "paused" && start(); }
+    else if (key === "m") { if (!event.repeat) muteToggle.click(); }
     else if (key === " " && !onControl) { event.preventDefault(); if (!event.repeat) fire(); }
     else if (key === "Enter" && event.target === canvas) { event.preventDefault(); fire(); }
   });

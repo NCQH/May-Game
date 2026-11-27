@@ -237,7 +237,7 @@ if (typeof document !== "undefined") {
     bestLabel.textContent = best === null ? "—" : clock(best * 1000);
     modeToggle.textContent = flagMode ? "Chế độ: Cắm cờ" : "Chế độ: Mở ô";
     modeToggle.setAttribute("aria-pressed", String(flagMode));
-    muteToggle.textContent = record.muted ? "🔇 Bật âm thanh" : "🔊 Tắt âm thanh";
+    muteToggle.textContent = record.muted ? "Bật âm thanh" : "Tắt âm thanh";
     muteToggle.setAttribute("aria-pressed", String(record.muted));
     levelButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.level === state.level)));
     const hard = state.level === "hard" ? state : shapeFor("hard", stageAspect());
@@ -297,7 +297,7 @@ if (typeof document !== "undefined") {
       announce(`${on ? "Cắm cờ" : "Gỡ cờ"}. Còn ${minesLeft(state)} mìn.`);
     } else {
       const result = reveal(state, i);
-      if (result.type === "none") { syncClock(); return; }
+      if (result.type === "none") return;
       syncClock();
       if (result.type === "win" || result.type === "lose") finish(result);
       else {
@@ -377,7 +377,7 @@ if (typeof document !== "undefined") {
       if (!event.repeat) act(focusIndex, "reveal");
     } else if (key === "f") {
       event.preventDefault();
-      act(focusIndex, "flag");
+      if (!event.repeat) act(focusIndex, "flag");
     }
   });
   // Space activates buttons on keyup; the keydown above already handled it.
