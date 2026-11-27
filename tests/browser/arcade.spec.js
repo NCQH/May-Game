@@ -135,6 +135,12 @@ test("reduced motion keeps slow catalog loading static and respects preference c
 });
 
 test("home and games share the green frame, machine surface and content styling", async ({ page }) => {
+  // This test only measures chrome and layout. Keep the PvZ page on a small
+  // wide fixture instead of downloading the full 86 MB resource set.
+  await page.route("**/resources.json", route => route.fulfill({ json: {
+    version: 1, revision: "layout-wide", files: [{ name: "main.pak" }, { name: "properties/partner.xml" }, { name: "wide/images/bg.png" }],
+  } }));
+  await page.route("**/pvz-goty/data/**", route => route.fulfill({ body: "fixture" }));
   const screens = ["/", "/contributors.html", "/contribute.html", "/games/tetris/", "/games/flappy-bird/", "/games/pikachu/", "/games/pvz-goty/", "/games/_template/", ...newGameRoutes];
   for (const viewport of [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 844, height: 390 }, { width: 1366, height: 768 }, { width: 1440, height: 900 }, { width: 1880, height: 924 }, { width: 1920, height: 1080 }]) {
     await page.setViewportSize(viewport);

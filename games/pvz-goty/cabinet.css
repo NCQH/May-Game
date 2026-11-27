@@ -33,7 +33,8 @@ canvas#canvas { flex: none; max-width: none; max-height: none; image-rendering: 
 .pvz-boot-status progress { width: min(100%, 320px); accent-color: var(--game-lime); }
 #save-warning { flex-basis: 100%; margin: 0; padding: 10px; border: 2px solid #8b351e; background: #ffe3ad; color: #572411; font-size: 12px; }
 @media (min-width: 900px) and (min-height: 600px) {
-  .pvz-page { --cabinet-width: min(1760px, max(1100px, (100dvh - var(--page-inset) * 2 - 8px) * 4 / 3)); }
+  /* Fit the 4:3 game plus cabinet chrome; 239px is header/deck/meta chrome. */
+  .pvz-page { --cabinet-width: min(1760px, max(760px, (100dvh - var(--page-inset) * 2 - 8px) * 4 / 3 - 239px)); }
   html[data-pvz-wide="true"] .pvz-page { --cabinet-width: min(1760px, max(1100px, (100dvh - var(--page-inset) * 2 - 8px) * 16 / 9)); }
 }
 @media (max-height: 500px) {
