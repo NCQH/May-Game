@@ -1,6 +1,6 @@
 # Bang Bang Web
 
-Bản PvE chạy trực tiếp trên web: client HTML5 gốc + Pyodide Worker + fake socket, không cần Python server. Dùng online trên Cloudflare Pages; không yêu cầu service worker/offline.
+Bản PvE chạy trực tiếp trên web: client HTML5 gốc + Pyodide Worker + fake socket, không cần Python server. Dùng online trên Cloudflare Pages; service worker cache asset, không yêu cầu offline.
 
 ## Chạy local
 
@@ -36,13 +36,21 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Giới hạn / lưu ý
 
-- Asset còn **941 file / ~249 MB**; tất cả file < 25 MiB, phù hợp Pages Free.
+- Asset còn **942 file / ~250 MB**; tất cả file < 25 MiB, phù hợp Pages Free.
 - **Chỉ cắt logic** của bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad; **UI vẫn giữ nguyên** (nút disabled/“chưa mở”, panel chat trang trí). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank.
 - `m5_asset_catalog` bị bỏ vì không có JS reference; `m4_asset_catalog` được giữ lại.
-- Không dùng service worker/offline; mỗi lần mở tải asset từ Pages/CDN.
+- Dùng service worker cache-first: lần đầu preload essential trước màn hình tạo nhân vật, sau đó tải nền toàn bộ asset; các lần sau đọc từ Cache Storage.
+- Không yêu cầu offline; service worker chỉ để tránh tải lại asset mỗi lần vào.
 - Server PvE chạy trong Pyodide; PvP/guild/economy vẫn còn trong client/server nhưng chưa test trên web.
 - Checkpoint SQLite vẫn cần giảm tần suất nếu chơi dài.
 - Quyền phân phối asset đã được người duy trì xác nhận.
+
+## Cache
+
+- `cache-manifest.json` liệt kê toàn bộ asset hiện có; `essential` được tải trước màn hình tạo nhân vật.
+- Sau khi tạo nhân vật, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ.
+- Lần sau, service worker trả asset từ cache; reload không tải lại 250 MB.
+- Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.
 
 ## Test local
 

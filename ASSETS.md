@@ -38,7 +38,7 @@
 - **Dùng tại:** `games/bangbang/` — client HTML5, asset đã trim theo request thực tế của map 201 + lobby, server PvE Python đóng gói trong `html5/bangbang-py.zip`, Pyodide runtime.
 - **Catalog:** ba catalog lớn (`m5`, `m6`, `m81314`) được chia thành các file `.partN` <25 MiB; `html5/shim.js` ghép lại nguyên bytes trước khi client đọc. Hash/version trong catalog giữ nguyên.
 - **Pyodide:** MPL-2.0; license tại [`games/bangbang/html5/pyodide/LICENSE`](./games/bangbang/html5/pyodide/LICENSE). Python runtime đi kèm Pyodide giữ license tương ứng.
-- **Không server:** trang web tĩnh; `/html5/*` và `/rez/*` được map từ `games/bangbang/` qua `_redirects` (Pages) hoặc `scripts/bangbang/serve.cjs` (local). Không dùng service worker/offline.
+- **Không server:** trang web tĩnh; `/html5/*` và `/rez/*` được map từ `games/bangbang/` qua `_redirects` (Pages) hoặc `scripts/bangbang/serve.cjs` (local). Service worker `sw.js` chỉ cache asset; không yêu cầu offline.
 - **Đã vô hiệu hoá logic:** bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad. UI vẫn giữ nguyên (disabled/“chưa mở”). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank; PvP/guild/economy chưa test offline.
 - **Tạo nhân vật:** dùng 57 body sprite `rez/zh_CN/char/*` từ `m8_account_catalog`; lưu `name`/`body` vào `worlds.state` SQLite, persist DB sang IndexedDB.
 

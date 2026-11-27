@@ -4,6 +4,7 @@ const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=
 http.createServer((req,res)=>{
  let p=decodeURIComponent((req.url||'/').split('?')[0]);
  let file;
+ if(p==='/sw.js') file=path.join(root,'sw.js');
  else if(p.startsWith('/html5/')) file=path.join(root,'games/bangbang/html5',p.slice(7));
  else if(p.startsWith('/rez/')) file=path.join(root,'games/bangbang/rez',p.slice(5));
  else file=path.join(root,'.'+p);
@@ -13,6 +14,7 @@ http.createServer((req,res)=>{
  fs.stat(file,(err,st)=>{
   if(err||!st.isFile()){res.writeHead(404);res.end('not found');return;}
   const h={'Content-Type':types[path.extname(file).toLowerCase()]||'application/octet-stream','Content-Length':st.size,'Cross-Origin-Opener-Policy':'same-origin','Cross-Origin-Embedder-Policy':'require-corp','Cross-Origin-Resource-Policy':'cross-origin','Cache-Control':'no-store'};
+  if(p==='/sw.js') h['Service-Worker-Allowed']='/';
   res.writeHead(200,h); fs.createReadStream(file).pipe(res);
  });
 }).listen(18086,'127.0.0.1',()=>console.log('trim2 18086'));

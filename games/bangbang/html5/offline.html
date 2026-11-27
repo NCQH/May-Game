@@ -354,7 +354,11 @@
         script.src = './app.js?v=m81345-inventory-click-fix-9e251171f0314e86641a';
         document.head.appendChild(script);
       };
-      start();
+      window.__bbSwReady = ('serviceWorker' in navigator)
+        ? navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(() => navigator.serviceWorker.ready).then(() => true).catch(() => false)
+        : Promise.resolve(false);
+      window.__bbSwReady.then(start);
     })();
   </script>
 
@@ -386,8 +390,27 @@
 .bb-create-status{margin:0;min-height:18px;color:#ffb8a8;font-size:12px}
 .bb-create-status.is-ok{color:#c7e875}
 @media(max-width:700px){.bb-create-card{padding:16px}.bb-create-main{grid-template-columns:130px minmax(0,1fr);gap:12px}.bb-create-preview{min-height:190px}.bb-create-preview img{width:130px;height:174px}.bb-create-bodies{max-height:200px}.bb-create-card h1{font-size:24px}}
+
+#bb-loading{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;padding:18px;background:#081713 radial-gradient(circle at 50% 0,#1f4a40 0,#081713 70%);color:#eef4ce;font-family:"Be Vietnam Pro",sans-serif}
+#bb-loading[hidden]{display:none!important}
+.bb-loading-card{width:min(520px,100%);padding:24px;border:2px solid #4b6b4b;background:#14251d;box-shadow:0 12px 0 #07100c}
+.bb-loading-card h1{margin:6px 0 0;color:#f2f7d4;font:700 26px/1.15 "Chakra Petch",sans-serif;text-transform:uppercase}
+.bb-loading-card p{margin:10px 0 0;color:#a9b89c;font-size:13px;line-height:1.5}
+.bb-loading-bar{height:10px;margin-top:16px;border:1px solid #405a45;background:#0b1713}
+.bb-loading-bar span{display:block;width:0;height:100%;background:#c7e875;transition:width .15s linear}
+#bb-cache-status{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:9500;padding:7px 10px;border:1px solid #53664b;background:#14251d;color:#c7e875;font:600 11px/1.2 "Chakra Petch",sans-serif;pointer-events:none}
+#bb-cache-status[hidden]{display:none!important}
 </style>
-<div id="bb-create" role="dialog" aria-modal="true" aria-labelledby="bb-create-title">
+<div id="bb-loading" role="status" aria-live="polite">
+  <section class="bb-loading-card">
+    <p class="bb-create-kicker">Máy Game · Bang Bang</p>
+    <h1>Đang tải tài nguyên</h1>
+    <p id="bb-loading-text">Đang kiểm tra cache…</p>
+    <div class="bb-loading-bar"><span id="bb-loading-fill"></span></div>
+  </section>
+</div>
+<div id="bb-cache-status" hidden></div>
+<div id="bb-create" role="dialog" aria-modal="true" aria-labelledby="bb-create-title" hidden>
   <section class="bb-create-card">
     <p class="bb-create-kicker">Máy Game · Bang Bang Offline</p>
     <h1 id="bb-create-title">Tạo nhân vật</h1>
@@ -416,6 +439,10 @@
 <script>
 (() => {
   const overlay = document.getElementById('bb-create');
+  const loading = document.getElementById('bb-loading');
+  const loadingText = document.getElementById('bb-loading-text');
+  const loadingFill = document.getElementById('bb-loading-fill');
+  const cacheBadge = document.getElementById('bb-cache-status');
   const nameInput = document.getElementById('bb-create-name');
   const bodies = document.getElementById('bb-create-bodies');
   const tabs = document.getElementById('bb-create-tabs');
@@ -423,6 +450,63 @@
   const previewName = document.getElementById('bb-create-preview-name');
   const submit = document.getElementById('bb-create-submit');
   const status = document.getElementById('bb-create-status');
+  const setLoad = (done, total, text) => {
+    loadingText.textContent = text;
+    loadingFill.style.width = `${total ? Math.round(done / total * 100) : 0}%`;
+  };
+  const manifestPromise = (async () => {
+    try {
+      const response = await fetch('./cache-manifest.json', { cache: 'no-store' });
+      return response.ok ? await response.json() : null;
+    } catch { return null; }
+  })();
+  async function cacheEssential(manifest) {
+    if (!manifest || !('caches' in window)) return;
+    const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
+    const urls = manifest.essential || [];
+    let done = 0;
+    const queue = [...urls];
+    const workers = Array.from({ length: 6 }, async () => {
+      while (queue.length) {
+        const url = queue.shift();
+        try {
+          if (!(await cache.match(url))) {
+            const response = await fetch(url);
+            if (response.ok) await cache.put(url, response.clone());
+          }
+        } catch { /* The app can still fetch this asset later. */ }
+        done += 1;
+        if (done % 4 === 0 || !queue.length) setLoad(done, urls.length, `Đang chuẩn bị ${done}/${urls.length} asset…`);
+      }
+    });
+    await Promise.all(workers);
+  }
+  async function cacheAll(manifest) {
+    if (!manifest || !('caches' in window)) return;
+    const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
+    const urls = manifest.assets || [];
+    let done = 0;
+    const queue = [...urls];
+    cacheBadge.hidden = false;
+    cacheBadge.textContent = `Đang tải nền 0/${urls.length}…`;
+    const workers = Array.from({ length: 6 }, async () => {
+      while (queue.length) {
+        const url = queue.shift();
+        let hit = false;
+        try { hit = Boolean(await cache.match(url)); } catch {}
+        if (!hit) {
+          try {
+            const response = await fetch(url);
+            if (response.ok) await cache.put(url, response.clone());
+          } catch {}
+        }
+        done += 1;
+        if (done % 10 === 0 || !queue.length) cacheBadge.textContent = `Đang tải nền ${done}/${urls.length}…`;
+      }
+    });
+    await Promise.all(workers);
+    cacheBadge.hidden = true;
+  }
   let groups = { boy: [], girl: [], body: [] };
   let selected = null;
   let group = 'boy';
@@ -483,6 +567,7 @@
       localStorage.setItem('bb-character-body', selected.key);
       status.textContent = 'Đã lưu. Đang vào sảnh…';
       status.classList.add('is-ok');
+      manifestPromise.then((manifest) => { if (manifest) cacheAll(manifest); });
       const started = Date.now();
       while (Date.now() - started < 30000) {
         if (window.bbM8?.snapshot?.().phase === 'ready') break;
@@ -497,6 +582,11 @@
   });
   (async () => {
     try {
+      overlay.hidden = true;
+      await window.__bbSwReady;
+      const manifest = await manifestPromise;
+      if (manifest) await cacheEssential(manifest);
+      setLoad(0, 1, 'Đang khởi động nhân vật…');
       const profile = await window.__bbOffline.ready;
       const response = await fetch('./m8_account_catalog.json', { cache: 'no-store' });
       if (!response.ok) throw new Error('Không tải được catalog ngoại hình.');
@@ -514,7 +604,11 @@
       if (preferred) { selected = preferred; group = preferred.key.includes('/girl') ? 'girl' : preferred.key.includes('/body') ? 'body' : 'boy'; for (const tab of tabs.querySelectorAll('.bb-create-tab')) tab.classList.toggle('is-active', tab.dataset.group === group); }
       render();
       if (preferred) choose(preferred);
+      loading.hidden = true;
+      overlay.hidden = false;
     } catch (error) {
+      loading.hidden = true;
+      overlay.hidden = false;
       status.textContent = String(error && error.message || error);
     }
   })();
