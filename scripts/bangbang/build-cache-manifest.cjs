@@ -47,7 +47,7 @@ for (const url of assets) {
 }
 const payload = {
   cache,
-  version: 'v6',
+  version: cache.replace('bangbang-web-', ''),
   essential: [...essential].filter((url) => assets.has(url) || url.endsWith('cache-manifest.json')),
   assets: [...assets].sort(),
 };

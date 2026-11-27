@@ -1,6 +1,6 @@
 {
   "cache": "bangbang-web-v7",
-  "version": "v6",
+  "version": "v7",
   "essential": [
     "/games/bangbang/html5/cache-manifest.json",
     "/games/bangbang/html5/offline.html",

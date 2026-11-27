@@ -567,7 +567,18 @@
       localStorage.setItem('bb-character-body', selected.key);
       status.textContent = 'Đã lưu. Đang vào sảnh…';
       status.classList.add('is-ok');
-      manifestPromise.then((manifest) => { if (manifest) cacheAll(manifest); });
+      manifestPromise.then((manifest) => {
+        if (!manifest) return;
+        let started = false;
+        const start = () => { if (started) return; started = true; cacheAll(manifest); };
+        // Wait for the lobby assets to finish before the bulk download competes with them.
+        const wait = setInterval(() => {
+          if (window.bbM8?.snapshot?.().ui?.screen !== 'lobby') return;
+          clearInterval(wait);
+          setTimeout(start, 5000);
+        }, 500);
+        setTimeout(() => { clearInterval(wait); start(); }, 90000);
+      });
       const started = Date.now();
       while (Date.now() - started < 30000) {
         if (window.bbM8?.snapshot?.().phase === 'ready') break;
