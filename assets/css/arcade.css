@@ -58,6 +58,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .feature-art-wrap { position: relative; min-width: 0; padding: 12px; border-right: 2px solid #3a4a38; background: #18271e; }
 .pixel-art { position: relative; display: grid; place-items: center; width: 100%; height: 100%; min-height: 0; overflow: hidden; border: 2px solid #4b5b40; background-color: #263e2d; background-image: linear-gradient(rgba(223, 242, 179, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(223, 242, 179, .06) 1px, transparent 1px); background-size: 18px 18px; }
 .pixel-art::after { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(0, 0, 0, .08) 3px 4px); content: ""; pointer-events: none; }
+.pixel-art-cover { display: block; padding: 0; background-color: #17221b; }
+.game-cover { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.pixel-art-cover.is-contain .game-cover { object-fit: contain; }
 .pixel-art-tetris { background-color: #20362b; }
 .tetris-grid { display: grid; grid-template-columns: repeat(9, 22px); grid-template-rows: repeat(8, 22px); gap: 2px; transform: translateY(-8px); }
 .tetris-pixel { grid-column: var(--column); grid-row: var(--row); border: 2px solid rgba(21, 37, 28, .82); background: var(--pixel-color); box-shadow: inset 0 3px rgba(255, 255, 255, .19); }

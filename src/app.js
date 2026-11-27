@@ -134,6 +134,10 @@ function safeGamePath(path) {
 }
 
 function gameArt(game) {
+  if (typeof game.cover === "string" && /^\.\/assets\/covers\/[A-Za-z0-9._-]+\.webp$/.test(game.cover)) {
+    const fit = game.coverFit === "contain" ? " is-contain" : "";
+    return `<div class="pixel-art pixel-art-cover${fit}" aria-hidden="true"><img class="game-cover" src="${escapeHTML(game.cover)}" alt="" decoding="async"></div>`;
+  }
   if (game.art === "pvz-goty") {
     return `<div class="pixel-art pixel-art-pvz" aria-hidden="true"></div>`;
   }
@@ -265,12 +269,12 @@ async function loadCatalog(retry = false) {
   statusLabel.textContent = "Đang tải thư viện...";
   positionLabel.textContent = "00 / 00";
   try {
-    const response = await fetch("./games.json?v=6", { signal: AbortSignal.timeout(15000) });
+    const response = await fetch("./games.json?v=7", { signal: AbortSignal.timeout(15000) });
     if (!response.ok) throw new Error("Catalog unavailable");
     const catalog = await response.json();
     if (!Array.isArray(catalog) || catalog.some((game) => !game || typeof game !== "object" ||
       typeof game.id !== "string" || !game.id || typeof game.title !== "string" || !game.title ||
-      ["category", "description", "controls", "path", "recordLabel", "players"].some((key) => game[key] != null && typeof game[key] !== "string"))) {
+      ["category", "description", "controls", "path", "recordLabel", "players", "cover", "coverFit"].some((key) => game[key] != null && typeof game[key] !== "string"))) {
       throw new Error("Invalid catalog");
     }
     games = catalog;

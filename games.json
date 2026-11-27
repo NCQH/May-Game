@@ -13,7 +13,9 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/tetris.webp",
+    "coverFit": "contain"
   },
   {
     "id": "pikachu",
@@ -29,7 +31,9 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/pikachu.webp",
+    "coverFit": "contain"
   },
   {
     "id": "flappy-bird",
@@ -45,7 +49,9 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/flappy-bird.webp",
+    "coverFit": "contain"
   },
   {
     "id": "pvz-goty",
@@ -61,7 +67,8 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/pvz-goty.webp"
   },
   {
     "id": "o-an-quan",
@@ -78,7 +85,8 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/o-an-quan.webp"
   },
   {
     "id": "co-caro",
@@ -95,7 +103,8 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/co-caro.webp"
   },
   {
     "id": "co-tuong",
@@ -112,7 +121,9 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/co-tuong.webp",
+    "coverFit": "contain"
   },
   {
     "id": "snake",
@@ -128,7 +139,8 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/snake.webp"
   },
   {
     "id": "2048",
@@ -144,7 +156,9 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/2048.webp",
+    "coverFit": "contain"
   },
   {
     "id": "do-min",
@@ -161,7 +175,9 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/do-min.webp",
+    "coverFit": "contain"
   },
   {
     "id": "pha-gach",
@@ -177,6 +193,7 @@
         "name": "NCQH",
         "github": "NCQH"
       }
-    ]
+    ],
+    "cover": "./assets/covers/pha-gach.webp"
   }
 ]

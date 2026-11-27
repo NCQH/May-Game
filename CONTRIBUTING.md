@@ -26,13 +26,15 @@ Thêm một mục vào `games.json` theo cấu trúc sau:
   "controls": "← → di chuyển · Space xác nhận",
   "path": "./games/ten-game/index.html",
   "art": "tetris",
+  "cover": "./assets/covers/ten-game.webp",
+  "coverFit": "contain",
   "contributors": [
     { "name": "Tên người góp", "github": "username" }
   ]
 }
 ```
 
-`id` chỉ dùng chữ thường, số và dấu gạch ngang. `art` hiện hỗ trợ `tetris`, `pikachu`, `flappy`, `pvz-goty` và các thẻ pixel `snake`, `2048`, `do-min`, `pha-gach`, `co-caro`, `o-an-quan`, `co-tuong` (thêm thẻ mới trong `PIXEL_ART` của `src/app.js`). `recordLabel` (không bắt buộc) đổi nhãn “Kỷ lục” trên thẻ, ví dụ “Thắng máy” khi `bestScore` là số ván thắng máy. `players` hiện ở cột thống kê thứ hai của thẻ.
+`id` chỉ dùng chữ thường, số và dấu gạch ngang. `art` hiện hỗ trợ `tetris`, `pikachu`, `flappy`, `pvz-goty` và các thẻ pixel `snake`, `2048`, `do-min`, `pha-gach`, `co-caro`, `o-an-quan`, `co-tuong` (thêm thẻ mới trong `PIXEL_ART` của `src/app.js`). `recordLabel` (không bắt buộc) đổi nhãn “Kỷ lục” trên thẻ, ví dụ “Thắng máy” khi `bestScore` là số ván thắng máy. `players` hiện ở cột thống kê thứ hai của thẻ. `cover` (không bắt buộc) trỏ tới ảnh bìa trong `assets/covers/`; bỏ trống để dùng hình pixel art CSS. `coverFit: "contain"` giữ toàn bộ ảnh vuông/ảnh bàn cờ thay vì cắt đầy khung.
 
 Game mới có thể dùng khung chơi chung: thêm class `arcade-play` cho `<main>`, nạp `assets/css/play.css` sau `shared.css`, và `assets/js/game-kit.js` trước script game. Tham khảo [Rắn săn mồi](./games/snake/) cho bố cục HUD, sân chơi, nút điều khiển, overlay và cách lưu.
 

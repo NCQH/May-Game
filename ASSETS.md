@@ -32,6 +32,26 @@
 - **Quyền sử dụng:** theo xác nhận của người duy trì dự án, đã xin phép PikachuCoDien.net để dùng các asset này. Nguồn không công bố giấy phép mở; không gán asset này MIT/CC0.
 - Asset được lưu trong repo và tải cục bộ, không gọi đến máy chủ nguồn khi chơi.
 
+## Ảnh bìa catalog
+
+Ảnh bìa nằm trong `assets/covers/`, được khai báo bằng `cover` trong `games.json` và đã cắt/đổi sang WebP trong repo; trang không hotlink ảnh từ nguồn ngoài.
+
+| Game | Nguồn | Giấy phép / ghi chú |
+|---|---|---|
+| Tetris | [Tetris Boxshot](https://en.wikipedia.org/wiki/File:Tetris_Boxshot.jpg) | Ảnh bìa Game Boy chính thức, © Nintendo/Elorg; dùng để nhận diện game. |
+| Pikachu | [Pikachu artwork](https://archives.bulbagarden.net/wiki/File:025Pikachu.png) | Artwork chính thức của Ken Sugimori, © Nintendo/Creatures/GAME FREAK; dùng để nhận diện game. |
+| Flappy Bird | [Flappy Bird icon](https://en.wikipedia.org/wiki/File:Flappy_Bird_icon.png) | App icon chính thức, © .Gears/Dong Nguyen; dùng để nhận diện game. |
+| Plants vs. Zombies GOTY | [Steam library capsule](https://store.steampowered.com/app/3590/Plants_vs_Zombies_GOTY_Edition/) | Ảnh capsule chính thức, © PopCap/EA; dùng để nhận diện game. |
+| Ô ăn quan | [Oanquan0.JPG](https://commons.wikimedia.org/wiki/File:Oanquan0.JPG) | Tieu ngao giang ho1970, Public domain/CC0; ảnh đã cắt. |
+| Cờ caro | [Renju.jpg](https://commons.wikimedia.org/wiki/File:Renju.jpg) | Matěj Baťha, CC BY-SA 3.0 (đồng thời CC BY 2.5/GFDL); ảnh cắt là tác phẩm phái sinh, giữ CC BY-SA 3.0. |
+| Cờ tướng | [Xiangqi_Board.svg](https://commons.wikimedia.org/wiki/File:Xiangqi_Board.svg) | Inductiveload, Public domain (PD-self). |
+| Rắn săn mồi | [Snake 3310 photo](https://commons.wikimedia.org/wiki/File:Snake_3310_(27719733447).jpg) | Art Replik, Public domain (Flickr PDM). |
+| 2048 | [2048_logo.svg](https://commons.wikimedia.org/wiki/File:2048_logo.svg) | Davod, Public domain (PD-textlogo); tên/biểu tượng có thể là trademark. |
+| Dò mìn | [KMines.png](https://commons.wikimedia.org/wiki/File:KMines.png) | User:Ysangkok, GPL; ảnh chụp KMines. |
+| Phá gạch | Ảnh chụp canvas của game trong repo | Không dùng ảnh ngoài; dùng khi không có ảnh bìa dọc phù hợp. |
+
+Các ảnh bìa chính thức của game thương mại không nằm dưới giấy phép MIT của repo; chúng được dùng với mục đích nhận diện trong catalog của dự án fan-made.
+
 ## Phông chữ
 
 - [Chakra Petch](https://github.com/google/fonts/tree/main/ofl/chakrapetch) — tiêu đề và nhãn giao diện; SIL Open Font License 1.1.
@@ -58,4 +78,4 @@ Các hình minh họa khối trong catalog và máy arcade được vẽ bằng 
 - **Source zip:** [cloudflare-pvz-source-2026-11-27](https://github.com/NCQH/May-Game/releases/tag/cloudflare-pvz-source-2026-11-27) — 33.5 MB, vượt giới hạn 25 MiB của Cloudflare nên không nằm trong output Cloudflare; build artifact vẫn có `engine/source.zip`. Giữ link này trong bản phân phối.
 - **Dữ liệu GOTY và texture HD:** bộ dữ liệu local đã chọn được đưa vào `games/pvz-goty/data/` và artifact theo yêu cầu người duy trì. Manifest `resources.json` có 467 file, gồm game gốc, properties, ảnh HD và nền widescreen. Game tự nạp từ host và nhớ cục bộ bằng IndexedDB; save của người chơi không đưa lên Git. Giấy phép engine không áp dụng cho tài nguyên thương mại hoặc gói mod HD.
 - Không thêm hình minh họa mới cho GOTY. Nâng asset phải giữ hình vẽ, bố cục, frame/cel, phông chữ và màu sắc gốc.
-- Hình đại diện PvZ trên catalog dùng lại `games/pvz-goty/data/wide/images/titlescreen.png` từ dữ liệu widescreen đã chuẩn bị cho game; CSS căn ảnh trong khung dọc. Khi triển khai, cung cấp cùng đường dẫn dữ liệu này. Nếu thiếu ảnh, khung dùng nền xanh.
+- Ảnh bìa PvZ trên catalog dùng Steam library capsule trong `assets/covers/pvz-goty.webp`; xem mục “Ảnh bìa catalog”. Không dùng `titlescreen.png` làm ảnh bìa nữa.

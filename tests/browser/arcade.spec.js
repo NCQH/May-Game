@@ -204,6 +204,20 @@ test("home and games share the green frame, machine surface and content styling"
   }
 });
 
+test("every catalog game loads its cover image", async ({ page }) => {
+  const covers = require("../../games.json").map((game) => game.cover);
+  await page.addInitScript(() => { try { localStorage.clear(); } catch {} });
+  await page.goto("/");
+  for (const src of covers) {
+    const file = src.split("/").pop();
+    await expect.poll(() => page.evaluate((name) => {
+      const image = document.querySelector(`img.game-cover[src$="${name}"]`);
+      return Boolean(image?.complete && image.naturalWidth > 0);
+    }, file)).toBe(true);
+    await page.keyboard.press("ArrowRight");
+  }
+});
+
 test("Tetris mode menu scrolls inside the cabinet with wider fallback fonts", async ({ page }) => {
   await page.setViewportSize({width:320,height:568});
   await page.goto('/games/tetris/');
