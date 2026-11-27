@@ -5,8 +5,6 @@ name: Build PvZ GOTY artifact
 on:
   pull_request:
     paths: ['games/pvz-goty/**', 'scripts/**', '.github/workflows/pvz-build.yml', 'games.json', 'src/app.js', 'assets/css/**']
-  push:
-    branches: [main, codex/pvz-goty-port]
   workflow_dispatch:
 
 permissions:

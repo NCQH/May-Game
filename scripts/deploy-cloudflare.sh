@@ -2,13 +2,15 @@
 # Deploy a built .site to Cloudflare Pages (Direct Upload).
 # Default: original game only (no HD/widescreen) to keep the first load around 43 MB.
 # Set PVZ_FULL=1 to keep the full hd/ and wide/ sets.
+# The branch defaults to main (production); only pass another branch if you create a
+# preview on purpose.
 # Usage: CLOUDFLARE_API_TOKEN=... bash scripts/deploy-cloudflare.sh [project] [branch]
-# The project must exist (wrangler pages project create ...). This script never creates it.
+# The project must exist. This script never creates it.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 PROJECT="${1:-may-game}"
-BRANCH="${2:-preview}"
+BRANCH="${2:-main}"
 
 if [ ! -f .site/index.html ]; then
   echo "Missing .site. Build the site (git archive + PvZ engine) first." >&2

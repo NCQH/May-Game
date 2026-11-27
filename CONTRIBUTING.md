@@ -12,7 +12,7 @@ Máy Game là thư viện tĩnh: mỗi game chạy trong thư mục riêng, khô
 
 ## Cấu trúc game
 
-Mỗi game cần có `games/<slug>/index.html`. CSS và JavaScript có thể nằm cùng thư mục. Chỉ dùng đường dẫn tương đối để game chạy được khi repo xuất bản dưới một GitHub Pages project URL.
+Mỗi game cần có `games/<slug>/index.html`. CSS và JavaScript có thể nằm cùng thư mục. Chỉ dùng đường dẫn tương đối để game chạy được khi repo xuất bản trên Cloudflare Pages tại root URL.
 
 Thêm một mục vào `games.json` theo cấu trúc sau:
 
@@ -39,7 +39,7 @@ Game mới có thể dùng khung chơi chung: thêm class `arcade-play` cho `<ma
 
 ## Giao diện một màn hình
 
-Giữ các liên kết `assets/css/typography.css`, `assets/css/viewport.css` và script `assets/js/viewport.js` từ template. Tải `viewport.css` sau CSS của game. Khung arcade, vùng chơi và nút điều khiển phải vừa màn hình, không tạo vùng cuộn bên trong. Chỉnh kích thước bàn chơi theo chiều cao trước; script chung thu khung lại khi vẫn thiếu chỗ. Khi vẽ đường nối trong tọa độ local, dùng kích thước layout (`offsetWidth`/`offsetHeight`) để không bị lệch khi khung thu nhỏ.
+Giữ các liên kết `assets/css/typography.css` và `assets/css/viewport.css` từ template. Tải `viewport.css` sau CSS của game. Khung arcade, vùng chơi và nút điều khiển phải vừa màn hình, không tạo vùng cuộn bên trong. Chỉnh kích thước bàn chơi theo chiều cao trước. Khi vẽ đường nối trong tọa độ local, dùng kích thước layout (`offsetWidth`/`offsetHeight`) để không bị lệch khi khung thu nhỏ.
 
 Rà cả máy tính, điện thoại dọc và ngang; kiểm tra các nút vẫn hiện đầy đủ, không chỉ ẩn thanh cuộn.
 

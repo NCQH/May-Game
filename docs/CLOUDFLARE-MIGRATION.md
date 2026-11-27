@@ -1,8 +1,8 @@
 # Kế hoạch migrate Máy Game sang Cloudflare Pages
 
-> Ngày lập: 27/11/2026  
-> Nhánh: `feature/cloudflare-core`  
-> Trạng thái: preview đã pass; đang chuyển production.  
+> Ngày lập: 27/11/2026
+> Nhánh: `main` (nhánh migration đã merge và xóa)
+> Trạng thái: production đã live; preview và các deployment cũ đã xóa; chỉ còn 1 deployment.
 > **Cập nhật 27/11/2026:** đã chốt **bỏ GitHub Pages**, không banner và không thông báo migrate. Phase C legacy bên dưới không thực hiện. Production: https://may-game.pages.dev/.
 
 Tài liệu này là kế hoạch thực thi. Bối cảnh và các lựa chọn ban đầu nằm ở
@@ -59,19 +59,16 @@ Test local: `npm run check`, `npm test`, `npm run test:browser` (97 passed).
 ### A1. Push nhánh và trigger build
 
 ```bash
-git push -u origin feature/cloudflare-core
-gh workflow run pvz-build.yml --ref feature/cloudflare-core
+gh workflow run pvz-build.yml --ref main
 gh run watch
 ```
 
-Lưu ý: `pvz-build.yml` chỉ tự chạy khi push lên `main`/`codex/pvz-goty-port` hoặc khi mở PR khớp `paths`. Push nhánh feature **không** tự trigger; dùng `workflow_dispatch` như trên, hoặc mở PR.
-
-Build chạy Emscripten, timeout 45 phút. Deploy job bị skip vì ref không phải `main`.
+Lưu ý: `pvz-build.yml` chạy khi mở PR khớp `paths` hoặc khi `workflow_dispatch`. Push lên `main` **không** tự build (CI vẫn chạy test). Build chạy Emscripten, timeout 45 phút; workflow chỉ upload artifact, không deploy Cloudflare.
 
 ### A2. Tải artifact
 
 ```bash
-gh run list --workflow=pvz-build.yml --branch feature/cloudflare-core --limit 1
+gh run list --workflow=pvz-build.yml --branch main --limit 1
 gh run download <run-id> -n may-game-pvz-goty-site -D .site
 test -f .site/index.html && echo ok
 ```
@@ -114,6 +111,8 @@ Nếu `.wasm` MIME gây lỗi với server local, dùng `npx http-server` (đã 
 
 ## 4. Phase B — Cloudflare preview
 
+> Phần này là lịch sử. Preview đã được xóa; deploy hiện tại chỉ dùng nhánh `main`.
+
 ### B1. Tạo project
 
 ```bash
@@ -128,10 +127,10 @@ Lưu ý: project `may-game` đã được tạo ngày 27/11/2026, nên không c�
 ### B2. Deploy preview
 
 ```bash
-bash scripts/deploy-cloudflare.sh may-game preview
+bash scripts/deploy-cloudflare.sh may-game main
 ```
 
-Script tự chạy trim → chunk → preflight → deploy. Dùng URL preview Wrangler in ra. **Không** dùng origin preview cho đợt import save cuối cùng.
+Script tự chạy trim → chunk → preflight → deploy. Script mặc định `main`; preview đã xóa.
 
 ### B3. Test matrix
 
@@ -160,7 +159,7 @@ Script tự chạy trim → chunk → preflight → deploy. Dùng URL preview Wr
 
 Không giữ legacy, không banner, không redirect, không thông báo migrate. Save cũ trên `ncqh.github.io` không được chuyển; trang migrate đã xóa.
 
-- [ ] Merge `feature/cloudflare-core` vào `main`.
+- [x] Nhánh migration đã merge vào `main` và đã xóa.
 - [ ] Deploy production Cloudflare (Phase D).
 - [ ] Tắt GitHub Pages: Settings → Pages → Source: None, hoặc `gh api -X DELETE repos/NCQH/May-Game/pages`.
 - [ ] Xác nhận `https://ncqh.github.io/May-Game/` không còn phục vụ.
@@ -236,8 +235,7 @@ Không giữ legacy, không banner, không redirect, không thông báo migrate.
 
 ```bash
 # Build artifact
-git push -u origin feature/cloudflare-core
-gh workflow run pvz-build.yml --ref feature/cloudflare-core
+gh workflow run pvz-build.yml --ref main
 gh run watch
 gh run download <run-id> -n may-game-pvz-goty-site -D .site
 
@@ -251,12 +249,10 @@ npx --yes http-server /tmp/may-game-site-core -p 8000 -c-1
 # Cloudflare
 npx --yes wrangler@4.168.0 login
 npx --yes wrangler@4.168.0 pages project create may-game --production-branch main --force
-bash scripts/deploy-cloudflare.sh may-game preview
-# sau khi nghiệm thu:
 bash scripts/deploy-cloudflare.sh may-game main
 
 # Full HD/widescreen (nếu đổi quyết định)
-PVZ_FULL=1 bash scripts/deploy-cloudflare.sh may-game preview
+PVZ_FULL=1 bash scripts/deploy-cloudflare.sh may-game main
 ```
 
 ## 13. Quyết định còn mở
