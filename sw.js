@@ -1,4 +1,4 @@
-let CACHE = 'bangbang-web-v6';
+let CACHE = 'bangbang-web-v7';
 const DAY = 24 * 60 * 60 * 1000;
 
 function cacheKey(url, origin) {

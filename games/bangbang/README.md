@@ -36,7 +36,8 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Giới hạn / lưu ý
 
-- Asset còn **942 file / ~250 MB**; tất cả file < 25 MiB, phù hợp Pages Free.
+- Asset: **14.985 file / ~2.4 GB**; tất cả file < 25 MiB; tổng file vẫn dưới 20.000 của Pages Free.
+- Đã thêm toàn bộ asset **tank + màn hình game**: battle scenes, HUD, PvE/PvP map, tank model, skill SWF, portrait/avatar, icon, NPC/map effects.
 - **Chỉ cắt logic** của bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad; **UI vẫn giữ nguyên** (nút disabled/“chưa mở”, panel chat trang trí). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank.
 - `m5_asset_catalog` bị bỏ vì không có JS reference; `m4_asset_catalog` được giữ lại.
 - Dùng service worker cache-first: lần đầu preload essential trước màn hình tạo nhân vật, sau đó tải nền toàn bộ asset; các lần sau đọc từ Cache Storage.
@@ -47,9 +48,9 @@ http://127.0.0.1:18086/games/bangbang/html5/offline.html
 
 ## Cache
 
-- `cache-manifest.json` liệt kê toàn bộ asset hiện có; `essential` được tải trước màn hình tạo nhân vật.
+- `cache-manifest.json` liệt kê **15.194 URL asset**; `essential` (500 URL) được tải trước màn hình tạo nhân vật.
 - Sau khi tạo nhân vật, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ.
-- Lần sau, service worker trả asset từ cache; reload không tải lại 250 MB.
+- Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.
 
 ## Test local
