@@ -19,6 +19,9 @@ cat > "$out/_headers" <<'HEADERS'
   Service-Worker-Allowed: /
   Cache-Control: no-store
 
+/games/bangbang/html5/*.part*
+  Content-Type: application/json
+
 /games/bangbang/*
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: require-corp
