@@ -1,0 +1,1022 @@
+{
+  "zh_CN/II/tank/militaryRank/img_mr_pr_big.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_pr_big.png",
+    "width": 276,
+    "height": 23,
+    "mode": "RGBA",
+    "sha256": "67bca7fac4a3c7858049c3e5178eb431d6957296a87550734f2038d708d73d23",
+    "bytes": 747,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.com.CommonPGBar__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_pr_big_png_174341615",
+      "bitmapId": 64,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_pr_bk_big.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_pr_bk_big.png",
+    "width": 276,
+    "height": 23,
+    "mode": "RGBA",
+    "sha256": "de14b93684f1aa9b50380ec04948c10f7764d68bd7a920730064935879816949",
+    "bytes": 599,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.com.CommonPGBar__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_pr_bk_big_png_1771929519",
+      "bitmapId": 14,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_pr_bk_small.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_pr_bk_small.png",
+    "width": 181,
+    "height": 17,
+    "mode": "RGBA",
+    "sha256": "5db37f4ce1d575e46060c92f199ef3bda1c168d1ead709870f7b2f9e8f38e96f",
+    "bytes": 494,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.com.CommonPGBar__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_pr_bk_small_png_1658248369",
+      "bitmapId": 17,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_pr_small.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_pr_small.png",
+    "width": 181,
+    "height": 17,
+    "mode": "RGBA",
+    "sha256": "89d45199081a310ddf1b75a6660f233d9ef479042068a6033c749ea503032103",
+    "bytes": 566,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.com.CommonPGBar__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_pr_small_png_693628561",
+      "bitmapId": 80,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_atk_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_atk_active.png",
+    "width": 74,
+    "height": 80,
+    "mode": "RGBA",
+    "sha256": "6ac737442164302d3c5a03a124ca29fa5b93874c9dcdef584d25a001e51c8ad3",
+    "bytes": 4102,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_atk_active_png_1012314396",
+      "bitmapId": 91,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_atk_un_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_atk_un_active.png",
+    "width": 74,
+    "height": 80,
+    "mode": "RGBA",
+    "sha256": "d8ae0b064d57a9f9e995652d191fa7dc4073f6028fa30559468e31970e6f53fc",
+    "bytes": 3470,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_atk_un_active_png_2115660626",
+      "bitmapId": 45,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_common_cool_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_common_cool_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "9df8c1ccb2be0d9deeaa2b896d48ebba29afc223d4042ba4ddf758cd43847e36",
+    "bytes": 2563,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_common_cool_active_png_1165723854",
+      "bitmapId": 4,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_common_cool_no_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_common_cool_no_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "84270831d7edbaed1ab40ca9e6da870f70586741de1b276ca5b50ebeb3566e14",
+    "bytes": 1986,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_common_cool_no_active_png_457326032",
+      "bitmapId": 87,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_ctsis_arm_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_ctsis_arm_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "18ab4f61b4282764fda0b8f2369d709d08823fccffe7d05480cd01b7b725f111",
+    "bytes": 1837,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_ctsis_arm_active_png_2057780030",
+      "bitmapId": 61,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_ctsis_arm_un_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_ctsis_arm_un_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "cf4ee45b796ac4fa46b834e8335875b7f0ddc7c2895284dc92628709e622e8e4",
+    "bytes": 1378,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_ctsis_arm_un_active_png_1594072592",
+      "bitmapId": 71,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_eng_arm_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_eng_arm_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "6c7c90989eef427aebdad55d0b8b4193ca7f94cdd910bd94bb19dc3642d768a9",
+    "bytes": 3069,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_eng_arm_active_png_769492450",
+      "bitmapId": 19,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_eng_arm_no_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_eng_arm_no_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "fc023ba5535fd594865bdbbf05e4758c647eb80ed258fe64da7e054e0d482e7a",
+    "bytes": 3292,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_eng_arm_no_active_png_275735004",
+      "bitmapId": 68,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_hpmax_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_hpmax_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "360d23f34a7f35b5179477696295f8441a5ccfb1ec725cb4d926983e7d5e21fb",
+    "bytes": 1865,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_hpmax_active_png_1838460868",
+      "bitmapId": 3,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_hpmax_no_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_hpmax_no_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "10d7fac4cfa091c22da6d635b489209ef8b0da178b0280cd876f72b6435b1af9",
+    "bytes": 1791,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_hpmax_no_active_png_1291761298",
+      "bitmapId": 49,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_phy_arm_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_phy_arm_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "264a6a695008ed444f67e3aec53a74e739e7e78bf36c9665c0c50a4276b99e07",
+    "bytes": 3440,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_phy_arm_active_png_238301200",
+      "bitmapId": 13,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/attrIcon/img_phy_arm_no_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/attrIcon/img_phy_arm_no_active.png",
+    "width": 47,
+    "height": 54,
+    "mode": "RGBA",
+    "sha256": "352c53a136f18564594b002a579b7e85ce7efbf04c29327657e16ddae60ff635",
+    "bytes": 2521,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_attrIcon_img_phy_arm_no_active_png_1944809938",
+      "bitmapId": 66,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_attr_item_b_bk.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_attr_item_b_bk.png",
+    "width": 129,
+    "height": 114,
+    "mode": "RGBA",
+    "sha256": "daa8d84232b4e0ef29568f3675147a9f2d7f22598453c12905dd2e48197fa831",
+    "bytes": 5592,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_attr_item_b_bk_png_797617617",
+      "bitmapId": 73,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_attr_item_b_lbk.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_attr_item_b_lbk.png",
+    "width": 115,
+    "height": 102,
+    "mode": "RGBA",
+    "sha256": "fe8e263080ed174efa36660192c1d27c706f6051473dabced06bd727ff68f87c",
+    "bytes": 12701,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_attr_item_b_lbk_png_9672329",
+      "bitmapId": 96,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_attr_item_m_bk.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_attr_item_m_bk.png",
+    "width": 94,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "387c53757b8e77a8069188000ac76aa54e5e69bc90866a98416d42f41537690d",
+    "bytes": 3916,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_attr_item_m_bk_png_1057775153",
+      "bitmapId": 20,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_attr_item_m_lbk.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_attr_item_m_lbk.png",
+    "width": 82,
+    "height": 73,
+    "mode": "RGBA",
+    "sha256": "a567b41a60bbd5b798e54a1c1d6e102bb101a6bb9c8b6481eab20a243682dd27",
+    "bytes": 7556,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankAttrItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_attr_item_m_lbk_png_1190369425",
+      "bitmapId": 95,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/btn_watch_mr_list_t.png": {
+    "url": "/html5/assets/native_ui_embedded/military/btn_watch_mr_list_t.png",
+    "width": 90,
+    "height": 32,
+    "mode": "RGBA",
+    "sha256": "3315634dfcf88643bce08126dd532b145950fabd9d371ae42783ddf821e8f13b",
+    "bytes": 3786,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankFrame__embed_mxml__rez_zh_CN_II_tank_militaryRank_btn_watch_mr_list_t_png_1774243535",
+      "bitmapId": 27,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_attr_bk.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_attr_bk.png",
+    "width": 338,
+    "height": 520,
+    "mode": "RGBA",
+    "sha256": "bc2b1b3aa38367cb8889f87dfe4803af12a9d0165c3f5ea3f508616d7e9a9f52",
+    "bytes": 34327,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankFrame__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_attr_bk_png_2014905009",
+      "bitmapId": 57,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_attr_list_bk.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_attr_list_bk.png",
+    "width": 626,
+    "height": 520,
+    "mode": "RGBA",
+    "sha256": "055bf49bab73b6785c3d4116bdf70332d8be5762799538ad96c65502b21914b8",
+    "bytes": 218379,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankFrame__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_attr_list_bk_png_1455420465",
+      "bitmapId": 77,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/title_mr_sys_t.png": {
+    "url": "/html5/assets/native_ui_embedded/military/title_mr_sys_t.png",
+    "width": 124,
+    "height": 32,
+    "mode": "RGBA",
+    "sha256": "dfa1d5aa60b302fab379179281afad97fb287d3be11700dd4c2bafb6d8553ac5",
+    "bytes": 3413,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankFrame__embed_mxml__rez_zh_CN_II_tank_militaryRank_title_mr_sys_t_png_1808794417",
+      "bitmapId": 18,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian01.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian01.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "8afde53400453bce791b2ba6b6d84fe8f4cc2de71eb5f932c2a5d9c187907933",
+    "bytes": 8842,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian01_png_1935635932",
+      "bitmapId": 92,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian02.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian02.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "2aafa1471bbbd658995aa2ea181b65d354b0609c8b4a2bd24d3239db3474b6e1",
+    "bytes": 9215,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian02_png_1943758034",
+      "bitmapId": 42,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian03.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian03.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "4e47700db6dc1674f6b68872769f28b9f9118385119f33e00fcb16e1aecb5afb",
+    "bytes": 9040,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian03_png_1943492560",
+      "bitmapId": 32,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian04.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian04.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "3ed94c8a840893aee47acbbba2d06c859af1312cac19c6aa554676bfe18fa8a4",
+    "bytes": 9594,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian04_png_1944806610",
+      "bitmapId": 30,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian05.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian05.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "da1b130708153986b30aad4247405c3b115e91e323e9eefe52859b9ba7df0b48",
+    "bytes": 7986,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian05_png_1942975956",
+      "bitmapId": 52,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian06.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian06.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "f0f0e30bd83bdebf114f964a4474e002000b777aff2e1c1191e793137c9da0e1",
+    "bytes": 8355,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian06_png_1277912274",
+      "bitmapId": 7,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian07.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian07.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "d708dd5fcb5e6c08c4271c3fb5da8c1a6b386a6d564789b43897632902997158",
+    "bytes": 8610,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian07_png_1280775120",
+      "bitmapId": 58,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian08.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian08.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "3333f50e8ef41168367d641ef7b036d666b06649224f6974d0172ce5c9907560",
+    "bytes": 8409,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian08_png_1281060050",
+      "bitmapId": 2,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian09.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian09.png",
+    "width": 78,
+    "height": 83,
+    "mode": "RGBA",
+    "sha256": "9b61079069f2389832270438da7e01d871c89cfe66eaaaa9d93a423e270a9bd4",
+    "bytes": 8427,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian09_png_1281322460",
+      "bitmapId": 21,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian10.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian10.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "f580acf83da14a2cc29251e58efc2b625905d3cc10e9a195b2f97710eaef1064",
+    "bytes": 9438,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian10_png_1139504064",
+      "bitmapId": 60,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian11.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian11.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "95b142ef049b7347c009bc98aa7257e193f5ac180b001402f5450c2c87de82a1",
+    "bytes": 9652,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian11_png_1137272002",
+      "bitmapId": 47,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian12.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian12.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "66efb4ca86c67e0f77f5eedbca776c2bee56e61a2c24ef5efa0a46dfcc668f6e",
+    "bytes": 9391,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian12_png_1138316764",
+      "bitmapId": 51,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian13.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian13.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "402513b59628970537be7aff87fa9eae102e246a59033f46a5483943d339a5a7",
+    "bytes": 9479,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian13_png_1129931986",
+      "bitmapId": 59,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian14.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian14.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "14896b85b82480a126baa2e686d5b15b5f4f5ed30521560cca0def8e415bf444",
+    "bytes": 9607,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian14_png_1129936848",
+      "bitmapId": 41,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian15.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian15.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "a38c2dc8594437f28c443313e8bd4ae66a8f86bb3f5e2b55a849759157a630ae",
+    "bytes": 8997,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian15_png_1129931986",
+      "bitmapId": 6,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian16.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian16.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "740d527c26c7eefbd0a112fc4d4e2bb7cd03afcb3c68854e7c79e1ab0ab2f096",
+    "bytes": 10274,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian16_png_1128895956",
+      "bitmapId": 22,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian17.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian17.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "2b00ff07486fee9fa7df8889205f0100e658dee67fb9cb0bb88b13c97d70c181",
+    "bytes": 10033,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian17_png_1126786258",
+      "bitmapId": 97,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian18.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian18.png",
+    "width": 76,
+    "height": 82,
+    "mode": "RGBA",
+    "sha256": "30bdc3cbc3b0e0081cadd46cdbf84d109597b3983be86ca7551194fdab483efa",
+    "bytes": 8976,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian18_png_1137275856",
+      "bitmapId": 5,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian19.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian19.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "96ca561a52fc335d9a3850f5c790a19982b81745b7eceaca1aab4a65ad845a90",
+    "bytes": 9849,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian19_png_1139371218",
+      "bitmapId": 63,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian20.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian20.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "8646132e022b70c6f5b0b0242edec5dbc638f73c2c535d195006532b134f9e40",
+    "bytes": 9834,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian20_png_1078553666",
+      "bitmapId": 78,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian21.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian21.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "f2ecd66fe3c1db93dae7b405984ff37c0d49a611f20409db928f6b7c7ac16d9e",
+    "bytes": 9663,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian21_png_1080650816",
+      "bitmapId": 88,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian22.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian22.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "1795aeea725ee1938ea7fcdd05196fa1826cd6963886816c04b39a620e6ecdf0",
+    "bytes": 9852,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian22_png_1078551618",
+      "bitmapId": 54,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian23.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian23.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "6ff8fce675b1c7cd7ccc528214cb472d6ec472a7ceb6b71431cb8f4471077bfc",
+    "bytes": 9915,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian23_png_1076589660",
+      "bitmapId": 93,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian24.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian24.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "bd9f4383470e27f5bfd719723ed2c72ba294bd29a9427163e9c11317c6657d10",
+    "bytes": 9592,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian24_png_1138189394",
+      "bitmapId": 33,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian25.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian25.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "958670b0b47d9c579493fee9ba2165ce60c151bb3f716e7a83832d15e9c5f34b",
+    "bytes": 10218,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian25_png_1138431056",
+      "bitmapId": 38,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian26.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian26.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "4ce701bd3f958671be78a0a50c2945a298a3c26cbec4d73dd3f74c6ce9903cbf",
+    "bytes": 10114,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian26_png_1138713682",
+      "bitmapId": 11,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian27.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian27.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "e5a07cdf6539bf9bd28d80778c26c74310f12f16cbf8e6fd25480acd67c7f7f8",
+    "bytes": 10076,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian27_png_1138455636",
+      "bitmapId": 50,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian28.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian28.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "7563e8a12a3ae37cb5e95df327804fab6e96f1576e4d1537c89c0ae6879d9850",
+    "bytes": 10438,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian28_png_1129800786",
+      "bitmapId": 26,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian29.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian29.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "cee289104f231e08d0f3735ed0b7f714e7aa93186638a813b276bb094c3046c1",
+    "bytes": 10553,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian29_png_1129010256",
+      "bitmapId": 48,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian30.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian30.png",
+    "width": 76,
+    "height": 84,
+    "mode": "RGBA",
+    "sha256": "2a35b7ad8acd1d5464cfea7e6334a63cb2f41fb605730088b13b86fb897022cc",
+    "bytes": 10257,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian30_png_1172270148",
+      "bitmapId": 84,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian31.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian31.png",
+    "width": 95,
+    "height": 89,
+    "mode": "RGBA",
+    "sha256": "92231550fb19501b208e7c36d91f69f1f24b0ef3998a3b026eefe1f834a06654",
+    "bytes": 11601,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian31_png_1172008002",
+      "bitmapId": 35,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian32.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian32.png",
+    "width": 95,
+    "height": 88,
+    "mode": "RGBA",
+    "sha256": "fd067f542292ee156630c9f9a6637511e43f0652fc2d9d93f713f2f84b39a3a5",
+    "bytes": 11324,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian32_png_1171745856",
+      "bitmapId": 94,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/rank/Junxian33.png": {
+    "url": "/html5/assets/native_ui_embedded/military/rank/Junxian33.png",
+    "width": 95,
+    "height": 88,
+    "mode": "RGBA",
+    "sha256": "6b29e58e9383f11384f93e20e9ffbce7a57f4d917f4a086d8da15ad21e9c0651",
+    "bytes": 11522,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankIcon__embed_mxml__rez_zh_CN_II_tank_militaryRank_rank_Junxian33_png_1170957378",
+      "bitmapId": 72,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_render_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_render_active.png",
+    "width": 180,
+    "height": 197,
+    "mode": "RGBA",
+    "sha256": "403e51af180fe5c053e7bd500c82b981fa605a7ebde7a53792f5e5934c650e60",
+    "bytes": 22428,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_render_active_png_2117315505",
+      "bitmapId": 75,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/img_mr_render_no_active.png": {
+    "url": "/html5/assets/native_ui_embedded/military/img_mr_render_no_active.png",
+    "width": 180,
+    "height": 197,
+    "mode": "RGBA",
+    "sha256": "8aebcd0521ef42598999efc4102cc71d363cfc02766967c1536579999ba9934c",
+    "bytes": 3337,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankItem__embed_mxml__rez_zh_CN_II_tank_militaryRank_img_mr_render_no_active_png_1466138673",
+      "bitmapId": 89,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  },
+  "zh_CN/II/tank/militaryRank/title_mr_list_t.png": {
+    "url": "/html5/assets/native_ui_embedded/military/title_mr_list_t.png",
+    "width": 123,
+    "height": 32,
+    "mode": "RGBA",
+    "sha256": "209106cbe87a2d16f3b5c1c8bc3ceaee9ecdc541e1d71471ade00f94e2f76a35",
+    "bytes": 2575,
+    "source": {
+      "logical": "zh_CN/module/MilitaryRankModuleFactory.swf",
+      "mapped": "zh_CN/module/95b9ffa079d1f084742e9c3e3afedacd.swf",
+      "sourceSha256": "9b1e40779b766a783f2cdb2e0d6b073e6c871b6ce8d6f05234fcf3d424e8a9af",
+      "symbol": "II.mxml.tank.militaryRank.MilitaryRankUpFrame__embed_mxml__rez_zh_CN_II_tank_militaryRank_title_mr_list_t_png_156745433",
+      "bitmapId": 55,
+      "tagCode": 36
+    },
+    "conversion": "Direct SymbolClass DefineBitsLossless bitmap decode; straight-alpha PNG"
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TankSoulTemplate>
+			<entry><nTankSoulId>10000037</nTankSoulId><nSchedule>150</nSchedule><nItemCost>10</nItemCost><nBatchItemCost>100</nBatchItemCost></entry></g_TankSoulTemplate>
+	</LocalData>
+</LocalDatas>

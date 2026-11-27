@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_CommanderSkillTemplate>
+			<entry><nComSkillId>1100</nComSkillId><nSkillTpltId>510101</nSkillTpltId><nUnlockLv>7</nUnlockLv></entry><entry><nComSkillId>1500</nComSkillId><nSkillTpltId>510201</nSkillTpltId><nUnlockLv>12</nUnlockLv></entry><entry><nComSkillId>1800</nComSkillId><nSkillTpltId>510301</nSkillTpltId><nUnlockLv>13</nUnlockLv></entry><entry><nComSkillId>1900</nComSkillId><nSkillTpltId>510401</nSkillTpltId><nUnlockLv>13</nUnlockLv></entry><entry><nComSkillId>2000</nComSkillId><nSkillTpltId>510601</nSkillTpltId><nUnlockLv>14</nUnlockLv></entry><entry><nComSkillId>2300</nComSkillId><nSkillTpltId>510701</nSkillTpltId><nUnlockLv>14</nUnlockLv></entry><entry><nComSkillId>2400</nComSkillId><nSkillTpltId>510801</nSkillTpltId><nUnlockLv>15</nUnlockLv></entry><entry><nComSkillId>2600</nComSkillId><nSkillTpltId>510901</nSkillTpltId><nUnlockLv>15</nUnlockLv></entry><entry><nComSkillId>2700</nComSkillId><nSkillTpltId>511101</nSkillTpltId><nUnlockLv>16</nUnlockLv></entry><entry><nComSkillId>2750</nComSkillId><nSkillTpltId>511201</nSkillTpltId><nUnlockLv>16</nUnlockLv></entry><entry><nComSkillId>2900</nComSkillId><nSkillTpltId>510501</nSkillTpltId><nUnlockLv>17</nUnlockLv></entry><entry><nComSkillId>3000</nComSkillId><nSkillTpltId>511001</nSkillTpltId><nUnlockLv>17</nUnlockLv></entry><entry><nComSkillId>3100</nComSkillId><nSkillTpltId>511301</nSkillTpltId><nUnlockLv>18</nUnlockLv></entry></g_CommanderSkillTemplate>
+	</LocalData>
+</LocalDatas>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TankSoulPveTemplate>
+			<entry><nId>10101</nId><szChapter>普通章节1</szChapter><szMapName>普通2</szMapName><szPath>2</szPath><nThew>5</nThew><nRcmScore>1000</nRcmScore><nDayLimit>3</nDayLimit><nFbItem>1</nFbItem><nDropId>100001</nDropId><nItem1>4050011</nItem1><nItem2>4050013</nItem2><nItem3>4050014</nItem3><nItem4>8000024</nItem4><nStrength>1000</nStrength><nAgility>16</nAgility><nDefence>17</nDefence><nMorale>20</nMorale><nTankSoul1>1001</nTankSoul1><nTankSoul2>1002</nTankSoul2><nTankSoul3>1003</nTankSoul3><nTankSoul4>1004</nTankSoul4><nTankSoul5>1005</nTankSoul5><nTankSoul6>1006</nTankSoul6><nTankSoul7>1007</nTankSoul7><nTankSoul8>1008</nTankSoul8><nTankSoul9>1009</nTankSoul9><nTankSoul10>1010</nTankSoul10></entry><entry><nId>20101</nId><szChapter>困难章节1</szChapter><szMapName>困难2</szMapName><szPath>2</szPath><nThew>5</nThew><nRcmScore>2000</nRcmScore><nDayLimit>3</nDayLimit><nFbItem>1</nFbItem><nDropId>100001</nDropId><nItem1>8000008</nItem1><nItem2>3400007</nItem2><nItem3>2001012</nItem3><nItem4>8000004</nItem4><nStrength>3000</nStrength><nAgility>26</nAgility><nDefence>27</nDefence><nMorale>30</nMorale><nTankSoul1>2001</nTankSoul1><nTankSoul2>2002</nTankSoul2><nTankSoul3>2003</nTankSoul3><nTankSoul4>2004</nTankSoul4><nTankSoul5>2005</nTankSoul5><nTankSoul6>2006</nTankSoul6><nTankSoul7>2007</nTankSoul7><nTankSoul8>2008</nTankSoul8><nTankSoul9>2009</nTankSoul9><nTankSoul10>2010</nTankSoul10></entry></g_TankSoulPveTemplate>
+	</LocalData>
+</LocalDatas>

@@ -1,0 +1,885 @@
+{
+  "schema": "bangbang-m84-crystal-reward/v1",
+  "templates": {
+    "one": {
+      "url": "/html5/assets_m84/crystals/movies/3ba6525f076d6df49f2226f165fc29fe65492b5e17382ff00488f737961b912e.swf",
+      "sha256": "3ba6525f076d6df49f2226f165fc29fe65492b5e17382ff00488f737961b912e",
+      "bytes": 796842,
+      "sourceLabel": "label02",
+      "sourceStartFrame": 111,
+      "sourceEndFrame": 220,
+      "fps": 24,
+      "visibleFrames": 110,
+      "frameWindowMs": 4583.333333333333,
+      "transitionsToComplete": 109,
+      "nominalCompletionMs": 4541.666666666667,
+      "rootFrameCount": 220,
+      "viewport": [
+        -457,
+        -59,
+        983,
+        841
+      ],
+      "originalNonScriptTagSha256": "20f3b3d8e9a049eba33250608e78e3d0ee4420c9891ff07bf87b7637b2f46b53",
+      "iconDefinitionsSha256": "d2007c9a26fe78a36c8eef2ddd828f1ecc8a632200cfaba35081d9a07e0a561e",
+      "adapterSourceSha256": "93df3ef735612908784ebd96a7e76d1c1071a2d37cdecd41d94b19b607c5346c",
+      "completionSignal": "M84_CRYSTAL_REWARD_COMPLETE"
+    },
+    "five": {
+      "url": "/html5/assets_m84/crystals/movies/b604ad1e9fb70a0ab12266b5496e5d70b377dc0379800c8a450accc2b1156852.swf",
+      "sha256": "b604ad1e9fb70a0ab12266b5496e5d70b377dc0379800c8a450accc2b1156852",
+      "bytes": 796842,
+      "sourceLabel": "label01",
+      "sourceStartFrame": 1,
+      "sourceEndFrame": 110,
+      "fps": 24,
+      "visibleFrames": 110,
+      "frameWindowMs": 4583.333333333333,
+      "transitionsToComplete": 109,
+      "nominalCompletionMs": 4541.666666666667,
+      "rootFrameCount": 220,
+      "viewport": [
+        -457,
+        -59,
+        983,
+        841
+      ],
+      "originalNonScriptTagSha256": "20f3b3d8e9a049eba33250608e78e3d0ee4420c9891ff07bf87b7637b2f46b53",
+      "iconDefinitionsSha256": "d2007c9a26fe78a36c8eef2ddd828f1ecc8a632200cfaba35081d9a07e0a561e",
+      "adapterSourceSha256": "edf3fa573b0264eddb764b6cf24d23da4b46117364c99bce669dca15d400ba1d",
+      "completionSignal": "M84_CRYSTAL_REWARD_COMPLETE"
+    }
+  },
+  "icons": {
+    "5610101": {
+      "symbolId": 50002,
+      "sourcePath": "www/rez/zh_CN/icon/item/d8ac7ea5f63898ee39497161e9e91470.png",
+      "sha256": "3ef307ad93c9407c8fac9ff90f0d6834dab1dd638190fa85aab63470fec716c1",
+      "width": 100,
+      "height": 100
+    },
+    "5610105": {
+      "symbolId": 50005,
+      "sourcePath": "www/rez/zh_CN/icon/item/33628a4e5e366fe68c52d5e11fe2162d.png",
+      "sha256": "aac0ba164024a2ace1a4d2e5689065b5df14a38d4a9904020bb61f1422ee8e5c",
+      "width": 100,
+      "height": 100
+    },
+    "5610205": {
+      "symbolId": 50008,
+      "sourcePath": "www/rez/zh_CN/icon/item/62f756e447d1e4f8d30d99817f8361d5.png",
+      "sha256": "55a0aa8c0306ece3947f1db202b751ca3ffb33da332b1ed6c20d945065ffe708",
+      "width": 100,
+      "height": 100
+    },
+    "5610309": {
+      "symbolId": 50011,
+      "sourcePath": "www/rez/zh_CN/icon/item/50a560ce19b61ebce80d400019006bba.png",
+      "sha256": "baa4e12c6a4b3f337dd485561a77aeb48da2e29cb182d6172f72cb996f1e2f42",
+      "width": 100,
+      "height": 100
+    },
+    "5620101": {
+      "symbolId": 50014,
+      "sourcePath": "www/rez/zh_CN/icon/item/8e5e46a9ab66c254bca00a6ad984edc4.png",
+      "sha256": "2ef6f1f799ccf804dcefc35ea40340fb8cfc34e32fb1597917105450d6c85a27",
+      "width": 100,
+      "height": 100
+    },
+    "5620102": {
+      "symbolId": 50017,
+      "sourcePath": "www/rez/zh_CN/icon/item/cea2b45c8822cb72185cf00b1adaefa8.png",
+      "sha256": "6701797f1a8cd1b3dcb3ebcd236cf11e5094ca62e7b2ac338f6ec9ab1673b5e3",
+      "width": 100,
+      "height": 100
+    },
+    "5620105": {
+      "symbolId": 50020,
+      "sourcePath": "www/rez/zh_CN/icon/item/426456a286c833c525b3bcdfd53eeb77.png",
+      "sha256": "c4f21134a4bd325d822645d95d138e35d2446b7ac6b72d064ceb2a112749d56e",
+      "width": 100,
+      "height": 100
+    },
+    "5620205": {
+      "symbolId": 50023,
+      "sourcePath": "www/rez/zh_CN/icon/item/20d90b28333fea3603c6b15eed8cef0c.png",
+      "sha256": "fa2332af8e6d983a29ba1f344cbce9857a796e28ffe3697fcc33e7a82828dad1",
+      "width": 100,
+      "height": 100
+    },
+    "5620206": {
+      "symbolId": 50026,
+      "sourcePath": "www/rez/zh_CN/icon/item/7fcec0a08e875a286f8a449ce63a0d2d.png",
+      "sha256": "340a4365009241c02aedab317cb52f3037ca89d5621356ab94b135ae6bbe363c",
+      "width": 100,
+      "height": 100
+    },
+    "5620207": {
+      "symbolId": 50029,
+      "sourcePath": "www/rez/zh_CN/icon/item/48ed311212722ad1c0495bb6646f6710.png",
+      "sha256": "a924e96ae80af2c4310bf47b8643412ec3a436a8ce773d40e9d5ba223292d214",
+      "width": 100,
+      "height": 100
+    },
+    "5620309": {
+      "symbolId": 50032,
+      "sourcePath": "www/rez/zh_CN/icon/item/491a1bc8b4840418b763a8164de59788.png",
+      "sha256": "4e56c99c0e48e8924a9b3a0446ff1f775f5729a8c6baba0f31b74187a636f50b",
+      "width": 100,
+      "height": 100
+    },
+    "5620310": {
+      "symbolId": 50035,
+      "sourcePath": "www/rez/zh_CN/icon/item/9e8689ed708dbcc2c18668d7d033f5cd.png",
+      "sha256": "39fd30299a8725e7878d2b56135ea16a920ecec4d67fca69989634d45b2be14b",
+      "width": 100,
+      "height": 100
+    },
+    "5620312": {
+      "symbolId": 50038,
+      "sourcePath": "www/rez/zh_CN/icon/item/29238e65a37ed831470f6c2cc47ce477.png",
+      "sha256": "09b3a4b36f879ef1469af68664e0580da1e9446842077edacb3cc6240fce7e5d",
+      "width": 100,
+      "height": 100
+    },
+    "5630101": {
+      "symbolId": 50041,
+      "sourcePath": "www/rez/zh_CN/icon/item/abdea326f4b5a6587027e058172db00a.png",
+      "sha256": "fb2825a85c42b3bb82333689f26f70da1c0edd540d3921e8de714e2b4c5cd1a4",
+      "width": 100,
+      "height": 100
+    },
+    "5630102": {
+      "symbolId": 50044,
+      "sourcePath": "www/rez/zh_CN/icon/item/7441e96727e85ac8a51b636791bfb93a.png",
+      "sha256": "95839da6436ce02f4316beaec1618b808eca33c64a06ff5b1b904afdcf235185",
+      "width": 100,
+      "height": 100
+    },
+    "5630103": {
+      "symbolId": 50047,
+      "sourcePath": "www/rez/zh_CN/icon/item/94fc7c2311ffae4f04ba3cc3f203f574.png",
+      "sha256": "436b8dae636fe0196b8f661aa8652bdc425c1e3b98f26c5381612030586e8c16",
+      "width": 100,
+      "height": 100
+    },
+    "5630104": {
+      "symbolId": 50050,
+      "sourcePath": "www/rez/zh_CN/icon/item/67b728fc8563ef34466c6e0241d02c31.png",
+      "sha256": "8c34f100ce5fa950cc8d97c19bf128fbcc1ac581203c42f329db6cefc57b84d9",
+      "width": 100,
+      "height": 100
+    },
+    "5630105": {
+      "symbolId": 50053,
+      "sourcePath": "www/rez/zh_CN/icon/item/19430d4b029a3ed9329b70ddc20aef72.png",
+      "sha256": "3828b8a25cf3b849d12ab08032ffc2e8d941a8bb2a92ca005f23581cb15bc61a",
+      "width": 100,
+      "height": 100
+    },
+    "5630205": {
+      "symbolId": 50056,
+      "sourcePath": "www/rez/zh_CN/icon/item/2bd3c8377bdb1eda1ae9c5d15bc43be9.png",
+      "sha256": "1123d936ea181da30048fb867f1529e9f9b0afefeb07360db8b313f47e1d0248",
+      "width": 100,
+      "height": 100
+    },
+    "5630206": {
+      "symbolId": 50059,
+      "sourcePath": "www/rez/zh_CN/icon/item/d53d8f1ebdd49624ffab0eb210463cca.png",
+      "sha256": "7c6075cd8e65d47b2fc030e07b2349db469d5257e3def1f4fe0d78f4e170573f",
+      "width": 100,
+      "height": 100
+    },
+    "5630207": {
+      "symbolId": 50062,
+      "sourcePath": "www/rez/zh_CN/icon/item/a2fb0e47978d23d12a8e03cf120b581b.png",
+      "sha256": "0fe171cb74d1c254b0c7a326bbb6e9ddf0295c76196e55c238dbbf65a9647afd",
+      "width": 100,
+      "height": 100
+    },
+    "5630208": {
+      "symbolId": 50065,
+      "sourcePath": "www/rez/zh_CN/icon/item/f7f0a960763aa0bba26cbfe78c48b87d.png",
+      "sha256": "04ce807f5804acbe73810b2f564a94fdb107b9e5be905dc7526ebb23d70b91ae",
+      "width": 100,
+      "height": 100
+    },
+    "5630309": {
+      "symbolId": 50068,
+      "sourcePath": "www/rez/zh_CN/icon/item/a62f2d4c6084a42891525ae6c9651ce1.png",
+      "sha256": "269964e8edcde574a65875742a16a242f2ca1c260a49e17726adfec4d7261c8a",
+      "width": 100,
+      "height": 100
+    },
+    "5630310": {
+      "symbolId": 50071,
+      "sourcePath": "www/rez/zh_CN/icon/item/a9e06aad0b452d276b231d9404f6e55a.png",
+      "sha256": "f9a4d18cf9ec4a2a8a914920e973abe0aadf22bf8c82dcfcd1bc7c5c40c18c5d",
+      "width": 100,
+      "height": 100
+    },
+    "5630311": {
+      "symbolId": 50074,
+      "sourcePath": "www/rez/zh_CN/icon/item/b4615a577e45a970802d2a833a4e5e75.png",
+      "sha256": "ae96575d7698679d824ab06536ed60a170de015b5ab45bf282cba7a875e6d935",
+      "width": 100,
+      "height": 100
+    },
+    "5630312": {
+      "symbolId": 50077,
+      "sourcePath": "www/rez/zh_CN/icon/item/7f674ab69cf520874cbf63778409583e.png",
+      "sha256": "e52b1ac97e45a05e8bc672a402a07d6d5d9248e50b605cee6731af4f3b3d713e",
+      "width": 100,
+      "height": 100
+    },
+    "5640101": {
+      "symbolId": 50080,
+      "sourcePath": "www/rez/zh_CN/icon/item/bb109a4cabee54c906999a84f8737908.png",
+      "sha256": "35f17857d41c77b09b6df39ac801e123fb05b727d9a1624f0b0f1c1f0a0eaa7c",
+      "width": 100,
+      "height": 100
+    },
+    "5640102": {
+      "symbolId": 50083,
+      "sourcePath": "www/rez/zh_CN/icon/item/9d5851b54fc1a373123be0d655242633.png",
+      "sha256": "6977775777569de372adb3736ae5e8c64f604a5a43ec5cfde3356c1d41f1fa6a",
+      "width": 100,
+      "height": 100
+    },
+    "5640103": {
+      "symbolId": 50086,
+      "sourcePath": "www/rez/zh_CN/icon/item/611ce1b548cf3819809da92a28e39fd2.png",
+      "sha256": "3e4cb8307bfb8df72ada1f3785cf87ff4959faa143d14e1128f41139ff7c1d3c",
+      "width": 100,
+      "height": 100
+    },
+    "5640104": {
+      "symbolId": 50089,
+      "sourcePath": "www/rez/zh_CN/icon/item/3e6be05c951ac048e7f1e505ff40afe0.png",
+      "sha256": "e574c7ae75c4940988dc4b817e12a7902f50fe290cb6b667ccc38044601d026b",
+      "width": 100,
+      "height": 100
+    },
+    "5640105": {
+      "symbolId": 50092,
+      "sourcePath": "www/rez/zh_CN/icon/item/27d8b52bb90db6dacdee2a137746ecc3.png",
+      "sha256": "512581efa978d3ef922100c4346643b5ba38419000291af6bb5f631cee59c0b7",
+      "width": 100,
+      "height": 100
+    },
+    "5640205": {
+      "symbolId": 50095,
+      "sourcePath": "www/rez/zh_CN/icon/item/a5987bff39ba7cb5c90a528c2b5c3fc3.png",
+      "sha256": "16b32904c0b41fe3553cc9eb3aadb5bf6375986d7308c09e7e955b82d5e38ada",
+      "width": 100,
+      "height": 100
+    },
+    "5640206": {
+      "symbolId": 50098,
+      "sourcePath": "www/rez/zh_CN/icon/item/3da3ef61302df7dd07ba8a58260c1592.png",
+      "sha256": "5ce7a1b76cd5abdd15ce36a3ffd92fac1bff7e2b63f6743afc86f6f84fcf46ab",
+      "width": 100,
+      "height": 100
+    },
+    "5640207": {
+      "symbolId": 50101,
+      "sourcePath": "www/rez/zh_CN/icon/item/c68864333ddb26cdaae5704a33dfa4f9.png",
+      "sha256": "118dd2e3e378e31d84c0ab02881757ede2df5de4424420144ca15b9f48d606af",
+      "width": 100,
+      "height": 100
+    },
+    "5640208": {
+      "symbolId": 50104,
+      "sourcePath": "www/rez/zh_CN/icon/item/5c6c38c686b468723d96874badadba5b.png",
+      "sha256": "f833408c588cf2d9a0aec3b122275b90b94a96b929c39efbcc3239742a6b60bd",
+      "width": 100,
+      "height": 100
+    },
+    "5640309": {
+      "symbolId": 50107,
+      "sourcePath": "www/rez/zh_CN/icon/item/4d1c22203cef41d4fa9bf30cd1a027bb.png",
+      "sha256": "aec64c20a08efd9158bd090c10c53114ee99e2d7b66b6744643da957328fd5d4",
+      "width": 100,
+      "height": 100
+    },
+    "5640310": {
+      "symbolId": 50110,
+      "sourcePath": "www/rez/zh_CN/icon/item/abdb1359583ffa85e66a232fcd7f197a.png",
+      "sha256": "5e47c4a7cf31f394b878cffff1037414a18f65b147dd5be6d2b5460e3ab36a28",
+      "width": 100,
+      "height": 100
+    },
+    "5640311": {
+      "symbolId": 50113,
+      "sourcePath": "www/rez/zh_CN/icon/item/15bc11ac10ea449ed4f2ac434fefe251.png",
+      "sha256": "f0916cd0e82c64886eb85ca365085a7720f4272a2d1dd2ee975ca1a80ed01181",
+      "width": 100,
+      "height": 100
+    },
+    "5640312": {
+      "symbolId": 50116,
+      "sourcePath": "www/rez/zh_CN/icon/item/00c08f8aa528232836eb9ef03ac02cfc.png",
+      "sha256": "3776bd5f9726645ae3ae24c495b38b5c6129e9bded12eb8717495afeb55725b4",
+      "width": 100,
+      "height": 100
+    },
+    "5650101": {
+      "symbolId": 50119,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650102": {
+      "symbolId": 50122,
+      "sourcePath": "www/rez/zh_CN/icon/item/e746fa5d9cdd679e5d6167cd8a129de7.png",
+      "sha256": "ad076c7a1f6f1c1f8ac8f3382f2614907675abc37dc45ed0c8d7b21176ef6828",
+      "width": 100,
+      "height": 100
+    },
+    "5650103": {
+      "symbolId": 50125,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650104": {
+      "symbolId": 50128,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650105": {
+      "symbolId": 50131,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650205": {
+      "symbolId": 50134,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650206": {
+      "symbolId": 50137,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650207": {
+      "symbolId": 50140,
+      "sourcePath": "www/rez/zh_CN/icon/item/5ba82d5bef47eba7e197f7b9c15c173f.png",
+      "sha256": "9267e59767477882dbf422e8d547e5c3edadc1bc5a57ae7a4c329e4d8ec9ef92",
+      "width": 100,
+      "height": 100
+    },
+    "5650208": {
+      "symbolId": 50143,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650209": {
+      "symbolId": 50146,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650309": {
+      "symbolId": 50149,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650310": {
+      "symbolId": 50152,
+      "sourcePath": "www/rez/zh_CN/icon/item/2d3ea79b65063606e9e25412a49d4693.png",
+      "sha256": "31493cf442167ea77c26435dfac8e1f04614b69073b2c599b748f08acb68fc60",
+      "width": 100,
+      "height": 100
+    },
+    "5650311": {
+      "symbolId": 50155,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    },
+    "5650312": {
+      "symbolId": 50158,
+      "sourcePath": "www/rez/zh_CN/icon/item/offline_empty_crystal.png",
+      "sha256": "43739c566e26fd7cb88f69d3864ea34740372f5ee99acac169e090beffbce5c6",
+      "width": 1,
+      "height": 1
+    }
+  },
+  "quality": {
+    "4": {
+      "atlas": {
+        "url": "/html5/assets_m84/crystals/quality/2caf5f448df66fa62d082d00ff01a452267a4c461151db1c6f9f27bcbf4f0cbf.png",
+        "sha256": "2caf5f448df66fa62d082d00ff01a452267a4c461151db1c6f9f27bcbf4f0cbf",
+        "bytes": 207515,
+        "width": 1200,
+        "height": 350
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "187f8058f2236dd7b830b7877ed9962cee09b3a6907baa77ed960188e8976cee"
+        },
+        {
+          "x": 150,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "187f8058f2236dd7b830b7877ed9962cee09b3a6907baa77ed960188e8976cee"
+        },
+        {
+          "x": 300,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "c6fc9067a0caea4d831e38278d305ebb06266774ed2e13a0bf45a36ab37ae637"
+        },
+        {
+          "x": 450,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "c6fc9067a0caea4d831e38278d305ebb06266774ed2e13a0bf45a36ab37ae637"
+        },
+        {
+          "x": 600,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "81f1e85199012bfaec7c8e1cf0556869092aa821bd0170da5e21d14e9d55cb7d"
+        },
+        {
+          "x": 750,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "81f1e85199012bfaec7c8e1cf0556869092aa821bd0170da5e21d14e9d55cb7d"
+        },
+        {
+          "x": 900,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "531baf0991b34a8a3f51cad2380b81bad9c941c50ece070f4d621877280aeb8e"
+        },
+        {
+          "x": 1050,
+          "y": 0,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "531baf0991b34a8a3f51cad2380b81bad9c941c50ece070f4d621877280aeb8e"
+        },
+        {
+          "x": 0,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "6e2169d495de89af383e05ef358c6c1bce39306cf3be2e68dd23786b2ba4c531"
+        },
+        {
+          "x": 150,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "6e2169d495de89af383e05ef358c6c1bce39306cf3be2e68dd23786b2ba4c531"
+        },
+        {
+          "x": 300,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "5222c4438cadb30d89c49ce36943d09ba7daadbe0f4614de9b668a5b00736a1f"
+        },
+        {
+          "x": 450,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "5222c4438cadb30d89c49ce36943d09ba7daadbe0f4614de9b668a5b00736a1f"
+        },
+        {
+          "x": 600,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "11a780d223e5d580edeff40a154a0657b7d867d09d7f7c1b484d7b78798676e4"
+        },
+        {
+          "x": 750,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "11a780d223e5d580edeff40a154a0657b7d867d09d7f7c1b484d7b78798676e4"
+        },
+        {
+          "x": 900,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "0e915b9f71ff51085434daf2e23ea42ed3eafeb906ddca2358ff03fa21d10ce0"
+        },
+        {
+          "x": 1050,
+          "y": 175,
+          "width": 150,
+          "height": 175,
+          "pixelSha256": "0e915b9f71ff51085434daf2e23ea42ed3eafeb906ddca2358ff03fa21d10ce0"
+        }
+      ],
+      "viewport": [
+        -31,
+        -52,
+        119,
+        123
+      ],
+      "fps": 24,
+      "rootFrames": 16,
+      "cycleFrames": 15,
+      "consumer": "CMovieClipLite",
+      "blendMode": "add",
+      "nestedMovieFrames": 1
+    },
+    "5": {
+      "atlas": {
+        "url": "/html5/assets_m84/crystals/quality/9480b729f204e1a3f6947e3f59264c1a5da3d39cc1d1c100fd2b7705558f9298.png",
+        "sha256": "9480b729f204e1a3f6947e3f59264c1a5da3d39cc1d1c100fd2b7705558f9298",
+        "bytes": 451599,
+        "width": 1312,
+        "height": 700
+      },
+      "frames": [
+        {
+          "x": 0,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "f401bb171687bd2962fd723b88c6689899ed8c88fc085bd3b234c2eb579e8c77"
+        },
+        {
+          "x": 164,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "812ec0e5687a6e0137937cf02a881da975949ed99679c714226886ccb7f461dd"
+        },
+        {
+          "x": 328,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "66e08c443fd7108d2744b7f0d65333c771593fc6faf4de16f75087c8b5ba9f29"
+        },
+        {
+          "x": 492,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "934986c69d4e057208235e506cfed9f31fbc39c838cdac7e55f7a6026c02be82"
+        },
+        {
+          "x": 656,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "795da207f9273566d1cd62df9ac68ceff070994457660577039417f843f3cb03"
+        },
+        {
+          "x": 820,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "ede2575bfaa018ddf97475ae423e291b93de9d143c23e8d3286597df4af7ea2f"
+        },
+        {
+          "x": 984,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "5950d7116e445b30545aba2774d5ecee04938cd7fd4a17f317fc9d2433017497"
+        },
+        {
+          "x": 1148,
+          "y": 0,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "8a35f0596fce8e77b79675b98924a635f3257b32705f358e6912eab78d12d861"
+        },
+        {
+          "x": 0,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "0c8fecb8d29adfb034b486a5693af0b1d93c6b1d076d1b6b5ef2bc2ba0c110de"
+        },
+        {
+          "x": 164,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "06ed011b21643d86dfdd28e9c1b554cccf93a90eee8234c4463a18ebc4294a89"
+        },
+        {
+          "x": 328,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "e5d16e5e1a091a67c5e14ead60b23d17ed2b0879aac546154a9a91f2ab219193"
+        },
+        {
+          "x": 492,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "eacc93949455730abfc1d628f77caa85675ca5c5cf3a21811a8d68a559ef0c3a"
+        },
+        {
+          "x": 656,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "9f412be363684034b6e8e786782e9355604b7ba90979f187381624ce66bb8af0"
+        },
+        {
+          "x": 820,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "be68cfd43f9e2d3e511ae12315cba106c4cac8f82718b31c3e01bfc1ecad497c"
+        },
+        {
+          "x": 984,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "42da70bba0642c4f195fc5a46dceae3b5d90b443078b91a5d43bab285f5caa29"
+        },
+        {
+          "x": 1148,
+          "y": 175,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "8708ac15c81599c27506a511833ff4630b8f3ecd0ccdb14e77959e7273cf2805"
+        },
+        {
+          "x": 0,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "b54b3a3004db66616fd6917eb9e226bcff6ce7bbdc41857ceb552e07bfe2288b"
+        },
+        {
+          "x": 164,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "b38bb3b8b5f2bfe56b321985e9716c4f8c31948c7fd79fa95f9c4a3e7f55c6e8"
+        },
+        {
+          "x": 328,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "c94582f09bc6f661d2f82435dfa59227b493dde89267d94cb74aab5a8a1b98bb"
+        },
+        {
+          "x": 492,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "72d949c98f266846df7195ef660c6b6bbc2d39b88bb190959254c62eb9950e21"
+        },
+        {
+          "x": 656,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "d6a370e54f71f6f28b000cf1cbbe9dad82c671eab982a1d1d1583b347afbed49"
+        },
+        {
+          "x": 820,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "9038f3d34a2b0834439de1fef62951836335ccf7b0fe70d65fabd8aa345b36f4"
+        },
+        {
+          "x": 984,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "b1347d9388d4e9c747dbc4e0d70e922ef5a4a6f38ceb49b9fa6568530eb833ff"
+        },
+        {
+          "x": 1148,
+          "y": 350,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "899183ebc6e3e8a44407e67f515bd95726b90e8cc49ee5fc294e85c78fe2ed1c"
+        },
+        {
+          "x": 0,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "e9a7a2c99d3b12ffce3b39cdbfab8eaf82a4d7393edd7dbe3d22a51173a3cc6c"
+        },
+        {
+          "x": 164,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "4257f69301f650b86caf4d1427f4521fa89b86d26d915059d152dea2026e38ee"
+        },
+        {
+          "x": 328,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "b0000fd9c2f66fd3c3c8921c2f23b20159a2bc8b0f2193c2be684b3b517b9a8f"
+        },
+        {
+          "x": 492,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "b0000fd9c2f66fd3c3c8921c2f23b20159a2bc8b0f2193c2be684b3b517b9a8f"
+        },
+        {
+          "x": 656,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "f4ac74bf7eaf8e9fdaf92c9c747efc0e9c2f95036e8189785643d2c760257f02"
+        },
+        {
+          "x": 820,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "317e55b70f05dd1d2d297516eb77c969bc26616180f89f9160f0a8477b917ed2"
+        },
+        {
+          "x": 984,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "ce6158f819f154595c3ece9484d8eb897431318633f06cd3e6f2034bc03e10f8"
+        },
+        {
+          "x": 1148,
+          "y": 525,
+          "width": 164,
+          "height": 175,
+          "pixelSha256": "a3587c7cadfa548d8ddcc6c85268fbbb8c03266e6dea23e5355916cf212fb1fe"
+        }
+      ],
+      "viewport": [
+        -46,
+        -52,
+        118,
+        123
+      ],
+      "fps": 24,
+      "rootFrames": 32,
+      "cycleFrames": 31,
+      "consumer": "CMovieClipLite",
+      "blendMode": "add",
+      "nestedMovieFrames": 1
+    }
+  },
+  "holders": [
+    {
+      "name": "cvs_tubiao01",
+      "depth": 79,
+      "x": 223,
+      "y": 134
+    },
+    {
+      "name": "cvs_tubiao02",
+      "depth": 93,
+      "x": 86.5,
+      "y": 208
+    },
+    {
+      "name": "cvs_tubiao03",
+      "depth": 107,
+      "x": 359.45,
+      "y": 206.8
+    },
+    {
+      "name": "cvs_tubiao04",
+      "depth": 121,
+      "x": 33.05,
+      "y": 335.95
+    },
+    {
+      "name": "cvs_tubiao05",
+      "depth": 135,
+      "x": 427.5,
+      "y": 335.05
+    }
+  ],
+  "geometry": {
+    "width": 1440,
+    "height": 900,
+    "movieX": 457,
+    "movieY": 59,
+    "iconScale": 0.75,
+    "confirmY": 478
+  },
+  "source": {
+    "files": {
+      "zh_CN/VI/crystal/make/swf_make_effect.swf": {
+        "sourcePath": "www/rez/zh_CN/VI/crystal/make/6791e36afe42e7f17124740e46f9e490.swf",
+        "sha256": "4b32a812ece4316d78f8d542660430443b5457e70764df764297056e29eb27a3",
+        "decodedSha256": "4b32a812ece4316d78f8d542660430443b5457e70764df764297056e29eb27a3"
+      },
+      "zh_CN/VI/crystal/make/swf_quality_4.swf": {
+        "sourcePath": "www/rez/zh_CN/VI/crystal/make/92a2b2f7d2f60d4e3d0b76ef8b6af3c0.swf",
+        "sha256": "6c85e1aa2398440af99e7a1bf283ed183dd11d7a5d7950d5775fff9c49826fde",
+        "decodedSha256": "6c85e1aa2398440af99e7a1bf283ed183dd11d7a5d7950d5775fff9c49826fde"
+      },
+      "zh_CN/VI/crystal/make/swf_quality_5.swf": {
+        "sourcePath": "www/rez/zh_CN/VI/crystal/make/aefcb09f8c7e7174aa58489a552c68a7.swf",
+        "sha256": "e643de048a7a1c1443c9839318ccd0637139ac3d39056ea7564ab96b532cd238",
+        "decodedSha256": "e643de048a7a1c1443c9839318ccd0637139ac3d39056ea7564ab96b532cd238"
+      }
+    },
+    "fileListSha256": "9582d5554d0314c839ebb69ce68986b7db4f561538124b80ab94f91009592dd3",
+    "rootSourceSha256": "4b32a812ece4316d78f8d542660430443b5457e70764df764297056e29eb27a3",
+    "nonScriptTagSha256": "20f3b3d8e9a049eba33250608e78e3d0ee4420c9891ff07bf87b7637b2f46b53"
+  },
+  "policy": {
+    "databaseOpened": false,
+    "gameplayWrites": false,
+    "networking": "none",
+    "scriptAccess": false,
+    "awardSource": "accepted S1104 kind 19; first item group; original order",
+    "adapterChanges": [
+      "native gotoAndPlay label selection",
+      "local trace after original stop and mc_complete event",
+      "viewport RECT only"
+    ],
+    "runtimeBinding": "up to five original catalog PNG icons in empty native holders"
+  }
+}

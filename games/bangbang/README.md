@@ -36,8 +36,8 @@ http://127.0.0.1:18086/games/bangbang/html5/
 
 ## Giới hạn / lưu ý
 
-- Asset: **14.985 file / ~2.4 GB**; tất cả file < 25 MiB; tổng file vẫn dưới 20.000 của Pages Free.
-- Đã thêm toàn bộ asset **tank + màn hình game**: battle scenes, HUD, PvE/PvP map, tank model, skill SWF, portrait/avatar, icon, NPC/map effects.
+- Asset: **18.349 file / ~2,9 GB**; tất cả file < 25 MiB; deploy 18.937 file, vẫn dưới 20.000 của Pages Free.
+- Đã thêm asset **tank + màn hình game**, sound, char, xml/module, avatar/icon/map/npc/swf đầy đủ. Chưa đưa: `assets_m5` (map PvP) và phần bulk `gui_summer` (theme PvP/mail/guild/shop; PvE chỉ dùng 122 file đã có).
 - **Chỉ cắt logic** của bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad; **UI vẫn giữ nguyên** (nút disabled/“chưa mở”, panel chat trang trí). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank.
 - `m5_asset_catalog` bị bỏ vì không có JS reference; `m4_asset_catalog` được giữ lại.
 - Dùng service worker cache-first: lần đầu preload essential trước màn hình tạo nhân vật, sau khi vào sảnh mới tải nền toàn bộ asset; tạm dừng khi rời sảnh (vào trận/garage/shop) để không tranh băng thông, và tiếp tục khi quay lại sảnh. Các lần sau đọc từ Cache Storage.
@@ -49,7 +49,7 @@ http://127.0.0.1:18086/games/bangbang/html5/
 
 ## Cache
 
-- `cache-manifest.json` liệt kê **15.129 URL asset**; `essential` (528 URL) được tải trước màn hình tạo nhân vật.
+- `cache-manifest.json` liệt kê **18.558 URL asset**; `essential` (528 URL) được tải trước màn hình tạo nhân vật.
 - Sau khi tạo nhân vật và sảnh hiện xong, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ. Cache nền tạm dừng khi rời sảnh và tự tiếp tục khi quay lại.
 - Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.

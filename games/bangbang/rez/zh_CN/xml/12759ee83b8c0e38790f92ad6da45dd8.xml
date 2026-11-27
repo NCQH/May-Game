@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TeamTemplate>
+			<entry><nLevel>1</nLevel><iNeedGlory>2000</iNeedGlory><nMeritCoef>10</nMeritCoef><iKeepFee>1000</iKeepFee><iPveKeepFee>2000</iPveKeepFee></entry><entry><nLevel>2</nLevel><iNeedGlory>4900</iNeedGlory><nMeritCoef>20</nMeritCoef><iKeepFee>1125</iKeepFee><iPveKeepFee>2250</iPveKeepFee></entry><entry><nLevel>3</nLevel><iNeedGlory>10400</iNeedGlory><nMeritCoef>30</nMeritCoef><iKeepFee>1250</iKeepFee><iPveKeepFee>2500</iPveKeepFee></entry><entry><nLevel>4</nLevel><iNeedGlory>16400</iNeedGlory><nMeritCoef>40</nMeritCoef><iKeepFee>1375</iKeepFee><iPveKeepFee>2750</iPveKeepFee></entry><entry><nLevel>5</nLevel><iNeedGlory>28700</iNeedGlory><nMeritCoef>50</nMeritCoef><iKeepFee>1500</iKeepFee><iPveKeepFee>3000</iPveKeepFee></entry><entry><nLevel>6</nLevel><iNeedGlory>48200</iNeedGlory><nMeritCoef>60</nMeritCoef><iKeepFee>1625</iKeepFee><iPveKeepFee>3250</iPveKeepFee></entry><entry><nLevel>7</nLevel><iNeedGlory>75600</iNeedGlory><nMeritCoef>70</nMeritCoef><iKeepFee>1750</iKeepFee><iPveKeepFee>3500</iPveKeepFee></entry><entry><nLevel>8</nLevel><iNeedGlory>118500</iNeedGlory><nMeritCoef>80</nMeritCoef><iKeepFee>1875</iKeepFee><iPveKeepFee>3750</iPveKeepFee></entry><entry><nLevel>9</nLevel><nMeritCoef>90</nMeritCoef><iKeepFee>2000</iKeepFee><iPveKeepFee>4000</iPveKeepFee></entry></g_TeamTemplate>
+	</LocalData>
+</LocalDatas>

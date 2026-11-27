@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_FaceTemplate>
+			<entry><nFaceId>1</nFaceId><szFileName>face_help_t.swf</szFileName><iPrioirty>1</iPrioirty></entry><entry><nFaceId>2</nFaceId><szFileName>face_angry.swf</szFileName><iPrioirty>1</iPrioirty></entry><entry><nFaceId>3</nFaceId><szFileName>face_cry.swf</szFileName><iPrioirty>1</iPrioirty></entry><entry><nFaceId>4</nFaceId><szFileName>face_faint.swf</szFileName><iPrioirty>1</iPrioirty></entry><entry><nFaceId>5</nFaceId><szFileName>face_death_t.swf</szFileName><iPrioirty>1</iPrioirty></entry><entry><nFaceId>6</nFaceId><szFileName>face_pride_t.swf</szFileName><iPrioirty>2</iPrioirty></entry><entry><nFaceId>7</nFaceId><szFileName>face_relive_v15_21525.swf</szFileName><iPrioirty>1</iPrioirty></entry><entry><nFaceId>8</nFaceId><szFileName>face_happy.swf</szFileName><iPrioirty>1</iPrioirty></entry><entry><nFaceId>9</nFaceId><szFileName>face_snooty.swf</szFileName><iPrioirty>7</iPrioirty></entry><entry><nFaceId>10</nFaceId><szFileName>face_revenge.swf</szFileName><iPrioirty>8</iPrioirty></entry><entry><nFaceId>11</nFaceId><szFileName>face_penemy_t.swf</szFileName><iPrioirty>5</iPrioirty></entry><entry><nFaceId>12</nFaceId><szFileName>face_blast_t.swf</szFileName><iPrioirty>4</iPrioirty></entry><entry><nFaceId>13</nFaceId><szFileName>face_wreck_t.swf</szFileName><iPrioirty>3</iPrioirty></entry><entry><nFaceId>14</nFaceId><szFileName>face_demon_t.swf</szFileName><iPrioirty>6</iPrioirty></entry></g_FaceTemplate>
+	</LocalData>
+</LocalDatas>

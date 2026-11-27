@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TankResearchTemplate>
+			<entry><nTankId>10000002</nTankId><nCoinType>1</nCoinType><nCoinCount>1</nCoinCount></entry></g_TankResearchTemplate>
+	</LocalData>
+</LocalDatas>

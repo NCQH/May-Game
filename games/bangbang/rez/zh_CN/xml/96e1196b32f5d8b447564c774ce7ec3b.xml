@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_SprayTemplate>
+			<entry><nId>1</nId><szName>喷图1</szName><szDesc>喷图1</szDesc><szImagePath>spray01.png</szImagePath></entry><entry><nId>2</nId><szName>喷图2</szName><szDesc>喷图2</szDesc><szImagePath>spray02.png</szImagePath></entry><entry><nId>3</nId><szName>喷图3</szName><szDesc>喷图3</szDesc><szImagePath>spray03.png</szImagePath></entry><entry><nId>4</nId><szName>喷图4</szName><szDesc>喷图4</szDesc><szImagePath>spray04.png</szImagePath></entry><entry><nId>5</nId><szName>喷图5</szName><szDesc>喷图5</szDesc><szImagePath>spray05_t.png</szImagePath></entry><entry><nId>6</nId><szName>喷图6</szName><szDesc>喷图6</szDesc><szImagePath>spray06.png</szImagePath></entry><entry><nId>7</nId><szName>喷图7</szName><szDesc>喷图7</szDesc><szImagePath>spray07_t.png</szImagePath></entry><entry><nId>8</nId><szName>喷图8</szName><szDesc>喷图8</szDesc><szImagePath>spray08_t.png</szImagePath></entry><entry><nId>9</nId><szName>喷图9</szName><szDesc>喷图9</szDesc><szImagePath>spray09.png</szImagePath></entry><entry><nId>10</nId><szName>喷图10</szName><szDesc>喷图10</szDesc><szImagePath>spray10_t.png</szImagePath></entry></g_SprayTemplate>
+	</LocalData>
+</LocalDatas>

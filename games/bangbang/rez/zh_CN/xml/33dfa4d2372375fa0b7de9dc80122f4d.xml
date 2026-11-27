@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_PortalTemplate>
+			<entry><nId>1</nId><nAlertRange>72</nAlertRange><szOpenImage>open.png</szOpenImage><szCloseImage>close.png</szCloseImage><szCDImage>cd.png</szCDImage></entry><entry><nId>2</nId><nAlertRange>72</nAlertRange><szOpenImage>open.png</szOpenImage><szCloseImage>close.png</szCloseImage><szCDImage>cd.png</szCDImage></entry><entry><nId>3</nId><nAlertRange>72</nAlertRange><szOpenImage>open.swf</szOpenImage><szCloseImage>close.swf</szCloseImage><szCDImage>cd.swf</szCDImage></entry></g_PortalTemplate>
+	</LocalData>
+</LocalDatas>

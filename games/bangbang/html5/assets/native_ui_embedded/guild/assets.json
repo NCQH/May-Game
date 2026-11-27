@@ -1,0 +1,210 @@
+{
+  "recruit.btn_confirm_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/btn_confirm_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_btn_confirm_t.png",
+    "width": 76,
+    "height": 31,
+    "sha256": "dc559aeddb242ca15d7876a2d8d9a88bd86b9ebf4566cfb6a3931608568b148b",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_btn_confirm_t_png_1266170823",
+      "bitmapId": 25,
+      "tagCode": 36,
+      "tagSha256": "8ab03fd5ffd43fe7a97047ef102911c8d4fcbf7deef7494cfa796b1526bcc4f7"
+    }
+  },
+  "recruit.btn_edit_dec_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/btn_edit_dec_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_btn_edit_dec_t.png",
+    "width": 96,
+    "height": 31,
+    "sha256": "03a37a26eccee2b7d9d027e9a205894775b0b9e766cf83bb3d900b3dba27a2f1",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_btn_edit_dec_t_png_1174577583",
+      "bitmapId": 128,
+      "tagCode": 36,
+      "tagSha256": "0fb87ff6cb0ea5d7164707ff5f982ecee566858a709174194cfdb83d3a3a2c78"
+    }
+  },
+  "recruit.btn_edit_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/btn_edit_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_btn_edit_t.png",
+    "width": 76,
+    "height": 31,
+    "sha256": "497e407264c30e81600b762c93a0b23d381cb33295a532fe98938b5f5f0c6407",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_btn_edit_t_png_905653065",
+      "bitmapId": 124,
+      "tagCode": 36,
+      "tagSha256": "df30cd5b0228643941ab94c5959ebdca21e6ee6d949d3205e3eb9c6701352580"
+    }
+  },
+  "recruit.img_input_322x36": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_input_322x36.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_input_322x36.png",
+    "width": 322,
+    "height": 36,
+    "sha256": "53ed2f08890fdd080467e81bf3c4f8ac918e50080cefa7da3d5f3460b72526da",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_input_322x36_png_1180101433",
+      "bitmapId": 143,
+      "tagCode": 36,
+      "tagSha256": "8f53a632a66b5c156c9c1fbd800bbe196d8ace0a9f7e1cce29530f976b965817"
+    }
+  },
+  "recruit.img_input_425x105": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_input_425x105.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_input_425x105.png",
+    "width": 425,
+    "height": 105,
+    "sha256": "8edf50f0c9fb44347943003906c56d3ffccb02f045b06b4e07677002064967ce",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_input_425x105_png_480425519",
+      "bitmapId": 62,
+      "tagCode": 36,
+      "tagSha256": "cef666f83649559c0d08959aaa842178ba78d952fc7cddebf2702d07519648d6"
+    }
+  },
+  "recruit.img_recruit_1_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_recruit_1_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_recruit_1_t.png",
+    "width": 98,
+    "height": 22,
+    "sha256": "bf5a013b4d1d469352667a0e858dbfcb7a9fd39a79754a5a2a3ee5ccad6614f8",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_recruit_1_t_png_1002570889",
+      "bitmapId": 87,
+      "tagCode": 36,
+      "tagSha256": "a354a7092a9ddd8dea8dbe6a57bedc1b9ccffeeaae064e565ce979f7714ad6d8"
+    }
+  },
+  "recruit.img_recruit_2_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_recruit_2_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_recruit_2_t.png",
+    "width": 98,
+    "height": 22,
+    "sha256": "aa4e3489daa6849e3450856e0fdf0666a4006824d26c3c2c2cdde9c2490fc663",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_recruit_2_t_png_865142281",
+      "bitmapId": 158,
+      "tagCode": 36,
+      "tagSha256": "5ebc316f91646f842e45d491cbccc637c3c12931fdfa1d6e9018de00b125b950"
+    }
+  },
+  "recruit.img_recruit_3_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_recruit_3_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_recruit_3_t.png",
+    "width": 96,
+    "height": 22,
+    "sha256": "6eea4aa2aae842b9e8f00a5e14e8153591c5477e06951ad747a7d0e83cfd0462",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_recruit_3_t_png_801439921",
+      "bitmapId": 71,
+      "tagCode": 36,
+      "tagSha256": "21763b1c098e4c7f293da33994b91e5c24cd00e38dd8e86cc617e79608a3e334"
+    }
+  },
+  "recruit.img_recruit_4_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_recruit_4_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_recruit_4_t.png",
+    "width": 66,
+    "height": 22,
+    "sha256": "c4ca79d5d541b8f1050b7c4b3b5fbd24c0e004ba2240f8af707cdbb03560e54a",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_recruit_4_t_png_1057495345",
+      "bitmapId": 92,
+      "tagCode": 36,
+      "tagSha256": "7d50525ea1734fa3f3be25e33f861e824d95f5706b20d42db505ab63f18d6e89"
+    }
+  },
+  "recruit.img_recruit_5_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_recruit_5_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_recruit_5_t.png",
+    "width": 128,
+    "height": 22,
+    "sha256": "61d8e4d0b5b091aff442d4c121c86166010ef9dea5bb636987ba0b8e3412a6a0",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_recruit_5_t_png_859072177",
+      "bitmapId": 116,
+      "tagCode": 36,
+      "tagSha256": "51e774385d7a905f006c03d50fec99de6831e234fd03eb4b0b60950c35396d29"
+    }
+  },
+  "recruit.img_recruit_6_t": {
+    "logical": "zh_CN/gui_summer/controls/clan/img_recruit_6_t.png",
+    "url": "/html5/assets/native_ui_embedded/guild/clan_img_recruit_6_t.png",
+    "width": 66,
+    "height": 21,
+    "sha256": "af54016307e15043245c9bafec63d59028852a53e3102b33d88585c45fbc2036",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_clan_img_recruit_6_t_png_717284401",
+      "bitmapId": 145,
+      "tagCode": 36,
+      "tagSha256": "553c7f1fe929986021f02d4cff91ac1ee9fa13c8312eebe121e1a387507994fb"
+    }
+  },
+  "recruit.checkbox_bk": {
+    "logical": "zh_CN/gui_summer/controls/system/checkbox_bk.png",
+    "url": "/html5/assets/native_ui_embedded/guild/system_checkbox_bk.png",
+    "width": 27,
+    "height": 26,
+    "sha256": "2968ad8216afec8c0797b9ffa4fafc1321394603d660c3df49eb5987c064dfec",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_system_checkbox_bk_png_1930124079",
+      "bitmapId": 108,
+      "tagCode": 36,
+      "tagSha256": "773bb985b6264a4c86cd61a62c23a008eb25615630408f66bac5ba9fc7ab5ff6"
+    }
+  },
+  "recruit.checkbox_checked": {
+    "logical": "zh_CN/gui_summer/controls/system/checkbox_checked.png",
+    "url": "/html5/assets/native_ui_embedded/guild/system_checkbox_checked.png",
+    "width": 27,
+    "height": 27,
+    "sha256": "6714b4e513be347ca2ab258155a9a1fc07d71d89f20abaafb118de87b4e8285b",
+    "source": {
+      "logical": "zh_CN/module/CorpsUIFactory.swf",
+      "mapped": "zh_CN/module/2eb3d0c3a2c99d52b29e0c4a16f6255f.swf",
+      "sourceSha256": "202735199858117318b180f36e91a38becf57f1f4cec0826a11a157e284427c6",
+      "symbol": "mxml.clan.CorpsRecruitSettingFrame__embed_mxml__rez_zh_CN_gui_summer_controls_system_checkbox_checked_png_151517257",
+      "bitmapId": 42,
+      "tagCode": 36,
+      "tagSha256": "096b7fd2b9432f5914333fc466af966ffaf0febde48baf364da518abfdb4a3ec"
+    }
+  }
+}

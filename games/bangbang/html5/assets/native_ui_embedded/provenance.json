@@ -1,0 +1,480 @@
+{
+  "sourcePath": "www/rez/zh_CN/module/clientgoc_original_battleui_rollback_20261008.swf",
+  "sourceSha256": "d924f488f9d904ea653bc00ea2f7bf830f53a37f6fe0555ff19a263dd781b621",
+  "fwsSha256": "0a68a97fc6f998ab295fccc2bc08b8d884a5e38c5be674e1b7e2ffe8efa357b7",
+  "assets": [
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_1000_t_png_1212375456",
+      "bitmapId": 11,
+      "tagCode": 36,
+      "tagSha256": "a6b96d9707d5ee748c70ad1203bd8ea0066b0e553fa9d6b84037ce030076864e",
+      "file": "gameplay_keyboard_1000_t.png",
+      "sha256": "2df40ef2118cb5502c522972a64ca42fc209fc341e04be4750f93b6fb9fdeec9",
+      "width": 30,
+      "height": 15
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_1001_t_png_1212190882",
+      "bitmapId": 133,
+      "tagCode": 36,
+      "tagSha256": "7cb66db81f688d6278dbf452452922ea04c562f15e7da9826d61f8479fde4a2e",
+      "file": "gameplay_keyboard_1001_t.png",
+      "sha256": "91d061514ff9e8023eb658884fd387dec6255155b1a2791429d9b066e4c9981b",
+      "width": 30,
+      "height": 15
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_100_png_485890544",
+      "bitmapId": 71,
+      "tagCode": 36,
+      "tagSha256": "0b3225b0b0c8726aaddb8779d26772296d656db503105cbae7b44b9552ad7f7c",
+      "file": "gameplay_keyboard_100.png",
+      "sha256": "3137ab3d0ae722d6f02fd4a80ab9d977d82d3be3c3c9b125bdeec723d8137442",
+      "width": 35,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_101_png_479594990",
+      "bitmapId": 19,
+      "tagCode": 36,
+      "tagSha256": "657b6b36e3a3a39eda631d6c0d47021701250993cffcd5e21a6d81734fe25798",
+      "file": "gameplay_keyboard_101.png",
+      "sha256": "a10a918e31de67036b328e005b4e455f8fd63fb67752113c04e401f8c5f65234",
+      "width": 34,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_102_png_485824996",
+      "bitmapId": 128,
+      "tagCode": 36,
+      "tagSha256": "5dc95b70132b0be82ce48f1473087766820732d625138ef66fd82421ce3ecf83",
+      "file": "gameplay_keyboard_102.png",
+      "sha256": "cb4dcc2c88023c3ea7b5512d57afb35934d61fd655c9016e9635f861e5391426",
+      "width": 34,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_103_png_483995134",
+      "bitmapId": 20,
+      "tagCode": 36,
+      "tagSha256": "7b94ea401398125c2376681a5620394e39e2555a305ac2f6ffa08a7192f46a02",
+      "file": "gameplay_keyboard_103.png",
+      "sha256": "5b99e91debd4894f1a9df5b09d8739c9274ded58ecb3bc28e9ca85039537fd8f",
+      "width": 34,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_104_png_482680320",
+      "bitmapId": 54,
+      "tagCode": 36,
+      "tagSha256": "223596cf90230a362331914f48b931e3ab4e3022d5aded72b87f7e62c1b5dee9",
+      "file": "gameplay_keyboard_104.png",
+      "sha256": "98794a6c43583849c426733de127b889228910ebcf4bf9b592255a4cc468f6e5",
+      "width": 34,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_105_png_469831166",
+      "bitmapId": 69,
+      "tagCode": 36,
+      "tagSha256": "5d7ae3ea045594d9e1fe3da8d35b773a89b9d7ca78f8366f17bee5d5d81ab54c",
+      "file": "gameplay_keyboard_105.png",
+      "sha256": "a11b4cc0d2a88523f4d8e8f60e2949b61d8de0926670c12114112f2090d732cd",
+      "width": 34,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_16_png_96535810",
+      "bitmapId": 83,
+      "tagCode": 36,
+      "tagSha256": "e2d56653082940e66d6bb1d8bdf85fc5ade791f51fd3cfbac91ca167cd90346d",
+      "file": "gameplay_keyboard_16.png",
+      "sha256": "0c72db21dc147dd4502942a3f63c7f47b12a314e412fcaf657f28b009b6c1e69",
+      "width": 36,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_32_t_png_523659424",
+      "bitmapId": 118,
+      "tagCode": 36,
+      "tagSha256": "aaa169c15ac6f4bd2ff551f2cf768a192a3363366dac7895954230efc36c24cd",
+      "file": "gameplay_keyboard_32_t.png",
+      "sha256": "2541bb503229309ef5a5c21c000d13885bf12fdace716dad7c69accd6b1230d8",
+      "width": 29,
+      "height": 15
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_48_png_188988160",
+      "bitmapId": 10,
+      "tagCode": 36,
+      "tagSha256": "1916d31622abb50e2e00ef32f7ab5588a7473b69f8287e70cd5d6db3bd8b2ef9",
+      "file": "gameplay_keyboard_48.png",
+      "sha256": "103ed10fac7890a2dcade3126c90be1e1dd80caa8635e6208aaa0e45f5a6193c",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_49_png_191871746",
+      "bitmapId": 52,
+      "tagCode": 36,
+      "tagSha256": "c9cb7d00a27aec0ac02f3e630b69108a07ed522a20bad8e77be795823ae49527",
+      "file": "gameplay_keyboard_49.png",
+      "sha256": "e1dbd396b8773ada385d81374d0b86571fb2c722e38bc27a31ba18c1d71cdb31",
+      "width": 8,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_50_png_163820850",
+      "bitmapId": 70,
+      "tagCode": 36,
+      "tagSha256": "671c05f1abef20a3e73f0b06e91bf04008876b9f96cc02d34d533ad61ee55dfc",
+      "file": "gameplay_keyboard_50.png",
+      "sha256": "3a6203ed0854b20f52fee1fb2066f0cadbf0071d59284b3e325da46d93a5d914",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_51_png_166157104",
+      "bitmapId": 15,
+      "tagCode": 36,
+      "tagSha256": "38d89be9bd56f726a6d5295e5619d3f9d5ed07173b3b6341251d58339b15cf9c",
+      "file": "gameplay_keyboard_51.png",
+      "sha256": "a33a79138ef7e741c86646694c0d82c4bbbab7f9bd3d12736fba8c65561c3cb9",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_52_png_163781426",
+      "bitmapId": 102,
+      "tagCode": 36,
+      "tagSha256": "b36b2a4f653c162c1f50e4bad215ba3a340238d332e15d43192945a7849b8b4e",
+      "file": "gameplay_keyboard_52.png",
+      "sha256": "d84dc76ca3718abb1ae4f7bd7717fc380853bddc0680fa5204371ae8ff01cfe1",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_53_png_137313596",
+      "bitmapId": 27,
+      "tagCode": 36,
+      "tagSha256": "5f6f4d6dfd5bf5f75dafc1e575b08364058ffebdc80a30092472d1d101055739",
+      "file": "gameplay_keyboard_53.png",
+      "sha256": "4504a5d5309040a095c0cecbb35b20572e6ef534aa7451bdafc28a79287d8d71",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_54_png_138460418",
+      "bitmapId": 1,
+      "tagCode": 36,
+      "tagSha256": "94966eb26a53ffe044003630b897f5a40a61570f12830acfc7b1d91f8ecbe4b0",
+      "file": "gameplay_keyboard_54.png",
+      "sha256": "0991a8f388ac6e86c92dbeebd19a65b6ce7f48b82750f0430a5823e008b2d55d",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_55_png_140549888",
+      "bitmapId": 104,
+      "tagCode": 36,
+      "tagSha256": "41174e63a6ead61a3a0db690f3201fe4c2fbb8d2d99472b894faa794f49a765b",
+      "file": "gameplay_keyboard_55.png",
+      "sha256": "1c2ce8c750c6113a5ae0566c5eaab7cba7cfd3297893a0f9f114c0f9a503a2b2",
+      "width": 10,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_56_png_138501890",
+      "bitmapId": 59,
+      "tagCode": 36,
+      "tagSha256": "765e0af7ad2c46d6b7a6f9d7c2bb7090ba99c75b836a5b95a58b2510ff915138",
+      "file": "gameplay_keyboard_56.png",
+      "sha256": "ad0d6eab2092b6674fe1af972ad164bf7a770b7d602e938007603ac7f754a079",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_57_png_136396036",
+      "bitmapId": 99,
+      "tagCode": 36,
+      "tagSha256": "a0aa36d63da14f4bf1488319632c0565c382cba74eba63512b51047cb1b6154f",
+      "file": "gameplay_keyboard_57.png",
+      "sha256": "ed440e716ee44aa612eeeeb75e24122777f4e07f854b428cf2178a38bffd7968",
+      "width": 10,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_66_png_1977662720",
+      "bitmapId": 12,
+      "tagCode": 36,
+      "tagSha256": "ed75c846d58cd907f8cf703aa19a4bf2fa957d8d1ed83ec24cee747699eb28c3",
+      "file": "gameplay_keyboard_66.png",
+      "sha256": "a322fc457312665872d708b495ce47ee115712fe9a00dc95c00041bd0b1e4f2d",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_67_png_1975566082",
+      "bitmapId": 125,
+      "tagCode": 36,
+      "tagSha256": "e8784bdce3c59e57c2e3ceeca41f8918c7171acbb818519523f50d28be8f7677",
+      "file": "gameplay_keyboard_67.png",
+      "sha256": "7ae3f888b3c65d3df04896d4435d42522433b4227cb40a97a95c258a0da2f3d4",
+      "width": 13,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_69_png_1950555394",
+      "bitmapId": 138,
+      "tagCode": 36,
+      "tagSha256": "fe6c2285a98d99f4b5b27b0c47b5653a287164ca3007d0726ee5ffd9870edc36",
+      "file": "gameplay_keyboard_69.png",
+      "sha256": "f93962384b0b92a4e7050f854bb5413d562048c53949b15a67d9e2eee84e130e",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_70_png_2010179790",
+      "bitmapId": 132,
+      "tagCode": 36,
+      "tagSha256": "c4ac88b139ff6cf7adce3b81161fe2eb3f72af85a992e4b831237c737bf1acec",
+      "file": "gameplay_keyboard_70.png",
+      "sha256": "24a951e708f54e73a8263f91d6fd94ef59f8c8605ca11b73d0ec18986c705aa9",
+      "width": 10,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_71_png_1983690956",
+      "bitmapId": 16,
+      "tagCode": 36,
+      "tagSha256": "a9f88c876a591da8d870d9b93304faae71981d5dfbb27c37f00b16a2c20845f7",
+      "file": "gameplay_keyboard_71.png",
+      "sha256": "da7fe64e934e5524e147cd90447a0f366a7dfe063acf07ccb1ac63b2e7dd5a69",
+      "width": 13,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_72_png_1981303502",
+      "bitmapId": 105,
+      "tagCode": 36,
+      "tagSha256": "cf3b1f343ad40b247fbbecf8f5fe21bb5049410e2bd9187a18b91418bfce655a",
+      "file": "gameplay_keyboard_72.png",
+      "sha256": "598ceb5ea1b33c98f7f166e5809e25f03d31f2007a2a33a03e42b4b82a4b76d6",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_73_png_1983675088",
+      "bitmapId": 29,
+      "tagCode": 36,
+      "tagSha256": "24ace55a62ec722bb3b1e55d62a316b7ac99cc23fe592ade67ce367843b71c7d",
+      "file": "gameplay_keyboard_73.png",
+      "sha256": "dbe29489a72edbbb5132b173b9b851d20b93bd8c54746188bdcd2e9a65dba555",
+      "width": 5,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_74_png_1981850830",
+      "bitmapId": 134,
+      "tagCode": 36,
+      "tagSha256": "57ca44fc765c1b46a017e8ee717373640362401fd86f28c8f5cfefef84e24132",
+      "file": "gameplay_keyboard_74.png",
+      "sha256": "0d5914761f42f96b838227eada330a1f1577e84198037b3427b338e78d288060",
+      "width": 10,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_75_png_1994179780",
+      "bitmapId": 33,
+      "tagCode": 36,
+      "tagSha256": "73411a23630bf05253ee8efecb65a9cec612aae34935b273d8c4b3b2348e52fd",
+      "file": "gameplay_keyboard_75.png",
+      "sha256": "eed5fc4d569a7aa109cafe27b0b9cb4c29e04533900310b785b2a8639f696c96",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_76_png_1991820030",
+      "bitmapId": 122,
+      "tagCode": 36,
+      "tagSha256": "a61f98e852eac8bee4ccd708773994378c5d396ae236f8cc8a43e807e9329631",
+      "file": "gameplay_keyboard_76.png",
+      "sha256": "04ff908a98c7b8cd8c3ed1d5cb543fb62984c058221e01a569707b2e04743441",
+      "width": 10,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_77_png_1989976832",
+      "bitmapId": 34,
+      "tagCode": 36,
+      "tagSha256": "8d7780c5aa10cd973c9e428503e9136233ada03844bfc2c4551d211e02bcb6e5",
+      "file": "gameplay_keyboard_77.png",
+      "sha256": "39674341d0d35e4ff2f1609cdde8e57c159f3dee60762ebe4aafe0bf2fe0192f",
+      "width": 13,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_78_png_1992253694",
+      "bitmapId": 88,
+      "tagCode": 36,
+      "tagSha256": "b5827e8f3c51a30367c9502482381e242ee9ee4184fd0878afc957c4b4d5acf0",
+      "file": "gameplay_keyboard_78.png",
+      "sha256": "41fa9e7e508dd714a484a9316adef1c0dc5eddb66773454b72559488e3b85d82",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_79_png_1994342652",
+      "bitmapId": 36,
+      "tagCode": 36,
+      "tagSha256": "ba5049fa158abf35eabb81d53a49d39f504926a0567f7d07c7af9b139121f34f",
+      "file": "gameplay_keyboard_79.png",
+      "sha256": "5e00f0a3ac3a4354e18f093f2389285b079f67c80e6391877ca01ae576945d94",
+      "width": 14,
+      "height": 14
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_80_png_1950268048",
+      "bitmapId": 6,
+      "tagCode": 36,
+      "tagSha256": "a1af1f728ecdddfdeeaf5ad966dd49c68b30f21a93241e54d7755db779ce6c9e",
+      "file": "gameplay_keyboard_80.png",
+      "sha256": "7fa64236dbcee3b11deb0b5745f6fd3048f705a50b0c8c339e28abd7843492f0",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_81_png_1943980174",
+      "bitmapId": 116,
+      "tagCode": 36,
+      "tagSha256": "b289617524c5563ddb3ebd645927ee9ceb2f5fb695acd662606d36711721970d",
+      "file": "gameplay_keyboard_81.png",
+      "sha256": "ef275cfdd04501335910f48a4494c18148872f1333fe95307d47ef6d17a9d80b",
+      "width": 14,
+      "height": 14
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_82_png_1941895308",
+      "bitmapId": 84,
+      "tagCode": 36,
+      "tagSha256": "d14a3ad6225f648407ae9f6c90f4862f844c21c31f5889a7a6fd8c114f5d4a42",
+      "file": "gameplay_keyboard_82.png",
+      "sha256": "1931c32396dccc28116c93053b34a09875b7d0393b72fae9dc61ea6984271f84",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_84_png_1941863056",
+      "bitmapId": 58,
+      "tagCode": 36,
+      "tagSha256": "90634eefec60f1094bdc0ecc2a2279bad365811c105c031e6766e8eaaa081ce8",
+      "file": "gameplay_keyboard_84.png",
+      "sha256": "2dd901e41e62f19f5056b4b5d2cae7249cce9506ec6c8d6aa76a4e53259533aa",
+      "width": 12,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_85_png_1943946382",
+      "bitmapId": 38,
+      "tagCode": 36,
+      "tagSha256": "bbe564466ebc411c579d98c66184c832eff7c01f9130356a17bc8371403d899f",
+      "file": "gameplay_keyboard_85.png",
+      "sha256": "50afcf23db17c0946712d5f9406ef1b4dc6f7bbfdda73174d256186d37210e41",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_86_png_1916707972",
+      "bitmapId": 94,
+      "tagCode": 36,
+      "tagSha256": "68d394bdf9a6b534fe52605052eeee848e8df6f5770b20f5421d47a76beb0ff8",
+      "file": "gameplay_keyboard_86.png",
+      "sha256": "19344b4711812f486a27dd17b9df1987ea654ca01a72a30e381fa7f2676e9861",
+      "width": 12,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_88_png_1914618624",
+      "bitmapId": 90,
+      "tagCode": 36,
+      "tagSha256": "2a0c310404244fbe315915b117a284b2b21e7ff65b36d67d5e562d75d433d5f5",
+      "file": "gameplay_keyboard_88.png",
+      "sha256": "655266be6a6ad1ae8b2f43e8dcb7be4ecbad3f472ff695e2a4823a8904502bc7",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_89_png_1916748030",
+      "bitmapId": 68,
+      "tagCode": 36,
+      "tagSha256": "1a90842b92d1707d504125ab683cc630349bdd78225846bd79b73bc917fa3ed7",
+      "file": "gameplay_keyboard_89.png",
+      "sha256": "bae7dd3be11ae80b052bf61aeb630098cc56509c02fade895f1303cfd2f1d93a",
+      "width": 11,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_90_png_1958693582",
+      "bitmapId": 76,
+      "tagCode": 36,
+      "tagSha256": "b28e1e945d6600bf3b4ca4d53fa597629189193fd986366bfee3b6b7c1124f98",
+      "file": "gameplay_keyboard_90.png",
+      "sha256": "fb628733267843bdcac040768f024987d53661fc0c2e3663116019a43af61d66",
+      "width": 12,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_96_png_2010932430",
+      "bitmapId": 40,
+      "tagCode": 36,
+      "tagSha256": "5c0df00683025cbd3ace43c36a3bdff57a1da3efd9d48d82046a963eb2f3f0b5",
+      "file": "gameplay_keyboard_96.png",
+      "sha256": "ec4fcd34d88eb33bc981e05e4b0b539ee757205b44c54b2a1e86dac7ba03bdce",
+      "width": 33,
+      "height": 14
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_97_png_2008564932",
+      "bitmapId": 72,
+      "tagCode": 36,
+      "tagSha256": "7f000802cf4d0fd64654ed623f4c8c2731f8122af082e8915f028a052d3b56bf",
+      "file": "gameplay_keyboard_97.png",
+      "sha256": "b2f5b484f3b874e61ba4703375727263ce1a095f6a0210b0458f6095224c8174",
+      "width": 32,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_98_png_2006762238",
+      "bitmapId": 22,
+      "tagCode": 36,
+      "tagSha256": "a99ac20bb2686b63c9f73337f9a6818589eaad684f0429f221f53418fedb5d92",
+      "file": "gameplay_keyboard_98.png",
+      "sha256": "a39ed971a6eb56eb59df6ee55a1d6653f955ffdf964448716273dce7fbbb2f92",
+      "width": 34,
+      "height": 13
+    },
+    {
+      "symbol": "mxml.common.KeyBoardImg__embed_mxml__rez_zh_CN_gui_summer_controls_gameplay_keyboard_99_png_2007032576",
+      "bitmapId": 86,
+      "tagCode": 36,
+      "tagSha256": "1fa8f547dd59fd39962a1ffcc279cb5bdaa95bee7cd02c5eb1e819173b04b6b9",
+      "file": "gameplay_keyboard_99.png",
+      "sha256": "d4442f2a659ebc0680a61a277b1ba384430dc938b09fbe47cf40dbc3ee342507",
+      "width": 34,
+      "height": 13
+    }
+  ],
+  "moduleLogical": "zh_CN/module/BattleUIFactory.swf",
+  "fileListPath": "www/rez/fileList.xml",
+  "fileListSha256": "9582d5554d0314c839ebb69ce68986b7db4f561538124b80ab94f91009592dd3",
+  "originalRecoveryMatch": "html5-recovery-20261025/source-original/BangBang_BanGiao_20261021/SERVER_BB/www/rez/zh_CN/module/clientgoc_clean_r168_battleui.swf",
+  "pixelInspection": "All 46 glyphs inspected on contact sheet; letter/number/SPACE/Shift/mouse/numpad imagery matches class names. No browser acceptance asserted.",
+  "settingsTitle": {
+    "status": "not-embedded",
+    "as3": "tools/as3_tank_upgrade_native/scripts/mxml/system_set/SystemSetFrame.as:165",
+    "logical": "zh_CN/gui_summer/controls/system/title_t.png",
+    "mapped": "zh_CN/gui_summer/controls/system/8335db91660cef935fbfc34dd2e9a6cd.png",
+    "sha256": "564b6075520d825b771edd4d723fabc4b79611c40dc52d09b630bcaaf7b79d66",
+    "finding": "External CImageCheckLocal literal. No exact embedded title in SystemSetFrame. No replacement generated."
+  }
+}

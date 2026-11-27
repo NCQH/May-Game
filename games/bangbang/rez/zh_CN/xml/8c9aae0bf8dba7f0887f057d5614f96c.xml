@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TankSoulUpgradeTemplate>
+			<entry><nTankSoulId>10000030</nTankSoulId><nLevel>1</nLevel><nConsumeItem1>8000005</nConsumeItem1><nConsumeItemCount1>100</nConsumeItemCount1><nConsumeItem2>3400003</nConsumeItem2><nConsumeItemCount2>1</nConsumeItemCount2><nStrength>100000</nStrength><nAgility>10</nAgility><nDefence>10</nDefence><nActiveSkill>10001</nActiveSkill><nPassiveSkill>20001</nPassiveSkill></entry></g_TankSoulUpgradeTemplate>
+	</LocalData>
+</LocalDatas>

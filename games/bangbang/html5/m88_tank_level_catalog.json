@@ -1,0 +1,81 @@
+{
+  "schema": "bangbang-m88-tank-level-up/v1",
+  "durationMs": 1500,
+  "stageFps": 24,
+  "frame": {
+    "width": 860,
+    "height": 860,
+    "avatar": [
+      330,
+      330,
+      200,
+      200
+    ],
+    "label": [
+      230,
+      214,
+      400,
+      200
+    ]
+  },
+  "rays": {
+    "asset": {
+      "url": "/html5/assets_m88/tank_level_up/e656dce5c8306be473c5ce6871197baae3c6f3ee0b7de558e6df8e289dd8de7b.png",
+      "sha256": "e656dce5c8306be473c5ce6871197baae3c6f3ee0b7de558e6df8e289dd8de7b",
+      "bytes": 8613,
+      "width": 667,
+      "height": 507
+    },
+    "bounds": [
+      -333.4,
+      -253.5,
+      0,
+      0
+    ],
+    "origin": [
+      199.5,
+      199.3
+    ],
+    "sourceWidth": 400,
+    "sourceHeight": 400,
+    "count": 59,
+    "periodMs": 100,
+    "firstAlphaMax": 80,
+    "laterAlphaMax": 60,
+    "rotationStepMax": 10,
+    "stopMs": 2000,
+    "blendMode": "overlay"
+  },
+  "label": {
+    "asset": {
+      "url": "/html5/assets_m88/tank_level_up/561a32ac7dfe5f14cc7606e0bd9e034e57d030a256dd107d92c5fd6ff4a6199f.png",
+      "sha256": "561a32ac7dfe5f14cc7606e0bd9e034e57d030a256dd107d92c5fd6ff4a6199f",
+      "bytes": 1837852,
+      "width": 2800,
+      "height": 800
+    },
+    "frameCount": 28,
+    "columns": 7,
+    "frameWidth": 400,
+    "frameHeight": 200
+  },
+  "source": {
+    "light": {
+      "logical": "zh_CN/swf/ui/light.swf",
+      "sourceSha256": "392b69e4e970b3604c7dbcfd657c9175398bf7f2ba6fe61d7c8e0e5461b9c258",
+      "symbolId": 1
+    },
+    "label": {
+      "logical": "zh_CN/swf/event/level_up_t.swf",
+      "sourceSha256": "913f4cafe2bae33ef3315055d78f076385f15fa6b969ed369893e9bc3cc15eac"
+    },
+    "consumer": [
+      "TipLayer.showPrositEffect",
+      "PrositTankUpView",
+      "PrositTankUpFrame",
+      "mx.controls.SWFLoader.doScaleContent"
+    ],
+    "level6": "InitTankAvatarProxy: native level6 master halo; existing M83 assets",
+    "ffdecJarSha256": "80f8ced0bfde98b434c28e9807e91fe5558255b2f712051a0e65221519bd392a"
+  }
+}

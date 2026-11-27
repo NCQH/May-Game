@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TalentGroupTemplate>
+			<entry><nSeriesId>1</nSeriesId><nGrpId>1</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>1</nSeriesId><nGrpId>2</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>1</nSeriesId><nGrpId>3</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>1</nSeriesId><nGrpId>4</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>1</nSeriesId><nGrpId>5</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>1</nSeriesId><nGrpId>6</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>2</nSeriesId><nGrpId>1</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>2</nSeriesId><nGrpId>2</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>2</nSeriesId><nGrpId>3</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>2</nSeriesId><nGrpId>4</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>2</nSeriesId><nGrpId>5</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>2</nSeriesId><nGrpId>6</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>3</nSeriesId><nGrpId>1</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>3</nSeriesId><nGrpId>2</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>3</nSeriesId><nGrpId>3</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>3</nSeriesId><nGrpId>4</nGrpId><nMaxLv>1</nMaxLv></entry><entry><nSeriesId>3</nSeriesId><nGrpId>5</nGrpId><nMaxLv>5</nMaxLv></entry><entry><nSeriesId>3</nSeriesId><nGrpId>6</nGrpId><nMaxLv>1</nMaxLv></entry></g_TalentGroupTemplate>
+	</LocalData>
+</LocalDatas>

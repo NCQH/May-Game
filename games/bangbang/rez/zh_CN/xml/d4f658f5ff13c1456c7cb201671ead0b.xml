@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TankSoulCombineTemplate>
+			<entry><nCombineId>30001</nCombineId><szDesc>貂蝉&amp;吕布：乱世绝恋。#ENTER#造成的210%X攻击的暴击伤害</szDesc><nTank1>10000075</nTank1><nTank2>10000074</nTank2><nSkillId>30001</nSkillId></entry><entry><nCombineId>30101</nCombineId><szDesc>天使&amp;死神：光暗羁绊。#ENTER#降低敌方30点防御，并造成的160%X攻击的普通伤害。</szDesc><nTank1>10000061</nTank1><nTank2>10000064</nTank2><nSkillId>30101</nSkillId></entry><entry><nCombineId>30201</nCombineId><szDesc>黑骑其实&amp;死亡侍者：罪恶终结者。#ENTER#忽视防御，造成160%X攻击的伤害</szDesc><nTank1>10000030</nTank1><nTank2>10000070</nTank2><nSkillId>30201</nSkillId></entry></g_TankSoulCombineTemplate>
+	</LocalData>
+</LocalDatas>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TankSoulLevelTemplate>
+			<entry><nLevel>1</nLevel><nNextExp>50</nNextExp><nStrength>200</nStrength></entry><entry><nLevel>2</nLevel><nNextExp>150</nNextExp><nStrength>250</nStrength></entry><entry><nLevel>3</nLevel><nNextExp>250</nNextExp><nStrength>300</nStrength></entry><entry><nLevel>4</nLevel><nNextExp>350</nNextExp><nStrength>350</nStrength></entry></g_TankSoulLevelTemplate>
+	</LocalData>
+</LocalDatas>

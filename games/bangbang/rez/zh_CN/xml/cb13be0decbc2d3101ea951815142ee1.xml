@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_GuildTemplate>
+			<entry><nLevel>1</nLevel><nTeamCount>2</nTeamCount><iNextCoin>42000</iNextCoin><nGiftId>2006001</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>2</nLevel><nTeamCount>3</nTeamCount><iNextCoin>126000</iNextCoin><nGiftId>2006002</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>3</nLevel><nTeamCount>4</nTeamCount><iNextCoin>378000</iNextCoin><nGiftId>2006003</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>4</nLevel><nTeamCount>5</nTeamCount><iNextCoin>945000</iNextCoin><nGiftId>2006004</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>5</nLevel><nTeamCount>6</nTeamCount><iNextCoin>1890000</iNextCoin><nGiftId>2006005</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>6</nLevel><nTeamCount>7</nTeamCount><iNextCoin>3307500</iNextCoin><nGiftId>2006006</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>7</nLevel><nTeamCount>8</nTeamCount><iNextCoin>6237000</iNextCoin><nGiftId>2006007</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>8</nLevel><nTeamCount>9</nTeamCount><iNextCoin>8761500</iNextCoin><nGiftId>2006008</nGiftId><iGiftMerit>400</iGiftMerit></entry><entry><nLevel>9</nLevel><nTeamCount>10</nTeamCount><nGiftId>2006009</nGiftId><iGiftMerit>400</iGiftMerit></entry></g_GuildTemplate>
+	</LocalData>
+</LocalDatas>

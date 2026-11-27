@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_GuildBossTemplate>
+			<entry><nBossId>6666</nBossId><nMapId>6666</nMapId><nNeedTank1Level>3</nNeedTank1Level><nNeedTank1Cnt>2</nNeedTank1Cnt><nNeedTank2Level>1</nNeedTank2Level><nNeedTank2Cnt>2</nNeedTank2Cnt><fAwardBaseDmgRate>0.01</fAwardBaseDmgRate><nAwardBaseItem>10000</nAwardBaseItem><nAwardRandItem>10001</nAwardRandItem><szBossAvatar>boss1.png</szBossAvatar><nShowId>1</nShowId></entry></g_GuildBossTemplate>
+	</LocalData>
+</LocalDatas>

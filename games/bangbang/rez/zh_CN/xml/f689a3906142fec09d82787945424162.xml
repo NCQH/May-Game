@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_NewSignInTemplate>
+			<entry><nCond>1</nCond><nItemId1>8000022</nItemId1></entry><entry><nCond>2</nCond><nItemId1>8000023</nItemId1></entry><entry><nCond>3</nCond><nItemId1>8000022</nItemId1></entry><entry><nCond>4</nCond><nItemId1>8000023</nItemId1></entry><entry><nCond>5</nCond><nItemId1>8000022</nItemId1></entry><entry><nCond>6</nCond><nItemId1>8000023</nItemId1></entry><entry><nCond>7</nCond><nItemId1>8000022</nItemId1></entry><entry><nType>1</nType><nCond>5</nCond><nItemId1>2000650</nItemId1></entry><entry><nType>1</nType><nCond>12</nCond><nItemId1>2000651</nItemId1></entry><entry><nType>1</nType><nCond>21</nCond><nItemId1>2000652</nItemId1></entry></g_NewSignInTemplate>
+	</LocalData>
+</LocalDatas>

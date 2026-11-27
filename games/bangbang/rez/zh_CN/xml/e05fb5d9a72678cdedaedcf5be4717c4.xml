@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LocalDatas>
+	<LocalData>
+		<g_TankTargetTemplate>
+			<entry><nOrder>1</nOrder><nTankId>2003102</nTankId><nType>6</nType><szDesc>人物升到#COLOR_fa506c_15级_END#可得</szDesc><nQuestId>9013</nQuestId></entry></g_TankTargetTemplate>
+	</LocalData>
+</LocalDatas>
