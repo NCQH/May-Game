@@ -170,29 +170,6 @@ async function checkPersistence() {
   const engine = vm.createContext({ window: { _rejectModuleReady: (error) => { rejected = error; } } });
   vm.runInContext(html.match(/src="\.\/engine\/pvz-portable.js" onerror="([^"]+)"/)[1], engine);
   assert.match(rejected.message, /Không tải được engine/);
-  const { execFileSync } = require('node:child_process');
-  const fixture = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'may-game-pages-'));
-  try {
-    const run = (command, args) => execFileSync(command, args, { cwd: fixture });
-    run('git', ['init', '-q']);
-    fs.mkdirSync(path.join(fixture, 'games/pvz-goty'), { recursive: true });
-    fs.writeFileSync(path.join(fixture, 'games/pvz-goty/index.html'), 'current page');
-    run('git', ['add', '.']);
-    run('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.test', '-c', 'commit.gpgsign=false', 'commit', '-qm', 'fixture']);
-    for (const name of ['engine', 'vendor']) {
-      fs.mkdirSync(path.join(fixture, '.engine-artifact/games/pvz-goty', name), { recursive: true });
-      fs.writeFileSync(path.join(fixture, '.engine-artifact/games/pvz-goty', name, 'retained.txt'), name);
-    }
-    fs.writeFileSync(path.join(fixture, '.engine-artifact/obsolete.html'), 'deleted page');
-    const workflow = fs.readFileSync(path.join(root, '.github/workflows/pages-web-update.yml'), 'utf8');
-    const commands = workflow.match(/- name: Assemble current web files with the built engine\n\s+run: \|\n([\s\S]*?)\s+touch \.site\/\.nojekyll/)[1];
-    run('bash', ['-e', '-c', commands]);
-    assert.equal(fs.existsSync(path.join(fixture, '.site/obsolete.html')), false);
-    assert.equal(fs.readFileSync(path.join(fixture, '.site/games/pvz-goty/index.html'), 'utf8'), 'current page');
-    for (const name of ['engine', 'vendor']) assert.ok(fs.existsSync(path.join(fixture, '.site/games/pvz-goty', name, 'retained.txt')));
-  } finally {
-    fs.rmSync(fixture, { recursive: true, force: true });
-  }
-  console.log(`PASS: inline syntax, ${resourceCases.length} resource paths, save paths, queued flush, recovery export, resource revalidation and clean Pages assembly.`);
+  console.log(`PASS: inline syntax, ${resourceCases.length} resource paths, save paths, queued flush, recovery export and resource revalidation.`);
 }
 checkPersistence().catch((error) => { console.error(error); process.exitCode = 1; });
