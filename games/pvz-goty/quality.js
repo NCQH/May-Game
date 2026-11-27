@@ -4,6 +4,9 @@ import { readBundle, writeBundle, validateSize, validateSaveImport } from './sto
 const RESOURCE_KEY = 'resources';
 let restoring = true;
 let resourceRevision = null;
+// The engine always renders the 16:9 camera. Wide scenery fills it; without
+// wide/ the page crops the side bands and shows the original 4:3 game.
+let wideDisplay = false;
 let cacheQueue = Promise.resolve();
 const requestedHeight = new URLSearchParams(location.search).get('renderHeight');
 let renderHeight = [600, 1080, 1440, 2160].includes(Number(requestedHeight)) ? Number(requestedHeight) : 'auto';
@@ -14,6 +17,11 @@ const originalSync = window.syncSaves;
 function cacheMessage(message) {
   const note = document.querySelector('#upload-screen p.note');
   if (note) note.textContent = message;
+}
+
+function setWide(names) {
+  wideDisplay = [...names].some((name) => /^wide\//.test(name));
+  document.documentElement.dataset.pvzWide = String(wideDisplay);
 }
 
 function rememberedFiles() {
@@ -50,7 +58,7 @@ window.startGame = async function () {
 
 function frameSize() {
   const container = document.getElementById('canvas-container');
-  const cssHeight = Math.max(1, Math.floor(Math.min(container.clientHeight || innerHeight, (container.clientWidth || innerWidth) * 9 / 16)));
+  const cssHeight = Math.max(1, Math.floor(Math.min(container.clientHeight || innerHeight, (container.clientWidth || innerWidth) * (wideDisplay ? 9 / 16 : 3 / 4))));
   const height = renderHeight === 'auto'
     ? Math.min(2160, Math.max(600, Math.round(cssHeight * (devicePixelRatio || 1) / 3) * 3))
     : renderHeight;
@@ -201,6 +209,7 @@ try {
       restored.set(safe, entry.blob);
     }
     if (!restored.has('main.pak') || ![...restored.keys()].some(name => name.startsWith('properties/'))) throw new Error('Bộ tài nguyên đã lưu chưa đầy đủ.');
+    setWide(restored.keys());
     resourceRevision = typeof cached.revision === 'string' ? cached.revision : null;
     for (const [name, blob] of restored) collectedFiles.set(name, blob);
     originalRefresh();
@@ -289,6 +298,7 @@ async function loadHostedResources() {
     for (const part of parts) staged.delete(part.name);
   }
   if (!staged.has('main.pak') || ![...staged.keys()].some(name => name.startsWith('properties/'))) throw new Error('Thiếu dữ liệu GOTY.');
+  setWide(staged.keys());
   collectedFiles.clear();
   resourceRevision = typeof manifest.revision === 'string' ? manifest.revision : null;
   for (const [name, blob] of staged) collectedFiles.set(name, blob);

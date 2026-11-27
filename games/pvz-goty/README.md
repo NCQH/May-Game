@@ -12,7 +12,7 @@ Save engine dùng IDBFS riêng `/may-game-pvz-goty-saves`. Trong game, dùng Sav
 
 ## Bản Cloudflare (game gốc, không HD/widescreen)
 
-`scripts/pvz/trim-pvz.cjs` bỏ `hd/` và `wide/` khỏi output Cloudflare trước khi chunk `main.pak`; engine tự fallback về ảnh gốc khi thiếu. First load còn khoảng 43 MB thay vì 86.4 MB. Giữ `wide/images/titlescreen.png` cho thẻ catalog; file này không nằm trong manifest nên engine dùng ảnh title gốc. GitHub Pages đã bỏ; bản Cloudflare là bản production duy nhất. Repo vẫn giữ bộ đầy đủ. Đặt `PVZ_FULL=1` khi chạy `scripts/deploy-cloudflare.sh` nếu muốn giữ HD/widescreen.
+`scripts/pvz/trim-pvz.cjs` bỏ `hd/` và `wide/` khỏi output Cloudflare trước khi chunk `main.pak`; engine tự fallback về ảnh gốc khi thiếu. First load còn khoảng 43 MB thay vì 86.4 MB. Giữ `wide/images/titlescreen.png` cho thẻ catalog; file này không nằm trong manifest nên engine dùng ảnh title gốc. GitHub Pages đã bỏ; bản Cloudflare là bản production duy nhất. Repo vẫn giữ bộ đầy đủ. Bản core-only hiển thị khung 4:3 và crop 133px mỗi bên của framebuffer 16:9 để game gốc lấp đầy màn hình; chế độ full giữ khung 16:9 với wide scenery. Đặt `PVZ_FULL=1` khi chạy `scripts/deploy-cloudflare.sh` nếu muốn giữ HD/widescreen.
 
 `engine/source.zip` (33.5 MB) vượt giới hạn 25 MiB của Cloudflare nên được phát hành tại [GitHub Release](https://github.com/NCQH/May-Game/releases/tag/cloudflare-pvz-source-2026-11-27); output Cloudflare không chứa file này.
 

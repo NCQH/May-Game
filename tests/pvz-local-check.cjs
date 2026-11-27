@@ -125,6 +125,7 @@ async function checkPersistence() {
   const resources = vm.createContext({
     URL, AbortController, Map, Set, Blob, hasPak: true, hasProperties: true,
     resourceRevision: 'old', collectedFiles: new Map(), bootMessage: {}, bootProgress: {}, normalizeResourcePath: (name) => name,
+    setWide: () => {},
     window: { refreshUI() {} },
     fetch: async (url, options) => {
       requests.push([url.pathname, options.cache]);

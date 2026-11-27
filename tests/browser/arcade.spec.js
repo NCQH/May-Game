@@ -168,6 +168,10 @@ test("home and games share the green frame, machine surface and content styling"
       expect(await content.evaluate(node => getComputedStyle(node).backgroundColor)).toBe('rgb(16, 27, 21)');
       expect(await content.evaluate(node => getComputedStyle(node).borderTopColor)).toBe('rgb(57, 74, 55)');
       if (path.includes('pvz-goty')) {
+        // This suite runs the full local manifest (wide scenery); pin the layout
+        // instead of racing the resource fetch. The core-only 4:3 crop is covered
+        // by pvz-chunk.spec.js.
+        await page.evaluate(() => { document.documentElement.dataset.pvzWide = 'true'; });
         await expect(page.locator('.arcade-screen > .arcade-game-content > .pvz-display')).toBeVisible();
         await expect(page.locator('.arcade-screen-meta > .game-title')).toHaveText('Plants vs. Zombies GOTY');
         const display = await page.locator('.pvz-display').boundingBox();
@@ -686,8 +690,9 @@ test("PvZ ZIP import confirms, stages across reload and applies before engine st
       const display = await page.locator('.pvz-display').boundingBox();
       const canvas = await page.locator('#canvas').boundingBox();
       return Math.abs(canvas.width / canvas.height - 16 / 9) < .02
-        && Math.abs(canvas.width - display.width) < 3
-        && Math.abs(canvas.height - display.height) < 2;
+        && Math.abs(canvas.height - display.height) < 2
+        && Math.abs(canvas.width - display.width * 4 / 3) < 4
+        && Math.abs(canvas.x + canvas.width / 2 - (display.x + display.width / 2)) < 2;
     }).toBe(true);
     if (!await page.locator('#game-menu').evaluate(node => node.open)) await page.locator('#game-menu-toggle').click();
     for (const id of ['#save-export-btn','#save-import-btn']) {
@@ -707,7 +712,7 @@ test("PvZ ZIP import confirms, stages across reload and applies before engine st
     const cabinet = document.getElementById('pvz-cabinet').getBoundingClientRect();
     return Math.abs(display.height - panel.height + 2) < 1
       && Math.abs(display.x + display.width / 2 - panel.x - panel.width / 2) < 1
-      && Math.abs(display.width / display.height - 16 / 9) < .02
+      && Math.abs(display.width / display.height - 4 / 3) < .02
       && getComputedStyle(node).backgroundColor === 'rgb(16, 27, 21)'
       && cabinet.height <= innerHeight && cabinet.width <= innerWidth;
   })).toBe(true);

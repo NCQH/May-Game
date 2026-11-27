@@ -206,7 +206,7 @@ Không giữ legacy, không banner, không redirect, không thông báo migrate.
 | Mất save do đổi origin | Đã chấp nhận | Không thông báo/không chuyển save |
 | Preview khác production origin | Trung bình | Chỉ dùng preview để test; không import save |
 | Custom domain thêm sau | Cao | Đã chốt `may-game.pages.dev`; không thêm domain |
-| PvZ core-only khác giao diện cũ | Trung bình | QA; `PVZ_FULL=1` nếu không chấp nhận |
+| PvZ core-only dùng khung 4:3 | Trung bình | Crop 133px mỗi bên của framebuffer 16:9; QA; `PVZ_FULL=1` cho 16:9 |
 | Cache/revision sai | Trung bình | `cache: no-cache`, revision SHA-256, test xóa cache |
 | Build 45 phút, artifact 14 ngày | Trung bình | Lưu `.site` backup; workflow_dispatch |
 | File dev bị publish | Thấp | Publish allowlist hoặc chấp nhận |

@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, '..');
 const quality = fs.readFileSync(path.join(root, 'games/pvz-goty/quality.js'), 'utf8');
 const frame = quality.match(/function frameSize\(\) \{[\s\S]*?\n\}/)[0];
 for (const renderHeight of [600, 1080, 1440, 2160, 'auto']) {
-  const context = vm.createContext({ renderHeight, innerWidth: 1920, innerHeight: 1080, devicePixelRatio: 1,
+  const context = vm.createContext({ renderHeight, wideDisplay: true, innerWidth: 1920, innerHeight: 1080, devicePixelRatio: 1,
     document: { getElementById: () => ({ clientWidth: 1920, clientHeight: 1080 }) } });
   vm.runInContext(frame + '\nresult = frameSize();', context);
   const size = context.result;
@@ -20,6 +20,14 @@ for (const renderHeight of [600, 1080, 1440, 2160, 'auto']) {
     assert.ok(Math.abs(mapped - x) <= 1);
   }
 }
+// Core-only output: a 4:3 display crops the 16:9 framebuffer side bands.
+const core = vm.createContext({ renderHeight: 'auto', wideDisplay: false, innerWidth: 1440, innerHeight: 1080, devicePixelRatio: 1,
+  document: { getElementById: () => ({ clientWidth: 1440, clientHeight: 1080 }) } });
+vm.runInContext(frame + '\nresult = frameSize();', core);
+assert.equal(core.result.cssHeight, 1080);
+assert.equal(core.result.width, 1920);
+assert.ok(core.result.cssHeight * 16 / 9 > 1440, 'Core display must crop the wider canvas');
+
 const patch = fs.readFileSync(path.join(root, 'scripts/pvz/patch-pvz-widescreen.cjs'), 'utf8');
 assert.ok(patch.includes('width * 9 > height * 16'));
 assert.ok(patch.includes('g->ClipRect(-134, 0, 1068, 600)'));
@@ -45,4 +53,4 @@ for (const pan of [-379, 0, 219]) {
   assert.ok(-220 - 133 + pan <= -400 / 3);
   assert.ok(-220 - 133 + pan + 1666 >= 800 + 400 / 3);
 }
-console.log('PASS: 16:9 framebuffer at five settings, centered pointer mapping and expanded native clips.');
+console.log('PASS: 16:9 framebuffer at five settings, 4:3/16:9 display selection, centered pointer mapping and expanded native clips.');
