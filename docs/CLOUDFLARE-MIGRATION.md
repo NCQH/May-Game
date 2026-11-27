@@ -16,7 +16,7 @@ Tài liệu này là kế hoạch thực thi. Bối cảnh và các lựa chọn
 | Project | Một project `may-game`; **không** tách portal/PvZ |
 | PvZ trên Cloudflare | Core-only: `main.pak` + `properties/`; bỏ `hd/`, `wide/` |
 | `main.pak` | Chunk 20 MiB → 3 phần; loader ghép trước khi start |
-| Save | Save cũ không chuyển; `migrate.html` vẫn tồn tại nhưng không được thông báo |
+| Save | Save cũ không chuyển; trang migrate đã xóa |
 | GitHub Pages | Bỏ; không banner, không redirect, không thông báo migrate |
 | R2 | Không dùng; `.wasm` 7.0 MiB; `source.zip` 33.5 MiB → GitHub Release |
 | Origin | `may-game.pages.dev` (chốt; không custom domain) |
@@ -30,8 +30,7 @@ Tài liệu này là kế hoạch thực thi. Bối cảnh và các lựa chọn
 - [scripts/pvz/chunk-main-pak.cjs](../scripts/pvz/chunk-main-pak.cjs) — chia `main.pak`, cập nhật manifest/revision, idempotent.
 - [scripts/check-static.py](../scripts/check-static.py) — preflight 25 MiB/file, 20.000 file, chặn path dev.
 - [scripts/deploy-cloudflare.sh](../scripts/deploy-cloudflare.sh) — trim → chunk → preflight → Wrangler.
-- [migrate.html](../migrate.html) + [assets/js/save-transfer.js](../assets/js/save-transfer.js) — xuất/nhập `may-game:v1:*`; bỏ qua marker PvZ.
-- Test: `tests/migrate-check.cjs`, `tests/pvz-chunk-check.cjs`, `tests/pvz-trim-check.cjs`, `tests/browser/migrate.spec.js`, `tests/browser/pvz-chunk.spec.js`.
+- Test: `tests/pvz-chunk-check.cjs`, `tests/pvz-trim-check.cjs`, `tests/browser/pvz-chunk.spec.js`.
 
 Số đo trên dữ liệu thật:
 
@@ -109,7 +108,7 @@ Kiểm tra:
 - [ ] Bản core dùng nền/texture gốc (có thể có dải 4:3 trong khung 16:9).
 - [ ] Menu, chọn màn, chơi, pause/restart.
 - [ ] Save → export ZIP → import → reload.
-- [ ] Home, catalog, 10 game còn lại, `migrate.html`.
+- [ ] Home, catalog, 10 game còn lại.
 
 Nếu `.wasm` MIME gây lỗi với server local, dùng `npx http-server` (đã set MIME) hoặc test trên preview; Cloudflare trả `application/wasm` đúng.
 
@@ -159,7 +158,7 @@ Script tự chạy trim → chunk → preflight → deploy. Dùng URL preview Wr
 
 ## 5. Phase C — Bỏ GitHub Pages (đã chốt)
 
-Không giữ legacy, không banner, không redirect, không thông báo migrate. Save cũ trên `ncqh.github.io` không được chuyển; `migrate.html` vẫn tồn tại nhưng không được quảng bá.
+Không giữ legacy, không banner, không redirect, không thông báo migrate. Save cũ trên `ncqh.github.io` không được chuyển; trang migrate đã xóa.
 
 - [ ] Merge `feature/cloudflare-core` vào `main`.
 - [ ] Deploy production Cloudflare (Phase D).
