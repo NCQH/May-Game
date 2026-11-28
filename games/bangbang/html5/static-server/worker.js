@@ -1,5 +1,5 @@
 // Static BangBang lobby server: replays verified AUTH/GATE frames, no Python.
-import { createPveBattle, preloadPveCatalogs, s1586 } from './pve-battle.js';
+import { createPveBattle, preloadPveCatalogs, setProgressProfile, s1586 } from './pve-battle.js';
 const ROLES = ['AUTH', 'GATE'];
 const buffers = {
   AUTH: makeBuffer(),
@@ -8,6 +8,32 @@ const buffers = {
 function makeBuffer() {
   const sab = new SharedArrayBuffer(2 * 1024 * 1024);
   return { sab, header: new Int32Array(sab, 0, 4), data: new Uint8Array(sab, 16) };
+}
+const IDB_NAME = 'bangbang-offline';
+const IDB_STORE = 'files';
+function idbOpen() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(IDB_NAME, 1);
+    request.onupgradeneeded = () => request.result.createObjectStore(IDB_STORE);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+async function idbGet(key) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const request = db.transaction(IDB_STORE, 'readonly').objectStore(IDB_STORE).get(key);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+async function idbSet(key, value) {
+  const db = await idbOpen();
+  return new Promise((resolve, reject) => {
+    const request = db.transaction(IDB_STORE, 'readwrite').objectStore(IDB_STORE).put(value, key);
+    request.onsuccess = () => resolve();
+    request.onerror = () => reject(request.error);
+  });
 }
 const b64 = (value) => Uint8Array.from(atob(value), (c) => c.charCodeAt(0));
 const concat = (...parts) => {
@@ -205,6 +231,7 @@ async function load() {
   const raw = await (await fetch(new URL('./frames.json', import.meta.url), { cache: 'no-store' })).json();
   for (const [key, value] of Object.entries(raw)) frames[key] = b64(value);
   await Promise.race([initPromise, new Promise((resolve) => setTimeout(resolve, 100))]);
+  try { setProgressProfile(await idbGet('pve-profile'), (profile) => idbSet('pve-profile', profile)); } catch {}
   enter = patchEnter(frames.gateEnter, profile.name);
   parseBattle(patchNamed(frames.entryBattle, profile.name));
   parseGarage(frames.gateGarage);

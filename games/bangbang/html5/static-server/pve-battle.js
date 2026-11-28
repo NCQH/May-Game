@@ -6,6 +6,7 @@ import { createData } from './engine/data.js';
 import { PveEngine } from './engine/pve-engine.js';
 import { npcStatsAtQuality, mapQuality } from './engine/pve-balance.js';
 import { frame } from './engine/protocol.js';
+import { PveProgress, replaceSettlement } from './engine/pve-progress.js';
 import { NarutoActions } from './engine/tanks/naruto.js';
 import { QuanVuActions } from './engine/tanks/quanvu.js';
 import { GundamActions } from './engine/tanks/gundam.js';
@@ -163,6 +164,13 @@ export const TANKS = {
 const BASE = new URL('../', import.meta.url);
 const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json', 'batch-f1-data.json', 'batch-d-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
 let cached = null;
+let pveProfile = null;
+let savePveProfile = () => {};
+
+export function setProgressProfile(profile, save) {
+  pveProfile = profile || null;
+  if (typeof save === 'function') savePveProfile = save;
+}
 
 async function readParts(parts) {
   const responses = await Promise.all(parts.map((name) => fetch(new URL(name, BASE))));
@@ -206,21 +214,31 @@ export async function createPveBattle({ mapId = 201, tankId = 10000044, name = '
   const { index, data } = await catalogs();
   const map = index.maps.get(Number(mapId));
   if (!map) throw new Error('Unknown PvE map ' + mapId);
+  const store = {
+    load: () => pveProfile,
+    save: (profile) => { pveProfile = profile; savePveProfile(profile); },
+  };
+  const progress = new PveProgress({ store });
   const engine = new PveEngine({
     map, data, npcProfiles: index.npcProfiles,
     npcStats: npcStatsAtQuality(mapQuality(map)),
     npcArmorConstant: 100,
     tank: { tankId: Number(tankId), level: Number(level) || 1 },
     name, sceneId: Number(sceneId) || 1, runId: 'js-pve-' + Number(mapId),
-    classes: TANKS,
+    classes: TANKS, hooks: progress.hooks,
   });
   const pack = (frames) => frames.map(([id, payload]) => frame(id, payload));
+  const settled = (raw) => {
+    if (!engine.finished) return raw;
+    const result = progress.settle(engine, { won: Boolean(engine.won) });
+    return replaceSettlement(raw, result);
+  };
   return {
     engine,
     start: pack(engine.drain()),
-    tick(deltaMs = 50) { return pack(engine.advance(deltaMs)); },
+    tick(deltaMs = 50) { return pack(settled(engine.advance(deltaMs))); },
     handle(msgId, payload) { return pack(engine.handle(msgId, payload)); },
-    finish(won) { return pack(engine.finish(won)); },
+    finish(won) { engine.finish(won); return pack(settled([])); },
     get finished() { return engine.finished; },
     get won() { return engine.won; },
   };
