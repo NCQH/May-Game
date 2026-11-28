@@ -1,5 +1,6 @@
 // Static BangBang lobby server: replays verified AUTH/GATE frames, no Python.
 import { bagLoginFrames, cityLoginFrames, createPveBattle, preloadPveCatalogs, setBag, setProgressProfile, s1586 } from './pve-battle.js';
+import { PvpRoom } from './pvp-room/pvp-room.js';
 const ROLES = ['AUTH', 'GATE'];
 const buffers = {
   AUTH: makeBuffer(),
@@ -136,6 +137,34 @@ function encode(id, w) {
 const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, mapId: 201, finished: false, tankId: 10000044 };
 let pve = null;
 let pveTimer = 0;
+const pvp = new PvpRoom({ player: { accountId: 30000797, name: 'Player', tankId: 10000044, tankLevel: 1, externalId: 0 } });
+let pvpActive = false;
+const PVP_IDS = new Set([607, 600, 601, 602, 610, 215, 614, 605, 552, 509, 611, 613, 60006]);
+function pvpHandle(role, data) {
+  if (role !== 'GATE') return false;
+  const id = msgIdOf(data);
+  if (id === 60006) {
+    for (const frame of pvp.handle(data)) send(role, frame);
+    return true;
+  }
+  if (id === 600) {
+    const roomType = data.length > 8 ? data[8] : 0;
+    if (roomType === 4) return false;
+    const frames = pvp.handle(data);
+    if (!frames.length) return false;
+    for (const frame of frames) send(role, frame);
+    pvpActive = true;
+    return true;
+  }
+  if (!PVP_IDS.has(id)) return false;
+  if (!pvpActive && id !== 607) return false;
+  const enteringHall = id === 607;
+  const frames = pvp.handle(data);
+  if (!frames.length) return false;
+  for (const frame of frames) send(role, frame);
+  if (enteringHall || pvp.phase !== 'lobby') pvpActive = true;
+  return true;
+}
 function joinFrames(frames) {
   const total = frames.reduce((n, f) => n + f.length, 0);
   const out = new Uint8Array(total);
@@ -338,6 +367,7 @@ function useSkill(role, data) {
 
 function handle(role, data) {
   if (!frames || data.length < 4) return;
+  if (pvpHandle(role, data)) return;
   const id = msgIdOf(data);
   if (role === 'AUTH') {
     if (id === 52) send(role, frames.auth903);
@@ -423,6 +453,8 @@ self.onmessage = (event) => {
   } else if (data.type === 'create') {
     profile = { name: String(data.name || '').slice(0, 32), body: String(data.body || '').slice(0, 80) };
     enter = patchEnter(frames.gateEnter, profile.name);
+    pvp.player.name = profile.name;
+    pvp.tankId = battle.tankId;
     self.postMessage({ token });
     preloadPveCatalogs().catch(() => {});
   } else if (data.type === 'debugWin') {
