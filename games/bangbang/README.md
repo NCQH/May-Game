@@ -1,6 +1,6 @@
 # Bang Bang Web
 
-Bản PvE chạy trực tiếp trên web: client HTML5 gốc + Pyodide Worker + fake socket, không cần Python server. Dùng online trên Cloudflare Pages; service worker cache asset, không yêu cầu offline.
+Bản PvE/PvP chạy trực tiếp trên web: client HTML5 gốc + JS engine tĩnh + fake socket, không cần Python server. Pyodide chỉ còn là fallback tùy chọn. Dùng online trên Cloudflare Pages; service worker cache asset, không yêu cầu offline.
 
 ## Chạy local
 
@@ -20,38 +20,40 @@ http://127.0.0.1:18086/games/bangbang/html5/
 
 - Mở `index.html`: màn hình **Tạo nhân vật** thay cho đăng nhập.
 - Chọn body từ `m8_account_catalog` (boy/girl/body), nhập tên, bấm **Vào sảnh**.
-- Lưu vào SQLite (`worlds.state` gồm `name`, `body`) và persist database sang IndexedDB; reload sẽ prefill lại.
-- Tank khởi đầu được đặt về Naruto (10000044) để khớp bộ asset đã trim.
+- Lưu hồ sơ JS (`pve-profile`, `pve-bag`) trong IndexedDB; reload sẽ prefill lại.
+- Save SQLite của bản Pyodide cũ được migrate một lần trước khi worker khởi động.
+- Tank khởi đầu được đặt về Naruto (10000044) để khớp bộ asset đã trim; ngoại hình lấy từ tank đang chọn và fallback về base skin nếu catalog M6 không hỗ trợ.
 - Không còn màn hình đăng nhập; `/api/session` tự đăng nhập tài khoản `offline`.
 
 ## Cấu trúc
 
 - `html5/index.html` — entry web + màn hình boot + màn hình tạo nhân vật
 - `html5/shim.js` — thay `fetch`/`WebSocket` bằng Worker + SAB; ghép catalog bị split; RPC tạo nhân vật
-- `html5/offline-worker.js` — Pyodide + Python PvE server; tạo/cập nhật character; persist SQLite
-- `html5/bangbang-py.zip` — server PvE + SQLite mẫu
-- `html5/pyodide/` — Pyodide runtime
+- `html5/static-server/worker.js` — JS engine mặc định: lobby, PvE 49 map, PvP với bot
+- `html5/static-server/engine/` — arena, tank actions, PvE/PvP rules, `tank-visuals.json`
+- `html5/static-server/migrate/` — migrate save SQLite cũ sang hồ sơ JS (sql.js, chỉ tải khi có DB cũ)
+- `html5/offline-worker.js` + `html5/pyodide/` + `html5/bangbang-py.zip` — Pyodide fallback (`?engine=py`)
 - `html5/*.partN` — phần của catalog lớn (>25 MiB), ghép nguyên bytes bởi shim
 - `html5/` + `rez/` — client/asset đã trim theo request thực tế của map 201 + lobby
 
 ## Giới hạn / lưu ý
 
-- Asset: **18.349 file / ~2,9 GB**; tất cả file < 25 MiB; deploy 18.937 file, vẫn dưới 20.000 của Pages Free.
-- Đã thêm asset **tank + màn hình game**, sound, char, xml/module, avatar/icon/map/npc/swf đầy đủ. Chưa đưa: `assets_m5` (map PvP) và phần bulk `gui_summer` (theme PvP/mail/guild/shop; PvE chỉ dùng 122 file đã có).
+- Asset: **~18,6k file / ~2,6 GB**; tất cả file < 25 MiB; vẫn dưới 20.000 file của Pages Free.
+- Đã thêm asset **tank + màn hình game**, sound, char, xml/module, avatar/icon/map/npc/swf đầy đủ, gồm PvP (`assets_m5`, `gui_summer`).
 - **Chỉ cắt logic** của bạn bè, cộng đồng, chat, nạp tiền/recharge/VIP ad; **UI vẫn giữ nguyên** (nút disabled/“chưa mở”, panel chat trang trí). Giữ PvE/lobby/garage/shop/postmatch và toàn bộ map/tank.
 - `m5_asset_catalog` bị bỏ vì không có JS reference; `m4_asset_catalog` được giữ lại.
 - Dùng service worker cache-first: lần đầu preload essential trước màn hình tạo nhân vật, sau khi vào sảnh mới tải nền toàn bộ asset; tạm dừng khi rời sảnh (vào trận/garage/shop) để không tranh băng thông, và tiếp tục khi quay lại sảnh. Các lần sau đọc từ Cache Storage.
 - Màn hình boot dùng splash art của client Godot (`html5/assets/boot/splash.png`) và thanh tiến trình gốc; hiển thị % theo từng giai đoạn: bộ nhớ đệm → asset thiết yếu → máy chủ → hồ sơ → tạo nhân vật.
 - Không yêu cầu offline; service worker chỉ để tránh tải lại asset mỗi lần vào.
-- Server PvE chạy trong Pyodide; PvP/guild/economy vẫn còn trong client/server nhưng chưa test trên web.
-- Checkpoint SQLite vẫn cần giảm tần suất nếu chơi dài.
+- Engine JS mặc định; Pyodide chỉ tải khi mở `?engine=py`/`bb-engine=py`.
+- PvE: 49 map, objective chương 2–9, thưởng/cấp/thẻ lực lượng, mở thành phố. PvP: phòng bot, 91 tank, 7 mode. Guild/economy vẫn là UI hiện có nhưng chưa nối đầy đủ.
 - Quyền phân phối asset đã được người duy trì xác nhận.
 
 ## Cache
 
-- `cache-manifest.json` liệt kê **18.560 URL asset**; `essential` (319 URL) được tải trước màn hình tạo nhân vật.
-- Sau khi tạo nhân vật và sảnh hiện xong, trang tải nền toàn bộ `assets` vào Cache Storage; badge góc phải hiển thị tiến độ. Cache nền tạm dừng khi rời sảnh và tự tiếp tục khi quay lại.
-- Lần sau, service worker trả asset từ cache; reload không tải lại 2,4 GB.
+- `cache-manifest.json` liệt kê **18.795 URL asset**; `essential` (312 URL, ~6,1 MiB) được cache trước; Pyodide (7 URL) chỉ tải khi `?engine=py`.
+- Sau khi tạo nhân vật và sảnh hiện xong, trang tải nền phần còn lại vào Cache Storage; badge góc phải hiển thị tiến độ. Cache nền tạm dừng khi rời sảnh và tự tiếp tục khi quay lại.
+- Lần sau, service worker trả asset từ cache; reload chỉ tải manifest và phần còn thiếu.
 - Khi asset thay đổi, chạy lại `node scripts/bangbang/build-cache-manifest.cjs` và tăng cache version trong `sw.js`.
 
 ## Deploy riêng (Cloudflare Pages)
@@ -63,13 +65,15 @@ http://127.0.0.1:18086/games/bangbang/html5/
 - Workflow: `.github/workflows/bangbang.yml` (`workflow_dispatch` + push `games/bangbang/**`, `scripts/bangbang/**`, `sw.js`)
 - Site chính `may-game` chỉ còn card catalog và redirect cũ; asset BangBang không còn nằm trong deployment chính.
 
-## M1 static JS engine (thử nghiệm)
+## M6 static JS engine (mặc định)
 
-- Mở `?engine=js` để dùng `static-server/worker.js`: tạo nhân vật + lobby bằng frame AUTH/GATE đã chụp từ server Python, **không tải Pyodide/bangbang-py.zip**.
-- Boot local ~2,7 s; reload prefill tên/body từ `localStorage`; tên nhân vật được patch vào S1016.
-- M2 (engine): replay room/entry map 201, battle scene, C501/C503, S1564 đúng u16 vector, NPC AI đuổi/đánh, S1707/S1104/S1708 cho thắng/thua. Đã test: vào trận, NPC đánh chết player sau ~25 s, client nhận kết quả. Còn: test WASD/click trên trình duyệt thật, skill/cooldown, 91 tank/49 map (M3–M4), PvP.
+- `static-server/worker.js` dựng lobby bằng frame AUTH/GATE đã chụp, **không tải Pyodide/bangbang-py.zip**.
+- PvE: 49 map thường, objective chương 2–9, thưởng/cấp/thẻ lực lượng, mở thành phố, túi đồ.
+- PvP: phòng bot 1001, map 19, 7 mode (kill/occupy/base/cow/death/escort/world boss), 91 tank.
+- Save SQLite cũ được migrate sang `pve-profile`/`pve-bag` trước khi worker đọc IndexedDB.
+- `tank-visuals.json` chọn ngoại hình có trong catalog M6; ngoại hình 0/không hỗ trợ fallback về base skin.
 - Frame golden nằm ở `html5/static-server/frames.json` (AUTH S901/S906, GATE S1005/S1016/S1100/S1150/S1455/S1454/S1351/S1350/S1045).
 
 ## Test local
 
-Playwright: mở trang → tạo nhân vật → vào sảnh → PvE map 201 → battle. Reload → màn hình tạo nhân vật prefill tên/body từ SQLite/IndexedDB. Ảnh tham chiếu: `assets/covers/bangbang.webp`.
+`npm test` chạy các check tĩnh. Smoke trình duyệt: `node games/bangbang/html5/static-server/perf/smoke.cjs` (cần Playwright Chromium) — tạo nhân vật → sảnh → PvP room → PvE map 201 → reload ấm. Ảnh tham chiếu: `assets/covers/bangbang.webp`.
