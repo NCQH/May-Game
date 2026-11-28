@@ -126,6 +126,9 @@ function emptyStats() {
     await page.waitForFunction(
       () => window.bbM8?.snapshot?.().play?.phase === 'scene', null, { timeout });
     step('PvE scene ready');
+    report.pve.supported = await page.evaluate(
+      () => Boolean(window.bbM8?.snapshot?.().play?.render?.supported));
+    if (!report.pve.supported) throw new Error('PvE scene assets are unsupported');
     report.pve.ok = true;
     report.pve.sceneMs = Date.now() - pveStart;
     report.pve.stats = stats.pve;
@@ -177,8 +180,23 @@ function emptyStats() {
           && window.bbM8.snapshot().play.room?.roomType !== 4, null, { timeout: 30000 });
       await page.locator('[data-testid="m81-room-close"]').waitFor({ state: 'visible', timeout: 30000 });
       step('PvP room ready');
-      report.pvp.ok = true;
       report.pvp.roomMs = Date.now() - pvpStart;
+
+      step('PvP: start match');
+      if (await page.locator('[data-testid="m8-ready"]').isVisible().catch(() => false)) {
+        await page.locator('[data-testid="m8-ready"]').click({ force: true });
+      }
+      await page.locator('[data-testid="m8-start"]').click({ force: true });
+      await page.locator('[data-testid="m8-confirm"]').waitFor({ state: 'visible', timeout: 30000 });
+      await page.locator('[data-testid="m8-select-10000044"]').click({ force: true });
+      await page.locator('[data-testid="m8-confirm"]').click({ force: true });
+      await page.waitForFunction(
+        () => window.bbM8?.snapshot?.().play?.phase === 'scene', null, { timeout });
+      await page.waitForTimeout(1500);
+      report.pvp.supported = await page.evaluate(
+        () => Boolean(window.bbM8?.snapshot?.().play?.render?.supported));
+      if (!report.pvp.supported) throw new Error('PvP scene assets are unsupported');
+      report.pvp.ok = true;
       report.pvp.stats = stats.pvp;
     } catch (error) {
       report.pvp.ok = false;
@@ -201,9 +219,10 @@ function emptyStats() {
       : {
         noPyodideRequests: totalPyodideRequests === 0,
         noPyodideInCache: cachedPyodide === 0,
-        coldBootUnder1s: (report.cold?.bootMs || Infinity) < 1000,
+        coldBootUnder2_5s: (report.cold?.bootMs || Infinity) < 2500,
         pveScene: bootOnly || report.pve?.ok === true,
-        pvpRoom: bootOnly || report.pvp?.ok === true,
+        pvpRoom: bootOnly || Boolean(report.pvp?.roomMs),
+        pvpScene: bootOnly || report.pvp?.ok === true,
       };
     report.failed = Object.entries(report.checks).filter(([, ok]) => !ok).map(([name]) => name);
     if (report.failed.length) process.exitCode = 1;

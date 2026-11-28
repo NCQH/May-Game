@@ -26,6 +26,16 @@ jobs:
           node-version: 22
       - name: Build artifact
         run: bash scripts/bangbang/build-site.sh
+      - name: Install E2E dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: PvE all-map asset check
+        run: node games/bangbang/html5/static-server/engine/pve-all-maps.test.js
+      - name: Browser smoke
+        run: node games/bangbang/html5/static-server/perf/smoke.cjs
+      - name: Legacy save migration E2E
+        run: node games/bangbang/html5/static-server/perf/migrate-e2e.cjs
       - name: Deploy production
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -53,12 +53,16 @@
   // pve-bag. sql.js is a UMD script, so it must load as a classic script and only
   // when a legacy DB actually exists (fresh installs skip the 672 KiB wasm).
   function loadLegacySqlJs() {
-    if (typeof globalThis.initSqlJs === 'function') return globalThis.initSqlJs();
+    const vendor = new URL('./static-server/migrate/vendor/', document.baseURI);
+    const init = () => globalThis.initSqlJs({
+      locateFile: (file) => new URL(file, vendor).href,
+    });
+    if (typeof globalThis.initSqlJs === 'function') return init();
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = './static-server/migrate/vendor/sql-wasm.js';
+      script.src = new URL('sql-wasm.js', vendor).href;
       script.onload = () => typeof globalThis.initSqlJs === 'function'
-        ? globalThis.initSqlJs().then(resolve, reject)
+        ? init().then(resolve, reject)
         : reject(new Error('sql.js unavailable'));
       script.onerror = () => reject(new Error('sql.js failed to load'));
       document.head.appendChild(script);
@@ -69,7 +73,8 @@
     if (!migration) {
       migration = import('./static-server/migrate/migrate-save.js')
         .then((mod) => mod.migrateSaveFromIndexedDb({ initSqlJs: loadLegacySqlJs }))
-        .catch((error) => { console.warn('Legacy save migration skipped:', error); return null; });
+        .then((result) => { window.__bbMigration = result; return result; })
+        .catch((error) => { window.__bbMigration = { migrated: false, error: String(error) }; console.warn('Legacy save migration skipped:', error); return null; });
     }
     return migration;
   }

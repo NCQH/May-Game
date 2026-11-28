@@ -74,6 +74,13 @@ http://127.0.0.1:18086/games/bangbang/html5/
 - `tank-visuals.json` chọn ngoại hình có trong catalog M6; ngoại hình 0/không hỗ trợ fallback về base skin.
 - Frame golden nằm ở `html5/static-server/frames.json` (AUTH S901/S906, GATE S1005/S1016/S1100/S1150/S1455/S1454/S1351/S1350/S1045).
 
+## M7 hardening
+
+- `engine/pve-all-maps.test.js` — 49 map: dữ liệu chuẩn hóa + 190 background/sky/minimap/gui có file và `status: ready`.
+- `perf/smoke.cjs` — tạo nhân vật → sảnh → PvE map 201 (render `supported`) → PvP room → chọn tank → PvP scene (render `supported`) → reload ấm.
+- `perf/migrate-e2e.cjs` — seed DB SQLite thật từ `bangbang-py.zip` vào IndexedDB, boot JS engine, kiểm tra 384 item + marker + reload không nhân đôi.
+- Workflow `bangbang.yml` chạy các check trên trước bước deploy production.
+
 ## Test local
 
-`npm test` chạy các check tĩnh. Smoke trình duyệt: `node games/bangbang/html5/static-server/perf/smoke.cjs` (cần Playwright Chromium) — tạo nhân vật → sảnh → PvP room → PvE map 201 → reload ấm. Ảnh tham chiếu: `assets/covers/bangbang.webp`.
+`npm test` chạy các check tĩnh. Browser: `node games/bangbang/html5/static-server/perf/smoke.cjs` và `node games/bangbang/html5/static-server/perf/migrate-e2e.cjs` (cần Playwright Chromium). Ảnh tham chiếu: `assets/covers/bangbang.webp`.
