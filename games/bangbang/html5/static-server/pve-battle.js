@@ -1,13 +1,13 @@
 // Browser bridge: load the real PvE catalogs, build the core arena, and expose
 // frame-ready packets for the local JS worker. Map 201 is the first target;
 // other maps use the same data-driven hooks.
-import { M81314_PARTS, M6_PARTS, buildPveIndex } from './engine/pve-data.js';
+import { M6_PARTS, buildPveIndex } from './engine/pve-data.js';
 import { createData } from './engine/data.js';
 import { PveEngine } from './engine/pve-engine.js';
 import { npcStatsAtQuality, mapQuality } from './engine/pve-balance.js';
 import { frame } from './engine/protocol.js';
 import { PveProgress, replaceSettlement } from './engine/pve-progress.js';
-import { installObjectives } from './engine/pve-objectives.js';
+import { installObjectives, objectDestroyed } from './engine/pve-objectives.js';
 import { NarutoActions } from './engine/tanks/naruto.js';
 import { QuanVuActions } from './engine/tanks/quanvu.js';
 import { GundamActions } from './engine/tanks/gundam.js';
@@ -195,6 +195,7 @@ export const TANKS = {
   10000084: ZhugeActions,};
 
 const BASE = new URL('../', import.meta.url);
+const COMPACT = new URL('./engine/pve-compact.json', import.meta.url);
 const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json', 'batch-f1-data.json', 'batch-d-data.json', 'batch-f2-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
 let cached = null;
 let pveProfile = null;
@@ -234,13 +235,12 @@ function normalizeTables(data) {
 
 async function catalogs() {
   if (cached) return cached;
-  const [pveText, m6Text, garage, ...fixtures] = await Promise.all([
-    readParts(M81314_PARTS),
+  const [pve, m6Text, garage, ...fixtures] = await Promise.all([
+    fetch(COMPACT).then((r) => r.json()),
     readParts(M6_PARTS),
     fetch(new URL('m8_garage_catalog.json', BASE)).then((r) => r.json()),
     ...TANK_DATA.map((url) => fetch(url).then((r) => r.json())),
   ]);
-  const pve = JSON.parse(pveText);
   const m6 = JSON.parse(m6Text);
   const index = buildPveIndex(pve);
   const data = createData({ garage, assets: m6, pve });
@@ -283,7 +283,21 @@ export async function createPveBattle({ mapId = 201, tankId = 10000044, name = '
     charId: 30000797, name, sceneId: Number(sceneId) || 1, runId: 'js-pve-' + Number(mapId),
     classes: TANKS, hooks: progress.hooks,
   });
-  if (Number(map.id) !== 201) installObjectives(engine);
+  const objectives = Number(map.id) !== 201 ? installObjectives(engine) : null;
+  if (objectives) {
+    const handle = engine.handle.bind(engine);
+    engine.handle = (message, payload) => {
+      const frames = handle(message, payload);
+      if (message === 503 && payload && payload.length >= 8) {
+        const target = new DataView(payload.buffer, payload.byteOffset, payload.byteLength).getUint32(4, true);
+        if ((target >>> 26) === 3) {
+          const extra = objectDestroyed(objectives, target & 0x3ffffff, engine.now);
+          if (extra.length) frames.push(...extra);
+        }
+      }
+      return frames;
+    };
+  }
   const pack = (frames) => frames.map(([id, payload]) => frame(id, payload));
   const settled = (raw) => {
     if (!engine.finished) return raw;
