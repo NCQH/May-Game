@@ -22,7 +22,8 @@ export function npcStatsAtQuality(quality = 0) {
     const arms = (profile && profile.arms) || {};
     const out = {};
     for (const [stat, field, coef, mult] of STATS) {
-      let value = D(row[field] || '0').mul(D(arms[coef] || '1')).mul(D(PVE_CONFIG[mult] || '1'));
+      const text = (v) => (v === null || v === undefined || v === '') ? '1' : String(v);
+      let value = D(text(row[field] ?? '0')).mul(D(text(arms[coef]))).mul(D(text(PVE_CONFIG[mult])));
       if (stat === 'iHp') value = value.mul(D(PVE_CONFIG.enemy_hp_multiplier || '1'));
       out[stat] = value.toString();
     }

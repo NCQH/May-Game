@@ -211,6 +211,27 @@ async function readParts(parts) {
   return (await Promise.all(responses.map((response) => response.text()))).join('');
 }
 
+function rowKey(row) {
+  return [row.nTankId ?? '', row.nId ?? '', row.nLevel ?? ''].join('|');
+}
+function mergeRows(data, table, rows) {
+  const list = data.tables.get(table) || [];
+  for (const row of rows) {
+    const key = rowKey(row);
+    const index = list.findIndex((item) => rowKey(item) === key);
+    if (index >= 0) list[index] = row; else list.push(row);
+  }
+  data.tables.set(table, list);
+}
+function normalizeTables(data) {
+  for (const rows of data.tables.values()) for (const row of rows) {
+    for (const key of Object.keys(row)) {
+      const value = row[key];
+      if (typeof value === 'number' || typeof value === 'boolean') row[key] = String(value);
+    }
+  }
+}
+
 async function catalogs() {
   if (cached) return cached;
   const [pveText, m6Text, garage, ...fixtures] = await Promise.all([
@@ -229,7 +250,9 @@ async function catalogs() {
     ['SkillTemplate_table.xml', 'skills'],
     ['BuffTemplate_table.xml', 'buffs'],
     ['EffectTemplate_table.xml', 'effects'],
-  ]) if (fixture[key]) data.addRows(table, fixture[key]);
+  ]) if (fixture[key]) mergeRows(data, table, fixture[key]);
+  normalizeTables(data);
+
   cached = { index, data };
   return cached;
 }
