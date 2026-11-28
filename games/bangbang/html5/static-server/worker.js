@@ -239,6 +239,7 @@ async function load() {
   self.postMessage({ ready: true, profile });
   for (const role of ROLES) { send(role, frames.handshake); handshook[role] = true; }
   started = true;
+  preloadPveCatalogs().catch(() => {});
   setInterval(() => { for (const role of ROLES) { let data; while ((data = drain(role))) handle(role, data); } }, 8);
 }
 
@@ -363,8 +364,18 @@ function handle(role, data) {
   else if (id === 605) send(role, frames.load1709);
   else if (id === 552) {
     send(role, frames.load1709);
-    createPveBattle({ mapId: battle.mapId || 201, tankId: battle.tankId, name: profile.name, sceneId: battle.sceneId })
+    const fallback = (error) => {
+      if (error) console.error('PvE JS engine:', error);
+      send(role, concat(frames.load1709, patchNamed(frames.entryBattle, profile.name)));
+      parseBattle(patchNamed(frames.entryBattle, profile.name));
+      setTimeout(() => send(role, frames.tickBattle), 3000);
+      setTimeout(startAI, 3500);
+    };
+    const enginePromise = createPveBattle({ mapId: battle.mapId || 201, tankId: battle.tankId, name: profile.name, sceneId: battle.sceneId });
+    enginePromise.catch(() => {});
+    Promise.race([enginePromise, new Promise((resolve) => setTimeout(() => resolve(null), 9000))])
       .then((session) => {
+        if (!session) { fallback(); return; }
         pve = session;
         send(role, joinFrames([s1586(0, 0), ...session.start]));
         if (pveTimer) clearInterval(pveTimer);
@@ -377,14 +388,7 @@ function handle(role, data) {
           }
         }, 50);
       })
-      .catch((error) => {
-        console.error('PvE JS engine:', error);
-        send(role, concat(frames.load1709, patchNamed(frames.entryBattle, profile.name)));
-        parseBattle(patchNamed(frames.entryBattle, profile.name));
-  parseGarage(frames.gateGarage);
-        setTimeout(() => send(role, frames.tickBattle), 3000);
-        setTimeout(startAI, 3500);
-      });
+      .catch(fallback);
   }
   else if (id === 200) {
     const uuid = new R(data.subarray(8)).str();
