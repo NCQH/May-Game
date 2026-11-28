@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '../../games/bangbang');
 const query = 'm81345-inventory-click-fix-9e251171f0314e86641a';
-const cache = 'bangbang-web-v12';
+const cache = 'bangbang-web-v13';
 const assets = new Set();
 const walk = (dir) => {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -10,6 +10,7 @@ const walk = (dir) => {
     if (entry.isDirectory()) { walk(full); continue; }
     const rel = path.relative(root, full).split(path.sep).join('/');
     if (rel === 'README.md' || rel === 'html5/cache-manifest.json') continue;
+    if (rel.startsWith('rez/') && /\.swf$/i.test(rel)) continue;
     if (rel.startsWith('html5/')) {
       const rest = rel.slice(6);
       const url = '/games/bangbang/html5/' + rest;

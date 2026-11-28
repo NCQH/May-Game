@@ -7,6 +7,8 @@ case "$out" in "$root/.bangbang-site") ;; *) echo "Unexpected output path: $out"
 rm -rf -- "$out"
 mkdir -p "$out"
 git -C "$root" archive HEAD games/bangbang sw.js | tar -x -C "$out"
+# Original Flash SWFs are source-only; the HTML5 client uses converted atlases.
+find "$out/games/bangbang/rez" -type f -name '*.swf' -delete
 
 cat > "$out/_redirects" <<'REDIRECTS'
 / /games/bangbang/html5/ 302
