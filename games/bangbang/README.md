@@ -67,7 +67,7 @@ http://127.0.0.1:18086/games/bangbang/html5/
 
 - Mở `?engine=js` để dùng `static-server/worker.js`: tạo nhân vật + lobby bằng frame AUTH/GATE đã chụp từ server Python, **không tải Pyodide/bangbang-py.zip**.
 - Boot local ~2,7 s; reload prefill tên/body từ `localStorage`; tên nhân vật được patch vào S1016.
-- M2 (đang làm): đã replay room/entry map 201 và vào battle scene bằng JS; đã có handler C501 (di chuyển) + C503 (sát thương NPC), chưa có NPC AI/result/PvP.
+- M2 (đang làm): replay room/entry map 201, battle scene, C501/C503, S1564 hợp lệ, và gói kết quả S1707/S1104/S1708 đã được client chấp nhận. Chưa có NPC AI, test input trên trình duyệt thật, 91 tank/49 map/PvP.
 - Frame golden nằm ở `html5/static-server/frames.json` (AUTH S901/S906, GATE S1005/S1016/S1100/S1150/S1455/S1454/S1351/S1350/S1045).
 
 ## Test local

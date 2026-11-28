@@ -98,13 +98,14 @@ class W {
   i16(v) { return this.u16(v & 0xffff); }
   u32(v) { this.a.push(v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255); return this; }
   i32(v) { return this.u32(v >>> 0); }
+  f32(v) { const b = new Uint8Array(4); new DataView(b.buffer).setFloat32(0, v, true); this.a.push(...b); return this; }
   bytes() { return new Uint8Array(this.a); }
 }
 function encode(id, w) {
   const p = w.bytes(), f = new Uint8Array(p.length + 8), dv = new DataView(f.buffer);
   dv.setUint16(0, f.length, true); dv.setUint16(2, id, true); f.set(p, 8); return f;
 }
-const battle = { player: null, npcs: [], bullet: 1 };
+const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, finished: false };
 function parseBattle(stream) {
   let off = 0;
   while (off + 8 <= stream.length) {
@@ -125,17 +126,17 @@ function parseBattle(stream) {
 }
 function sceneUpdate({ moves = [], fires = [], hp = [], deaths = [] } = {}) {
   const w = new W();
-  w.u8(moves.length);
+  w.u16(moves.length);
   for (const m of moves) { w.u32(m.objectId).i16(m.x).i16(m.y).i16(m.speed).u8(m.direction).u8(m.moveType || 0); }
-  w.u8(fires.length);
+  w.u16(fires.length);
   for (const f of fires) { w.u32(f.bulletId).u32(f.objectId).i16(f.startX).i16(f.startY).i16(f.destX).i16(f.destY).i16(f.speed).u32(f.templateId); }
-  w.u8(0); // skills
-  w.u8(hp.length);
+  w.u16(0); // skills
+  w.u16(hp.length);
   for (const h of hp) { w.u32(h.objectId).i32(h.hp); }
-  w.u8(deaths.length);
+  w.u16(deaths.length);
   for (const d of deaths) { w.u32(d.npcId).i16(d.x).i16(d.y); }
-  w.u8(0).u8(0).u8(0).u8(0); // mp, blown, removed, expired
-  w.u8(0); // shields
+  w.u16(0).u16(0).u16(0).u16(0); // mp, blown, removed, expired
+  w.u16(0); // shields
   return encode(1564, w);
 }
 
@@ -172,6 +173,39 @@ async function load() {
   setInterval(() => { for (const role of ROLES) { let data; while ((data = drain(role))) handle(role, data); } }, 8);
 }
 
+function pack1707() {
+  const w = new W().u32(0).u32(battle.sceneId).u32(30000797).u32(1).u32(0);
+  return encode(1707, w);
+}
+function pack1104() {
+  const w = new W().u32(1);
+  for (let i = 0; i < 4; i++) w.i32(0);
+  w.u16(1).u32(0).u16(3);
+  for (const id of [3700002, 3700002, 3800001]) w.u32(id).i32(1);
+  w.u16(0).i32(0).u16(0).u8(1).u32(0);
+  return encode(1104, w);
+}
+function pack1708(win) {
+  const w = new W();
+  w.u32(battle.sceneId).u32(201).u32(0).u8(4).u8(win ? 1 : 0).u8(1).i16(3).i16(0).u16(1);
+  w.u32(30000797).u32(10000044).u16(21);
+  for (let i = 0; i < 21; i++) w.i32(0);
+  for (let i = 0; i < 4; i++) w.i16(0);
+  w.i32(0);
+  w.u8(0).u8(win ? 1 : 0).u8(0).u8(0).u8(1).u8(1).u8(1);
+  w.u16(0).u16(0).u16(0).u16(0);
+  w.u8(0).u8(0).u8(0).u8(0).u8(0);
+  w.u16(0).f32(1).f32(1).u8(0);
+  for (let i = 0; i < 7; i++) w.u32(0);
+  w.u16(0);
+  return encode(1708, w);
+}
+function finishBattle(win) {
+  if (battle.finished) return;
+  battle.finished = true;
+  send('GATE', concat(pack1707(), pack1104(), pack1708(win)));
+}
+
 function movePlayer(role, data) {
   if (!battle.player) return;
   const r = new R(data.subarray(8));
@@ -198,6 +232,7 @@ function useSkill(role, data) {
   const deaths = best.hp <= 0 ? [{ npcId: best.objectId, x: best.x, y: best.y }] : [];
   if (best.hp <= 0) battle.npcs = battle.npcs.filter((n) => n !== best);
   send(role, sceneUpdate({ fires, hp, deaths }));
+  if (!battle.npcs.length) setTimeout(() => finishBattle(true), 800);
 }
 
 function handle(role, data) {
@@ -214,7 +249,7 @@ function handle(role, data) {
   else if (id === 72) send(role, frames.gateGarage);
   else if (id === 165) send(role, concat(frames.gateExtra1100, frames.gateFinal));
   else if (id === 600) send(role, patchNamed(frames.room1700, profile.name));
-  else if (id === 602) send(role, patchNamed(frames.battle1705, profile.name));
+  else if (id === 602) { const start = patchNamed(frames.battle1705, profile.name); const r = new R(start.subarray(8)); battle.sceneId = r.u32(); send(role, start); }
   else if (id === 605) send(role, frames.load1709);
   else if (id === 552) {
     send(role, concat(frames.load1709, patchNamed(frames.entryBattle, profile.name)));
@@ -236,6 +271,17 @@ self.onmessage = (event) => {
     profile = { name: String(data.name || '').slice(0, 32), body: String(data.body || '').slice(0, 80) };
     enter = patchEnter(frames.gateEnter, profile.name);
     self.postMessage({ token });
+  } else if (data.type === 'debugWin') {
+    finishBattle(true);
+  } else if (data.type === 'debugLose') {
+    finishBattle(false);
+  } else if (data.type === 'debugMove') {
+    if (!battle.player) return;
+    const dir = Number(data.dir) || 0;
+    const step = [[-17, -17], [0, -24], [17, -17], [24, 0], [17, 17], [0, 24], [-17, 17], [-24, 0]][dir] || [0, 0];
+    battle.player.x = Number(data.x) + step[0];
+    battle.player.y = Number(data.y) + step[1];
+    send('GATE', sceneUpdate({ moves: [{ objectId: battle.player.objectId, x: battle.player.x, y: battle.player.y, speed: 240, direction: dir }] }));
   }
 };
 
