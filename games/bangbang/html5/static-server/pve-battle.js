@@ -41,6 +41,21 @@ import { JokerActions } from './engine/tanks/joker.js';
 import { FoxActions } from './engine/tanks/fox.js';
 import { FalconActions } from './engine/tanks/falcon.js';
 import { WukongActions } from './engine/tanks/wukong.js';
+import { OptimusActions } from './engine/tanks/optimus.js';
+import { NezhaActions } from './engine/tanks/nezha.js';
+import { AngelActions } from './engine/tanks/angel.js';
+import { DeadpoolActions } from './engine/tanks/deadpool.js';
+import { KanekiActions } from './engine/tanks/kaneki.js';
+import { HadesActions } from './engine/tanks/hades.js';
+import { SasukeActions } from './engine/tanks/sasuke.js';
+import { PumpkinActions } from './engine/tanks/pumpkin.js';
+import { KurumiActions } from './engine/tanks/kurumi.js';
+import { DarkKnightActions } from './engine/tanks/darkknight.js';
+import { WolfActions } from './engine/tanks/wolf.js';
+import { ShadowbladeActions } from './engine/tanks/shadowblade.js';
+import { StoneGodActions } from './engine/tanks/stonegod.js';
+import { AquamanActions } from './engine/tanks/aquaman.js';
+import { NightWingActions } from './engine/tanks/nightwing.js';
 
 export const TANKS = {
   10000044: NarutoActions,
@@ -78,10 +93,25 @@ export const TANKS = {
   10000086: FoxActions,
   10000104: FalconActions,
   10000036: WukongActions,
-};
+
+  10000062: OptimusActions,
+  10000082: NezhaActions,
+  10000061: AngelActions,
+  10000070: DeadpoolActions,
+  10000076: KanekiActions,
+  10000092: HadesActions,
+  10000093: SasukeActions,
+  10000052: PumpkinActions,
+  10000095: KurumiActions,
+  10000030: DarkKnightActions,
+  10000040: WolfActions,
+  10000108: ShadowbladeActions,
+  10000109: StoneGodActions,
+  10000110: AquamanActions,
+  10000114: NightWingActions,};
 
 const BASE = new URL('../', import.meta.url);
-const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
+const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
 let cached = null;
 
 async function readParts(parts) {
