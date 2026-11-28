@@ -280,7 +280,7 @@ export async function createPveBattle({ mapId = 201, tankId = 10000044, name = '
     npcStats: npcStatsAtQuality(mapQuality(map)),
     npcArmorConstant: 100,
     tank: { tankId: Number(tankId), level: Number(level) || 1 },
-    name, sceneId: Number(sceneId) || 1, runId: 'js-pve-' + Number(mapId),
+    charId: 30000797, name, sceneId: Number(sceneId) || 1, runId: 'js-pve-' + Number(mapId),
     classes: TANKS, hooks: progress.hooks,
   });
   if (Number(map.id) !== 201) installObjectives(engine);
