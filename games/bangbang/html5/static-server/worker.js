@@ -200,6 +200,36 @@ function pack1708(win) {
   w.u16(0);
   return encode(1708, w);
 }
+let aiTimer = 0;
+function startAI() {
+  if (aiTimer || battle.finished) return;
+  aiTimer = setInterval(() => {
+    if (battle.finished || !battle.player) return;
+    const player = battle.player, moves = [], hp = [];
+    let damage = 0;
+    for (const npc of battle.npcs) {
+      const dx = player.x - npc.x, dy = player.y - npc.y;
+      const dist = Math.hypot(dx, dy);
+      if (dist > 150) {
+        const step = Math.min(48, dist - 140);
+        npc.x += Math.round(dx / dist * step);
+        npc.y += Math.round(dy / dist * step);
+        moves.push({ objectId: npc.objectId, x: npc.x, y: npc.y, speed: 240, direction: 8 });
+      } else if (!npc.next || performance.now() >= npc.next) {
+        npc.next = performance.now() + 1000;
+        damage += 50;
+      }
+    }
+    if (moves.length) send('GATE', sceneUpdate({ moves }));
+    if (damage) {
+      player.hp -= damage;
+      if (player.hp < 0) player.hp = 0;
+      send('GATE', sceneUpdate({ hp: [{ objectId: player.objectId, hp: player.hp }] }));
+      if (player.hp <= 0) finishBattle(false);
+    }
+  }, 500);
+}
+
 function finishBattle(win) {
   if (battle.finished) return;
   battle.finished = true;
@@ -255,6 +285,7 @@ function handle(role, data) {
     send(role, concat(frames.load1709, patchNamed(frames.entryBattle, profile.name)));
     parseBattle(patchNamed(frames.entryBattle, profile.name));
     setTimeout(() => send(role, frames.tickBattle), 3000);
+    setTimeout(startAI, 3500);
   }
   else if (id === 501) movePlayer(role, data);
   else if (id === 503) useSkill(role, data);
