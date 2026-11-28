@@ -6,6 +6,7 @@ import { createData } from './engine/data.js';
 import { PveEngine } from './engine/pve-engine.js';
 import { npcStatsAtQuality, mapQuality } from './engine/pve-balance.js';
 import { frame } from './engine/protocol.js';
+import { Writer } from '../protocol.js';
 import { PveProgress, replaceSettlement } from './engine/pve-progress.js';
 import { installObjectives, objectDestroyed } from './engine/pve-objectives.js';
 import { NarutoActions } from './engine/tanks/naruto.js';
@@ -198,9 +199,18 @@ const BASE = new URL('../', import.meta.url);
 const COMPACT = new URL('./engine/pve-compact.json', import.meta.url);
 const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json', 'batch-f1-data.json', 'batch-d-data.json', 'batch-f2-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
 let cached = null;
+let bagItems = [];
+let bagSlot = 1000;
+let saveBag = () => {};
 let pveProfile = null;
 let savePveProfile = () => {};
 
+export function setBag(items, save) {
+  bagItems = Array.isArray(items) ? items : [];
+  if (typeof save === 'function') saveBag = save;
+  for (const item of bagItems) bagSlot = Math.max(bagSlot, Number(item.slotNo) + 1 || 0);
+}
+export function bagLoginFrames() { return bagItems.length ? [frame(...bagFrame(bagItems))] : []; }
 export function setProgressProfile(profile, save) {
   pveProfile = profile || null;
   if (typeof save === 'function') savePveProfile = save;
@@ -231,6 +241,17 @@ function normalizeTables(data) {
       if (typeof value === 'number' || typeof value === 'boolean') row[key] = String(value);
     }
   }
+}
+
+function bagFrame(items, notifyType = 2) {
+  const w = new Writer().u32(0).u16(items.length);
+  for (const item of items) {
+    w.string(item.uuid).u32(item.itemId).u32(0).u32(0).i32(item.count)
+      .u8(item.level || 0).u8(0).i32(0).u8(0).i32(0).i32(0).u32(0)
+      .i16(item.slotNo ?? -1);
+  }
+  w.u8(notifyType);
+  return [1100, w.finish()];
 }
 
 async function catalogs() {
@@ -274,7 +295,12 @@ export async function createPveBattle({ mapId = 201, tankId = 10000044, name = '
     load: () => pveProfile,
     save: (profile) => { pveProfile = profile; savePveProfile(profile); },
   };
-  const progress = new PveProgress({ store });
+  const granted = [];
+  const grant = (itemId, count, level) => {
+    const item = { uuid: `js-reward-${Date.now()}-${bagSlot}-${itemId}`, itemId, count, level: level || 0, slotNo: bagSlot++ };
+    bagItems.push(item); granted.push(item); saveBag(bagItems);
+  };
+  const progress = new PveProgress({ store, grant });
   const engine = new PveEngine({
     map, data, npcProfiles: index.npcProfiles,
     npcStats: npcStatsAtQuality(mapQuality(map)),
@@ -302,14 +328,16 @@ export async function createPveBattle({ mapId = 201, tankId = 10000044, name = '
   const settled = (raw) => {
     if (!engine.finished) return raw;
     const result = progress.settle(engine, { won: Boolean(engine.won) });
-    return replaceSettlement(raw, result);
+    const frames = replaceSettlement(raw, result);
+    if (granted.length) frames.push(bagFrame(granted.splice(0)));
+    return frames;
   };
   return {
     engine,
     start: pack(engine.drain()),
     tick(deltaMs = 50) { return pack(settled(engine.advance(deltaMs))); },
     handle(msgId, payload) { return pack(engine.handle(msgId, payload)); },
-    finish(won) { engine.finish(won); return pack(settled([])); },
+    finish(won) { const raw = engine.finish(won); const frames = settled(raw); engine.outbox.length = 0; return pack(frames); },
     get finished() { return engine.finished; },
     get won() { return engine.won; },
   };

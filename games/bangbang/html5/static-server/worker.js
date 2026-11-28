@@ -1,5 +1,5 @@
 // Static BangBang lobby server: replays verified AUTH/GATE frames, no Python.
-import { createPveBattle, preloadPveCatalogs, setProgressProfile, s1586 } from './pve-battle.js';
+import { bagLoginFrames, createPveBattle, preloadPveCatalogs, setBag, setProgressProfile, s1586 } from './pve-battle.js';
 const ROLES = ['AUTH', 'GATE'];
 const buffers = {
   AUTH: makeBuffer(),
@@ -232,6 +232,7 @@ async function load() {
   for (const [key, value] of Object.entries(raw)) frames[key] = b64(value);
   await Promise.race([initPromise, new Promise((resolve) => setTimeout(resolve, 100))]);
   try { setProgressProfile(await idbGet('pve-profile'), (profile) => idbSet('pve-profile', profile)); } catch {}
+  try { setBag(await idbGet('pve-bag'), (items) => idbSet('pve-bag', items)); } catch {}
   enter = patchEnter(frames.gateEnter, profile.name);
   parseBattle(patchNamed(frames.entryBattle, profile.name));
   parseGarage(frames.gateGarage);
@@ -347,7 +348,7 @@ function handle(role, data) {
   else if (id === 54) send(role, frames.gate1008);
   else if (id === 56) send(role, enter);
   else if (id === 72) send(role, frames.gateGarage);
-  else if (id === 165) send(role, concat(frames.gateExtra1100, frames.gateFinal));
+  else if (id === 165) send(role, joinFrames([frames.gateExtra1100, frames.gateFinal, ...bagLoginFrames()]));
   else if (id === 600) {
     const r = new R(data.subarray(8));
     r.u8(); r.u8(); battle.mapId = r.u32() || 201;
