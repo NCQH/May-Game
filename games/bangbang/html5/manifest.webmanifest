@@ -1,7 +1,8 @@
 {
   "name": "Bang Bang Offline",
   "short_name": "Bang Bang",
-  "description": "Bang Bang PvE offline (Pyodide)",
+  "description": "Bang Bang PvE offline (JavaScript engine; Pyodide opt-in via ?engine=py)",
+  "id": "./index.html",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

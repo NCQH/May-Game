@@ -1,7 +1,7 @@
 // Static BangBang lobby server: replays verified AUTH/GATE frames, no Python.
 import { bagLoginFrames, cityLoginFrames, createPveBattle, preloadPveCatalogs, setBag, setProgressProfile, s1586 } from './pve-battle.js';
-import { PvpRoom } from './pvp-room/pvp-room.js';
-import { createPvpBattle, preloadPvpCatalogs } from './pvp-battle.js';
+import { OFFLINE_PLAYER, PvpRoom, s1705 } from './pvp-room/pvp-room.js';
+import { createPvpBattle } from './pvp-battle.js';
 const ROLES = ['AUTH', 'GATE'];
 const buffers = {
   AUTH: makeBuffer(),
@@ -135,7 +135,8 @@ function encode(id, w) {
   const p = w.bytes(), f = new Uint8Array(p.length + 8), dv = new DataView(f.buffer);
   dv.setUint16(0, f.length, true); dv.setUint16(2, id, true); f.set(p, 8); return f;
 }
-const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, mapId: 201, finished: false, tankId: 10000044 };
+const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, mapId: 201, finished: false, tankId: 10000044, tankLevel: 1, externalId: 0 };
+let tankVisuals = {};
 let pve = null;
 let pveTimer = 0;
 const pvp = new PvpRoom({ player: { accountId: 30000797, name: 'Player', tankId: 10000044, tankLevel: 1, externalId: 0 } });
@@ -146,14 +147,18 @@ const PVP_IDS = new Set([607, 600, 601, 602, 610, 215, 614, 605, 552, 509, 611, 
 function pvpHandle(role, data) {
   if (role !== 'GATE') return false;
   const id = msgIdOf(data);
-  if (id === 607 || (id === 600 && data.length > 8 && data[8] !== 4)) preloadPvpCatalogs().catch(() => {});
+  // Do not preload PvP catalogs on a hall refresh: the client refreshes the
+  // hall at login, which would race the PvE preload and refetch the m6 catalog.
+  // createPvpBattle loads them when a PvP match actually starts.
   if (id === 60006) {
     for (const frame of pvp.handle(data)) send(role, frame);
     return true;
   }
   if (id === 600) {
     const roomType = data.length > 8 ? data[8] : 0;
-    if (roomType === 4) return false;
+    // A hall refresh has already set pvpActive; a PvE room must not send its
+    // 602/552 frames through the PvP room (pvp.room is null).
+    if (roomType === 4) { pvpActive = false; return false; }
     const frames = pvp.handle(data);
     if (!frames.length) return false;
     for (const frame of frames) send(role, frame);
@@ -219,14 +224,48 @@ function parseBattle(stream) {
   }
 }
 const garageTanks = [];
+// The M6 battle renderer only knows the visuals listed for each tank. Garage
+// rows with a zero/stale skin fall back to that tank's base appearance instead
+// of failing the whole scene as unsupported.
+function visualFor(tankId, external) {
+  const row = tankVisuals[String(tankId)];
+  const ext = Number(external) || 0;
+  if (!row) return ext;
+  if (row.base === ext || (row.skins || []).includes(ext)) return ext;
+  return row.base || ext;
+}
 function readTankInstance(r) {
   const uuid = r.str();
   const tankId = r.u32();
-  r.u8(); r.u32(); const extFlag = r.u32();
-  r.u8(); r.u32(); r.u32(); r.u32(); r.u8(); r.u8(); r.u8();
+  const level = r.u8();
+  r.u32(); const extFlag = r.u32();
+  r.u8(); const externalId = r.u32();
+  r.u32(); r.u32(); r.u8(); r.u8(); r.u8();
   r.u32(); r.u32(); r.u8(); r.u32(); r.u8(); r.u32(); r.u8();
   r.str(); r.u32(); r.i32();
-  return { uuid, tankId, selected: (extFlag & 2) !== 0 };
+  return { uuid, tankId, level, externalId: visualFor(tankId, externalId), selected: (extFlag & 2) !== 0 };
+}
+// UUIDs already sent by the captured S1100 seed; migrated/legacy bag rows with
+// the same UUID must not be appended again on login.
+function parseBagUuids(stream) {
+  const uuids = new Set();
+  let off = 0;
+  while (off + 8 <= stream.length) {
+    const len = stream[off] | (stream[off + 1] << 8);
+    const id = stream[off + 2] | (stream[off + 3] << 8);
+    if (!len) break;
+    if (id === 1100) {
+      const r = new R(stream.subarray(off + 8, off + len));
+      r.u32();
+      const count = r.u16();
+      for (let i = 0; i < count; i++) {
+        uuids.add(r.str());
+        r.u32(); r.u32(); r.u32(); r.i32(); r.u8(); r.u8(); r.i32(); r.u8(); r.i32(); r.i32(); r.u32(); r.i16();
+      }
+    }
+    off += len;
+  }
+  return uuids;
 }
 function parseGarage(stream) {
   let off = 0;
@@ -242,10 +281,19 @@ function parseGarage(stream) {
     off += len;
   }
   const selected = garageTanks.find((t) => t.selected) || garageTanks[0];
-  if (selected) battle.tankId = selected.tankId;
+  if (selected) {
+    battle.tankId = selected.tankId;
+    battle.tankLevel = selected.level || battle.tankLevel;
+    battle.externalId = selected.externalId;
+  }
+  pvp.player.externals = Object.fromEntries(garageTanks.map((t) => [t.tankId, t.externalId]));
+  if (battle.externalId) pvp.player.externalId = battle.externalId;
+  for (const bot of pvp.bots) bot.externalId = visualFor(bot.tankId, bot.externalId);
 }
 function selectTankPacket(tankId, containerType = 0) {
-  return encode(1727, new W().u32(30000797).u32(tankId).u32(containerType).u32(0).u32(0).u32(0));
+  const tank = garageTanks.find((t) => t.tankId === tankId);
+  const externalId = tank ? tank.externalId : 0;
+  return encode(1727, new W().u32(30000797).u32(tankId).u32(containerType).u32(externalId).u32(0).u32(0));
 }
 
 function sceneUpdate({ moves = [], fires = [], hp = [], deaths = [] } = {}) {
@@ -287,9 +335,14 @@ async function load() {
   frames = {};
   const raw = await (await fetch(new URL('./frames.json', import.meta.url), { cache: 'no-store' })).json();
   for (const [key, value] of Object.entries(raw)) frames[key] = b64(value);
+  try { tankVisuals = await (await fetch(new URL('./engine/tank-visuals.json', import.meta.url))).json() || {}; } catch {}
   await Promise.race([initPromise, new Promise((resolve) => setTimeout(resolve, 100))]);
   try { setProgressProfile(await idbGet('pve-profile'), (profile) => idbSet('pve-profile', profile)); } catch {}
-  try { setBag(await idbGet('pve-bag'), (items) => idbSet('pve-bag', items)); } catch {}
+  try {
+    const seed = parseBagUuids(frames.gateExtra1100 || new Uint8Array());
+    const saved = await idbGet('pve-bag');
+    setBag(Array.isArray(saved) ? saved.filter((item) => !seed.has(item.uuid)) : saved, (items) => idbSet('pve-bag', items));
+  } catch {}
   enter = patchEnter(frames.gateEnter, profile.name);
   parseBattle(patchNamed(frames.entryBattle, profile.name));
   parseGarage(frames.gateGarage);
@@ -418,12 +471,12 @@ function handle(role, data) {
     send(role, patchNamed(frames.room1700, profile.name));
   }
   else if (id === 602) {
-    const start = patchNamed(frames.battle1705, profile.name);
     battle.sceneId = Number(battle.mapId) || 1;
-    const view = new DataView(start.buffer, start.byteOffset, start.byteLength);
-    view.setUint32(8, battle.sceneId, true);
-    view.setUint32(12, Number(battle.mapId) || 201, true);
-    send(role, start);
+    send(role, s1705({
+      sceneId: battle.sceneId, mapId: Number(battle.mapId) || 201, roomType: 4,
+      characters: [{ ...OFFLINE_PLAYER, name: profile.name, tankId: battle.tankId,
+        tankLevel: battle.tankLevel, externalId: battle.externalId }],
+    }));
   }
   else if (id === 605) send(role, frames.load1709);
   else if (id === 552) {
@@ -457,12 +510,14 @@ function handle(role, data) {
   else if (id === 200) {
     const uuid = new R(data.subarray(8)).str();
     const tank = garageTanks.find((t) => t.uuid === uuid);
-    if (tank) battle.tankId = tank.tankId;
+    if (tank) { battle.tankId = tank.tankId; battle.tankLevel = tank.level || battle.tankLevel; battle.externalId = tank.externalId; }
   }
   else if (id === 215) {
     const r = new R(data.subarray(8));
     r.u32(); const tankId = r.u32(); const containerType = r.u32();
     battle.tankId = tankId;
+    const tank = garageTanks.find((t) => t.tankId === tankId);
+    if (tank) { battle.tankLevel = tank.level || battle.tankLevel; battle.externalId = tank.externalId; }
     send(role, selectTankPacket(tankId, containerType));
   }
   else if (id === 501 || id === 503 || id === 510) {

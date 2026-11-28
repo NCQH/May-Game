@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(__dirname, '../../games/bangbang');
 const query = 'm81345-inventory-click-fix-9e251171f0314e86641a';
-const cache = 'bangbang-web-v13';
+const cache = 'bangbang-web-v15';
 const assets = new Set();
 const walk = (dir) => {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -28,6 +28,14 @@ const essential = new Set([
   '/games/bangbang/html5/shim.js',
   '/games/bangbang/html5/offline-worker.js',
   '/games/bangbang/html5/m8_account_catalog.json',
+  '/games/bangbang/html5/assets/boot/splash.png',
+  '/games/bangbang/html5/assets_m8/loading_hexagon_ed623d6d2167.png',
+  '/games/bangbang/html5/assets_m8/loading_selfHexagon_5a055b04cef3.png',
+  '/games/bangbang/html5/assets_m8/loading_progressTrack_a8c0dc0f07aa.png',
+  '/games/bangbang/html5/assets_m8/loading_progress_7072361e34c4.png',
+]);
+// Pyodide runtime: installed by the page only when ?engine=py is requested.
+const pyodide = new Set([
   '/games/bangbang/html5/bangbang-py.zip',
   '/games/bangbang/html5/pyodide/pyodide.mjs',
   '/games/bangbang/html5/pyodide/pyodide.asm.mjs',
@@ -35,11 +43,6 @@ const essential = new Set([
   '/games/bangbang/html5/pyodide/python_stdlib.zip',
   '/games/bangbang/html5/pyodide/pyodide-lock.json',
   '/games/bangbang/html5/pyodide/pyodide.js',
-  '/games/bangbang/html5/assets/boot/splash.png',
-  '/games/bangbang/html5/assets_m8/loading_hexagon_ed623d6d2167.png',
-  '/games/bangbang/html5/assets_m8/loading_selfHexagon_5a055b04cef3.png',
-  '/games/bangbang/html5/assets_m8/loading_progressTrack_a8c0dc0f07aa.png',
-  '/games/bangbang/html5/assets_m8/loading_progress_7072361e34c4.png',
 ]);
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'html5/m8_account_catalog.json'), 'utf8'));
 for (const row of Object.values(catalog.assets || {})) {
@@ -51,12 +54,14 @@ for (const url of assets) {
   const name = new URL('http://x' + url).pathname;
   if (name.startsWith('/games/bangbang/html5/') && !name.slice('/games/bangbang/html5/'.length).includes('/') && /\.(js|css)$/.test(name) && /\?v=/.test(url)) essential.add(url);
 }
+const keep = (url) => assets.has(url) || url.endsWith('cache-manifest.json');
 const payload = {
   cache,
   version: cache.replace('bangbang-web-', ''),
-  essential: [...essential].filter((url) => assets.has(url) || url.endsWith('cache-manifest.json')),
+  essential: [...essential].filter(keep),
+  pyodide: [...pyodide].filter(keep),
   assets: [...assets].sort(),
 };
 if (!payload.essential.includes('/games/bangbang/html5/cache-manifest.json')) payload.essential.push('/games/bangbang/html5/cache-manifest.json');
 fs.writeFileSync(path.join(root, 'html5/cache-manifest.json'), JSON.stringify(payload, null, 2) + '\n');
-console.log('cache manifest', payload.assets.length, 'assets', payload.essential.length, 'essential');
+console.log('cache manifest', payload.assets.length, 'assets', payload.essential.length, 'essential', payload.pyodide.length, 'pyodide');

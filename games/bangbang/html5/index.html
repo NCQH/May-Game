@@ -2,9 +2,10 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" href="./icon-192.png">
   <title>Bang Bang HTML5 · Boss Thế Giới &amp; PvE</title>
   <link rel="stylesheet" href="./style.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
   <link rel="stylesheet" href="./battle.css?v=m81345-inventory-click-fix-9e251171f0314e86641a">
@@ -354,12 +355,28 @@
         script.src = './app.js?v=m81345-inventory-click-fix-9e251171f0314e86641a';
         document.head.appendChild(script);
       };
-      const engineJs = new URLSearchParams(location.search).get('engine') === 'js';
-      window.__bbSwReady = engineJs ? Promise.resolve(false) : ('serviceWorker' in navigator)
-        ? navigator.serviceWorker.register('/sw.js', { scope: '/' })
-            .then(() => navigator.serviceWorker.ready).then(() => true).catch(() => false)
+      // shim.js sets this before this script runs; keep a safe default.
+      window.__bbEngine = window.__bbEngine === 'py' ? 'py' : 'js';
+      const register = () => ('serviceWorker' in navigator)
+        ? navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(() => true).catch(() => false)
         : Promise.resolve(false);
-      window.__bbSwReady.then(start);
+      let registrationStarted = false;
+      window.__bbSwReady = new Promise((resolve) => {
+        // SW install fills the common cache from cache-manifest.json. Keep that
+        // download off the critical boot path, then let the SW cache on demand.
+        const begin = () => {
+          if (registrationStarted) return;
+          registrationStarted = true;
+          register().then(resolve);
+        };
+        window.__bbSwStart = begin;
+        const later = () => ('requestIdleCallback' in window)
+          ? requestIdleCallback(begin, { timeout: 10000 })
+          : setTimeout(begin, 2500);
+        if (document.readyState === 'complete') later();
+        else addEventListener('load', later, { once: true });
+      });
+      start();
     })();
   </script>
 
@@ -478,6 +495,8 @@
   const submit = document.getElementById('bb-create-submit');
   const status = document.getElementById('bb-create-status');
   let shown = 0;
+  let nameTouched = false;
+  let bodyTouched = false;
   const boot = (value, text) => {
     shown = Math.max(shown, Math.min(1, value || 0));
     const pct = Math.round(shown * 100);
@@ -486,20 +505,20 @@
     loadingBar.setAttribute('aria-valuenow', pct);
     if (text) loadingText.textContent = text;
   };
-  const creep = (target, text) => setInterval(() => {
-    if (shown < target) boot(Math.min(target, shown + 0.008), text);
-  }, 700);
-  const manifestPromise = (async () => {
+  const enginePy = window.__bbEngine === 'py';
+  let manifestPromise = null;
+  // The 18k-asset manifest is only needed for the Pyodide fallback and the
+  // bulk cache; do not download it on the default JavaScript boot path.
+  const loadManifest = () => manifestPromise || (manifestPromise = (async () => {
     try {
       const response = await fetch('./cache-manifest.json', { cache: 'no-store' });
       return response.ok ? await response.json() : null;
     } catch { return null; }
-  })();
-  const engineJs = new URLSearchParams(location.search).get('engine') === 'js';
-  async function cacheEssential(manifest) {
+  })());
+  async function cacheEssential(manifest, includePyodide = false) {
     if (!manifest || !('caches' in window)) return;
     const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
-    const urls = (manifest.essential || []).filter((url) => !engineJs || (!url.includes('/pyodide/') && !url.endsWith('bangbang-py.zip')));
+    const urls = [...(manifest.essential || []), ...(includePyodide ? manifest.pyodide || [] : [])];
     let done = 0;
     const queue = [...urls];
     const workers = Array.from({ length: 6 }, async () => {
@@ -518,7 +537,7 @@
     await Promise.all(workers);
   }
   async function cacheAll(manifest) {
-    if (engineJs || !manifest || !('caches' in window)) return;
+    if (!enginePy || !manifest || !('caches' in window)) return;
     const cache = await caches.open(manifest.cache || 'bangbang-web-v6');
     const urls = manifest.assets || [];
     let done = 0;
@@ -528,7 +547,7 @@
     const idle = () => { const snap = window.bbM8?.snapshot?.(); return !snap || snap.ui?.screen === 'lobby'; };
     const workers = Array.from({ length: 6 }, async () => {
       while (queue.length) {
-        if (!idle()) { await new Promise((resolve) => setTimeout(resolve, 1000)); continue; }
+        if (document.visibilityState !== 'visible' || !idle()) { await new Promise((resolve) => setTimeout(resolve, 1000)); continue; }
         const url = queue.shift();
         let hit = false;
         try { hit = Boolean(await cache.match(url)); } catch {}
@@ -576,7 +595,7 @@
       image.alt = '';
       image.loading = 'lazy';
       button.append(image);
-      button.addEventListener('click', () => choose(item));
+      button.addEventListener('click', () => { bodyTouched = true; choose(item); });
       bodies.append(button);
     }
     if (!selected || !groups[group].some((item) => item.key === selected.key)) choose(groups[group][0]);
@@ -587,7 +606,7 @@
     for (const tab of tabs.querySelectorAll('.bb-create-tab')) tab.classList.toggle('is-active', tab.dataset.group === group);
     render();
   };
-  nameInput.addEventListener('input', () => { previewName.textContent = nameInput.value.trim() || 'Người chơi'; });
+  nameInput.addEventListener('input', () => { nameTouched = true; previewName.textContent = nameInput.value.trim() || 'Người chơi'; });
   tabs.addEventListener('click', (event) => {
     const tab = event.target.closest('[data-group]');
     if (tab) setGroup(tab.dataset.group);
@@ -596,6 +615,8 @@
     const name = nameInput.value.trim();
     if (!name) { status.textContent = 'Nhập tên nhân vật.'; status.classList.remove('is-ok'); nameInput.focus(); return; }
     if (!selected) { status.textContent = 'Chọn ngoại hình.'; status.classList.remove('is-ok'); return; }
+    nameTouched = true;
+    bodyTouched = true;
     submit.disabled = true;
     status.textContent = 'Đang tạo nhân vật và lưu SQLite…';
     status.classList.remove('is-ok');
@@ -605,22 +626,24 @@
       localStorage.setItem('bb-character-body', selected.key);
       status.textContent = 'Đã lưu. Đang vào sảnh…';
       status.classList.add('is-ok');
-      manifestPromise.then((manifest) => {
-        if (!manifest) return;
-        // ponytail: skip the multi-GB bulk fill on saveData/2g/3g or under 3 Mbps;
-        // the service worker still caches assets on demand during play.
-        const conn = navigator.connection || {};
-        if (conn.saveData || ['slow-2g', '2g', '3g'].includes(conn.effectiveType) || (typeof conn.downlink === 'number' && conn.downlink < 3)) return;
-        let started = false;
-        const start = () => { if (started) return; started = true; cacheAll(manifest); };
-        // Wait for the lobby assets to finish before the bulk download competes with them.
-        const wait = setInterval(() => {
-          if (window.bbM8?.snapshot?.().ui?.screen !== 'lobby') return;
-          clearInterval(wait);
-          setTimeout(start, 5000);
-        }, 500);
-        setTimeout(() => { clearInterval(wait); start(); }, 90000);
-      });
+      if (enginePy) {
+        loadManifest().then((manifest) => {
+          if (!manifest) return;
+          // ponytail: Pyodide fallback only. Skip the multi-GB bulk fill on
+          // saveData/2g/3g or under 3 Mbps; the SW caches on demand during play.
+          const conn = navigator.connection || {};
+          if (conn.saveData || ['slow-2g', '2g', '3g'].includes(conn.effectiveType) || (typeof conn.downlink === 'number' && conn.downlink < 3)) return;
+          let started = false;
+          const start = () => { if (started) return; started = true; cacheAll(manifest); };
+          // Wait for the lobby assets to finish before the bulk download competes with them.
+          const wait = setInterval(() => {
+            if (window.bbM8?.snapshot?.().ui?.screen !== 'lobby') return;
+            clearInterval(wait);
+            setTimeout(start, 5000);
+          }, 500);
+          setTimeout(() => { clearInterval(wait); start(); }, 90000);
+        });
+      }
       const started = Date.now();
       while (Date.now() - started < 30000) {
         if (window.bbM8?.snapshot?.().phase === 'ready') break;
@@ -636,20 +659,11 @@
   (async () => {
     try {
       overlay.hidden = true;
-      boot(0.02, 'Đang kiểm tra bộ nhớ đệm…');
-      await window.__bbSwReady;
-      boot(0.06, 'Đang đọc danh mục tài nguyên…');
-      const manifest = await manifestPromise;
-      if (manifest) await cacheEssential(manifest);
-      boot(0.62, 'Đang khởi động máy chủ trận đấu…');
-      const creepTimer = creep(0.8, 'Đang khởi động máy chủ trận đấu…');
-      const profile = await window.__bbOffline.ready;
-      clearInterval(creepTimer);
-      boot(0.82, 'Đang đọc hồ sơ nhân vật…');
+      boot(0.2, 'Đang đọc danh mục ngoại hình…');
       const response = await fetch('./m8_account_catalog.json', { cache: 'no-store' });
       if (!response.ok) throw new Error('Không tải được catalog ngoại hình.');
       const catalog = await response.json();
-      boot(0.9, 'Đang chuẩn bị màn hình tạo nhân vật…');
+      boot(0.62, 'Đang chuẩn bị màn hình tạo nhân vật…');
       for (const [key, row] of Object.entries(catalog.assets || {})) {
         if (!/^zh_CN\/char\/(boy|girl|body)\d+/i.test(key) || /_t\.png$/i.test(key) || !row.url) continue;
         const kind = key.match(/^zh_CN\/char\/(boy|girl|body)/i)[1].toLowerCase();
@@ -658,14 +672,33 @@
       groups.boy.sort((a, b) => labelOf(a.key).localeCompare(labelOf(b.key), 'en', { numeric: true }));
       groups.girl.sort((a, b) => labelOf(a.key).localeCompare(labelOf(b.key), 'en', { numeric: true }));
       groups.body.sort((a, b) => labelOf(a.key).localeCompare(labelOf(b.key), 'en', { numeric: true }));
-      nameInput.value = profile.name || 'Người chơi';
-      const preferred = profile.body && groups.boy.concat(groups.girl, groups.body).find((item) => item.key === profile.body);
+      let savedName = '', savedBody = null;
+      try { savedName = localStorage.getItem('bb-character-name') || ''; savedBody = localStorage.getItem('bb-character-body'); } catch {}
+      nameInput.value = savedName || 'Người chơi';
+      const preferred = savedBody && groups.boy.concat(groups.girl, groups.body).find((item) => item.key === savedBody);
       if (preferred) { selected = preferred; group = preferred.key.includes('/girl') ? 'girl' : preferred.key.includes('/body') ? 'body' : 'boy'; for (const tab of tabs.querySelectorAll('.bb-create-tab')) tab.classList.toggle('is-active', tab.dataset.group === group); }
       render();
       if (preferred) choose(preferred);
       boot(1, 'Sẵn sàng.');
       loading.hidden = true;
       overlay.hidden = false;
+      // The form is interactive now; start caching and the engine worker after
+      // it so their downloads do not compete with first paint.
+      window.__bbSwStart?.();
+      window.__bbOffline.start?.();
+      window.__bbOffline.ready.then((profile) => {
+        if (!profile) return;
+        if (!nameTouched && profile.name) { nameInput.value = profile.name; previewName.textContent = profile.name; }
+        if (!bodyTouched && profile.body) {
+          const row = groups.boy.concat(groups.girl, groups.body).find((item) => item.key === profile.body);
+          if (row) choose(row);
+        }
+        if (enginePy) {
+          // Copy the already-loaded Pyodide runtime into Cache Storage for the
+          // first offline run; ready means the HTTP cache is warm.
+          loadManifest().then((manifest) => { if (manifest) cacheEssential(manifest, true); });
+        }
+      }).catch(() => {});
     } catch (error) {
       loading.hidden = true;
       overlay.hidden = false;

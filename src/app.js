@@ -135,10 +135,12 @@ function safeGamePath(path) {
   } else if (resolved.protocol !== "https:" || !EXTERNAL_GAME_HOSTS.has(resolved.hostname)) {
     return null;
   }
-  const segments = resolved.pathname.split("/").filter(Boolean);
-  if (!segments.length || segments[0] !== "games") return null;
-  if (segments.some((segment) => !/^[A-Za-z0-9._-]+$/.test(segment) || segment === "." || segment === "..")) return null;
-  if (resolved.origin === location.origin && !resolved.pathname.startsWith(new URL("./games/", document.baseURI).pathname)) return null;
+  const base = resolved.origin === location.origin
+    ? new URL("./games/", document.baseURI).pathname
+    : "/games/";
+  if (!resolved.pathname.startsWith(base)) return null;
+  const segments = resolved.pathname.slice(base.length).replace(/\/$/, "").split("/");
+  if (!segments.length || segments.some((segment) => !/^[A-Za-z0-9._-]+$/.test(segment) || segment === "." || segment === "..")) return null;
   return escapeHTML(path);
 }
 

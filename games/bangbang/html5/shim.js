@@ -7,10 +7,17 @@
   const sockets = { AUTH: null, GATE: null };
   const pending = { AUTH: [], GATE: [] };
   const inputQueue = { AUTH: [], GATE: [] };
-  const engine = (() => { try { return new URLSearchParams(location.search).get('engine') || localStorage.getItem('bb-engine') || 'py'; } catch { return new URLSearchParams(location.search).get('engine') || 'py'; } })();
-  const worker = new Worker(engine === 'js' ? './static-server/worker.js' : './offline-worker.js', { type: 'module' });
-  try { if (new URLSearchParams(location.search).get('debug') === '1') window.__bbWorker = worker; } catch {}
-  try { worker.postMessage({ type: 'init', profile: { name: localStorage.getItem('bb-character-name') || '', body: localStorage.getItem('bb-character-body') || '' } }); } catch {}
+  // JavaScript engine is the default; ?engine=py (or bb-engine=py) opts into Pyodide.
+  const engine = (() => {
+    const query = () => new URLSearchParams(location.search).get('engine');
+    try { return (query() || localStorage.getItem('bb-engine')) === 'py' ? 'py' : 'js'; }
+    catch { return query() === 'py' ? 'py' : 'js'; }
+  })();
+  window.__bbEngine = engine;
+  const workerUrl = engine === 'py' ? './offline-worker.js' : './static-server/worker.js';
+  let worker = null;
+  const outbox = [];
+  const post = (message) => { if (worker) worker.postMessage(message); else outbox.push(message); };
   const json = (value) => new Response(JSON.stringify(value), { headers: { 'Content-Type': 'application/json' } });
   const realFetch = window.fetch.bind(window);
   const CATALOG_PARTS = {
@@ -42,38 +49,86 @@
     if (!socket) { pending[role].push(bytes); return; }
     socket.__deliver(bytes);
   }
-  worker.onmessage = (event) => {
-    const data = event.data || {};
-    if (data.buffers) {
-      for (const role of Object.keys(data.buffers)) {
-        const sab = data.buffers[role];
-        buffers[role] = { header: new Int32Array(sab, 0, 4), data: new Uint8Array(sab, 16) };
-      }
-      for (const role of Object.keys(inputQueue)) { const q = inputQueue[role].splice(0); for (const bytes of q) writeFrame(role, bytes); }
-      return;
+  // M6: import the old Pyodide SQLite save before the worker reads pve-profile/
+  // pve-bag. sql.js is a UMD script, so it must load as a classic script and only
+  // when a legacy DB actually exists (fresh installs skip the 672 KiB wasm).
+  function loadLegacySqlJs() {
+    if (typeof globalThis.initSqlJs === 'function') return globalThis.initSqlJs();
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = './static-server/migrate/vendor/sql-wasm.js';
+      script.onload = () => typeof globalThis.initSqlJs === 'function'
+        ? globalThis.initSqlJs().then(resolve, reject)
+        : reject(new Error('sql.js unavailable'));
+      script.onerror = () => reject(new Error('sql.js failed to load'));
+      document.head.appendChild(script);
+    });
+  }
+  let migration = null;
+  function migrateLegacySave() {
+    if (!migration) {
+      migration = import('./static-server/migrate/migrate-save.js')
+        .then((mod) => mod.migrateSaveFromIndexedDb({ initSqlJs: loadLegacySqlJs }))
+        .catch((error) => { console.warn('Legacy save migration skipped:', error); return null; });
     }
-    if (data.fatal) { console.error('Offline worker:', data.fatal); return; }
-    if (data.ready) { profile = data.profile || {}; window.__bbOfflineProfileResolve(profile); return; }
-    if (data.token) { token = String(data.token); window.__bbOfflineResolve(token); return; }
-    if (data.role && data.out) {
-      const bytes = Uint8Array.from(data.out);
-      if (new TextDecoder().decode(bytes.slice(0,6)) === 'TRACE:') console.log('TRACE', new TextDecoder().decode(bytes).slice(0,1000));
-      const text = new TextDecoder().decode(bytes);
-      if (text.startsWith('TOKEN:')) {
-        token = text.slice(6).trim();
-        window.__bbOfflineResolve(token);
+    return migration;
+  }
+  let starting = null;
+  function start() {
+    if (worker) return worker;
+    if (starting) return starting;
+    starting = migrateLegacySave().then(() => {
+    if (worker) return worker;
+    // Read the profile after migration so a restored legacy character is used.
+    try { post({ type: 'init', profile: { name: localStorage.getItem('bb-character-name') || '', body: localStorage.getItem('bb-character-body') || '' } }); } catch {}
+    worker = new Worker(workerUrl, { type: 'module' });
+    try { if (new URLSearchParams(location.search).get('debug') === '1') window.__bbWorker = worker; } catch {}
+    worker.onmessage = (event) => {
+      const data = event.data || {};
+      if (data.buffers) {
+        for (const role of Object.keys(data.buffers)) {
+          const sab = data.buffers[role];
+          buffers[role] = { header: new Int32Array(sab, 0, 4), data: new Uint8Array(sab, 16) };
+        }
+        for (const role of Object.keys(inputQueue)) { const q = inputQueue[role].splice(0); for (const bytes of q) writeFrame(role, bytes); }
         return;
       }
-      deliver(data.role, bytes);
-    }
-  };
-  worker.onerror = (event) => console.error('Offline worker error:', event.message || event);
+      if (data.fatal) { console.error('Offline worker:', data.fatal); return; }
+      if (data.ready) { profile = data.profile || {}; window.__bbOfflineProfileResolve(profile); return; }
+      if (data.token) { token = String(data.token); window.__bbOfflineResolve(token); return; }
+      if (data.role && data.out) {
+        const bytes = Uint8Array.from(data.out);
+        if (new TextDecoder().decode(bytes.slice(0,6)) === 'TRACE:') console.log('TRACE', new TextDecoder().decode(bytes).slice(0,1000));
+        const text = new TextDecoder().decode(bytes);
+        if (text.startsWith('TOKEN:')) {
+          token = text.slice(6).trim();
+          window.__bbOfflineResolve(token);
+          return;
+        }
+        deliver(data.role, bytes);
+      }
+    };
+    worker.onerror = (event) => console.error('Offline worker error:', event.error?.stack || event.message || event);
+    for (const message of outbox.splice(0)) worker.postMessage(message);
+    return worker;
+    });
+    return starting;
+  }
 
   window.__bbOffline = {
     ready: profileReady,
-    create(name, body) { worker.postMessage({ type: 'create', name, body }); return tokenReady; },
+    start,
+    create(name, body) {
+      start();
+      // The Pyodide worker installs onmessage only after Python is ready; send
+      // create after ready so the message is not dropped.
+      profileReady.then(() => post({ type: 'create', name, body }));
+      return tokenReady;
+    },
     get profile() { return profile; },
   };
+  // Compatibility: an older cached index.html waits for ready before painting.
+  setTimeout(start, 8000);
 
   class WorkerSocket {
     static CONNECTING = 0; static OPEN = 1; static CLOSING = 2; static CLOSED = 3;

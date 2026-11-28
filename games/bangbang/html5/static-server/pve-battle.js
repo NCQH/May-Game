@@ -199,6 +199,7 @@ const BASE = new URL('../', import.meta.url);
 const COMPACT = new URL('./engine/pve-compact.json', import.meta.url);
 const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json', 'batch-f1-data.json', 'batch-d-data.json', 'batch-f2-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
 let cached = null;
+let loading = null;
 let bagItems = [];
 let bagSlot = 1000;
 let saveBag = () => {};
@@ -257,6 +258,13 @@ function bagFrame(items, notifyType = 2) {
 
 async function catalogs() {
   if (cached) return cached;
+  // The startup preload and the first battle can overlap; share one in-flight
+  // load instead of fetching the 60+ MiB catalog set twice.
+  if (!loading) loading = loadCatalogs().finally(() => { loading = null; });
+  return loading;
+}
+
+async function loadCatalogs() {
   const [pve, m6Text, garage, ...fixtures] = await Promise.all([
     fetch(COMPACT).then((r) => r.json()),
     readParts(M6_PARTS),

@@ -1,4 +1,4 @@
-let CACHE = 'bangbang-web-v13';
+let CACHE = 'bangbang-web-v15';
 const DAY = 24 * 60 * 60 * 1000;
 
 function cacheKey(url, origin) {
@@ -17,6 +17,8 @@ self.addEventListener('install', (event) => {
       const manifest = await (await fetch('/games/bangbang/html5/cache-manifest.json', { cache: 'no-store' })).json();
       if (manifest.cache) CACHE = manifest.cache;
       const cache = await caches.open(CACHE);
+      // essential is the common set only; Pyodide runtime files live in
+      // manifest.pyodide and are added by the page when ?engine=py is used.
       await Promise.allSettled((manifest.essential || []).map((url) => cache.add(url)));
     } catch (error) {
       console.warn('BangBang cache install:', error);

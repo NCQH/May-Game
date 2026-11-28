@@ -397,6 +397,10 @@ export class PvpRoom {
   }
 
   _appearance(tankId = this.tankId) {
+    const known = this.player.externals?.[tankId];
+    if (known != null) {
+      return { externalId: known, skinFrameType: this.player.skinFrameType ?? 0 };
+    }
     if (tankId === this.player.tankId) {
       return {
         externalId: this.player.externalId ?? 0,
