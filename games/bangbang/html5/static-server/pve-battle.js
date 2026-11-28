@@ -82,6 +82,22 @@ import { SongokuActions } from './engine/tanks/songoku.js';
 import { IchigoActions } from './engine/tanks/ichigo.js';
 import { SwordGodActions } from './engine/tanks/swordgod.js';
 import { MinionActions } from './engine/tanks/minion.js';
+import { ApocalypseActions } from './engine/tanks/apocalypse.js';
+import { CaoCaoActions } from './engine/tanks/caocao.js';
+import { DaredevilActions } from './engine/tanks/daredevil.js';
+import { DoraemonActions } from './engine/tanks/doraemon.js';
+import { DraculaActions } from './engine/tanks/dracula.js';
+import { ElsaActions } from './engine/tanks/elsa.js';
+import { ErlangActions } from './engine/tanks/erlang.js';
+import { KakashiActions } from './engine/tanks/kakashi.js';
+import { LacLongQuanActions } from './engine/tanks/laclongquan.js';
+import { MagnetoActions } from './engine/tanks/magneto.js';
+import { NoelActions } from './engine/tanks/noel.js';
+import { SimayiActions } from './engine/tanks/simayi.js';
+import { StrangeActions } from './engine/tanks/strange.js';
+import { TimeGoddessActions } from './engine/tanks/timegoddess.js';
+import { TsubasaActions } from './engine/tanks/tsubasa.js';
+import { ZhugeActions } from './engine/tanks/zhuge.js';
 
 export const TANKS = {
   10000044: NarutoActions,
@@ -159,10 +175,26 @@ export const TANKS = {
   10000042: SongokuActions,
   10000064: IchigoActions,
   10000081: SwordGodActions,
-  10000060: MinionActions,};
+  10000060: MinionActions,
+  10000072: ApocalypseActions,
+  10000091: CaoCaoActions,
+  10000115: DaredevilActions,
+  10000080: DoraemonActions,
+  10000057: DraculaActions,
+  10000106: ElsaActions,
+  10000087: ErlangActions,
+  10000055: KakashiActions,
+  10000094: LacLongQuanActions,
+  10000097: MagnetoActions,
+  10000054: NoelActions,
+  10000098: SimayiActions,
+  10000083: StrangeActions,
+  10000113: TimeGoddessActions,
+  10000111: TsubasaActions,
+  10000084: ZhugeActions,};
 
 const BASE = new URL('../', import.meta.url);
-const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json', 'batch-f1-data.json', 'batch-d-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
+const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json', 'batch-f1-data.json', 'batch-d-data.json', 'batch-f2-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
 let cached = null;
 let pveProfile = null;
 let savePveProfile = () => {};
