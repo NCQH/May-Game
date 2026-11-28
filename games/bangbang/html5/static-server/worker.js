@@ -1,6 +1,7 @@
 // Static BangBang lobby server: replays verified AUTH/GATE frames, no Python.
 import { bagLoginFrames, cityLoginFrames, createPveBattle, preloadPveCatalogs, setBag, setProgressProfile, s1586 } from './pve-battle.js';
 import { PvpRoom } from './pvp-room/pvp-room.js';
+import { createPvpBattle, preloadPvpCatalogs } from './pvp-battle.js';
 const ROLES = ['AUTH', 'GATE'];
 const buffers = {
   AUTH: makeBuffer(),
@@ -139,10 +140,13 @@ let pve = null;
 let pveTimer = 0;
 const pvp = new PvpRoom({ player: { accountId: 30000797, name: 'Player', tankId: 10000044, tankLevel: 1, externalId: 0 } });
 let pvpActive = false;
+let pvpBattle = null;
+let pvpTimer = 0;
 const PVP_IDS = new Set([607, 600, 601, 602, 610, 215, 614, 605, 552, 509, 611, 613, 60006]);
 function pvpHandle(role, data) {
   if (role !== 'GATE') return false;
   const id = msgIdOf(data);
+  if (id === 607 || (id === 600 && data.length > 8 && data[8] !== 4)) preloadPvpCatalogs().catch(() => {});
   if (id === 60006) {
     for (const frame of pvp.handle(data)) send(role, frame);
     return true;
@@ -159,9 +163,33 @@ function pvpHandle(role, data) {
   if (!PVP_IDS.has(id)) return false;
   if (!pvpActive && id !== 607) return false;
   const enteringHall = id === 607;
+  if (id === 552) {
+    const frames = pvp.handle(data);
+    for (const frame of frames) send(role, frame);
+    createPvpBattle({
+      mapId: pvp.room.config.mapId, sceneId: pvp.sceneId,
+      player: pvp.player, bots: pvp.bots,
+      charId: pvp.player.accountId, name: pvp.player.name,
+    }).then((battle) => {
+      pvpBattle = battle;
+      send(role, joinFrames(battle.start));
+      if (pvpTimer) clearInterval(pvpTimer);
+      pvpTimer = setInterval(() => {
+        if (!pvpBattle) return;
+        const out = pvpBattle.tick(50);
+        if (out.length) send(role, joinFrames(out));
+        if (pvpBattle.finished) { clearInterval(pvpTimer); pvpTimer = 0; }
+      }, 50);
+    }).catch((error) => console.error('PvP engine:', error));
+    return true;
+  }
   const frames = pvp.handle(data);
   if (!frames.length) return false;
   for (const frame of frames) send(role, frame);
+  if ([509, 611, 613].includes(id)) {
+    if (pvpTimer) { clearInterval(pvpTimer); pvpTimer = 0; }
+    pvpBattle = null;
+  }
   if (enteringHall || pvp.phase !== 'lobby') pvpActive = true;
   return true;
 }
@@ -367,6 +395,11 @@ function useSkill(role, data) {
 
 function handle(role, data) {
   if (!frames || data.length < 4) return;
+  if (pvpBattle && role === 'GATE' && [501, 503, 510, 514].includes(msgIdOf(data))) {
+    const out = pvpBattle.handle(msgIdOf(data), data.subarray(8));
+    if (out.length) send(role, joinFrames(out));
+    return;
+  }
   if (pvpHandle(role, data)) return;
   const id = msgIdOf(data);
   if (role === 'AUTH') {
