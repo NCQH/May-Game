@@ -1,4 +1,5 @@
 // Static BangBang lobby server: replays verified AUTH/GATE frames, no Python.
+import { createPveBattle, preloadPveCatalogs, s1586 } from './pve-battle.js';
 const ROLES = ['AUTH', 'GATE'];
 const buffers = {
   AUTH: makeBuffer(),
@@ -106,6 +107,15 @@ function encode(id, w) {
   dv.setUint16(0, f.length, true); dv.setUint16(2, id, true); f.set(p, 8); return f;
 }
 const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, finished: false };
+let pve = null;
+let pveTimer = 0;
+function joinFrames(frames) {
+  const total = frames.reduce((n, f) => n + f.length, 0);
+  const out = new Uint8Array(total);
+  let at = 0;
+  for (const f of frames) { out.set(f, at); at += f.length; }
+  return out;
+}
 function parseBattle(stream) {
   let off = 0;
   while (off + 8 <= stream.length) {
@@ -282,13 +292,38 @@ function handle(role, data) {
   else if (id === 602) { const start = patchNamed(frames.battle1705, profile.name); const r = new R(start.subarray(8)); battle.sceneId = r.u32(); send(role, start); }
   else if (id === 605) send(role, frames.load1709);
   else if (id === 552) {
-    send(role, concat(frames.load1709, patchNamed(frames.entryBattle, profile.name)));
-    parseBattle(patchNamed(frames.entryBattle, profile.name));
-    setTimeout(() => send(role, frames.tickBattle), 3000);
-    setTimeout(startAI, 3500);
+    send(role, frames.load1709);
+    createPveBattle({ mapId: 201, tankId: 10000044, name: profile.name, sceneId: battle.sceneId })
+      .then((session) => {
+        pve = session;
+        send(role, joinFrames([s1586(0, 0), ...session.start]));
+        if (pveTimer) clearInterval(pveTimer);
+        pveTimer = setInterval(() => {
+          if (!pve) return;
+          const out = pve.tick(50);
+          if (out.length) send(role, joinFrames(out));
+          if (pve.finished) {
+            clearInterval(pveTimer); pveTimer = 0; pve = null;
+          }
+        }, 50);
+      })
+      .catch((error) => {
+        console.error('PvE JS engine:', error);
+        send(role, concat(frames.load1709, patchNamed(frames.entryBattle, profile.name)));
+        parseBattle(patchNamed(frames.entryBattle, profile.name));
+        setTimeout(() => send(role, frames.tickBattle), 3000);
+        setTimeout(startAI, 3500);
+      });
   }
-  else if (id === 501) movePlayer(role, data);
-  else if (id === 503) useSkill(role, data);
+  else if (id === 501 || id === 503 || id === 510) {
+    if (pve) {
+      const out = pve.handle(id, data.subarray(8));
+      if (out.length) send(role, joinFrames(out));
+      return;
+    }
+    if (id === 501) movePlayer(role, data);
+    else if (id === 503) useSkill(role, data);
+  }
   else if (id === 61) send(role, frames.tick);
 }
 
@@ -302,10 +337,13 @@ self.onmessage = (event) => {
     profile = { name: String(data.name || '').slice(0, 32), body: String(data.body || '').slice(0, 80) };
     enter = patchEnter(frames.gateEnter, profile.name);
     self.postMessage({ token });
+    preloadPveCatalogs().catch(() => {});
   } else if (data.type === 'debugWin') {
-    finishBattle(true);
+    if (pve) { const out = pve.finish(true); if (out.length) send('GATE', joinFrames(out)); if (pveTimer) { clearInterval(pveTimer); pveTimer = 0; } }
+    else finishBattle(true);
   } else if (data.type === 'debugLose') {
-    finishBattle(false);
+    if (pve) { const out = pve.finish(false); if (out.length) send('GATE', joinFrames(out)); if (pveTimer) { clearInterval(pveTimer); pveTimer = 0; } }
+    else finishBattle(false);
   } else if (data.type === 'debugMove') {
     if (!battle.player) return;
     const dir = Number(data.dir) || 0;
