@@ -107,7 +107,7 @@ function encode(id, w) {
   const p = w.bytes(), f = new Uint8Array(p.length + 8), dv = new DataView(f.buffer);
   dv.setUint16(0, f.length, true); dv.setUint16(2, id, true); f.set(p, 8); return f;
 }
-const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, finished: false, tankId: 10000044 };
+const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, mapId: 201, finished: false, tankId: 10000044 };
 let pve = null;
 let pveTimer = 0;
 function joinFrames(frames) {
@@ -320,12 +320,23 @@ function handle(role, data) {
   else if (id === 56) send(role, enter);
   else if (id === 72) send(role, frames.gateGarage);
   else if (id === 165) send(role, concat(frames.gateExtra1100, frames.gateFinal));
-  else if (id === 600) send(role, patchNamed(frames.room1700, profile.name));
-  else if (id === 602) { const start = patchNamed(frames.battle1705, profile.name); const r = new R(start.subarray(8)); battle.sceneId = r.u32(); send(role, start); }
+  else if (id === 600) {
+    const r = new R(data.subarray(8));
+    r.u8(); r.u8(); battle.mapId = r.u32() || 201;
+    send(role, patchNamed(frames.room1700, profile.name));
+  }
+  else if (id === 602) {
+    const start = patchNamed(frames.battle1705, profile.name);
+    battle.sceneId = Number(battle.mapId) || 1;
+    const view = new DataView(start.buffer, start.byteOffset, start.byteLength);
+    view.setUint32(8, battle.sceneId, true);
+    view.setUint32(12, Number(battle.mapId) || 201, true);
+    send(role, start);
+  }
   else if (id === 605) send(role, frames.load1709);
   else if (id === 552) {
     send(role, frames.load1709);
-    createPveBattle({ mapId: 201, tankId: battle.tankId, name: profile.name, sceneId: battle.sceneId })
+    createPveBattle({ mapId: battle.mapId || 201, tankId: battle.tankId, name: profile.name, sceneId: battle.sceneId })
       .then((session) => {
         pve = session;
         send(role, joinFrames([s1586(0, 0), ...session.start]));
