@@ -88,6 +88,7 @@ class R {
   constructor(b) { this.b = b; this.o = 0; }
   u8() { const v = this.b[this.o]; this.o += 1; return v; }
   u16() { const v = this.b[this.o] | (this.b[this.o + 1] << 8); this.o += 2; return v; }
+  str() { const n = this.u16(); const v = new TextDecoder().decode(this.b.subarray(this.o, this.o + n)); this.o += n; return v; }
   i16() { const v = this.u16(); return v >= 0x8000 ? v - 0x10000 : v; }
   u32() { const v = (this.b[this.o] | (this.b[this.o + 1] << 8) | (this.b[this.o + 2] << 16) | (this.b[this.o + 3] << 24)) >>> 0; this.o += 4; return v; }
   i32() { return this.u32() | 0; }
@@ -106,7 +107,7 @@ function encode(id, w) {
   const p = w.bytes(), f = new Uint8Array(p.length + 8), dv = new DataView(f.buffer);
   dv.setUint16(0, f.length, true); dv.setUint16(2, id, true); f.set(p, 8); return f;
 }
-const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, finished: false };
+const battle = { player: null, npcs: [], bullet: 1, sceneId: 1, finished: false, tankId: 10000044 };
 let pve = null;
 let pveTimer = 0;
 function joinFrames(frames) {
@@ -134,6 +135,36 @@ function parseBattle(stream) {
     off += len;
   }
 }
+const garageTanks = [];
+function readTankInstance(r) {
+  const uuid = r.str();
+  const tankId = r.u32();
+  r.u8(); r.u32(); const extFlag = r.u32();
+  r.u8(); r.u32(); r.u32(); r.u32(); r.u8(); r.u8(); r.u8();
+  r.u32(); r.u32(); r.u8(); r.u32(); r.u8(); r.u32(); r.u8();
+  r.str(); r.u32(); r.i32();
+  return { uuid, tankId, selected: (extFlag & 2) !== 0 };
+}
+function parseGarage(stream) {
+  let off = 0;
+  while (off + 8 <= stream.length) {
+    const len = stream[off] | (stream[off + 1] << 8);
+    const id = stream[off + 2] | (stream[off + 3] << 8);
+    if (id === 1150) {
+      const r = new R(stream.subarray(off + 8, off + len));
+      const count = r.u16();
+      for (let i = 0; i < count; i++) garageTanks.push(readTankInstance(r));
+    }
+    if (!len) break;
+    off += len;
+  }
+  const selected = garageTanks.find((t) => t.selected) || garageTanks[0];
+  if (selected) battle.tankId = selected.tankId;
+}
+function selectTankPacket(tankId, containerType = 0) {
+  return encode(1727, new W().u32(30000797).u32(tankId).u32(containerType).u32(0).u32(0).u32(0));
+}
+
 function sceneUpdate({ moves = [], fires = [], hp = [], deaths = [] } = {}) {
   const w = new W();
   w.u16(moves.length);
@@ -176,6 +207,7 @@ async function load() {
   await Promise.race([initPromise, new Promise((resolve) => setTimeout(resolve, 100))]);
   enter = patchEnter(frames.gateEnter, profile.name);
   parseBattle(patchNamed(frames.entryBattle, profile.name));
+  parseGarage(frames.gateGarage);
   self.postMessage({ buffers: { AUTH: buffers.AUTH.sab, GATE: buffers.GATE.sab } });
   self.postMessage({ ready: true, profile });
   for (const role of ROLES) { send(role, frames.handshake); handshook[role] = true; }
@@ -293,7 +325,7 @@ function handle(role, data) {
   else if (id === 605) send(role, frames.load1709);
   else if (id === 552) {
     send(role, frames.load1709);
-    createPveBattle({ mapId: 201, tankId: 10000044, name: profile.name, sceneId: battle.sceneId })
+    createPveBattle({ mapId: 201, tankId: battle.tankId, name: profile.name, sceneId: battle.sceneId })
       .then((session) => {
         pve = session;
         send(role, joinFrames([s1586(0, 0), ...session.start]));
@@ -311,9 +343,21 @@ function handle(role, data) {
         console.error('PvE JS engine:', error);
         send(role, concat(frames.load1709, patchNamed(frames.entryBattle, profile.name)));
         parseBattle(patchNamed(frames.entryBattle, profile.name));
+  parseGarage(frames.gateGarage);
         setTimeout(() => send(role, frames.tickBattle), 3000);
         setTimeout(startAI, 3500);
       });
+  }
+  else if (id === 200) {
+    const uuid = new R(data.subarray(8)).str();
+    const tank = garageTanks.find((t) => t.uuid === uuid);
+    if (tank) battle.tankId = tank.tankId;
+  }
+  else if (id === 215) {
+    const r = new R(data.subarray(8));
+    r.u32(); const tankId = r.u32(); const containerType = r.u32();
+    battle.tankId = tankId;
+    send(role, selectTankPacket(tankId, containerType));
   }
   else if (id === 501 || id === 503 || id === 510) {
     if (pve) {
