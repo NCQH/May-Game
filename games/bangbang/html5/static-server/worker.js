@@ -1,5 +1,5 @@
 // Static BangBang lobby server: replays verified AUTH/GATE frames, no Python.
-import { bagLoginFrames, createPveBattle, preloadPveCatalogs, setBag, setProgressProfile, s1586 } from './pve-battle.js';
+import { bagLoginFrames, cityLoginFrames, createPveBattle, preloadPveCatalogs, setBag, setProgressProfile, s1586 } from './pve-battle.js';
 const ROLES = ['AUTH', 'GATE'];
 const buffers = {
   AUTH: makeBuffer(),
@@ -348,7 +348,7 @@ function handle(role, data) {
   else if (id === 54) send(role, frames.gate1008);
   else if (id === 56) send(role, enter);
   else if (id === 72) send(role, frames.gateGarage);
-  else if (id === 165) send(role, joinFrames([frames.gateExtra1100, frames.gateFinal, ...bagLoginFrames()]));
+  else if (id === 165) send(role, joinFrames([frames.gateExtra1100, frames.gateFinal, ...cityLoginFrames(), ...bagLoginFrames()]));
   else if (id === 600) {
     const r = new R(data.subarray(8));
     r.u8(); r.u8(); battle.mapId = r.u32() || 201;

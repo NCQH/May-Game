@@ -7,7 +7,7 @@ import { PveEngine } from './engine/pve-engine.js';
 import { npcStatsAtQuality, mapQuality } from './engine/pve-balance.js';
 import { frame } from './engine/protocol.js';
 import { Writer } from '../protocol.js';
-import { PveProgress, replaceSettlement } from './engine/pve-progress.js';
+import { PveProgress, cityPacket, replaceSettlement } from './engine/pve-progress.js';
 import { installObjectives, objectDestroyed } from './engine/pve-objectives.js';
 import { NarutoActions } from './engine/tanks/naruto.js';
 import { QuanVuActions } from './engine/tanks/quanvu.js';
@@ -211,6 +211,7 @@ export function setBag(items, save) {
   for (const item of bagItems) bagSlot = Math.max(bagSlot, Number(item.slotNo) + 1 || 0);
 }
 export function bagLoginFrames() { return bagItems.length ? [frame(...bagFrame(bagItems))] : []; }
+export function cityLoginFrames() { return pveProfile ? [frame(...cityPacket(pveProfile))] : []; }
 export function setProgressProfile(profile, save) {
   pveProfile = profile || null;
   if (typeof save === 'function') savePveProfile = save;
