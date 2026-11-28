@@ -7,6 +7,7 @@ import { PveEngine } from './engine/pve-engine.js';
 import { npcStatsAtQuality, mapQuality } from './engine/pve-balance.js';
 import { frame } from './engine/protocol.js';
 import { PveProgress, replaceSettlement } from './engine/pve-progress.js';
+import { installObjectives } from './engine/pve-objectives.js';
 import { NarutoActions } from './engine/tanks/naruto.js';
 import { QuanVuActions } from './engine/tanks/quanvu.js';
 import { GundamActions } from './engine/tanks/gundam.js';
@@ -259,6 +260,7 @@ export async function createPveBattle({ mapId = 201, tankId = 10000044, name = '
     name, sceneId: Number(sceneId) || 1, runId: 'js-pve-' + Number(mapId),
     classes: TANKS, hooks: progress.hooks,
   });
+  if (Number(map.id) !== 201) installObjectives(engine);
   const pack = (frames) => frames.map(([id, payload]) => frame(id, payload));
   const settled = (raw) => {
     if (!engine.finished) return raw;
