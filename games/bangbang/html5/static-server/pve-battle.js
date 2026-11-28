@@ -56,6 +56,16 @@ import { ShadowbladeActions } from './engine/tanks/shadowblade.js';
 import { StoneGodActions } from './engine/tanks/stonegod.js';
 import { AquamanActions } from './engine/tanks/aquaman.js';
 import { NightWingActions } from './engine/tanks/nightwing.js';
+import { CaptainActions } from './engine/tanks/captain.js';
+import { ChopperActions } from './engine/tanks/chopper.js';
+import { GhostActions } from './engine/tanks/ghost.js';
+import { GrootActions } from './engine/tanks/groot.js';
+import { LegolasActions } from './engine/tanks/legolas.js';
+import { PeaActions } from './engine/tanks/pea.js';
+import { PikachuActions } from './engine/tanks/pikachu.js';
+import { SpiderActions } from './engine/tanks/spider.js';
+import { TeddyActions } from './engine/tanks/teddy.js';
+import { ThorActions } from './engine/tanks/thor.js';
 
 export const TANKS = {
   10000044: NarutoActions,
@@ -108,10 +118,20 @@ export const TANKS = {
   10000108: ShadowbladeActions,
   10000109: StoneGodActions,
   10000110: AquamanActions,
-  10000114: NightWingActions,};
+  10000114: NightWingActions,
+  10000031: CaptainActions,
+  10000029: ChopperActions,
+  10000038: GhostActions,
+  10000002: GrootActions,
+  10000041: LegolasActions,
+  10000033: PeaActions,
+  10000047: PikachuActions,
+  10000008: SpiderActions,
+  10000032: TeddyActions,
+  10000039: ThorActions,};
 
 const BASE = new URL('../', import.meta.url);
-const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
+const TANK_DATA = ['batch-a1-data.json', 'batch-b-data.json', 'batch-c-data.json', 'batch-e-data.json', 'batch-f1-data.json'].map((name) => new URL('./engine/tanks/' + name, import.meta.url));
 let cached = null;
 
 async function readParts(parts) {
