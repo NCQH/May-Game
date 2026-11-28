@@ -1,0 +1,7 @@
+sql.js 1.17.0 (MIT)
+https://registry.npmjs.org/sql.js/-/sql.js-1.17.0.tgz
+tarball sha512 HNdo5+2eSTEm7iLcfXUd2mjZX3Oe+5mJ0uDgIpirS7gSLHhZIw9kWDWxNcDVeFGEIBxJlkgo525g0CZJoH8GgA==
+tarball sha256 0764479cba502816fe07510a9499a941899fe3bd71c51ccf56bb8a7afdc293bc
+sql-wasm.js sha256 d6a9cc234ef1104c49d5c3756bc5c85e312213e9d072fdcdb4523089a51d0fcd
+sql-wasm.wasm sha256 6918fd54c1192011b85af0365a819411285bb5579b9ae6a7308778a1750a2765
+Files: dist/sql-wasm.js, dist/sql-wasm.wasm, LICENSE, AUTHORS. Do not edit; upgrade by replacing the version and every hash above.
